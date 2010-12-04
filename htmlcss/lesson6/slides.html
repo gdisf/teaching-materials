@@ -1,0 +1,1272 @@
+<html> 
+  <head> 
+    <!--[if gte IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]--> 
+    <!--[if lt IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <![endif]--> 
+    <meta charset="utf-8" />
+    <title>Creating a Web Presence</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Tangerine" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="projection, screen">
+    body {
+  font-size: 20px;
+  font-family: 'Droid Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px; top: 0px;
+}
+
+#info {
+  position: absolute;
+  bottom: 0px;
+  font-size: 10px;
+  left: 30%;
+  z-index: 500;
+}
+
+.key {
+  color: black;
+  display: inline-block;
+  padding: 3px 3px 3px 3px;
+  text-shadow: none;
+  letter-spacing: 0;
+  bottom: 5px;
+  position: relative;
+  background: white;
+}
+
+#presentation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  background: #778;
+}
+
+.slides {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: block;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  -moz-transition: -moz-transform 1s ease-in-out;
+  -o-transition: -o-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+
+  /* so it's visible in the iframe. */
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  width: 900px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  margin-top: -350px;
+  background-color: #eee;
+  background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
+  background: -moz-linear-gradient(bottom, #bbd, #fff);
+  background: linear-gradient(bottom, #bbd, #fff);
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.slide.intro {
+  text-align: center;
+  font-size: 200%;
+}
+
+.slide.intro hgroup {
+  margin-top: 200px;
+}
+
+.content {
+  font-size: 140%;
+}
+
+.content input, button {
+  font-size: 140%;
+}
+
+.content td {
+   border: 1px solid black;
+}
+
+.invalid {
+  background-color: red;
+}
+
+.slide.section,.slide.intro {
+  text-align: center;
+}
+
+.slide.section,.slide.intro header {
+  font-size: 200%;
+}
+
+.slide li {
+  margin-bottom: 10px;
+}
+
+.slide img {
+  max-height: 90%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  text-align: center;
+}
+
+.slide:nth-child(even) {
+  -moz-border-radius: 20px 0;
+  -khtml-border-radius: 20px 0;
+  border-radius: 20px 0; /* includes Opera 10.5+ */
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+}
+
+.slide:nth-child(odd) {
+  -moz-border-radius: 0 20px;
+  -khtml-border-radius: 0 20px;
+  border-radius: 0 20px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+}
+
+.slide p, .slide textarea {
+  font-size: 120%;
+}
+
+.slide .counter {
+  color: #999999;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: block;
+  font-size: 70%;
+}
+
+.slide.title > .counter,
+.slide.segue > .counter,
+.slide.mainTitle > .counter {
+  display: none;
+}
+
+.force-render {
+  display: block;
+  visibility: hidden;
+}
+
+.slide.far-past {
+  display: block;
+  margin-left: -2400px;
+}
+
+.slide.past {
+  visibility: visible;
+  display: block;
+  margin-left: -1400px;
+}
+
+.slide.current {
+  visibility: visible;
+  display: block;
+  margin-left: -450px;
+}
+
+.slide.future {
+  visibility: visible;
+  display: block;
+  margin-left: 500px;
+}
+
+.slide.far-future {
+  display: block;
+  margin-left: 1500px;
+}
+
+body.three-d div.slides {
+  -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  transform: translateX(50px) scale(0.8) rotateY(10deg);
+}
+
+/* Content */
+header {
+  font-weight: normal;
+  letter-spacing: -.05em;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  left: 30px;
+  top: 25px;
+  font-size: 140%;
+}
+
+h1 {
+  font-size: 140%;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 90%;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+section, footer {
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin: 20px 30px 0;
+  display: block;
+  overflow: hidden;
+}
+
+footer {
+  font-size: 100%;
+  margin: 20px 0 0 30px;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 110%;
+  border-bottom: 2px solid #3f3f3f;
+}
+
+pre {
+  text-align: left;
+  font-size: 80%;
+  padding: 10px 20px;
+  background: rgba(255, 0, 0, 0.05);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  bord3r: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+pre b {
+  font-weight: normal;
+  color: #c61800;
+  text-shadow: #c61800 0 0 1px;
+  /*letter-spacing: -1px;*/
+}
+
+pre em {
+  font-weight: normal;
+  font-style: normal;
+  color: #18a600;
+  text-shadow: #18a600 0 0 1px;
+}
+
+div.example {
+  display: block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+video {
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+:not(header) > .key {
+  margin: 0 5px;
+  bottom: 4px;
+}
+
+#presentation-counter {
+  color: #ccc;
+  font-size: 70%;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+div:not(.current).reduced {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.no-transitions {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.no-gradients {
+  background: none;
+  background-color: #fff;
+}
+
+    </style>
+    
+    <style type="text/css" media="print">
+.slide {
+  page-break-inside: avoid;
+  page-break-after: always;
+  visibility: visible !important;
+  font-size: 20pt;
+  font-family: Arial, sans-serif;
+}
+
+@page {
+  size: landscape;
+}
+
+body {
+  font-size: 12pt;
+  background: white;
+}
+
+header h1 {
+  border-top: 2pt solid gray;
+  border-bottom: 1px dotted silver;
+}
+
+#presentation-counter, #info, .counter {
+  display: none
+}
+    </style>
+    
+  </head> 
+  <body> 
+  
+  <div id="info">
+    <p>Press <span class="key">&rarr;</span> key to advance. Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>. <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYsZYdDA&output=pdf">Download PDF</a> </p>
+  </div>
+  
+  <div id="presentation">
+  
+   <div id="presentation-counter"></div>
+      
+   <div id="slides">
+   
+    
+    <div class="slide intro">
+     <header><hgroup> 
+      <h1>Creating a Web Presence</h1> 
+      <h2></h2>
+     </hgroup></header>
+    </div> 
+    
+    
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>What&#39;s a web presence?</h1></header> 
+     <section class="content"> 
+     <ul>
+ <li>Content <br>
+ <li>Hosting <br>
+ <li>URL <br>
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Why is it important?</h1></header> 
+     <section class="content"> 
+     <p>If you want to work on the web, people expect to find you on the web.</p>
+
+<p>It's useful to have a place to show the web what you or your company do.</p>
+
+<p>It's fun to express yourself on the web.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Content</h1></header> 
+     <section class="content"> 
+     <p>You should have your content in mind before you pick a hosting provider and domain name. Some of the basic types of websites are:
+</p>
+<ul>
+ <li>Personal (With a resume, portfolio, etc)
+ <li>Informational (About a company, about a topic, etc)
+ <li>E-commerce (With a shopping cart)
+ <li>Community (With social networking or forum features)
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Hosting</h1></header> 
+     <section class="content"> 
+     <p> Ask yourself: How much control do you want? How much setup work do you want to do? How much coding do you want to do?</p>
+
+<p>From most to least work, from most to least coding, from most to least control, the options are:</p>
+<ul>
+ <li>Host your content on a 3rd party system
+ <li>Have a server that you can install & use content platforms on
+ <li>Have a server where you code all the content pages yourself
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    <div class="slide section"> 
+     <header><h1>3rd party systems</header>
+    </div> 
+    
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Blogs</h1></header> 
+     <section class="content"> 
+     <ul>
+ <li>Posterous (e.g. <a href="http://paul.kinlan.me/">Paul Kinlan</a>)
+ <li>Tumbler (e.g. <a href="http://www.brittanybohnet.com/">Brittany Bohnet</a>)
+ <li>LiveJournal (e.g. <a href="http://lizbee.livejournal.com/">LizBee</a>)
+ <li>Blogger (e.g. <a href="http://blog.headius.com/">Headius</a>, <a href="http://jchyip.blogspot.com/">jChyip</a>, <a href="http://otherfancystuff.blogspot.com">Other Fancy Stuff</a>)
+ <li>Wordpress.com (e.g. <a href="http://thesteve0.wordpress.com/">SteveO</a>, <a href="http://jodiem.com.au/">JodieM</a>) - No ads, no JS.
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Other</h1></header> 
+     <section class="content"> 
+     <ul>
+ <li>Google Sites (e.g. <a href="http://sites.google.com/a/dibona.com/dibona-wiki/Home">Chris Dibona</a>) - No JS.
+ <li>PBWorks (e.g. <a href="http://barcamp.org/BarCampSydney">BarCamp Sydney</a>)
+ <li>Flavors (e.g. <a href="http://flavors.me/kouky">Michael Koukoullis</a>)
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    <div class="slide section"> 
+     <header><h1>Web Hosting Providers</header>
+    </div> 
+    
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Differentiating Factors</h1></header> 
+     <section class="content"> 
+     <ul> 
+  <li> Reliability / Uptime (99.9%)
+  <li> Disk space (Consider # of images)
+  <li> Bandwidth
+  <li> Tech Support (24/7)
+  <li> OS (Unix vs. Windows)
+  <li> Language/DB support (LAMP? Ruby?)
+  <li> Installable modules (CMS, forums, e-commercE)
+  <li> Control Panel
+  <li> SSL
+  <li> Email
+  <li> Price
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Hosting Types</h1></header> 
+     <section class="content"> 
+     <ul>
+  <li>Free hosting
+  <li>Shared hosting
+  <li>Virtual private server (VPS)
+  <li>Dedicated hosting
+  <li>Cloud hosting
+  <li>Home server
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Hosting Providers</h1></header> 
+     <section class="content"> 
+     <p>Most of these offer shared hosting, and dedicated hosting, and some offer VPS:</p>
+<ul>
+ <li><a href="http://godaddy.com">GoDaddy</a>: "100% uptime, 24 hour support", "other websites can get you banned"
+ <li><a href="http://www.webfaction.com">WebFaction</a>: "Well documented,good control panel"
+ <li><a href="http://mediatemple.com">MediaTemple</a>: "Not cheap but good UI, fast, easy, good support", "unreliable uptime"
+ <li><a href="http://dreamhost.com">DreamHost</a>: "Good", "Awful", "Too-geeky admin"
+ <li><a href="http://www.bluehost.com/">BlueHost</a>: "Good knowledge base"
+ <li><a href="http://www.a2hosting.com/">A2Hosting</a>: "Well setup, good value & quick"
+ <li><a href="http://railsplayground.com/">Rails Playground</a>: "Cheap for rails devs"
+</ul>
+ 
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Virtual Private Servers</h1></header> 
+     <section class="content"> 
+     <p>Some companies <b>only</b> offer VPS solutions, targeted at developers that want a high degree of control.</p>
+<ul>
+ <li><a href="http://www.linode.com/">Linode</a>
+ <li><a href="http://www.slicehost.com/">Slicehost</a>
+ <li><a href="http://gigevps.net/">GigeVPS</a>
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Cloud Hosting Providers</h1></header> 
+     <section class="content"> 
+     <p>Cloud hosting providers vary in how they work and how much control they give you over the cloud setup:</p>
+<ul>
+ <li><a href="http://www.rackspacecloud.com/">RackSpace</a>
+ <li><a href="http://www.joyent.com/">Joyent</a>
+ <li><a href="http://aws.amazon.com/ec2/">Amazon EC2</a>
+ <li><a href="http://www.microsoft.com/windowsazure/">Windows Azure</a>
+ <li><a href="http://code.google.com/appengine">App Engine</a>
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Installable Software</h1></header> 
+     <section class="content"> 
+     <p>Once you have a server, you can often install software on it that provides out-of-the-box functionality:</p>
+<ul>
+ <li>WordPress (e.g. <a href="http://delicategeniusblog.com/">Delic8 Genius</a>, <a href="http://www.purecaffeine.com/">Pure Caffeine</a>,  <a href="http://katecarruthers.com/blog/">Kate Carruthers</a>)
+ <li>Drupal (e.g. <a href="http://jaimekristene.com/">Jaime Kristene</a>)
+ <li>Other blogs, CMSes, Ticketing systems, Forums, E-commerce, Polls, Wikis
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Hand Coding</h1></header> 
+     <section class="content"> 
+     <p>You can also create your webpage from scratch, using static HTML/CSS/JS files or server-side scripting.</p>
+
+<p>Examples:  <a href="http://www.lindagehard.com/">Linda Gehard</a>, <a href="http://imagine-it.org">Pamela Fox</a>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>URL</h1></header> 
+     <section class="content"> 
+     <p>Are you happy with a subdomain or folder on someone else's domain?
+</p>
+<pre>http://pamelafox.posterous.com</pre>
+<pre>http://flavors.me/pamelafox</pre>
+
+<p>or... do you want your own domain name? 
+</p>
+<pre>http://www.pamelafox.com</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    <div class="slide section"> 
+     <header><h1>Domains</header>
+    </div> 
+    
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Anatomy of domain names</h1></header> 
+     <section class="content"> 
+     <pre>
+<span style="color:red">subdomain</span>.<span style="color:blue">domain</span>.<span style="color:green">topleveldomain</span>
+</pre>
+<p>Examples:</p>
+<pre>
+<span style="color:red">www</span>.<span style="color:blue">google</span>.<span style="color:green">com</span>
+
+<span style="color:red">www</span>.<span style="color:blue">google</span>.<span style="color:green">es</span>
+
+<span style="color:red">mail</span>.<span style="color:blue">google</span>.<span style="color:green">com</span>
+
+<span style="color:red">www</span>.<span style="color:blue">googlelabs</span>.<span style="color:green">com</span>
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Top level domains (TLD)</h1></header> 
+     <section class="content"> 
+     <pre>
+<span style="color:red">subdomain</span>.<span style="color:blue">domain</span>.<span style="color:green"><em>topleveldomain</span></em>
+</pre>
+
+<p>The most common TLDs are:
+<ul>
+ <li><code>.com</code>: "Commercial entities"
+ <li><code>.net</code>: "Networking companies"
+ <li><code>.org</code>: "Non-profits"
+ <li><code>.edu</code>: US Education sites
+ <li><code>.gov</code>: US Government sites
+</ul>
+
+<p>As <code>.com</code>, <code>.net</code>, and <code>.org</code> use isn't restricted, they are used more flexibly than as originally intended.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Country-code TLDs</h1></header> 
+     <section class="content"> 
+     <p>Each country has its own TLD (ccTLD), and they can decide who can register for domains with that TLD. Some also specify a set of "second-level-domain" for the TLDs. </p>
+<ul>
+  <li><code>.us</code>
+  <li><code>.fr</code>
+  <li><code>.tv</code>
+  <li><code>.uk (.co.uk)</code>
+  <li>etc..
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Australian TLDs</h1></header> 
+     <section class="content"> 
+     <p>The Australian TLD is ".au" and there are several second-level-domains (2LDs) under it. Some are <a href="http://www.auda.org.au/domains/au-domains/">restricted</a> in use.</p>
+<ul>
+ <li><code>.com.au, .net.au</code>: Must have an ABN.
+ <li><code>.org.au, .asn.au</code>: Must be a non-profit
+ <li><code>.id.au</code>: Intended for personal names/nicknames
+ <li><code>.edu.au</code>: For educational institutions
+ <li><code>.gov.au</code>: For government bodies
+</ul>
+
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>What TLD should you get?</h1></header> 
+     <section class="content"> 
+     <p>Most users expect to type in a <code>.com</code> domain, so you should always try to reserve that name (though it's often taken). </p>
+<p>If you're worried about competitors, you should purchase related TLDs (<code>.info, .net, .biz</code>).
+</p>
+<p>If your company targets a particular geographic market, it makes sense to get the ccTLD.</p>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Domain names</h1></header> 
+     <section class="content"> 
+     <pre>
+<span style="color:red">subdomain</span>.<span style="color:blue"><em>domain</em></span>.<span style="color:green">topleveldomain</span>
+</pre>
+<p>The domain name must follow these rules:</p>
+<ul>
+ <li>No spaces or underscores
+ <li>Dashes and numbers are OK
+</ul>
+<p>The domain name is not case-sensitive - google.com = GOOGLE.com.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Good domain names</h1></header> 
+     <section class="content"> 
+     <p>A good domain name follows these guidelines:</p>
+<ul>
+ <li>Represents your name or business name 
+ <li>Short and memorable
+ <li>Easy to say aloud
+ <li>Easy to spell without mistakes
+ <li>Uses ASCII characters
+ <li>Doesn't infringe other's copyright
+</ul>
+<p>But good domain names are often taken. You can try using hyphens (experts-exchange.com) or making a TLD form part of the name (del.icio.us) to make it more likely the name will be available.
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Generating domain names</h1></header> 
+     <section class="content"> 
+     <p>If you're having trouble thinking up a name, you can try <a href="http://nametumbler.com/">NameTumbler</a>, <a href="http://www.bustaname.com/">BustAName</a>, <a href="http://domai.nr/">Domainr</a>, or just writing a bunch of keywords down and mashing them together in different forms.
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Subdomain</h1></header> 
+     <section class="content"> 
+     <pre>
+<span style="color:red"><em>subdomain</em></span>.<span style="color:blue">domain</span>.<span style="color:green">topleveldomain</span>
+</pre>
+
+<p>Once you own a domain name, you can make subdomains for different aspects of your product/company.</p>
+
+<p>For example:</p>
+<ul>
+ <li>www.twitter.com
+ <li>api.twitter.com
+ <li>search.twitter.com
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Domain Registrars</h1></header> 
+     <section class="content"> 
+     <p>You must use a "domain registrar" to purchase a domain. Consider these factors when picking one:</p>
+
+<ul>
+ <li>Good customer service
+ <li>Easy-to-use admin interface
+ <li>Pricing (no hidden fees)
+ <li>Allows transfer of names to other registrar
+ <li>ICANN Accredited 
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Domain Registrars</h1></header> 
+     <section class="content"> 
+     <p>The most popular registrar is <a href="http://godaddy.com">GoDaddy</a>, which offers good pricing and services but also tries to up-sell alot.
+</p>
+<p>Other good registrars are:</p>
+<ul>
+ <li><a href="http://domain.com">Domain.com</a>: environmentally friendly
+ <li><a href="http://namecheap.com">NameCheap</a>
+ <li><a href="http://pairnic.com">PairNic</a>: "more expensive but more trustworthy"
+ <li><a href="http://name.com">Name.com</a>
+ <li><a href="http://hover.com">Hover</a>: "clean and painless"
+ <li><a href="http://dnsimple.com">DNSimple</a>
+ <li><a href="http://mydomain.com">MyDomain</a>
+ <li><a href="http://hostgator.com">HostGator</a>
+ <li><a href="https://www.nearlyfreespeech.net/">NearlyFreeSpeech</a>: pay as you go hosting
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Australian Domain Registrars</h1></header> 
+     <section class="content"> 
+     <p>You may want to use an Australia-based registrar if registering a .au domain or if you just like local service. Popular AU registrars:</p>
+<ul>
+ <li><a href="http://crazydomains.com.au">CrazyDomains</a>: "cheap, easy to manage"
+ <li><a href="http://www.netregistry.com.au/">NetRegistry</a> - "responsive, competitive pricing" 
+ <li><a href="http://www.planetdomain.com/">PlanetDomain</a>: "reasonably priced, good support"
+ <li><a href="http://www.cheapdomains.com.au">CheapDomains</a>: "easy to use UI and cheap"
+</ul>
+<p>Some local developers are resellers:</p>
+<ul>
+ <li><a href="http://domains.collaborynth.com.au/">James Purser</a>
+ <li><a href="http://domains.grahamweldon.com/">Graham Weldon</a>
+</ul>
+<p>Check <a href="http://forums.whirlpool.net.au/forum/116">Whirlpool forums</a> for reviews.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Registration Tips</h1></header> 
+     <section class="content"> 
+     <p>When you register, register the domain name for multiple years, and think about getting whois privacy to keep your contact details confidential.</p>
+
+     </section>
+    </div>
+    
+   
+   </div>
+   
+  </div>
+  
+  <script>
+  (function() {
+  var doc = document;
+  var disableBuilds = true;
+
+  var ctr = 0;
+  var spaces = /\s+/, a1 = [''];
+
+  var toArray = function(list) {
+    return Array.prototype.slice.call(list || [], 0);
+  };
+
+  var byId = function(id) {
+    if (typeof id == 'string') { return doc.getElementById(id); }
+    return id;
+  };
+
+  var query = function(query, root) {
+    if (!query) { return []; }
+    if (typeof query != 'string') { return toArray(query); }
+    if (typeof root == 'string') {
+      root = byId(root);
+      if(!root){ return []; }
+    }
+
+    root = root || document;
+    var rootIsDoc = (root.nodeType == 9);
+    var doc = rootIsDoc ? root : (root.ownerDocument || document);
+
+    // rewrite the query to be ID rooted
+    if (!rootIsDoc || ('>~+'.indexOf(query.charAt(0)) >= 0)) {
+      root.id = root.id || ('qUnique' + (ctr++));
+      query = '#' + root.id + ' ' + query;
+    }
+    // don't choke on something like ".yada.yada >"
+    if ('>~+'.indexOf(query.slice(-1)) >= 0) { query += ' *'; }
+
+    return toArray(doc.querySelectorAll(query));
+  };
+
+  var strToArray = function(s) {
+    if (typeof s == 'string' || s instanceof String) {
+      if (s.indexOf(' ') < 0) {
+        a1[0] = s;
+        return a1;
+      } else {
+        return s.split(spaces);
+      }
+    }
+    return s;
+  };
+
+  var addClass = function(node, classStr) {
+    classStr = strToArray(classStr);
+    var cls = ' ' + node.className + ' ';
+    for (var i = 0, len = classStr.length, c; i < len; ++i) {
+      c = classStr[i];
+      if (c && cls.indexOf(' ' + c + ' ') < 0) {
+        cls += c + ' ';
+      }
+    }
+    node.className = cls.trim();
+  };
+
+  var removeClass = function(node, classStr) {
+    var cls;
+    if (classStr !== undefined) {
+      classStr = strToArray(classStr);
+      cls = ' ' + node.className + ' ';
+      for (var i = 0, len = classStr.length; i < len; ++i) {
+        cls = cls.replace(' ' + classStr[i] + ' ', ' ');
+      }
+      cls = cls.trim();
+    } else {
+      cls = '';
+    }
+    if (node.className != cls) {
+      node.className = cls;
+    }
+  };
+
+  var toggleClass = function(node, classStr) {
+    var cls = ' ' + node.className + ' ';
+    if (cls.indexOf(' ' + classStr.trim() + ' ') >= 0) {
+      removeClass(node, classStr);
+    } else {
+      addClass(node, classStr);
+    }
+  };
+
+  var ua = navigator.userAgent;
+  var isFF = parseFloat(ua.split('Firefox/')[1]) || undefined;
+  var isWK = parseFloat(ua.split('WebKit/')[1]) || undefined;
+  var isOpera = parseFloat(ua.split('Opera/')[1]) || undefined;
+
+  var canTransition = (function() {
+  var ver = parseFloat(ua.split('Version/')[1]) || undefined;
+  // test to determine if this browser can handle CSS transitions.
+  var cachedCanTransition = 
+    (isWK || (isFF && isFF > 3.6 ) || (isOpera && ver >= 10.5));
+    return function() { return cachedCanTransition; }
+  })();
+
+  //
+  // Slide class
+  //
+  var Slide = function(node, idx) {
+    this._node = node;
+    if (idx >= 0) {
+      this._count = idx + 1;
+    }
+    if (this._node) {
+      addClass(this._node, 'slide distant-slide');
+    }
+    this._makeCounter();
+    this._makeBuildList();
+  };
+
+  Slide.prototype = {
+    _node: null,
+    _count: 0,
+    _buildList: [],
+    _visited: false,
+    _currentState: '',
+    _states: [ 'distant-slide', 'far-past',
+               'past', 'current', 'future',
+               'far-future', 'distant-slide' ],
+    setState: function(state) {
+      if (typeof state != 'string') {
+        state = this._states[state];
+      }
+      if (state == 'current' && !this._visited) {
+        this._visited = true;
+        this._makeBuildList();
+      }
+      removeClass(this._node, this._states);
+      addClass(this._node, state);
+      this._currentState = state;
+
+      // delay first auto run. Really wish this were in CSS.
+      /*
+      this._runAutos();
+      */
+      var _t = this;
+      setTimeout(function(){ _t._runAutos(); } , 400);
+    },
+    _makeCounter: function() {
+      if(!this._count || !this._node) { return; }
+      var c = doc.createElement('span');
+      c.innerHTML = this._count;
+      c.className = 'counter';
+      this._node.appendChild(c);
+    },
+    _makeBuildList: function() {
+      this._buildList = [];
+      if (disableBuilds) { return; }
+      if (this._node) {
+        this._buildList = query('[data-build] > *', this._node);
+      }
+      this._buildList.forEach(function(el) {
+        addClass(el, 'to-build');
+      });
+    },
+    _runAutos: function() {
+      if (this._currentState != 'current') {
+        return;
+      }
+      // find the next auto, slice it out of the list, and run it
+      var idx = -1;
+      this._buildList.some(function(n, i) {
+        if (n.hasAttribute('data-auto')) {
+          idx = i;
+          return true;
+        }
+        return false;
+      });
+      if (idx >= 0) {
+        var elem = this._buildList.splice(idx, 1)[0];
+        var transitionEnd = isWK ? 'webkitTransitionEnd' : (isFF ? 'mozTransitionEnd' : 'oTransitionEnd');
+        var _t = this;
+        if (canTransition()) {
+          var l = function(evt) {
+            elem.parentNode.removeEventListener(transitionEnd, l, false);
+            _t._runAutos();
+          };
+          elem.parentNode.addEventListener(transitionEnd, l, false);
+          removeClass(elem, 'to-build');
+        } else {
+          setTimeout(function() {
+            removeClass(elem, 'to-build');
+            _t._runAutos();
+          }, 400);
+        }
+      }
+    },
+    buildNext: function() {
+      if (!this._buildList.length) {
+        return false;
+      }
+      removeClass(this._buildList.shift(), 'to-build');
+      return true;
+    },
+  };
+
+  //
+  // SlideShow class
+  //
+  var SlideShow = function(slides) {
+    this._slides = (slides || []).map(function(el, idx) {
+      return new Slide(el, idx);
+    });
+
+    var h = window.location.hash;
+    try {
+      this.current = parseInt(h.split('#slide')[1], 10);
+    }catch (e) { /* squeltch */ }
+    this.current = isNaN(this.current) ? 1 : this.current;
+    var _t = this;
+    doc.addEventListener('keydown', 
+        function(e) { _t.handleKeys(e); }, false);
+    doc.addEventListener('mousewheel', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('DOMMouseScroll', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('touchstart', 
+        function(e) { _t.handleTouchStart(e); }, false);
+    doc.addEventListener('touchend', 
+        function(e) { _t.handleTouchEnd(e); }, false);
+    window.addEventListener('popstate',
+        function(e) { _t.go(e.state); }, false);
+    this._update();
+  };
+
+  SlideShow.prototype = {
+    _slides: [],
+    _update: function(dontPush) {
+      document.querySelector('#presentation-counter').innerText = this.current;
+      if (history.pushState) {
+        if (!dontPush) {
+          history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+        }
+      } else {
+        window.location.hash = 'slide' + this.current;
+      }
+      for (var x = this.current-1; x < this.current + 7; x++) {
+        if (this._slides[x-4]) {
+          this._slides[x-4].setState(Math.max(0, x-this.current));
+        }
+      }
+    },
+
+    current: 0,
+    next: function() {
+      if (!this._slides[this.current-1].buildNext()) {
+        this.current = Math.min(this.current + 1, this._slides.length);
+        this._update();
+      }
+    },
+    prev: function() {
+      this.current = Math.max(this.current-1, 1);
+      this._update();
+    },
+    go: function(num) {
+      if (!num) return;
+      if (history.pushState && this.current != num) {
+        history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+      }
+      this.current = num;
+      this._update(true);
+    },
+
+    _notesOn: false,
+    showNotes: function() {
+      var isOn = this._notesOn = !this._notesOn;
+      query('.notes').forEach(function(el) {
+        el.style.display = (notesOn) ? 'block' : 'none';
+      });
+    },
+    switch3D: function() {
+      toggleClass(document.body, 'three-d');
+    },
+    handleWheel: function(e) {
+      var delta = 0;
+      if (e.wheelDelta) {
+        delta = e.wheelDelta/120;
+        if (isOpera) {
+          delta = -delta;
+        }
+      } else if (e.detail) {
+        delta = -e.detail/3;
+      }
+
+      if (delta > 0 ) {
+        this.prev();
+        return;
+      }
+      if (delta < 0 ) {
+        this.next();
+        return;
+      }
+    },
+    handleKeys: function(e) {
+      
+      if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
+      
+      switch (e.keyCode) {
+        case 37: // left arrow
+          this.prev(); break;
+        case 39: // right arrow
+        case 32: // space
+          this.next(); break;
+        case 50: // 2
+          this.showNotes(); break;
+        case 51: // 3
+          this.switch3D(); break;
+      }
+    },
+    _touchStartX: 0,
+    handleTouchStart: function(e) {
+      this._touchStartX = e.touches[0].pageX;
+    },
+    handleTouchEnd: function(e) {
+      var delta = this._touchStartX - e.changedTouches[0].pageX;
+      var SWIPE_SIZE = 150;
+      if (delta > SWIPE_SIZE) {
+        this.next();
+      } else if (delta< -SWIPE_SIZE) {
+         this.prev();
+       }
+    },
+  };
+
+  // Initialize
+  var slideshow = new SlideShow(query('.slide'));
+})();
+
+  </script>
+  <!--[if lt IE 9]>
+  <script 
+  src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({ mode: "overlay" });</script>
+  <![endif]--> 
+  </body> 
+</html>

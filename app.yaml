@@ -1,0 +1,23 @@
+application: teaching-materials
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /htmlcss/
+  static_files: htmlcss/index.html
+  upload: htmlcss/index.html
+  
+- url: /htmlcss/(.*?)/
+  static_files: htmlcss/\1/index.html
+  upload: htmlcss/(.*?)/index.html
+
+- url: /htmlcss
+  static_dir: htmlcss
+
+- url: /common
+  static_dir: common
+  
+- url: /
+  static_files: index.html
+  upload: index.html

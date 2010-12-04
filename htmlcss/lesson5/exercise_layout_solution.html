@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+    <title>Mozilla Drumbeat</title>
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #EFE1C6;
+}
+ 
+h1, h2 {
+  color: #66401A;
+  font-family: Georgia, serif;
+}
+ 
+ul ul li {
+  line-height: 2em;
+}
+ 
+p strong, p em {
+  font-size: 1.5em;
+  text-decoration: underline;
+}
+ 
+table td {
+  text-align: center;
+}
+ 
+form label {
+  font-weight: bold;
+}
+
+.time {
+  font-variant: small-caps;
+}
+
+#twitter {
+  font-weight: bold;
+}
+
+#facebook {
+  font-weight: bold;
+}
+
+.required {
+  background-color: #EFE1C6;
+}
+
+#main {
+  margin: auto;
+  width: 700px;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 10px solid #66401A;
+}
+
+#locations {
+  float: right;
+  width: 200px;
+  background-color: #EFE1C6;
+  padding: 10px;
+  border: 1px solid #66401A;
+}
+
+#footer {
+  border-top: 2px dashed #EFE1C6;
+  margin-top: 10px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+#header {
+  text-align: center;
+}
+
+#binary {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  color: #C36931;
+}
+
+  </style>
+ </head>
+ <body>
+ <div id="main">
+ 
+  <div id="header">
+  <img src="http://www.drumbeat.org/sites/default/files/domain-2/drumbeat_logo.png" width="300">
+  </div>
+  
+  <h1>About</h1>
+ 
+  <p>Drumbeat is an initiative that wants to keep the web <strong>open</strong> and do it through <em>practical projects and local events</em> that gather smart, creative people around big ideas, solving problems and building the <strong>open web</strong>.  
+  </p>
+
+  <div id="locations">
+  <h2>Projects</h2>
+  <ul>
+   <li>Featured
+     <ul>
+      <li><a href="http://www.drumbeat.org/webcraft">School of Webcraft</a></li>
+      <li><a href="http://www.drumbeat.org/project/crisis-commons">Crisis Commons</a></li>
+     </ul>
+   </li>
+   <li>Latest
+     <ul>
+      <li><a href="http://www.drumbeat.org/project/jessyink">JessyInk</a></li>
+      <li><a href="http://www.drumbeat.org/project/privacycamp">PrivacyCamp</a></li>
+     </ul>
+   </li>
+  </ul>
+  </div>
+
+  <h2>Festival Schedule</h2>
+  <table border="1">
+   <thead>
+    <tr>
+     <th>Time</th>
+     <th>Topic</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td class="time">18:00 - 20:30</td>
+     <td>Registration</td>
+    </tr>
+    <tr>
+      <td class="time">20:30 - 23:00</td>
+      <td>Keynote</td>
+    </tr>
+   </tbody>
+  </table>
+
+  <h2>Sign Up!</h2>
+  <form action="mailto:pamela.fox@gmail.com" enctype="text/plain" method="post">
+    <label>Name: <input class="required" name="name" type="text"></label>
+    <br>
+    <label>Email: <input class="required" name="email" type="email"></label>
+    <br>
+    <label>Location:
+      <select name="location">
+        <option value="syd">Sydney</option>
+        <option value="nyc">New York</option>
+      </select></label>
+    <br>
+    <label>Gender:
+      <input type="radio" name="gender">Female
+      <input type="radio" name="gender">Male
+    </label>
+    <br>
+    <label>Experience:
+    <br>
+    <textarea name="experience"></textarea> 
+    </label>
+    <br>
+    <button type="submit">Sign Up</button>
+  </form>
+  
+  
+  <div id="footer">
+  <a id="twitter" href="http://twitter.com/mozilladrumbeat">Twitter</a> | <a id="facebook" href="http://www.facebook.com/mozilladrumbeat">Facebook</a> | <a href="http://www.flickr.com/search/?w=all&q=drumbeat&m=tags">Flickr</a>
+  </div>
+  
+  <div id="binary">
+01000111 01001001 01010010 01001100 01000100 01000101 01010110 01000101 01001100 01001111 01010000 01001001 01010100 01000111 01001001 01010010 01001100 01000100 01000101 01010110 01000101 01001100 01001111 01010000 01001001 01010100 00100000 01010011 01011001 01000100 01001110 01000101 01011001 
+  </div>
+
+ </body>
+</html>
