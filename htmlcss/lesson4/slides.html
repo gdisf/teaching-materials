@@ -7,7 +7,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
     <![endif]--> 
     <meta charset="utf-8" />
-    <title>Lesson: HTML 2</title>
+    <title>CSS: Selectors</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Tangerine" rel="stylesheet" type="text/css" />
     <style type="text/css" media="projection, screen">
     body {
@@ -379,7 +379,7 @@ header h1 {
   <body> 
   
   <div id="info">
-    <p>Press <span class="key">&rarr;</span> key to advance. Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>.</p>
+    <p>Press <span class="key">&rarr;</span> key to advance. Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>. </p>
   </div>
   
   <div id="presentation">
@@ -389,9 +389,121 @@ header h1 {
    <div id="slides">
    
     
+    <div class="slide intro">
+     <header><hgroup> 
+      <h1>CSS</h1> 
+      <h2>Selectors &amp; Properties</h2>
+     </hgroup></header>
+    </div> 
+    
+    
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Anatomy of a Website</h1></header> 
+     <section class="content"> 
+     <p><b>Your Content</b> 
+<p>+ <b>HTML</b>: Structure</p>
+<p>+ <b>CSS</b>: Presentation</p>
+<p>= <b>Your Website</b></p>
+
+<p>A website is a way to present your content to the world, using HTML and CSS to present that content & make it look good.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS: What is it?</h1></header> 
+     <section class="content"> 
+     <p>CSS = Cascading Style Sheets</p>
+
+<p>CSS is a "style sheet language" that lets you style the elements on your page.
+</p>
+
+<p>CSS is embedded inside HTML, but it is not HTML itself.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS: What can it do?</h1></header> 
+     <section class="content"> 
+     <p style="font-style: Courier; font-weight: bold; text-decoration:underline">text</p>
+<p style="color: red;  background-color: yellow">color</p>
+<p style="font-size: 85px">size</p>
+<div>
+<p style="text-align:right">position</p>
+</div>
+
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Anatomy of CSS</h1></header> 
+     <section class="content"> 
+     <p>CSS consists of "style rules". Each style rule consists of a "selector" and "declarations" of property-value pairs:
+</p>
+
+<pre> 
+<span style="color:blue">selector</span> {
+  <span style="color:red">property</span>: <span style="color:green">value</span>;
+  <span style="color:red">property</span>: <span style="color:green">value</span>;
+}
+</pre>
+
+<pre>
+body {
+  color: yellow;
+  background-color: black;
+}
+</pre>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS in HTML</h1></header> 
+     <section class="content"> 
+     <p>CSS can be embedded in HTML in several ways. One way is to include all CSS in a <code>style</code> tag, usually inside the <code>head</code> tag:</p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+<em>&lt;style&gt;
+body {
+  color: yellow;
+  background-color: black;
+}
+&lt;/style&gt;</em>
+&lt;/head&gt;
+</pre>
+
+     </section>
+    </div>
+    
+   
+    
     
     <div class="slide section"> 
-     <header><h1>HTML (Advanced)</header>
+     <header><h1>Selectors</header>
     </div> 
     
     
@@ -400,91 +512,19 @@ header h1 {
     
     
     <div class="slide normal"> 
-     <header><h1>Outline</h1></header> 
+     <header><h1>The Selector</h1></header> 
      <section class="content"> 
-     <ul>
- <li>Tables
- <li>Forms
- <li>iFrames
- <li>Audio/Video
-</ul>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide section"> 
-     <header><h1>Tables</header>
-    </div> 
-    
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Tables</h1></header> 
-     <section class="content"> 
-     <p>Tables are useful for displaying tabular data on the web, like research study results.</p>
-<img src="http://www.mathworks.com/matlabcentral/fx_files/18329/1/GTHTMLtable.png">
+     <pre>
+selector {
+  property: values;
+}
+</pre>
 
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Tables: Not for Layout</h1></header> 
-     <section class="content"> 
-     <p>Before we had better techniques, tables were often used to layout a webpage, but this is now strongly discouraged.</p>
-<img src="http://farm5.static.flickr.com/4095/4930956277_a1b328a446.jpg">
-<p>We will discuss better ways to do layout when we cover CSS.</p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The table element</h1></header> 
-     <section class="content"> 
-     <p>The <code>TABLE</code> element contains all the elements that make up a table - the header, rows, and columns. 
-This example shows a table of monthly savings.
+<p>
+The selector is used to select which elements in the HTML page will be given the styles inside the curly braces. 
 </p>
 
-<pre>
-&lt;table&gt;
-  &lt;thead&gt;
-   &lt;tr&gt;
-    &lt;th&gt;Month &lt;/th&gt;
-    &lt;th&gt;Savings &lt;/th&gt;
-   &lt;/tr&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td&gt;January &lt;/td&gt;
-    &lt;td&gt;$100 &lt;/td&gt;
-   &lt;/tr&gt;
-&lt;/table&gt;
-</pre>
-
-<table style="font-size:110%">
-  <thead>
-   <tr>
-    <th>Month</th>
-    <th>Savings</th>
-   </tr>
-  <tbody>
-   <tr>
-    <td>January</td>
-    <td>$100</td>
-   </tr>
-</table>
-
+ 
      </section>
     </div>
     
@@ -493,29 +533,14 @@ This example shows a table of monthly savings.
     
     
     <div class="slide normal"> 
-     <header><h1>The table header</h1></header> 
+     <header><h1>Types of Selectors</h1></header> 
      <section class="content"> 
-     <p>Most tables start with a header row with the names of the columns. The <code>thead</code> element starts the header area, the <code>tr</code> element creates a row, and <code>th</code> elements create cells in the row.</p>
-
-<pre>
-&lt;table&gt;<strong>
-  &lt;thead&gt;
-   &lt;tr&gt;
-    &lt;th&gt;Month &lt;/th&gt;
-    &lt;th&gt;Savings &lt;/th&gt;</strong>
-    &lt;/tr&gt;
-    ....
-&lt;/table&gt;
-</pre>
-
-<table  style="font-size:110%">
-  <thead>
-   <tr>
-    <th>Month </th>
-    <th>Savings </th>
-   </tr>
-</table>
-
+     <ol>
+ <li>element 
+ <li>id
+ <li>class
+ <li>position in document
+</ol>
      </section>
     </div>
     
@@ -524,96 +549,15 @@ This example shows a table of monthly savings.
     
     
     <div class="slide normal"> 
-     <header><h1>The table body</h1></header> 
+     <header><h1>Types of Selectors: element</h1></header> 
      <section class="content"> 
-     <p>Tables can consist of any number of data rows after the header. The <code>tbody</code> element begins the body (data) area, the same <code>tr</code> element creates a row, and <code>td</code> elements create data cells in each row.
-</p>
-
-<pre>
-&lt;table&gt;
-  ....
-  <strong>&lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td&gt;January &lt;/td&gt;
-    &lt;td&gt;$100 &lt;/td&gt;
-   &lt;/tr&gt;</strong>
-&lt;/table&gt;
+     <pre>
+p {
+}
 </pre>
 
-<table style="font-size:110%">
-  <thead>
-   <tr>
-    <th>Month</th>
-    <th>Savings</th>
-   </tr>
-  <tbody>
-   <tr>
-    <td>January</td>
-    <td>$100</td>
-   <tr>
-   <tr>
-    <td>February</td>
-    <td>$50</td>
-   </tr>
-</table>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The table caption</h1></header> 
-     <section class="content"> 
-     <p>One way to provide additional info about the purpose and use of a table is via the <code>caption</code> element, which goes right under the <code>table</code> element.
-</p>
-
-<pre>
-&lt;table&gt;
-  <strong>&lt;caption&gt;Monthly Savings (in USD) for 2010&lt;/caption&gt;</strong>
-  ...
-&lt;/table&gt;
-</pre>
-
-<table  style="font-size:110%">
-  <caption>Monthly Savings (in USD) for 2010</caption>
-  <thead>
-    <th>Month</th>
-    <th>Savings</th>
-  </thead>
-  <tbody>
-   <tr>
-    <td>January</td>
-    <td>$100</td>
-   </tr>
-   <tr>
-    <td>February</td>
-    <td>$50</td>
-   </tr>
-  </tbody>
-</table>
-     </section>
-    </div>
-    
-
-    
-    <div class="slide section"> 
-     <header><h1>Forms</header>
-    </div> 
-    
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Forms</h1></header> 
-     <section class="content"> 
-     <p>The web started as a way for people to post static information, but now is largely about "user-contributed content." All that content means a lot of forms!</p>
-<p>Users see form on social sites, login screens, banking sites, and more:</p>
-<p style="text-align:center"><img src="http://farm5.static.flickr.com/4138/4931405344_1a5cd92b80_m.jpg">
-<img src="http://farm5.static.flickr.com/4135/4930813031_601aa2c5c9_o.png">
+<p>
+Selects all <code>p</code> elements in the entire document.
 </p>
      </section>
     </div>
@@ -623,289 +567,50 @@ This example shows a table of monthly savings.
     
     
     <div class="slide normal"> 
-     <header><h1>Form element</h1></header> 
+     <header><h1>Types of Selectors: id</h1></header> 
      <section class="content"> 
-     <p>A form consists of a <code>form</code> element with multiple input controls inside of it that help retrieve user data in some way, and attributes that specify how a server should handle the form.</p>
-<p>The example below asks for a search query, and then sends the query to the Google server once submitted.</p>
-<pre>
-&lt;form action="http://www.google.com/search" method="get"&gt;
- &lt;label&gt;Google:&lt;input type="search" name="q"&gt;
- &lt;input type="submit" value="Search"&gt; &lt;/label&gt; 
-&lt;/form&gt;
+     <pre>
+#header {
+}
 </pre>
-
-<form action="http://www.google.com/search" method="get">
- <label>Google: <input type="search" name="q"><input type="submit" value="Search...">
- </label> 
-</form>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Input element</h1></header> 
-     <section class="content"> 
-     <p>The <code>input</code> element is used for many different types of user input, depending on value of the <code>type</code> attribute. It defaults to a simple 1-line text input.</p>
-<p>The "name" attribute gives the server a way to identify that piece of attribute. The "value" attribute can be set to specify a default value. The "placeholder" provides a hint to the user.</p>
-<pre>
-&lt;input type="text" name="animal" placeholder="e.g. fox"&gt;
-</pre>
-
-<input type="text" name="animal" placeholder="e.g. fox"/>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Label element</h1></header> 
-     <section class="content"> 
-     <p>The <code>label</code> element is used to caption a form control, so users know what they should put in it.
-</p>
-
-<pre>
-&lt;label&gt; Animal:
-&lt;input type="text" name="animal" placeholder="e.g. fox"&gt;
-&lt;/label&gt;
-</pre>
-
-<label>Animal
-<input type="text" name="animal" placeholder="e.g. fox"/>
-</label>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Checkboxes</h1></header> 
-     <section class="content"> 
-     <p>The <code>input</code> element can be used for letting users pick multiple in a list or simply indicate yes/no, using <code>type="checkbox"</code>.
-</p>
-
-<pre>
-&lt;label&gt; Extra cheese?
-&lt;input type="checkbox" name="extracheese"/&gt; &lt;/label&gt;
-</pre>
-
-<label> Extra cheese? <input type="checkbox" name="extracheese"/></label>
-
-<pre>
-Pizza Toppings:
-&lt;label&gt; &lt;input type="checkbox"/&gt; Bacon &lt;/label&gt;
-&lt;label&gt; &lt;input type="checkbox"/&gt; Extra Cheese &lt;/label&gt;
-&lt;label&gt; &lt;input type="checkbox"/&gt; Onion &lt;/label&gt;
-</pre>
-
-Pizza Toppings:
-  <label> <input type=checkbox> Bacon </label>
-  <label> <input type=checkbox> Extra Cheese </label>
-  <label> <input type=checkbox> Onion </label>
-  <label> <input type=checkbox> Mushroom </label>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Radio buttons</h1></header> 
-     <section class="content"> 
-     <p>Similarly, the <code>input</code> element can be used for creating a group of radio buttons, for letting users pick one in a list, with <code>type="radio"</code>.</p>
-<pre>
-Pizza Size:
-&lt;label&gt;
-  &lt;input type="radio" name="size" value="small"/&gt;Small
-&lt;/label&gt;
-&lt;label&gt;
-  &lt;input type="radio" name="size" value="medium"/&gt;Medium
-&lt;/label&gt;
-&lt;label&gt;
-  &lt;input type="radio" name="size" value="large"/&gt;Large
-&lt;/label&gt;
-</pre>
-
-Pizza Size:
-  <label> <input type=radio name=size> Small </label>
-  <label> <input type=radio name=size> Medium </label>
-  <label> <input type=radio name=size> Large </label>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Range sliders</h1></header> 
-     <section class="content"> 
-     <p>The <code>input</code> element can be used for users to pick a value in a range, using <code>type="range"</code>.</p>
-
-<pre>
-&lt;label&gt; Cheesiness:
-&lt;input type="range" min="0" max="10" name="cheesiness"/&gt;
-&lt;/label&gt;
-</pre>
-
-<label>Cheesiness:
-<input type="range" min="0" max="10" name="cheesiness">
-</label>
-
-<p>*New, only supported in modern browsers.</p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The select element</h1></header> 
-     <section class="content"> 
-     <p>The <code>select</code> element used with the <code>option</code> element produces a dropdown of options for the user to pick from.</p>
-<pre>
-&lt;label&gt;Crust type:
-&lt;select name="crust"&gt;
-  &lt;option value="thin"&gt;Thin&lt;/option&gt;
-  &lt;option value="thick"&gt;Thick&lt;/option&gt;
-  &lt;option value="cheese"&gt;Cheese&lt;/option&gt;
-&lt;/select&gt;
-&lt;/label&gt;
-</pre>
-
-<label>Crust type:
-<select name="crust">
-  <option value="thin">Thin</option>
-  <option value="thick">Thick</option>
-  <option value="cheese">Cheese</option>
-</select>
-</label>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Textarea element</h1></header> 
-     <section class="content"> 
-     <p>To let the user specify multiple lines of text, use the <code>textarea</code> element, and specify <code>cols</code> or <code>rows</code> to specify a specific size.</p>
-
-<pre>
-&lt;label&gt;Delivery instructions: &lt;br&gt;
-&lt;textarea&gt;&lt;/textarea&gt;&lt;/label&gt;
-</pre>
-<label>Delivery instructions:<br><textarea></textarea></label>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Button element</h1></header> 
-     <section class="content"> 
-     <p>The <code>button</code> element is most commonly used to submit a form to the server, but can also be used for resetting a form or other scripted actions.
+<p>
+Selects any element with the id “header", e.g.
 </p>
 <pre>
-&lt;button type="submit"&gt;Submit order&lt;/button&gt;
+&lt;p id="header"&gt;&lt;/p&gt;
 </pre>
 
-<button type="submit">Submit order</button>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Form processing</h1></header> 
-     <section class="content"> 
-     <p>A form is processed by a server, which typically takes the inputs and stores them in a database.</p>
-<p>If you don't have a server, you can also have all the form contents sent to the email address of your choice, using extra attributes in the <code>form</code> element:</p>
-<pre>
-&lt;form action="mailto:admin@example.com"
-  enctype="text/plain" method="post"&gt;
-  &lt;input name="info" type="text"/&gt;
-  &lt;button type="submit"&gt;Send Mail&lt;/button&gt;
-&lt;/form&gt;
-</pre>
-<form action="mailto:admin@example.com" enctype="text/plain" method="post">
-  <input name="info" type="text">
-  <button type="submit">Send Mail</button>
-</form>
-     </section>
-    </div>
-    
-   
-    
-    
-    <div class="slide section"> 
-     <header><h1>Iframes</header>
-    </div> 
-    
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The iframe element</h1></header> 
-     <section class="content"> 
-     <p>You can use HTML to embed other webpages in your own page using an <code>iframe</code> element pointing at a URL:
+<p>
+Element ids are unique, so that should only be one element.
 </p>
-
-<pre>
-&lt;iframe src="https://www.google.com"
-  width="500" height="300"&gt;&lt;/iframe&gt;
+<p>
+The "#" is how you tell CSS "this is an id."
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Types of Selectors: class</h1></header> 
+     <section class="content"> 
+     <pre>
+.warning {
+  color: red;
+}
 </pre>
 
-<iframe src="http://www.google.com" width="500" height="280"></iframe>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Iframe embeds</h1></header> 
-     <section class="content"> 
-     <p>The <code>iframe</code> element makes it easy for websites to become embeddable on other websites, and for users to share content that they've created on a site.</p>
-
-<p>Most websites don't naturally look good when embedded at small sizes, so websites create special versions that are designed for embedability, and the provide users with those URLs.</p>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Iframe embeds: Docs</h1></header> 
-     <section class="content"> 
-     <p>In its "Publish" dialog, Google docs provides this HTML for embedding a presentation on your site:</p>
+<p>Selects any element with the class name “warning”, e.g.</p>
 <pre>
-&lt;iframe src="https://docs.google.com/present/embed?id=dggjrx3s_2119zdj9k4cf"
-  width="410" height="342"&gt;&lt;/iframe&gt;
+&lt;p class="warning"&gt;&lt;/p&gt;
 </pre>
 
-<iframe src="https://docs.google.com/present/embed?id=dggjrx3s_2119zdj9k4cf" width="410" height="342"></iframe>
+<p>Multiple elements can have the same class name.</p>
+
+<p>The "." is how you tell CSS "this is a class name." </p>
+
      </section>
     </div>
     
@@ -914,147 +619,53 @@ Pizza Size:
     
     
     <div class="slide normal"> 
-     <header><h1>Iframe embeds: Calendar</h1></header> 
+     <header><h1>Types of Selectors: class</h1></header> 
      <section class="content"> 
-     <p>In settings, Google Calendar provides this HTML for embedding a calendar:</p>
-
-<pre>
-&lt;iframe src="http://www.google.com/calendar/embed?src=developer-calendar%40google.com" 
-  width="600" height="400"&gt;&lt;/iframe&gt;
-</pre>
-
-<iframe src="http://www.google.com/calendar/embed?src=developer-calendar%40google.com" width="600" height="400"></iframe>
-     </section>
-    </div>
-    
-   
-    
-    
-    <div class="slide section"> 
-     <header><h1>Multimedia</header>
-    </div> 
-    
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The object element</h1></header> 
-     <section class="content"> 
-     <p>You can use <code>object</code> to embed non-HTML content in your page, like a quicktime movie or a flash file. Typically, users need a "plug-in" to view that content.</p>
-<p>The <code>object</code> tag should have one or more <code>param</code> child tags that give info to the browser on what to embed.
+     <p>An element can have only 1 id but multiple classes, so you can take advantage of that for greater flexibility.</p>
 </p>
 <pre>
-&lt;object width="300" height="150"&gt;
-  &lt;param name="movie" value="beatingheart.swf"/&gt;
-&lt;/object&gt;
+.intro {
+  background-color: blue;
+}
+.desc {
+  color: red;
+}
 </pre>
-
-<object width="300" height="150">
-  <param name="movie" value="http://media2.sweetimsmiley.com/emoticons/beatingheart.swf"/>
-</object>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The embed element</h1></header> 
-     <section class="content"> 
-     <p>The <code>embed</code> tag is similar to the <code>object</code> tag, but is sometimes used in cases where the <code>object</code> tag doesn't work.</p>
-<p>The <code>embed</code> tag should specify <code>src</code> and <code>type</code> attributes.
-</p>
-<pre>
-&lt;embed type="application/x-shockwave-flash"
- src="beatingheart.swf"/&gt;
-</pre>
-<embed type="application/x-shockwave-flash" src="http://media2.sweetimsmiley.com/emoticons/beatingheart.swf"/>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>object and embed</h1></header> 
-     <section class="content"> 
-     <p>The <code>object</code> tag can include content that is executed if the browser doesn't understand the object tag. This content could be text, another <code>object</code> tag, or an <code>embed</code> tag. 
-</p>
-<pre>
-&lt;<strong>object</strong> classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
- codebase="http://www.apple.com/qtactivex/qtplugin.cab"
- height="400" width="500"&gt;
- &lt;param name="src" value="rbc.mov" &gt;
- &lt;param name="autoplay" value="true" &gt;
-
- &lt;<strong>embed</strong> 
-  type="video/quicktime"
-  pluginspage="http://www.apple.com/quicktime/download/"
-  height="400" width="400"
-  src="rbc.mov" autoplay="true" 
- /&gt;
-&lt;/object&gt;
-</pre>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The object element (Example)</h1></header> 
-     <section class="content"> 
-     <p>The code from the previous slide produces:</p>
-<br>
-<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
- codebase="http://www.apple.com/qtactivex/qtplugin.cab"
- height="400" width="500">
- <param name="src" value="http://people.sc.fsu.edu/~jburkardt/data/mov/rbc.mov" >
- <param name="autoplay" value="true" >
- <embed 
-  type="video/quicktime"
-  pluginspage="http://www.apple.com/quicktime/download/"
-  height="400" width="400"
-  src="http://people.sc.fsu.edu/~jburkardt/data/mov/rbc.mov" autoplay="true" 
- />
-</object>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Embeds: Youtube</h1></header> 
-     <section class="content"> 
-     <p>Youtube gives user an embed code that includes an <code>object</code> and an <code>embed</code> tag.
-</p>
 
 <pre>
-&lt;<strong>object</strong> width="480" height="385"&gt;
-  &lt;param name="movie"
-     value="http://www.youtube.com/v/BHtGcZ9XqjY"/&gt;
-  &lt;param name="allowFullScreen"
-     value="true"/&gt;
-  &lt;param name="allowscriptaccess"
-     value="always"/&gt;
-
-  &lt;<strong>embed</strong> src="http://www.youtube.com/v/BHtGcZ9XqjY"
-         type="application/x-shockwave-flash"
-         allowscriptaccess="always" 
-         allowfullscreen="true" width="480" height="385"/&gt;
-
-&lt;/object&gt;
+&lt;p class="desc intro"&gt;hi&lt;/span&gt; -&gt; hi
+&lt;p class="desc"&gt;hi&lt;/span&gt; -&gt; hi
+&lt;p class="intro"&gt;hi&lt;/span&gt; -&gt; hi
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Types of selectors: position in document</h1></header> 
+     <section class="content"> 
+     <pre>
+ul em {
+  color: yellow;
+}
 </pre>
 
+<p>Selects any <code>em</code> element that's a descendant of a <code>ul</code> element.
+<p>
+The " " (space) is how you say "find a descendant." 
+ </p>
+<img src="https://blob-s-docs.googlegroups.com/docs/OAAAANy7DojQmK-iJiNC2jKcmzZ4AeQ68T4jMgxfvx5GPOWxAjPeBxRjLQxIjktE-RkEyOGXQCVb5Zx3JnGV1R9sUksA15jOjDUc75-x7Hq2i75rxzFoEQgkfMUh" align="right">
+<pre>
+&lt;body&gt;
+ &lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Hi&lt;/em&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;p&gt;&lt;em&gt;Bye&lt;/em&gt;&lt;/p&gt;
+&lt;/body&gt;
+</pre>
      </section>
     </div>
     
@@ -1063,35 +674,26 @@ Pizza Size:
     
     
     <div class="slide normal"> 
-     <header><h1>Embeds: Youtube (Example)</h1></header> 
+     <header><h1>Types of selectors: id + position</h1></header> 
      <section class="content"> 
-     <p>The code from the previous slide produces:</p>
-<br>
-<object width="480" height="385">
-  <param name="movie" value="http://www.youtube.com/v/BHtGcZ9XqjY?fs=1&amp;hl=en_US"/>
-  <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"/>
-
-  <embed src="http://www.youtube.com/v/BHtGcZ9XqjY?fs=1&amp;hl=en_US"
-         type="application/x-shockwave-flash" allowscriptaccess="always" 
-         allowfullscreen="true" width="480" height="385">
-  </embed>
-
-</object>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Multimedia in HTML5</h1></header> 
-     <section class="content"> 
-     <p>In the past, developers had to use browser plugins to embed multimedia on their page.
+     <pre>
+#related-brands li {
+  color: gray;
+}
+</pre>
+<p> 
+Selects any &lt;li&gt; element that is a descendant of any element with an id that equals "related-brands."
 </p>
-<p>In HTML5, you can embed audio or video using native HTML tags, and if the browser supports the tags, it will give users controls to play the file.
+<pre>
+&lt;ul id="related-brands"&gt;
+  &lt;li&gt;Rice Krispies
+  &lt;li&gt;NutriGrain
+&lt;/ul&gt;
+</pre>
+<p>
+Tip: Try it out in  the <a href="http://penguin.theopalgroup.com/cgi-bin/css3explainer/selectoracle.py">Selectoracle</a>.
 </p>
-<p>The <code>audio</code> and <code>video</code> tags are both very new, so they only work in the most recent versions of modern browsers.</p>
+
      </section>
     </div>
     
@@ -1100,112 +702,142 @@ Pizza Size:
     
     
     <div class="slide normal"> 
-     <header><h1>Video file formats</h1></header> 
+     <header><h1>Types of selectors: element + class</h1></header> 
      <section class="content"> 
-     <p>A video file, like an ".avi" file, is really a container for multiple related files that describe a video, like:
+     <pre>
+li.special {
+  color: yellow;
+}
+</pre>
+<p>
+Selects any <code>li</code> element with a class attribute that 
+contains the word "special".
+</p>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;Rice Krispies
+  &lt;li class="special"&gt;NutriGrain
+&lt;/ul&gt;
+</pre>
+<p>
+Warning: If you place a space after the ".", it'll look for descendants of <code>li</code> with class of "special."
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Types of selectors: ALL!</h1></header> 
+     <section class="content"> 
+     <pre>
+#header div.content form p em.required {
+  color: white;
+}
+</pre>
+<p>
+Selects any <code>em</code> element with a class attribute that contains the word "required" that is a descendant of a <code>p</code> element that is a descendant of a <code>form</code> element that is a descendant of a <code>div</code> element with a class attribute that contains the word "content" that is a descendant of any element with an id attribute that equals "header".
+</p>
+ 
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Types of selectors: pseudo classes</h1></header> 
+     <section class="content"> 
+     <p>A set of "pseudo classes" can style anchor elements depending on their state.</p>
+<pre>
+a:link { /* unvisited link */
+  color: red;
+}
+a:visited { /* visited link */
+  color: blue;
+} 
+a:hover { /* moused over link */
+  color: green;
+}  
+a:active { /* current link */
+  color: purple;
+} 
+a:focus {  /* focused link */
+  color: purple;
+} 
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Grouping selectors</h1></header> 
+     <section class="content"> 
+     <p>You can group selectors to apply the same style to all of the selectors  by separating them with commas:</p>
+
+<pre>
+a:hover, a:active:, a:focus {
+  background-color: yellow;
+}
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>The selector: Cascade rules</h1></header> 
+     <section class="content"> 
+     <p>Generally:</p>
 <ul>
-  <li>a video track
-  <li>one or more audio tracks with synchronization markers
-  <li>metadata (title, album art, etc).
+ <li>id is more specific than a class, class is more specific than element.
+ <li>the longer the selector, the more specific it is
+ <li>If style rules are equally specific, the last one wins!
 </ul>
-</p>
-<p>The most popular video formats are:
-  <ul> 
-   <li>MPEG4: .mp4, .m4v
-   <li>Flash Video:  .flv
-   <li>Audio Video Interleave: .avi
-   <li>Ogg: .ogv
-   <li>WebM: .webm
- </ul>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Video codecs</h1></header> 
-     <section class="content"> 
-     <p>A video track is compressed and stored in a particular way, and a "codec" describes how to turn the stored data into the series of images that you see.
-</p>
-<p>The most relevant video codecs are:
- <ul>
-  <li>H.264 (aka MPEG-4 Advanced Video Coding): Patent-encumbered.
-  <li>Theora: Royalty-free.
-  <li>VP8: Patented, but licensed royalty-free.
- </ul>
-</p>
 
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Audio codecs</h1></header> 
-     <section class="content"> 
-     <p>An audio track is also compressed, stored, and decoded according to a codec. Most audio codecs support two channels of sound, some support more.
-</p>
-<p>The most relevant audio codecs are:
-  <ul>
-   <li>MP3: Patent-encumbered.
-   <li>AAC (Advanced Audio Coding): Patent-encumbered. Used in Apple products.
-   <li>Vorbis: Not patented.
- </ul>
-</p>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Browser support</h1></header> 
-     <section class="content"> 
-     <p>Each  browser supports a different combo of formats and codecs, due to patents issues. This is the current situation:
-</p>
-<table class="bc">
-<thead><tr><th style="text-align:left">Codecs/container</th><th title="Internet Explorer">IE</th><th title="Mozilla Firefox">Firefox</th><th title="Apple Safari">Safari</th><th title="Google Chrome">Chrome</th><th>Opera</th><th>iPhone</th><th>Android</th></tr></thead><tbody><tr><th>Theora+Vorbis+Ogg</th><td>·</td><td>3.5+</td><td>·</td><td>5.0+</td><td>10.5+</td><td>·</td><td>·</td></tr><tr><th>H.264+AAC+MP4</th><td>·</td><td>·</td><td>3.0+</td><td>5.0+</td><td>·</td><td>3.0+</td><td>2.0+</td></tr><tr><th>WebM</th><td>·</td><td>·</td><td>·</td><td>6.0+</td><td>10.6+</td><td>·</td><td>·</td></tr></tbody></table>
-
-<p>The Theora/Ogg and WebM formats are both open-source and patent-free, so they are the best to use if you don't want to worry about licensing.
-</p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Creating multimedia files</h1></header> 
-     <section class="content"> 
-     <p>There are various command-line utilities for turning uncompressed video into web-ready video. The most user-friendly option is FireFogg, for Firefox.
-</p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The video element</h1></header> 
-     <section class="content"> 
-     <p>The <code>video</code> element embeds a video player for a particular video file.
-</p>
-
-<p>You can use these attributes to customize the player: <code>poster</code>, <code>preload</code>, <code>autoplay</code>, <code>loop</code>, and <code>controls</code>.
-
+<p>Example:</p>
 <pre>
-&lt;video src="chrome_japan.ogv" controls width="200"&gt;&lt;/video&gt;
+#a #b h1 { color: red; } /* winner! */
+#a h1 { color: blue; }
+</pre>
+     </section>
+    </div>
+    
+   
+    <div class="slide section"> 
+     <header><h1>CSS Style</header>
+    </div> 
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Coding Conventions</h1></header> 
+     <section class="content"> 
+     <p>It is possible to write CSS like this:
+<pre>
+selector{property:values}selector{property:values}
 </pre>
 
-<video src="http://slides.html5rocks.com/src/chrome_japan.ogv" controls width="390"></video>
+<p>But it's preferred to write it like this:</p>
+<pre>
+selector {
+  property: values;
+}
+
+selector {
+  property: values;
+}
+</pre>
+<p>Notice: space between "selector" and "{", 2 spaces before property-value pair, space after "property:", semi-colon after "values", line between rules.
+</p>
 
      </section>
     </div>
@@ -1215,42 +847,64 @@ Pizza Size:
     
     
     <div class="slide normal"> 
-     <header><h1>Multiple media sources</h1></header> 
+     <header><h1>Naming Conventions</h1></header> 
      <section class="content"> 
-     <p>As we saw, different browsers support different formats. Thankfully, HTML5 lets us specify multiple sources for the <code>video</code> and <code>audio</code> elements, so browsers can use whichever works for them.
-</p>
+     <p>Some rules to follow when making IDs and class names:</p>
+<ul>
+ <li>Describe the content, not the presentation ("warning", not "redbox").
+ <li>Use all lowercase, and hyphens when needed for readability ("header-info", not "headerInfo").
+ <li>Use hyphens to show that a class or ID is part of something else. (e.g. "footer", "footer-copyright", and "footer-logo").
+</ul>
+     </section>
+    </div>
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Comments</h1></header> 
+     <section class="content"> 
+     <p>Comments will be ignored by the browser and are useful for documenting your styles to other humans or commenting out rules.</p>
+
 <pre>
-&lt;video height="200" controls=""&gt;
-  &lt;source src="chrome-japan.webm" type="video/webm"/&gt;
-  &lt;source src="chrome-japan.mp4" type="video/mp4"/&gt;
-  &lt;source src="chrome_japan.ogv" type="video/ogg"/&gt;
-&lt;/video&gt;
+<strong>/* Comment here */</strong>
+p 
+{
+  margin: 1em; <strong>/* Comment here */</strong>
+  padding: 2em; 
+  <strong>/* color: white; */</strong>
+  background-color: blue;
+}
+
+<strong>/*
+  multi-line 
+  comment here
+*/</strong>
 </pre>
 
-<video height="200" controls="">
-  <source src="http://slides.html5rocks.com/src/chrome-japan.webm" type="video/webm">
-  <source src="http://slides.html5rocks.com/src/chrome-japan.mp4" type="video/mp4">
-  <source src="http://slides.html5rocks.com/src/chrome_japan.ogv" type="video/ogg">
-</video>
      </section>
     </div>
+    
+    
+    
+    <div class="slide section"> 
+     <header><h1>Properties</header>
+    </div> 
+    
     
    
     
     
     
     <div class="slide normal"> 
-     <header><h1>Fallback options</h1></header> 
+     <header><h1>Property Value Pairs</h1></header> 
      <section class="content"> 
-     <p>There are some browsers that don't support these new elements. In that case, you can provide a fallback option via a browser plug-in, like Java or Flash, and put the fallback inside the element. For example, here's a Flash fallback:
+     <p>
+Each property can have one or more comma separated values.
 </p>
-
 <pre>
-&lt;video src="video.ogv" controls&gt;  
-    &lt;object data="flvplayer.swf" type="application/x-shockwave-flash"&gt;  
-      &lt;param value="flvplayer.swf" name="movie"/&gt;  
-    &lt;/object&gt;  
-&lt;/video&gt;  
+font: italic 12px sans-serif;
+color: #333;
+background-color: red;
 </pre>
      </section>
     </div>
@@ -1260,23 +914,383 @@ Pizza Size:
     
     
     <div class="slide normal"> 
-     <header><h1>The audio element</h1></header> 
+     <header><h1>Properties: color</h1></header> 
      <section class="content"> 
-     <p>The <code>audio</code> element is used for embedding an audio player inside a page for a particular audio file. 
+     <p>The "color" property changes the text color. Colors can be specified either by name, for the most common colors, or by hexadecimal value. 
 </p>
-
-<p>You can use various attributes to customize the player: <code>preload</code>, <code>autoplay</code>, <code>loop</code>, and <code>controls</code>.</p>
-
 <pre>
-&lt;audio src="Tromboon-sample.ogg"
-  controls="true" autobuffer="true"&gt;&lt;/audio&gt;
+color: red;
+color: #ff0000;
+color: rgb(255, 0, 0); 
+</pre>
+<p>
+This property is inherited, which means it'll also be applied to all descendant elements but can be overridden by more specific rules. This rule makes all the body text red unless specified otherwise:
+</p>
+<pre>
+body {
+  color: red;
+}
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Properties: background-color</h1></header> 
+     <section class="content"> 
+     <p>The "background-color" property changes the background color. Besides the <code>BODY</code> element, all elements default to a transparent background.
+<pre>
+background-color: black;
+background-color: #000000;
+background-color: rgb(0,0,0); 
 </pre>
 
-<audio src="http://upload.wikimedia.org/wikipedia/commons/a/a9/Tromboon-sample.ogg" controls="true" autobuffer="true"></audio>
+<pre>
+body {
+  background-color: yellow;
+}
+
+table {
+  background-color: #FFCC00;
+}
+</pre>
 
      </section>
     </div>
     
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Finding colors</h1></header> 
+     <section class="content"> 
+     <p>To find colors or color schemes for your webpage, you can use:
+<ul>
+ <li>Desktop graphics programs: Adobe Photoshop, <a href="http://mattpatenaude.com/">Mac Colors</a>
+ <li>Online tools: <a href="http://www.rgbtool.com/">RGBTool</a>, <a href="http://www.ideo.com/visualizer.html">Web Color Visualizer</a>
+, <a href="http://colorschemedesigner.com/">Color Scheme Designer</a>, <a href="http://www.colourlovers.com/">ColourLovers</a>, <a href="http://www.kuler.com/">Kuler</a>
+ <li>Browser extensions: <a href="https://chrome.google.com/extensions/detail/hmdcmlfkchdmnmnmheododdhjedfccka?hl=en">Eye Dropper for Chrome</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/271/">ColorZilla for FireFox</a>
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Property: font-family</h1></header> 
+     <section class="content"> 
+     <p>The "font-family" property specifies the font family (or "font face") of the text. You can specify either a specific font name  or a generic family name (serif, sans-serif, monospace, cursive).
+</p>
+<pre>
+font-family: "Times New Roman";
+font-family: sans-serif;
+</pre>
+<p>
+A comma separated list of font families can be specified if you want the browser to prefer one but use the others as backup options.
+</p>
+<pre>
+font-family: "Times New Roman", serif;
+font-family: "Arial", sans-serif;
+font-family: Courier, monospace;
+</pre>
+
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Finding fonts</h1></header> 
+     <section class="content"> 
+     <p>Several websites exist that help you pick fonts for your website and to customize it with non-default fonts:</p>
+<ul>
+ <li><a href="http://www.typetester.org/">TypeTester</a>
+ <li><a href="http://typekit.com/">TypeKit</a>
+ <li><a href="http://fontfonter.com/">FontFonter</a>
+ <li><a href="http://www.goodwebfonts.com/">Good Web Fonts</a>
+ <li><a href="http://www.typotheque.com/fonts/">Typotheque</a>
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Property: font-size</h1></header> 
+     <section class="content"> 
+     <p>The "font-size" property specifies the size of a font. It can be specified as a fixed size in various units, a percentage, or as a predefined keyword.
+</p>
+
+<pre>
+font-size: 1.5em;
+font-size: 12px;
+font-size: 100%;
+font-size: larger;
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Property: font-size (em)</h1></header> 
+     <section class="content"> 
+     <p>The "em" unit lets you set the size of the text relative to the text around it. This makes the page resize nicely in proportion if the user changes their default font-size. The default size is "1em".</p>
+
+<pre>
+p {
+  font-size: 0.9em; 
+}
+
+strong {
+  font-size: 1.5em; 
+}
+</pre>
+
+<p style="font-size: .9em;">Hello <strong style="font-size:1.5em">there</strong>!</p>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Property: font-size (px)</h1></header> 
+     <section class="content"> 
+     <p>The "px" unit lets you size font in terms of pixels, which is the unit also used to size images and other elements. It is easier to understand than em, but doesn't work as well when printing or resizing.
+</p>
+<pre>
+h2 {
+  font-size: 17px; 
+}
+</pre>
+
+<h2>Normal Headline</h2>
+<h2 style="font-size: 17px;">Resized Headline</h2>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Property: font-size (keywords)</h1></header> 
+     <section class="content"> 
+     <p>There are various keywords that can be used if you're not as worried about the precise sizing: xx-small, x-small, small, medium, large, x-large, xx-large.
+</p>
+<pre>
+p.footnote {
+  font-size: small;
+}
+</pre>
+<p>There are also two relative keywords, that act similar to em's in setting size relative: smaller, larger.</p>
+<pre>
+p.intro {
+  font-size: larger;
+}
+</pre>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Property: font-size (%)</h1></header> 
+     <section class="content"> 
+     <p>The size can also be specified as a percentage, which works similar to "ems", and can be used in conjunction with other units.
+</p>
+<pre>
+body { 
+  font-size: 12px; 
+}
+
+h1 { 
+  font-size: 200%; 
+}
+
+h1 a { 
+  font-size: 75%; 
+}
+</pre>
+
+<div style="font-size: 12px;">
+  <h1 style="font-size:200%">Header <a style="font-size:75%" href="#">Link</a></h1>
+  Text!
+</div>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Property: font-style</h1></header> 
+     <section class="content"> 
+     <p>The "font-style" property specifies the font style of the text, either "normal" by default or "italic".
+</p>
+
+<pre>
+font-style: italic;
+</pre>
+
+<p style="font-style:italic">
+Italicized text.
+</p>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Property: font-weight</h1></header> 
+     <section class="content"> 
+     <p>The "font-weight" property specifies the thickness of the font. The default is "normal" and the typical override is "bold". You can also specify "bolder", "lighter", or a number from 100 to 900.</p>
+
+<pre>
+font-weight: bold;
+</pre>
+
+<p style="font-weight: bold">
+Bold text!
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>&quot;Shorthand&quot; properties</h1></header> 
+     <section class="content"> 
+     <p>A "shorthand" property in CSS lets you specify multiple properties in one property, for conciseness purposes. Instead of specifying each "font-" property separately, you can bundle them up in one "font" property.
+</p>
+<pre>
+table.geeky {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 10px;
+  font-family: sans-serif;
+}
+</pre>
+<p>Those four rules can be written as:</p>
+<pre>
+table {
+  font: italic bold 10px sans-serif;
+}
+</pre>
+<p>The "font" property expects values ordered as font-style, font-variant, font-weight, font-size, and font-family, and any of the first three can be left off.</p>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Other text properties</h1></header> 
+     <section class="content"> 
+     <pre>
+line-height: 10px;
+</pre>
+<p style="line-height: 10px;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam convallis ligula ut suscipit. Phasellus hendrerit, enim scelerisque...
+</p>
+<pre>
+text-align: center;
+</pre>
+<p style="text-align:center">
+Centered text.
+</p>
+<pre>
+text-decoration: underline;
+</pre>
+<p style="text-decoration:underline">Underlined text</p>
+<pre>
+text-indent: 20px;
+</pre>
+<p style="text-indent:20px">Indented text.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    <div class="slide section"> 
+     <header><h1>CSS Location</header>
+    </div> 
+   
+   
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS files</h1></header> 
+     <section class="content"> 
+     <p>CSS can also be defined in a separate file, and imported using either the <code>link</code> element or the <code>@import</code> statement in CSS.
+
+<p>Linked stylesheet:</p>
+<pre>
+&lt;head&gt;
+&lt;link rel="stylesheet" type="text/css" href="main.css"&gt;
+&lt;/head&gt;
+</pre>
+
+<p>Imported stylesheet:</p>
+<pre>
+&lt;style&gt;
+@import url("main.css")
+&lt;/style&gt;
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Inline CSS</h1></header> 
+     <section class="content"> 
+     <p>CSS styles can be assigned to individual HTML elements via the <code>style</code> attribute:</p>
+
+<pre>
+&lt;tag <strong>style="property1: value; property2: value;"</strong>&gt; &lt;/tag&gt;
+</pre>
+
+<pre>
+&lt;h1 <strong>style="color:red; text-decoration: underline;"</strong>&gt;Hello&lt;/h1&gt;
+</pre>
+
+<p>Inline styles will have precedence over all other styles. Inline CSS should be avoided as it increases maintenance cost and blurs line between presentation and content.</p>
+     </section>
+    </div>
+    
+   
    
    </div>
    

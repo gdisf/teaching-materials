@@ -18,6 +18,10 @@ handlers:
 - url: /common
   static_dir: common
   
+- url: /sitemap.xml
+  static_files: sitemap.xml
+  upload: sitemap.xml
+  
 - url: /
   static_files: index.html
   upload: index.html
