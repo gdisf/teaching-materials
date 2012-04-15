@@ -1,86 +1,15 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #FFCC73;
+.footer {
+  margin-top: 45px;
+  padding: 35px 0 36px;
+  border-top: 1px solid #E5E5E5;
 }
 
-#container
-{
-	margin: 0 auto;
-	width: 600px;
-	background:#fff;
-  padding: 10px;
+.lesson {
+  margin-top: 30px;
+  border-top: 1px solid #E5E5E5;
+  padding-top: 20px;
 }
 
-#header
-{
-	background:#FFBA40;
-	padding: 20px;
-}
-
-#header h1 { margin: 0; color: #333;}
-
-#navigation
-{
-	float: left;
-	width: 600px;
-	background: #A66A00;
-}
-
-#navigation ul
-{
-	margin: 0;
-	padding: 0;
-}
-
-#navigation ul li
-{
-	list-style-type: none;
-	display: inline;
-}
-
-#navigation li a
-{
-	display: block;
-	float: left;
-	padding: 5px 5px;
-	color:#fff;
-	text-decoration: none;
-	border-right: 1px solid#fff;
-  background: #A66A00;
-  color: #FFA200;
-  
-}
-
-#navigation li a:hover { background:#FFA200; color: #A66A00;}
-
-#content
-{
-	clear: left;
-	padding: 20px;
-}
-
-#content h2
-{
-	color:#000;
-	font-size: 160%;
-	margin: 0 0 .5em;
-}
-
-#footer
-{
-	background: #A66A00;
-  border-color: #FFCC73;
-  color: #FFA200;
-	text-align: center;
-  font-size: 60%;
-	padding: 10px;
-	height: 1%;
-}
-
-#footer a {
-  color: #FFA200;
-}
-
-a {
-  color: #A66A00;
+.lesson h2 {
+  margin-bottom: 15px;
 }

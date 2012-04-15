@@ -2,25 +2,15 @@
 <html>
  <head>
   <title>Teaching Materials: HTML &amp; CSS</title>
-  <link href="/common/styles.css" rel="stylesheet" type="text/css" />
+  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../common/styles.css" rel="stylesheet" type="text/css" />
  </head>
  <body>
- <div id="container">
+ <div class="container">
 	<div id="header">
-		<h1>
+		<h1 class="page-header">
 			Teaching Materials: HTML &amp; CSS
 		</h1>
-	</div>
-	<div id="navigation">
-		<ul>
-      <li><a href="/htmlcss/">Overview</a></li>
-			<li><a href="/htmlcss/lesson1/" title="Intro to the Web">Lesson 1</a></li>
-			<li><a href="/htmlcss/lesson2/" title="Intro to HTML">Lesson 2</a></li>
-			<li><a href="/htmlcss/lesson3/" title="Advanced HTML Tags">Lesson 3</a></li>
-			<li><a href="/htmlcss/lesson4/" title="Intro to CSS">Lesson 4</a></li>
-      <li><a href="/htmlcss/lesson5/" title="CSS Layout">Lesson 5</a></li>
-      <li><a href="/htmlcss/lesson6/" title="Creating a Web Presence">Lesson 6</a></li>
-		</ul>
 	</div>
 	<div id="content">
 		<h2>
@@ -30,12 +20,12 @@
     <p>This course is designed to give an overview of HTML &amp; CSS. There are 6 lessons:</p>
     
     <ul>
-     <li><a href="/htmlcss/lesson1/">Lesson 1: Intro to the Web</a></li>
-		 <li><a href="/htmlcss/lesson2/">Lesson 2: Intro to HTML</a></li>
-		 <li><a href="/htmlcss/lesson3/">Lesson 3: Advanced HTML Tags</a></li>
-		 <li><a href="/htmlcss/lesson4/">Lesson 4: Intro to CSS</a></li>
-     <li><a href="/htmlcss/lesson5/">Lesson 5: CSS Layout</a></li>
-     <li><a href="/htmlcss/lesson6/">Lesson 6: Creating a Web Presence</a></li>
+     <li><a href="#lesson1">Lesson 1: Intro to the Web</a></li>
+		 <li><a href="#lesson2">Lesson 2: Intro to HTML</a></li>
+		 <li><a href="#lesson3">Lesson 3: Advanced HTML Tags</a></li>
+		 <li><a href="#lesson4">Lesson 4: Intro to CSS</a></li>
+     <li><a href="#lesson5">Lesson 5: CSS Layout</a></li>
+     <li><a href="#lesson6">Lesson 6: Creating a Web Presence</a></li>
     </ul>
     
     <h3>Prerequisite</h3>
@@ -62,12 +52,208 @@
     </p>
      
     <h3>History</h3>
-    <p>This course was designed and given by <a href="http://www.pamelafox.org">Pamela Fox</a> in October 2010 as part of <a href="meetup.com/girldevelopit-sydney/">GirlDevelopIt</a> in Sydney, Australia. The course was delivered as 5 2-hour evening classes over a 2.5 week period (Monday, Wednesday, Monday, Wednesday, Monday), with lesson 1 & 2 bundled into the first class. The students were women from ages 18-50 from a range of disciplines (photography, marketing, travel, ads). 
+    <p>This course was designed and given by <a href="http://www.pamelafox.org">Pamela Fox</a> in October 2010 as part of <a href="meetup.com/girldevelopit-sydney/">GirlDevelopIt</a> in Sydney, Australia. The course was delivered as 5 2-hour evening classes over a 2.5 week period (Monday, Wednesday, Monday, Wednesday, Monday), with lesson 1 &amp; 2 bundled into the first class. The students were women from ages 18-50 from a range of disciplines (photography, marketing, travel, ads). 
     </p>
     
     <p><strong>If you are using this material and have questions/comments, feel free to leave them here or on the individual lesson pages.</strong></p>
+
+    <div id="lesson1" class="lesson">
+      <h2>
+        Lesson 1: Intro to the Web
+      </h2>
+      
+      <h3>Topics:</h3>
+      <p>Browsers, Clients, FTP</p>
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson1/slides.html">Slides</a>
+        <li><a href="lesson1/exercise_descrip.html">Exercise</a> - This exercise will need to be modified to reflect the FTP details for the students, or removed if there is no FTP access.
+       </ul>
+      <h3>Additional Reading:</h3>
+       <ul>
+        <li><a href="http://computer.howstuffworks.com/web-server.htm">How Web Servers Work</a> 
+       </ul> 
+       
+      <h3>Room for Improvement:</h3>
+       <ul>
+        <li>Add a slide explaining FTP more, like what information you have to know in order to FTP (host, port, auth).
+        <li>Consider mentioning SSH.
+       </ul>
+    </div>
+
+    <div id="lesson2" class="lesson">
+      <h2>
+        Lesson 2: Intro to HTML
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>HTML History, HTML tag syntax, Basic HTML tags</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson2/slides.html">Slides</a>
+        <li><a href="lesson2/inclass.html">In-Class Example</a>
+        <li><a href="lesson2/exercise_descrip.html">Exercise</a> and <a href="exercise_solution.html">Solution</a>
+       </ul>
+       
+       <h3>Additional Reading:</h3>
+       <ul>
+        <li><a href="http://www.htmlgoodies.com/primers/html/article.php/3478151/Web-Developer-Class-Learn-the-Basic-HTML-Tags.htm">Basic HTML Tags</a>
+       </ul>
+       
+       <h3>Room for Improvement:</h3>
+       <ul>
+        <li>Mention best practices for HTML style - using quotes, pressing enter, indenting levels.
+        <li>Consider removing TextEdit from list of editors, as it has a tendency to not save in plain text (and confuse students greatly).
+        <li>Show how to debug HTML in Firebug and Chrome developer console (element/DOM tab).
+        <li>Consider adding a slide about the difference between XML and HTML (particularly if the students had prior exposure to XHTML - as they will be confused about the different best practices).
+        <li>Add mention of additional <code>A</code> attributes, <code>target</code> (use scarcely!) and <code>name</code>.
+        <li>Re-iterate that the <code>title</code> element goes in the <code>head</code> and is not rendered on the page (this seems a matter of great confusion for newbies).
+        <li>Consider talking about the HTML as a tree structure (DOM).
+       </ul>
+    </div>
+
+    <div id="lesson3" class="lesson">
+      <h2>
+        Lesson 3: HTML Advanced Tags
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>Tables, Forms, Iframes, Embedded Objects, Video, Audio</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson3/slides.html">Slides</a>
+        <li><a href="lesson3/inclass.html">In-Class Example</a>
+        <li><a href="lesson3/exercise_descrip.html">Exercise</a> and <a href="lesson3/exercise_solution.html">Solution</a>
+       </ul>
+      
+      <h3>Additional Reading:</h3>
+       <ul>
+        <li><a href="http://diveintohtml5.org/video.html">Video on the Web</a>
+       </ul>
+      
+      <h3>Room for Improvement:</h3>
+      <ul>
+       <li>Possibly include a bit more information (a diagram?) on form->server interaction, and why the <code>name</code> attribute is important for a database-driven system.
+       <li>Consider splitting into two talks or shortening the media section, as this slideset takes longer to talk over than the others.
+       <li>To make the media part more interesting, talk about the use of some psychoacoustic tricks that improve compression.
+      </ul>
+    </div>
+
+    <div id="lesson4" class="lesson">
+      <h2>
+        Lesson 4: Intro to CSS
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>CSS Properties, Selectors</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson4/slides.html">Slides</a>
+        <li><a href="lesson4/inclass.html">In-Class Example</a> 
+        <li><a href="lesson4/exercise1_descrip.html">Exercise #1: Selectors</a> and <a href="lesson4/exercise1_solution.html">Solution</a> 
+        <li><a href="lesson4/exercise2_descrip.html">Exercise #2: Properties</a> and <a href="lesson4/exercise2_solution.html">Solution</a> 
+       </ul> 
+       
+      <h3>Additional Reading:</h3>
+       <ul>
+        <li><a href="http://css.maxdesign.com.au/selectutorial/rule.htm">Selectutorial</a> 
+        <li><a href="http://www.maxdesign.com.au/articles/font-stacks/">CSS Font Stacks</a> 
+        <li><a href="http://www.maxdesign.com.au/articles/css-cascade/">CSS Cascade</a> 
+        <li><a href="http://www.maxdesign.com.au/articles/css-inheritance/">CSS Inheritance</a> 
+        <li><a href="http://www.yourhtmlsource.com/stylesheets/csstext.html">CSS &amp; Text</a>      
+       </ul>
+       
+       <h3>Room for Improvement:</h3>
+        <ul>
+         <li>Explain how hexadecimal numbers work, and the 0-255 color space.
+         <li>Explain the "cascading" of rules better/more.
+        </ul> 
+    </div>
+
+    <div id="lesson5" class="lesson">
+      <h2>
+        Lesson 5: CSS Layout
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>Block elements, Overflow, Box Model, Float, Positioning</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+         <li><a href="lesson5/slides.html">Slides</a>
+         <li><a href="lesson5/inclass.html">In-Class Example</a> 
+         <li><a href="lesson5/exercise_grouping_descrip.html">Exercise #1: Grouping</a> and <a href="lesson5/exercise_grouping_solution.html">Solution</a> 
+         <li><a href="lesson5/exercise_boxmodel_descrip.html">Exercise #2: Box Model</a> and <a href="lesson5/exercise_boxmodel_solution.html">Solution</a> 
+         <li><a href="lesson5/exercise_layout_descrip.html">Exercise #3: Layout</a> and <a href="lesson5/exercise_layout_solution.html">Solution</a> 
+         <li><a href="lesson5/final_assignment.html">Final Assignment</a> 
+       </ul>
+       
+      <h3>Additional Reading</h3>
+        <ul> 
+         <li><a href="http://css.maxdesign.com.au/floatutorial/">Floatutorial</a> 
+         <li><a href="http://www.barelyfitz.com/screencast/html-training/css/positioning/">Learn CSS Positioning in Ten Steps</a> 
+         <li><a href="http://www.brainjar.com/css/positioning/default.asp">CSS Positioning</a>
+         <li><a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/">The CSS Layout Model</a>
+        </ul>
+      
+      <h3>Related Resources</h3>
+        <ul>
+         <li><a href="http://www.slideshare.net/sanjay2211/css-positioning-elements">Slides: CSS Positioning Elements</a>
+         <li><a href="http://www.slideshare.net/sdireland/shaping-up-with-css">Slides: Shaping Up with CSS</a>
+         <li><a href="http://www.slideshare.net/gerson.abe/css-positioning">Slides: CSS Positioning</a>
+        </ul> 
+        
+       <h3>Room for Improvement</h3>
+        <ul>
+         <li>Consider adding border-radius as an example of a new CSS3 rule.
+         <li>Consider explaining negative margins.
+         <li>Add a link to <a href="http://developer.yahoo.com/yui/grids/builder/">YUI Grids Builder</a> and similar tools.
+        </ul> 
+    </div>
+
+    <div id="lesson6" class="lesson">
+      <h2>
+        Lesson 6: Creating a Web Presence
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>Domain Registration, Server Hosting Options</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson6/slides.html">Slides</a>
+       </ul>
+      
+      <h3>Related Resources:</h3>
+       <ul>
+        <li><a href="http://en.wikipedia.org/wiki/Web_hosting_service">Wikipedia: Web hosting service</a>
+        <li><a href="http://www.slideshare.net/RealFreeWebsites.com/step-5-how-to-choose-your-domain-name">Slides: How to choose your domain name</a>
+        <li><a href="http://www.slideshare.net/courane01/purchase-your-domain-name">Slides: Purchase your domain name</a>
+        <li><a href="http://www.slideshare.net/andymatic/anatomy-of-a-domain-name-and-url">Slides: Anatomy of a URL</a>
+        <li><a href="http://www.slideshare.net/JeremyGislason/domain-names-what-you-need-to-know-about-domain-names-presentation">Slides: What you need to know about domain names</a>
+        <li><a href="http://www.slideshare.net/JeremyGislason/domain-name-registration-vital-factors-to-consider-when-registering-a-domain-name-presentation">Slides: Factors to consider when registering a domain name</a>
+       </ul>
+       
+      <h3>Room for Improvement:</h3>
+       <ul>
+        <li>Create an explanatory slide about what a web hosting provider is (someone that provides space on their own servers). Perhaps include a diagram.
+        <li>Break the hosting provider types slide into one slide for each, perhaps with diagrams.
+        <li>Mention using whois to find out who owns a domain.
+        <li>Describe what happens when domains expire.
+       </ul>
+     </div>
+
 	</div>
-	<div id="footer">
+
+	<div class="footer">
 		<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />The materials are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a>.
 	</div>
   <div id="disqus_thread"></div>
