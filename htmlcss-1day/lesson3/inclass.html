@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Pets R Us</title>
+ </head>
+ <body>
+<h1>Pets R Us</h1>
+<p>The best pet site on the net!</p>
+
+<h2>Our pets say hello!</h2>
+<embed src="http://www.youtube.com/v/nXA9xzNMhgM?fs=1&hl=en_US"
+type="application/x-shockwave-flash" width="300" height="200"/>
+
+
+<h2>Upcoming pet shows</h2>
+<iframe src="http://www.google.com/calendar/b/0/embed?height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=2koofjh7qbucmnu3enn8galooc%40group.calendar.google.com&amp;color=%23705770&amp;ctz=Australia%2FSydney" style=" border-width:0 " width="400" height="305" frameborder="0" scrolling="no"></iframe>
+
+<h2>Our pet offerings</h2>
+
+<table border="1">
+ <caption>Current pets in stock and their attributes.</caption>
+ <thead>
+  <tr>
+   <th>Name</th>
+   <th>Color</th>
+   <th>Species</th>
+   <th>Notes</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td>Pamera</td>
+   <td>Pink</td>
+   <td>Cat-Bunny Hybrid</td>
+   <td>Requires constant feeding of dark chocolate.</td>
+  </tr>
+  <tr>
+   <td>Timofee</td>
+   <td>Very Brown</td>
+   <td>Donkey</td>
+   <td>Plays a lot of Starcraft</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2>Pet order form</h2>
+<form action="mailto:admin@example.com" enctype="text/plain" method="post">
+  <label>Your Name: <input type="text" name="yourname"></label>
+  <br>
+  Species:
+    <label><input type="radio" name="species">Dog</label>
+    <label><input type="radio" name="species">Cat</label>
+    <label><input type="radio" name="species">Rabbit</label>
+  <br>
+  <label>Should they be furry?<input type="checkbox" name="furry"></label>
+  <br>
+  <label>Degree of furriness<input type="range" name="furriness"></label>
+  <br>
+  <label>Any other comments?<br>
+   <textarea rows="5" name="comments"></textarea>
+  </label>
+  <br>
+  <button type="submit">Order Pet</button>
+</form>
+
+ </body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html> 
+  <head> 
+    <!--[if gte IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]--> 
+    <!--[if lt IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <![endif]--> 
+    <meta charset="utf-8" />
+    <title>Intro to the Web</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Tangerine" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="projection, screen">
+    body {
+  font-size: 20px;
+  font-family: 'Droid Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px; top: 0px;
+}
+
+#info {
+  position: absolute;
+  bottom: 0px;
+  font-size: 10px;
+  left: 30%;
+  z-index: 500;
+}
+
+.key {
+  color: black;
+  display: inline-block;
+  padding: 3px 3px 3px 3px;
+  text-shadow: none;
+  letter-spacing: 0;
+  bottom: 5px;
+  position: relative;
+  background: white;
+}
+
+#presentation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  background: #778;
+}
+
+.slides {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: block;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  -moz-transition: -moz-transform 1s ease-in-out;
+  -o-transition: -o-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+
+  /* so it's visible in the iframe. */
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  width: 900px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  margin-top: -350px;
+  background-color: #eee;
+  background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
+  background: -moz-linear-gradient(bottom, #bbd, #fff);
+  background: linear-gradient(bottom, #bbd, #fff);
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.slide.intro {
+  text-align: center;
+  font-size: 200%;
+}
+
+.slide.intro hgroup {
+  margin-top: 200px;
+}
+
+.content {
+  font-size: 140%;
+}
+
+.content input, button {
+  font-size: 140%;
+}
+
+.content td {
+   border: 1px solid black;
+}
+
+.invalid {
+  background-color: red;
+}
+
+.slide.section,.slide.intro {
+  text-align: center;
+}
+
+.slide.section,.slide.intro header {
+  font-size: 200%;
+}
+
+.slide li {
+  margin-bottom: 10px;
+}
+
+.slide img {
+  max-height: 90%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  text-align: center;
+}
+
+.slide:nth-child(even) {
+  -moz-border-radius: 20px 0;
+  -khtml-border-radius: 20px 0;
+  border-radius: 20px 0; /* includes Opera 10.5+ */
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+}
+
+.slide:nth-child(odd) {
+  -moz-border-radius: 0 20px;
+  -khtml-border-radius: 0 20px;
+  border-radius: 0 20px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+}
+
+.slide p, .slide textarea {
+  font-size: 120%;
+}
+
+.slide .counter {
+  color: #999999;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: block;
+  font-size: 70%;
+}
+
+.slide.title > .counter,
+.slide.segue > .counter,
+.slide.mainTitle > .counter {
+  display: none;
+}
+
+.force-render {
+  display: block;
+  visibility: hidden;
+}
+
+.slide.far-past {
+  display: block;
+  margin-left: -2400px;
+}
+
+.slide.past {
+  visibility: visible;
+  display: block;
+  margin-left: -1400px;
+}
+
+.slide.current {
+  visibility: visible;
+  display: block;
+  margin-left: -450px;
+}
+
+.slide.future {
+  visibility: visible;
+  display: block;
+  margin-left: 500px;
+}
+
+.slide.far-future {
+  display: block;
+  margin-left: 1500px;
+}
+
+body.three-d div.slides {
+  -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  transform: translateX(50px) scale(0.8) rotateY(10deg);
+}
+
+/* Content */
+header {
+  font-weight: normal;
+  letter-spacing: -.05em;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  left: 30px;
+  top: 25px;
+  font-size: 140%;
+}
+
+h1 {
+  font-size: 140%;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 90%;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+section, footer {
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin: 20px 30px 0;
+  display: block;
+  overflow: hidden;
+}
+
+footer {
+  font-size: 100%;
+  margin: 20px 0 0 30px;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 110%;
+  border-bottom: 2px solid #3f3f3f;
+}
+
+pre {
+  text-align: left;
+  font-size: 80%;
+  padding: 10px 20px;
+  background: rgba(255, 0, 0, 0.05);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  bord3r: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+pre b {
+  font-weight: normal;
+  color: #c61800;
+  text-shadow: #c61800 0 0 1px;
+  /*letter-spacing: -1px;*/
+}
+
+pre em {
+  font-weight: normal;
+  font-style: normal;
+  color: #18a600;
+  text-shadow: #18a600 0 0 1px;
+}
+
+div.example {
+  display: block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+video {
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+:not(header) > .key {
+  margin: 0 5px;
+  bottom: 4px;
+}
+
+#presentation-counter {
+  color: #ccc;
+  font-size: 70%;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+div:not(.current).reduced {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.no-transitions {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.no-gradients {
+  background: none;
+  background-color: #fff;
+}
+
+    </style>
+    
+    <style type="text/css" media="print">
+.slide {
+  page-break-inside: avoid;
+  page-break-after: always;
+  visibility: visible !important;
+  font-size: 20pt;
+  font-family: Arial, sans-serif;
+}
+
+@page {
+  size: landscape;
+}
+
+body {
+  font-size: 12pt;
+  background: white;
+}
+
+header h1 {
+  border-top: 2pt solid gray;
+  border-bottom: 1px dotted silver;
+}
+
+#presentation-counter, #info, .counter {
+  display: none
+}
+    </style>
+    
+  </head> 
+  <body> 
+  
+  <div id="info">
+    <p>Press <span class="key">&rarr;</span> key to advance. Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>.</p>
+  </div>
+  
+  <div id="presentation">
+  
+   <div id="presentation-counter"></div>
+      
+   <div id="slides">
+   
+    
+    <div class="slide intro">
+     <header><hgroup> 
+      <h1>Intro to the Web</h1> 
+      <h2></h2>
+     </hgroup></header>
+    </div> 
+  
+    
+    
+    <div class="slide normal"> 
+     <header><h1>The Web</h1></header> 
+     <section class="content"> 
+     <img src="diagram_web.png" alt="web diagram">
+     </section>
+    </div>
+    
+   
+    
+    <div class="slide normal"> 
+     <header><h1>Clients</h1></header> 
+     <section class="content"> 
+     <p>Clients are computers that access the web in any way.</p>
+     <img src="diagram_clients.png" alt="clients">
+     </section>
+    </div>
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Servers</h1></header> 
+     <section class="content"> 
+     <p>Servers are just programs running on a computer that serve up content.</p>
+     <p>Sometimes they serve up static files, and are exposed like a file system.</p>
+     <p>Sometimes they can be scripted using "server-side" programming languages (PHP, Python, Perl, Java, etc.) to serve more dynamic pages.
+     </p>
+     </section>
+    </div>
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Browsers</h1></header> 
+     <section class="content"> 
+     <p>Browsers are programs that render content on the web, most often HTML pages and related resources.</p>
+     <p>HTML is a "markup language" that describes a webpage. When you're on a webpage, you can "view source" to see the HTML that the browser is rendering.</p>
+     <img style="width:400px" src="screenshot_viewsource.png">
+     </section>
+    </div>
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Browsers</h1></header> 
+     <section class="content"> 
+     <p>Various companies and organizations provide browsers, and each browser varies in how it displays webpages.</p>
+     <img src="diagram_browsers.png">
+     <p><a href="http://en.wikipedia.org/wiki/Comparison_of_web_browsers#Release_history">Current browser versions</a></p>
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>Browser Parts</h1></header> 
+     <section class="content"> 
+     <p>A browser is made up of multiple parts, and some parts are shared across browsers.</p>
+     <img src="diagram_browserparts.png">
+     <p><a href="http://en.wikipedia.org/wiki/Web_browser_engine">Rendering engine</a>, <a href="http://en.wikipedia.org/wiki/JavaScript_engine#JavaScript_engines">JS Engines</a>, <a href="http://taligarsiel.com/Projects/howbrowserswork1.htm">How browsers work</a>
+     </p>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Browser Usage</h1></header> 
+     <section class="content"> 
+     <p>Browser popularity varies year by year. Developers must decide which browsers they want their webpage to work well in.</p>
+      <img style="width:400px; float: left; margin-right: 15px;" src="diagram_browsershare.png">
+      <p><a href="http://en.wikipedia.org/wiki/Usage_share_of_web_browsers#StatCounter_.28July_2008_to_present.29">Current browser stats</a></p>
+     </section>
+    </div>
+    
+
+    <div class="slide normal"> 
+     <header><h1>The Web</h1></header> 
+     <section class="content"> 
+     <img src="http://www.gliffy.com/gliffy/api/clientdiagram?did=2216214&type=PNG&size=L" alt="web diagram">
+     </section>
+    </div>
+    
+   
+   </div>
+   
+  </div>
+  
+  <script>
+  (function() {
+  var doc = document;
+  var disableBuilds = true;
+
+  var ctr = 0;
+  var spaces = /\s+/, a1 = [''];
+
+  var toArray = function(list) {
+    return Array.prototype.slice.call(list || [], 0);
+  };
+
+  var byId = function(id) {
+    if (typeof id == 'string') { return doc.getElementById(id); }
+    return id;
+  };
+
+  var query = function(query, root) {
+    if (!query) { return []; }
+    if (typeof query != 'string') { return toArray(query); }
+    if (typeof root == 'string') {
+      root = byId(root);
+      if(!root){ return []; }
+    }
+
+    root = root || document;
+    var rootIsDoc = (root.nodeType == 9);
+    var doc = rootIsDoc ? root : (root.ownerDocument || document);
+
+    // rewrite the query to be ID rooted
+    if (!rootIsDoc || ('>~+'.indexOf(query.charAt(0)) >= 0)) {
+      root.id = root.id || ('qUnique' + (ctr++));
+      query = '#' + root.id + ' ' + query;
+    }
+    // don't choke on something like ".yada.yada >"
+    if ('>~+'.indexOf(query.slice(-1)) >= 0) { query += ' *'; }
+
+    return toArray(doc.querySelectorAll(query));
+  };
+
+  var strToArray = function(s) {
+    if (typeof s == 'string' || s instanceof String) {
+      if (s.indexOf(' ') < 0) {
+        a1[0] = s;
+        return a1;
+      } else {
+        return s.split(spaces);
+      }
+    }
+    return s;
+  };
+
+  var addClass = function(node, classStr) {
+    classStr = strToArray(classStr);
+    var cls = ' ' + node.className + ' ';
+    for (var i = 0, len = classStr.length, c; i < len; ++i) {
+      c = classStr[i];
+      if (c && cls.indexOf(' ' + c + ' ') < 0) {
+        cls += c + ' ';
+      }
+    }
+    node.className = cls.trim();
+  };
+
+  var removeClass = function(node, classStr) {
+    var cls;
+    if (classStr !== undefined) {
+      classStr = strToArray(classStr);
+      cls = ' ' + node.className + ' ';
+      for (var i = 0, len = classStr.length; i < len; ++i) {
+        cls = cls.replace(' ' + classStr[i] + ' ', ' ');
+      }
+      cls = cls.trim();
+    } else {
+      cls = '';
+    }
+    if (node.className != cls) {
+      node.className = cls;
+    }
+  };
+
+  var toggleClass = function(node, classStr) {
+    var cls = ' ' + node.className + ' ';
+    if (cls.indexOf(' ' + classStr.trim() + ' ') >= 0) {
+      removeClass(node, classStr);
+    } else {
+      addClass(node, classStr);
+    }
+  };
+
+  var ua = navigator.userAgent;
+  var isFF = parseFloat(ua.split('Firefox/')[1]) || undefined;
+  var isWK = parseFloat(ua.split('WebKit/')[1]) || undefined;
+  var isOpera = parseFloat(ua.split('Opera/')[1]) || undefined;
+
+  var canTransition = (function() {
+  var ver = parseFloat(ua.split('Version/')[1]) || undefined;
+  // test to determine if this browser can handle CSS transitions.
+  var cachedCanTransition = 
+    (isWK || (isFF && isFF > 3.6 ) || (isOpera && ver >= 10.5));
+    return function() { return cachedCanTransition; }
+  })();
+
+  //
+  // Slide class
+  //
+  var Slide = function(node, idx) {
+    this._node = node;
+    if (idx >= 0) {
+      this._count = idx + 1;
+    }
+    if (this._node) {
+      addClass(this._node, 'slide distant-slide');
+    }
+    this._makeCounter();
+    this._makeBuildList();
+  };
+
+  Slide.prototype = {
+    _node: null,
+    _count: 0,
+    _buildList: [],
+    _visited: false,
+    _currentState: '',
+    _states: [ 'distant-slide', 'far-past',
+               'past', 'current', 'future',
+               'far-future', 'distant-slide' ],
+    setState: function(state) {
+      if (typeof state != 'string') {
+        state = this._states[state];
+      }
+      if (state == 'current' && !this._visited) {
+        this._visited = true;
+        this._makeBuildList();
+      }
+      removeClass(this._node, this._states);
+      addClass(this._node, state);
+      this._currentState = state;
+
+      // delay first auto run. Really wish this were in CSS.
+      /*
+      this._runAutos();
+      */
+      var _t = this;
+      setTimeout(function(){ _t._runAutos(); } , 400);
+    },
+    _makeCounter: function() {
+      if(!this._count || !this._node) { return; }
+      var c = doc.createElement('span');
+      c.innerHTML = this._count;
+      c.className = 'counter';
+      this._node.appendChild(c);
+    },
+    _makeBuildList: function() {
+      this._buildList = [];
+      if (disableBuilds) { return; }
+      if (this._node) {
+        this._buildList = query('[data-build] > *', this._node);
+      }
+      this._buildList.forEach(function(el) {
+        addClass(el, 'to-build');
+      });
+    },
+    _runAutos: function() {
+      if (this._currentState != 'current') {
+        return;
+      }
+      // find the next auto, slice it out of the list, and run it
+      var idx = -1;
+      this._buildList.some(function(n, i) {
+        if (n.hasAttribute('data-auto')) {
+          idx = i;
+          return true;
+        }
+        return false;
+      });
+      if (idx >= 0) {
+        var elem = this._buildList.splice(idx, 1)[0];
+        var transitionEnd = isWK ? 'webkitTransitionEnd' : (isFF ? 'mozTransitionEnd' : 'oTransitionEnd');
+        var _t = this;
+        if (canTransition()) {
+          var l = function(evt) {
+            elem.parentNode.removeEventListener(transitionEnd, l, false);
+            _t._runAutos();
+          };
+          elem.parentNode.addEventListener(transitionEnd, l, false);
+          removeClass(elem, 'to-build');
+        } else {
+          setTimeout(function() {
+            removeClass(elem, 'to-build');
+            _t._runAutos();
+          }, 400);
+        }
+      }
+    },
+    buildNext: function() {
+      if (!this._buildList.length) {
+        return false;
+      }
+      removeClass(this._buildList.shift(), 'to-build');
+      return true;
+    },
+  };
+
+  //
+  // SlideShow class
+  //
+  var SlideShow = function(slides) {
+    this._slides = (slides || []).map(function(el, idx) {
+      return new Slide(el, idx);
+    });
+
+    var h = window.location.hash;
+    try {
+      this.current = parseInt(h.split('#slide')[1], 10);
+    }catch (e) { /* squeltch */ }
+    this.current = isNaN(this.current) ? 1 : this.current;
+    var _t = this;
+    doc.addEventListener('keydown', 
+        function(e) { _t.handleKeys(e); }, false);
+    doc.addEventListener('mousewheel', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('DOMMouseScroll', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('touchstart', 
+        function(e) { _t.handleTouchStart(e); }, false);
+    doc.addEventListener('touchend', 
+        function(e) { _t.handleTouchEnd(e); }, false);
+    window.addEventListener('popstate',
+        function(e) { _t.go(e.state); }, false);
+    this._update();
+  };
+
+  SlideShow.prototype = {
+    _slides: [],
+    _update: function(dontPush) {
+      document.querySelector('#presentation-counter').innerText = this.current;
+      if (history.pushState) {
+        if (!dontPush) {
+          history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+        }
+      } else {
+        window.location.hash = 'slide' + this.current;
+      }
+      for (var x = this.current-1; x < this.current + 7; x++) {
+        if (this._slides[x-4]) {
+          this._slides[x-4].setState(Math.max(0, x-this.current));
+        }
+      }
+    },
+
+    current: 0,
+    next: function() {
+      if (!this._slides[this.current-1].buildNext()) {
+        this.current = Math.min(this.current + 1, this._slides.length);
+        this._update();
+      }
+    },
+    prev: function() {
+      this.current = Math.max(this.current-1, 1);
+      this._update();
+    },
+    go: function(num) {
+      if (!num) return;
+      if (history.pushState && this.current != num) {
+        history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+      }
+      this.current = num;
+      this._update(true);
+    },
+
+    _notesOn: false,
+    showNotes: function() {
+      var isOn = this._notesOn = !this._notesOn;
+      query('.notes').forEach(function(el) {
+        el.style.display = (notesOn) ? 'block' : 'none';
+      });
+    },
+    switch3D: function() {
+      toggleClass(document.body, 'three-d');
+    },
+    handleWheel: function(e) {
+      var delta = 0;
+      if (e.wheelDelta) {
+        delta = e.wheelDelta/120;
+        if (isOpera) {
+          delta = -delta;
+        }
+      } else if (e.detail) {
+        delta = -e.detail/3;
+      }
+
+      if (delta > 0 ) {
+        this.prev();
+        return;
+      }
+      if (delta < 0 ) {
+        this.next();
+        return;
+      }
+    },
+    handleKeys: function(e) {
+      
+      if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
+      
+      switch (e.keyCode) {
+        case 37: // left arrow
+          this.prev(); break;
+        case 39: // right arrow
+        case 32: // space
+          this.next(); break;
+        case 50: // 2
+          this.showNotes(); break;
+        case 51: // 3
+          this.switch3D(); break;
+      }
+    },
+    _touchStartX: 0,
+    handleTouchStart: function(e) {
+      this._touchStartX = e.touches[0].pageX;
+    },
+    handleTouchEnd: function(e) {
+      var delta = this._touchStartX - e.changedTouches[0].pageX;
+      var SWIPE_SIZE = 150;
+      if (delta > SWIPE_SIZE) {
+        this.next();
+      } else if (delta< -SWIPE_SIZE) {
+         this.prev();
+       }
+    },
+  };
+
+  // Initialize
+  var slideshow = new SlideShow(query('.slide'));
+})();
+
+  </script>
+  <!--[if lt IE 9]>
+  <script 
+  src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({ mode: "overlay" });</script>
+  <![endif]--> 
+  </body> 
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Teaching Materials: HTML &amp; CSS (One-Day)</title>
+  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../common/styles.css" rel="stylesheet" type="text/css" />
+ </head>
+ <body>
+ <div class="container">
+	<div id="header">
+		<h1 class="page-header">
+			Teaching Materials: HTML &amp; CSS (One-Day)
+		</h1>
+	</div>
+	<div id="content">
+		<h2>
+			Overview
+		</h2>
+    
+    <p>This course gives an overview of HTML &amp; CSS, with some mention of newer HTML5 features.
+    There are 5 lessons, and they can be given in a one-day workshop:</p>
+    
+    <ul>
+     <li><a href="#lesson1">Lesson 1: Intro to the Web</a></li>
+		 <li><a href="#lesson2">Lesson 2: Intro to HTML</a></li>
+		 <li><a href="#lesson3">Lesson 3: Advanced HTML Tags</a></li>
+		 <li><a href="#lesson4">Lesson 4: Intro to CSS</a></li>
+     <li><a href="#lesson5">Lesson 5: CSS Layout</a></li>
+    </ul>
+    
+    <h3>Prerequisite</h3>
+    <p>The students should be familiar with the web as a user, but do not need to have any programming or markup language experience.</p>
+    
+    <h3>Materials</h3>
+    
+    <p>Each lesson includes:</p>
+
+     <ul>
+      <li><b>Slides</b>: An HTML5-based slideset (<em>not</em> a PowerPoint) which actually embeds the actual HTML tags being described in order to better demonstrate them.
+      <li><b>In-class example</b>: An example of what the teacher should build up during the course of the lesson, switching between talking over the slides and demonstrating the concepts in the example page. 
+      <li><b>Exercise(s)</b>: These can be started in class and then continued outside of it, and the teacher can decide when to reveal the solution for the exercises. For the most part, the solution to an exercise serves as the starting point for the next exercise. 
+      <li><b>Additional Reading</b>: Links that teachers can recommend students read after a lesson.
+      <li><b>Related Resources</b>: Slides or tutorials that were useful in the creation of the lesson content. Teachers can visit these to get an idea of how other people present the content.
+      <li><b>Room for Improvement</b>: A list of ways that the particular lesson might be improved.
+     </ul>
+    
+    <p>The materials from the above lessons(slides, examples, exercises) can be downloaded in <a href="htmlcss-1day.zip">this zip file</a>.</p>
+    
+    <h3>Related Resources</h3>
+    
+    <p>The content for the slides was based on consultation with a number of fantastic online resources, including the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/">HTML5 specification</a>, <a href="http://interact.webstandards.org/">WASP Interact Curriculum</a>, and the <a href="http://www.opera.com/company/education/curriculum/">Opera Web Standards Curriculum</a>. Those are recommended reading for teachers of this course.
+    </p>
+     
+    <h3>History</h3>
+    <p>This course was given by <a href="http://www.pamelafox.org">Pamela Fox</a> on April 15, 2012 as part of <a href="www.meetup.com/Girl-Develop-It-San-Francisco/">GirlDevelopIt</a> in San Francisco, California. The course was delivered on a single Saturday, starting at 9:30am and ending at 6pm.
+    </p>
+    
+    <p><strong>If you are using this material and have questions/comments, feel free to leave them here or on the individual lesson pages.</strong></p>
+
+    <div id="lesson1" class="lesson">
+      <h2>
+        Lesson 1: Intro to the Web
+      </h2>
+      
+      <h3>Topics:</h3>
+      <p>Browsers, Clients</p>
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson1/slides.html">Slides</a>
+        <li>Exercise: if students don't already have a modern browser (Chrome/FF), make them download one.
+       </ul>
+      <h3>Additional Reading:</h3>
+       <ul>
+        <li><a href="http://computer.howstuffworks.com/web-server.htm">How Web Servers Work</a> 
+       </ul> 
+      
+    </div>
+
+    <div id="lesson2" class="lesson">
+      <h2>
+        Lesson 2: Intro to HTML
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>HTML History, HTML tag syntax, Basic HTML tags</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson2/slides.html">Slides</a>
+        <li><a href="lesson2/inclass.html">In-Class Example</a>
+        <li>Exercise: if students don't already have a text editor, make them download one or use Cloud9.
+        <li><a href="lesson2/exercise_descrip.html">Exercise</a> and <a href="exercise_solution.html">Solution</a>
+       </ul>
+       
+       <h3>Additional Reading:</h3>
+       <ul>
+        <li><a href="http://www.htmlgoodies.com/primers/html/article.php/3478151/Web-Developer-Class-Learn-the-Basic-HTML-Tags.htm">Basic HTML Tags</a>
+       </ul>
+       
+       <h3>Room for Improvement:</h3>
+       <ul>
+        <li>Consider adding a slide about the difference between XML and HTML (particularly if the students had prior exposure to XHTML - as they will be confused about the different best practices).
+        <li>Re-iterate that the <code>title</code> element goes in the <code>head</code> and is not rendered on the page (this seems a matter of great confusion for newbies).
+        <li>Consider talking about the HTML as a tree structure (DOM).
+        <li>Consider downloading a screen reader and having them hear a page read aloud, so that they understand the need for accessibile HTML.
+        <li>Make the HTML history slide more concise (less text-y). Clarify what was wrong with IETF's standard (why W3C was needed).
+        <li>Consider explaining <code>meta charset</code> and encoding.
+       </ul>
+    </div>
+
+    <div id="lesson3" class="lesson">
+      <h2>
+        Lesson 3: HTML Advanced Tags
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>Tables, Forms, Iframes, Embedded Objects, Video, Audio</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson3/slides.html">Slides</a>
+        <li><a href="lesson3/inclass.html">In-Class Example</a>
+        <li><a href="lesson3/exercise_descrip.html">Exercise</a> and <a href="lesson3/exercise_solution.html">Solution</a>
+       </ul>
+      
+      <h3>Additional Reading:</h3>
+       <ul>
+        <li><a href="http://diveintohtml5.org/video.html">Video on the Web</a>
+       </ul>
+      
+      <h3>Room for Improvement:</h3>
+      <ul>
+       <li>Add a slide on "Forms in HTML5": input type="email", "url", form validation.
+       <li>Possibly include a bit more information (a diagram?) on form->server interaction, and why the <code>name</code> attribute is important for a database-driven system, perhaps set up a basic server side script for users to post to, and show the code for that on the slide.
+       <li>Replace Google search example with a user login or guestbook example, as that is more intuitive.
+       <li>Add a single slide on "Multimedia in HTML5" - video/audio tag.
+       <li>Consider removing object/embed entirely, as it's only used in copy/paste (and iframe is more common now anyway).
+       <li>Check on URL for beatingheart.swf, store it locally. (404 now?)
+      </ul>
+    </div>
+
+    <div id="lesson4" class="lesson">
+      <h2>
+        Lesson 4: Intro to CSS
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>CSS Properties, Selectors</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+        <li><a href="lesson4/slides.html">Slides</a>
+        <li><a href="lesson4/inclass.html">In-Class Example</a> 
+        <li><a href="lesson4/exercise1_descrip.html">Exercise #1: Selectors</a> and <a href="lesson4/exercise1_solution.html">Solution</a> 
+        <li><a href="lesson4/exercise2_descrip.html">Exercise #2: Properties</a> and <a href="lesson4/exercise2_solution.html">Solution</a> 
+       </ul> 
+       
+      <h3>Additional Reading:</h3>
+       <ul>
+        <li><a href="http://css.maxdesign.com.au/selectutorial/rule.htm">Selectutorial</a> 
+        <li><a href="http://www.maxdesign.com.au/articles/font-stacks/">CSS Font Stacks</a> 
+        <li><a href="http://www.maxdesign.com.au/articles/css-cascade/">CSS Cascade</a> 
+        <li><a href="http://www.maxdesign.com.au/articles/css-inheritance/">CSS Inheritance</a> 
+        <li><a href="http://www.yourhtmlsource.com/stylesheets/csstext.html">CSS &amp; Text</a>      
+       </ul>
+       
+       <h3>Room for Improvement:</h3>
+        <ul>
+         <li>Start off by showing CSS Zen garden, to really demonstrate how CSS can change style.
+         <li>Explain the "cascading" of rules better/more.
+         <li>Consider adding attribute selection, like <code>input[type="text"]</code>.
+         <li>Include a slide on debugging CSS - show example of when rules break (invalid property value), 
+         show changing properties, adding styles, viewing :hover properties.
+         <li>Clarify font-size section better, it's confusing now. Maybe change order that the units are explained in.
+         Possibly introduce rem sizing.
+         <li>Consider adding a slide on selectors in CSS3 (nth child, odd, etc).
+         <li>Show whatthefont.com, Google fonts + browser extension.
+        </ul> 
+    </div>
+
+    <div id="lesson5" class="lesson">
+      <h2>
+        Lesson 5: CSS Layout
+      </h2>
+      
+      <h3>Topics:</h3>
+      
+      <p>Block elements, Overflow, Box Model, Float, Positioning</p>
+      
+      <h3>Materials:</h3>
+       <ul> 
+         <li><a href="lesson5/slides.html">Slides</a>
+         <li><a href="lesson5/inclass.html">In-Class Example</a> 
+         <li><a href="lesson5/exercise_grouping_descrip.html">Exercise #1: Grouping</a> and <a href="lesson5/exercise_grouping_solution.html">Solution</a> 
+         <li><a href="lesson5/exercise_boxmodel_descrip.html">Exercise #2: Box Model</a> and <a href="lesson5/exercise_boxmodel_solution.html">Solution</a> 
+         <li><a href="lesson5/exercise_layout_descrip.html">Exercise #3: Layout</a> and <a href="lesson5/exercise_layout_solution.html">Solution</a> 
+       </ul>
+       
+      <h3>Additional Reading</h3>
+        <ul> 
+         <li><a href="http://css.maxdesign.com.au/floatutorial/">Floatutorial</a> 
+         <li><a href="http://www.barelyfitz.com/screencast/html-training/css/positioning/">Learn CSS Positioning in Ten Steps</a> 
+         <li><a href="http://www.brainjar.com/css/positioning/default.asp">CSS Positioning</a>
+         <li><a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/">The CSS Layout Model</a>
+        </ul>
+      
+      <h3>Related Resources</h3>
+        <ul>
+         <li><a href="http://www.slideshare.net/sanjay2211/css-positioning-elements">Slides: CSS Positioning Elements</a>
+         <li><a href="http://www.slideshare.net/sdireland/shaping-up-with-css">Slides: Shaping Up with CSS</a>
+         <li><a href="http://www.slideshare.net/gerson.abe/css-positioning">Slides: CSS Positioning</a>
+        </ul> 
+        
+       <h3>Room for Improvement</h3>
+        <ul>
+         <li>The timing of when span is introduced is a bit awkward. Maybe change.
+         <li>Consider adding a slide on CSS3 features (border-radius, etc).
+         <li>Consider explaining negative margins.
+         <li><em>(The following slides might better belong in a new slideset)</em>
+         <li>Add a slide on HTML/CSS frameworks:
+         <a href="http://developer.yahoo.com/yui/grids/builder/">YUI Grids Builder</a>,
+         <a href="http://html5boilerplate.com">HTML5 Boilerplate</a>,
+         <a href="http://foundation.zurb.com/">ZURB Foundation</a>, and
+         <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a> (show BuiltWithBootstrap too).
+         <li>Add an exercise where the student uses Bootstrap as the base CSS for the page.
+         <li>Add an exercise (or modify final exercise) where the student moves their CSS into an external file.
+         <li>Add a slide on cross-browser testing/HTML5 compatibility, with links to 
+         <a href="http://browserstack.com">BrowserStack
+         <a href="http://caniuse.com/">caniuse.com</a>, <a href="http://html5please.com/">html5please.com</a>,
+         <a href="http://pamelafox.github.com/resolutionizer/">resolutionizer</a>.
+         <li>Add slide about "getting help" when learning HTML: jsfiddle, IRC.
+         <li>Consider adding slide about how to find designers (99designs, dribble).
+         <li>Consider adding a slide on media queries and changing CSS at different resolutions.
+        </ul> 
+    </div>
+
+	</div>
+
+	<div class="footer">
+		<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />The materials are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a>.
+	</div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'teaching-materials'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    var disqus_identifier = 'htmlcss_1day';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+ </body>
+</html>
