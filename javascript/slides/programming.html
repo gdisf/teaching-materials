@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+<head>
+<title>Intro to Programming</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/presentation.css" />
+<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/fathom.js"></script>
+<script src="js/prettify.js"></script>
+<script>
+$(document).ready(function(){
+    $('pre').addClass('prettyprint').attr('tabIndex', 0);
+    prettyPrint();
+    
+    var fathom = $('#presentation').fathom({
+        onActivateSlide: function() {
+            var $slide = $(this);
+            $slide.find('pre:first').focus();
+        }
+    });
+});
+</script>
+</head>
+<body>
+
+  <div id="presentation">
+    
+    <div class="slide section"> 
+     <header><h1>Intro to Programming</header>
+    </div> 
+  
+    
+    
+    <div class="slide normal"> 
+     <header><h1>What is programming?</h1></header> 
+     <section class="content"> 
+     <img style="width: 95%;" src="http://panther.110mb.com/3d-game-writing/pictures/dumb_computer3.gif">
+
+    <p class="speaker-notes" style="display:none">
+    A way of telling the computer what to do - commands.
+    Computers can only do very basic things, but programs can put together basic commands to achieve complexity. (adders) Computers can execute sequences of basic commands quite fast.
+    </p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Types of Programming</h1></header> 
+     <section class="content"> 
+     <img style="width: 95%;" src="http://dl.dropbox.com/u/10998095/Screenshots/-21emdw8tl99.png">
+
+<p class="speaker-notes" style="display:none">
+Machine code: picture of punch cards
+Assembly language
+Higher-order language: gives programmer more abstract ways to express selves, take care of unnecessary details, common constructs
+How one turns into an other: compiler
+Diagram of all of them
+Where JavaScript fits in
+http://moss.csc.ncsu.edu/~mueller/codeopt/codeopt00/notes/intro.html
+http://en.wikipedia.org/wiki/Assembly_language#Example_listing_of_assembly_language_source_code
+Basically: storing data in memory, manipulating it, doing something with result
+http://www.play-hookey.com/computers/language_levels.html
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Machine Code</h1></header> 
+     <section class="content"> 
+<table border="1" cellspacing="0" cellpadding="0" width="727" style="font-size: 16px;">
+ <tbody><tr style="height:47.55pt">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:47.55pt">
+  <p class="MsoBodyText">Location
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:47.55pt">
+  <p class="MsoBodyText">Instruction Code
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:47.55pt">
+  <p class="MsoBodyText">Comments</p>
+  </td>
+ </tr>
+ <tr style="height:19.75pt">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">100</p>
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">0010 0001 0000 0100</p>
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">Load first operand into AC</p>
+  </td>
+ </tr>
+ <tr style="height:.3in">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:.3in">
+  <p class="MsoBodyText">101</p>
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:.3in">
+  <p class="MsoBodyText">0001 0001 0000 0101</p>
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:.3in">
+  <p class="MsoBodyText">Add second operand to AC</p>
+  </td>
+ </tr>
+ <tr style="height:19.75pt">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">102</p>
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">0011 0001 0000 0110</p>
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">Store sum in location 106</p>
+  </td>
+ </tr>
+ <tr style="height:19.75pt">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">103</p>
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">0111 0000 0000 0001</p>
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">Halt computer</p>
+  </td>
+ </tr>
+ <tr style="height:19.75pt">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">104</p>
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">0000 0000 0101 0011</p>
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">83 decimal</p>
+  </td>
+ </tr>
+ <tr style="height:19.75pt">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">105</p>
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">1111 1111 1111 1110</p>
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">-2 decimal</p>
+  </td>
+ </tr>
+ <tr style="height:19.75pt">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">106</p>
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">0000 0000 0000 0000</p>
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:19.75pt">
+  <p class="MsoBodyText">Store sum here</p>
+  </td>
+ </tr>
+</tbody></table>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Assembly Language</h1></header> 
+     <section class="content"> 
+   <table border="1" cellspacing="0" cellpadding="0" style="font-size: 16px;">
+ <tbody>
+<tr style="height:47.55pt">
+  <td width="71" valign="top" style="width:53.6pt;padding:0in 5.4pt 0in 5.4pt;
+  height:47.55pt">
+  <p class="MsoBodyText">Location
+  </td>
+  <td width="219" valign="top" style="width:164.3pt;padding:0in 5.4pt 0in 5.4pt;
+  height:47.55pt">
+  <p class="MsoBodyText">Instruction Code
+  </td>
+  <td width="221" valign="top" style="width:165.7pt;padding:0in 5.4pt 0in 5.4pt;
+  height:47.55pt">
+  <p class="MsoBodyText">Comments</p>
+  </td>
+ </tr>
+<tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText"><o:p></o:p></p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">ORG 100</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">/Origin of program is location 100</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">LDA A</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">/Load operand from location A</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">ADD B</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">/Add operation form location B</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">STA C</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">/Store sum in location C</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">HLT</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">/Halt computer</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">A,</p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">DEC 83</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">/Decimal operand</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">B,</p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">DEC -2</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">/Decimal operand</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">C,</p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">DEC 0</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">/Sum stored in location C</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="38" valign="top" style="width:28.5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></p>
+  </td>
+  <td width="84" valign="top" style="width:63.15pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText">END</p>
+  </td>
+  <td width="242" valign="top" style="width:181.8pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoBodyText"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></p>
+  </td>
+ </tr>
+</tbody></table>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>High-Level Language</h1></header> 
+     <section class="content"> 
+     Java:
+<pre>
+int a, b, c;
+a = 83;
+b = -2;
+c = a + b;
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Compiled vs. Interpreted</h1></header> 
+     <section class="content"> 
+<img class="center" src="http://dl.dropbox.com/u/10998095/Screenshots/h31-pn0904xo.png">
+<br><br>
+<a href="http://xkcd.com/303/">XKCD: "Compiling!"</a>
+
+<p class="speaker-notes" style="display:none">
+Java?
+http://en.wikipedia.org/wiki/Compiled_language
+http://en.wikipedia.org/wiki/Interpreted_language
+</p>
+
+     </section>
+    </div>
+
+ </div>
+</body>

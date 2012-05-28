@@ -1,0 +1,116 @@
+// if > <
+var perfectTemp = 72;
+var todaysTemp  = 72;
+if (todaysTemp == perfectTemp) {
+  console.log('Its just right!!');
+}
+if (todaysTemp > perfectTemp) {
+  console.log('Its too hot!');
+}
+if (todaysTemp < perfectTemp) {
+  console.log('Its too cold!');
+}
+
+// &&
+var movieIsActionFlick = true;
+var movieCost = 0;
+
+if (movieIsActionFlick === true && movieCost < 1) {
+    console.log('Okay fine Ill watch it');
+}
+
+// || 
+var movieHasBradPitt = true;
+var movieHasJohnnyDepp = false;
+
+if (movieHasBradPitt === true || movieHasJohnnyDepp === true) {
+    console.log('Ill DEFINITELY watch it');
+}
+
+// !
+
+if (movieCost > 15 && movieIsActionFlick) {
+    console.log('So expensive! NOT WATCHING');
+}
+
+if (!(movieCost > 15 && movieIsActionFlick)) {
+    console.log('Cheap enough for me');
+}
+
+// Truthy falsy
+
+if (movieIsActionFlick && movieCost < 1) {
+    console.log('Okay fine Ill watch it');
+}
+
+if (movieHasBradPitt || movieHasJohnnyDepp) {
+    console.log('Ill DEFINITELY watch it');
+}
+
+if (!movieCost) {
+    console.log('Its not free!');
+}
+
+// if else
+if (movieHasBradPitt) {
+    console.log('Def watch it');
+} else {
+    console.log('Who else is in it?');
+}
+
+// if else if
+if (movieHasBradPitt) {
+    console.log('Def watch it');
+} else if (movieCost === 0) {
+    console.log('Free, might as well');
+} else if (movieIsActionFlick) {
+    console.log('Nah I dont like action flicks');
+} else {
+    console.log('I cant decide!');
+}
+
+
+
+// while
+var countdown = 10;
+while (countdown > 0) {
+    console.log(countdown);
+    countdown--;
+}
+
+var countdown = 10;
+while (countdown > 0) {
+    if (countdown > 1) {
+        console.log(countdown + '...');
+    } else {
+        console.log(countdown + '!');
+    }
+    countdown--;
+}
+
+// for
+for (var i = 10; i > 0; i--) {
+    console.log(i);
+}
+
+
+// Arrays
+var children = ['Oliver', 'Pamela', 'Hunter'];
+
+console.log('My dad has ' + children.length + ' children');
+
+console.log('His first kid was ' + children[0]);
+
+console.log('His second kid was ' + children[1]);
+
+console.log('His third kid was ' + children[2]);
+
+children.push('Alexis');
+
+console.log('His fourth kid was ' + children[3]);
+
+console.log('His last kid was ' + children[(children.length - 1)]);
+
+for (var i = 0; i < children.length; i++) {
+    console.log('Kid #' + (i+ 1) + ' : ' + children[i]);
+}

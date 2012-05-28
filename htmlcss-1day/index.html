@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <meta charset="utf-8">
   <title>Teaching Materials: HTML &amp; CSS (One-Day)</title>
   <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
   <link href="../common/styles.css" rel="stylesheet" type="text/css" />
@@ -90,12 +91,13 @@
         <li><a href="lesson2/slides.html">Slides</a>
         <li><a href="lesson2/inclass.html">In-Class Example</a>
         <li>Exercise: if students don't already have a text editor, make them download one or use Cloud9.
-        <li><a href="lesson2/exercise_descrip.html">Exercise</a> and <a href="exercise_solution.html">Solution</a>
+        <li><a href="lesson2/exercise_descrip.html">Exercise</a> and <a href="lesson2/exercise_solution.html">Solution</a>
        </ul>
        
        <h3>Additional Reading:</h3>
        <ul>
         <li><a href="http://www.htmlgoodies.com/primers/html/article.php/3478151/Web-Developer-Class-Learn-the-Basic-HTML-Tags.htm">Basic HTML Tags</a>
+        <li><a href="http://www.joelonsoftware.com/articles/Unicode.html">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets</a>
        </ul>
        
        <h3>Room for Improvement:</h3>
@@ -127,17 +129,23 @@
       
       <h3>Additional Reading:</h3>
        <ul>
+        <li><a href="http://blog.monstuff.com/archives/000149.html">HTTP 101</a>
         <li><a href="http://diveintohtml5.org/video.html">Video on the Web</a>
+        <li><a href="http://computer.howstuffworks.com/cookie5.htm">How Cookies Work</a>
        </ul>
       
       <h3>Room for Improvement:</h3>
       <ul>
        <li>Add a slide on "Forms in HTML5": input type="email", "url", form validation.
-       <li>Possibly include a bit more information (a diagram?) on form->server interaction, and why the <code>name</code> attribute is important for a database-driven system, perhaps set up a basic server side script for users to post to, and show the code for that on the slide.
-       <li>Replace Google search example with a user login or guestbook example, as that is more intuitive.
+       <li>Possibly include a bit more information (a diagram?) on form->server interaction, and why the <code>name</code> attribute is important for a database-driven system, perhaps set up a basic server side script for users to post to (that simply outputs what they sent to it), and show the code for that on the slide.
+       <li>Explain basics of HTTP - GET vs. POST, show NET tab, show example of GET/POST requests.
+       <li>Maybe give basic explanation of cookies.
+       <li>Show example form for a user login or guestbook (POST).
+       <li>For Google search example, show how easy it is to change it to search Twitter or other sites.
+       <li>Maybe mention existence of <code>framesrc</code> tag (<a href="http://www-scf.usc.edu/~csci571/">example site</a>) and why it's not a best practice (<a href="http://accessibility.psu.edu/frames">accessibility</a>)
        <li>Add a single slide on "Multimedia in HTML5" - video/audio tag.
        <li>Consider removing object/embed entirely, as it's only used in copy/paste (and iframe is more common now anyway).
-       <li>Check on URL for beatingheart.swf, store it locally. (404 now?)
+       <li>Add an exercise on embedding.
       </ul>
     </div>
 

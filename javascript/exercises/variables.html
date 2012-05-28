@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript 1: Variables Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Variables</h2>
+
+<h3 class="page-header">The Fortune Teller</h3>
+<p><em>Why pay a fortune teller when you can just program your fortune yourself?</em></p>
+<ul>
+ <li>Store the following into variables: number of children, partner's name, geographic location, job title.
+ <li>Output your fortune to the screen like so: "You will be a X in Y, and married to Z with N kids."
+</ul>
+<button class="btn" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+var numKids  = 5;
+var partner  = 'David Beckham';
+var location = 'Costa Rica';
+var jobTitle = 'web developer';
+
+var future = 'You will be a ' + jobTitle + ' in ' + location + ', and married to ' +
+   partner + ' ' + ' with ' + numKids + ' kids.';
+console.log(future);</pre>
+
+ <h3 class="page-header">The Age Calculator</h3>
+
+<p><em>Forgot how old you are? Calculate it!</em></p>
+ <ul>
+  <li>Store the current year in a variable.
+  <li>Store your birth year in a variable.
+  <li>Calculate your 2 possible ages based on the stored values.
+  <li>Output them to the screen like so: "You are either NN or NN", substituting the values.
+ </ul>
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution2" style="display:none;">
+var year = 1984;
+var now  = 2012;
+var age  = now - year;
+console.log('You are either ' + age + ' or ' + (age - 1));</pre>
+
+<h3 class="page-header">The Lifetime Supply Calculator</h3>
+
+<p><em>Ever wonder how much a "lifetime supply" of your favorite snack is? Wonder no more!</em></p>
+<ul>
+ <li>Store your current age into a variable.
+ <li>Store a maximum age into a variable.
+ <li>Store an estimated amount per day (as a number).
+ <li>Calculate how many you would eat total for the rest of your life.
+ <li>Output the result to the screen like so: "You will need NN to last you until the ripe old age of X".
+</ul>
+<button onclick="showSolution(3)" class="btn">See Solution</button>
+<br><br>
+ <pre id="solution3" style="display:none;">
+var age = 28;
+var maxAge = 100;
+var numPerDay = 2;
+var totalNeeded = (numPerDay * 365) * (maxAge - age);
+var message = 'You will need ' + totalNeeded + ' cups of tea to last you until the ripe old age of ' + maxAge;
+console.log(message);</pre>
+
+ </div>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

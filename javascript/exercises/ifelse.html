@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript 1: if/else statements</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: if/else statements</h2>
+
+<h3 class="page-header">What number's bigger?</h3>
+<ul>
+ <li>Write a function named <code>greaterNum</code> that:
+   <ul>
+    <li>takes 2 arguments, both numbers.
+    <li>returns whichever number is the greater (higher) number.
+   </ul>
+ <li>Call that function 2 times with different number pairs, and log the output
+ to make sure it works (e.g. "The greater number of 5 and 10 is 10.").
+</ul>
+<button class="btn" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+function greaterNum(num1, num2) {
+    if (num1 > num2) {
+        return num1;
+    } else {
+        return num2;
+    }
+}
+
+console.log(greaterNum(5, 10));
+</pre>
+
+
+<h3 class="page-header">The World Translator</h3>
+<ul>
+ <li>Write a function named <code>helloWorld</code> that:
+   <ul>
+    <li>takes 1 argument, a language code (e.g. "es", "de", "en")
+    <li>returns "Hello, World" for the given language, for atleast 3 languages. It should default to returning English.
+   </ul>
+ <li>Call that function for each of the supported languages and log the result to make sure it works.
+</ul>
+<button class="btn" onclick="showSolution(2)">See Solution</button>
+<br><br>
+<pre id="solution2" style="display:none;">
+function helloWorld(lang) {
+    if (lang == 'fr') {
+        return 'Bonjour tout le monde';
+    } else if (lang == 'es') {
+        return 'Hola, Mundo';
+    } else {
+        return 'Hello, World';
+    }
+}
+
+console.log(helloWorld('en'));
+console.log(helloWorld('fr'));
+console.log(helloWorld('es'));
+</pre>
+
+<h3 class="page-header">The Grade Assigner</h3>
+<ul>
+ <li>Write a function named <code>assignGrade</code> that:
+   <ul>
+    <li>takes 1 argument, a number score.
+    <li>returns a grade for the score, either "A", "B", "C", "D", or "F".
+   </ul>
+ <li>Call that function for a few different scores and log the result to make sure it works.
+</ul>
+<button class="btn" onclick="showSolution(3)">See Solution</button>
+<pre id="solution3" style="display:none;">
+function assignGrade(score) {
+    if (score &gt; 90) {
+        return 'A';
+    } else if (score &gt; 80) {
+        return 'B';
+    } else if (score &gt; 70) {
+        return 'C';
+    } else if (score &gt; 65) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+console.log('You got a ' + assignGrade(95));
+console.log('You got a ' + assignGrade(65));
+</pre>
+
+<h3 class="page-header">The Pluralizer</h3>
+<ul>
+ <li>Write a function named <code>pluralize</code> that:
+   <ul>
+    <li>takes 2 arguments, a noun and a number.
+    <li>returns the number and pluralized form, like "5 cats" or "1 dog".
+   </ul>
+ <li>Call that function for a few different scores and log the result to make sure it works.
+ <li>Bonus: Make it handle a few collective nouns like "sheep" and "geese".
+</ul>
+<button class="btn" onclick="showSolution(4)">See Solution</button>
+<pre id="solution4" style="display:none;">
+function pluralize(noun, number) {
+    if (number != 1 &amp;&amp; noun != 'sheep' &amp;&amp; noun != 'geese') {
+        return number + ' ' + noun + 's';
+    } else {
+        return number + ' ' + noun;
+    }
+}
+console.log('I have ' + pluralize('cat', 0));
+console.log('I have ' + pluralize('cat', 1));
+console.log('I have ' + pluralize('cat', 2));
+</pre>
+
+  <br><br><br><br><br>
+  
+ </div>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

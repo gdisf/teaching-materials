@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript 1: for loops</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: for loops</h2>
+
+<h3 class="page-header">The even/odd reporter</h3>
+<p>Write a for loop that will iterate from 0 to 20. For each iteration, it will
+ check if the current number is even or odd, and report that to the screen (e.g. "2 is even").
+</p>
+<button class="btn" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+for (var i = 0; i &lt;= 20; i++) {
+    if (i % 2 === 0) {
+        console.log(i + ' is even');
+    } else {
+        console.log(i + ' is odd');
+    }
+}
+</pre>
+
+
+<h3 class="page-header">Multiplication Tables</h3>
+<p>Write a for loop that will iterate from 0 to 10. For each iteration of the for loop,
+it will multiply the number by 9 and log the result (e.g. "2 * 9 = 18").
+</p>
+<p><b>Bonus:</b> Use a nested for loop to show the tables for every multiplier from
+1 to 10 (100 results total).
+</p>
+
+<button class="btn" onclick="showSolution(2)">See Solution</button>
+<br><br>
+<pre id="solution2" style="display:none;">
+// Multiplication tables
+var multiplier = 9;
+for (var i = 0; i &lt;= 10; i++) {
+    var result = multiplier * i;
+    console.log(multiplier + ' * ' + i + ' = ' + result);
+}
+
+
+for (var multiplier = 0; multiplier &lt;= 10; multiplier++) {
+ for (var i = 0; i &lt;= 10; i++) {
+   var result = multiplier * i;
+   console.log(multiplier + ' * ' + i + ' = ' + result);
+ }
+}
+</pre>
+
+<h3 class="page-header">The Grade Assigner</h3>
+
+<p>Check the results of <code>assignGrade</code> function from the previous exercise for every value from 60 to 100 -
+so your log should show "For 89, you got a B. For 90, you got an A.", etc.
+</p>
+<button class="btn" onclick="showSolution(3)">See Solution</button>
+<pre id="solution3" style="display:none;">
+function assignGrade(score) {
+    if (score &gt; 90) {
+        return 'A';
+    } else if (score &gt; 80) {
+        return 'B';
+    } else if (score &gt; 70) {
+        return 'C';
+    } else if (score &gt; 65) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+for (var i = 80; i &lt;= 100; i++) {
+  console.log('For ' + i + ', you got a ' + assignGrade(i));
+}
+</pre>
+
+  <br><br><br><br><br>
+  
+ </div>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

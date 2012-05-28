@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript 1: Arrays</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Arrays</h2>
+
+<h3 class="page-header">Your top choices</h3>
+<ul>
+ <li>Create an array to hold your top choices (colors, presidents, whatever).
+ <li>For each choice, log to the screen a string like: "My #1 choice is blue."
+ <li><b>Bonus:</b>Change it to log "My 1st choice, "My 2nd choice", "My 3rd choice", picking
+ the right suffix for the number based on what it is.
+</ul>
+
+<button class="btn" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+var choices = ['red', 'orange', 'pink', 'yellow'];
+for (var i = 0; i &lt; choices.length; i++) {
+    console.log('My #' + (i + 1) + ' choice is ' + choices[i]);
+}
+
+for (var i = 0; i &lt; choices.length; i++) {
+    var choiceNum = i + 1;
+    var choiceNumSuffix;
+    if (choiceNum == 1) {
+        choiceNumSuffix = 'st';
+    } else if (choiceNum == 2) {
+        choiceNumSuffix = 'nd';
+    } else if (choiceNum == 3) {
+        choiceNumSuffix = 'rd';
+    } else {
+        choiceNumSuffix = 'th';
+    }
+    console.log('My ' + choiceNum + choiceNumSuffix + ' choice is ' + choices[i]);
+}
+</pre>
+
+
+  <br><br><br><br><br>
+  
+ </div>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

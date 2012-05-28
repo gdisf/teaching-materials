@@ -18,6 +18,13 @@ handlers:
 - url: /htmlcss
   static_dir: htmlcss
 
+- url: /javascript/
+  static_files: javascript/index.html
+  upload: javascript/index.html
+
+- url: /javascript
+  static_dir: javascript
+
 - url: /common
   static_dir: common
 

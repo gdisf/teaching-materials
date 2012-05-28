@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript 1: for loops</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: for loops</h2>
+
+<h3 class="page-header">The even/odd reporter</h3>
+<p>Write a for loop that will iterate from 0 to 20. For each iteration, it will
+ check if the current number is even or odd, and report that to the screen (e.g. "2 is even").
+</p>
+<button class="btn" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+for (var i = 0; i &lt; 20; i++) {
+    if (i % 2) {
+        console.log(i + ' is even');
+    } else {
+        console.log(i + ' is odd');
+    }
+}
+</pre>
+
+
+<h3 class="page-header">Multiplication Tables</h3>
+<p>Write a for loop that will iterate from 0 to 10. For each iteration of the for loop,
+it will multiply the number by 9 and log the result (e.g. "2 * 9 = 18").
+</p>
+<p><b>Bonus:</b> Use a nested for loop to show the tables for every multiplier from
+1 to 10 (100 results total).
+</p>
+
+<button class="btn" onclick="showSolution(2)">See Solution</button>
+<br><br>
+<pre id="solution2" style="display:none;">
+// Multiplication tables
+var multiplier = 9;
+for (var i = 0; i &lt; 10; i++) {
+    var result = multiplier * i;
+    console.log(multiplier + ' * ' + i + ' = ' + result);
+}
+
+
+for (var multiplier = 0; multiplier &lt; 10; multiplier++) {
+ for (var i = 0; i &lt; 10; i++) {
+   var result = multiplier * i;
+   console.log(multiplier + ' * ' + i + ' = ' + result);
+ }
+}
+</pre>
+
+<h3 class="page-header">The Grade Assigner</h3>
+<ul>
+ <li>Write a function named <code>assignGrade</code> that:
+   <ul>
+    <li>takes 1 argument, a number score.
+    <li>returns a grade for the score, either "A", "B", "C", "D", or "F".
+   </ul>
+ <li>Call that function for a few different scores and log the result to make sure it works.
+</ul>
+<button class="btn" onclick="showSolution(3)">See Solution</button>
+<pre id="solution3" style="display:none;">
+function assignGrade(score) {
+    if (score &gt; 90) {
+        return 'A';
+    } else if (score &gt; 80) {
+        return 'B';
+    } else if (score &gt; 70) {
+        return 'C';
+    } else if (score &gt; 65) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+console.log('You got a ' + assignGrade(95));
+console.log('You got a ' + assignGrade(65));
+</pre>
+
+<h3 class="page-header">The Pluralizer</h3>
+<ul>
+ <li>Write a function named <code>pluralize</code> that:
+   <ul>
+    <li>takes 2 arguments, a noun and a number.
+    <li>returns the number and pluralized form, like "5 cats" or "1 dog".
+   </ul>
+ <li>Call that function for a few different scores and log the result to make sure it works.
+ <li>Bonus: Make it handle a few collective nouns like "sheep" and "geese".
+</ul>
+<button class="btn" onclick="showSolution(4)">See Solution</button>
+<pre id="solution4" style="display:none;">
+function pluralize(noun, number) {
+    if (number != 1 &amp;&amp; noun != 'sheep' &amp;&amp; noun != 'geese') {
+        return number + ' ' + noun + 's';
+    } else {
+        return number + ' ' + noun;
+    }
+}
+console.log('I have ' + pluralize('cats', 0));
+console.log('I have ' + pluralize('cats', 1));
+console.log('I have ' + pluralize('cats', 2));
+</pre>
+
+  <br><br><br><br><br>
+  
+ </div>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

@@ -571,44 +571,6 @@ This example shows a table of monthly savings.
 <img src="http://farm5.static.flickr.com/4135/4930813031_601aa2c5c9_o.png">
 </p>
     </div> 
-  
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Forms</h1></header> 
-     <section class="content"> 
-     
-     <!--
-          <p>A form consists of a <code>form</code> element with multiple input controls inside of it that help retrieve user data in some way, and attributes that specify how a server should handle the form.</p>
-<p>The example below asks for a search query, and then sends the query to the Google server once submitted.</p>
-      -->
-
-     <pre>
-&lt;form action="http://www.google.com/search" method="get"&gt;
-  &lt;input type="text" name="q"&gt;
-  &lt;button type="submit" value="Search"&gt;
-&lt;/form&gt;</pre>
-
-    <form action="http://www.google.com/search" method="get" target="_blank">
-     <input type="text" name="q">
-     <button type="submit">Search</button>
-    </form>
-
-    <pre>
-&lt;?php
-<b>$q = $_GET["q"];</b>
-
-$query = sprintf("SELECT page FROM internet WHERE
-  MATCH(text) AGAINST '%s'", mysql_real_escape_string($q));
-
-$result = mysql_query($query);
-while ($row = @mysql_fetch_assoc($result)) {
-  echo $row["link"] + "&lt;br&gt;" + $row["description"];
-}
-?&gt;</pre>
-
-     </section>
-    </div>
     
    
     
@@ -809,14 +771,14 @@ Multiple choice:
      <!--<p>To let the user specify multiple lines of text, use the <code>textarea</code> element, and specify <code>cols</code> or <code>rows</code> to specify a specific size.</p>-->
 <pre>
 &lt;label&gt;Delivery instructions: &lt;br&gt;
-<b>&lt;textarea&gt;&lt;/textarea&gt;</b>
+<b>&lt;textarea name="delivery"&gt;&lt;/textarea&gt;</b>
 &lt;/label&gt;
 </pre>
 <label>Delivery instructions:<br><textarea></textarea></label>
 
 <pre>
 &lt;label&gt;Write a haiku on your love for pizza: &lt;br&gt;
-<b>&lt;textarea rows="3" cols="40"&gt;&lt;/textarea&gt;</b>
+<b>&lt;textarea name="haiku" rows="3" cols="40"&gt;&lt;/textarea&gt;</b>
 &lt;/label&gt;
 </pre>
 <label>Write a haiku on your love for pizza: <br>
@@ -831,28 +793,41 @@ Multiple choice:
     
 
    
-    
-    
-    
     <div class="slide normal"> 
-     <header><h1>Form processing</h1></header> 
+     <header><h1>Forms</h1></header> 
      <section class="content"> 
-     <p>A form is processed by a server, which typically takes the inputs and stores them in a database.</p>
-<p>If you don't have a server, you can also have all the form contents sent to the email address of your choice, using extra attributes in the <code>form</code> element:</p>
-<pre>
-&lt;form action="mailto:admin@example.com"
-  enctype="text/plain" method="post"&gt;
-  &lt;input name="info" type="text"/&gt;
-  &lt;button type="submit"&gt;Send Mail&lt;/button&gt;
-&lt;/form&gt;
-</pre>
-<form action="mailto:admin@example.com" enctype="text/plain" method="post">
-  <input name="info" type="text">
-  <button type="submit">Send Mail</button>
-</form>
+
+     <p>A form is processed by a server, which typically takes the inputs and stores them in a database
+     or uses them to query a database.</p>
+     <!--
+          <p>A form consists of a <code>form</code> element with multiple input controls inside of it that help retrieve user data in some way, and attributes that specify how a server should handle the form.</p>
+<p>The example below asks for a search query, and then sends the query to the Google server once submitted.</p>
+      -->
+
+     <pre>
+&lt;form action="http://www.google.com/search" method="get"&gt;
+  &lt;input type="text" name="q"&gt;
+  &lt;button type="submit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;</pre>
+
+    <form action="http://www.google.com/search" method="get" target="_blank">
+     <input type="text" name="q">
+     <button type="submit">Search</button>
+    </form>
+
+    <pre>
+&lt;?php
+<b>$q = $_GET["q"];</b>
+$query = sprintf("SELECT page FROM internet WHERE
+  MATCH(text) AGAINST '%s'", mysql_real_escape_string($q));
+$result = mysql_query($query);
+while ($row = @mysql_fetch_assoc($result)) {
+  echo $row["link"] + "&lt;br&gt;" + $row["description"];
+}
+?&gt;</pre>
+
      </section>
     </div>
-    
    
     
     
@@ -872,11 +847,11 @@ Multiple choice:
 </p>
 
 <pre>
-&lt;iframe src="https://www.google.com"
+&lt;iframe src="https://www.pamelafox.org"
   width="500" height="300"&gt;&lt;/iframe&gt;
 </pre>
 
-<iframe src="http://www.google.com" width="500" height="280"></iframe>
+<iframe src="http://www.pamelafox.org" width="500" height="280"></iframe>
      </section>
     </div>
     
@@ -954,7 +929,7 @@ Multiple choice:
 </pre>
 
 <object width="300" height="150">
-  <param name="movie" value="http://media2.sweetimsmiley.com/emoticons/beatingheart.swf"/>
+  <param name="movie" value="beatingheart.swf"/>
 </object>
      </section>
     </div>
@@ -973,7 +948,7 @@ Multiple choice:
 &lt;embed type="application/x-shockwave-flash"
  src="beatingheart.swf"/&gt;
 </pre>
-<embed type="application/x-shockwave-flash" src="http://media2.sweetimsmiley.com/emoticons/beatingheart.swf"/>
+<embed type="application/x-shockwave-flash" src="beatingheart.swf"/>
      </section>
     </div>
     

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript 1: Functions Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Functions</h2>
+
+<p>These exercises are based on the <a href="variables.html">variables exercises</a>,
+so you may start from those (your solutions or ours) or start from scratch.
+</p>
+
+<h3 class="page-header">The Fortune Teller</h3>
+<p>Why pay a fortune teller when you can just program your fortune yourself?</p>
+<ul>
+ <li>Write a function named <code>tellFortune</code> that:
+   <ul>
+    <li>takes 4 arguments: number of children, partner's name, geographic location, job title.
+    <li>outputs your fortune to the screen like so: "You will be a X in Y, and married to Z with N kids."
+   </ul>
+ <li>Call that function 3 times with 3 different values for the arguments.
+</ul>
+<button class="btn" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+function tellFortune(jobTitle, location, partner, numKids) {
+    var future = 'You will be a ' + jobTitle + ' in ' + location + ' and married to ' +
+   partner + ' ' + ' with ' + numKids + ' kids.';
+    console.log(future);
+}
+
+tellFortune('bball player', 'spain', 'Shaq', 3);
+tellFortune('stunt double', 'Japan', 'Ryan Gosling', 3000);
+tellFortune('Elvis impersonator', 'Russia', 'The Oatmeal', 0);</pre>
+
+ <h3 class="page-header">The Age Calculator</h3>
+
+ <p>Forgot how old you are? Calculate it!</p>
+ <ul>
+  <li>Write a function named <code>calculateAge</code> that:
+    <ul>
+     <li>takes 2 arguments: birth year, current year.
+     <li>calculates the 2 possible ages based on those years.
+     <li>outputs the result to the screen like so: "You are either NN or NN"
+    </ul>
+  <li>Call the function three times with different sets of values.
+  <li><b>Bonus</b>: Figure out how to get the current year in JavaScript instead of passing it in.
+ </ul>
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution2" style="display:none;">
+function calculateAge(birthYear, currentYear) {
+    var age = currentYear - birthYear;
+    console.log('You are either ' + age + ' or ' + (age - 1));
+}
+
+calculateAge(1984, 2012);
+calculateAge(1988, 2012);
+calculateAge(1982, 2012);</pre>
+
+<h3 class="page-header">The Lifetime Supply Calculator</h3>
+
+<p>Ever wonder how much a "lifetime supply" of your favorite snack is? Wonder no more!</p>
+<ul>
+ <li>Write a function named <code>calculateSupply</code> that:
+  <ul>
+   <li>takes 2 arguments: age, amount per day.
+   <li>calculates the amount consumed for rest of the life (based on a constant max age).
+   <li>outputs the result to the screen like so: "You will need NN to last you until the ripe old age of X"
+  </ul>
+ <li>Call that function three times, passing in different values each time.
+ <li><b>Bonus</b>: Accept floating point values for amount per day, and round the result to a round number.
+</ul>
+<button onclick="showSolution(3)" class="btn">See Solution</button>
+<br><br>
+ <pre id="solution3" style="display:none;">
+function supplyCalculator(age, numPerDay) {
+  var maxAge = 100;
+  var totalNeeded = (numPerDay * 365) * (maxAge - age);
+  var message = 'You will need ' + totalNeeded + ' cups of tea to last you until the ripe old age of ' + maxAge;
+   console.log(message);
+}
+
+calculateSupply(28, 36);
+calculateSupply(28, 2.5);
+calculateSupply(28, 400);</pre>
+
+ </div>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>
