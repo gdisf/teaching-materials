@@ -4,6 +4,11 @@ runtime: python
 api_version: 1
 
 handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+  expiration: 1h
+
 - url: /htmlcss-1day/
   static_files: htmlcss-1day/index.html
   upload: htmlcss-1day/index.html
