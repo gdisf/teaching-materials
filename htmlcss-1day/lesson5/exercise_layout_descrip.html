@@ -23,7 +23,23 @@
          <li>Add a div for the locations list. Add styles to that div so that it floats to the right and has appropriate border, padding, and color.
          <li>Bonus: Add a div with 00s and 11s. Add styles to that div so that it is positioned absolutely just above the bottom of the page and is below the main div.
         </ul>
+        <p>
         <img src="exercise_layout_screenshot.png">
+        </p>
+        
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_layout_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+  }
+}
+  	</script>
     </div>
   </body>
 </html>

@@ -16,7 +16,24 @@
         <p>Starting with <a href="../lesson4/exercise1_solution.html">the solution</a> from the selectors exercise,
         add property value pairs to the CSS rules so that the page looks like the screenshot below.
         </p>
+        <p>
         <img src="exercise2_screenshot.png" style="border:1px solid black;">
+        </p>
+        
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise2_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+  }
+}
+  	</script>
+  	
     </div>
   </body>
 </html>
