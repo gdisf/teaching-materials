@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML 1: Embed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+   <div class="container">
+   <h1>HTML 1: Embed</h1>
+   
+	 <p>In this exercise, you'll create a webpage of many embedded elements. For some of these, you may have to google to figure out how to get embed codes - some sites make it easier/more obvious than others.</p>
+	 <ul>
+	 	<li>Create a new blank page with just a header (“All About Dogs”).
+		<li>Take a look at the “NET” tab in Chrome Developer Tools and write down the loading stats on the page - number of requests, KB transferred, onload ms, DOMContentLoaded ms. 
+	 	<li>Add an embedded Google Map that shows dog parks in San Francisco.
+		<li>Add Facebook comments to your page.
+		<li>Add a Twitter button to the page.
+		<li>Add an embedded Flickr slideshow of photos tagged with “dog”.
+		<li>Create a Google custom search engine that searches across multiple dog sites and embed the search box on the page.
+		<li>For each of the embeds, add comments around them to show where they start and end, and add an <code>h2</code> to split the page up into sections.
+		<li>Take a look at the “NET” tab again and write down the new stats on the page.
+   </ul>
+   
+   
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_embed_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+  }
+}
+  	</script>
+   </div>
+  </body>
+</html>

@@ -19,7 +19,24 @@
     </p>
     <p>Note that there are often multiple ways to achieve the same result in CSS. Try to use a mix of the different types of selectors- id, class, position in document, etc.
     </p>
+    <p>
     <img src="exercise1_screenshot.png" style="border:1px solid black;">
+    </p>
+    
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise1_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+  }
+}
+  	</script>
+  	
    </div>
   </body>
 </html>

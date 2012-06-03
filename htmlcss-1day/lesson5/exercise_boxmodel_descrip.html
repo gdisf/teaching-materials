@@ -24,6 +24,20 @@
         <p>
          <img src="exercise_boxmodel_screenshot.png" style="border:1px solid black">
         </p>
+        
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_boxmodel_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+  }
+}
+  	</script>
    </div>
  </body>
 </html>
