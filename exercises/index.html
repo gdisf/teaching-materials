@@ -30,6 +30,10 @@
   	margin-right: 3px;
     vertical-align: top;
   }
+  .exercise.done {
+    opacity: .5;
+    text-decoration: line-through;
+  }
   </style>
  </head>
  <body>
@@ -37,24 +41,24 @@
 	<div class="container">
 		<h1 class="page-header">Exercise Explorer</h1>
 		
-    <form id="exercises-filter" class="form-inline">
-      Filter by topic: &nbsp;
+    <form id="exercises-filter" class="form-inline" style="text-align: left;">
+        <label class="checkbox">
+		    <input type="radio" name="filter" value="js" checked onclick="filterExercises();">
+		    <span class="label">ALL</span>
+		 </label>
 	    <label class="checkbox">
-		    <input type="radio" name="filter" value="html" checked onclick="filterExercises(this.value);">
+		    <input type="radio" name="filter" value="html" onclick="filterExercises(this.value);">
 		    <span class="label html">HTML</span>
 		  </label>
 		  <label class="checkbox">
-		    <input type="radio" name="filter"  value="css" checked onclick="filterExercises(this.value);">
+		    <input type="radio" name="filter"  value="css" onclick="filterExercises(this.value);">
 		    <span class="label css">CSS</span>
 		  </label>
 		 	<label class="checkbox">
-		    <input type="radio" name="filter" value="js" checked onclick="filterExercises(this.value);">
+		    <input type="radio" name="filter" value="js" onclick="filterExercises(this.value);">
 		    <span class="label js">JavaScript</span>
 		  </label>
-		  <label class="checkbox">
-		    <input type="radio" name="filter" value="js" checked onclick="filterExercises();">
-		    <span class="label">ALL</span>
-		  </label>
+
 		</form>
 	
 		<table id="exercises-table" class="table table-striped">
@@ -62,6 +66,7 @@
 				<tr>
 					<th>Exercise
 					<th>Topics
+                    <th>Done?
 				</tr>
 			</thead>
 			<tbody></tbody>
@@ -74,10 +79,6 @@
 	var subtopics = {};
 	
 	var SS_KEY = '0Ah0xU81penP1dDcxOEFrWlplSm5WekJYRm9lcHN6ZWc';
-	
-	function initExplorer() {
-		loadSpreadsheet(SS_KEY, 'od6', 'onExercisesLoad');
-	}
 	
 	function loadSpreadsheet(ssId, worksheetId, callbackName) {
 		var url = 'http://spreadsheets.google.com/feeds/list/' + ssId + '/' + worksheetId + '/public/values?alt=json-in-script&callback=' + callbackName;
@@ -135,6 +136,7 @@
 		for (var i = 0; i < exercises.length; i++) {
 			var exercise = exercises[i];
 			var row = document.createElement('tr');
+            row.className = 'exercise';
 			var cell = document.createElement('td');
 			var linkDomain = getDomain(exercise.link);
 			cell.innerHTML = '<img class="favicon" title="' + linkDomain + '" src="http://www.google.com/s2/u/0/favicons?domain=' + linkDomain + '"><a target="_blank" href="' + exercise.link + '">' + exercise.title + '</a><br>' + exercise.description;
@@ -144,37 +146,40 @@
 			topicsCell.appendChild(createLabels('css', exercise.css));
 			topicsCell.appendChild(createLabels('js', exercise.js));
 			row.appendChild(topicsCell);
+            var doneCell = document.createElement('td');
+            
+            var doneKey = 'exercise-' + exercise.link + '-done';
+            doneCell.innerHTML = '<input type="checkbox" data-propkey="' + doneKey + '">';
+            row.appendChild(doneCell);
 			exerciseTbody.appendChild(row);
+            document.addEventListener(doneCell, 'click', updateDoneState);
 		}
-		renderTopics();
+        updateFromLocalStorage();
+        updateDoneState();
 	}
 	
-	function filterByTopic(topic) {
-		if (!topic) {
-			renderExercises(exercises);
-			return;
-		}
-		var filteredExercises = [];
-		for (var i = 0; i < exercises.length; i++) {
-			if (exercises[i][topic].length > 2) {
-					filteredExercises.push(exercises[i]);
-			}
-		}
-		renderExercises(filteredExercises);
-	}
-	
-	function filterBySource(source) {
-		if (!source) {
-			renderExercises(exercises);
-			return;
-		}
-		var filteredExercises = [];
-		for (var i = 0; i < exercises.length; i++) {
-			if (exercises[i].source === source) {
-					filteredExercises.push(exercises[i]);
-			}
-		}
-		renderExercises(filteredExercises);
+    function updateDoneState() {
+        var exerciseRows = document.querySelectorAll('.exercise');
+        for (var i = 0; i < exerciseRows.length; i++) {
+            if (exerciseRows[i].getElementsByTagName('input')[0].checked) {
+                exerciseRows[i].classList.add('done');
+            }
+        }
+    }
+    
+	function filterExercises(topic) {
+		var exerciseRows = document.querySelectorAll('.exercise');
+        for (var i = 0; i < exerciseRows.length; i++) {
+            if (!topic) {
+                exerciseRows[i].style.display = 'table-row';
+            } else {
+                if (exerciseRows[i].querySelectorAll('.' + topic).length > 0) {
+                    exerciseRows[i].style.display = 'table-row';
+                } else {
+                    exerciseRows[i].style.display = 'none';
+                }
+            }
+        }
 	}
 	
 	function onTopicsLoad(json) {
@@ -198,10 +203,73 @@
 			}
 		}
 	}
+    
+    
+    var LS_DATA_KEY = 'data-propkey';
+    function updateFromLocalStorage() {
+        function isDefined(variable) {
+            return (variable !== undefined && variable !== null);
+        }
+  
+        var cachedStorage = {};
+        var nodes = document.querySelectorAll('[' + LS_DATA_KEY + ']');
+        for (var i = 0; i < nodes.length; i++) {
+          var node = nodes[i];
+          var dataKey  = node.getAttribute(LS_DATA_KEY);
+          var nodeName = node.nodeName;
+          var nodeType = node.getAttribute('type');
+          var keyValue = localStorage.getItem(dataKey);
+          cachedStorage[dataKey] = keyValue;
+          if (!isDefined(keyValue)) continue;
+          if (nodeName == 'TEXTAREA') {
+            node.value = keyValue;
+          }
+          if (nodeName == 'INPUT' && (nodeType == 'text' || nodeType == 'hidden' || nodeType == 'number')) {
+            node.value = keyValue;
+          }
+          if (nodeName == 'INPUT' && nodeType == 'checkbox') {
+            if (keyValue === true || keyValue == 'true') {
+                node.setAttribute('checked');
+            }
+          }
+          if (nodeName == 'SELECT') {
+             node.value = keyValue;
+          }
+        }
+    }
 	
+    function updateLocalStorage() {
+        var nodes = document.querySelectorAll('[' + LS_DATA_KEY + ']');
+        for (var i = 0; i < nodes.length; i++) {
+          var node = nodes[i];
+          var dataKey  = node.getAttribute(LS_DATA_KEY);
+          var nodeName = node.nodeName;
+          var nodeType = node.getAttribute('type');
+          var keyValue;
+          if (nodeName == 'TEXTAREA') {
+            keyValue = node.value;
+          }
+          if (nodeName == 'INPUT' && (nodeType == 'text' || nodeType == 'hidden' || nodeType == 'number')) {
+            keyValue = node.value;
+          }
+          if (nodeName == 'INPUT' && nodeType == 'checkbox') {
+            keyValue = node.checked ? true : false;
+          }
+          if (nodeName == 'SELECT') {
+            keyValue = node.value;
+          }
+          localStorage.setItem(dataKey, keyValue);
+        }
+    }
+
 	
-	initExplorer();
-	
+    window.addEventListener('load', function() {
+		loadSpreadsheet(SS_KEY, 'od6', 'onExercisesLoad');
+	});
+    
+    window.addEventListener('unload', function() {
+        updateLocalStorage();
+    });
 	
 	</script>
  </body>
