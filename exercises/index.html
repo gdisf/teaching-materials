@@ -30,8 +30,8 @@
   	margin-right: 3px;
     vertical-align: top;
   }
-  .exercise.done {
-    opacity: .5;
+  .exercise.done p {
+    opacity: .2;
     text-decoration: line-through;
   }
   </style>
@@ -61,7 +61,7 @@
 
 		</form>
 	
-		<table id="exercises-table" class="table table-striped">
+		<table id="exercises-table" class="table table-bordered">
 			<thead>
 				<tr>
 					<th>Exercise
@@ -139,7 +139,7 @@
             row.className = 'exercise';
 			var cell = document.createElement('td');
 			var linkDomain = getDomain(exercise.link);
-			cell.innerHTML = '<img class="favicon" title="' + linkDomain + '" src="http://www.google.com/s2/u/0/favicons?domain=' + linkDomain + '"><a target="_blank" href="' + exercise.link + '">' + exercise.title + '</a><br>' + exercise.description;
+			cell.innerHTML = '<p><img class="favicon" title="' + linkDomain + '" src="http://www.google.com/s2/u/0/favicons?domain=' + linkDomain + '"><a target="_blank" href="' + exercise.link + '">' + exercise.title + '</a><br>' + exercise.description + '</p>';
 			row.appendChild(cell);
 			var topicsCell = document.createElement('td');
 			topicsCell.appendChild(createLabels('html', exercise.html));
@@ -149,16 +149,20 @@
             var doneCell = document.createElement('td');
             
             var doneKey = 'exercise-' + exercise.link + '-done';
-            doneCell.innerHTML = '<input type="checkbox" data-propkey="' + doneKey + '">';
+            var input = document.createElement('input');
+            input.setAttribute('type', 'checkbox');
+            input.setAttribute('data-propkey', doneKey);
+            doneCell.appendChild(input);
             row.appendChild(doneCell);
+            input.addEventListener('click', updateDoneState);
+            
 			exerciseTbody.appendChild(row);
-            document.addEventListener(doneCell, 'click', updateDoneState);
 		}
         updateFromLocalStorage();
         updateDoneState();
 	}
 	
-    function updateDoneState() {
+    function updateDoneState(e) {
         var exerciseRows = document.querySelectorAll('.exercise');
         for (var i = 0; i < exerciseRows.length; i++) {
             if (exerciseRows[i].getElementsByTagName('input')[0].checked) {
