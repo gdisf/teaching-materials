@@ -28,11 +28,11 @@
   	width: 16px;
   	height: 16px;
   	margin-right: 3px;
-    vertical-align: top;
+  	vertical-align: top;
   }
   .exercise.done p {
-    opacity: .2;
-    text-decoration: line-through;
+  	opacity: .2;
+  	text-decoration: line-through;
   }
   </style>
  </head>
@@ -96,11 +96,11 @@
 	}
 	
 	function getCols(entry, colNames) {
-	  var obj = {};
-	  for (var i = 0; i < colNames.length; i++) {
-	  	obj[colNames[i]] = getColValue(entry, colNames[i]);
-	  }
-	  return obj;
+		var obj = {};
+		for (var i = 0; i < colNames.length; i++) {
+			obj[colNames[i]] = getColValue(entry, colNames[i]);
+		}
+		return obj;
 	}
 	
 	function onExercisesLoad(json) {
@@ -114,14 +114,14 @@
 	}
 	
 	function getDomain(url) {
-  	return url.match(/:\/\/(.[^/]+)/)[1];
+		return url.match(/:\/\/(.[^/]+)/)[1];
 	}
 	
 	function renderExercises(exercises) {
-		
+	
 		function createLabels(topic, labels) {
 			var cell = document.createElement('p');
-			
+	
 			labels = labels.split(',');
 			labels.sort();
 			for (var i = 0; i < labels.length; i++) {
@@ -130,13 +130,13 @@
 			}
 			return cell;
 		}
-		
+	
 		var exerciseTbody = document.getElementsByTagName('tbody')[0];
 		exerciseTbody.innerHTML = '';
 		for (var i = 0; i < exercises.length; i++) {
 			var exercise = exercises[i];
 			var row = document.createElement('tr');
-            row.className = 'exercise';
+			row.className = 'exercise';
 			var cell = document.createElement('td');
 			var linkDomain = getDomain(exercise.link);
 			cell.innerHTML = '<p><img class="favicon" title="' + linkDomain + '" src="http://www.google.com/s2/u/0/favicons?domain=' + linkDomain + '"><a target="_blank" href="' + exercise.link + '">' + exercise.title + '</a><br>' + exercise.description + '</p>';
@@ -146,44 +146,46 @@
 			topicsCell.appendChild(createLabels('css', exercise.css));
 			topicsCell.appendChild(createLabels('js', exercise.js));
 			row.appendChild(topicsCell);
-            var doneCell = document.createElement('td');
-            
-            var doneKey = 'exercise-' + exercise.link + '-done';
-            var input = document.createElement('input');
-            input.setAttribute('type', 'checkbox');
-            input.setAttribute('data-propkey', doneKey);
-            doneCell.appendChild(input);
-            row.appendChild(doneCell);
-            input.addEventListener('click', updateDoneState);
-            
+			var doneCell = document.createElement('td');
+	
+			var doneKey = 'exercise-' + exercise.link + '-done';
+			var input = document.createElement('input');
+			input.setAttribute('type', 'checkbox');
+			input.setAttribute('data-propkey', doneKey);
+			doneCell.appendChild(input);
+			row.appendChild(doneCell);
+			input.addEventListener('click', updateDoneState);
+	
 			exerciseTbody.appendChild(row);
 		}
-        updateFromLocalStorage();
-        updateDoneState();
+		updateFromLocalStorage();
+		updateDoneState();
 	}
 	
-    function updateDoneState(e) {
-        var exerciseRows = document.querySelectorAll('.exercise');
-        for (var i = 0; i < exerciseRows.length; i++) {
-            if (exerciseRows[i].getElementsByTagName('input')[0].checked) {
-                exerciseRows[i].classList.add('done');
-            }
-        }
-    }
-    
+	function updateDoneState(e) {
+		var exerciseRows = document.querySelectorAll('.exercise');
+		for (var i = 0; i < exerciseRows.length; i++) {
+			if (exerciseRows[i].getElementsByTagName('input')[0].checked) {
+				exerciseRows[i].classList.add('done');
+			}
+		}
+	}
+	
 	function filterExercises(topic) {
 		var exerciseRows = document.querySelectorAll('.exercise');
-        for (var i = 0; i < exerciseRows.length; i++) {
-            if (!topic) {
-                exerciseRows[i].style.display = 'table-row';
-            } else {
-                if (exerciseRows[i].querySelectorAll('.' + topic).length > 0) {
-                    exerciseRows[i].style.display = 'table-row';
-                } else {
-                    exerciseRows[i].style.display = 'none';
-                }
-            }
-        }
+		for (var i = 0; i < exerciseRows.length; i++) {
+			if (!topic) {
+				exerciseRows[i].style.display = 'table-row';
+			}
+			else {
+				if (exerciseRows[i].querySelectorAll('.' + topic).length > 0) {
+					exerciseRows[i].style.display = 'table-row';
+				}
+				else {
+					exerciseRows[i].style.display = 'none';
+				}
+			}
+		}
 	}
 	
 	function onTopicsLoad(json) {
@@ -207,73 +209,74 @@
 			}
 		}
 	}
-    
-    
-    var LS_DATA_KEY = 'data-propkey';
-    function updateFromLocalStorage() {
-        function isDefined(variable) {
-            return (variable !== undefined && variable !== null);
-        }
-  
-        var cachedStorage = {};
-        var nodes = document.querySelectorAll('[' + LS_DATA_KEY + ']');
-        for (var i = 0; i < nodes.length; i++) {
-          var node = nodes[i];
-          var dataKey  = node.getAttribute(LS_DATA_KEY);
-          var nodeName = node.nodeName;
-          var nodeType = node.getAttribute('type');
-          var keyValue = localStorage.getItem(dataKey);
-          cachedStorage[dataKey] = keyValue;
-          if (!isDefined(keyValue)) continue;
-          if (nodeName == 'TEXTAREA') {
-            node.value = keyValue;
-          }
-          if (nodeName == 'INPUT' && (nodeType == 'text' || nodeType == 'hidden' || nodeType == 'number')) {
-            node.value = keyValue;
-          }
-          if (nodeName == 'INPUT' && nodeType == 'checkbox') {
-            if (keyValue === true || keyValue == 'true') {
-                node.setAttribute('checked');
-            }
-          }
-          if (nodeName == 'SELECT') {
-             node.value = keyValue;
-          }
-        }
-    }
 	
-    function updateLocalStorage() {
-        var nodes = document.querySelectorAll('[' + LS_DATA_KEY + ']');
-        for (var i = 0; i < nodes.length; i++) {
-          var node = nodes[i];
-          var dataKey  = node.getAttribute(LS_DATA_KEY);
-          var nodeName = node.nodeName;
-          var nodeType = node.getAttribute('type');
-          var keyValue;
-          if (nodeName == 'TEXTAREA') {
-            keyValue = node.value;
-          }
-          if (nodeName == 'INPUT' && (nodeType == 'text' || nodeType == 'hidden' || nodeType == 'number')) {
-            keyValue = node.value;
-          }
-          if (nodeName == 'INPUT' && nodeType == 'checkbox') {
-            keyValue = node.checked ? true : false;
-          }
-          if (nodeName == 'SELECT') {
-            keyValue = node.value;
-          }
-          localStorage.setItem(dataKey, keyValue);
-        }
-    }
-
 	
-    window.addEventListener('load', function() {
+	var LS_DATA_KEY = 'data-propkey';
+	
+	function updateFromLocalStorage() {
+		function isDefined(variable) {
+			return (variable !== undefined && variable !== null);
+		}
+	
+		var cachedStorage = {};
+		var nodes = document.querySelectorAll('[' + LS_DATA_KEY + ']');
+		for (var i = 0; i < nodes.length; i++) {
+			var node = nodes[i];
+			var dataKey = node.getAttribute(LS_DATA_KEY);
+			var nodeName = node.nodeName;
+			var nodeType = node.getAttribute('type');
+			var keyValue = localStorage.getItem(dataKey);
+			cachedStorage[dataKey] = keyValue;
+			if (!isDefined(keyValue)) continue;
+			if (nodeName == 'TEXTAREA') {
+				node.value = keyValue;
+			}
+			if (nodeName == 'INPUT' && (nodeType == 'text' || nodeType == 'hidden' || nodeType == 'number')) {
+				node.value = keyValue;
+			}
+			if (nodeName == 'INPUT' && nodeType == 'checkbox') {
+				if (keyValue === true || keyValue == 'true') {
+					node.setAttribute('checked');
+				}
+			}
+			if (nodeName == 'SELECT') {
+				node.value = keyValue;
+			}
+		}
+	}
+	
+	function updateLocalStorage() {
+		var nodes = document.querySelectorAll('[' + LS_DATA_KEY + ']');
+		for (var i = 0; i < nodes.length; i++) {
+			var node = nodes[i];
+			var dataKey = node.getAttribute(LS_DATA_KEY);
+			var nodeName = node.nodeName;
+			var nodeType = node.getAttribute('type');
+			var keyValue;
+			if (nodeName == 'TEXTAREA') {
+				keyValue = node.value;
+			}
+			if (nodeName == 'INPUT' && (nodeType == 'text' || nodeType == 'hidden' || nodeType == 'number')) {
+				keyValue = node.value;
+			}
+			if (nodeName == 'INPUT' && nodeType == 'checkbox') {
+				keyValue = node.checked ? true : false;
+			}
+			if (nodeName == 'SELECT') {
+				keyValue = node.value;
+			}
+			localStorage.setItem(dataKey, keyValue);
+		}
+	}
+	
+	
+	window.addEventListener('load', function() {
 		loadSpreadsheet(SS_KEY, 'od6', 'onExercisesLoad');
 	});
-    
-    window.addEventListener('unload', function() {
-        updateLocalStorage();
-    });
+	
+	window.addEventListener('unload', function() {
+		updateLocalStorage();
+	});
 	
 	</script>
  </body>
