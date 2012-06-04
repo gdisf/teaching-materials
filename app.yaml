@@ -30,6 +30,13 @@ handlers:
 - url: /javascript
   static_dir: javascript
 
+- url: /exercises/
+  static_files: exercises/index.html
+  upload: exercises/index.html
+
+- url: /exercises
+  static_dir: exercises
+
 - url: /common
   static_dir: common
 
