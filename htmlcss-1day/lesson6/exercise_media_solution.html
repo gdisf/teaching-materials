@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Kitten Kare</title>
+    </head>
+    <style>
+#container
+{
+    margin: 0 auto;
+	width: 100%;
+	background: #fff;
+}
+
+#header
+{
+	background: #ccc;
+	padding: 20px;
+}
+
+#header h1 { margin: 0; }
+
+#navigation
+{
+	float: left;
+	width: 100%;
+	background: #333;
+}
+
+#navigation ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#navigation ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+
+#navigation li a
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #fff;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+#navigation li a:hover { background: #383; }
+
+#content-container
+{
+	float: left;
+	width: 100%;
+	background: #FFF;
+}
+
+#content
+{
+	clear: left;
+	float: left;
+	width: 60%;
+	padding: 20px 0;
+	margin: 0 0 0 4%;
+	display: inline;
+}
+
+#content h2 { margin: 0; }
+
+#aside
+{
+	float: right;
+	width: 26%;
+	padding: 20px 0;
+	margin: 0 3% 0 0;
+	display: inline;
+}
+
+#aside h3 { margin: 0; }
+
+#footer
+{
+	clear: left;
+	background: #ccc;
+	text-align: right;
+	padding: 20px;
+	height: 1%;
+}
+
+/** For printing **/
+@media print {
+    #header, #navigation, #footer {
+        display: none;
+    }
+    #content {
+        width: 100%;
+        margin-right: 0px;
+    }
+    #aside {
+        float: none;
+        display: block;
+        page-break-inside: avoid;
+    }
+}
+
+/** For small phones/windows **/
+@media (max-width: 450px) {
+    body {
+        padding: 0px;
+    }
+    #header {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 35px;
+    }
+    #aside {
+        display: none;
+    }
+    #content {
+        width: 100%;
+    }
+    #navigation {
+        margin-top: 75px;
+    }
+    #navigation ul li {
+       display: block;
+    }
+    #navigation ul li a {
+        float: none;
+    }
+    img {
+        max-width: 100%;
+    }
+}
+    </style>
+    <body>
+
+        <div id="container">
+            <div id="header">
+        		<h1>
+        			Kitten Kare
+        		</h1>
+        	</div>
+        	<div id="navigation">
+        		<ul>
+        			<li><a href="#">Home</a></li>
+        			<li><a href="#">About</a></li>
+        			<li><a href="#">Services</a></li>
+        		</ul>
+        	</div>
+        	<div id="content-container">
+        		<div id="content">
+        			<h2>
+        				Welcome!
+        			</h2>
+                    <img src="http://www.placekitten.com/400/200/">
+        			<p>The domestic cat[1][2] (Felis catus[2] or Felis silvestris catus[4], informally Felis domesticus[6][7]) is a small, usually furry, domesticated, carnivorous mammal. It is often called the housecat when kept as an indoor pet,[8] or simply the cat when there is no need to distinguish it from other felids and felines. Cats are valued by humans for companionship and ability to hunt vermin and household pests. They are primarily nocturnal.[9]
+                    </p>
+                    <p>Cats are similar in anatomy to the other felids, with strong, flexible bodies, quick reflexes, sharp retractable claws, and teeth adapted to killing small prey. As crepuscular predators, cats use their acute hearing and ability to see in near darkness to locate prey. Not only can cats hear sounds too faint for human ears, they can also hear sounds higher in frequency than humans can perceive. This is because the usual prey of cats (particularly rodents such as mice) make high frequency noises, so the hearing of the cat has evolved to pinpoint these faint high-pitched sounds. Cats also have a much better sense of smell than humans.
+                    </p>
+                    <p>Despite being solitary hunters, cats are a social species, and cat communication includes the use of a variety of vocalizations (meowing, purring, trilling, hissing, growling and grunting) as well as pheromones and types of cat-specific body language.[10]
+        		    </p>
+                </div>
+        		<div id="aside">
+        			<h3>
+        				Cat Body Types
+        			</h3>
+        			<ul>
+                        <li>Oriental
+                        <li>Foreign
+                        <li>Semi-Foreign
+                        <li>Semi-Cobby
+                        <li>Cobby        			
+                    </p>
+        		</div>
+        		<div id="footer">
+        			Copyright © Kitten Kare, 2012
+        		</div>
+        	</div>
+        </div>
+
+    </body>
+</html>
