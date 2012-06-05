@@ -484,12 +484,11 @@ http://reference.sitepoint.com/css/pagedmedia
      <p>Modern mobile browsers support media queries which depend on the <code>device-width</code> and/or
 <code>orientation</code>:
 </p>
-<p>Targeting iPads in landscape mode:</p>
+<p>Targeting iPads:</p>
 <pre>
 @media only screen
   and (min-device-width : 768px)
-  and (max-device-width : 1024px)
-  and (orientation : landscape) {
+  and (max-device-width : 1024px) {
     img {
       width: 100%;
     }
@@ -565,11 +564,13 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
     <div class="slide normal"> 
      <header><h1>Resolution Testing</h1></header> 
      <section class="content"> 
-     <p>Besides testing on actual devices, you can use these tools:</p>
+     <p>Besides testing on the actual devices or resizing the browser, you can use these tools:</p>
 <ul>
- <li><a href="http://pamelafox.github.com/resolutionizer/">Resolutionizer</a> (based on <a href="http://mattkersley.com/responsive/">Responsive Design Testing</a>)
+ <li><a href="http://pamelafox.github.com/resolutionizer/">Resolutionizer</a>
  <li><a href="http://screenqueri.es/">ScreenQueries</a>
  <li><a href="http://codeinchaos.github.com/mobile-screens/">Mobile Screens</a>
+ <li><a href="http://labs.adobe.com/technologies/shadow/">Adobe Shadow</a>
+</ul>
      </section>
     </div>
     
@@ -875,7 +876,7 @@ https://developer.mozilla.org/en/Writing_Efficient_CSS
 <p>For example, this:</p>
 <pre>
 .sidebar {  /* color it grey, no border */
-    color: color: rgb(123, 123, 123);
+    border-color: rgb(123, 123, 123);
     border-width: 0px;
 }
 </pre>
