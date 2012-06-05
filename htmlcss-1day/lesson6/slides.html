@@ -1,0 +1,1319 @@
+
+<html> 
+  <head> 
+    <!--[if gte IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]--> 
+    <!--[if lt IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <![endif]--> 
+    <meta charset="utf-8" />
+    <title>CSS Tools & Techniques</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Tangerine" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="projection, screen">
+    body {
+  font-size: 20px;
+  font-family: 'Droid Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px; top: 0px;
+}
+
+#info {
+  font-size: small;
+  position: absolute;
+  bottom: 0px;
+  left: 40%;
+  z-index: 500;
+}
+
+#topinfo {
+  font-size: small;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 500;
+}
+
+.key {
+  color: black;
+  display: inline-block;
+  padding: 3px 3px 3px 3px;
+  text-shadow: none;
+  letter-spacing: 0;
+  position: relative;
+  background: white;
+}
+
+#presentation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  background: #778;
+}
+
+.slides {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: block;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  -moz-transition: -moz-transform 1s ease-in-out;
+  -o-transition: -o-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+
+  /* so it's visible in the iframe. */
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  width: 900px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  margin-top: -350px;
+  background-color: #eee;
+  background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
+  background: -moz-linear-gradient(bottom, #bbd, #fff);
+  background: linear-gradient(bottom, #bbd, #fff);
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.slide.intro {
+  text-align: center;
+  font-size: 200%;
+}
+
+.slide.intro hgroup {
+  margin-top: 200px;
+}
+
+.content {
+  font-size: 140%;
+}
+
+.content input, button {
+  font-size: 140%;
+}
+
+.content td {
+   border: 1px solid black;
+}
+
+.invalid {
+  background-color: red;
+}
+
+.slide.section,.slide.intro {
+  text-align: center;
+}
+
+.slide.section,.slide.intro header {
+  font-size: 200%;
+}
+
+.slide li {
+  margin-bottom: 10px;
+}
+
+.slide img {
+  max-height: 90%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  text-align: center;
+}
+
+.slide:nth-child(even) {
+  -moz-border-radius: 20px 0;
+  -khtml-border-radius: 20px 0;
+  border-radius: 20px 0; /* includes Opera 10.5+ */
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+}
+
+.slide:nth-child(odd) {
+  -moz-border-radius: 0 20px;
+  -khtml-border-radius: 0 20px;
+  border-radius: 0 20px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+}
+
+.slide p, .slide textarea {
+  font-size: 120%;
+}
+
+.slide .counter {
+  color: #999999;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: block;
+  font-size: 70%;
+}
+
+.slide.title > .counter,
+.slide.segue > .counter,
+.slide.mainTitle > .counter {
+  display: none;
+}
+
+.force-render {
+  display: block;
+  visibility: hidden;
+}
+
+.slide.far-past {
+  display: block;
+  margin-left: -2400px;
+}
+
+.slide.past {
+  visibility: visible;
+  display: block;
+  margin-left: -1400px;
+}
+
+.slide.current {
+  visibility: visible;
+  display: block;
+  margin-left: -450px;
+}
+
+.slide.future {
+  visibility: visible;
+  display: block;
+  margin-left: 500px;
+}
+
+.slide.far-future {
+  display: block;
+  margin-left: 1500px;
+}
+
+body.three-d div.slides {
+  -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  transform: translateX(50px) scale(0.8) rotateY(10deg);
+}
+
+/* Content */
+header {
+  font-weight: normal;
+  letter-spacing: -.05em;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  left: 30px;
+  top: 25px;
+  font-size: 140%;
+}
+
+h1 {
+  font-size: 140%;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 90%;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+section, footer {
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin: 20px 30px 0;
+  display: block;
+  overflow: hidden;
+}
+
+footer {
+  font-size: 100%;
+  margin: 20px 0 0 30px;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 110%;
+  border-bottom: 2px solid #3f3f3f;
+}
+
+pre {
+  text-align: left;
+  font-size: 80%;
+  padding: 10px 20px;
+  background: rgba(255, 0, 0, 0.05);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  bord3r: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+pre b {
+  font-weight: normal;
+  color: #c61800;
+  text-shadow: #c61800 0 0 1px;
+  /*letter-spacing: -1px;*/
+}
+
+pre em {
+  font-weight: normal;
+  font-style: normal;
+  color: #18a600;
+  text-shadow: #18a600 0 0 1px;
+}
+
+div.example {
+  display: block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+video {
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#presentation-counter {
+  color: #ccc;
+  font-size: 70%;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+div:not(.current).reduced {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.no-transitions {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.no-gradients {
+  background: none;
+  background-color: #fff;
+}
+
+.notes {
+    display: none;
+}
+    </style>
+    
+    <style type="text/css" media="print">
+.slide {
+  page-break-inside: avoid;
+  page-break-after: always;
+  visibility: visible !important;
+  font-size: 20pt;
+  font-family: Arial, sans-serif;
+}
+
+@page {
+  size: landscape;
+}
+
+body {
+  font-size: 12pt;
+  background: white;
+}
+
+header h1 {
+  border-top: 2pt solid gray;
+  border-bottom: 1px dotted silver;
+}
+
+#presentation-counter, #info, #topinfo, .counter {
+  display: none
+}
+    </style>
+    
+  </head> 
+  <body> 
+  
+  <div id="topinfo">
+    
+    <span class="item nickname">pamela.fox</span> |
+    
+    
+    <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYjqtSDA">Edit Slideshow</a> |
+    
+    
+    <a href="/importslideset.do?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYjqtSDA&type=5lide">Copy Slideshow</a>
+    
+    <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYjqtSDA&output=pdf">Download PDF</a> |
+    
+    <span class="item"><a href="http://5lide-maker.appspot.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://5lide-maker.appspot.com/%26service%3Dah">Sign out</a></span>
+    
+    </p>
+  </div>
+  
+  <div id="info">
+    <p>Press <span class="key">&rarr;</span> key to advance.
+    Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>.
+    </p>
+  </div>
+  
+  <div id="presentation">
+  
+   <div id="presentation-counter"></div>
+      
+   <div id="slides">
+   
+    
+    <div class="slide intro"> 
+     <header><h1>CSS Tools &amp; Techniques</h1></header> 
+    </div>
+    
+    <div class="slide section"> 
+     <header><h1>Cross-Device CSS</h1></header> 
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>CSS Media Queries</h1></header> 
+     <section class="content"> 
+     <p>A media query consists of a media type and an optional combination of media features. CSS rules inside the query will be applied
+only if the query is true.</p>
+<pre>
+@media &lt;media types&gt; and &lt;media features&gt; {
+  /* media-specific rules */
+}
+</pre>
+
+<p>They can also be specified for a linked stylesheet:</p>
+<pre>
+&lt;link rel="stylesheet" media="&lt;media types&gt;
+   and &lt;media features&gt;" href="alternative.css" /&gt;
+</pre>
+
+<p class="notes">
+https://developer.mozilla.org/en/CSS/@media#Media_groups
+https://developer.mozilla.org/en/CSS/Media_queries
+</p>
+     </section>
+    </div>
+    
+  
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Print Styles</h1></header> 
+     <section class="content"> 
+     <p>All modern browsers support the "print" media type for specifying print styles.
+</p>
+<pre>
+@media print {
+  body {
+    background: white;
+  }
+  #header, #footer {
+    display: none;
+  }
+  .section {
+    page-break-inside: avoid;
+    page-break-after: always;
+  }
+}
+</pre>
+
+<p class="notes">
+http://reference.sitepoint.com/css/pagedmedia
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Resolution Queries</h1></header> 
+     <section class="content"> 
+     <p>Modern mobile browsers support media queries which depend on the <code>device-width</code> and/or
+<code>orientation</code>:
+</p>
+<p>Targeting iPads in landscape mode:</p>
+<pre>
+@media only screen
+  and (min-device-width : 768px)
+  and (max-device-width : 1024px)
+  and (orientation : landscape) {
+    img {
+      width: 100%;
+    }
+}
+</pre>
+<p>Read more: <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media Queries for Standard Devices</a>
+<p class="notes">
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Resolution Queries</h1></header> 
+     <section class="content"> 
+     <p>A more general approach is just to query on <code>min-width</code> and <code>max-width</code>,
+which are calculated based on window size, not device size.
+</p>
+<pre>
+@media screen and (max-width: 640px) {
+  #sidebar {
+    display: none;
+  }
+}
+</pre>
+<pre>
+@media (min-width: 768px) and (max-width: 979px) {
+  #sidebar {
+    width: 200px;
+  }
+}
+</pre>
+
+<p class="notes">
+http://css-tricks.com/css-media-queries/
+http://css-tricks.com/resolution-specific-stylesheets/
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Pixel Density Queries</h1></header> 
+     <section class="content"> 
+     <p>The experimental <code>device-pixel-ratio</code> feature can be used to detect pixel density:</p>
+<pre>
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+        #logo {
+            background-image:url(images/icon@2x.png);
+        }
+}
+</pre>
+
+<p class="notes">
+https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Resolution Testing</h1></header> 
+     <section class="content"> 
+     <p>Besides testing on actual devices, you can use these tools:</p>
+<ul>
+ <li><a href="http://pamelafox.github.com/resolutionizer/">Resolutionizer</a> (based on <a href="http://mattkersley.com/responsive/">Responsive Design Testing</a>)
+ <li><a href="http://screenqueri.es/">ScreenQueries</a>
+ <li><a href="http://codeinchaos.github.com/mobile-screens/">Mobile Screens</a>
+     </section>
+    </div>
+    
+    
+    <div class="slide normal"> 
+     <header><h1><a href="exercise_media_descrip.html">Exercise Time!</a></h1></header> 
+    </div>
+    
+    
+    
+    <div class="slide section"> 
+     <header><h1>Cross-Browser CSS</h1></header> 
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Browser Compatibility</h1></header> 
+     <section class="content"> 
+     <p>Older browsers do not know about newer CSS selectors/properties. 
+</p>
+<p>
+Use these sites to check compatibility:
+</p>
+ <ul>
+  <li><a href="http://www.quirksmode.org/css/contents.html">Quirks Mode: CSS Compatibility</a>
+  <li><a href="http://caniuse.com/">caniuse.com</a>
+  <li><a href="http://html5please.com/">html5please.com</a>
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS Fallbacks</h1></header> 
+     <section class="content"> 
+     <p>When the CSS parser doesn't understand a property or value, it ignores it. For fallback, specify older syntaxes first.
+</p>
+
+<pre>
+body {
+  background:url(cyan_transparent_50.png);
+  background:rgba(0,255,255,.5);
+}
+</pre>
+
+<pre>
+button.glossy {
+   background: #ccc url(gloss.png) 50% 50% repeat-x;
+   background: #ccc -webkit-gradient(linear, left top, left bottom,
+         from(rgba(255,255,255, .4)), to(rgba(0,0,0, .1)));
+}
+</pre>
+
+<pre>
+.transparent {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);    
+  opacity: .5;			
+}
+</pre>
+
+<p class="notes">
+http://css-tricks.com/rgba-browser-support/
+http://css-tricks.com/quickie-css3-tricks-with-fallbacks/
+http://www.xanthir.com/blog/b4JF0
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Conditional CSS</h1></header> 
+     <section class="content"> 
+     <p>In case you do need to specify CSS just for a particular browsers, there are a few ways.
+</p>
+<p>In IE, you can use conditional comments to specify IE stylesheets:</p>
+<pre>
+&lt;!--[if IE7]&gt;&lt;link rel="stylesheet" type="text/css" media="screen" href="css/ie7.css" /&gt;&lt;![endif]--&gt;
+</pre>
+<p>Or to conditionally add classes:</p>
+<pre>
+&lt;!--[if IE7]&gt; &lt;html class="ie7"&gt; &lt;![endif]--&gt;
+</pre>
+
+<p>You can also use a number of <a href="http://paulirish.com/2009/browser-specific-css-hacks/">CSS hacks</a> or detect browsers in JavaScript.
+</p>
+<p class="notes">
+http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Browser Bugs</h1></header> 
+     <section class="content"> 
+     <p>Not all browsers render CSS the same, with the most number of issues in IE.
+The best defense is to be aware and to test.
+</p>
+<ul>
+  <li><a href="http://coding.smashingmagazine.com/2010/06/07/the-principles-of-cross-browser-css-coding/">The Principles of Cross-Browser CSS Coding</a>
+  <li><a href="http://www.tutorialfeed.org/2010/01/10-common-css-browser-compatibility.html">10 Common CSS Browser Compatibility Issues</a>
+  <li><a href="http://archive.webstandards.org/css/winie/">IE's Top 10 CSS Problems</a>
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Browser Testing</h1></header> 
+     <section class="content"> 
+     <p>Since not all browsers work on all operating systems (IE on Mac), you may need help from these tools for cross-browser testing:
+<p>
+<ul>
+  <li><a href="http://browsershots.org/">BrowserShots</a>: Takes screenshots of your sites in different browsers.
+  <li><a href="http://www.browserstack.com/">BrowserStack</a>: Lets you debug in virtual browsers.
+  <li><a href="https://browserling.com/">BrowserLing</a>: Ditto.
+  <li><a href="http://multipleies.en.softonic.com/">MultipleIEs</a>: Makes it possible to test in multiple IE versions on one computer.
+  <li><a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a>: Ditto.
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide section"> 
+     <header><h1>Good Defaults</h1></header> 
+     <section class="content"> 
+     
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS Resets</h1></header> 
+     <section class="content"> 
+     <p>CSS reset stylesheets are used to normalize the default CSS across browsers.
+</p>
+<p><a href="http://meyerweb.com/eric/tools/css/reset/">Reset.css</a> removes every default style.
+</p>
+<p><a href="http://necolas.github.com/normalize.css/">Normalize.css</a> normalizes the default styles across browsers 
+(and is the preferred approach).
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS Grids</h1></header> 
+     <section class="content"> 
+     <p>A grids system lets you layout pages according to fractions of a grid (usually 12, 16, or 24 columns).</p>
+<p>Using <a href="http://yuilibrary.com/yui/docs/cssgrids/">YUI CSS Grids</a>:</p>
+<pre> 
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://yui.yahooapis.com/3.5.1/build/cssgrids/grids-min.css&quot;&gt;
+    &lt;div class=&quot;yui3-g&quot;&gt;
+        &lt;div class=&quot;yui3-u-5-24&quot;&gt;
+
+        &lt;/div&gt;
+        &lt;div class=&quot;yui3-u-19-24&quot;&gt;
+
+        &lt;/div&gt;
+   &lt;/div&gt;
+</pre>
+
+<p>Also see: <a href="http://960.gs/">960 Grids</a>, <a href="http://1kbgrid.com/">1KB Grid</a></p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS Frameworks</h1></header> 
+     <section class="content"> 
+     <p>A CSS framework usually includes a reset, a grids system, styles for typography and forms. Some include support for mobile/print.
+</p>
+<p>With <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>:</p>
+<pre>
+&lt;link href=&quot;http://twitter.github.com/bootstrap/assets/css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;div class=&quot;container-fluid&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;span4 well&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;span8&quot;&gt;
+      &lt;div class=&quot;alert&quot;&gt;Hello!&lt;/div&gt;
+     &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<p>Also see: <a href="http://blueprintcss.org/">Blueprint CSS</a>, <a href="http://foundation.zurb.com/">ZURB Foundation</a>, <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1><a href="exercise_bootstrap_descrip.html">Exercise Time!</a></h1></header> 
+     <section class="content"> 
+     
+     </section>
+    </div>
+    
+   
+    <div class="slide section"> 
+     <header><h1>Performance &amp; Productivity</h1></header> 
+     <section class="content"> 
+     
+     </section>
+    </div>
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS Performance</h1></header> 
+     <section class="content"> 
+     <p>There are various ways that webpage performance can suffer because of CSS:</p>
+<ul>
+  <li>The CSS selectors are slow.
+  <li>The CSS file itself is large.
+  <li>The CSS loads lots of images.
+</ul>
+<p>Luckily, there are ways to avoid these issues...</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Slow Selectors</h1></header> 
+     <section class="content"> 
+     <p>Selector types, from fastest to slowest:</p>
+<ul>
+ <li>ID Rules (<code>#header</code>)
+ <li>Class Rules (<code>.avatar</code>)
+ <li>Tag Rules (<code>img</code>)
+ <li>Universal Rules (<code>*, [type="checkbox"]</code>)
+</ul>
+<p>CSS engines evaluate selectors from right to left.
+<pre>
+/* Starts with h3 */
+#footer h3 {}
+/* Starts with a */
+ul li a {}
+</pre>
+
+<p>You can <a href="https://developer.mozilla.org/en/Writing_Efficient_CSS">read more on MDN</a> or
+use a tool like <a href="http://csslint.net/">CSSLint</a> to warn you of inefficient selectors.
+</p>
+
+<p class="notes">
+http://csswizardry.com/2011/09/writing-efficient-css-selectors/
+http://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/
+http://css-tricks.com/efficiently-rendering-css/
+https://developers.google.com/speed/docs/best-practices/rendering#UseEfficientCSSSelectors
+https://developer.mozilla.org/en/Writing_Efficient_CSS
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Big Files</h1></header> 
+     <section class="content"> 
+     <p>CSS compression tools reduce the size of CSS files by:
+<ul>
+  <li>Stripping whitespace, comments, unneeded semi-colons.
+  <li>Shortening number and color values
+</ul>
+     </p>
+<p>For example, this:</p>
+<pre>
+.sidebar {  /* color it grey, no border */
+    color: color: rgb(123, 123, 123);
+    border-width: 0px;
+}
+</pre>
+<p>becomes:</p>
+<pre>
+.sidebar{border-color:#7b7b7b;border-width:0}
+</pre>
+<p><a href="http://developer.yahoo.com/yui/compressor/css.html">YUI CSS Compressor</a> is most popular. <a href="http://www.refresh-sf.com/yui/">Try it online</a>.
+</p>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Lots of Images</h1></header> 
+     <section class="content"> 
+     <p>When a pages uses many <code>IMG</code> tags or <code>background-url</code> properties,
+it slows down loading. For smaller images, "CSS spriting" can help.</p>
+<p>From <a href="http://css-tricks.com/css-sprites/">this article</a>, an image nav without spriting:</p>
+<pre>
+#nav li a.item1 {background-image:url('../img/image1.gif')}
+#nav li a:hover.item1 {background-image:url('../img/image1_over.gif')}
+</pre>
+<p>And with spriting:</p>
+<pre>
+#nav li a {background-image:url('../img/image_nav.gif')}
+#nav li a.item1 {background-position:0px 0px}
+#nav li a:hover.item1 {background-position:0px -72px}
+</pre>
+<p><a href="http://coding.smashingmagazine.com/2009/04/27/the-mystery-of-css-sprites-techniques-tools-and-tutorials/">Various tools</a> can help you create sprites.</p>
+<p class="notes">
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>CSS Pre-Processors</h1></header> 
+     <section class="content"> 
+     <p>A pre-processor can make you more productive and your CSS better organized, by letting you write in a special language and outputting CSS.
+Common features:
+      <ul>
+        <li>variables
+        <li>nesting
+        <li>mix-ins
+        <li>inheritance
+        <li>color functions
+        <li>vendor prefixes.
+      </ul>
+     </p>
+     </section>
+    </div>
+    
+   
+     <div class="slide normal"> 
+     <header><h1>CSS Pre-Processors</h1></header> 
+     <section class="content"> 
+<p>For example, this <a href="http://sass-lang.com/">SaSS</a>:
+<pre>
+@mainColor: #99cc00;
+ 
+#header {
+  .logo {
+    color: lighten(@mainColor, 20%);
+   @include border-radius (3px);
+  }
+}
+</pre>
+<p>is compiled to:</p>
+<pre>
+#header .logo {
+  color: #F5D867;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+</pre>
+<p>Other popular pre-processors: <a href="http://lesscss.org/">Less</a>, <a href="http://learnboost.github.com/stylus/">Styles</a>
+</p>
+<p class="notes">
+http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/
+</p>
+     </section>
+    </div>
+    
+   
+   </div>
+   
+  </div>
+  
+  <script>
+  (function() {
+  var doc = document;
+  var disableBuilds = true;
+
+  var ctr = 0;
+  var spaces = /\s+/, a1 = [''];
+
+  var toArray = function(list) {
+    return Array.prototype.slice.call(list || [], 0);
+  };
+
+  var byId = function(id) {
+    if (typeof id == 'string') { return doc.getElementById(id); }
+    return id;
+  };
+
+  var query = function(query, root) {
+    if (!query) { return []; }
+    if (typeof query != 'string') { return toArray(query); }
+    if (typeof root == 'string') {
+      root = byId(root);
+      if(!root){ return []; }
+    }
+
+    root = root || document;
+    var rootIsDoc = (root.nodeType == 9);
+    var doc = rootIsDoc ? root : (root.ownerDocument || document);
+
+    // rewrite the query to be ID rooted
+    if (!rootIsDoc || ('>~+'.indexOf(query.charAt(0)) >= 0)) {
+      root.id = root.id || ('qUnique' + (ctr++));
+      query = '#' + root.id + ' ' + query;
+    }
+    // don't choke on something like ".yada.yada >"
+    if ('>~+'.indexOf(query.slice(-1)) >= 0) { query += ' *'; }
+
+    return toArray(doc.querySelectorAll(query));
+  };
+
+  var strToArray = function(s) {
+    if (typeof s == 'string' || s instanceof String) {
+      if (s.indexOf(' ') < 0) {
+        a1[0] = s;
+        return a1;
+      } else {
+        return s.split(spaces);
+      }
+    }
+    return s;
+  };
+
+  var addClass = function(node, classStr) {
+    classStr = strToArray(classStr);
+    var cls = ' ' + node.className + ' ';
+    for (var i = 0, len = classStr.length, c; i < len; ++i) {
+      c = classStr[i];
+      if (c && cls.indexOf(' ' + c + ' ') < 0) {
+        cls += c + ' ';
+      }
+    }
+    node.className = cls.trim();
+  };
+
+  var removeClass = function(node, classStr) {
+    var cls;
+    if (classStr !== undefined) {
+      classStr = strToArray(classStr);
+      cls = ' ' + node.className + ' ';
+      for (var i = 0, len = classStr.length; i < len; ++i) {
+        cls = cls.replace(' ' + classStr[i] + ' ', ' ');
+      }
+      cls = cls.trim();
+    } else {
+      cls = '';
+    }
+    if (node.className != cls) {
+      node.className = cls;
+    }
+  };
+
+  var toggleClass = function(node, classStr) {
+    var cls = ' ' + node.className + ' ';
+    if (cls.indexOf(' ' + classStr.trim() + ' ') >= 0) {
+      removeClass(node, classStr);
+    } else {
+      addClass(node, classStr);
+    }
+  };
+
+  var ua = navigator.userAgent;
+  var isFF = parseFloat(ua.split('Firefox/')[1]) || undefined;
+  var isWK = parseFloat(ua.split('WebKit/')[1]) || undefined;
+  var isOpera = parseFloat(ua.split('Opera/')[1]) || undefined;
+
+  var canTransition = (function() {
+  var ver = parseFloat(ua.split('Version/')[1]) || undefined;
+  // test to determine if this browser can handle CSS transitions.
+  var cachedCanTransition = 
+    (isWK || (isFF && isFF > 3.6 ) || (isOpera && ver >= 10.5));
+    return function() { return cachedCanTransition; }
+  })();
+
+  //
+  // Slide class
+  //
+  var Slide = function(node, idx) {
+    this._node = node;
+    if (idx >= 0) {
+      this._count = idx + 1;
+    }
+    if (this._node) {
+      addClass(this._node, 'slide distant-slide');
+    }
+    this._makeCounter();
+    this._makeBuildList();
+  };
+
+  Slide.prototype = {
+    _node: null,
+    _count: 0,
+    _buildList: [],
+    _visited: false,
+    _currentState: '',
+    _states: [ 'distant-slide', 'far-past',
+               'past', 'current', 'future',
+               'far-future', 'distant-slide' ],
+    setState: function(state) {
+      if (typeof state != 'string') {
+        state = this._states[state];
+      }
+      if (state == 'current' && !this._visited) {
+        this._visited = true;
+        this._makeBuildList();
+      }
+      removeClass(this._node, this._states);
+      addClass(this._node, state);
+      this._currentState = state;
+
+      // delay first auto run. Really wish this were in CSS.
+      /*
+      this._runAutos();
+      */
+      var _t = this;
+      setTimeout(function(){ _t._runAutos(); } , 400);
+    },
+    _makeCounter: function() {
+      if(!this._count || !this._node) { return; }
+      var c = doc.createElement('span');
+      c.innerHTML = this._count;
+      c.className = 'counter';
+      this._node.appendChild(c);
+    },
+    _makeBuildList: function() {
+      this._buildList = [];
+      if (disableBuilds) { return; }
+      if (this._node) {
+        this._buildList = query('[data-build] > *', this._node);
+      }
+      this._buildList.forEach(function(el) {
+        addClass(el, 'to-build');
+      });
+    },
+    _runAutos: function() {
+      if (this._currentState != 'current') {
+        return;
+      }
+      // find the next auto, slice it out of the list, and run it
+      var idx = -1;
+      this._buildList.some(function(n, i) {
+        if (n.hasAttribute('data-auto')) {
+          idx = i;
+          return true;
+        }
+        return false;
+      });
+      if (idx >= 0) {
+        var elem = this._buildList.splice(idx, 1)[0];
+        var transitionEnd = isWK ? 'webkitTransitionEnd' : (isFF ? 'mozTransitionEnd' : 'oTransitionEnd');
+        var _t = this;
+        if (canTransition()) {
+          var l = function(evt) {
+            elem.parentNode.removeEventListener(transitionEnd, l, false);
+            _t._runAutos();
+          };
+          elem.parentNode.addEventListener(transitionEnd, l, false);
+          removeClass(elem, 'to-build');
+        } else {
+          setTimeout(function() {
+            removeClass(elem, 'to-build');
+            _t._runAutos();
+          }, 400);
+        }
+      }
+    },
+    buildNext: function() {
+      if (!this._buildList.length) {
+        return false;
+      }
+      removeClass(this._buildList.shift(), 'to-build');
+      return true;
+    },
+  };
+
+  //
+  // SlideShow class
+  //
+  var SlideShow = function(slides) {
+    this._slides = (slides || []).map(function(el, idx) {
+      return new Slide(el, idx);
+    });
+
+    var h = window.location.hash;
+    try {
+      this.current = parseInt(h.split('#slide')[1], 10);
+    }catch (e) { /* squeltch */ }
+    this.current = isNaN(this.current) ? 1 : this.current;
+    var _t = this;
+    doc.addEventListener('keydown', 
+        function(e) { _t.handleKeys(e); }, false);
+    doc.addEventListener('mousewheel', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('DOMMouseScroll', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('touchstart', 
+        function(e) { _t.handleTouchStart(e); }, false);
+    doc.addEventListener('touchend', 
+        function(e) { _t.handleTouchEnd(e); }, false);
+    window.addEventListener('popstate',
+        function(e) { _t.go(e.state); }, false);
+    this._update();
+  };
+
+  SlideShow.prototype = {
+    _slides: [],
+    _update: function(dontPush) {
+      document.querySelector('#presentation-counter').innerText = this.current;
+      if (history.pushState) {
+        if (!dontPush) {
+          history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+        }
+      } else {
+        window.location.hash = 'slide' + this.current;
+      }
+      for (var x = this.current-1; x < this.current + 7; x++) {
+        if (this._slides[x-4]) {
+          this._slides[x-4].setState(Math.max(0, x-this.current));
+        }
+      }
+    },
+
+    current: 0,
+    next: function() {
+      if (!this._slides[this.current-1].buildNext()) {
+        this.current = Math.min(this.current + 1, this._slides.length);
+        this._update();
+      }
+    },
+    prev: function() {
+      this.current = Math.max(this.current-1, 1);
+      this._update();
+    },
+    go: function(num) {
+      if (!num) return;
+      if (history.pushState && this.current != num) {
+        history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+      }
+      this.current = num;
+      this._update(true);
+    },
+
+    _notesOn: false,
+    showNotes: function() {
+      var isOn = this._notesOn = !this._notesOn;
+      query('.notes').forEach(function(el) {
+        el.style.display = (notesOn) ? 'block' : 'none';
+      });
+    },
+    switch3D: function() {
+      toggleClass(document.body, 'three-d');
+    },
+    handleWheel: function(e) {
+      var delta = 0;
+      if (e.wheelDelta) {
+        delta = e.wheelDelta/120;
+        if (isOpera) {
+          delta = -delta;
+        }
+      } else if (e.detail) {
+        delta = -e.detail/3;
+      }
+
+      if (delta > 0 ) {
+        this.prev();
+        return;
+      }
+      if (delta < 0 ) {
+        this.next();
+        return;
+      }
+    },
+    handleKeys: function(e) {
+      
+      if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
+      
+      switch (e.keyCode) {
+        case 37: // left arrow
+          this.prev(); break;
+        case 39: // right arrow
+        case 32: // space
+          this.next(); break;
+        case 50: // 2
+          this.showNotes(); break;
+        case 51: // 3
+          this.switch3D(); break;
+      }
+    },
+    _touchStartX: 0,
+    handleTouchStart: function(e) {
+      this._touchStartX = e.touches[0].pageX;
+    },
+    handleTouchEnd: function(e) {
+      var delta = this._touchStartX - e.changedTouches[0].pageX;
+      var SWIPE_SIZE = 150;
+      if (delta > SWIPE_SIZE) {
+        this.next();
+      } else if (delta< -SWIPE_SIZE) {
+         this.prev();
+       }
+    },
+  };
+
+  // Initialize
+  var slideshow = new SlideShow(query('.slide'));
+})();
+
+  </script>
+  <!--[if lt IE 9]>
+  <script 
+  src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({ mode: "overlay" });</script>
+  <![endif]--> 
+  </body> 
+</html>

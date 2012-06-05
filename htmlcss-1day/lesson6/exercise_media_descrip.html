@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS: Media Queries Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+        <h1>CSS: Media Queries Exercise</h1>
+        <p>The goal of this exercise is to use CSS media queries to make a webpage appear
+        different for printing and for different window sizes.
+        </p>
+        <ul>
+            <li>Start with <a href="exercise_media_before.html">this webpage</a>,
+            which already has HTML and CSS for a header, navigation, content, sidebar, and footer. This is what it looks like:
+            <p>
+            <img src="http://dl.dropbox.com/u/10998095/Screenshots/f8_u1e22y4bw.png" style="border:1px solid black;">
+            </p>
+            <br><br>
+            <li>Add a CSS media query and appropriate styles so that the webpage looks like the screenshot below when printed.
+            Specifically:
+            <ul>
+                <li>The header, navigation, and footer should be hidden.
+                <li>The sidebar should display under the main content.
+            </ul>
+            <p>
+            <img src="http://dl.dropbox.com/u/10998095/Screenshots/u4i82nrsa6at.png">
+            </p>
+            <br><br>
+            <li>Add a CSS media query and appropriate styles so that the webpage looks like the screenshots below 
+            when resized to smaller widths.
+            Specifically: 
+                <ul>
+                    <li>The sidebar should be hidden.
+                    <li>The body should have no padding.
+                    <li>The images shouldn't exceed the width of the window.
+                    <li>The navigation items should each be on their own line.
+                    <li>The header should be fixed, so that it stays at the top after scrolling.
+                </ul>
+            <p>
+            <img src="http://dl.dropbox.com/u/10998095/Screenshots/cpe39ou_1igz.png">
+            </p>
+            <br><br>
+        </ul>
+         
+  <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_media_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+  	</script>
+    </div>
+  </body>
+</html>
