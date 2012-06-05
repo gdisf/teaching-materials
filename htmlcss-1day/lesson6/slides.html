@@ -484,18 +484,6 @@ http://reference.sitepoint.com/css/pagedmedia
      <p>Modern mobile browsers support media queries which depend on the <code>device-width</code> and/or
 <code>orientation</code>:
 </p>
-<p>Targeting phones:</p>
-<pre>
-@media only screen
-  and (min-device-width : 320px)
-  and (max-device-width : 480px) {
-    img {
-      width: 100%;
-    }
-}
-
-</pre>
-
 <p>Targeting iPads in landscape mode:</p>
 <pre>
 @media only screen
@@ -507,8 +495,8 @@ http://reference.sitepoint.com/css/pagedmedia
     }
 }
 </pre>
+<p>Read more: <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media Queries for Standard Devices</a>
 <p class="notes">
-http://css-tricks.com/snippets/css/media-queries-for-standard-devices/
 </p>
      </section>
     </div>
@@ -637,8 +625,7 @@ body {
 button.glossy {
    background: #ccc url(gloss.png) 50% 50% repeat-x;
    background: #ccc -webkit-gradient(linear, left top, left bottom,
-         from(rgba(255,255,255, .4)),
-         to(rgba(0,0,0, .1)));
+         from(rgba(255,255,255, .4)), to(rgba(0,0,0, .1)));
 }
 </pre>
 
@@ -781,7 +768,7 @@ The best defense is to be aware and to test.
     <div class="slide normal"> 
      <header><h1>CSS Frameworks</h1></header> 
      <section class="content"> 
-     <p>A CSS framework usually includes a reset, a grids system, plus default styles for typography and forms. Some includes support for mobile and print.
+     <p>A CSS framework usually includes a reset, a grids system, styles for typography and forms. Some include support for mobile/print.
 </p>
 <p>With <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>:</p>
 <pre>
@@ -807,7 +794,7 @@ The best defense is to be aware and to test.
     
     
     <div class="slide normal"> 
-     <header><h1>Exercise Time!</h1></header> 
+     <header><h1><a href="exercise_bootstrap_descrip.html">Exercise Time!</a></h1></header> 
      <section class="content"> 
      
      </section>
@@ -978,15 +965,6 @@ Common features:
 <p class="notes">
 http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/
 </p>
-     </section>
-    </div>
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Exercise Time!</h1></header> 
-     <section class="content"> 
-     
      </section>
     </div>
     
