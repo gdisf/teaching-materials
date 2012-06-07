@@ -70,10 +70,11 @@ var books = [
 
 for (var i = 0; i &lt; books.length; i++) {
   var book = books[i];
+  var bookInfo = book.title + '" by ' + book.author;
   if (book.alreadyRead) {
-    console.log('You already read "' + book.title + '" by ' + book.author);
+    console.log('You already read "' + bookInfo);
   } else {
-    console.log('You still need to read "' + book.title + '" by ' + book.author);
+    console.log('You still need to read "' + bookInfo);
   }
 }</pre>
 
