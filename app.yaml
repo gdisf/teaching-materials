@@ -37,6 +37,21 @@ handlers:
 - url: /exercises
   static_dir: exercises
 
+- url: /git
+  static_dir: git
+
+- url: /cli
+  static_dir: cli
+
+- url: /dns
+  static_dir: dns
+
+- url: /domains
+  static_dir: domains
+
+- url: /hosting
+  static_dir: hosting
+
 - url: /common
   static_dir: common
 

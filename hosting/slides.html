@@ -8,7 +8,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
     <![endif]--> 
     <meta charset="utf-8" />
-    <title>Version Control & Git</title>
+    <title>Web Hosting Providers</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Tangerine" rel="stylesheet" type="text/css" />
     <style type="text/css" media="projection, screen">
     body {
@@ -23,18 +23,10 @@
 }
 
 #info {
-  font-size: small;
   position: absolute;
   bottom: 0px;
-  left: 40%;
-  z-index: 500;
-}
-
-#topinfo {
-  font-size: small;
-  position: absolute;
-  top: 5px;
-  right: 5px;
+  font-size: 10px;
+  left: 30%;
   z-index: 500;
 }
 
@@ -44,6 +36,7 @@
   padding: 3px 3px 3px 3px;
   text-shadow: none;
   letter-spacing: 0;
+  bottom: 5px;
   position: relative;
   background: white;
 }
@@ -315,6 +308,14 @@ video {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+
+
+
+:not(header) > .key {
+  margin: 0 5px;
+  bottom: 4px;
+}
+
 #presentation-counter {
   color: #ccc;
   font-size: 70%;
@@ -370,36 +371,13 @@ header h1 {
   border-bottom: 1px dotted silver;
 }
 
-#presentation-counter, #info, #topinfo, .counter {
+#presentation-counter, #info, .counter {
   display: none
 }
     </style>
     
   </head> 
   <body> 
-  
-  <div id="topinfo">
-    
-    <span class="item nickname">pamela.fox</span> |
-    
-    
-    <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYyuNUDA">Edit Slideshow</a> |
-    
-    
-    <a href="/importslideset.do?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYyuNUDA&type=5lide">Copy Slideshow</a>
-    
-    <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYyuNUDA&output=pdf">Download PDF</a> |
-    
-    <span class="item"><a href="http://5lide-maker.appspot.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://5lide-maker.appspot.com/%26service%3Dah">Sign out</a></span>
-    
-    </p>
-  </div>
-  
-  <div id="info">
-    <p>Press <span class="key">&rarr;</span> key to advance.
-    Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>.
-    </p>
-  </div>
   
   <div id="presentation">
   
@@ -408,26 +386,28 @@ header h1 {
    <div id="slides">
    
     
-    <div class="slide intro">
-     <header><hgroup> 
-      <h1>Version Control &amp; Git</h1> 
-      <h2></h2>
-     </hgroup></header>
+    
+    <div class="slide section"> 
+     <header><h1>Web Hosting Providers</header>
     </div> 
     
     
     
-   
-    
-    
-    
     <div class="slide normal"> 
-     <header><h1>Version Control Systems</h1></header> 
+     <header><h1>Differentiating Factors</h1></header> 
      <section class="content"> 
-     <p>VCSs keep track of changes to files. Why do we use them?</p>
-<ul>
-  <li>History: Rolling back, Diffing
-  <li>Collaboration: Sharing, Merging, Blaming
+     <ul> 
+  <li> Reliability / Uptime (99.9%)
+  <li> Disk space (Consider # of images)
+  <li> Bandwidth
+  <li> Tech Support (24/7)
+  <li> OS (Unix vs. Windows)
+  <li> Language/DB support (LAMP? Ruby?)
+  <li> Installable modules (CMS, forums, e-commercE)
+  <li> Control Panel
+  <li> SSL
+  <li> Email
+  <li> Price
 </ul>
      </section>
     </div>
@@ -437,318 +417,148 @@ header h1 {
     
     
     <div class="slide normal"> 
-     <header><h1>Example Flow</h1></header> 
+     <header><h1>Hosting Types</h1></header> 
      <section class="content"> 
-     <p>Alice creates this code and commits it as version 0:</p>
-<pre>
-function addTwo(num) {
-  return num + 2;
-}
-</pre>
-<p>Alice edits and commits as version 1:</p>
-<pre>
-function addThree(num) {
-  return num + 3;
-}
-</pre>
+     <img src="hostingtypes.png" style="float:right;">
+<ul>
+  <li>Home server
+  <li>Shared hosting
+  <li>Virtual private server (VPS)
+  <li>Dedicated hosting
+  <li>Cloud hosting
+</ul>
      </section>
     </div>
     
    
+    
+    
     <div class="slide normal"> 
-     <header><h1>Example Flow 2</h1></header> 
+     <header><h1>Home server</h1></header> 
+     <section class="content">
+     <p>A single computer in your home acting as a server.</p>
+     <img src="home.png">
+     <p>Reliability: medium, Scalability: low, Control: high</p>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Shared hosting</h1></header> 
+     <section class="content">
+     <p>Access to a shared server, where hardware/CPU/space is shared with other domains.</p>
+     <img src="shared.png" style="height:350px;">
+     <p>Reliability: medium, Scalability: low, Control: low</p>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+      <header><h1>VPS</h1></header> 
+     <section class="content">
+     <p>A shared server which acts as a single server.</p>
+     <img src="vps.png" style="height:350px;">
+     <p>Reliability: medium, Scalability: low, Control: medium</p>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+      <header><h1>Dedicated Hosting</h1></header> 
+     <section class="content">
+     <p>Full access to a single server.</p>
+     <img src="dedicated.png">
+     <p>Reliability: low, Scalability: low, Control: high</p>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Hosting Providers</h1></header> 
      <section class="content"> 
-<p>Bob pulls the code from version 0 and edits:</p>
-<pre>
-function addTwo(num) {
-  if (num == Infinity) {
-    alert("Cant add to infinity!");
-  }
-  return num + 2;
-}
-</pre>
-<p>Bob pulls in Alice's changes (version 1) and it merges them:</p>
-<pre>
-function addThree(num) {
-  if (num == Infinity) {
-    alert("Cant add to infinity!");
-  }
-  return num + 3;
-}
-</pre>
-<p>Bob pushes the merged code (version 2).</p>
+     <p>Most of these offer shared hosting, and dedicated hosting, and some offer VPS:</p>
+<ul>
+ <li><a href="http://godaddy.com">GoDaddy</a>: "100% uptime, 24 hour support", "other websites can get you banned"
+ <li><a href="http://www.webfaction.com">WebFaction</a>: "Well documented,good control panel"
+ <li><a href="http://mediatemple.com">MediaTemple</a>: "Not cheap but good UI, fast, easy, good support", "unreliable uptime"
+ <li><a href="http://dreamhost.com">DreamHost</a>: "Good", "Awful", "Too-geeky admin"
+ <li><a href="http://www.bluehost.com/">BlueHost</a>: "Good knowledge base"
+ <li><a href="http://www.a2hosting.com/">A2Hosting</a>: "Well setup, good value & quick"
+ <li><a href="http://www.nearlyfreespeech.net/">nearlyfreespeech.net</a>
+</ul>
+     </section>
+   </div>
+ 
+    <div class="slide normal"> 
+     <header><h1>Hosting Providers</h1></header> 
+     <section class="content"> 
+     <p>Some companies <b>only</b> offer VPS solutions, targeted at developers that want a high degree of control.</p>
+<ul>
+ <li><a href="http://www.linode.com/">Linode</a>
+ <li><a href="http://www.rackspace.com/">Rackspace</a>
+</ul>
      </section>
     </div>
     
     
+    
     <div class="slide normal"> 
-     <header><h1>VCS: Centralized vs. Distributed</h1></header> 
-     <section class="content"> 
-     <table style="font-size: larger;">
- <tr>
-  <td>e.g. CVS, Perforce, SVN       <td>e.g. Mercurial, Git
- <tr>
-  <td>Data stored on server <td> Data stored locally
- </tr>
- <tr>
-   <td>Each client keeps "workspace" of current state  <td>Each client keeps entire history
- <tr>
-   <td>Server is required for each operation
-   <td>Server required only for collaboration
+     <header><h1>Cloud Hosting</h1></header> 
+     <section class="content">
+     <p>Access to multiple servers that can be brought up/down when needed.</p>
+     <img src="cloudhosting.png" style="height:350px;">
+     <p>Reliability: high, Scalability: high, Control: varies</p>
+     </section>
+    </div>
+
+    
+    <div class="slide normal"> 
+     <header><h1>IaaS vs. PaaS</h1></header> 
+     <section class="content">
+     <p>Cloud hosting providers vary in how they work and how much control they give you over the cloud setup.</p>
+     <img src="aas.png" style="height:400px;">
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+      <header><h1>IaaS ("Infrastructure as a Service"):</h1></header>
+      <section class="content">
+<ul>
+ <li><a href="http://aws.amazon.com/ec2/">Amazon EC2</a>
+ <li><a href="http://cloud.google.com/products/compute-engine.html">Google Compute Engine</a>
+ <li><a href="http://www.rackspace.com/cloud/cloud_hosting_products/servers/">Rackspace Cloud Servers</a>
+ <li><a href="http://www.vmware.com/solutions/cloud-computing/index.html">VMware Cloud</a>
+ <li><a href="http://www.gogrid.com/">GoGrid</a>
+</ul>
+     <p>Reliability: high, Scalability: high, Control: high</p>
+    </div>
+
+   
+    <div class="slide normal"> 
+      <header><h1>PaaS ("Platform as a Service"):</h1></header>
+      <section class="content">
+<table style="font-size: larger">
+  <tr>
+    <td><a href="http://www.joyent.com/">Joyent</a>
+    <td>Node
+  </tr>
+  <tr>
+    <td><a href="http://cloudfoundry.com">CloudFoundry</a>
+    <td>JVM/Java, Node, Ruby
+  </tr>
+  <tr>
+    <td><a href="http://www.microsoft.com/windowsazure/">Windows Azure</a>
+    <td>C#, VB, C++, PHP, Java, Python, Ruby
+  </tr>
+  <tr>
+    <td><a href="http://code.google.com/appengine">App Engine</a>
+    <td>Java/JVM, Python, Go
+  </tr>
+  <tr>
+    <td><a href="http://www.heroku.com">Heroku</a>
+    <td>Node, Ruby, Java, Scala, Clojure, Python
 </table>
+     <p>Reliability: high, Scalability: high, Control: high</p>
      </section>
     </div>
     
-   
     
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Git Workflow</h1></header> 
-     <section class="content"> 
-     <img src="http://thkoch2001.github.com/whygitisbetter/images/local-remote.png">
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Setting up the repo</h1></header> 
-     <section class="content"> 
-     <p>Create a folder or navigate to existing folder:</p>
-<pre>cd myproject</pre>
-<p>Initialize a repository in the folder:</p>
-<pre>git init</pre>
-<p>All git info will be stored in <code>.git</code> folder.</p>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Adding changes to staging</h1></header> 
-     <section class="content"> 
-     <p>Git requires you to explicitly tell it what changes to stage (edits, deletions, adds).</p>
-
-<p>Add a new file to staging:</p>
-<pre>git add myfile.txt</pre>
-
-<p>Add a file's edits to staging:</p>
-<pre>vi myfile.txt
-git add myfile.txt
-</pre>
-
-<p>Mark a file for deletion in staging:</p>
-<pre>git rm myfile.txt</pre>
-
-<p>Remove a file's changes from staging:</p>
-<pre>git reset myfile.txt</pre>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Viewing staged changes</h1></header> 
-     <section class="content"> 
-<p>Always review the changes in staging before committing using <code>git status</code>:</p>
-<pre>
-username@hostname: <b>git status</b>
-# On branch master
-#
-# Initial commit
-#
-# Changes to be committed:
-#   (use "git rm --cached <file>..." to unstage)
-#
-#    new file:   myfile.txt
-</pre>
-     </section>
-    </div>
-    
-    <div class="slide normal"> 
-     <header><h1>Committing changes</h1></header> 
-     <section class="content"> 
-     <p>To commit the changes to the local repo, use <code>git commit</code>:</p>
-<pre>
-username@hostname: <b>git commit -m "First commit, first file."</b>
-[master (root-commit) 6853adc] First commit
- 1 files changed, 1 insertions(+), 0 deletions(-)
- create mode 100644 myfile.txt
-</pre>
-<p>Try to have a descriptive message, you'll thank yourself later.</p>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Viewing commits</h1></header> 
-     <section class="content"> 
-     <p>Use <code>git log</code> to see all your commits:</p>
-<pre>
-username@hostname: <b>git log</b>
-commit <b>6853adc0b6bc35f1a8ca0a6aa5e59c978148819b</b>
-Author: Pamela Fox <pamela.fox@gmail.com>
-Date:   Thu Jun 28 16:01:22 2012 -0700
-
-    First commit
-</pre>
-<p>Each commit is associated with a unique hash.</p>
-     </section>
-    </div>
-    
-   
-    <div class="slide normal"> 
-     <header><h1>Viewing old versions</h1></header> 
-     <section class="content"> 
-<p>Use <code>git show</code> to view old versions of files:</p>
-<pre>username@hostname: <b>git show 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b:myfile.txt</b>
-helllo!
-</pre>
-     </section>
-    </div>
-        
-    
-    <div class="slide normal"> 
-     <header><h1>Comparing versions</h1></header> 
-     <section class="content"> 
-     <p>Use <code>git diff</code> to compare your changes to other versions:</p>
-<pre>
-username@hostname: vi myfile.txt
-username@hostname: git add myfile.txt
-username@hostname: git commit -m "Added second line"
-username@hostname: <b>git diff 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b</b>
-diff --git a/myfile.txt b/myfile.txt
-index f69d457..e8215de 100644
---- a/myfile.txt
-+++ b/myfile.txt
-@@ -1 +1,2 @@
- helllo!
-+how are you?
-</pre>
-
-     </section>
-    </div>
-    
-    <div class="slide normal"> 
-     <header><h1>Comparing versions</h1></header> 
-     <section class="content"> 
-
-<p>You can also use <code>git diff</code> to compare unstaged changes:</p>
-<pre>
-vi myfile.txt
-git diff
-</pre>
-<p>Or to compare staged changes:</p>
-<pre>
-vi myfile.txt
-git add myfile.txt
-git diff --staged
-</pre>
-
-
-     </section>
-    </div>
-    
-    <div class="slide normal"> 
-     <header><h1>Going back</h1></header> 
-     <section class="content"> 
-     <p>Use <code><a href="http://www.kernel.org/pub/software/scm/git/docs/git-checkout.html">git checkout</a></code> to check out a past commit:</p>
-<pre>
-username@hostname: <b>git checkout 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b</b>
-HEAD is now at 6853adc... First commit
-</pre>
-<p>Other ways to refer to commits:</p>
-<ul>
-  <li>git checkout master
-  <li>git checkout HEAD
-  <li>git checkout HEAD^0, HEAD^1, HEAD^2,...
-</ul>
-<p>Best practice: commit or reset changes before checking out.</p>
-     </section>
-    </div>
-
-   
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Using branches</h1></header> 
-     <section class="content"> 
-     <img src="http://blogs.sitepoint.com/wp-content/uploads/2010/10/branching.jpg" style="float:right">
-<p>Create the branch:</p>
-<pre>git branch mybranch</pre>
-<p>Switch to the branch:</p>
-<pre>git checkout mybranch</pre>
-<p>Or do it in one command:</p>
-<pre>git checkout -b mybranch</pre>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Merging branches</h1></header> 
-     <section class="content"> 
-     <p>Switch to the branch you want to merge into:</p>
-<pre>git checkout master</pre>
-<p>Merge changes from other branch:</p>
-<pre>git merge mybranch</pre>
-<p>If there are any conflicts, fix and commit.</p>
-<p>Optionally, delete the branch after:</p>
-<pre>git branch -d mybranch</pre>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Github</h1></header> 
-     <section class="content"> 
-     
-<img src="https://a248.e.akamai.net/assets.github.com/images/modules/about_page/octocat.png?1306884374" style="float:right;">
-<ul>
-  <li>Hosted, shared git repositories
-  <li>Code reviews
-  <li>Issue tracking
-  <li>Wiki
-  <li>Strong community
-</ul>
-
-<p>Free for open-source, public projects. $$ for private projects.</p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Using remote repos</h1></header> 
-     <section class="content"> 
-     <p>To synchronize with a remote repository, first tell Git about it:</p>
-<pre>git remote add origin git://github.com/username/reponame</pre>
-<p>To push changes, use <code>git push</code>:</p>
-<pre>git push origin master</pre>
-<p>To pull changes, use <code>git pull</code>:</p>
- <pre>git pull origin master</pre>
-     </section>
-    </div>
     
     
    
