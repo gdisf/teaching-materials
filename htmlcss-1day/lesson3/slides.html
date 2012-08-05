@@ -434,19 +434,7 @@ header h1 {
      </section>
     </div>
     
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Tables: Not for Layout</h1></header> 
-     <section class="content"> 
-     <p>Before we had better techniques, tables were often used to layout a webpage, but this is now strongly discouraged.</p>
-<img src="http://farm5.static.flickr.com/4095/4930956277_a1b328a446.jpg">
-<p>We will discuss better ways to do layout when we cover CSS.</p>
-     </section>
-    </div>
-    
+  
    
     
     
@@ -560,7 +548,15 @@ This example shows a table of monthly savings.
      </section>
     </div>
     
-
+    <div class="slide normal"> 
+     <header><h1>Tables: Not for Layout</h1></header> 
+     <section class="content"> 
+     <p>Before we had better techniques, tables were often used to layout a webpage, but this is now strongly discouraged.</p>
+<img src="http://farm5.static.flickr.com/4095/4930956277_a1b328a446.jpg">
+<p>We will discuss better ways to do layout when we cover CSS.</p>
+     </section>
+    </div>
+    
 
     <div class="slide section"> 
      <header><h1>Forms</header>
@@ -575,22 +571,44 @@ This example shows a table of monthly savings.
    
     
     <div class="slide normal"> 
+     <header><h1>A basic form</h1></header> 
+     <section class="content">
+
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  method="get"&gt;
+  &lt;input type="text" name="firstname"&gt;
+  &lt;button type="submit"&gt;Send Data&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+<form action="http://imagine-it.org/processform.php" 
+  method="get" target="_blank">
+  <input type="text" name="firstname">
+  <button type="submit">Send Data</button>
+</form>
+
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
      <header><h1>Form element</h1></header> 
      <section class="content">
 
 <pre>
-&lt;form action="userlogin.php" <b>method="post"</b>&gt;
+&lt;form action="http://imagine-it.org/processform.php" 
+  <b>method="post"&gt;</b>
 &lt;/form&gt;
 </pre>
 
 <pre>
-&lt;form action="userlogin.php" <b>method="get"</b>&gt;
+&lt;form action="http://imagine-it.org/processform.php" 
+  <b>method="get"&gt;</b>
 &lt;/form&gt;
 </pre>
 
      </section>
     </div>
-    
     
     <div class="slide normal"> 
      <header><h1>Input element</h1></header> 
@@ -790,7 +808,27 @@ Multiple choice:
    
     
     
-    
+    <div class="slide normal">
+      <header><h1>Forms in HTML5</h1></header>
+      <section class="content">
+      
+        <code>&lt;input type="email" placeholder="bla@email.com"&gt;</code> <br>
+        <input type="email" placeholder="bla@email.com"/>
+        <br><br>
+        <code>&lt;input type="range" min="0" max="50" value="10"&gt;</code> <br>
+        <input type="range" min="0" max="50" value="10" />
+        <br><br>
+        <code>&lt;input type="search" results autosave&gt;</code> <br>
+        <input type="search" results autosave/>
+        <br><br>
+        <code>&lt;input type="color"&gt;</code> <br>
+        <input type="color"/>
+        <br><br>
+        <code>&lt;input type="date" min="2010-08-14" max="2011-08-14"&gt;</code> <br>
+        <input type="date" min="2010-08-14" max="2011-08-14"/>
+
+     </section>
+    </div>
 
    
     <div class="slide normal"> 
@@ -829,6 +867,13 @@ while ($row = @mysql_fetch_assoc($result)) {
      </section>
     </div>
    
+    
+    <div class="slide normal"> 
+     <header><h1>Exercise Time</h1></header> 
+     <section class="content"> 
+     <a href="exercise_descrip.html">Exercise: Tables & Forms</a>
+     </section>
+    </div>
     
     
     <div class="slide section"> 
@@ -1054,6 +1099,27 @@ while ($row = @mysql_fetch_assoc($result)) {
   </embed>
 
 </object>
+     </section>
+    </div>
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Multimedia in HTML5</h1></header> 
+     <section class="content"> 
+        <p>We now don't need plugins for many types of multimedia!</p>
+         <ul>
+            <li> <code>&lt;canvas&gt;</code> (<a href="https://dl.dropbox.com/u/7508542/sandbox/io2012/particles_zz85.html">Particles</a>)
+            <li> <code>&lt;svg&gt;</code> (<a href="http://croczilla.com/bits_and_pieces/svg/samples/tiger/tiger.svg">Tiger</a>)
+            <li> <code>&lt;audio&gt;</code> (<a href="http://cs.iupui.edu/~aharris/n351/notes09/HTML5AudioDemo.html">Basic</a>, <a href="http://9elements.com/io/projects/html5/canvas/">Visualizer</a>)
+            <li> <code>&lt;video&gt;</code> (<a href="http://www.youtube.com/html5">Youtube & HTML5</a>, <a href="http://www.craftymind.com/factory/html5video/CanvasVideo.html">Exploding video</a>)
+        </ul>
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>Exercise Time</h1></header> 
+     <section class="content"> 
+     <a href="exercise_embed_descrip.html">Exercise: Embeds</a>
      </section>
     </div>
     

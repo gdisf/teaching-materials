@@ -418,18 +418,6 @@ header h1 {
     
     
     <div class="slide normal"> 
-     <header><h1>Servers</h1></header> 
-     <section class="content"> 
-     <p>Servers are just programs running on a computer that serve up content.</p>
-     <p>Sometimes they serve up static files, and are exposed like a file system.</p>
-     <p>Sometimes they can be scripted using "server-side" programming languages (PHP, Python, Perl, Java, etc.) to serve more dynamic pages.
-     </p>
-     </section>
-    </div>
-    
-    
-    
-    <div class="slide normal"> 
      <header><h1>Browsers</h1></header> 
      <section class="content"> 
      <p>Browsers are programs that render content on the web, most often HTML pages and related resources.</p>
@@ -467,7 +455,206 @@ header h1 {
      </section>
     </div>
     
+    <div class="slide normal"> 
+     <header><h1>Browser -> Server</h1></header> 
+     <section class="content"> 
+     <img src="http://static.ddmcdn.com/gif/webserver-basic-sm.gif" style="width: 600px;">
 
+     </section>
+    </div>
+    
+   
+    <div class="slide normal"> 
+     <header><h1>Step 1: The URL Breakdown</h1></header> 
+     <section class="content"> 
+     <p style="font-size:smaller;"><code>http://www.howstuffworks.com/web-server.html</code>:
+</p>
+<table style="font-size:larger;">
+  <tr><td><code>http</code>  <td>the protocol
+        <tr><td><code>www.howstuffworks.com</code>  <td>the server name
+              <tr><td><code>web-server.html</code>  <td> the file name
+</table>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Step 2: Server Name -&gt; IP</h1></header> 
+     <section class="content"> 
+     <p>The browser asks "name servers" to figure out what IP the server name corresponds to.</p>
+<img src="http://farm3.static.flickr.com/2435/3607857746_b4372ba3ba_o.png">
+<pre>
+nslookup www.howstuffworks.com
+a462.g.akamai.net 20  IN  A 213.254.17.94
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>IP Addresses</h1></header> 
+     <section class="content"> 
+     <p>In IPv4, 32-bit numbers that uniquely address each machine on the internet:</p>
+<pre>216.27.61.137</pre>
+
+<p>In IPv6, the numbers are much longer (so there are more available addresses.):</p>
+<pre>2001:0db8:85a3:0000:0000:8a2e:0370:7334</pre>
+
+<p>Your "self" IP address is always:</p>
+<pre>127.0.0.1</pre>
+
+<p>Find out your IP <a href="http://whatismyipaddress.com/">online</a> or by using <code>ifconfig</code>.</p>
+
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Dynamic IP</h1></header> 
+     <section class="content"> 
+     <p>Some computers have "dynamic IPs", which change frequently.</p>
+
+<img src="http://support.easydns.com/tutorials/DynamicDNS/images/section01_cg.gif" style="height:400px;">
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Static IP</h1></header> 
+     <section class="content"> 
+     <p>Web servers usually have a "static IP", so they can reliably be located.</p>
+
+<img src="http://support.easydns.com/tutorials/DynamicDNS/images/easybuild_racks_sm.gif">
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Step 3: Browser -&gt; Server</h1></header> 
+     <section class="content"> 
+     <p>The browser connects to the IP at port 80, the default port, and sends an HTTP request for the specified file.</p>
+
+<p>Request:</p>
+<pre>
+GET /web-server.html HTTP/1.1
+Host: www.howstuffworks.com
+</pre>
+
+<p>Response:</p>
+<pre>
+200
+Content-Type: text/html
+&lt;doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HowStuffWorks "How Web Servers Work" &lt;/title&gt;
+    &hellip;
+&lt;/html&gt;
+</pre>
+
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>HTTP Request</h1></header> 
+     <section class="content"> 
+     <p>"HyperText Transfer Protocol"</p>
+     
+     <p>The browser sends a request which contains:
+     <ul>
+        <li>A verb, like: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>.
+        <li>A HTTP protocol version, like <code>1.1</code>.
+        <li>A path on the server, like: <code>/web-server.html</code>.
+        <li>A host, like: <code>www.howstuffworks.com</code>
+        <li>Additional optional headers with more information for the server.
+        <li>Optional content, like when the request is from a form.
+    </ul>
+     
+<pre>
+GET /web-server.html HTTP/1.1
+Host: www.howstuffworks.com
+</pre>
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>HTTP Response</h1></header> 
+     <section class="content">
+     
+     <p>The server sends a response which contains:</p>
+     <ul>
+        <li>A status code, like: <code>200</code> (success), <code>404</code> (not found), and <code>403</code> (forbidden).
+        <li>Optional headers, to give more information, like: <code>Content-Length</code>, <code>Cache-Control</code>.
+        <li>Optional content, like HTML or JSON.
+    </ul>
+     
+<pre>
+200
+Content-Type: text/html
+&lt;doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HowStuffWorks "How Web Servers Work" &lt;/title&gt;
+    &hellip;
+&lt;/html&gt;
+</pre>
+
+     </section>
+    </div>
+    
+    
+    <div class="slide normal">
+      <header><h1>POST Request & Response</h1></header>
+      <section class="content">
+      <pre>
+POST /api/save-profile HTTP/1.1
+Host: www.coursera.com
+X-CSRFToken: 2342342343
+location=Iowa&gender=male
+</pre>
+
+<pre>
+200
+&lt;doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Welcome to Coursera!&lt;/title&gt;
+    &hellip;
+&lt;/html&gt;
+</pre>
+
+      </section>
+    </div>
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Servers</h1></header> 
+     <section class="content"> 
+     <p>Servers are just programs running on a computer that serve up content.</p>
+     <p>Sometimes they serve up static files, and are exposed like a file system.</p>
+     <p>Sometimes they can be scripted using "server-side" programming languages (PHP, Python, Perl, Java, etc.) to serve more dynamic pages.
+     </p>
+     </section>
+    </div>
+    
+    
     <div class="slide normal"> 
      <header><h1>The Web</h1></header> 
      <section class="content"> 

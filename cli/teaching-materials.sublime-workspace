@@ -1,4 +1,3 @@
-
 <html> 
   <head> 
     <!--[if gte IE 9]>
@@ -8,7 +7,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
     <![endif]--> 
     <meta charset="utf-8" />
-    <title>Version Control & Git</title>
+    <title>Command Line</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Tangerine" rel="stylesheet" type="text/css" />
     <style type="text/css" media="projection, screen">
     body {
@@ -383,12 +382,12 @@ header h1 {
     <span class="item nickname">pamela.fox</span> |
     
     
-    <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYyuNUDA">Edit Slideshow</a> |
+    <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYo51UDA">Edit Slideshow</a> |
     
     
-    <a href="/importslideset.do?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYyuNUDA&type=5lide">Copy Slideshow</a>
+    <a href="/importslideset.do?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYo51UDA&type=5lide">Copy Slideshow</a>
     
-    <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYyuNUDA&output=pdf">Download PDF</a> |
+    <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYo51UDA&output=pdf">Download PDF</a> |
     
     <span class="item"><a href="http://5lide-maker.appspot.com/_ah/logout?continue=https://www.google.com/accounts/Logout%3Fcontinue%3Dhttps://appengine.google.com/_ah/logout%253Fcontinue%253Dhttp://5lide-maker.appspot.com/%26service%3Dah">Sign out</a></span>
     
@@ -410,7 +409,7 @@ header h1 {
     
     <div class="slide intro">
      <header><hgroup> 
-      <h1>Version Control &amp; Git</h1> 
+      <h1>Command-Line</h1> 
       <h2></h2>
      </hgroup></header>
     </div> 
@@ -422,12 +421,56 @@ header h1 {
     
     
     <div class="slide normal"> 
-     <header><h1>Version Control Systems</h1></header> 
+     <header><h1>Shells</h1></header> 
      <section class="content"> 
-     <p>VCSs keep track of changes to files. Why do we use them?</p>
+     <p>A text-based command interpreter.</p>
+<p>The most common shell is "bash".</p>
+<img src="http://students.cs.byu.edu/~cs240ta/spring2012/tutorials/linux/terminal.png">
+<p>On Mac, use a shell via the "Terminal" app.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Shell prompt</h1></header> 
+     <section class="content"> 
+     <p>The prompt usually shows you your username and computer name:</p>
+<pre>
+username@hostname:
+</pre>
+<p>To see what directory you're in, use the <code>pwd</code> command:
+</p>
+<pre>username@hostname: pwd
+/Users/username/Desktop
+</pre>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>File Paths</h1></header> 
+     <section class="content"> 
+     <p>A sequence of nested directories with a file or directory at the end, separated by "/":</p>
 <ul>
-  <li>History: Rolling back, Diffing
-  <li>Collaboration: Sharing, Merging, Blaming
+  <li>Relative:
+<code>documents/fun/microsoft_jokes.html</code>
+  <li>Absolute:
+<code>/usr/bin/local</code>
+  <li>Root: 
+<code>/</code>
+</ul>
+<p>Shortcuts:</p>
+<ul>
+  <li>Current directory: <code>.</code>
+  <li>Parent directory: <code>..</code>
+  <li>Home directory: <code>~</code>
 </ul>
      </section>
     </div>
@@ -437,91 +480,16 @@ header h1 {
     
     
     <div class="slide normal"> 
-     <header><h1>Example Flow</h1></header> 
+     <header><h1>Change directory</h1></header> 
      <section class="content"> 
-     <p>Alice creates this code and commits it as version 0:</p>
+     <p>Use the <code>cd</code> command to change directories:</p>
 <pre>
-function addTwo(num) {
-  return num + 2;
-}
+cd mydirectory/
 </pre>
-<p>Alice edits and commits as version 1:</p>
 <pre>
-function addThree(num) {
-  return num + 3;
-}
+cd ../
 </pre>
-     </section>
-    </div>
-    
-   
-    <div class="slide normal"> 
-     <header><h1>Example Flow 2</h1></header> 
-     <section class="content"> 
-<p>Bob pulls the code from version 0 and edits:</p>
-<pre>
-function addTwo(num) {
-  if (num == Infinity) {
-    alert("Cant add to infinity!");
-  }
-  return num + 2;
-}
-</pre>
-<p>Bob pulls in Alice's changes (version 1) and it merges them:</p>
-<pre>
-function addThree(num) {
-  if (num == Infinity) {
-    alert("Cant add to infinity!");
-  }
-  return num + 3;
-}
-</pre>
-<p>Bob pushes the merged code (version 2).</p>
-     </section>
-    </div>
-    
-    
-    <div class="slide normal"> 
-     <header><h1>VCS: Centralized vs. Distributed</h1></header> 
-     <section class="content"> 
-     <table style="font-size: larger;">
- <tr>
-  <td>e.g. CVS, Perforce, SVN       <td>e.g. Mercurial, Git
- <tr>
-  <td>Data stored on server <td> Data stored locally
- </tr>
- <tr>
-   <td>Each client keeps "workspace" of current state  <td>Each client keeps entire history
- <tr>
-   <td>Server is required for each operation
-   <td>Server required only for collaboration
-</table>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Git Workflow</h1></header> 
-     <section class="content"> 
-     <img src="http://thkoch2001.github.com/whygitisbetter/images/local-remote.png">
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Setting up the repo</h1></header> 
-     <section class="content"> 
-     <p>Create a folder or navigate to existing folder:</p>
-<pre>cd myproject</pre>
-<p>Initialize a repository in the folder:</p>
-<pre>git init</pre>
-<p>All git info will be stored in <code>.git</code> folder.</p>
+
 
      </section>
     </div>
@@ -531,59 +499,21 @@ function addThree(num) {
     
     
     <div class="slide normal"> 
-     <header><h1>Adding changes to staging</h1></header> 
+     <header><h1>List directory</h1></header> 
      <section class="content"> 
-     <p>Git requires you to explicitly tell it what changes to stage (edits, deletions, adds).</p>
-
-<p>Add a new file to staging:</p>
-<pre>git add myfile.txt</pre>
-
-<p>Add a file's edits to staging:</p>
-<pre>vi myfile.txt
-git add myfile.txt
-</pre>
-
-<p>Mark a file for deletion in staging:</p>
-<pre>git rm myfile.txt</pre>
-
-<p>Remove a file's changes from staging:</p>
-<pre>git reset myfile.txt</pre>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Viewing staged changes</h1></header> 
-     <section class="content"> 
-<p>Always review the changes in staging before committing using <code>git status</code>:</p>
+     <p>Use the <code>ls</code> command to list the contents of a directory:</p>
 <pre>
-username@hostname: <b>git status</b>
-# On branch master
-#
-# Initial commit
-#
-# Changes to be committed:
-#   (use "git rm --cached <file>..." to unstage)
-#
-#    new file:   myfile.txt
+username@hostname: ls
+mydir/
+myfile.txt
 </pre>
-     </section>
-    </div>
-    
-    <div class="slide normal"> 
-     <header><h1>Committing changes</h1></header> 
-     <section class="content"> 
-     <p>To commit the changes to the local repo, use <code>git commit</code>:</p>
+<p>For more details, use <code>-l</code>, and to see hidden files, use <code-a</code>:
 <pre>
-username@hostname: <b>git commit -m "First commit, first file."</b>
-[master (root-commit) 6853adc] First commit
- 1 files changed, 1 insertions(+), 0 deletions(-)
- create mode 100644 myfile.txt
+username@hostname: ls -al
+-rw-r--r--    16 pamelafox  staff      544 19 Mar 11:40 .dropbox
+drwxr-xr-x    16 pamelafox  staff      544 19 Mar 11:40 mydir/
+-rw-r--r--    16 pamelafox  staff      544 19 Mar 11:40 myfile.txt
 </pre>
-<p>Try to have a descriptive message, you'll thank yourself later.</p>
 
      </section>
     </div>
@@ -593,144 +523,19 @@ username@hostname: <b>git commit -m "First commit, first file."</b>
     
     
     <div class="slide normal"> 
-     <header><h1>Viewing commits</h1></header> 
+     <header><h1>File Names</h1></header> 
      <section class="content"> 
-     <p>Use <code>git log</code> to see all your commits:</p>
-<pre>
-username@hostname: <b>git log</b>
-commit <b>6853adc0b6bc35f1a8ca0a6aa5e59c978148819b</b>
-Author: Pamela Fox <pamela.fox@gmail.com>
-Date:   Thu Jun 28 16:01:22 2012 -0700
-
-    First commit
-</pre>
-<p>Each commit is associated with a unique hash.</p>
-     </section>
-    </div>
-    
-   
-    <div class="slide normal"> 
-     <header><h1>Viewing old versions</h1></header> 
-     <section class="content"> 
-<p>Use <code>git show</code> to view old versions of files:</p>
-<pre>username@hostname: <b>git show 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b:myfile.txt</b>
-helllo!
-</pre>
-     </section>
-    </div>
-        
-    
-    <div class="slide normal"> 
-     <header><h1>Comparing versions</h1></header> 
-     <section class="content"> 
-     <p>Use <code>git diff</code> to compare your changes to other versions:</p>
-<pre>
-username@hostname: vi myfile.txt
-username@hostname: git add myfile.txt
-username@hostname: git commit -m "Added second line"
-username@hostname: <b>git diff 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b</b>
-diff --git a/myfile.txt b/myfile.txt
-index f69d457..e8215de 100644
---- a/myfile.txt
-+++ b/myfile.txt
-@@ -1 +1,2 @@
- helllo!
-+how are you?
-</pre>
-
-     </section>
-    </div>
-    
-    <div class="slide normal"> 
-     <header><h1>Comparing versions</h1></header> 
-     <section class="content"> 
-
-<p>You can also use <code>git diff</code> to compare unstaged changes:</p>
-<pre>
-vi myfile.txt
-git diff
-</pre>
-<p>Or to compare staged changes:</p>
-<pre>
-vi myfile.txt
-git add myfile.txt
-git diff --staged
-</pre>
-
-
-     </section>
-    </div>
-    
-    <div class="slide normal"> 
-     <header><h1>Going back</h1></header> 
-     <section class="content"> 
-     <p>Use <code><a href="http://www.kernel.org/pub/software/scm/git/docs/git-checkout.html">git checkout</a></code> to check out a past commit:</p>
-<pre>
-username@hostname: <b>git checkout 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b</b>
-HEAD is now at 6853adc... First commit
-</pre>
-<p>Other ways to refer to commits:</p>
-<ul>
-  <li>git checkout master
-  <li>git checkout HEAD
-  <li>git checkout HEAD^0, HEAD^1, HEAD^2,...
-</ul>
-<p>Best practice: commit or reset changes before checking out.</p>
-     </section>
-    </div>
-
-   
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Using branches</h1></header> 
-     <section class="content"> 
-     <img src="http://blogs.sitepoint.com/wp-content/uploads/2010/10/branching.jpg" style="float:right">
-<p>Create the branch:</p>
-<pre>git branch mybranch</pre>
-<p>Switch to the branch:</p>
-<pre>git checkout mybranch</pre>
-<p>Or do it in one command:</p>
-<pre>git checkout -b mybranch</pre>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Merging branches</h1></header> 
-     <section class="content"> 
-     <p>Switch to the branch you want to merge into:</p>
-<pre>git checkout master</pre>
-<p>Merge changes from other branch:</p>
-<pre>git merge mybranch</pre>
-<p>If there are any conflicts, fix and commit.</p>
-<p>Optionally, delete the branch after:</p>
-<pre>git branch -d mybranch</pre>
-
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Github</h1></header> 
-     <section class="content"> 
-     
-<img src="https://a248.e.akamai.net/assets.github.com/images/modules/about_page/octocat.png?1306884374" style="float:right;">
-<ul>
-  <li>Hosted, shared git repositories
-  <li>Code reviews
-  <li>Issue tracking
-  <li>Wiki
-  <li>Strong community
+     <ul>
+ <li>case sensitive
+ <li>any character (besides "/")
+ <li>file extensions are for user convenience
 </ul>
 
-<p>Free for open-source, public projects. $$ for private projects.</p>
+<p>Examples:
+<pre>
+README   .bashrc   index.html    index.html.old    Bugs List.txt
+</pre>
+</p>
      </section>
     </div>
     
@@ -739,17 +544,213 @@ HEAD is now at 6853adc... First commit
     
     
     <div class="slide normal"> 
-     <header><h1>Using remote repos</h1></header> 
+     <header><h1>Making &amp; deleting directories</h1></header> 
      <section class="content"> 
-     <p>To synchronize with a remote repository, first tell Git about it:</p>
-<pre>git remote add origin git://github.com/username/reponame</pre>
-<p>To push changes, use <code>git push</code>:</p>
-<pre>git push origin master</pre>
-<p>To pull changes, use <code>git pull</code>:</p>
- <pre>git pull origin master</pre>
+     <p>To make a new directory, use the <code>mkdir</code> command:</p>
+<pre>
+mkdir myproject
+</pre>
+<p>To remove a (empty) directory, use the <code>rmdir</code> command:</p>
+<pre>
+rmdir myproject
+</pre>
      </section>
     </div>
     
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Filesystem structure</h1></header> 
+     <section class="content"> 
+     <p>Varies from system, but some common folders:</p>
+<ul>
+  <li><code>/bin</code>: Basic commands
+  <li><code>/etc</code>: System config files
+  <li><code>/tmp</code>: Temporary files
+  <li><code>/usr</code>: Regular user tools
+  <li><code>/usr/local</code>: Installed user software
+  <li><code>/var</code>: Data used by system
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Working with files</h1></header> 
+     <section class="content"> 
+     <p>To make a file, use the <code>touch</code> command:</p>
+<pre>touch newfile.txt
+</pre>
+<p>To copy a file, use the <code>cp</code> command:
+<pre>cp newfile.txt newerfile.txt</pre>
+<p>To move a file, use the <code>mv</code> command:
+<pre>cp newerfile.txt betterfilename.txt</pre>
+<p>To remove a file, use the <code>rm</code> command:
+<pre>rm betterfilename.txt</pre>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Editing files</h1></header> 
+     <section class="content"> 
+     <p>You can use various editors built into bash:
+</p>
+ <ul>
+  <li><code>vi myfile.txt</code>
+  <li><code>emacs myfile.txt</code>
+  <li><code>pico myfile.txt</code>
+</ul>
+<p>Or (on Mac), you can open with any desktop app:</p>
+<pre>open -a TextEdit myfile.txt</pre>
+<p>With default editor:</p>
+<pre>open -t myfile.txt</pre>
+<p>With TextEdit:</p>
+<pre>open -e myfile.txt</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Viewing files</h1></header> 
+     <section class="content"> 
+     <p>You can view files in an editor, or for read-only viewing, try:
+</p>
+<ul>
+  <li><code>cat myfile.txt</code>
+  <li><code>more myfile.txt</code>
+  <li><code>less myfile.txt</code>
+</ul>
+<p>You can pass multiple files into any of them:</p>
+<pre> cat myfile.txt myfile2.txt myfile3.txt</pre>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Searching files</h1></header> 
+     <section class="content"> 
+     <p>Use the <code>grep</code> command to search in files:</p>
+
+<p>Find the phrase "hello" in a specific file:</p>
+<pre>grep hello myfile.txt</pre>
+
+<p>Find the phrase "hello" in all txt files:</p>
+<pre>grep hello *.txt</pre>
+
+
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Finding files</h1></header> 
+     <section class="content"> 
+     <p>Use the <code>find</code> command to find files according to name/metadata:</p>
+
+<p>Find all txt files under the current directory:</p>
+<pre>
+find . -name '*.txt' -print
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Redirecting output</h1></header> 
+     <section class="content"> 
+     <p>By default, input comes from the screen and output goes to the screen.</p>
+<p>You can use <code>&lt;</code> and <code>&gt;</code> to redirect input/output.</p>
+
+<p>Save results of search in a file:</p>
+<pre>grep hello *.txt > results.txt</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Using commands</h1></header> 
+     <section class="content"> 
+     <ul>
+  <li>The left/right arrow keys let you edit within a command
+  <li>The up/down arrow keys let you select previous commands
+  <li>CTRL+a goes to beginning of command, CTRL+e to the end.
+  <li>The tab auto-completes filenames
+</ul>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Command shortcuts</h1></header> 
+     <section class="content"> 
+     <p>Use <code>history</code> to see your previous commands:</p>
+<pre>
+  564  grep 'jquery' *.txt > results.txt
+  565  vi results.txt 
+  566* open -a TextEdit myfile.txt
+  568  history
+</pre>
+<p>Also useful:</p>
+<ul>
+  <li><code>!!</code>: Latest command
+  <li><code>!568</code>: Command by #
+  <li><code>!open</code>: Command matching string
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Exercise Time!</h1></header> 
+     <section class="content"> 
+     <ul>
+ <li>Navigate to your "Dropbox" or "Documents" folder, wherever you've been putting projects.
+ <li>Create a new folder called "myproject".
+ <li>Change to that directory.
+ <li>Create a new file called "index.html".
+ <li>Edit that file so it's a basic webpage with a title.
+ <li>Copy a file from another project into that folder, rename it, and use it in the webpage.
+ <li>Open that file in Chrome and check it works.
+</ul>
+
+
+     </section>
+    </div>
     
    
    </div>
