@@ -4,6 +4,11 @@ runtime: python
 api_version: 1
 
 handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+  expiration: 1h
+
 - url: /htmlcss-1day/
   static_files: htmlcss-1day/index.html
   upload: htmlcss-1day/index.html
@@ -31,6 +36,21 @@ handlers:
 
 - url: /exercises
   static_dir: exercises
+
+- url: /git
+  static_dir: git
+
+- url: /cli
+  static_dir: cli
+
+- url: /dns
+  static_dir: dns
+
+- url: /domains
+  static_dir: domains
+
+- url: /hosting
+  static_dir: hosting
 
 - url: /common
   static_dir: common
