@@ -63,7 +63,7 @@
     "property" : "value",
     "age" : "35",
     "weight" : "180",
-    "favorite_foods" : ["Artichoke", "Alphalpha", "Anchovies"]
+    "favorite_foods" : ["Artichoke", "Alphalpha", "Anchovies"],
     "favorite_books" : [{"title": "Moby Dick", "author" : "Hermann Melville"}, {"title" : "Where the Wild Things Are", "author" : "Maurice Sendak"}]
 }
                         </pre>
@@ -74,38 +74,26 @@
             </div>
 
             <div class="slide normal">
+                <header><h1>Data Comes in Hierarchies</h1></header>
+                <section class="content">
+                    <p>Often, data is "nested" in "hierarchies" of objects within objects.</p>
+                    <img src="img/hierarchy.png" width="500px">
+                </section>
+            </div>
+
+            <div class="slide normal">
                 <header><h1>Methods of storing</h1></header>
                 <section class="content">
                     <ul>
                         <li>Plain Text (.txt)</li>
                         <li>CSV (.csv)</li>
-                        <li>JSON (JavaScript Object Notation</li>
-                        <li>Relational Database (SQL)</li>
+                        <li>JSON (JavaScript Object Notation)</li>
+                        <li>Relational Database (SQL, Oracle)</li>
                         <li>Non-Relational Database (MongoDB, Cassandra, etc)</li>
                     </ul>
                 </section>
                 <pre class="speaker-notes" style="display:none">
                     These days, there are many different methods of storing things.
-                </pre>
-            </div>
-
-            <div class="slide normal">
-                <header><h1>Relationships</h1></header>
-                <section class="content">
-                    <img src="img/coursetrackingexamplerdbms.jpg">
-                </section>
-                <pre class="speaker-notes" style="display:none">
-                    We have types of databases that enforce relationships 
-                </pre>
-            </div>
-
-            <div class="slide normal">
-                <header><h1>Non-relational Systems</h1></header>
-                <section class="content">
-                    <img src="img/coursetrackingexamplenoSQL.jpg">
-                </section>
-                <pre class="speaker-notes" style="display:none">
-                   
                 </pre>
             </div>
 
@@ -129,9 +117,9 @@ car = {
     "name": "Herby",
     "make": "BMW",
     "model": "Bug",
-    "purpose": ["Love", "Driving around", "Saving people?"]
+    "purposes": ["Love", "Driving around", "Saving people?"],
     "engine": {"location": "Back", "cylinders": 4, "fuel-injected": false, "loud": true},
-    "description": {"paint_profile": "Stripes", "colors": ["black", "white", "silver"], "attitude": "sassy"],
+    "description": {"paint_profile": "Stripes", "colors": ["black", "white", "silver"], "attitude": "sassy"},
     "year": "1970"
 }
 </pre>
@@ -144,6 +132,12 @@ car = {
                 <header><h1>This matters a lot!</h1></header>
                 <section class="content">
                     <p>Data can limit your capabilities, or expand them.</p>
+                    <p>Grouping similar pieces of data together helps you stay organized, and helps the computer use it faster and easier. It also helps engineers program things more efficiently.</p>
+                    <pre class="prettyprint">
+if (car.engine.loud == true && car.description.attitude == "sassy") {
+    console.log("I think Herby the love bug is comin' down the road!");
+}
+                    </pre>
                 </section>
                 <pre class="speaker-notes" style="display:none">
                 </pre>
@@ -163,7 +157,7 @@ car = {
             <div class="slide normal">
                 <header><h1>How are things the same?</h1></header>
                 <section class="content">
-                    <p>Let's try to model these books.</p>
+                    <p>What does it mean to be a book?</p>
                     <div style="float:left; width:50%; height:500px;">
                         <pre>
 {
@@ -201,20 +195,39 @@ amazon_link2:"http://www.amazon.com/Hyperspace-Scientific-Odyssey-Parallel-Unive
             </div>
 
             <div class="slide normal">
-                <header><h1><a href="exercises.html#exercise1">Exercise Time!</a></h1></header>
-            </div>
-            
-            <div class="slide normal">
-                <header><h1>Modeling Relationships</h1></header>
+                <header><h1>Baselines</h1></header>
                 <section class="content">
-                    <p>Or... How does a non-relational DB work?</p>
+                    <p>Usually we try to go from generality - what does everything share in common, to specific - what makes everything unique?</p>
+                    <p>Asking "what does something have to have <em>at minimum</em> to be this type of thing?" is a good way to find out a lot about your models.</p>
+                    <p><a href="http://www.schema.org">Schema.org</a> did a lot of this - check them out for some examples.</p> 
+                </section>
+            </div>
+
+            <div class="slide normal">
+                <header><h1 class="center"><a href="exercises.html#exercise1">Exercise Time!</a></h1></header>
+            </div>
+
+            <div class="slide normal">
+                <header><h1>Relationships</h1></header>
+                <section class="content">
+                    <img src="img/coursetrackingexamplerdbms.jpg">
                 </section>
                 <pre class="speaker-notes" style="display:none">
-                    Most of the time, pieces of data have relationships to one another.
-                    It's important to express these properly. Don't constrain them too hard, or make them too loose.
+                    We have types of databases that enforce relationships - Relational Database Management Systems.
                 </pre>
             </div>
 
+            <div class="slide normal">
+                <header><h1>Non-relational Systems</h1></header>
+                <section class="content">
+                    <img src="img/coursetrackingexamplenoSQL.jpg">
+                </section>
+                <pre class="speaker-notes" style="display:none">
+                   We also have types of databases that don't enforce relationships -
+                   Non-Relational Database Systems.
+                </pre>
+            </div>
+            
             <div class="slide normal">
                 <header><h1>Modeling Relationships</h1></header>
                 <section class="content">
@@ -240,6 +253,15 @@ amazon_link2:"http://www.amazon.com/Hyperspace-Scientific-Odyssey-Parallel-Unive
                 </pre>
             </div>
 
+            <div class="slide normal"> 
+                <header><h1>Together!</h1></header>
+                <section class="content">
+                    <p>Let's try to model recipes together.</p>
+                    <a href="http://allrecipes.com/recipe/chocolate-mousse-3/detail.aspx"><img src="img/mousse.jpg" style="float:left; width:40%"></a> <a href="http://allrecipes.com/recipe/tiramisu-4/"><img src="img/tiramisu.jpg" style="float:right; padding-left:20px; width:40%" ></a>
+                    <p style="clear:both">How are Foods and Recipes related? <br>Foods can appear in multiple recipes, so it makes sense not to duplicate foods.</p>
+                </section>
+            </div>
+
             <div class="slide normal">
                 <header><h1>It's mostly decision-making</h1></header>
                 <section class="content">
@@ -253,6 +275,10 @@ amazon_link2:"http://www.amazon.com/Hyperspace-Scientific-Odyssey-Parallel-Unive
                         <li>Is it worth the time right now to have an existential crisis about this?! (Usually not.)</li>
                     </ul>
                 </section>
+            </div>
+
+            <div class="slide normal">
+
             </div>
 
             <div class="slide normal">
