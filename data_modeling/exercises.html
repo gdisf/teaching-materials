@@ -32,37 +32,33 @@
             <li>Try to store some information unique to each place - maybe a section from a menu at a food place, or credentials for the dentist. Models don't always have to be the same, but they do need a "baseline" of similarity.</li>
         </ul>
         <h3 id="exercise2">Modeling Movies!</h3>
+        <p>Making movies takes lots of relationships - Actors, Producers, Studios - we don't want to duplicate data, so let's form some relationships!</p>
 
-    	<h3 id="exercise3">Modeling People - Exercise 2</h3>
-        <p>In this exercise you'll figure out how to model a person.</p>
         <ul>
-            <li>Create a file, call it users.json</li>
-            <li>In that file, create a blank array, like this: <code>[ ]</code></li>
-            <li>In that array, create several empty objects. Example:</li>
+            <li>First, create a new file - call it movies.json</li>
+            <li>Start with three arrays with four or more objects - 
+                <pre>
+Movies = [{}, {}, {}, {}]
+Actors = [{}, {}, {}, {}]
+Studios = [{}, {}, {}, {}]
+                </pre>
+            </li>
+            <li>We're going to model four different movies!
+                <ul>
+                    <li>Les Misérables - http://www.imdb.com/title/tt1707386/</li>
+                    <li>The Soloist - http://www.imdb.com/title/tt0821642/</li>
+                    <li>Sherlock Holmes - http://www.imdb.com/title/tt0988045/</li>
+                    <li>Rise of the Guardians - http://www.imdb.com/title/tt1446192/</li>
+                </ul>
+            </li>
+            <li>These share actors, so we're going to assign an ID to each actor, studio, and movie.</li>
+            <li>In each movie there are lots of actors - list only the top-billed actors for simplicity's sake. Create an array to hold just the IDs of the actors.</li>
+            <li>Reference the ID of the actor you want to name by looking in your list of actors, and using the ID field.</li>
+            <li>Do the same for the studios- reference them by ID (but you don't have to use an array)</li>
+            <li>Try to simplify the studios - don't distinguish between Universal Studios and Universal Studios France. We're not IMDB :)</li>
         </ul>
-        <pre>
-[
-    {
-        property: "value",
-        property2: ["array", "of", "strings"],
-        attribute: 27,
-        thing: [24, 36, "47", "mixed array!"]
-        sub_objects: [{name: "example", of: "subobjects"}, {remember: "Objects can", go: "in arrays too."}]
-    },
-    {
-        objects: "Don't all have to have the same properties."
-    }
-]
-</pre>
-    <ul>
-        <li>You'll be creating two users modeled after actual people.</li>
-        <li>We want for them to both have usernames, passwords (you can store them as plain text for this exercise.)</li>
-        <li>Other attributes are up to you.</li>
-        <li>We're going to model <a href="http://en.wikipedia.org/wiki/Oprah">Oprah Winfrey</a> and <a href="http://en.wikipedia.org/wiki/Eleanor_roosevelt">Eleanor Roosevelt</a></li>
-        <li>Use their wikipedia profiles (linked) to gain some info about them (like birthdate, current age) and other trivia.</li>
-        <li><strong>Bonus:</strong> Model yourself, and a friend of yours. Use real email addresses.</li>
-    </ul>
-    </div>
+
+    	
     <script>
         function showSolution(num) {
           if (confirm('You surrrrre?')) {
