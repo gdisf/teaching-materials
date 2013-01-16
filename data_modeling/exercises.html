@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link type="text/javascript" href="js/bootstrap.js">
+    <title>Exercises</title>
+</head>
+<body>
+    <div class="container">
+    	<h1>Exercises</h1>
+
+    	<p class="lead">Exercises to help explain how Data Modeling works!</p>
+
+
+    	<h3 id="exercise2">Modeling People - Exercise 2</h3>
+        <p>In this exercise you'll figure out how to model a person.</p>
+        <ul>
+            <li>Create a file, call it users.json</li>
+            <li>In that file, create a blank array, like this: <code>[ ]</code></li>
+            <li>In that array, create several empty objects. Example:</li>
+        </ul>
+        <pre>
+[
+    {
+        property: "value",
+        property2: ["array", "of", "strings"],
+        attribute: 27,
+        thing: [24, 36, "47", "mixed array!"]
+        sub_objects: [{name: "example", of: "subobjects"}, {remember: "Objects can", go: "in arrays too."}]
+    },
+    {
+        objects: "Don't all have to have the same properties."
+    }
+]
+</pre>
+    <ul>
+        <li>You'll be creating two users modeled after actual people.</li>
+        <li>We want for them to both have usernames, passwords (you can store them as plain text for this exercise.)</li>
+        <li>Other attributes are up to you.</li>
+        <li>We're going to model <a href="http://en.wikipedia.org/wiki/Oprah">Oprah Winfrey</a> and <a href="http://en.wikipedia.org/wiki/Eleanor_roosevelt">Eleanor Roosevelt</a></li>
+        <li>Use their wikipedia profiles (linked) to gain some info about them (like birthdate, current age) and other trivia.</li>
+        <li><strong>Bonus:</strong> Model yourself, and a friend of yours. Use real email addresses.</li>
+    </ul>
+    </div>
+    <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre?')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+    </script>
+</body>
+</html>
