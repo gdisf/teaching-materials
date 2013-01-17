@@ -2,24 +2,30 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
-	<link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
-	<link type="text/javascript" href="../common/bootstrap.js">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
     <title>Exercises</title>
 </head>
 <body>
     <div class="container">
-    	<h1>Exercises</h1>
+        <h1>Exercises</h1>
 
-    	<p class="lead">Exercises to help explain how Data Modeling works!</p>
+        <p class="lead">Exercises to help explain how Data Modeling works!</p>
 
         <h3 id="exercise1">Modeling Places</h3>
         <p>In this exercise, you'll model two places for storage in a reviews website like Yelp, Google Local, or Foursquare.</p>
-        <p>We're not terribly worried about format for this. <strong>PAIR UP</strong> and try to use JSON - but don't worry so much about getting it exactly right. 
+        <p>We're not terribly worried about format for this. <strong>PAIR UP</strong> and don't worry about getting JSON exactly right - the important part is "name" : "value".
         If you get stuck trying to read something you wrote, here's a <a href="http://json.parser.online.fr/">JSON Parser</a> that will organize things for you.</p>
         <ul>
             <li>First, create a new file - call it places.json</li>
             <li>Start with an array with two or more objects - <code>[{}, {}, {}]</code></li>
-            <li>We're going to model places from this list, or choose your own favorite places!</li>
+            <li>We're going to model places from this list, or choose your own favorite places!
+                <ul>
+                    <li>http://www.yelp.com/biz/dartealing-lounge-san-francisco</li>
+                    <li>http://www.yelp.com/biz/peets-coffee-and-tea-san-francisco-4</li>
+                    <li>http://www.yelp.com/biz/acme-bread-company-san-francisco-2</li>
+                </ul>
+            </li>
             <li>Ask yourself these questions:
                 <ul>
                     <li>What properties do each of these places have? An address? A name?</li>
@@ -31,6 +37,7 @@
             </li>
             <li>Try to store some information unique to each place - maybe a section from a menu at a food place, or credentials for the dentist. Models don't always have to be the same, but they do need a "baseline" of similarity.</li>
         </ul>
+        <br><br>
         <h3 id="exercise2">Modeling Movies!</h3>
         <p>Making movies takes lots of relationships - Actors, Producers, Studios - we don't want to duplicate data, so let's form some relationships!</p>
 
@@ -58,7 +65,7 @@ Studios = [{}, {}, {}, {}]
             <li>Try to simplify the studios - don't distinguish between Universal Studios and Universal Studios France. We're not IMDB :)</li>
         </ul>
 
-    	
+        
     <script>
         function showSolution(num) {
           if (confirm('You surrrrre?')) {
@@ -68,3 +75,4 @@ Studios = [{}, {}, {}, {}]
     </script>
 </body>
 </html>
+
