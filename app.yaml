@@ -16,6 +16,13 @@ handlers:
 - url: /htmlcss-1day
   static_dir: htmlcss-1day
 
+- url: /multimedia/
+  static_files: multimedia/index.html
+  upload: multimedia/index.html
+
+- url: /multimedia
+  static_dir: multimedia
+
 - url: /data-modeling/
   static_files: data-modeling/index.html
   upload: data-modeling/index.html
