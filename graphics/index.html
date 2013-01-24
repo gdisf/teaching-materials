@@ -1,0 +1,805 @@
+<!doctype html>
+    <html>
+    <head>
+        <title>Graphics in HTML5</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../common/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="../common/presentation.css" />
+        <link rel="stylesheet" type="text/css" href="../common/prettify.css" />
+        <link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+        <script src="../common/jquery.js" type="text/javascript"></script>
+        <script src="../common/fathom.js"></script>
+        <script src="../common/prettify.js"></script>
+        <script>
+        $(document).ready(function(){
+            $('pre').addClass('prettyprint').attr('tabIndex', 0);
+            prettyPrint();
+
+            var fathom = $('#presentation').fathom({
+                onActivateSlide: function() {
+                    var $slide = $(this);
+                    $slide.find('pre:first').focus();
+                }
+            });
+            $('body').keypress(function(event){
+               if (event.which === 110) {
+                   $('.speaker-notes').toggle();
+               }
+            });
+        });
+        </script>
+    </head>
+<body>
+  <div id="presentation">
+  
+   <div id="presentation-counter"></div>
+      
+   <div id="slides">
+   
+
+    <div class="slide section"> 
+     <header><h1>Graphics in HTML5</header>
+    </div> 
+   
+    <div class="slide normal">
+      <header><h1>What are graphics?</h1></header>
+
+      <dl>
+       <dt><strong>Raster graphics:</strong><dt>
+       <dd>
+        Each pixel is separately defined.
+       </dd>
+       <br>
+       <dt><strong>Vector graphics:</strong><dt>
+       <dd>Mathematical formulas describe lines and shapes.</dd>
+      </dl>
+      <br>
+      <img src="http://www.webcoursesbangkok.com/wp-content/uploads/2010/10/image-raster-vector-diagram.gif">
+
+      <!--
+        http://www.webcoursesbangkok.com/blog/whats-the-difference-between-vector-and-raster-images/
+        http://www.1stwebdesigner.com/design/pixel-vector-graphics-difference/
+      -->
+    </div>
+
+    <div class="slide normal">
+      <header><h1>What are graphics?</h1></header>
+
+      <dl>
+        <dt><strong>Static</strong></dt>
+        <dd>
+          <img src="media/horse_static.png">
+        </dd>
+        <dt><strong>Moving</strong></dt>
+        <dd> <img src="media/horse_animated.gif">
+        </dd>
+        <dt><strong>Interactive</strong></dt>
+        <dd>
+          <img src="media/horse_interactive.png" onClick="startGif(this);" style="width:150px;">
+          <script>
+          function startGif(img) {
+            img.src = 'media/horse_animated.gif';
+          }
+          </script>
+        </dd>
+      </dl>
+
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Graphics in HTML</header>
+     <br>
+
+     <table class="table">
+      <thead>
+        <tr>
+          <td></td>
+          <td style="font-size:14px;">Raster</td>
+          <td style="font-size:14px;">Vector</td>
+          <td style="font-size:14px;">Motion</td>
+          <td style="font-size:14px;">Interactive</td>
+          <td style="font-size:14px;">2D</td>
+          <td style="font-size:14px;">3D</td>
+        </tr>
+      <tbody>
+       <tr>
+        <td>Images (GIF, BMP, PNG, JPG)</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+       <tr>
+        <td>DOM + JS (<a href="http://javascript.info/tutorial/animation#the-basics-of-the-animatio">Example</a>)</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+       </tr>
+       <tr>
+        <td>Plugins (Flash, Java, X3D, SVG, VRML)</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+       </tr>
+       <tr>
+        <td>Browser-specific technologies (IE's VML)</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+       </tr>
+     </table>
+     <br>
+     <img src="http://www.casa.ucl.ac.uk/martin/tmp/html_version/graphic8.jpg" style="width:500px;">
+
+     <!-- http://javascript.info/tutorial/animation#the-basics-of-the-animation -->
+    </div> 
+
+
+    <div class="slide normal">
+      <h1>The problems with plugins</h1>
+      <br>
+      <img src="media/no_plugins.jpg" style="float:right">
+      <ul>
+        <li>Require user to do more work <br>
+        <li>Can have sub-par performance <br>
+        <li>Not integrated with rest of website <br>
+        <li>Open up security holes <br>
+        <li>Don't work everywhere <br>
+      </ul>
+    </div>
+
+
+    <div class="slide normal"> 
+     <header><h1>Graphics in HTML5</header>
+     <br>
+
+     <table class="table">
+      <thead>
+        <tr>
+          <td></td>
+          <td>Raster</td>
+          <td>Vector</td>
+          <td>Motion</td>
+          <td>Interactive</td>
+          <td>2D</td>
+          <td>3D</td>
+        </tr>
+      <tbody>
+       <tr>
+        <td>SVG</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+       <tr>
+        <td>Canvas</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+       </tr>
+       <tr>
+        <td>WebGL</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+       </tr>
+       <tr>
+        <td>CSS3</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+       </tr>
+     </table>
+     <br>
+
+    </div> 
+
+    <div class="slide normal">
+      <h1>SVG (Scalable Vector Graphics)</h1>
+
+      <p>
+         An XML-based vector image format for two-dimensional graphics that has support for interactivity and animation.
+      </p>
+
+      <pre class="code">
+&lt;svg height=&quot;200&quot; width=&quot;600&quot; xmlns=http://www.w3.org/2000/svg&gt;
+  &lt;circle id=&quot;yellowcircle&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;50&quot; fill=&quot;yellow&quot;/&gt;
+  &lt;circle id=&quot;blackcircle&quot; cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;10&quot; fill=&quot;black&quot;/&gt;
+  &lt;circle id=&quot;blackcircle&quot; cx=&quot;70&quot; cy=&quot;30&quot; r=&quot;10&quot; fill=&quot;black&quot;/&gt;
+  &lt;ellipse id=&quot;blackellipse&quot; cx=&quot;50&quot; cy=&quot;75&quot; rx=&quot;20&quot; ry=&quot;8&quot; fill=&quot;black&quot;/&gt;
+  &lt;ellipse id=&quot;yellowellipse&quot; cx=&quot;50&quot; cy=&quot;73&quot; rx=&quot;20&quot; ry=&quot;8&quot; fill=&quot;yellow&quot;/&gt;
+&lt;/svg&gt;</pre>
+      
+      <br>
+      <svg height="200" width="600" xmlns="http://www.w3.org/2000/svg">
+        <circle id="yellowcircle" cx="50" cy="50" r="50" fill="yellow"/>
+        <circle id="blackcircle" cx="30" cy="30" r="10" fill="black"/>
+        <circle id="blackcircle" cx="70" cy="30" r="10" fill="black"/>
+        <ellipse id="blackellipse" cx="50" cy="75" rx="20" ry="8" fill="black"/>
+        <ellipse id="yellowellipse" cx="50" cy="73" rx="20" ry="8" fill="yellow"/>
+      </svg>
+
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: Features</h1>
+
+      <ul>
+        <li>Shapes</li>
+        <li>Paths</li>
+        <li>Text/Fonts</li>
+        <li>Fill/Stroke/Colors</li>
+        <li>Gradients/Patterns</li>
+        <li>Clipping/Masking</li>
+        <li>Filters</li>
+        <li>DOM Events</li>
+        <li>Scripting</li>
+        <li>Animation</li>
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: Shapes</h1>
+
+      <pre class="code">&lt;circle cx="100" cy="50" r="25" fill="black" /&gt;</pre>
+      <svg height="100" width="600" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="50" r="25" fill="black" />
+      </svg>
+
+      <pre class="code">&lt;rect x="0" y="10" width="100" height="75" fill="red" /&gt;</pre>
+      <svg height="100" width="600" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="10" width="100" height="75" fill="red" />
+      </svg>
+
+      <pre class="code">&lt;ellipse cx="90" cy="50" rx="50" ry="45" fill="orange" /&gt;</pre>
+      <svg height="100" width="600" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="90" cy="50" rx="50" ry="45" fill="orange" />
+      </svg>
+
+      <pre class="code">&lt;polygon points="10,5 100,45 100,5 100,100" fill="blue" /&gt;</pre>
+      <svg height="100" width="600" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="10,5 100,45 100,5 100,100" fill="blue" />
+      </svg>
+
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: Text, Transforms, Scripting</h1>
+      <br>
+      <pre class="code" style="font-size:19px;line-height:21px">
+&lt;svg version=&quot;1.1&quot; width='700px' height='400px' 
+   xmlns=&quot;http://www.w3.org/2000/svg&quot;
+   xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;
+  &lt;g id=&quot;textBox&quot;&gt;
+    &lt;circle id='textCirc' cx='100' cy='100' r='75px' fill='yellow' opacity='0.25'
+    onclick='document.getElementById(&quot;textCirc&quot;).setAttribute(&quot;fill&quot;, &quot;orange&quot;)'/&gt;
+    &lt;text x='100px' y='100px' style='fill: blue; font-weight: bold; font-size:20px;'&gt;
+      &lt;tspan&gt;Text on top&lt;/tspan&gt;
+    &lt;/text&gt;
+  &lt;/g&gt;
+  &lt;use x='200' y='0' xlink:href='#textBox' transform=&quot;rotate(20)&quot;/&gt;
+&lt;/svg&gt;</pre>
+
+      <svg version="1.1" width='700px' height='400px' 
+         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="textBox">
+          <circle id='textCirc' cx='100' cy='100' r='75px' fill='yellow' opacity='0.25'
+                  onclick='document.getElementById("textCirc").setAttribute("fill", "orange")'/>
+          <text x='100px' y='100px' style='fill: blue; font-weight: bold; font-size:20px;'>
+            <tspan>Text on top</tspan>
+          </text>
+        </g>
+        <use x='200' y='0' xlink:href='#textBox' transform="rotate(20)"/>
+      </svg>
+
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: Theme Park Demo</h1>
+      <div style="text-align:center;">
+      <a href="http://www.w3.org/2010/Talks/04-schepers-www2010/themepark.svg">
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/ff_l8ne_9qyl.png" alt="theme park" style="width:600px;">
+      </a>     
+      </div>
+    </div>
+
+    <!-- flesh this out! -->
+    <div class="slide normal">
+      <h1>SVG: Ways of Using</h1>
+
+      <ul>
+        <li>Full SVG documents</li>
+        <li>Inline SVG</li>
+        <li>Scripted SVG</li>
+        <li>SVG backgrounds in CSS</li>
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: Full Document</h1>
+
+      <object type="image/svg+xml" style="border:none; width:550px; height:540px; background: white;" data="media/famoustiger.svg"></object>
+
+      <p><a href="http://caniuse.com/#feat=svg">caniuse.com: SVG basic</a></p>
+
+
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: Inline</h1>
+
+      <pre>
+&lt;!doctype html&gt;
+ &lt;html&gt;
+  &lt;svg&gt;
+    &lt;defs&gt;
+      &lt;linearGradient id=&quot;MyGradient&quot;&gt;
+        &lt;stop offset=&quot;5%&quot; stop-color=&quot;#F60&quot; /&gt;
+        &lt;stop offset=&quot;95%&quot; stop-color=&quot;#FF6&quot; /&gt;
+      &lt;/linearGradient&gt;
+    &lt;/defs&gt;
+    &lt;circle id=&quot;myCircle&quot; class=&quot;important&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;100&quot; 
+        fill=&quot;url(#myGradient)&quot;/&gt;
+  &lt;/svg&gt;
+&lt;/html&gt;
+      </pre>
+
+      <svg height="200">
+        <defs>
+          <linearGradient id="MyGradient">
+            <stop offset="5%" stop-color="#F60" />
+            <stop offset="95%" stop-color="#FF6" />
+          </linearGradient>
+        </defs>
+        <circle id="myCircle" class="important" cx="50%" cy="110" r="90" 
+            fill="url(#MyGradient)"/>
+      </svg>
+
+      <p><a href="http://caniuse.com/#feat=svg-html5">caniuse.com: SVG inline</a></p>
+
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: Scripted (Blobular Demo)</h1>
+      <div style="text-align:center;">
+        <a href="http://www.themaninblue.com/experiment/Blobular/">
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/7puu5xd71eqp.png">
+      </a>
+      </div>
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: CSS Background</h1>
+
+      <pre class="code">
+&lt;div style="background-image: url(media/html5_logo.svg); width: 200px; height: 200px;"&gt;
+&lt;/div&gt;</pre>
+      <br><br>
+      <div style="background-image: url(media/html5_logo.svg); width: 200px; height: 200px;">
+      </div>
+      <br><br>
+      <p><a href="http://caniuse.com/#feat=svg-css">caniuse.com: SVG in CSS</a></p>
+
+      <p><a href="http://www.noupe.com/tutorial/svg-clickable-71346.html">Ways to embed a clickable SVG logo</a>
+      </p>
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG: Tools &amp; Libraries</h1>
+      <ul>
+        <li><a href="http://code.google.com/p/svgweb/">SVGweb</a>: cross-browser SVG polyfill</li>
+        <li><a href="http://raphaeljs.com/">RaphaëlJS</a>: cross-browser vector graphics JS library</li>
+        <li><a href="http://g.raphaeljs.com/">gRaphael</a>: SVG-based charting library</a></li>
+      </ul>
+      <div style="text-align:center;">
+        Animated Chart Demo <br>
+      <a href="http://raphaeljs.com/chart.html" target="blank" class="btn">
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/co8d2pcz7q1-.png">
+      </a>
+      </div>
+    </div>
+
+
+    <div class="slide normal">
+      <h1>Canvas is...???</h1>
+      <ul>
+        <li>Script based graphics rendering</li>
+        <li>It's just an HTML tag</li>
+        <li class="nobullet" id="grafico-pizza"><img src="imgNovas/grafico-pizza.png" alt="Gráficos"></li>
+      </ul>
+    </div>  
+
+    <div class="slide normal">
+      <h1>Space Noodles</h1>
+      <a href="http://www.spielzeugz.de/html5/space-noodles/" target="blank" class="btn"><span>DEMO</span></a>    
+    </div>
+
+    <div class="slide normal">
+      <h1>Canvas</h1>
+      <ul>
+        <li>Define an element on <strong>HTML</strong>
+        <textarea class="snippet" spellcheck="false" rows="1">&lt;canvas id="myDrawing" width="500" height="500"&gt;&lt;/canvas&gt;</textarea></li>
+        <li style="padding-top: 20px;">Get it with <strong>JavaScript</strong>
+        <!-- <textarea class="snippet" spellcheck="false" rows="2">var canvas = document.getElementById("myDrawing");
+var context = canvas.getContext("2d");</textarea></li> -->
+<textarea class="snippet" spellcheck="false" rows="1">var canvas = document.getElementById("myDrawing");</textarea></li>
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <h1>Context</h1>
+      <ul>
+        <li>It's where all the magic happens</li>
+        <li>All the draw methods are executed here
+          <textarea class="snippet" spellcheck="false" rows="1">var context = canvas.getContext("2d");</textarea>
+          <!-- <img src="imgNovas/grid.png" alt=""> -->
+        </li>
+        <!-- <li>E ainda tem outro context (mais tarde a gente fala dele)
+        <textarea class="snippet" spellcheck="false" rows="1">var context = canvas.getContext("experimental-webgl");</textarea></li> -->
+      </ul>
+    </div>
+
+   <div class="slide normal">
+      <h1>Basic Shapes</h1>
+      <ul>
+        <!-- <li>Apenas uma forma primitiva: o <strong>retângulo</strong>.</li> -->
+        <li>Draws a rectangle using the current fill style
+          <textarea class="snippet" spellcheck="false" rows="1">fillRect(x, y, width, height);</textarea>
+        </li>
+        <li>Draws the outline of a rectangle using the current stroke style
+          <textarea class="snippet" spellcheck="false" rows="1">strokeRect(x, y, width, height);</textarea></li>
+        </li>
+        <li>Clears all pixels within the given rectangle
+          <textarea class="snippet" spellcheck="false" rows="1">clearRect(x, y, width, height);</textarea></li>
+        </li>
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <iframe class="customFrame" id="iframe-fill" src="demos/rect/fill.html"></iframe>
+      <textarea class="snippet" spellcheck="false" rows="2">context.fillStyle = "#fff";
+context.fillRect(25, 25, 150, 150);</textarea>
+      <iframe class="customFrame" id="iframe-stroke" src="demos/rect/stroke.html"></iframe>
+      <textarea class="snippet" spellcheck="false" rows="2">context.strokeStyle = "#fff";
+context.strokeRect(25, 25, 150, 150);</textarea>
+    </div>
+
+    <div class="slide normal">
+      <h1>Lines and Paths</h1>
+      <ul>
+        <li>Creates a new subpath at the given point
+          <textarea class="snippet" spellcheck="false" rows="1">moveTo(x, y);</textarea>
+        </li>
+        <li>Draws a straight line from the previous point
+          <textarea class="snippet" spellcheck="false" rows="1">lineTo(x, y);</textarea>
+        </li>
+        <li>Adds a new closed rectangular subpath
+          <textarea class="snippet" spellcheck="false" rows="1">rect(x, y, width, height);</textarea>
+        </li>
+        <li>Adds a subpath along the circumference of the described circle, within the angles defines
+          <textarea class="snippet" spellcheck="false" rows="1">arc(x, y, raio, initialAngle, finalAngle, counterclockwise);</textarea>
+        </li>
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <h1>Lines and Paths</h1>
+      <ul>
+        <li>Resets the current path
+          <textarea class="snippet" spellcheck="false" rows="1">beginPath();</textarea>
+        </li>
+        <li>Closes the current subpath and starts a new one
+          <textarea class="snippet" spellcheck="false" rows="1">closePath();</textarea>
+        </li>
+        <li>Fiils the subpaths with the current fill style
+          <textarea class="snippet" spellcheck="false" rows="1">fill();</textarea>
+        </li>
+        <li>Outlines the subpaths with the current stroke style
+          <textarea class="snippet" spellcheck="false" rows="1">stroke();</textarea>
+        </li>       
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <iframe class="customFrame" id="iframe-rostoQuadrado" src="demos/rostoQuadrado/rostoQuadrado.html"></iframe>
+      <textarea class="snippet" spellcheck="false" rows="10">context.rect(25, 25, 200, 200); // Head
+context.rect(90, 80, 20, 20); // Left eye
+context.rect(140, 80, 20, 20); // Right eye
+
+context.moveTo(50, 180); 
+context.lineTo(200, 180); // Mouth
+
+context.lineWidth = 10;
+context.strokeStyle = "white";
+context.stroke();</textarea></li>
+    </div>
+
+    <div class="slide normal">
+      <iframe class="customFrame" id="iframe-rostoRedondo" src="demos/rostoRedondo/rostoRedondo.html"></iframe>
+      <textarea style="margin-top: -20px;" class="snippet" spellcheck="false" rows="14">context.arc(110, 110, 100, 0, Math.PI*2, true); // Head
+  
+context.moveTo(165, 120);
+context.arc(110, 120, 55, 0, Math.PI, false); // Mouth
+
+context.moveTo(90, 75);
+context.arc(85, 75, 5, 0, Math.PI*2, true); // Left eye
+
+context.moveTo(135,75);
+context.arc(140, 75, 5, 0, Math.PI*2, true); // Right eye
+
+context.lineWidth = 10;
+context.strokeStyle = "white";
+context.stroke();</textarea></li>
+    </div>
+
+    <div class="slide normal">
+      <h1>Snake</h1>
+      <a href="demos/snake/snake.html" target="blank" class="btn"><span>DEMO</span></a>
+    </div>
+
+    <div class="slide normal">
+      <ul style="margin-top: 150px; font-weight: bold;">
+        <li>Animation is nothing more than redrawing the screen at a rate that the human eye doesn't notice</li>
+        <textarea style="font-weight: bold;" class="snippet" spellcheck="false" rows="4">var FPS = 60;
+setInterval(function() { 
+  // call action to redraw
+}, 1000 / FPS);</textarea>
+<li style="margin-top: 20px;">But setInterval is from the past...</li>
+</ul>
+    </div>
+
+    <div class="slide normal">
+      <ul style="margin-top: 150px; font-weight: bold;">
+        <li>This new API tells the browser exactly when the next frame is drawn.</li>
+        <textarea style="font-weight: bold;" class="snippet" spellcheck="false" rows="3">window.requestAnimationFrame(function() {
+  // call action to redraw
+});</textarea>
+<li style="margin-top: 20px;">If you are running an animation in a tab that is not visible, the browser will simply not run the loop! performance++</li>
+</ul>
+    </div>
+
+    <div class="slide normal">
+      <h1>beerblogging</h1>
+      <a href="http://beerblogging.org" target="blank" class="btn"><span>DEMO</span></a>
+    </div>
+
+    <div class="slide normal">
+      <h1>Complex Paths</h1>
+      <ul>
+        <li>Adds a cubic Bézier curve with the given control points
+          <textarea class="snippet" spellcheck="false" rows="1">bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);</textarea>
+        </li>
+        <!-- <li>Adds a quadratic Bézier curve with the given control points.
+          <textarea class="snippet" spellcheck="false" rows="1">quadraticCurveTo(cpx, cpy, x, y);</textarea>
+        </li> -->
+        <img style="margin: 12px 0 0 0;" src="imgNovas/cubic-bezier.jpg" alt="" />
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <h1>Wormz</h1>
+      <a href="http://html5-pro.com/" target="blank" class="btn"><span>DEMO</span></a>
+    </div>
+
+    <!-- http://luxahoy.com/ -->
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/JmgcAp" target="blank">http://bit.ly/JmgcAp</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/JM78XU" target="blank">http://bit.ly/JM78XU</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <iframe src="http://www.greensock.com/js/speed.html"></iframe>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/HWP3WB" target="blank">http://bit.ly/HWP3WB</a></h3>
+    </div>
+
+    <!-- angry birds -->
+
+    <div class="slide normal">
+      <h1>Box 2D</h1>
+      <iframe class="customFrame" id="iframe-box2d" src="demos/box2d-web/index.html"></iframe>
+    </div>
+
+    <div class="slide normal">
+      <h1>WebGL</h1>
+      <ul>
+        <li>3D in the browser and without plugins</li>
+        <li>GPU Processing, directly on the video card</li>
+        <li>It uses the <strong>&lt;canvas&gt;</strong> tag but with another context
+        <textarea class="snippet" spellcheck="false" rows="1">&lt;canvas id="myDrawing" width="500" height="500"&gt;</textarea>
+        <textarea class="snippet" spellcheck="false" rows="2">var canvas = document.getElementById("myDrawing"); 
+context = canvas.getContext("experimental-webgl");</textarea></li>
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <h1>Terminal</h1>
+      <a href="http://www.htmlfivewow.com/demos/terminal/terminal.html" target="blank" class="btn"><span>DEMO</span></a>      
+    </div>
+
+    <div class="slide normal">
+      <h1>Shaders</h1>
+      <p>Are little programs that tell WebGL:</p>
+      <ul>
+        <li>Where to draw</li>
+        <li>What to draw</li>
+      </ul>
+      <p>Are written in GLSL (OpenGL Shading Language)</p>
+    </div>
+
+    <div class="slide normal">
+      <h1 id="three">#ftw</h1>
+      <h3><a href="http://bit.ly/sY4hv6" target="blank">http://bit.ly/sY4hv6</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h1>First steps</h1>
+      <p>Create a WebGLRenderer</p>
+      <textarea class="snippet" spellcheck="false" rows="3">var renderer = new THREE.WebGLRenderer({antialias: true});
+renderer.setSize(document.body.clientWidth, 
+        document.body.clientHeight);</textarea>
+      <p>Put it on the DOM</p>
+      <textarea class="snippet" spellcheck="false" rows="1">document.body.appendChild(renderer.domElement);</textarea>
+      <p>Set some color</p>
+      <textarea class="snippet" spellcheck="false" rows="2">renderer.setClearColorHex(0xFFFFFF, 1.0);
+renderer.clear();</textarea>
+    </div>
+
+    <div class="slide normal">
+      <h1>Wow! =P</h1>
+      <iframe id="iframe-wow" src="demos/three/three_1.html"></iframe>
+    </div>
+
+    <div class="slide normal">
+      <h1 id="fica-melhor">It gets better, I promise!</h1>
+      <p>Create a Camera</p>
+      <textarea class="snippet" spellcheck="false" rows="3">
+var camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
+camera.position.z = 300;</textarea>
+      <p>Make a Scene with a Cube</p>
+      <textarea class="snippet" spellcheck="false" rows="4">var scene = new THREE.Scene();
+var cube =  new THREE.Mesh(new THREE.CubeGeometry(50,50,50),
+       new THREE.MeshBasicMaterial({color: 0x1fd230}));
+scene.add(cube);</textarea>
+      <p>And render the Scene from the Camera</p>
+      <textarea class="snippet" spellcheck="false" rows="1">renderer.render(scene, camera);</textarea>
+    </div>
+
+    <div class="slide normal">
+      <h1 id="pelo-menos">At least it isn't empty.</h1>
+      <iframe id="iframe-peloMenos" src="demos/three/three_2.html"></iframe>
+    </div>
+
+    <div class="slide normal">
+      <h1>Let's move that?</h1>
+      <textarea class="snippet" spellcheck="false" rows="13">function animate(t) {
+  // spin the camera in a circle
+  camera.position.x = Math.sin(t/1000)*300;
+  camera.position.y = 150;
+  camera.position.z = Math.cos(t/1000)*300;
+  // you need to update lookAt every frame
+  camera.lookAt(scene.position);
+  // renderer automatically clears unless autoClear = false
+  renderer.render(scene, camera);
+  window.requestAnimationFrame(animate, renderer.domElement);
+};
+
+animate(new Date().getTime());
+      </textarea>
+    </div>
+
+    <div class="slide normal">
+      <h1>Isn't it nice?</h1>
+      <iframe id="iframe-legal" src="demos/three/three_3.html"></iframe>
+    </div>
+
+    <div class="slide normal">
+      <h1>Trigger Rally</h1>
+      <a href="http://triggerrally.com/x/Preview/Arbusu/drive" target="blank" class="btn"><span>DEMO</span></a>    
+    </div>
+
+    <div class="slide normal">
+      <h1>JSARToolKit</h1>
+      <ul>
+        <li>Augmented Reality in JS = Wooow!</li>
+        <li class="nobullet" id="marker"><img src="img/marker.png" alt="Gráficos"></li>
+      </ul>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/LUTJxw" target="blank">http://bit.ly/LUTJxw</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h1>JSARToolKit</h1>
+      <a href="http://www.html5rocks.com/pt/tutorials/webgl/jsartoolkit_webrtc/AR_slideshow.html" target="blank" class="btn"><span>DEMO</span></a>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/tPaw1E" target="blank">http://bit.ly/tPaw1E</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/HVcWOa" target="blank">http://bit.ly/HVcWOa</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h1>Canvas</h1>
+      <img src="img/categorias/graficos.png" alt="Gráficos">
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/JfmSFi" target="blank">http://bit.ly/JfmSFi</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/IW3wVc" target="blank">http://bit.ly/IW3wVc</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h1>SVG</h1>
+      <img src="img/categorias/graficos.png" alt="Gráficos">
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/IB0h22" target="blank">http://bit.ly/IB0h22</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/J88nlj" target="blank">http://bit.ly/J88nlj</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h1>WebGL</h1>
+      <img src="img/categorias/graficos.png" alt="Gráficos">
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/HPHbnv" target="blank">http://bit.ly/HPHbnv</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/I54ayG" target="blank">http://bit.ly/I54ayG</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/svv9BU" target="blank">http://bit.ly/svv9BU</a></h3>
+    </div>
+
+    <div class="slide normal">
+      <h3><a href="http://bit.ly/sIbvFv" target="blank">http://bit.ly/sIbvFv </a></h3>
+    </div>
+
+   
+   </div>
+
+  </div>
+
+ </body>
+</html>

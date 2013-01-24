@@ -85,3 +85,17 @@ img.center {
     margin-left: auto;
     margin-right: auto;
 }
+
+table.table thead td {
+    font-weight: bold;
+}
+
+table.table td {
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: center;
+}
+
+table.table td {
+   padding: 5px;
+}
