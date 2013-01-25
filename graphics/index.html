@@ -3,6 +3,7 @@
     <head>
         <title>Graphics in HTML5</title>
         <meta charset="utf-8">
+        <base target="_blank">
         <link rel="stylesheet" type="text/css" href="../common/normalize.css" />
         <link rel="stylesheet" type="text/css" href="../common/presentation.css" />
         <link rel="stylesheet" type="text/css" href="../common/prettify.css" />
@@ -38,7 +39,16 @@
    
 
     <div class="slide section"> 
-     <header><h1>Graphics in HTML5</header>
+      <br>
+     <header><h1 style="font-size: 64px">Graphics in HTML5</h1>
+     </header>
+
+
+     <br><br><br>
+
+     <p style="position:absolute;bottom:30px;">These slides were largely inspired by <a href="http://www.mysparebrain.com/svgjs#%281%29">"SVG for JavaScript developers"</a>
+      and <a href="http://talks.zenorocha.com/2012/jsconf/#1">"How to use SVG, Canvas, and WebGL without a Time Machine"</a>.
+     </p>
     </div> 
    
     <div class="slide normal">
@@ -668,6 +678,13 @@ $(document).ready(function() {
     </div>
 
     <div class="slide normal">
+      <h1>DeviantArt Demo</h1>
+      <a href="http://sta.sh/muro/">
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/ifeoq49j5-hx.png">
+      </a>
+    </div>
+
+    <div class="slide normal">
       <h1>Animation</h1>
       <ul>
         <li>Animation is nothing more than redrawing the screen at a rate that the human eye doesn't notice</li>
@@ -728,12 +745,13 @@ setInterval(function() {
       <pre class="code">&lt;canvas id="myDrawing" width="500" height="500"&gt;</pre>
       <pre class="code">var canvas = document.getElementById("myDrawing"); 
 context = canvas.getContext("experimental-webgl");</pre>
+        <p>But most people use the <a href="http://mrdoob.github.com/three.js/">ThreeJS</a> library...</p>
 
       </ul>
     </div>
 
     <div class="slide normal">
-      <h1>WebGL: Renderers</h1>
+      <h1>ThreeJS: Renderers</h1>
       <p>Create a WebGLRenderer</p>
       <pre class="code">var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(document.body.clientWidth, 
@@ -747,7 +765,7 @@ renderer.clear();</pre>
     </div>
 
     <div class="slide normal">
-      <h1 id="fica-melhor">WebGL: Cameras</h1>
+      <h1 id="fica-melhor">ThreeJS: Cameras</h1>
       <p>Create a Camera</p>
       <pre class="code">
 var camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
@@ -763,7 +781,7 @@ scene.add(cube);</pre>
     </div>
 
     <div class="slide normal">
-      <h1>WebGL: Animation</h1>
+      <h1>ThreeJS: Animation</h1>
       <pre class="code">function animate(t) {
   // spin the camera in a circle
   camera.position.x = Math.sin(t/1000)*300;
@@ -783,7 +801,7 @@ animate(new Date().getTime());
     </div>
 
     <div class="slide normal">
-      <h1>WebGL: Demos</h1>
+      <h1>ThreeJS: Demos</h1>
 
       <div style="text-align:center">
         <a href="http://mrdoob.github.com/three.js/">
@@ -800,6 +818,7 @@ animate(new Date().getTime());
         <li><a href="http://fhtr.org/JSARToolKit/">JSArToolkit</a>: Augmented reality in JS</li>
         <li><a href="http://code.google.com/p/jebgl/">JebGL</a>: Java fallback for WebGL</li>
         <li><a href="http://code.google.com/p/cwebgl/">CWebGL</a>: Canvas fallback for WebGL</li>
+        <li><a href="http://voxeljs.com/">VoxelJS</a>: Toolkit for Voxel based games like Minecraft.</li>
       </ul>
     </div>
 
@@ -881,6 +900,10 @@ animate(new Date().getTime());
         <td style="color:green">✔</td>
        </tr>
      </table>
+
+     <p>When to use which? Depends on performance, features, interactivity, and target browsers.
+     </p>
+
      <br>
 
     </div> 
