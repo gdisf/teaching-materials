@@ -329,17 +329,20 @@
       <h1>SVG: Ways of Using</h1>
 
       <ul>
-        <li>Full SVG documents</li>
-        <li>Inline SVG</li>
-        <li>Scripted SVG</li>
-        <li>SVG backgrounds in CSS</li>
+        <li>Embedded file</li>
+        <li>Inline </li>
+        <li>Scripted</li>
+        <li>Cackgrounds in CSS</li>
       </ul>
     </div>
 
     <div class="slide normal">
-      <h1>SVG: Full Document</h1>
+      <h1>SVG: Embedded File</h1>
 
-      <object type="image/svg+xml" style="border:none; width:550px; height:540px; background: white;" data="media/famoustiger.svg"></object>
+      <pre>&lt;object type="image/svg+xml" style="border:none; width:550px; height:540px; background: white;" data="media/famoustiger.svg"&gt;&lt;/object&gt;</pre>
+      <p>OR:</p>
+      <pre>&lt;img src="media/famoustiger.svg"&gt;</pre>
+      <object type="image/svg+xml" style="border:none; height:400px; background: white;" data="media/famoustiger.svg"></object>
 
       <p><a href="http://caniuse.com/#feat=svg">caniuse.com: SVG basic</a></p>
 
@@ -410,7 +413,8 @@
       <ul>
         <li><a href="http://code.google.com/p/svgweb/">SVGweb</a>: cross-browser SVG polyfill</li>
         <li><a href="http://raphaeljs.com/">RaphaëlJS</a>: cross-browser vector graphics JS library</li>
-        <li><a href="http://g.raphaeljs.com/">gRaphael</a>: SVG-based charting library</a></li>
+        <li><a href="http://g.raphaeljs.com/">gRaphael</a>: SVG-based charting library</li>
+        <li><a href="http://wijmo.com/widgets/wijmo-complete/scatter-chart/">WijMo</a>: UI widgets and charts</li>
       </ul>
       <div style="text-align:center;">
         Animated Chart Demo <br>
@@ -420,85 +424,134 @@
       </div>
     </div>
 
+    <div class="slide section">
+      <a href="exercise1.html"><h1>Exercise Time!</h1></a>
+    </div>
 
     <div class="slide normal">
-      <h1>Canvas is...???</h1>
-      <ul>
-        <li>Script based graphics rendering</li>
-        <li>It's just an HTML tag</li>
-        <li class="nobullet" id="grafico-pizza"><img src="imgNovas/grafico-pizza.png" alt="Gráficos"></li>
-      </ul>
+      <h1>Canvas</h1>
+
+      <p>An HTML tag that creates a blank canvas for JavaScript to draw onto.</p>
+
+      <pre class="code" style="font-size:15px;line-height:1.2em;">&lt;canvas id="myCanvas"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+
+context.strokeStyle = '#000000';
+context.fillStyle = '#FFFF00';
+context.lineWidth = 4;
+context.beginPath();
+context.arc(100,75,50,0*Math.PI,2*Math.PI,true);
+context.closePath();
+context.stroke();
+context.fill();
+
+context.lineWidth = 2;
+context.beginPath();
+context.arc(100,65,40,0.2*Math.PI,0.8*Math.PI,false);
+context.stroke();
+
+context.beginPath();
+context.arc(80,60,10,0*Math.PI,2*Math.PI,false);
+context.stroke();
+
+context.beginPath();
+context.arc(120,60,10,0*Math.PI,2*Math.PI,false);
+context.stroke();
+&lt;/script&gt;</pre>
+
+      <canvas id="myCanvas"></canvas>
+
+      <script>
+      $(document).ready(function() { 
+      var canvas = $("#myCanvas");
+      var context = canvas.get(0).getContext("2d");
+   
+context.strokeStyle = '#000000';
+context.fillStyle = '#FFFF00';
+context.lineWidth = 4;
+context.beginPath();
+context.arc(100,75,50,0*Math.PI,2*Math.PI,true);
+context.closePath();
+context.stroke();
+context.fill();
+
+context.lineWidth = 2;
+context.beginPath();
+context.arc(100,65,40,0.2*Math.PI,0.8*Math.PI,false);
+context.stroke();
+
+context.beginPath();
+context.arc(80,60,10,0*Math.PI,2*Math.PI,false);
+context.stroke();
+
+context.beginPath();
+context.arc(120,60,10,0*Math.PI,2*Math.PI,false);
+context.stroke();
+      });
+      </script>
+
     </div>  
 
     <div class="slide normal">
-      <h1>Space Noodles</h1>
-      <a href="http://www.spielzeugz.de/html5/space-noodles/" target="blank" class="btn"><span>DEMO</span></a>    
+      <h1>Canvas: Space Noodles Demo</h1>
+      <div style="text-align:center">
+      <a href="http://www.spielzeugz.de/html5/space-noodles/" target="blank" class="btn">
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/xj~w-ithhin1.png">
+      </a>     
+      </div>
     </div>
 
     <div class="slide normal">
       <h1>Canvas</h1>
       <ul>
         <li>Define an element on <strong>HTML</strong>
-        <textarea class="snippet" spellcheck="false" rows="1">&lt;canvas id="myDrawing" width="500" height="500"&gt;&lt;/canvas&gt;</textarea></li>
+        <pre class="code">&lt;canvas id="myDrawing" width="500" height="500"&gt;&lt;/canvas&gt;</pre>
+        </li>
         <li style="padding-top: 20px;">Get it with <strong>JavaScript</strong>
-        <!-- <textarea class="snippet" spellcheck="false" rows="2">var canvas = document.getElementById("myDrawing");
-var context = canvas.getContext("2d");</textarea></li> -->
-<textarea class="snippet" spellcheck="false" rows="1">var canvas = document.getElementById("myDrawing");</textarea></li>
+<pre class="code">var canvas = document.getElementById("myDrawing");</pre></li>
       </ul>
     </div>
 
     <div class="slide normal">
       <h1>Context</h1>
       <ul>
-        <li>It's where all the magic happens</li>
         <li>All the draw methods are executed here
-          <textarea class="snippet" spellcheck="false" rows="1">var context = canvas.getContext("2d");</textarea>
-          <!-- <img src="imgNovas/grid.png" alt=""> -->
+          <pre class="code">var context = canvas.getContext("2d");</pre>
         </li>
-        <!-- <li>E ainda tem outro context (mais tarde a gente fala dele)
-        <textarea class="snippet" spellcheck="false" rows="1">var context = canvas.getContext("experimental-webgl");</textarea></li> -->
       </ul>
     </div>
 
    <div class="slide normal">
       <h1>Basic Shapes</h1>
       <ul>
-        <!-- <li>Apenas uma forma primitiva: o <strong>retângulo</strong>.</li> -->
         <li>Draws a rectangle using the current fill style
-          <textarea class="snippet" spellcheck="false" rows="1">fillRect(x, y, width, height);</textarea>
+          <pre class="code">fillRect(x, y, width, height);</pre>
         </li>
         <li>Draws the outline of a rectangle using the current stroke style
-          <textarea class="snippet" spellcheck="false" rows="1">strokeRect(x, y, width, height);</textarea></li>
+          <pre class="code">strokeRect(x, y, width, height);</pre></li>
         </li>
         <li>Clears all pixels within the given rectangle
-          <textarea class="snippet" spellcheck="false" rows="1">clearRect(x, y, width, height);</textarea></li>
+          <pre class="code">clearRect(x, y, width, height);</pre></li>
         </li>
       </ul>
-    </div>
-
-    <div class="slide normal">
-      <iframe class="customFrame" id="iframe-fill" src="demos/rect/fill.html"></iframe>
-      <textarea class="snippet" spellcheck="false" rows="2">context.fillStyle = "#fff";
-context.fillRect(25, 25, 150, 150);</textarea>
-      <iframe class="customFrame" id="iframe-stroke" src="demos/rect/stroke.html"></iframe>
-      <textarea class="snippet" spellcheck="false" rows="2">context.strokeStyle = "#fff";
-context.strokeRect(25, 25, 150, 150);</textarea>
     </div>
 
     <div class="slide normal">
       <h1>Lines and Paths</h1>
       <ul>
         <li>Creates a new subpath at the given point
-          <textarea class="snippet" spellcheck="false" rows="1">moveTo(x, y);</textarea>
+          <pre class="code">moveTo(x, y);</pre>
         </li>
         <li>Draws a straight line from the previous point
-          <textarea class="snippet" spellcheck="false" rows="1">lineTo(x, y);</textarea>
+          <pre class="code">lineTo(x, y);</pre>
         </li>
         <li>Adds a new closed rectangular subpath
-          <textarea class="snippet" spellcheck="false" rows="1">rect(x, y, width, height);</textarea>
+          <pre class="code">rect(x, y, width, height);</pre>
         </li>
-        <li>Adds a subpath along the circumference of the described circle, within the angles defines
-          <textarea class="snippet" spellcheck="false" rows="1">arc(x, y, raio, initialAngle, finalAngle, counterclockwise);</textarea>
+        <li>Adds a subpath along the circumference of the described circle, with the angles defined
+          <pre class="code">arc(x, y, radius, startAngle, endAngle, counterclockwise);</pre>
         </li>
       </ul>
     </div>
@@ -507,123 +560,161 @@ context.strokeRect(25, 25, 150, 150);</textarea>
       <h1>Lines and Paths</h1>
       <ul>
         <li>Resets the current path
-          <textarea class="snippet" spellcheck="false" rows="1">beginPath();</textarea>
+          <pre class="code">beginPath();</pre>
         </li>
         <li>Closes the current subpath and starts a new one
-          <textarea class="snippet" spellcheck="false" rows="1">closePath();</textarea>
+          <pre class="code">closePath();</pre>
         </li>
         <li>Fiils the subpaths with the current fill style
-          <textarea class="snippet" spellcheck="false" rows="1">fill();</textarea>
+          <pre class="code">fill();</pre>
         </li>
         <li>Outlines the subpaths with the current stroke style
-          <textarea class="snippet" spellcheck="false" rows="1">stroke();</textarea>
+          <pre class="code">stroke();</pre>
         </li>       
       </ul>
     </div>
 
     <div class="slide normal">
-      <iframe class="customFrame" id="iframe-rostoQuadrado" src="demos/rostoQuadrado/rostoQuadrado.html"></iframe>
-      <textarea class="snippet" spellcheck="false" rows="10">context.rect(25, 25, 200, 200); // Head
-context.rect(90, 80, 20, 20); // Left eye
-context.rect(140, 80, 20, 20); // Right eye
+      <h1>Rectangular Smiley</h1>
+      <canvas id="smileyRect" width="250" height="250" style="display:block;"></canvas>
+      <script>
+$(document).ready(function() {
 
-context.moveTo(50, 180); 
-context.lineTo(200, 180); // Mouth
-
-context.lineWidth = 10;
-context.strokeStyle = "white";
-context.stroke();</textarea></li>
-    </div>
-
-    <div class="slide normal">
-      <iframe class="customFrame" id="iframe-rostoRedondo" src="demos/rostoRedondo/rostoRedondo.html"></iframe>
-      <textarea style="margin-top: -20px;" class="snippet" spellcheck="false" rows="14">context.arc(110, 110, 100, 0, Math.PI*2, true); // Head
+  var canvas = document.getElementById('smileyRect');
+  var context = canvas.getContext('2d');
   
-context.moveTo(165, 120);
-context.arc(110, 120, 55, 0, Math.PI, false); // Mouth
+  context.rect(25, 25, 200, 200);
+  context.rect(90, 80, 20, 20);
 
-context.moveTo(90, 75);
-context.arc(85, 75, 5, 0, Math.PI*2, true); // Left eye
+  context.rect(140, 80, 20, 20);
 
-context.moveTo(135,75);
-context.arc(140, 75, 5, 0, Math.PI*2, true); // Right eye
+  context.moveTo(50, 180);
+  context.lineTo(200, 180);
 
-context.lineWidth = 10;
-context.strokeStyle = "white";
-context.stroke();</textarea></li>
+  context.lineWidth = 10;
+  context.strokeStyle = "black";
+  context.stroke();
+});
+      </script>
+      <pre class="code" style="font-size:17px; line-height:1.2em;">&lt;canvas id="smileyRect" width="250" height="250" style="display:block;"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+$(document).ready(function() {
+
+  var canvas = document.getElementById('smileyRect');
+  var context = canvas.getContext('2d');
+  
+  context.rect(25, 25, 200, 200); // Head
+
+  context.rect(90, 80, 20, 20); // Left Eye
+  context.rect(140, 80, 20, 20); // Right Eye
+
+  context.moveTo(50, 180); // Mouth
+  context.lineTo(200, 180);
+
+  context.lineWidth = 10;
+  context.strokeStyle = "black";
+  context.stroke();
+});&lt;/script&gt;</pre>
+
     </div>
 
     <div class="slide normal">
-      <h1>Snake</h1>
-      <a href="demos/snake/snake.html" target="blank" class="btn"><span>DEMO</span></a>
+      <h1>Circle Smiley</h1>
+      <canvas id="smileyCircle" width="250" height="250" style="display:block;"></canvas>
+      <script>
+$(document).ready(function() {
+  var canvas = document.getElementById('smileyCircle');
+  var context = canvas.getContext('2d');
+  
+  context.arc(110, 110, 100, 0, Math.PI*2, true); // Head
+  
+  context.moveTo(165, 120);
+  context.arc(110, 120, 55, 0, Math.PI, false); // Mouth
+
+  context.moveTo(90, 75);
+  context.arc(85, 75, 5, 0, Math.PI*2, true); // Left eye
+
+  context.moveTo(135,75);
+  context.arc(140, 75, 5, 0, Math.PI*2, true); // Right eye
+
+  context.lineWidth = 10;
+  context.strokeStyle = "black";
+  context.stroke();
+});
+      </script>
+      <pre class="code" style="font-size:15px;line-height:1.2em;">&lt;canvas id="smileyCircle" width="250" height="250" style="display:block;"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+$(document).ready(function() {
+  var canvas = document.getElementById('smileyCircle');
+  var context = canvas.getContext('2d');
+  
+  context.arc(110, 110, 100, 0, Math.PI*2, true); // Head
+  
+  context.moveTo(165, 120);
+  context.arc(110, 120, 55, 0, Math.PI, false); // Mouth
+
+  context.moveTo(90, 75);
+  context.arc(85, 75, 5, 0, Math.PI*2, true); // Left eye
+
+  context.moveTo(135,75);
+  context.arc(140, 75, 5, 0, Math.PI*2, true); // Right eye
+
+  context.lineWidth = 10;
+  context.strokeStyle = "black";
+  context.stroke();
+});
+&lt;/script&gt;</pre>
+
     </div>
 
     <div class="slide normal">
-      <ul style="margin-top: 150px; font-weight: bold;">
-        <li>Animation is nothing more than redrawing the screen at a rate that the human eye doesn't notice</li>
-        <textarea style="font-weight: bold;" class="snippet" spellcheck="false" rows="4">var FPS = 60;
-setInterval(function() { 
-  // call action to redraw
-}, 1000 / FPS);</textarea>
-<li style="margin-top: 20px;">But setInterval is from the past...</li>
-</ul>
-    </div>
-
-    <div class="slide normal">
-      <ul style="margin-top: 150px; font-weight: bold;">
-        <li>This new API tells the browser exactly when the next frame is drawn.</li>
-        <textarea style="font-weight: bold;" class="snippet" spellcheck="false" rows="3">window.requestAnimationFrame(function() {
-  // call action to redraw
-});</textarea>
-<li style="margin-top: 20px;">If you are running an animation in a tab that is not visible, the browser will simply not run the loop! performance++</li>
-</ul>
-    </div>
-
-    <div class="slide normal">
-      <h1>beerblogging</h1>
-      <a href="http://beerblogging.org" target="blank" class="btn"><span>DEMO</span></a>
-    </div>
-
-    <div class="slide normal">
-      <h1>Complex Paths</h1>
+      <h1>Animation</h1>
       <ul>
-        <li>Adds a cubic Bézier curve with the given control points
-          <textarea class="snippet" spellcheck="false" rows="1">bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);</textarea>
-        </li>
-        <!-- <li>Adds a quadratic Bézier curve with the given control points.
-          <textarea class="snippet" spellcheck="false" rows="1">quadraticCurveTo(cpx, cpy, x, y);</textarea>
-        </li> -->
-        <img style="margin: 12px 0 0 0;" src="imgNovas/cubic-bezier.jpg" alt="" />
+        <li>Animation is nothing more than redrawing the screen at a rate that the human eye doesn't notice</li>
+        <li>The old way:
+        <pre class="code">var FPS = 60;
+setInterval(function() { 
+  redrawCanvas(); // your function here
+}, 1000 / FPS);</pre>
+        <li>This new API tells the browser exactly when the next frame is drawn.</li>
+        <pre class="code">window.requestAnimationFrame(function() {
+  redrawCanvas(); // your function here
+});</pre>
+</ul>
+    </div>
+
+    <div class="slide normal">
+      <h1>Canvas: Snake Demo</h1>
+      <a href="http://talks.zenorocha.com/2012/jsconf/demos/snake/snake.html" target="blank" class="btn">
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/1~w1i3s_-hzf.png">
+      </a>
+    </div>
+
+    <div class="slide normal">
+      <h1>Canvas: Wormz Demo</h1>
+      <div style="text-align:center;">
+      <a href="http://html5-pro.com/" target="blank" class="btn">
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/yt01kc40jx9~.png">
+      </a>
+      </div>
+    </div>
+
+    <div class="slide normal">
+      <h1>Canvas: Libraries &amp; Tools</h1>
+      <ul>
+        <li><a href="http://createjs.com/#!/CreateJS">CreateJS</a>: JavaScript libraries suite to make graphics and animation easier</li>
+        <li><a href="http://www.greensock.com/v12/">GreenSock</a>: Animation platform</li>
+        <li><a href="http://code.google.com/p/box2dweb/">Box2DWeb</a>: Physics engine for JavaScript</li>
+        <li><a href="http://fabricjs.com/">FabricJS</a>: Provides an object model for canvas shapes</li>
+        <li><a href="http://flashcanvas.net/">FlashCanvas</a>: Flash fallback for canvas</li>
+        <li><a href="http://code.google.com/p/explorercanvas/">IE fallback for canvas</li>
       </ul>
+      <p><a href="http://caniuse.com/#feat=canvas">caniuse.com: Canvas</a></p>
+
     </div>
 
     <div class="slide normal">
-      <h1>Wormz</h1>
-      <a href="http://html5-pro.com/" target="blank" class="btn"><span>DEMO</span></a>
-    </div>
-
-    <!-- http://luxahoy.com/ -->
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/JmgcAp" target="blank">http://bit.ly/JmgcAp</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/JM78XU" target="blank">http://bit.ly/JM78XU</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <iframe src="http://www.greensock.com/js/speed.html"></iframe>
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/HWP3WB" target="blank">http://bit.ly/HWP3WB</a></h3>
-    </div>
-
-    <!-- angry birds -->
-
-    <div class="slide normal">
-      <h1>Box 2D</h1>
-      <iframe class="customFrame" id="iframe-box2d" src="demos/box2d-web/index.html"></iframe>
+      <h1><a href="exercise2.html">Exercise Time!</a></h1>
     </div>
 
     <div class="slide normal">
@@ -632,73 +723,48 @@ setInterval(function() {
         <li>3D in the browser and without plugins</li>
         <li>GPU Processing, directly on the video card</li>
         <li>It uses the <strong>&lt;canvas&gt;</strong> tag but with another context
-        <textarea class="snippet" spellcheck="false" rows="1">&lt;canvas id="myDrawing" width="500" height="500"&gt;</textarea>
-        <textarea class="snippet" spellcheck="false" rows="2">var canvas = document.getElementById("myDrawing"); 
-context = canvas.getContext("experimental-webgl");</textarea></li>
+      </ul>
+      
+      <pre class="code">&lt;canvas id="myDrawing" width="500" height="500"&gt;</pre>
+      <pre class="code">var canvas = document.getElementById("myDrawing"); 
+context = canvas.getContext("experimental-webgl");</pre>
+
       </ul>
     </div>
 
     <div class="slide normal">
-      <h1>Terminal</h1>
-      <a href="http://www.htmlfivewow.com/demos/terminal/terminal.html" target="blank" class="btn"><span>DEMO</span></a>      
-    </div>
-
-    <div class="slide normal">
-      <h1>Shaders</h1>
-      <p>Are little programs that tell WebGL:</p>
-      <ul>
-        <li>Where to draw</li>
-        <li>What to draw</li>
-      </ul>
-      <p>Are written in GLSL (OpenGL Shading Language)</p>
-    </div>
-
-    <div class="slide normal">
-      <h1 id="three">#ftw</h1>
-      <h3><a href="http://bit.ly/sY4hv6" target="blank">http://bit.ly/sY4hv6</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h1>First steps</h1>
+      <h1>WebGL: Renderers</h1>
       <p>Create a WebGLRenderer</p>
-      <textarea class="snippet" spellcheck="false" rows="3">var renderer = new THREE.WebGLRenderer({antialias: true});
+      <pre class="code">var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(document.body.clientWidth, 
-        document.body.clientHeight);</textarea>
+        document.body.clientHeight);</pre>
       <p>Put it on the DOM</p>
-      <textarea class="snippet" spellcheck="false" rows="1">document.body.appendChild(renderer.domElement);</textarea>
+      <pre class="code">document.body.appendChild(renderer.domElement);</pre>
       <p>Set some color</p>
-      <textarea class="snippet" spellcheck="false" rows="2">renderer.setClearColorHex(0xFFFFFF, 1.0);
-renderer.clear();</textarea>
+      <pre class="code">renderer.setClearColorHex(0xFFFFFF, 1.0);
+renderer.clear();</pre>
+    <a href="http://talks.zenorocha.com/2012/jsconf/demos/three/three_1.html">Demo</a>
     </div>
 
     <div class="slide normal">
-      <h1>Wow! =P</h1>
-      <iframe id="iframe-wow" src="demos/three/three_1.html"></iframe>
-    </div>
-
-    <div class="slide normal">
-      <h1 id="fica-melhor">It gets better, I promise!</h1>
+      <h1 id="fica-melhor">WebGL: Cameras</h1>
       <p>Create a Camera</p>
-      <textarea class="snippet" spellcheck="false" rows="3">
+      <pre class="code">
 var camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
-camera.position.z = 300;</textarea>
+camera.position.z = 300;</pre>
       <p>Make a Scene with a Cube</p>
-      <textarea class="snippet" spellcheck="false" rows="4">var scene = new THREE.Scene();
+      <pre class="code">var scene = new THREE.Scene();
 var cube =  new THREE.Mesh(new THREE.CubeGeometry(50,50,50),
        new THREE.MeshBasicMaterial({color: 0x1fd230}));
-scene.add(cube);</textarea>
+scene.add(cube);</pre>
       <p>And render the Scene from the Camera</p>
-      <textarea class="snippet" spellcheck="false" rows="1">renderer.render(scene, camera);</textarea>
+      <pre class="code">renderer.render(scene, camera);</pre>
+      <a href="http://talks.zenorocha.com/2012/jsconf/demos/three/three_2.html">Demo</a>
     </div>
 
     <div class="slide normal">
-      <h1 id="pelo-menos">At least it isn't empty.</h1>
-      <iframe id="iframe-peloMenos" src="demos/three/three_2.html"></iframe>
-    </div>
-
-    <div class="slide normal">
-      <h1>Let's move that?</h1>
-      <textarea class="snippet" spellcheck="false" rows="13">function animate(t) {
+      <h1>WebGL: Animation</h1>
+      <pre class="code">function animate(t) {
   // spin the camera in a circle
   camera.position.x = Math.sin(t/1000)*300;
   camera.position.y = 150;
@@ -711,92 +777,114 @@ scene.add(cube);</textarea>
 };
 
 animate(new Date().getTime());
-      </textarea>
+      </pre>
+      <a href="http://talks.zenorocha.com/2012/jsconf/demos/three/three_3.html">Demo</a>
+
     </div>
 
     <div class="slide normal">
-      <h1>Isn't it nice?</h1>
-      <iframe id="iframe-legal" src="demos/three/three_3.html"></iframe>
+      <h1>WebGL: Demos</h1>
+
+      <div style="text-align:center">
+        <a href="http://mrdoob.github.com/three.js/">
+          <img src="http://dl.dropbox.com/u/10998095/Screenshots/ph6-ewvdsw9o.png">
+        </a>
+      </div>
     </div>
 
     <div class="slide normal">
-      <h1>Trigger Rally</h1>
-      <a href="http://triggerrally.com/x/Preview/Arbusu/drive" target="blank" class="btn"><span>DEMO</span></a>    
-    </div>
+      <h1>WebGL: Libraries &amp; Tools</h1>
 
-    <div class="slide normal">
-      <h1>JSARToolKit</h1>
       <ul>
-        <li>Augmented Reality in JS = Wooow!</li>
-        <li class="nobullet" id="marker"><img src="img/marker.png" alt="Gráficos"></li>
+        <li><a href="http://mrdoob.github.com/three.js/">Three.JS</a>: JS abstraction library for 3d in the browser</li>
+        <li><a href="http://fhtr.org/JSARToolKit/">JSArToolkit</a>: Augmented reality in JS</li>
+        <li><a href="http://code.google.com/p/jebgl/">JebGL</a>: Java fallback for WebGL</li>
+        <li><a href="http://code.google.com/p/cwebgl/">CWebGL</a>: Canvas fallback for WebGL</li>
       </ul>
     </div>
 
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/LUTJxw" target="blank">http://bit.ly/LUTJxw</a></h3>
-    </div>
 
     <div class="slide normal">
-      <h1>JSARToolKit</h1>
-      <a href="http://www.html5rocks.com/pt/tutorials/webgl/jsartoolkit_webrtc/AR_slideshow.html" target="blank" class="btn"><span>DEMO</span></a>
-    </div>
+      <h1>CSS 3D Transforms</h1>
 
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/tPaw1E" target="blank">http://bit.ly/tPaw1E</a></h3>
-    </div>
+      <p>CSS lets you specify keyframes, animations, and transitions for styles.
+      </p>
+      <pre class="code">
+#tardis {
+  animation-name: disappear;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+}
 
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/HVcWOa" target="blank">http://bit.ly/HVcWOa</a></h3>
-    </div>
+@keyframes disappear {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}</pre>
+       <p><a href="http://joshnetherton.com/presentations/remix2012/slides.html#slide64">Spinning tardis demo</a></p>
 
-    <div class="slide normal">
-      <h1>Canvas</h1>
-      <img src="img/categorias/graficos.png" alt="Gráficos">
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/JfmSFi" target="blank">http://bit.ly/JfmSFi</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/IW3wVc" target="blank">http://bit.ly/IW3wVc</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h1>SVG</h1>
-      <img src="img/categorias/graficos.png" alt="Gráficos">
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/IB0h22" target="blank">http://bit.ly/IB0h22</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/J88nlj" target="blank">http://bit.ly/J88nlj</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h1>WebGL</h1>
-      <img src="img/categorias/graficos.png" alt="Gráficos">
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/HPHbnv" target="blank">http://bit.ly/HPHbnv</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/I54ayG" target="blank">http://bit.ly/I54ayG</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/svv9BU" target="blank">http://bit.ly/svv9BU</a></h3>
-    </div>
-
-    <div class="slide normal">
-      <h3><a href="http://bit.ly/sIbvFv" target="blank">http://bit.ly/sIbvFv </a></h3>
+       <p><a href="http://caniuse.com/#feat=transforms3d">caniuse.com: CSS 3d transforms</a>
+       </p>
     </div>
 
    
+    <div class="slide normal"> 
+     <header><h1>Graphics in HTML5</header>
+     <br>
+
+     <table class="table">
+      <thead>
+        <tr>
+          <td></td>
+          <td>Raster</td>
+          <td>Vector</td>
+          <td>Motion</td>
+          <td>Interactive</td>
+          <td>2D</td>
+          <td>3D</td>
+        </tr>
+      <tbody>
+       <tr>
+        <td>SVG</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+       <tr>
+        <td>Canvas</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+       </tr>
+       <tr>
+        <td>WebGL</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+       </tr>
+       <tr>
+        <td>CSS3</td>
+        <td style="color:green">✔</td>
+        <td style="color:red">✖</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+        <td style="color:green">✔</td>
+       </tr>
+     </table>
+     <br>
+
+    </div> 
+
    </div>
 
   </div>
