@@ -9,6 +9,9 @@ handlers:
   upload: favicon\.ico
   expiration: 1h
 
+- url: /workshops
+  static_dir: workshops
+
 - url: /htmlcss-1day/
   static_files: htmlcss-1day/index.html
   upload: htmlcss-1day/index.html
