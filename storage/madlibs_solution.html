@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title></title>
+ </head>
+ <body>
+ 
+ <h1>Mad Libs</h1>
+ 
+ <ul>
+  <li>Noun: <input type="text" id="noun">
+  <li>Adjective: <input type="text" id="adjective">
+  <li>Someone's Name: <input type="text" id="name">
+ </ul>
+ 
+ <button id="lib-button">Lib it!</button>
+  
+ <div id="story"></div>
+  
+ <br><br>
+
+ <h3>Old stories:</h3>
+ <div id="stories"></div>
+
+  <script>
+var LS_PHRASES = 'madlibs-phrases';
+var phrases = [];
+
+function libIt() {
+  var storyDiv = document.getElementById("story");
+  var name = document.getElementById("name").value;
+  var adjective = document.getElementById("adjective").value;
+  var noun = document.getElementById("noun").value;
+  var story = name + " married a " + adjective + " " + noun + "... So weird!";
+  storyDiv.innerHTML = story;
+  phrases.push(story);
+}
+
+function displayPhrases() {
+	var lsPhrases = localStorage.getItem(LS_PHRASES);
+	if (lsPhrases) {
+		phrases = JSON.parse(lsPhrases);
+	}
+	for (var i=0; i < phrases.length; i++) {
+		document.getElementById('stories').innerHTML += phrases[i] + '<br>';
+	}
+}
+
+function storePhrases() {	
+	localStorage.setItem(LS_PHRASES, JSON.stringify(phrases));
+}
+
+var libButton = document.getElementById('lib-button');
+libButton.addEventListener('click', libIt);
+
+window.addEventListener('load', function(event) {
+	displayPhrases();
+});
+
+window.addEventListener('unload', function(event) {
+	storePhrases();
+});
+	</script>
+
+ </body>
+</html>

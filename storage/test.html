@@ -1,0 +1,35 @@
+<html>
+<body>
+
+<script>
+var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;  
+
+var request = indexedDB.open('Favorites');
+
+request.onerror = function(event) {
+  alert("Why didn't you allow my web app to use IndexedDB?!");
+};
+
+request.onsuccess = function(e) {
+  console.log(e);
+  db = e.target.result;
+  console.log(db);
+  db.createObjectStore('Fish');
+  //console.log(store);
+  //store.put({name: 'Herring', color: 'Silvery'});
+  //store.put({name: 'Tuna', color: 'Pink'});
+}
+
+/*
+db.createIndex("FishNames", "name", false);
+var index = db.openIndex('FishNames');
+var id = index.get('Herring');
+var range = new KeyRange.bound('A', 'E');
+var cursor = index.openObjectCursor(range);
+while (cursor.continue()) {
+  alert(cursor.value.name);
+}
+*/
+</script>
+</body>
+</html>

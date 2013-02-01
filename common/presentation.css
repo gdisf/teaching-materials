@@ -28,7 +28,7 @@ div.slide {
         opacity: 1;
     }
 
-div.footer {
+div.footer,p.footer {
     bottom: 20px;
     color: #404040;
     font-family: arial;
@@ -72,6 +72,12 @@ h1.center {
     font-size: 150%;
 }
 
+p.center {
+    text-align: center;
+}
+
+/* Images */
+
 img.border {
     border: 1px solid #ccc;
 }
@@ -86,6 +92,8 @@ img.center {
     margin-right: auto;
 }
 
+/* Tables */
+
 table.table thead td {
     font-weight: bold;
 }
@@ -99,3 +107,33 @@ table.table td {
 table.table td {
    padding: 5px;
 }
+
+div.slide .run-button {
+  float: right;
+  margin-top: 10px;
+  margin-right: 5px;
+  margin-bottom: 6px;
+  margin-left: 10px;
+}
+
+/* Notes */
+
+div.slide .notes {
+  display: none;
+  background-color: #CCC;
+  z-index: 99999;
+  bottom: 0px;
+  position: absolute;
+  font-size: 14px;
+  line-height: 1.2em;
+  border: 1px dotted black;
+  width: 885px;
+  padding: 6px;
+}
+
+.notes-button {
+  position: fixed;
+  right: 30px;
+  bottom: 10px;
+}
+
