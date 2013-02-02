@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise 3: WebGL</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise 3: WebGL</h1>
+      <br><br>
+      <ul>
+        <li>Check that you're using a browser that supports WebGL. Download Chrome Canary if necessary.</li>
+        <li>Start with this simple HTML5 webpage, save it as <code>webgl.html</code><br>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;   
+ &lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;WebGLove&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  
+ &lt;/body&gt;
+&lt;/html&gt; 
+</pre>
+        <br><br>
+        <li>Download the minified <a href="http://mrdoob.github.com/three.js/build/three.min.js">ThreeJS</a> library into your project folder.</li>
+        <li>Follow the <a href="http://www.aerotwist.com/tutorials/getting-started-with-three-js/">getting started</a> until you have a sphere rendering at the end of it. Woo!</li>
+        <li>Change the sphere color to yellow.</li>
+        <li>Tweak the sphere parameters so that the sphere is rounded.</li>
+        <li>Tweak the light position parameters until there's less shading around the sphere.</li>
+        <li>Add two eyeballs to the face, positioned correctly.</li>
+        <li>Add a mouth to the face. You can try doing it using THREE.shape and .extrude or by using a different geometry.</li>
+        <li>Add TextGeometry that says "Smile!"</li>
+        <li>Either animate the smiley face bouncing, or animate the camera zooming in and out, using window.setInterval or window.requestAnimationFrame (or <a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">this shim</a>).</li>
+
+      </ul>
+      
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre?')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+  </body>
+</html>
+
