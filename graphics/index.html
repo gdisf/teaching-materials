@@ -8,31 +8,76 @@
     <link rel="stylesheet" type="text/css" href="../common/presentation.css" />
     <link rel="stylesheet" type="text/css" href="../common/prettify.css" />
     <link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../common/codemirror.css" /> 
     <script src="../common/jquery.js" type="text/javascript"></script>
     <script src="../common/fathom.js"></script>
     <script src="../common/prettify.js"></script>
+    <script src="../common/jquery.overlay.js"></script> 
+    <script src="../common/codemirror.js"></script> 
     <script>
-    $(document).ready(function(){
-        $('pre').addClass('prettyprint').attr('tabIndex', 0);
-        prettyPrint();
+$(document).ready(function(){
+  $('.slide a').attr('target', '_blank');
 
-        var fathom = $('#presentation').fathom({
-            onActivateSlide: function() {
-                var $slide = $(this);
-                $slide.find('pre:first').focus();
-            }
-        });
-        $('body').keypress(function(event){
-           if (event.which === 110) {
-               $('.speaker-notes').toggle();
-           }
-        });
+  $('textarea').each(function(elem) {
+    var textArea = this;
+    $(textArea).attr('tabIndex', 0);
+
+    var codeMirrorOpts = {
+      lineNumbers: true
+    }
+
+    if ($(textArea).hasClass('html') || $(textArea).hasClass('script')) {
+        codeMirrorOpts.mode = {name: 'xml', htmlMode: true}
+      } else if ($(textArea).hasClass('js')) {
+        codeMirrorOpts.matchBrackets = true;
+    }
+
+    var editor = CodeMirror.fromTextArea(textArea, codeMirrorOpts);
+      
+    $(editor.getWrapperElement()).keydown(function(e) {
+      e.stopPropagation();
     });
+
+    if ($(textArea).hasClass('runnable')) {
+      var button = $('<button class="btn run-button">Run!</button>');
+      button.click(function() {
+        var code = editor.getValue();
+        if ($(textArea).hasClass('html')) {
+          $('#demo').html(code);
+        } else if ($(textArea).hasClass('script')) {
+          $('body').append(code);
+        } else if ($(textArea).hasClass('js')) {
+          window.eval(code);
+        }
+        $("#demo").leanModal();
+      });
+      $(this).after(button);
+    }
+  });
+
+  $('pre').addClass('prettyprint').attr('tabIndex', 0);
+  prettyPrint();
+
+  var fathom = $('#presentation').fathom({
+      onActivateSlide: function() {
+          var $slide = $(this);
+          $slide.find('pre:first').focus();
+      }
+  });
+  $('body').keypress(function(event){
+     if (event.which === 110) {
+         $('.speaker-notes').toggle();
+     }
+  });
+});
     </script>
+
   </head>
 <body>
   <div id="presentation">
   
+  <div id="demo" style="display:none"></div>
+
    <div id="presentation-counter"></div>
       
    <div id="slides">
@@ -232,24 +277,16 @@
          An XML-based vector image format for two-dimensional graphics that has support for interactivity and animation.
       </p>
 
-      <pre class="code">
+      <textarea class="runnable html">
 &lt;svg height=&quot;200&quot; width=&quot;600&quot; xmlns=http://www.w3.org/2000/svg&gt;
   &lt;circle id=&quot;yellowcircle&quot; cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;50&quot; fill=&quot;yellow&quot;/&gt;
   &lt;circle id=&quot;blackcircle&quot; cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;10&quot; fill=&quot;black&quot;/&gt;
   &lt;circle id=&quot;blackcircle&quot; cx=&quot;70&quot; cy=&quot;30&quot; r=&quot;10&quot; fill=&quot;black&quot;/&gt;
   &lt;ellipse id=&quot;blackellipse&quot; cx=&quot;50&quot; cy=&quot;75&quot; rx=&quot;20&quot; ry=&quot;8&quot; fill=&quot;black&quot;/&gt;
   &lt;ellipse id=&quot;yellowellipse&quot; cx=&quot;50&quot; cy=&quot;73&quot; rx=&quot;20&quot; ry=&quot;8&quot; fill=&quot;yellow&quot;/&gt;
-&lt;/svg&gt;</pre>
+&lt;/svg&gt;</textarea>
       
       <br>
-      <svg height="200" width="600" xmlns="http://www.w3.org/2000/svg">
-        <circle id="yellowcircle" cx="50" cy="50" r="50" fill="yellow"/>
-        <circle id="blackcircle" cx="30" cy="30" r="10" fill="black"/>
-        <circle id="blackcircle" cx="70" cy="30" r="10" fill="black"/>
-        <ellipse id="blackellipse" cx="50" cy="75" rx="20" ry="8" fill="black"/>
-        <ellipse id="yellowellipse" cx="50" cy="73" rx="20" ry="8" fill="yellow"/>
-      </svg>
-
     </div>
 
     <div class="slide normal">
@@ -297,7 +334,7 @@
     <div class="slide normal">
       <h1>SVG: Text, Transforms, Scripting</h1>
       <br>
-      <pre class="code" style="font-size:19px;line-height:21px">
+      <textarea class="runnable html">
 &lt;svg version=&quot;1.1&quot; width='700px' height='400px' 
    xmlns=&quot;http://www.w3.org/2000/svg&quot;
    xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;&gt;
@@ -309,19 +346,7 @@
     &lt;/text&gt;
   &lt;/g&gt;
   &lt;use x='200' y='0' xlink:href='#textBox' transform=&quot;rotate(20)&quot;/&gt;
-&lt;/svg&gt;</pre>
-
-      <svg version="1.1" width='700px' height='400px' 
-         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g id="textBox">
-          <circle id='textCirc' cx='100' cy='100' r='75px' fill='yellow' opacity='0.25'
-                  onclick='document.getElementById("textCirc").setAttribute("fill", "orange")'/>
-          <text x='100px' y='100px' style='fill: blue; font-weight: bold; font-size:20px;'>
-            <tspan>Text on top</tspan>
-          </text>
-        </g>
-        <use x='200' y='0' xlink:href='#textBox' transform="rotate(20)"/>
-      </svg>
+&lt;/svg&gt;</textarea>
 
     </div>
 
@@ -349,10 +374,13 @@
     <div class="slide normal">
       <h1>SVG: Embedded File</h1>
 
-      <pre>&lt;object type="image/svg+xml" style="border:none; width:550px; height:540px; background: white;" data="media/famoustiger.svg"&gt;&lt;/object&gt;</pre>
-      <p>OR:</p>
-      <pre>&lt;img src="media/famoustiger.svg"&gt;</pre>
-      <object type="image/svg+xml" style="border:none; height:400px; background: white;" data="media/famoustiger.svg"></object>
+      <textarea class="runnable html" style="height:100px;">
+&lt;object type="image/svg+xml" style="border:none; width:550px; height:540px; background: white;" data="media/famoustiger.svg"&gt;&lt;/object&gt;
+
+<!-- OR 
+&lt;img src="media/famoustiger.svg"&gt;
+-->
+      </textarea>
 
       <p><a href="http://caniuse.com/#feat=svg">caniuse.com: SVG basic</a></p>
 
@@ -362,9 +390,8 @@
     <div class="slide normal">
       <h1>SVG: Inline</h1>
 
-      <pre>
-&lt;!doctype html&gt;
- &lt;html&gt;
+      <textarea class="runnable html">
+&lt;div style="width:500px;height:400px;"&gt;
   &lt;svg&gt;
     &lt;defs&gt;
       &lt;linearGradient id=&quot;MyGradient&quot;&gt;
@@ -375,19 +402,8 @@
     &lt;circle id=&quot;myCircle&quot; class=&quot;important&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;100&quot; 
         fill=&quot;url(#myGradient)&quot;/&gt;
   &lt;/svg&gt;
-&lt;/html&gt;
-      </pre>
-
-      <svg height="200">
-        <defs>
-          <linearGradient id="MyGradient">
-            <stop offset="5%" stop-color="#F60" />
-            <stop offset="95%" stop-color="#FF6" />
-          </linearGradient>
-        </defs>
-        <circle id="myCircle" class="important" cx="50%" cy="110" r="90" 
-            fill="url(#MyGradient)"/>
-      </svg>
+&lt;/div&gt;
+      </textarea>
 
       <p><a href="http://caniuse.com/#feat=svg-html5">caniuse.com: SVG inline</a></p>
 
@@ -405,13 +421,12 @@
     <div class="slide normal">
       <h1>SVG: CSS Background</h1>
 
-      <pre class="code">
-&lt;div style="background-image: url(media/html5_logo.svg); width: 200px; height: 200px;"&gt;
-&lt;/div&gt;</pre>
-      <br><br>
-      <div style="background-image: url(media/html5_logo.svg); width: 200px; height: 200px;">
-      </div>
-      <br><br>
+      <textarea class="runnable html">
+&lt;div style="background-image: url(media/html5_logo.svg);
+               width: 200px; height: 200px;"&gt;
+&lt;/div&gt;</textarea>
+      <br>
+
       <p><a href="http://caniuse.com/#feat=svg-css">caniuse.com: SVG in CSS</a></p>
 
       <p><a href="http://www.noupe.com/tutorial/svg-clickable-71346.html">Ways to embed a clickable SVG logo</a>
@@ -443,7 +458,7 @@
 
       <p>An HTML tag that creates a blank canvas for JavaScript to draw onto.</p>
 
-      <pre class="code" style="font-size:15px;line-height:1.2em;">&lt;canvas id="myCanvas"&gt;&lt;/canvas&gt;
+      <textarea class="runnable html" style="font-size:15px;line-height:1.2em;">&lt;canvas id="myCanvas"&gt;&lt;/canvas&gt;
 &lt;script&gt;
 var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
@@ -469,38 +484,7 @@ context.stroke();
 context.beginPath();
 context.arc(120,60,10,0*Math.PI,2*Math.PI,false);
 context.stroke();
-&lt;/script&gt;</pre>
-
-      <canvas id="myCanvas"></canvas>
-
-      <script>
-      $(document).ready(function() { 
-      var canvas = $("#myCanvas");
-      var context = canvas.get(0).getContext("2d");
-   
-context.strokeStyle = '#000000';
-context.fillStyle = '#FFFF00';
-context.lineWidth = 4;
-context.beginPath();
-context.arc(100,75,50,0*Math.PI,2*Math.PI,true);
-context.closePath();
-context.stroke();
-context.fill();
-
-context.lineWidth = 2;
-context.beginPath();
-context.arc(100,65,40,0.2*Math.PI,0.8*Math.PI,false);
-context.stroke();
-
-context.beginPath();
-context.arc(80,60,10,0*Math.PI,2*Math.PI,false);
-context.stroke();
-
-context.beginPath();
-context.arc(120,60,10,0*Math.PI,2*Math.PI,false);
-context.stroke();
-      });
-      </script>
+&lt;/script&gt;</textarea>
 
     </div>  
 
@@ -586,27 +570,7 @@ context.stroke();
 
     <div class="slide normal">
       <h1>Rectangular Smiley</h1>
-      <canvas id="smileyRect" width="250" height="250" style="display:block;"></canvas>
-      <script>
-$(document).ready(function() {
-
-  var canvas = document.getElementById('smileyRect');
-  var context = canvas.getContext('2d');
-  
-  context.rect(25, 25, 200, 200);
-  context.rect(90, 80, 20, 20);
-
-  context.rect(140, 80, 20, 20);
-
-  context.moveTo(50, 180);
-  context.lineTo(200, 180);
-
-  context.lineWidth = 10;
-  context.strokeStyle = "black";
-  context.stroke();
-});
-      </script>
-      <pre class="code" style="font-size:17px; line-height:1.2em;">&lt;canvas id="smileyRect" width="250" height="250" style="display:block;"&gt;&lt;/canvas&gt;
+      <textarea class="runnable html" style="font-size:17px; line-height:1.2em;">&lt;canvas id="smileyRect" width="250" height="250" style="display:block;"&gt;&lt;/canvas&gt;
 &lt;script&gt;
 $(document).ready(function() {
 
@@ -624,35 +588,13 @@ $(document).ready(function() {
   context.lineWidth = 10;
   context.strokeStyle = "black";
   context.stroke();
-});&lt;/script&gt;</pre>
+});&lt;/script&gt;</textarea>
 
     </div>
 
     <div class="slide normal">
       <h1>Circle Smiley</h1>
-      <canvas id="smileyCircle" width="250" height="250" style="display:block;"></canvas>
-      <script>
-$(document).ready(function() {
-  var canvas = document.getElementById('smileyCircle');
-  var context = canvas.getContext('2d');
-  
-  context.arc(110, 110, 100, 0, Math.PI*2, true); // Head
-  
-  context.moveTo(165, 120);
-  context.arc(110, 120, 55, 0, Math.PI, false); // Mouth
-
-  context.moveTo(90, 75);
-  context.arc(85, 75, 5, 0, Math.PI*2, true); // Left eye
-
-  context.moveTo(135,75);
-  context.arc(140, 75, 5, 0, Math.PI*2, true); // Right eye
-
-  context.lineWidth = 10;
-  context.strokeStyle = "black";
-  context.stroke();
-});
-      </script>
-      <pre class="code" style="font-size:15px;line-height:1.2em;">&lt;canvas id="smileyCircle" width="250" height="250" style="display:block;"&gt;&lt;/canvas&gt;
+      <textarea class="runnable html" style="font-size:15px;line-height:1.2em;">&lt;canvas id="smileyCircle" width="250" height="250" style="display:block;"&gt;&lt;/canvas&gt;
 &lt;script&gt;
 $(document).ready(function() {
   var canvas = document.getElementById('smileyCircle');
@@ -673,7 +615,7 @@ $(document).ready(function() {
   context.strokeStyle = "black";
   context.stroke();
 });
-&lt;/script&gt;</pre>
+&lt;/script&gt;</textarea>
 
     </div>
 
@@ -715,6 +657,42 @@ setInterval(function() {
       </a>
       </div>
     </div>
+
+
+    <div class="slide normal">
+      <h1>drawImage</h1>
+
+      <textarea class="runnable html">
+<canvas id="hippo-canvas"></canvas>
+<script>
+var canvas = document.getElementById('hippo-canvas');
+var ctx = canvas.getContext('2d');
+var img = new Image();
+img.onload = function() {
+  for (var i=0;i<4;i++) {
+    for (var j=0;j<3;j++) {
+      ctx.drawImage(img,j*50,i*38,50,38);
+    }
+  }
+  window.open(canvas.toDataURL());
+};
+img.src = 'media/babyhippo.jpg';
+</script>
+      </textarea>
+
+
+
+      <p>See <a href="https://developer.mozilla.org/en-US/docs/HTML/Canvas/Tutorial/Using_images">MDN: Using Images</a></p>
+    </div>
+
+
+    <div class="slide normal">
+      <h1>MontageMaker Demo</h1>
+      <a href="http://montage-maker.appspot.com/">
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/95t264j73iso.png">
+      </a>
+    </div>
+
 
     <div class="slide normal">
       <h1>Canvas: Libraries &amp; Tools</h1>
@@ -914,6 +892,11 @@ animate(new Date().getTime());
    </div>
 
   </div>
+
+
+
+    
+    
 
  </body>
 </html>
