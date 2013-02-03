@@ -79,20 +79,19 @@ function makeEye(direction) {
   return eye;
 }
 
+// Make the mouth
 var arc = new THREE.Shape();
-arc.moveTo( 0,0);
-arc.lineTo( -SMILEY_RADIUS/2,0);
-arc.lineTo( -SMILEY_RADIUS/2, -SMILEY_RADIUS/10);
-arc.lineTo(  SMILEY_RADIUS/2, 0 );
-arc.lineTo(  SMILEY_RADIUS/2, SMILEY_RADIUS/10 );
-arc.lineTo(  0, 0 );
+arc.moveTo( -SMILEY_RADIUS*.55,15);
+arc.quadraticCurveTo( 0, -SMILEY_RADIUS*.55, SMILEY_RADIUS*.55, 15);
+arc.lineTo(SMILEY_RADIUS*.55, 20);
+arc.quadraticCurveTo( 0, -SMILEY_RADIUS*.45, -SMILEY_RADIUS*.55,20 );
 
 var arcExt = arc.extrude({
-	bevelEnabled: false,
-	bevelSize: 1,
-	amount: 10,
-	extrudeMaterial: 0,
-	material: 1
+  bevelEnabled: false,
+  bevelSize: 1,
+  amount: 10,
+  extrudeMaterial: 0,
+  material: 1
 });
 var mouth = new THREE.Mesh(arcExt, blackMaterial) ;
 mouth.position.z = SMILEY_RADIUS;
