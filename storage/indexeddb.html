@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  <div id="demo">x
+
+  </div>
+
+  <script>
+var videoData = [
+  { youtube: "epUk3T2Kfno", title: "Otters Holding Hands", author: "cynthiaholmes", rating: "5"},
+  { youtube: "LKpnZ7cwWuY", title: "Oooh Cat", author: "TheTenMinuteMan", rating: "4"},
+  { youtube: "TddFnTB_7IM", title: "Trip through the 80s", author: "mellberty", rating: "4.5"},
+  { youtube: "vifVEg7NepI", title: "The Coconut Song", author: "cornbugles", rating: "3.5"}
+];
+var dbName = "videos";
+var db;
+var request = indexedDB.open(dbName, 2);
+
+request.onerror = function(event) {
+  console.log(event);
+};
+
+request.onsuccess = function(event) {
+  db = event.target.result;
+  queryStore();
+  showAll();
+};
+
+request.onupgradeneeded = function(event) {
+  db = event.target.result;
+
+  var objectStore = db.createObjectStore("videos", { keyPath: "youtube" });
+  objectStore.createIndex("title", "title", { unique: false });
+  objectStore.createIndex("rating", "rating", { unique: false });
+ 
+  for (var i in videoData) {
+    objectStore.add(videoData[i]);
+  }
+};
+
+
+function queryStore() {
+  var transaction = db.transaction(["videos"]);
+  var objectStore = transaction.objectStore("videos");
+  var request = objectStore.get("vifVEg7NepI");
+  request.onerror = function(event) {
+    // Handle errors!
+  };
+  request.onsuccess = function(event) {
+    alert("Title for ID is vifVEg7NepI is " + request.result.title);
+  };
+}
+
+function showAll() {
+  var objectStore = db.transaction("videos").objectStore("videos");
+   
+  objectStore.openCursor().onsuccess = function(event) {
+    var cursor = event.target.result;
+    if (cursor) {
+      var iframe = document.createElement('iframe');
+      iframe.src = 'http://www.youtube.com/embed/' + cursor.key;
+      iframe.width = '200';
+      iframe.height = '100';
+      document.getElementById('demo').appendChild(iframe);
+      cursor.continue();
+    }
+  };
+}
+
+</script>
+
+  </body>
+</html>
