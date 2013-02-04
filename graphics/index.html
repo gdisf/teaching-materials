@@ -58,17 +58,8 @@ $(document).ready(function(){
   $('pre').addClass('prettyprint').attr('tabIndex', 0);
   prettyPrint();
 
-  var fathom = $('#presentation').fathom({
-      onActivateSlide: function() {
-          var $slide = $(this);
-          $slide.find('pre:first').focus();
-      }
-  });
-  $('body').keypress(function(event){
-     if (event.which === 110) {
-         $('.speaker-notes').toggle();
-     }
-  });
+  var fathom = new Fathom('#presentation');
+
 });
     </script>
 
