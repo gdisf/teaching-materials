@@ -26,6 +26,13 @@ handlers:
 - url: /storage
   static_dir: storage
 
+- url: /ajax/
+  static_files: ajax/index.html
+  upload: ajax/index.html
+
+- url: /ajax
+  static_dir: ajax
+
 - url: /graphics/
   static_files: graphics/index.html
   upload: graphics/index.html
