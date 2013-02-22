@@ -104,6 +104,10 @@ handlers:
   static_files: sitemap.xml
   upload: sitemap.xml
 
+- url: /guide
+  static_files: guide.html
+  upload: guide.html
+
 - url: /
   static_files: index.html
   upload: index.html
