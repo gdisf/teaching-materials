@@ -143,6 +143,7 @@
             <li>Everyone has a local copy of the history</li>
           </ul>
         </section>
+        <!-- Installation and Setup-->
         <section>
           <section>
             <h3>Installation and Setup</h3>
@@ -168,7 +169,8 @@ Enter passphrase (empty for no passphrase): [Type a passphrase]
             </code></pre>
           </section>
           <section>
-            <h3>Get SSH Key</h3>
+            <h3>Installation and Setup</h3>
+            <p>Get SSH Key</p>
             <pre><code contenteditable class ="command-line">
 Your identification has been saved in /Users/you/.ssh/id_rsa.
 # Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
@@ -177,11 +179,13 @@ Your identification has been saved in /Users/you/.ssh/id_rsa.
             </code></pre>
           </section>
           <section>
-            <h3>Add SSH Key to Github</h3>
+            <h3>Installation and Setup</h3>
+            <p>Add SSH Key to Github</p>
             <img src = "images/add-ssh.png" alt ="Steps to add SSH key to github account"/>
           </section>
           <section>
-            <h3>Setup name and email in gitconfig</h3>
+            <h3>Installation and Setup</h3>
+            <p>Setup name and email in gitconfig</p>
             <pre><code contenteditable class ="command-line">
 $ git config --global user.name "Your Name Here"
 # Sets the default name for git to use when you commit
@@ -194,6 +198,65 @@ $ git config --global user.email "your_email@example.com"
 $ git config --list
             </code></pre>
           </section>
+        </section>
+        <!-- First commands-->
+        <section>
+          <section>
+            <h3>Your first Local Repository</h3>
+            <p>Go to home directory</p>
+            <pre><code contenteditable class ="command-line">
+  cd ~/
+  OR
+  cd Users\username
+            </code></pre>
+            <p>Create a "working directory"</p>
+            <pre><code contenteditable class ="command-line">
+  mkdir my-first-repo
+  cd my-first-repo
+            </code></pre>
+            <p>Initialize repository with Git</p>
+            <pre><code contenteditable class ="command-line">
+  git init
+  git status
+            </code></pre>
+          </section>
+          <section>
+            <h3>Add files</h3>
+            <p>Create a new hello_world.txt file in your new folder</p>
+            <p>Check repo status</p>
+            <pre><code contenteditable class ="command-line">
+  git status
+            </code></pre>
+            <p>Tell Git to track our new file</p>
+            <pre><code contenteditable class ="command-line">
+  git add hello_world.txt
+  git status
+            </code></pre>
+            <p>File is now tracked by Git</p>
+          </section>
+          <section>
+            <h3>Changes and commits</h3>
+            <p>Open hello_world.txt and add some more text</p>
+            <pre><code contenteditable class ="command-line">
+  git status
+            </code></pre>
+            <p>Stage and commit the change</p>
+            <pre><code contenteditable class ="command-line">
+  git add hello_world.txt
+  git commit -m "First commit! Added hello world to repository."
+            </code></pre>
+          </section>
+        </section>
+        <!-- Explanation-->
+        <section>
+          <h3>What did we just do??</h3>
+          <p>How is this all different than just saving a file?</p>
+          <ul>
+            <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked</li>
+            <li class="fragment">When we <span class ="green">stage</span> an existing file (also with the keyword 'add'), we are telling Git to track the current state of our file</li>
+            <li class="fragment">A <span class ="green">commit</span> saves changes made to a file, not the file as a whole. The commit will have a 'hash' so we can track which changes were committed when and by whom.</li>
+            
+          </ul>
         </section>
         <!-- -->
         <section>
