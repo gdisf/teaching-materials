@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to Git and Github ~ Girl Develop IT</title>
+
+		<meta name="description" content="This is the official Girl Develop It Core Intro to Gir and Github course. Material based on original material by Kim Moir, Daniel Fischer, Aurelia Moser, Carina C. Zona and Izzy Johnston.
+
+    The course is meant to be taught in a two-hour workshop. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+		<meta name="author" content="Girl Develop It">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="reveal/css/reveal.css">
+		<link rel="stylesheet" href="reveal/css/theme/gdicool.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+		<!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+		
+		<link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+			  <!-- Opening slide -->
+        <section>
+          <img src = "images/gdi_logo_badge.png">
+          <h3>Intro to Git and Github</h3>
+        </section>
+        
+        <!-- Welcome-->
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <p class ="green">Some "rules"</p>
+          <ul>
+            <li>We are here for you!</li>
+            <li>Every question is important</li>
+            <li>Help each other</li>
+            <li>Have fun</li>
+          </ul>
+          </div>
+        </section>
+        
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p class = "blue">Tell us about yourself.</p>
+          <ul>
+            <li>Who are you?</li>
+            <li>What do you hope to get out of the class?</li>
+            <li>Who was your favorite character as a child?</li>
+          </ul>
+          </div>
+        </section>
+        
+        <section>
+          <h3>What we will cover today</h3>
+          <ul>
+            <li class ="fragment">What is version control and why should we care?</li>
+            <li class ="fragment">Basics of git -- the essential commands</li>
+            <li class ="fragment">"Gitting" social with Github</li>
+          </ul>
+        </section>
+        
+        <!-- Version control-->
+        <section>
+          <section>
+            <h3>What is version control?</h3>
+            <p>Version control allows you (and your team) to do two powerful things</p>
+            <div class="fragment">
+              <h4>Collaborate</h4>
+              <p>Create anything with other people, from academic papers to entire websites and applications.</p>
+            </div>
+            <div class="fragment">
+              <h4>Track and revert changes</h4>
+              <p>Mistakes happen. Wouldn't it be nice if you could see the changes that have been made and go "back in time" to fix something that went wrong?
+            </div>
+          </section>
+          <section>
+            <h3>Working without Version Control</h3>
+            IMAGE HERE
+            <p>The Horror!</p>
+          </section>
+          <section>
+            <h3>Working with Version Control</h3>
+            IMAGE HERE
+            <p>Rainbows and bunny rabbits!</h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Brief history of Version Control</h3>
+            <p><span class ="green">1990s</span> -- CVS (Concurrent Version Systems)</p>
+            <p><span class ="green">2000s</span> -- SVN (Apache Subversion)</p>
+            <p><span class ="green">2005</span> -- Git (well, Git)</p>
+          </section>
+          <section>
+            <h3>Version Control Types</h3>
+            <div class="fragment">
+              <h4>Centralized Version Control</h4>
+              <p>Examples: CVS, SVN</p>
+              <p>One central server, each client (person) checks out and merges changes to main server</p>
+            </div>
+            <div class="fragment">
+              <h4>Distributed Version Control</h4>
+              <p>Examples: Git, Mercurial</p>
+              <p>Each client (person) has a local repository, which they can then reconcile with the main server.</p>
+            </div>
+          </section>
+          <section>
+            <h3>Version Control Distribution</h3>
+            <a href = "http://redmonk.com/sogrady/2012/11/05/dvcs-2012/" target="_blank" alt ="Centralized vs Decentralized Version Control: 2010 vs 2012"><img src = "images/subversion-share-2012.png" alt ="Version control share between Bazaar, CVS, Git, Mercurial and Subversion"/></a>
+          </section>
+           <section>
+              <h3>Version Control Distribution Change</h3>
+              <a href = "http://redmonk.com/sogrady/2012/11/05/dvcs-2012/" target="_blank" alt ="Centralized vs Decentralized Version Control: 2010 vs 2012"><img src = "images/subversion-change-2010-2012.png" alt ="Version control distribution share between 2010 and 2012 between Bazaar, CVS, Git, Mercurial and Subversion"/></a>
+            </section>
+        </section>
+        <!-- Git-->
+        <section>
+          <h3>Intro to Git</h3>
+          <p>Goals of Git Design</p>
+          <ul>
+            <li>Fast -- add to your team and code base quickly</li>
+            <li>Distributed (see slide above) </li>
+            <li>Each commit has a corresponding hash (track changes from everyone)</li>
+            <li>Everyone has a local copy of the history</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <a href = "http://git-scm.com/downloads" alt ="Download latest version of Git" target ="_blank">
+              <p>Install git</p>
+              <img src = "images/install-git.png" alt = "Download latest version of Git"/>
+            </a>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Setup ssh keys</p>
+            <pre><code contenteditable class ="command-line">
+             $ cd ~/.ssh
+            </code></pre>
+            <pre><code contenteditable class ="command-line">
+$ ssh-keygen -t rsa -C "your_email@example.com"
+# Generating public/private rsa key pair.
+# Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+            </code></pre>
+            <pre><code contenteditable class ="command-line">
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+# Enter same passphrase again: [Type passphrase again]
+            </code></pre>
+          </section>
+          <section>
+            <h3>Get SSH Key</h3>
+            <pre><code contenteditable class ="command-line">
+Your identification has been saved in /Users/you/.ssh/id_rsa.
+# Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
+# The key fingerprint is:
+# 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com
+            </code></pre>
+          </section>
+          <section>
+            <h3>Add SSH Key to Github</h3>
+            <img src = "images/add-ssh.png" alt ="Steps to add SSH key to github account"/>
+          </section>
+          <section>
+            <h3>Setup name and email in gitconfig</h3>
+            <pre><code contenteditable class ="command-line">
+$ git config --global user.name "Your Name Here"
+# Sets the default name for git to use when you commit
+            </code></pre>
+            <pre><code contenteditable class ="command-line">
+$ git config --global user.email "your_email@example.com"
+# Sets the default email for git to use when you commit
+            </code></pre>
+            <pre><code contenteditable class ="command-line">
+$ git config --list
+            </code></pre>
+          </section>
+        </section>
+        <!-- -->
+        <section>
+          <h2>Questions?</h2>
+          <div style = "font-size:1200%; height:100%; margin-top:40%" class ="blue">?
+            <div class ="clear"></div></div>
+        </section>
+			</div>
+  		<footer>
+        <div class="copyright">
+          Intro to Git and Github ~ Girl Develop It ~
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+		</div>
+
+
+		<script src="reveal/lib/js/head.min.js"></script>
+		<script src="reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
