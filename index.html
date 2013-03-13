@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Intro to Git and Github ~ Girl Develop IT</title>
+		<title>Intro to Git and Github ~ Girl Develop It</title>
 
 		<meta name="description" content="This is the official Girl Develop It Core Intro to Gir and Github course. Material based on original material by Kim Moir, Daniel Fischer, Aurelia Moser, Carina C. Zona and Izzy Johnston.
 
@@ -420,6 +420,133 @@ git merge master
             </code></pre>
             <p class ="fragment">You will be notified of a conflict. Go to the file and fix the problem. Then commit your edits.</p>
                        
+          </section>
+        </section>
+        <!-- GitHub-->
+        <section>
+          <section>
+            <h3><a href = "http://www.github.com" alt="GitHub homepage">GitHub</a></h3>
+            <ul>
+              <li class ="fragment">Launched in <span class ="green">2008</span></li>
+              <li class = "fragment">Leader in <span class ="green">Social Coding</span></li>
+              <li class = "fragment">GitHub is a commercial site that allows users to <span class = "green">host Git repositories</span> publicly and privately</li>
+              <li class ="fragment"><span class ="green">Open source projects</span> host or mirror their repositories on GitHub</li>
+              <li class ="fragment"><span class ="green">Post your own code</span> for others to use or contribute to</li>
+              <li class ="fragment">Use and <span class ="green">learn</span> from the code in other people's repositories</li>
+            </ul>
+          </section>
+        </section>
+        <!-- New repository-->
+        <section>
+          <section>
+            <h3>GitHub</h3>
+            <h4>Create your first repository</h4>
+            <img src = "images/bootcamp_2_newrepo.jpg" alt ="How to create a new repository. Image from https://help.github.com/articles/create-a-repo"/>
+          </section>
+          <section>
+            <h3>GitHub</h3>
+            <h4>Create your first repository</h4>
+            <img src = "images/bootcamp_2_repoinfo.png" alt ="How to create a new repository. Image from https://help.github.com/articles/create-a-repo"/>
+          </section>
+          <section>
+            <h3>GitHub</h3>
+            <h4>ReadME</h4>
+            <blockquote>
+              While a README isn't a required part of a GitHub repository, it is a very good idea to have one. READMEs are a great place to describe your project or add some documentation such as how to install or use your project. You might want to include contact information - if your project becomes popular people will want to help you out.
+            </blockquote>
+          </section>
+          <section>
+            <h3>GitHub</h3>
+            <h4>Get Local Repository of GitHub Repo</h4>
+            <pre><code contenteditable class ="command-line">
+cd ../ # Back in root directory
+mkdir hello-github
+cd hello-github
+git init
+git remote add origin git@github.com:username/NAME-OF-REPO
+git pull origin master
+            </code></pre>
+          </section>
+          <section>
+            <h3>GitHub</h3>
+            <h4>Push to GitHub Repo</h4>
+            <p>Edit the ReadMe file
+            <pre><code contenteditable class ="command-line">
+git add README
+git commit -m "Updating readme file"
+git push origin master
+            </code></pre>
+            <p class ="fragment">Go look at your github repo online</p>
+          </section>
+          <section>
+            <h3>GitHub</h3>
+            <h4>Pulling from remote repository</h4>
+            <p>If you are working with a team, you want to make sure that you have everyone's changes before pushing your changes to the GitHub repo</p>
+            <pre><code contenteditable class ="command-line">
+# Commit local changes
+git commit -m "My latest commit"
+# Pull changes other people have made
+git pull origin master
+# Fix any conflicts (see merge conflicts above) and commit
+git commit -m "Fixing merging conflicts"
+# push local changes to GitHub
+git push origin master
+            </code></pre>
+          </section>
+        </section>
+        <!-- Fork a repository-->
+        <section>
+          <section>
+            <h3>Forking</h3>
+            <ul>
+              <li>There are <span class = "green">MILLIONS</span> of public repositories on GitHub</li>
+              <li>If you want to <span class = "green">use</span> or <span class = "green">contribute</span> to a repository, you can fork it.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Forking</h3>
+            <img src = "images/bootcamp_3_fork.jpg" alt ="How to fork a repository. Image from https://help.github.com/articles/fork-a-repo"/>
+          </section>
+          <section>
+            <h3>Forking</h3>
+            <h4>Cloning</h4>
+            <p>Clone to get a local repository of your fork
+            <pre><code contenteditable class ="command-line">
+cd ../
+
+git clone https://github.com/username/FORKED-REPO-NAME.git
+
+cd FORKED-REPO-NAME
+
+git remote add upstream https://github.com/original-username/FORKED-REPO-NAME.git
+# Assigns the original repository to a remote called "upstream"
+
+git fetch upstream
+# Pulls in changes not present in your local repository, without modifying your files
+            </code></pre>
+          </section>
+        </section>
+        <!-- Pull requests-->
+        <section>
+          <section>
+            <h3>Pull Requests</h3>
+            <ul>
+              <li class = "fragment">After you fork and clone a repository all pushed changes will go to your fork</li>
+              <li class = "fragment">These changes will not affect the original repository</li>
+              <li class = "fragment">If you would like to get your changes to be incorporated into the original repo, you can submit a pull request</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Starting a pull request</h3>
+            <img src = "images/click-pull-request.png" alt ="How to initiate a pull request. Image from https://help.github.com/articles/using-pull-requests"/>
+          </section>
+          <section>
+            <h3>Previewing  and sending pull request</h3>
+            <img src = "images/pull-request.png" alt ="How to preview and send a pull request. Image from https://help.github.com/articles/using-pull-requests"/>
+          </section>
+          <section>
+            <h3>Managing pull requests</h3>
+             <p>How to manage pull requests is out of the scope of this short workshop, but you can learn more from the <a href = "https://help.github.com/categories/63/articles" target ="_blank" alt = "Links to tutorials on pull requests and collaboration">Github Collaborating Tutorials</a>
           </section>
         </section>
         <!-- -->
