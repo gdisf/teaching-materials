@@ -243,20 +243,184 @@ $ git config --list
             <p>Stage and commit the change</p>
             <pre><code contenteditable class ="command-line">
   git add hello_world.txt
-  git commit -m "First commit! Added hello world to repository."
+  git commit -m "First commit. Added hello world to repository."
             </code></pre>
           </section>
         </section>
         <!-- Explanation-->
         <section>
-          <h3>What did we just do??</h3>
-          <p>How is this all different than just saving a file?</p>
-          <ul>
-            <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked</li>
-            <li class="fragment">When we <span class ="green">stage</span> an existing file (also with the keyword 'add'), we are telling Git to track the current state of our file</li>
-            <li class="fragment">A <span class ="green">commit</span> saves changes made to a file, not the file as a whole. The commit will have a 'hash' so we can track which changes were committed when and by whom.</li>
+          <section>
+            <h3>What did we just do??</h3>
+            <p>How is this all different than just saving a file?</p>
+            <ul>
+              <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked</li>
+              <li class="fragment">When we <span class ="green">stage</span> an existing file (also with the keyword 'add'), we are telling Git to track the current state of our file</li>
+              <li class="fragment">A <span class ="green">commit</span> saves changes made to a file, not the file as a whole. The commit will have a 'hash' so we can track which changes were committed when and by whom.</li>
             
-          </ul>
+            </ul>
+          </section>
+          <section>
+            <h3>Look at our progress</h3>
+            <pre><code contenteditable class ="command-line">
+  git log
+            </code></pre>
+            <pre><code contenteditable class ="command-line">
+  commit [HASH HERE]
+  Author: Your name <you@your-email.com>
+  Date:   [DATE HERE]
+
+      First commit. Added hello world to repository.
+              </code></pre>
+          </section>
+          <section>
+            <h3>Look at our progress, visually</h3>
+            <pre><code contenteditable class ="command-line">
+  gitk
+            </code></pre>
+            <img src = "images/gitk.png" alt ="Image of commits for this curriculum repo"/>
+          </section>
+        </section>
+        <!-- Undoing changes -->
+        <section>
+          <section>
+            <h3>Nobody's Perfect</h3>
+            <h4>Undoing local changes</h4> 
+            <p>If you haven't committed yet</p>
+            <div class = "fragment">
+              <p>Open hello_world.txt and add some new text</p>
+              <pre><code contenteditable class ="command-line">
+  change hello_world.txt
+  git checkout hello_world.txt
+              </code></pre>
+            </div>
+            <p class="fragment">Look at hello_world.txt. Your changes are gone.</p>
+          </section>
+          <section>
+            <h3>Nobody's Perfect</h3>
+            <h4>Undoing staged changes</h4> 
+            <div class = "fragment">
+              <p>Open hello_world.txt and add some new text</p>
+              <pre><code contenteditable class ="command-line">
+git add hello_world.txt
+git reset HEAD hello_world.txt
+git checkout hello_world.txt
+              </code></pre>
+            </div>
+            <p class="fragment">Look at hello_world.txt. Your changes are gone.</p>
+          </section>
+          <section>
+            <h3>Nobody's Perfect</h3>
+            <h4>Undoing staged changes</h4> 
+            <div class = "fragment">
+              <p>Open hello_world.txt and add some new text</p>
+              <pre><code contenteditable class ="command-line">
+git add hello_world.txt
+git commit -am "Changing and committing some lines"
+git log --pretty=oneline
+git revert [HASH]
+              </code></pre>
+            </div>
+            <p class="fragment">Look at hello_world.txt. Your changes are gone.</p>
+          </section>
+          <section>
+            <h3>Nobody's Perfect</h3>
+            <h4>Remove a file from staging</h4>
+            <p>Create new file my_new_file.txt</p>
+              <pre><code contenteditable class ="command-line">
+git add my_new_file.txt
+git reset my_new_file.txt
+              </code></pre>
+          </section>
+          <section>
+            <h3>Nobody's Perfect</h3>
+            <h4>Delete a file</h4>
+            <p>Create new file my_other_file.txt</p>
+            <pre><code contenteditable class ="command-line">
+git add my_other_file.txt
+            </code></pre>
+            <p>Manually delete your file</p>
+            <pre><code contenteditable class ="command-line">
+git rm my_other_file.txt
+            </code></pre>
+          </section>
+        </section>
+        <!-- Branches-->
+        <section>
+          <section>
+            <h3>Branching</h3>
+            <ul>
+              <li>Develop different code on the same base</li>
+              <li>Conduct exploratory work without affecting the work on master branch</li>
+              <li>Incorporate changes to your master branch only when you are ready</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Branching</h3>
+            <p>Create a new branch called version2</p>
+            <pre><code contenteditable class ="command-line">
+git checkout -b version2
+            </code></pre>
+            <p>Add new lines to hello_world.txt</p>
+            <pre><code contenteditable class ="command-line">
+git add hello_world.txt
+git commit -m "Adding changes to version 2"
+            </code></pre>
+          </section>
+          <section>
+            <h3>Branching</h3>
+            <h4>Switching branches</h4>
+            <p>See all branches. Branch with * is active</p>
+            <pre><code contenteditable class ="command-line">
+git branch
+            </code></pre>
+            <p>Switch to master and look at hello_world.txt</p>
+            <pre><code contenteditable class ="command-line">
+git checkout master
+            </code></pre>            
+            <p>Switch to version2 and look at hello_world.txt</p>
+            <pre><code contenteditable class ="command-line">
+git checkout version2
+            </code></pre>
+          </section>
+        </section>
+        <!-- Merging-->
+        <section>
+          <section>
+            <h3>Merging</h3>
+            <h4>Merge to get changes from one branch into another*</h4>
+            <p>Switch to master and merge changes</p>
+            <pre><code contenteditable class ="command-line">
+git checkout master
+git merge version2
+            </code></pre>
+            <p>*rebase is another option, but will not be covered in this workshop</p>
+          </section>
+          <section>
+            <h3>Merging</h3>
+            <h4>Merge conflicts</h4>
+            <p>Change first line in hello_world.txt in master branch</p>
+            <pre><code contenteditable class ="command-line">
+git add hello_world.txt
+git commit -m "Changing first line in master"
+            </code></pre>
+            <p>Change first line in hello_world.txt in version2 branch</p>
+            <pre><code contenteditable class ="command-line">
+git checkout version2
+# open hello_world.txt and change first line
+git add hello_world.txt
+git commit -m "Changing first line in version2"
+            </code></pre>
+          </section>
+          <section>
+            <h3>Merging</h3>
+            <h4>Merge conflicts, cont.</h4>
+            <p>Merge from master into version2</p>
+            <pre><code contenteditable class ="command-line">
+git merge master
+            </code></pre>
+            <p class ="fragment">You will be notified of a conflict. Go to the file and fix the problem. Then commit your edits.</p>
+                       
+          </section>
         </section>
         <!-- -->
         <section>
