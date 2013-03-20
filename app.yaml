@@ -26,6 +26,13 @@ handlers:
 - url: /storage
   static_dir: storage
 
+- url: /algorithms/
+  static_files: algorithms/index.html
+  upload: algorithms/index.html
+
+- url: /algorithms
+  static_dir: algorithms
+
 - url: /jsmvc/
   static_files: jsmvc/index.html
   upload: jsmvc/index.html
