@@ -422,11 +422,25 @@ header h1 {
      <ul><li>HTML stands for Hyper Text Markup Language</li><li>An HTML file is a text file containing small markup tags</li><li>The markup tags tell the Web browser how to display the page</li><li>An HTML file can be created using a simple text editor or a WYSIWIG editor</li></ul>
      </section>
     </div>
+  
+    
+    
+    <div class="slide normal"> 
+     <header><h1>History of HTML</h1></header> 
+     <section class="content"> 
+     <ul>
+<li>Late 1980s: Tim Berners-Lee created <a href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html">first HTML</a> version (as a subset of SGML).
+<!-- Needed a simple way to share research among colleagues; piggy backed off newly evolving Internet (previously just text)-->
+<li>HTML spread as multiple proprietary versions
+<li>1993: the IETF published a working draft of the first official HTML
+<!-- Simplicity made things easy for people new to computers and publishing. Also left the code a mess, leaving every browser to handle different mistakes in its own way. -->
+<li>The World Wide Web Consortium (W3C) was created to draft a set of standards for all web browsers.
+<li>The W3C and WhatWG are now working on HTML5, the next generation of HTML tags, which is being adopted gradually by browsers.
+</ul>
+     </section>
+    </div>
     
    
-    
-    
-    
     <div class="slide normal"> 
      <header><h1>HTML: Editors</h1></header> 
      <section class="content"> 
@@ -444,7 +458,8 @@ header h1 {
   </tr>
   <tr><td>$$</td>
        <td><a href="http://www.e-texteditor.com/">E-Text Editor</a></td>
-       <td><a href="http://macromates.com/">TextMate</a>, <a href="http://www.panic.com/coda/">Coda</a>, <a href="http://macrabbit.com/espresso/">Espresso</a></td></tr>
+       <td><a href="http://www.sublimetext.com/">SublimeText</a>,
+        <a href="http://macromates.com/">TextMate</a>, <a href="http://www.panic.com/coda/">Coda</a>, <a href="http://macrabbit.com/espresso/">Espresso</a></td></tr>
   </tbody>
 </table>
 
@@ -455,28 +470,7 @@ header h1 {
 </p>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>History of HTML</h1></header> 
-     <section class="content"> 
-     <ul>
-<li>Late 1980s: Tim Berners-Lee created <a href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/TheProject.html">first HTML</a> version (as a subset of SGML).
-<!-- Needed a simple way to share research among colleagues; piggy backed off newly evolving Internet (previously just text)-->
-<li>HTML spread as multiple proprietary versions
-<li>1993: the IETF published a working draft of the first “official” HTML
-<!-- Simplicity made things easy for people new to computers and publishing. Also left the code a mess, leaving every browser to handle different mistakes in its own way. -->
-<li>The World Wide Web Consortium (W3C) was created to draft a set of standards for all web browsers.
-<li>The W3C and WhatWG are now working on HTML5, the next generation of HTML tags, which is being adopted gradually by browsers.
-</ul>
-     </section>
-    </div>
-    
-   
-    
+
     
     
     <div class="slide normal"> 
@@ -833,6 +827,7 @@ spans multiple lines too.
      </section>
     </div>
 
+    <!--
     <div class="slide normal"> 
      <header><h1>HTML Entities</h1></header> 
      <section class="content"> 
@@ -858,7 +853,8 @@ Ace of Base &gt; Lady GaGa &amp; Pink &lt; Roxette <br>
 
      </section>
     </div>
-      
+    -->
+
     <div class="slide normal"> 
      <header><h1>HTML Readability</h1></header> 
      <section class="content"> 
@@ -867,18 +863,20 @@ Ace of Base &gt; Lady GaGa &amp; Pink &lt; Roxette <br>
        <li>Indent to represent nesting
        <li>Use same capitalization
       </ul>
-      <p>Bad:</p>
+      Bad:<br>
       <pre>
 &lt;ul&gt;&lt;li&gt;&lt;a href=http://www.google.com&gt;Google&lt;/a&gt;&lt;/li&gt;
 &lt;LI&gt;Yahoo&lt;/LI&gt;&lt;/UL&gt;
       </pre>
-      <p>Good:</p>
+      Good:<br>
       <pre>
  &lt;ul&gt;
    &lt;li&gt;&lt;a href=&quot;http://www.google.com&quot;&gt;Google&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;Yahoo&lt;/li&gt;
  &lt;/ul&gt;
       </pre>
+      <a href="http://coding.smashingmagazine.com/2013/02/19/using-white-space-for-readability-in-html-and-css/">Using
+        Whitespace for Readability in HTML/CSS</a>
      </section>
     </div>
     

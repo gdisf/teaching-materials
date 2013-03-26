@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML 2: Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+   <div class="container">
+    <h1>HTML 2: Exercise</h1>
+    <p>Starting with <a href="../lesson2/exercise_solution.html">the webpage</a> from the first exercise,
+    add tags to the webpage so that it looks like the screenshot below.
+    </p>
+    <p>If you have time, add an embedded Google Map of one of the locations.</p>
+		<p>
+    <img src="http://dl.dropbox.com/u/10998095/Screenshots/-2u_5ds2-k8r.png" style="border: 1px solid black;">
+    </p>
+    
+    <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_tables_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+  	</script>
+  	
+   </div>
+  </body>
+</html>

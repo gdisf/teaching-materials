@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: Backbone</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: Backbone</h1>
+      <br><br>
+
+      <p>In this exercise, you will take the MVC app from the previous exercise and
+        use Backbone for it instead.</p>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+      <ul>
+        <li>Either use your solution from the last site or
+          download <a href="exercise_mvc_solution.html">this file</a> and save it into your project folder.
+          Open it up in your browser and make sure it works. You should see a list of videos,
+          and when you click on them, a modal pops up that plays the video.</li>
+
+        <li>Read through the code and try to understand what it's doing.</li>
+        <li>Add a script tag for underscore.js and backbone.js, using the URLs at
+          <A href="http://cdnjs.com/">cdnjs.com</a>. Backbone depends on underscore,
+            so the backbone script tag should be after the underscore one.
+        </li>
+
+        <li><h3>Modeling The Data</h3></li>
+        <li>Replace the current <code>VideoModel</code> with a <code>VideoModel</code>
+          object that extends <code>Backbone.Model</code>.
+          It should have default values for the title and author,
+          and it should set the embed and preview URL in the <code>initialize</code> method.
+        </li>
+        <li>Replace the current <code>VideoCollection</code> with a <code>VideoCollection</code>
+          object that extends <code>Backbone.Collection</code>.
+          It should have a comparator based on the title property, so that the collection
+          is sorted by title by default.
+        </li>
+        <li>Modify the code in <code>document.ready</code> to create a <code>VideoCollection</code>.
+        </li>
+        <li>Change the for loop to iterate through the items in the <code>VideoCollection></code> and
+        pass them to the <code>VideoItemView</code>.
+        </li>
+        <li>Change your <code>VideoItemView</code> to use the attributes of the Backbone model via
+          the <code>get</code> method.</li>
+        <li>Try loading the page now and see if your code works. Are there any errors? Look at the console
+          and work through them one by one. You will have to modify a few things in your <code>addVideoToList</code>
+          function.
+        </li>
+
+        <li><h3>Creating the View</h3></li>
+        <li>Replace <code>VideoItem</code> with a view that extends <code>Backbone.View</code>. Start by putting
+          all of the current render logic into the <code>render</code> function. The <code>render</code> function should append
+          new elements to <code>this.$el</code> and return <code>this</code>. The code should reference <code>this.model</code>,
+          the model that belongs to the view.
+        </li>
+        <li>In the for loop in <code>document.ready</code>, change the code so that you pass in the video
+          to <code>VideoItem</code> as the model. Call the render function and append the view's element to the global div.
+        </li>
+        <li>Try loading the page and see if you can get the list of videos to display. </li>
+        <li>Now, add <code>events</code> to the view and make an event for <code>click</code> on the <code>a</code> element,
+          which calls a <code>renderModal</code> function. Move the modal rendering code into that function.
+        </li>
+        <li>Try loading the page now and see if you can get the modal to display when clicking the video.</li>
+
+      </ul>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+  
+      <!--
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_backbone_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      -->
+
+  </body>
+</html>
+

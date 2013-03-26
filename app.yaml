@@ -26,6 +26,20 @@ handlers:
 - url: /storage
   static_dir: storage
 
+- url: /algorithms/
+  static_files: algorithms/index.html
+  upload: algorithms/index.html
+
+- url: /algorithms
+  static_dir: algorithms
+
+- url: /jsmvc/
+  static_files: jsmvc/index.html
+  upload: jsmvc/index.html
+
+- url: /jsmvc
+  static_dir: jsmvc
+
 - url: /ajax/
   static_files: ajax/index.html
   upload: ajax/index.html
@@ -96,6 +110,10 @@ handlers:
 - url: /sitemap.xml
   static_files: sitemap.xml
   upload: sitemap.xml
+
+- url: /guide
+  static_files: guide.html
+  upload: guide.html
 
 - url: /
   static_files: index.html

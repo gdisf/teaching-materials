@@ -1,0 +1,396 @@
+[
+    {
+        "title": "You Better Not Cry: Stories for Christmas",
+        "author": "Burroughs, Augusten",
+        "date": "2011-12-08T13:00:00.000Z",
+        "asin": "B002U2DQAW",
+        "thumbnail": "http://images.amazon.com/images/P/B002U2DQAW.01.ZTZZZZZZ.jpg",
+        "rating": 3,
+        "include": "yes"
+    },
+    {
+        "title": "59 Seconds: Think a Little, Change a Lot",
+        "author": "Wiseman, Richard",
+        "date": "2011-11-26T13:00:00.000Z",
+        "asin": "B002W8QXHW",
+        "thumbnail": "http://images.amazon.com/images/P/B002W8QXHW.01.ZTZZZZZZ.jpg",
+        "review": "Science-based answers to the kind of stuff self-help books try to teach you (and fail).",
+        "rating": 5,
+        "include": "yes",
+        "tags": "motivation"
+    },
+    {
+        "title": "Amusing Ourselves to Death",
+        "author": "Postman, Neil",
+        "date": "2011-11-13T13:00:00.000Z",
+        "asin": "B0023ZLLH6",
+        "thumbnail": "http://images.amazon.com/images/P/B0023ZLLH6.01.ZTZZZZZZ.jpg",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Beware of the Dog",
+        "author": "Dahl, Roald",
+        "date": "2011-11-09T13:00:00.000Z",
+        "asin": "B003F24J3O",
+        "thumbnail": "http://images.amazon.com/images/P/B003F24J3O.01.ZTZZZZZZ.jpg",
+        "rating": 3,
+        "include": "yes"
+    },
+    {
+        "title": "Steve Jobs",
+        "author": "Isaacson, Walter",
+        "date": "2011-10-28T13:00:00.000Z",
+        "asin": "B004W2UBYW",
+        "thumbnail": "http://images.amazon.com/images/P/B004W2UBYW.01.ZTZZZZZZ.jpg",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Brain Bugs",
+        "author": "Buonomano, Dean",
+        "date": "2011-10-06T13:00:00.000Z",
+        "asin": "B0054LXX5O",
+        "thumbnail": "http://images.amazon.com/images/P/B0054LXX5O.01.ZTZZZZZZ.jpg",
+        "rating": 5,
+        "include": "yes",
+        "tags": "motivation"
+    },
+    {
+        "title": "Made to Stick",
+        "author": "Heath, Chip, and Heath, Dan",
+        "date": "2011-09-14T14:00:00.000Z",
+        "asin": "B000N2HCKQ",
+        "thumbnail": "http://images.amazon.com/images/P/B000N2HCKQ.01.ZTZZZZZZ.jpg",
+        "rating": 5,
+        "include": "yes",
+        "tags": "motivation"
+    },
+    {
+        "title": "The Most Human Human",
+        "author": "Christian, Brian",
+        "date": "2011-09-02T14:00:00.000Z",
+        "asin": "B004FEG2S6",
+        "thumbnail": "http://images.amazon.com/images/P/B004FEG2S6.01.ZTZZZZZZ.jpg",
+        "review": "Probably my favorite book of the year - covers computing, language, the soul, everything.",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Final Jeopardy",
+        "author": "Baker, Stephen",
+        "date": "2011-08-30T14:00:00.000Z",
+        "asin": "B004NNUXTI",
+        "thumbnail": "http://images.amazon.com/images/P/B004NNUXTI.01.ZTZZZZZZ.jpg",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Surely you're joking, Mr. Feynman",
+        "author": "Richard Feynman",
+        "date": "2012-01-31T13:00:00.000Z",
+        "asin": "B003V1WXKU",
+        "thumbnail": "http://images.amazon.com/images/P/B003V1WXKU.01.ZTZZZZZZ.jpg",
+        "review": "A bunch of short stories about Feynman's life - including stories of picking up girls and solving physics puzzles. Inspiring and entertaining.",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Born to Run",
+        "author": "McDougall, Christopher",
+        "date": "2011-08-26T14:00:00.000Z",
+        "asin": "B0028MBKVG",
+        "thumbnail": "http://images.amazon.com/images/P/B0028MBKVG.01.ZTZZZZZZ.jpg",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Little Earthquakes",
+        "author": "Jennifer Weiner",
+        "date": "2011-08-20T14:00:00.000Z",
+        "asin": "B000FC2952",
+        "thumbnail": "http://images.amazon.com/images/P/B000FC2952.01.ZTZZZZZZ.jpg",
+        "review": "A novel about a group of pregnant women and the obstacles they encounter in their first year after pregnancy. Good read..and re-inforced that I won't be baby-making anytime soon. :)",
+        "rating": 2,
+        "include": "yes"
+    },
+    {
+        "title": "The Diamond Age",
+        "author": "Neal Stephenson",
+        "date": "2011-08-02T14:00:00.000Z",
+        "asin": "0553380966",
+        "thumbnail": "http://images.amazon.com/images/P/0553380966.01.ZTZZZZZZ.jpg",
+        "review": "A sci-fi novel that follows a women from an abusive childhood to an epic adulthood -- I loved it because it reminds me of my favorite movie, Puff the Magic Dragon. Also makes interesting observations on how society is structured and what makes people intelligent.",
+        "rating": 5,
+        "include": "yes",
+        "tags": "code"
+    },
+    {
+        "title": "The Psychopath Test",
+        "author": "Jon Ronson",
+        "date": "2011-08-02T14:00:00.000Z",
+        "asin": "B004XFYWC0",
+        "thumbnail": "http://images.amazon.com/images/P/B004XFYWC0.01.ZTZZZZZZ.jpg",
+        "review": "An account of the author's investigation into what it means to be a psychopath, his interviews with actual psychopaths and the people who try to diagnose them. Really interesting to see the conclusions he reaches..makes you think.",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Them",
+        "author": "Jon Ronson",
+        "date": "2011-08-02T14:00:00.000Z",
+        "asin": "B004P1JDUI",
+        "thumbnail": "http://images.amazon.com/images/P/B004P1JDUI.01.ZTZZZZZZ.jpg",
+        "review": "An account of the author's investigation into extremists, terrorists, and the like - it's entertaining and interesting to get a peak into their daily life.",
+        "rating": 3,
+        "include": "yes"
+    },
+    {
+        "title": "Salt",
+        "author": "Kurlansky, Mark",
+        "date": "2011-08-02T14:00:00.000Z",
+        "asin": "B003WUYE70",
+        "thumbnail": "http://images.amazon.com/images/P/B003WUYE70.01.ZTZZZZZZ.jpg",
+        "rating": 3,
+        "include": "yes",
+        "tags": "food"
+    },
+    {
+        "title": "Snow Crash",
+        "author": "Neal Stephenson",
+        "date": "2011-07-15T14:00:00.000Z",
+        "asin": "344245302X",
+        "thumbnail": "http://images.amazon.com/images/P/344245302X.01.ZTZZZZZZ.jpg",
+        "review": "A thrilling sci-fi novel which touches both on web technologies (coining the term avatar), history, and human languages - all interesting to me.",
+        "rating": 5,
+        "include": "yes",
+        "tags": "code"
+    },
+    {
+        "title": "Dry: A Memoir",
+        "author": "Burroughs, Augusten",
+        "date": "2011-07-15T14:00:00.000Z",
+        "asin": "B000FBF87Y",
+        "thumbnail": "http://images.amazon.com/images/P/B000FBF87Y.01.ZTZZZZZZ.jpg",
+        "rating": 3,
+        "include": "yes"
+    },
+    {
+        "title": "Confessions of a Public Speaker",
+        "author": "Scott Berkun",
+        "date": "2011-07-09T14:00:00.000Z",
+        "asin": "1449301959",
+        "thumbnail": "http://images.amazon.com/images/P/1449301959.01.ZTZZZZZZ.jpg",
+        "review": "True tales and techniques from a writer that does a lot of public speaking. It's both funny and full of practical tips, and includes nice insights on the effectiveness of teaching.",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Switch: How to Change Things When Change Is Hard",
+        "author": "Heath, Chip, Heath, Dan",
+        "date": "2011-07-09T14:00:00.000Z",
+        "asin": "B0030DHPGQ",
+        "thumbnail": "http://images.amazon.com/images/P/B0030DHPGQ.01.ZTZZZZZZ.jpg",
+        "rating": 5,
+        "include": "yes",
+        "tags": "motivation"
+    },
+    {
+        "title": "The Happy Body",
+        "author": "Aniela Gregorek and Jerzy Gregorek",
+        "date": "2011-07-05T14:00:00.000Z",
+        "asin": "098240381X",
+        "thumbnail": "http://images.amazon.com/images/P/098240381X.01.ZTZZZZZZ.jpg",
+        "review": "A book and philosophy by two olympic weightlifters on their approach to fitness and health. It includes some great arguments against endurance training and for strength training. The nutrition advice seems well-founded, though some of their beliefs seem lacking in scientific studies (like snacking every 3 meals).",
+        "rating": 3,
+        "include": "yes",
+        "tags": "food"
+    },
+    {
+        "title": "A General Theory of Love",
+        "author": "Thomas Lewis",
+        "date": "2011-07-01T14:00:00.000Z",
+        "asin": "0375709223",
+        "thumbnail": "http://images.amazon.com/images/P/0375709223.01.ZTZZZZZZ.jpg",
+        "review": "A book about why people connect to and love others (particularly their children), including chapters on our different brains, memory, and evolution. The language is a bit overly florid at times, but it has some great insights.",
+        "rating": 3,
+        "include": "yes"
+    },
+    {
+        "title": "The Pun Also Rises",
+        "author": "John Pollack",
+        "date": "2011-06-08T14:00:00.000Z",
+        "asin": "1592406238",
+        "thumbnail": "http://images.amazon.com/images/P/1592406238.01.ZTZZZZZZ.jpg",
+        "review": "Written by a champion punner, this book chronicles the history of the pun, including how its varying popularity (and lack thereof), and the different types of puns. It also argues that puns are a uniquely human skill - something to be proud of. Great for anyone who loves puns!",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "The Curious Incident of the Dog in the Night-Time",
+        "author": "Mark Haddon",
+        "date": "2011-06-08T14:00:00.000Z",
+        "asin": "1400032717",
+        "thumbnail": "http://images.amazon.com/images/P/1400032717.01.ZTZZZZZZ.jpg",
+        "review": "A story written from the perspective of an autistic teenager. Makes you think about what your thinking process might be like if you were autistic too.",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Drive",
+        "author": "Daniel H. Pink",
+        "date": "2011-05-17T14:00:00.000Z",
+        "asin": "1594484805",
+        "thumbnail": "http://images.amazon.com/images/P/1594484805.01.ZTZZZZZZ.jpg",
+        "review": "An exploration of recent research about what motivates humans, and how it differs from what we believed in the past. Targeted at managers, but relevant to anyone.",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "How to Stop Worrying & Start Living",
+        "author": "Dale Carnegie",
+        "date": "2011-05-13T14:00:00.000Z",
+        "asin": "0671035975",
+        "thumbnail": "http://images.amazon.com/images/P/0671035975.01.ZTZZZZZZ.jpg",
+        "review": "A book of anecdotes and tips for reducing the time you spend worrying in life. It has some good ideas, but it also got overly Christian in the end and relied too much on anecdotes.",
+        "rating": 3,
+        "include": "yes"
+    },
+    {
+        "title": "The Selfish Gene",
+        "author": "Richard Dawkins",
+        "date": "2011-02-28T13:00:00.000Z",
+        "asin": "0199291152",
+        "thumbnail": "http://images.amazon.com/images/P/0199291152.01.ZTZZZZZZ.jpg",
+        "review": "A book that describes evolution from a gene-centric point of view. It's really interesting, but it is a long read and felt a bit over my head at times.",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "How To Win Friends and Influence People",
+        "author": "Carnegie, Dale",
+        "date": "2011-02-28T13:00:00.000Z",
+        "asin": "B003WEAI4E",
+        "thumbnail": "http://images.amazon.com/images/P/B003WEAI4E.01.ZTZZZZZZ.jpg",
+        "review": "Great read for anyone who works with people - i.e. everyone.",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Packing for Mars",
+        "author": "Mary Roach",
+        "date": "2011-02-01T13:00:00.000Z",
+        "asin": "0393068471",
+        "thumbnail": "http://images.amazon.com/images/P/0393068471.01.ZTZZZZZZ.jpg",
+        "review": "An exploration of the typically unexplored facets of space travel, like astronaut selection, waste elimination, monkey masturbation, and food hydration. I didn't get into it as much as her other books, but it was still a very interesting read. ",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Why We Get Fat",
+        "author": "Gary Taubes",
+        "date": "2010-12-27T13:00:00.000Z",
+        "asin": "B003WUYOQ6",
+        "thumbnail": "http://images.amazon.com/images/P/B003WUYOQ6.01.ZTZZZZZZ.jpg",
+        "review": "A nice condensation of the research presented in the much longer \"Good Calories, Bad Calories\". This book disputes the myths that have been propagated for the last 50 years, and actually explains how fat is formed in the body and how one can lose weight accordingly. ",
+        "rating": 5,
+        "include": "yes",
+        "tags": "food"
+    },
+    {
+        "title": "OMG! I can eat that?",
+        "author": "Jane Kennedy",
+        "date": "2010-12-27T13:00:00.000Z",
+        "asin": "1740669924",
+        "thumbnail": "http://images.amazon.com/images/P/1740669924.01.ZTZZZZZZ.jpg",
+        "review": "A cookbook of low-carbified restaurant & comfort food recipes, like fried zucchini chips & cauliflower rice. The photos make me drool, and it excites me that I can still eat these foods and avoid the bad carbs.",
+        "rating": 5,
+        "include": "yes",
+        "tags": "food"
+    },
+    {
+        "title": "Cognitive Surplus",
+        "author": "Clay Shirky",
+        "date": "2010-12-24T13:00:00.000Z",
+        "asin": "1594202532",
+        "thumbnail": "http://images.amazon.com/images/P/1594202532.01.ZTZZZZZZ.jpg",
+        "review": "A great read about how humans will use their freetime, particularly in regards to the media and the growing ability to produce and not just consume. Particularly relevant if you're working in the social or collaborative space. ",
+        "rating": 5,
+        "include": "yes"
+    },
+    {
+        "title": "Superconnect: Harnessing the Power of Networks and the Strength of Weak Links",
+        "author": "Richard Koch & Greg Lockwood",
+        "date": "2010-12-24T13:00:00.000Z",
+        "asin": "B003U2TFLA",
+        "thumbnail": "http://images.amazon.com/images/P/B003U2TFLA.01.ZTZZZZZZ.jpg",
+        "review": "A book about the connectedness between people, and how important connections are. It has a good point, but seemed a little too reliant on anecdotes at times.",
+        "rating": 3,
+        "include": "yes"
+    },
+    {
+        "title": "Programming Google App Engine",
+        "author": "Dan Sanderson",
+        "date": "2010-11-18T13:00:00.000Z",
+        "asin": "059652272X",
+        "thumbnail": "http://images.amazon.com/images/P/059652272X.01.ZTZZZZZZ.jpg",
+        "review": "A well written book explaining App Engine, with many chapters dedicated to an in-depth look at the datastore, one of the trickiest parts. Slightly better for Python devs than Java devs.",
+        "rating": 5,
+        "include": "yes",
+        "tags": "code"
+    },
+    {
+        "title": "HTML5: Up & Running",
+        "author": "Mark Pilgrim",
+        "date": "2010-11-18T13:00:00.000Z",
+        "asin": "0596806027",
+        "thumbnail": "http://images.amazon.com/images/P/0596806027.01.ZTZZZZZZ.jpg",
+        "review": "A humorous, informative, and well-written introduction to various parts of HTML5 - the new semantic tags, multimedia, microdata, geolocation, offline storage, and more.",
+        "rating": 5,
+        "include": "yes",
+        "tags": "code"
+    },
+    {
+        "title": "Food Rules",
+        "author": "Michael Pollan",
+        "date": "2010-11-13T13:00:00.000Z",
+        "asin": "014311638X",
+        "thumbnail": "http://images.amazon.com/images/P/014311638X.01.ZTZZZZZZ.jpg",
+        "review": "A distilled version of \"In Defense of Food\", this lists all of his rules in short chapters & skips much of the background/technical reading. If you've already got \"In Defense of Food\", you'll find this one largely redundant. ",
+        "rating": 3,
+        "include": "yes",
+        "tags": "food"
+    },
+    {
+        "title": "In Defense of Food",
+        "author": "Michael Pollan",
+        "date": "2010-11-08T13:00:00.000Z",
+        "asin": "0143114964",
+        "thumbnail": "http://images.amazon.com/images/P/0143114964.01.ZTZZZZZZ.jpg",
+        "review": "A great read about Michael's opinion on how we should be eating today, and a look at why we are eating so badly. It will make you want to run out and eat some organic leafy vegetables immediately.",
+        "rating": 5,
+        "include": "yes",
+        "tags": "food"
+    },
+    {
+        "title": "Stiff",
+        "author": "Mary Roach",
+        "date": "2010-10-25T13:00:00.000Z",
+        "asin": "0393324826",
+        "thumbnail": "http://images.amazon.com/images/P/0393324826.01.ZTZZZZZZ.jpg",
+        "review": "A fun read about the history of human cadavers and their use in medical research, including the history of what happens to humans after they die (compost, cremation, burial, etc). Learnt a lot of fun facts from this.",
+        "rating": 4,
+        "include": "yes"
+    },
+    {
+        "title": "Good Calories, Bad Calories",
+        "author": "Gary Taubes",
+        "date": "2010-09-23T14:00:00.000Z",
+        "asin": "1400033462",
+        "thumbnail": "http://images.amazon.com/images/P/1400033462.01.ZTZZZZZZ.jpg",
+        "review": "This is Gary's first book on obesity & nutrition research, and is very heavy on the science/research details. It talks a lot about the bad science that got us to where we are today, and in the end it talks about the carbohydrate hypothesis. It's good if you're patient, but if not, go for \"Why We Get Fat\", which distills the information down to a much easier read.",
+        "rating": 3,
+        "include": "yes",
+        "tags": "food"
+    }
+]

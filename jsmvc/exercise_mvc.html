@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: MVC</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: MVC</h1>
+      <br><br>
+
+      <p>In this exercise, you will take an app and split it into a Model and View.</p>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+      <ul>
+        <li>Download <a href="exercise_mvc_starter.html">this file</a> and save it into your project folder.
+          Open it up in your browser and make sure it works. You should see a list of videos,
+          and when you click on them, a modal pops up that plays the video.</li>
+        <li>Read through the code and try to understand what it's doing.</li>
+
+        <li><h3>Modeling The Data</h3></li>
+        <li>Create a <code>VideoModel</code> object that represents a video.
+          Your model object should take in a JSON object
+          and store title, author, and youtubeID properties. It should also calculate
+          an embed and preview URL. (Hint: Look at BookModel in the slides)
+        </li>
+        <li>Create a <code>VideoCollection</code> object that represents a collection of videos. 
+          It should take in JSON and turn it into
+          an internal <code>items</code> array of <code>VideoModel</code> instances.
+          It should also have a <code>sort</code> method that sorts the <code>items</code> by title. 
+          (Hint: Look at BookCollection in the slides - 90% of the code in the slides)
+        </li>
+        <li>Modify the code in <code>document.ready</code> to create a <code>VideoCollection</code>
+          and sort it. 
+        </li>
+        <li>Change the for loop to iterate through the items in the <code>VideoCollection></code> and
+        pass them to the <code>addVideoToList</code> function.
+        </li>
+        <li>Try loading the page now and see if your code works. Are there any errors? Look at the console
+          and work through them one by one. You may have to modify a few things in your <code>addVideoToList</code>
+          function.
+        </li>
+
+        <li><h3>Creating the View</h3></li>
+        <li>Create a <code>VideoItem</code> view. It should be very similar to <code>addVideoToList</code>,
+          but instead of appending to the global DIV (<code>#videos-list</code>), it should return a DIV.
+        </li>
+        <li>In the for loop in <code>document.ready</code>, change the code to create a new <code>VideoItem</code>
+          object, and append the resulting DIV to the global <code>#videos-list</code> DIV there instead.
+        </li>
+        <li>Try loading the page and see if your code works!</li>
+        <li>Bonus: Test the reusability of your code now by creating a new DIV in the HTML <code>#videos2-list</code>
+          and see if you can create new item views to insert in that DIV.
+        </li>
+      </ul>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+  
+      
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_mvc_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      
+  </body>
+</html>
+
