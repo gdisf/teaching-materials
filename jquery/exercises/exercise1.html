@@ -12,7 +12,7 @@
   <body>
     <div class="container">
       <h2>jQuery: Exercise 1</h2>
-      <p>In this exercise, you'll be turning the below linked list of titles into a linked list of thumbnails, using JavaScript DOM manipulation and the functions from the youtube.JS library.</p>
+      <p>In this exercise, you'll be turning the below linked list of titles into a linked list of thumbnails, using JavaScript DOM manipulation and the functions from the youtube.JS library (<a href="../youtube_doc.html">read documentation</a>).</p>
 
 <pre>&lt;!doctype html&gt;
 &lt;html&gt;
@@ -53,11 +53,11 @@
           <li>Create an array of every link on the page using document.getElementsByTagName(tagName)</li>
           <li>Iterate through the array. In each iteration of the loop: </li>
             <ul>
-              <li>Find the current href using element.getAttribute(name), and store into a variable</li>
-              <li>Generate a thumbnail URL using youtube.generateThumbnailUrl(videoUrl)</li>
-              <li>Create an IMG element using document.createElement(tagName)</li>
-              <li>Set the "src" of the IMG element using element.setAttribute(name, value)</li>
-              <li>Append the IMG to the link using element.appendChild(element)</li>
+              <li>Find the current href using <a href="https://developer.mozilla.org/en-US/docs/DOM/element.getAttribute">element.getAttribute(name)</a>, and store into a variable</li>
+              <li>Generate a thumbnail URL using <a href="../youtube_doc.html">youtube.generateThumbnailUrl(videoUrl)</a></li>
+              <li>Create an IMG element using <a href="https://developer.mozilla.org/en-US/docs/DOM/document.createElement">document.createElement(tagName)</a></li>
+              <li>Set the "src" of the IMG element using <a href="https://developer.mozilla.org/en-US/docs/DOM/element.setAttribute">element.setAttribute(name, value)</a></li>
+              <li>Append the IMG to the link using <a href="https://developer.mozilla.org/en-US/docs/DOM/Node.appendChild">element.appendChild(element)</a></li>
             </ul>
         </ul>
       </p>
