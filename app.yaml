@@ -33,6 +33,13 @@ handlers:
 - url: /algorithms
   static_dir: algorithms
 
+- url: /jquery/
+  static_files: jquery/index.html
+  upload: jquery/index.html
+
+- url: /jquery
+  static_dir: jquery
+
 - url: /jsmvc/
   static_files: jsmvc/index.html
   upload: jsmvc/index.html
