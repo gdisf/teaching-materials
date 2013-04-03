@@ -71,16 +71,28 @@
     $('#videos-list').append(videoItem);
  }
 
-$.ajax({type: "GET",
-  url: "videos.json",
-  dataType: "json",
-  success: function(videos) { 
-    for (var i = 0; i < videos.length; i++) {
-      addVideoToList(videos[i]);
-    }
- }
-});
+var videos = [                                                                                                                                                                     
+  {"youtubeId": "TddFnTB_7IM",
+    "title": "Trip through the 80s",
+    "author": "meliberty"
+  },
+  {"youtubeId": "HwSKkKrUzUk",
+    "title": "Circle of Life",
+    "author": "parkerjademerce"
+  },
+  {"youtubeId": "il2IrgFHfsg",
+    "title": "The Ooooh Cat",
+    "author": "RnBTree"
+  },
+  {"youtubeId": "epUk3T2Kfno",
+    "title": "Otters Holding Hands",
+    "author": "cynthiaholmes"
+  }
+]
 
+for (var i = 0; i < videos.length; i++) {
+   addVideoToList(videos[i]);
+}   
 
  </script>
  </body>
