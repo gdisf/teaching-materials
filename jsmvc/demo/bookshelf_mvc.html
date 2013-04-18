@@ -49,15 +49,13 @@ function BookModel(bookJSON) {
   this.url       = 'http://www.amazon.com/gp/product/' + this.asin + '?tag=amazonsimilar-20';
 }
 
-function BookCollection() {
+function BookCollection(booksJSON) {
   this.items = [];
-}
 
-BookCollection.prototype.import = function(booksJSON) {
   for (var i = 0; i < booksJSON.length; i++) {
     this.items.push(new BookModel(booksJSON[i]));
   }
-};
+}
 
 BookCollection.prototype.sort = function() {
   this.items.sort(function(bookA, bookB){
@@ -101,10 +99,10 @@ function fetchBooks() {
 	  url: "books.json",
 	  dataType: "json",
 	  success: function(booksJSON) {
-      var books = new BookCollection(booksJSON);
-      books.sort();
-      var shelf = new BookShelfView(books);
-      $('#bookshelf').append(shelf);
+            var books = new BookCollection(booksJSON);
+            books.sort();
+            var shelf = new BookShelfView(books);
+            $('#bookshelf').append(shelf);
 	 }
 	});
 }
