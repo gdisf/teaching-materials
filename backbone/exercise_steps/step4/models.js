@@ -1,5 +1,5 @@
 var ChatMessage = Backbone.Model.extend({
-    url: 'http://localhost:8080/messages',
+    url: 'http://backchat-backend.appspot.com/messages',
     defaults: {
         author: 'Unknown',
         text: ''
@@ -12,7 +12,7 @@ var ChatMessage = Backbone.Model.extend({
 });
 
 var ChatMessages = Backbone.Collection.extend({
-    url: 'http://localhost:8080/messages',
+    url: 'http://backchat-backend.appspot.com/messages',
     model: ChatMessage,
     comparator: function(message) {
         return message.get('time');

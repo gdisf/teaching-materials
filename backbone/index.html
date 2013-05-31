@@ -136,10 +136,6 @@ BackboneCollection.find(iterator);
 <section>
   <h1>Views</h1>
 <pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
-  events: {
-    'mouseover img': 'showReview',
-    'mouseout img': 'hideReview'
-  },
   tagName: 'div',
   className: 'book',
   render: function() {
@@ -148,19 +144,12 @@ BackboneCollection.find(iterator);
     bookLink.append(bookCover);
     this.$el.append(bookLink);
     return this;
-  },
-  showReview: function(e) {
-    var reviewDiv = $('&lt;div class="book-review">');
-    reviewDiv.html('&lt;strong>' + this.model.get('rating') + ' stars: &lt;/strong>' + this.model.get('review'));
-    reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
-    this.$el.append(reviewDiv);
-  },
-  hideReview: function() {
-    this.$('.book-review').remove();
   }
 });
 </pre></code>
+<pre style="font-size:16px;"><code class="javascript">var itemView = new BookItemView({model: bookModel});</pre></code>
 
+<div class="fragment">
 <pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
   render: function(eventName) {
     var self = this;
@@ -170,6 +159,39 @@ BackboneCollection.find(iterator);
     });
     return this;
   }
+});
+</pre></code>
+
+<pre style="font-size:16px;"><code class="javascript">var shelfView = new BookShelfView({collection: bookCollection});</pre></code>
+</div>
+
+</section>
+
+<section>
+  <h1>Views + DOM Events</h1>
+<pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
+  <strong>events: {
+    'mouseover img': 'showReview',
+    'mouseout img': 'hideReview'
+  },</strong>
+  tagName: 'div',
+  className: 'book',
+  render: function() {
+    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
+    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
+    bookLink.append(bookCover);
+    this.$el.append(bookLink);
+    return this;
+  },
+  <strong>showReview: function(e) {
+    var reviewDiv = $('&lt;div class="book-review">');
+    reviewDiv.html('&lt;strong>' + this.model.get('rating') + ' stars: &lt;/strong>' + this.model.get('review'));
+    reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
+    this.$el.append(reviewDiv);
+  },
+  hideReview: function() {
+    this.$('.book-review').remove();
+  }</strong>
 });
 </pre></code>
 
@@ -242,8 +264,6 @@ $('.coursera-listing').html('Best Course Ever');
   <a href="http://backbonejs.org/#Events-catalog">Backbone's built in events</a>
 
 </section>
-
-<!-- TODO: show changed? -->
 
 <section>
   <h1><a href="exercise3_events.html" target="_blank">Exercise Time!</a></h1>
@@ -364,7 +384,6 @@ Backbone.history.start({pushState: true});
 </section>
 
 <section>
-  <!-- TODO -->
   <h1><a href="exercise5_routes.html" target="_blank">Exercise Time!</a></h1>
 </section>
 
@@ -373,6 +392,9 @@ Backbone.history.start({pushState: true});
   <h1>Backbone is just the base...</h1>
 </section>
 
+<section>
+  <h1 class="upper">Models</h1>
+</section>
 
 <section>
   <h1>Relational Models</h1>
@@ -410,6 +432,10 @@ var section = Backbone.RelationalModel.extend({
 </section>
 
 <section>
+  <h1 class="upper">Views</h1>
+</section>
+
+<section>
   <h1>View regions</h1>
 
   <a href="https://github.com/marionettejs/">Marionette:</a>
@@ -431,11 +457,73 @@ layout.content.show(new MyContentView());</pre></code>
 </section>
 
 <section>
+  <h1>Templating</h1>
+
+  <a href="http://jade-lang.com">Jade:</a>
+
+<pre><code>div
+    h1 {#book.get('title')}
+    p
+    each author in book.get('authors')
+        a(href=author.get('url')) {#author.get('name')}
+    if book.get('published')
+        a.btn.btn-large(href="/buy") Buy now!
+</pre></code>
+
+<pre><code>{title: 'Best Book Ever',
+ authors: [
+    {url: 'http://maddox.com', name: 'Maddox'},
+    {url: 'http://maddox.com', name: 'Maddox'}
+]}
+</pre></code>
+
+<pre><code>&lt;div&gt;
+    &lt;h1&gt;Best Book Ever&lt;/h1&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;http://www.maddox.com&quot;&gt;Maddox&lt;/a&gt;
+        &lt;a href=&quot;http://www.theoatmeal.com&quot;&gt;Oatmeal&lt;/a&gt;
+    &lt;/p&gt;
+    &lt;a href=&quot;/buy&quot;&gt;Buy now!&lt;/a&gt;
+&lt;/div&gt;
+</pre></code>
+</section>
+
+
+<section>
   <h1>Data binding</h1>
 
-  Backbone Stick-it
-  <!-- TODO code -->
+  <p><a href="http://nytimes.github.io/backbone.stickit/">Backbone Stick-it</a>:</p>
+  <pre><code class="javascript">Backbone.View.extend({bindings: {
+    '#title': 'title',
+    '#author': 'authorName'
+  },render: function() {
+    this.$el.html('<div id="title"/> <input id="author" type="text">');
+    this.stickit();
+  }
+});
+</pre></code>
 
+</section>
+
+<section>
+  <h1 class="upper">Routes</h1>
+</section>
+
+<section>
+  <h1>Query parameters</h1>
+
+  <p><a href="https://github.com/jhudson8/backbone-query-parameters">Backbone query parameters</a>:</p>
+  <pre><code class="javascript">
+myRoute: function(params) {
+  var view = new MyView({section: params.section});
+}
+</pre></code>
+</section>
+
+<!-- todo: bbQ?-->
+
+<section>
+  <h1 class="upper">Process</h1>
 </section>
 
 <section>
@@ -468,14 +556,37 @@ function($, _, Backbone) {
   return view;
 });
 </code></pre>
+
 </section>
 
-
-<!-- TODO: Testing -->
 <section>
   <h1>Testing</h1>
 
-  <p>Mocha + Chai + JSDom + Sinon</p>
+  <p>
+    <a href="http://visionmedia.github.io/mocha/">Mocha</a>: Test runner <br>
+    <a href="http://chaijs.com/">Chai</a>: Test assertion <br>
+    <a href="https://github.com/tmpvar/jsdom">JSDom</a>: Fake dom/events <br>
+    <a href="http://sinonjs.org/">Sinon</a>: Stubs, spies, mocks
+  </p>
+
+  <pre><code class="javascript" style="padding:20px;">it('should let the user edit the title', function() {
+    var server    = sinon.fakeServer.create();
+    var newTitle = 'bananas';
+    var changedThreadJSON  = JSON.parse(fs.readFileSync(path.join(__filename, '../../data/thread.json')));
+    changedThreadJSON['title'] = newTitle;
+    
+    server.respondWith("POST", getPath('/api/forum/threads/2703'), 
+      [200, {"Content-Type":"application/json"}, JSON.stringify(changedThreadJSON)]);
+    
+    threadView.$('.course-forum-thread-edit-title-link').click();
+    chai.expect(threadView.$('.course-forum-thread-title input').size())
+      .to.be.equal(1);
+    threadView.$('.course-forum-thread-title input').val(newTitle);
+    threadView.$('.course-forum-thread-title button').click();
+    server.respond();
+    chai.expect(threadView.$('.course-forum-thread-title h2').text())
+      .to.be.equal(newTitle);
+});</pre></code>
 
 </section>
 

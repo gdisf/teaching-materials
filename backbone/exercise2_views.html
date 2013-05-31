@@ -21,7 +21,14 @@
         <li>Create an <code>app.js</code> file and include it via a script tag in your HTML page.</li>
         <li>In <code>app.js</code>, create an array of test messages and create a <code>ChatMessages</code> collection out of them.</li>
         <li>Create a <code>views.js</code> file and include it via a script tag in your HTML page.</li>
-        <li>In <code>views.js</code>, define a <code>ChatMessagesView</code> that renders the <code>#chat-messages-template</code> with the passed in collection.</li>
+        <li>In <code>views.js</code>, define a <code>ChatMessagesView</code> that renders the <code>#chat-messages-template</code> with the passed in collection. <br>
+          Here's an example of how to render a Handlebars template into HTML:
+          <pre>var source   = $("#template-id").html();
+var template = Handlebars.compile(source);
+var rendered = template({my_var: "here"});
+</pre>
+
+        </li>
         <li>In <code>app.js</code>, create a <code>ChatMessagesView</code>, and pass the collection and <code>.chat-messages-wrapper</code> element.</li>
         <li>Reload <code>index.html</code> and see if you see the messages.</li>
       </ul>
