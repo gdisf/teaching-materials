@@ -437,7 +437,7 @@ var section = Backbone.RelationalModel.extend({
 
 <section>
   <h1>View regions</h1>
-
+  <br>
   <a href="https://github.com/marionettejs/">Marionette:</a>
   <pre><code class="javascript">var MyLayout = Backbone.Marionette.Layout.extend({
   template: "#my-layout",
@@ -458,7 +458,7 @@ layout.content.show(new MyContentView());</pre></code>
 
 <section>
   <h1>Templating</h1>
-
+  <br>
   <a href="http://jade-lang.com">Jade:</a>
 
 <pre><code>div
@@ -470,7 +470,7 @@ layout.content.show(new MyContentView());</pre></code>
         a.btn.btn-large(href="/buy") Buy now!
 </pre></code>
 
-<pre><code>{title: 'Best Book Ever',
+<pre><code class="javascript">{title: 'Best Book Ever',
  authors: [
     {url: 'http://maddox.com', name: 'Maddox'},
     {url: 'http://maddox.com', name: 'Maddox'}
@@ -491,13 +491,13 @@ layout.content.show(new MyContentView());</pre></code>
 
 <section>
   <h1>Data binding</h1>
-
+  <br>
   <p><a href="http://nytimes.github.io/backbone.stickit/">Backbone Stick-it</a>:</p>
   <pre><code class="javascript">Backbone.View.extend({bindings: {
     '#title': 'title',
     '#author': 'authorName'
   },render: function() {
-    this.$el.html('<div id="title"/> <input id="author" type="text">');
+    this.$el.html('&lt;div id="title"/&gt;&lt;input id="author"&gt;');
     this.stickit();
   }
 });
@@ -511,10 +511,9 @@ layout.content.show(new MyContentView());</pre></code>
 
 <section>
   <h1>Query parameters</h1>
-
+  <br>
   <p><a href="https://github.com/jhudson8/backbone-query-parameters">Backbone query parameters</a>:</p>
-  <pre><code class="javascript">
-myRoute: function(params) {
+  <pre><code class="javascript">myRoute: function(params) {
   var view = new MyView({section: params.section});
 }
 </pre></code>
@@ -569,10 +568,11 @@ function($, _, Backbone) {
     <a href="http://sinonjs.org/">Sinon</a>: Stubs, spies, mocks
   </p>
 
-  <pre><code class="javascript" style="padding:20px;">it('should let the user edit the title', function() {
+  <pre><code class="javascript" style="padding:20px;font-size:15px;line-height:1.3em">it('should let the user edit the title', function() {
     var server    = sinon.fakeServer.create();
     var newTitle = 'bananas';
-    var changedThreadJSON  = JSON.parse(fs.readFileSync(path.join(__filename, '../../data/thread.json')));
+    var changedThreadJSON  = JSON.parse(
+      fs.readFileSync(path.join(__filename, '../../data/thread.json')));
     changedThreadJSON['title'] = newTitle;
     
     server.respondWith("POST", getPath('/api/forum/threads/2703'), 
