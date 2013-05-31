@@ -1,0 +1,560 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Backbone</title>
+
+    <base target="_blank">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/solarized_light.css">
+
+		<script>
+			// If the query includes 'print-pdf' we'll use the PDF print sheet
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+			
+			<div class="slides">
+
+<section>
+	<h1 class="upper">Getting Started with Backbone</h1>
+  <br>
+  <br>
+  <h2>teaching-materials.org/backbone/</h2>
+</section>
+
+
+<section>
+  <h1>MV* Frameworks</h1>
+  
+  <img src="http://dl.dropbox.com/u/10998095/Screenshots/j6-bm8vdetj2.png">
+</section>
+
+<section style="display: block;" class="present">
+  <h1 class="upper">Why Backbone?</h1>
+
+  <ul class="centered">
+    <li><b style="font-size:larger">Structure</b>
+    </li><li><b style="font-size:larger">Modularity</b>
+    </li><li><b>Persistence Layer</b>
+    </li><li><b>Common Services</b>
+    </li><li><b>Best Practices</b>
+  </li></ul>
+</section>
+
+<section>
+  <h1 class="upper">BackboneJS</h1>
+  <img src="images/backbonediagram.jpeg">
+</section>
+
+<section>
+    <h1>Backbone Models</h1>
+<pre><code class="javascript">var BookModel = Backbone.Model.extend({
+  defaults: {
+    title: 'Untitled',
+    author: 'Unknown author',
+    review: 'No review',
+  },
+  initialize: function() {
+    this.set('url', 'http://www.amazon.com/gp/product/'
+       + this.get('asin') + '?tag=amazonsimilar-20');
+  }
+});
+</pre></code>
+
+<pre><code class="javascript">var book = new BookModel({
+    title: 'I, Robot',
+    author: 'Isaac Asimov',
+    rating: 5});
+</pre></code>
+
+</section>
+
+
+
+<section>
+  <h1>Backbone Collections</h1>
+<pre><code class="javascript">var BookCollection = Backbone.Collection.extend({
+    model: BookModel,
+    comparator: function() {
+      return this.get('rating');
+    }
+});
+</pre></code>
+
+<pre><code class="javascript">var book1 = new BookModel({title: 'I, Robot',
+                      author: 'Isaac Asimov'});
+var book2 = new BookModel({title: 'Caves of Steel',
+                      author: 'Isaac Asimov'});
+var robotSeries = new BookCollection([book1, book2]);
+</pre></code>
+
+</section>
+
+<section>
+  <h1>Backbone &amp; Underscore</h1>
+  <br>
+  <p>Standalone Underscore:</p>
+<pre><code class="javascript">// On collections:
+_.each(coll, iterator); _.find(coll, iterator); // etc
+// On arrays
+_.flatten(arr), _.union(*arrs), _.uniq(arr), // etc
+// On functions
+_.bind(func, obj), _.throttle(func, wait) // etc
+</pre></code>
+<br>
+          <p>All collection functions work on <code>BackboneCollection</code>s
+                        <b>but</b> return arrays.</p>
+<pre><code class="javascript">BackboneCollection.each(iterator);
+BackboneCollection.find(iterator);
+// etc
+</pre></code>
+</section>
+
+<section>
+  <h1><a href="exercise1_models.html" target="_blank">Exercise Time</a></h1>
+</section>
+
+
+<section>
+  <h1>Views</h1>
+<pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
+  events: {
+    'mouseover img': 'showReview',
+    'mouseout img': 'hideReview'
+  },
+  tagName: 'div',
+  className: 'book',
+  render: function() {
+    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
+    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
+    bookLink.append(bookCover);
+    this.$el.append(bookLink);
+    return this;
+  },
+  showReview: function(e) {
+    var reviewDiv = $('&lt;div class="book-review">');
+    reviewDiv.html('&lt;strong>' + this.model.get('rating') + ' stars: &lt;/strong>' + this.model.get('review'));
+    reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
+    this.$el.append(reviewDiv);
+  },
+  hideReview: function() {
+    this.$('.book-review').remove();
+  }
+});
+</pre></code>
+
+<pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
+  render: function(eventName) {
+    var self = this;
+    this.collection.each(function (book) {
+      var bookItemView = new BookItemView({model:book});
+      self.$el.append(bookItemView.render().$el);
+    });
+    return this;
+  }
+});
+</pre></code>
+
+</section>
+
+<section>
+  <h1>Backbone &amp; jQuery</h1>
+  <br>
+  <p>Standalone jQuery:</p>
+<pre><code class="javascript">$('body').append('&lt;br&gt;');
+$('.coursera-listing').html('Best Course Ever');
+</pre></code>
+<br>
+<p>Integrated with Backbone:</p>
+<pre><code class="javascript">var view = BackboneView.extend({
+  
+  render: function() {
+    this.$el.append('&lt;br&gt;');
+    this.$el.find('.coursera-listing').html('Best Course Ever');
+    // or shorter:
+    this.$('.coursera-listing').html('Best Course Ever');
+  }
+})
+</pre></code>
+</section>
+
+
+<section>
+  <h1><a href="exercise2_views.html" target="_blank">Exercise Time</a></h1>
+</section>
+
+<!--
+<section>
+  <h1>BookShelf App</h1>
+
+   <p>
+   <a href="demo/bookshelf_backbone.html">Live Demo</a>
+   </p>
+   <p>
+   <img src="images/bookshelf_screenshot.png">
+   </p>
+</section>
+-->
+
+
+<section>
+  <h1>View/Model Events</h1>
+
+  <pre><code class="javascript">var BookShelfView = Backbone.View.extend({
+  events: {
+   'click button': 'addNewBook'
+  },
+  initialize: function() {
+    this.collection.bind('add', render, this);
+  },
+  render: function(eventName) {
+    var self = this;
+    this.collection.each(function (book) {
+      var bookItemView = new BookItemView({model:book});
+      self.$el.append(bookItemView.render().$el);
+    });
+    return this;
+  },
+  addNewBook: function() {
+    this.collection.add({'title': this.$('input').val()});
+  }
+});</pre></code>
+  
+  <br>
+  <a href="http://backbonejs.org/#Events-catalog">Backbone's built in events</a>
+
+</section>
+
+<!-- TODO: show changed? -->
+
+<section>
+  <h1><a href="exercise3_events.html" target="_blank">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+  <h1>The Backbone Backend</h1>
+
+<pre><code class="javascript">var BookModel = Backbone.Model.extend(
+  url: "/api/books",
+  // ...
+});
+</pre></code>
+
+<div class="fragment">
+<pre><code class="javascript">var book = new BookModel({id: 12});
+book.fetch();
+</pre></code>
+</div>
+
+<div class="fragment">
+<pre><code>HTTP GET /api/books/12
+{id: 12,
+ title: 'Robot Dreams',
+ author: 'Isaac Asimov',
+ owned: false
+}
+</pre></code>
+</div>
+
+<div class="fragment">
+<pre><code class="javascript">book.markAsOwned();
+book.save();
+</pre></code>
+</div>
+
+<div class="fragment">
+<pre><code>HTTP PUT /api/books/12
+{id: 12,
+ title: 'Robot Dreams',
+ author: 'Isaac Asimov',
+ owned: true
+}
+</pre></code>
+</div>
+
+</section>
+
+
+<section>
+  <h1>The Backbone Backend</h1>
+
+<pre><code class="javascript">
+var BookCollection = Backbone.Collection.extend({
+  url: "/api/books",
+  // ...
+});
+</pre></code>
+
+<div class="fragment">
+<pre><code class="javascript">var myBooks = new BookCollection();
+myBooks.fetch();
+</pre></code>
+</div>
+
+<div class="fragment">
+<pre><code class="ruby">HTTP GET /api/books
+[{id: 12,
+ title: 'The Naked Sun',
+ author: 'Isaac Asimov'
+}, ...
+]
+</pre></code>
+</div>
+
+<div class="fragment">
+<pre><code class="javascript">myBooks.create(new BookModel({title: 'Foundation',
+                         author: 'Isaac Asimov'}));
+</pre></code>
+</div>
+
+<div class="fragment">
+<pre><code class="ruby">HTTP POST /api/books
+{title: 'Foundation', author: 'Isaac Asimov'}
+</pre></code>
+</div>
+
+</section>
+
+<section>
+  <h1><a href="exercise4_backend.html" target="_blank">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+  <h1>The Router</h1>
+
+<pre><code class="javascript">var AppRouter = Backbone.Router.extend({
+    routes:{
+        "":"bookShelf",
+        "book/:id":"bookDetails"
+    },
+    bookShelf:function () {
+        var view = new BookShelfViw({collection: new BookCollection()});
+        $('#content').html(view.render().el);
+    },
+    bookDetails:function (id) {
+        var view = new BookItemView({model: new BookModel({id: id})});
+        $('#content').html(view.render().el);
+    }
+});
+ 
+var app = new AppRouter();
+Backbone.history.start({pushState: true});
+</pre></code>
+
+</section>
+
+<section>
+  <!-- TODO -->
+  <h1><a href="exercise5_routes.html" target="_blank">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+  <h1>Backbone is just the base...</h1>
+</section>
+
+
+<section>
+  <h1>Relational Models</h1>
+
+  <p><a href="https://github.com/PaulUithol/Backbone-relational">BackboneRelational</a>:</p>
+<pre><code class="javascript" style="padding:20px;">
+var item = Backbone.Model.extend({
+  api: Coursera.api,
+  partialUpdate: true,
+  url: "quizzes"
+});
+
+var section = Backbone.RelationalModel.extend({
+  relations: [{
+    type: Backbone.HasMany,
+    key: "items",
+    relatedModel: Item,
+    collectionType: Items,
+
+    reverseRelation: {
+      'key': '__section',
+      'includeInJSON': false
+    }
+
+  }],
+
+  partialUpdate: true,
+
+  // ...
+});
+</code></pre>
+   
+   <p>Warning: watch for performance issues.</p>
+
+</section>
+
+<section>
+  <h1>View regions</h1>
+
+  <a href="https://github.com/marionettejs/">Marionette:</a>
+  <pre><code class="javascript">var MyLayout = Backbone.Marionette.Layout.extend({
+  template: "#my-layout",
+
+  regions: {
+    menu: "#menu",
+    content: "#content"
+  }
+});
+
+layout = new MyLayout();
+layout.render();
+
+layout.menu.show(new MyMenuView());
+layout.content.show(new MyContentView());</pre></code>
+
+</section>
+
+<section>
+  <h1>Data binding</h1>
+
+  Backbone Stick-it
+  <!-- TODO code -->
+
+</section>
+
+<section>
+    <h1>JS Dependencies</h1>
+
+    <p><a href="http://requirejs.org"> RequireJS:</a></p>
+<pre><code class="html" style="padding:20px;">&lt;script src="path/to/require.js" /&gt;
+&lt;script&gt;
+require.config(
+  baseUrl: "path/to/assets",
+  callback: {
+    require(["js/routes/main"]); 
+  }
+});
+&lt;/script&gt;
+</code></pre>
+
+<pre><code class="javascript" style="padding:20px;">define(
+  ["js/lib/jquery", 
+   "js/lib/underscore", 
+   "js/lib/backbone",], 
+function($, _, Backbone) {
+  var view = Backbone.View.extend({
+    render: function() {
+      _.each(['a', 'b', 'c'], function(letter) {
+        var $button = $('button').html(letter);
+      }
+    }
+  });
+  return view;
+});
+</code></pre>
+</section>
+
+
+<!-- TODO: Testing -->
+<section>
+  <h1>Testing</h1>
+
+  <p>Mocha + Chai + JSDom + Sinon</p>
+
+</section>
+
+
+<section>
+  <h1>So you want to try Backbone?</h1>
+  <br><br>
+  <p>Start with a tutorial like <a href="http://coenraets.org/blog/2011/12/backbone-js-wine-cellar-tutorial-part-1-getting-started/">this one</a>, <b>not</b> the docs.</p>
+  <br><br>
+  <p>Port a simple app or make one from scratch, the "Backbone" way.</p>
+</section>
+
+<section>
+  <h1>Keep your options open</h1>
+  <br><br>
+  <div class="fragment">
+  <p>Figure out what's important to you: <br>
+    modularity? data binding? testability? persistance? 
+  </p>
+  </div>
+  <br><br>
+  <div class="fragment">
+  <p>Review your options: <br>
+   Ember? Spine? AngularJS? Enyo? and <a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">many more</a>...
+  </p>
+  </div>
+  <br><br>
+  <div class="fragment">
+  <p>Or when all else fails... <br>write your own.</p>
+  </div>
+
+</section>
+
+<section>
+  <h1>There's no "right answer"</h1>
+  <h1 class="fragment">...but some are better than others.</h1>
+  <!-- frameworks have flaws. -->
+</section>
+
+
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Presentation progress bar -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+        rollingLinks: false,
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+				]
+			});
+			
+		</script>
+  
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Backbone Exercise: Backend</title>
+    <meta charset="utf-8">
+    <style>
+    li { line-height: 2.5em;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Backbone Exercise: Backend</h1>
+      <br><br>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+      <ul>
+        <li>If you didn't finish the events exercise, download the starter files from <a href="todo">here</a>.</li>
+        <li>If you are not yet running your code from a local server, do that now by running <code>python -m SimpleHTTPServer</code> from your directory. We need to do this because of security restrictions on file:// protocol with XMLHttpRequests.</li>
+        <li>There is a JSON REST API at <a href="http://backchat-backend.appspot.com/messages">backchat-backend.appspot.com/messages</a> that you can use from your app. Add the URL to the ChatMessages collection.</li>
+        <li>Use <a href="http://backbonejs.org/#Collection-create"><code>create</code></a> instead of add  </li>
+        <li>Try reloading <code>index.html</code> and sending a new chat message. Check NET requests to see if it sent to the server.</li>
+        <li>Change <code>ChatMessagesView</code> to <code>fetch()</code> the messages from the server, and stop passing in the test messages from <code>app.js</code>.</li>
+        <li>Add an event listener for the <code>"reset"</code> event on the collection that re-renders.</li>
+        <li>Try reloading <code>index.html</code> and confirm you see all the server messages.</li>
+        <li>Add an event listener to the refresh button to fetch new messages whenever its clicked. Reload and confirm that works (open in multiple tabs).</li>
+        <li>Fetch new messages continuously on a timer. Confirm that works.</li>
+      </ul>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+  
+      <!--
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_backbone_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      -->
+
+  </body>
+</html>
+

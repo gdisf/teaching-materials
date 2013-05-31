@@ -1,0 +1,142 @@
+/* Set style for html document body */
+html,body{ height:100%;}
+body{
+	font-size:76%;
+	padding:0;
+	margin:0;
+	background-color: #dddddd;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align:center;
+}
+
+a{
+	color:#0033cc;
+}
+
+/* Wrapper for chat box & form */
+.wrapper{
+	text-align:left;
+	margin:0 auto 0 auto;
+	width:98%;
+	height:100%;
+}
+
+/* User bar with logout/login, username, etc */
+ul#userbar{
+	margin:0;
+	padding:8px 0 8px 0;
+	overflow:auto;
+}
+ul#userbar li{
+	list-style:none;
+	float:left;
+	border-left:solid 1px #ccc;
+	padding:0 8px 0 8px;
+}
+ul#userbar li.first{
+	border:none;
+	padding-left:0;
+}
+ul#userbar li.last{
+	float:right;
+	border:none;
+	padding-right:1px;
+}
+ul#userbar li a{
+	text-decoration:none;
+}
+ul#userbar li a:hover{
+	text-decoration:underline;
+}
+
+/* Chat box */
+#chats{
+	padding:8px;
+	background-color:#fff;	
+	overflow:auto;
+	height:80%;
+	border:solid 1px #fff;
+	clear:both;
+}
+
+/* Chat form */
+form#send-chat-form{
+	padding:10px 0 5px 0;
+	text-align:left;
+}
+form#send-chat-form .form-item{}
+form#send-chat-form input.form-textfield{
+	width:70%;
+	font-family:Arial;
+	font-size:16px;
+}
+form#send-chat-form input.form-submit, form#send-chat-form input.form-refresh{
+	width:100px;
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+}
+form#send-chat-form input.form-refresh{
+	width:120px;
+}
+
+/* Edit my profile form */
+form#my-profile-form{}
+form#my-profile-form .form-item{
+	overflow:auto;
+	clear:both;
+	padding:0 0 8px 0;
+}
+form#my-profile-form label{
+	width:100px;
+	float:left;
+}
+form#my-profile-form .description{
+	clear:both;
+	font-size:11px;
+	color:#666;
+	padding:4px 0 0 100px;
+}
+form#my-profile-form .form-textfield-email{
+	color:#000;
+	border:none;
+	background-color:#ddd;
+}
+form#my-profile-form .form-textfield-avatar{
+	width:480px;
+}
+form#my-profile-form .form-textfield-website{}
+form#my-profile-form .form-textfield-seated{}
+
+/* User profile page */
+dl#user-profile{}
+dl#user-profile dt{
+	font-weight:bold;
+}
+dl#user-profile dd{
+	padding:0 0 6px 0;
+}
+h2{
+	font-size:24px;
+	font-family:Arial;
+	font-weight:normal;
+	border-bottom:solid 1px #ccc;
+	line-height:2em;
+	margin:0;
+}
+
+/* Chat line */
+.chat{
+	font-size:12px;
+	line-height:1.5em;
+	padding:2px 3px 2px 3px;
+	margin:0 0 2px 0;
+}
+.chat strong.nickname{}
+.chat strong.nickname a{}
+.chat .timestamp{
+	display:none;
+}
+.chat .content{
+	display:inline;
+}

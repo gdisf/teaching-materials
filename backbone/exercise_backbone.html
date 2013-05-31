@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Backbone Exercise: Models</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Backbone Exercise: Models</h1>
+      <br><br>
+
+      <p>In this exercise, you will take the MVC app from the previous exercise and
+        use Backbone for it instead.</p>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+      <ul>
+        <li>Download the starter files from <a href="todo">here</a>.</li>
+        <li>Create a <code>models.js</code> file and include it via a script tag in <code>index.html</code>.</li>
+        <li>Create a <code>ChatMessage</code> object that extends BackboneModel, and give it defaults for the 'author' and 'text' attributes of 'Uknown' and '', respectively.</li>
+        <li>Run <code>tests/runner.html</code> and confirm the first two tests pass.</li>
+        <li>Create a <code>ChatMessages</code> object that extends BackboneCollection to hold <code>ChatMessage</code> models, and make it sort by the 'time' attribute by default.</li>
+        <li>Run <code>tests/runner.html</code> and confirm the 2 collection tests pass.</li>
+        <li>Add a <code>getPurified</code> method to <code>ChatMessage</code> that replaces swear words with asterisks.</li>
+        <li>Run <code>tests/runner.html</code> and confirm that all the tests pass.</li>
+      </ul>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+  
+      <!--
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_backbone_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      -->
+
+  </body>
+</html>
+

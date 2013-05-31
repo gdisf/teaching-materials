@@ -89,6 +89,13 @@ handlers:
 - url: /javascript
   static_dir: javascript
 
+- url: /backbone/
+  static_files: backbone/index.html
+  upload: backbone/index.html
+
+- url: /backbone
+  static_dir: backbone
+
 - url: /exercises/
   static_files: exercises/index.html
   upload: exercises/index.html

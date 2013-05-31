@@ -28,6 +28,7 @@
   font-size: 10px;
   left: 30%;
   z-index: 500;
+  opacity: 0;
 }
 
 .key {
@@ -82,10 +83,7 @@
   left: 50%;
   top: 50%;
   margin-top: -350px;
-  background-color: #eee;
-  background: -webkit-gradient(linear, left bottom, left top, from(#bbd), to(#fff));
-  background: -moz-linear-gradient(bottom, #bbd, #fff);
-  background: linear-gradient(bottom, #bbd, #fff);
+  background: white;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -193,6 +191,7 @@
   visibility: visible;
   display: block;
   margin-left: -1400px;
+  opacity: .0;
 }
 
 .slide.current {
@@ -205,6 +204,7 @@
   visibility: visible;
   display: block;
   margin-left: 500px;
+  opacity: .0;
 }
 
 .slide.far-future {
@@ -601,9 +601,10 @@ This example shows a table of monthly savings.
      <header><h1>Iframe embeds: Docs</h1></header> 
      <section class="content"> 
      <p>In its "Publish" dialog, Google Docs provides this HTML for embedding a presentation on your site:</p>
-<pre>
-&lt;iframe src="https://docs.google.com/present/embed?id=dggjrx3s_2119zdj9k4cf"
-  width="410" height="342"&gt;&lt;/iframe&gt;
+<pre style="font-size:20px;">
+&lt;iframe
+src="https://docs.google.com/present/embed?id=dggjrx3s_2119zdj9k4cf"
+width="410" height="342"&gt;&lt;/iframe&gt;
 </pre>
 
 <iframe src="https://docs.google.com/present/embed?id=dggjrx3s_2119zdj9k4cf" width="410" height="342"></iframe>
@@ -618,17 +619,39 @@ This example shows a table of monthly savings.
      <header><h1>Iframe embeds: Calendar</h1></header> 
      <section class="content"> 
      <p>In settings, Google Calendar provides this HTML for embedding a calendar:</p>
-
-<pre>
-&lt;iframe src="http://www.google.com/calendar/embed?src=developer-calendar%40google.com" 
-  width="600" height="400"&gt;&lt;/iframe&gt;
+<pre style="font-size:14px;">
+&lt;iframe
+src="http://www.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com" 
+width="600" height="400"&gt;&lt;/iframe&gt;
 </pre>
 
-<iframe src="http://www.google.com/calendar/embed?src=developer-calendar%40google.com" width="600" height="400"></iframe>
+<iframe src="http://www.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com" width="600" height="380"></iframe>
      </section>
     </div>
     
-   
+    <div class="slide normal"> 
+     <header><h1>Iframe embeds: Social widgets</h1></header> 
+     <section class="content">
+
+      <p>Many social widgets are implemented as tiny iframes.</p>
+
+      <p>
+      <a href="https://dev.twitter.com/docs/tweet-button">Twitter</a>:
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/fztnjs~trigb.png" style="vertical-align:middle">
+      </p>
+
+      <p>
+      <a href="http://developers.facebook.com/docs/reference/plugins/like/">Facebook</a>:
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/n_410cnvf_t7.png"  style="vertical-align:middle">
+      </p>
+
+      <p>
+      <a href="http://www.disqus.com">Disqus</a>:<br>
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/mxbm3wtb70ew.png"  style="vertical-align:middle">
+      </p>
+
+     </section>
+    </div>
     
     
     <div class="slide section"> 
@@ -638,7 +661,7 @@ This example shows a table of monthly savings.
     
   
     <div class="slide normal"> 
-     <header><h1>object and embed</h1></header> 
+     <header><h1>The <code>object</code> and <code>embed</code> tags</h1></header> 
      <section class="content"> 
      <p>The cross-browser way to embed non-native files (requiring plugins). 
 </p>
@@ -691,7 +714,7 @@ This example shows a table of monthly savings.
         <p>We now don't need plugins for many types of multimedia!</p>
          <ul>
             <li> <code>&lt;canvas&gt;</code> (<a href="https://dl.dropbox.com/u/7508542/sandbox/io2012/particles_zz85.html">Particles</a>)
-            <li> <code>&lt;svg&gt;</code> (<a href="http://croczilla.com/bits_and_pieces/svg/samples/tiger/tiger.svg">Tiger</a>)
+            <li> <code>&lt;svg&gt;</code> (<a href="http://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg">Tiger</a>)
             <li> <code>&lt;audio&gt;</code> (<a href="http://cs.iupui.edu/~aharris/n351/notes09/HTML5AudioDemo.html">Basic</a>, <a href="http://9elements.com/io/projects/html5/canvas/">Visualizer</a>)
             <li> <code>&lt;video&gt;</code> (<a href="http://www.youtube.com/html5">Youtube & HTML5</a>, <a href="http://www.craftymind.com/factory/html5video/CanvasVideo.html">Exploding video</a>)
         </ul>
@@ -758,7 +781,48 @@ This example shows a table of monthly savings.
     </div>
 
     <div class="slide normal">                                                                                                                        
-      <header><h1>The Form HTTP Request</h1></header>
+      <header><h1>The Form HTTP Request: GET</h1></header>
+      <section class="content">                                                                                                                       
+      <p>Request:</p>
+      <pre>
+GET /processform.php?first=Pamela&last=Fox HTTP/1.1
+Host: imagine-it.org
+</pre>
+
+<p>Response:</p>
+<pre>
+200
+&lt;doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Welcome to my website!&lt;/title&gt;
+    &hellip;
+&lt;/html&gt;
+</pre>
+
+      </section>
+    </div>
+     
+    <div class="slide normal"> 
+     <header><h1>Form element</h1></header> 
+     <section class="content">
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  <b>method="get"&gt;</b>
+&lt;/form&gt;
+</pre>
+
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  <b>method="post"&gt;</b>
+&lt;/form&gt;
+</pre>
+
+     </section>
+    </div>
+
+    <div class="slide normal">                                                                                                                        
+      <header><h1>The Form HTTP Request: POST</h1></header>
       <section class="content">                                                                                                                       
       <p>Request:</p>
       <pre>
@@ -780,26 +844,7 @@ first=Pamela&last=Fox
 
       </section>
     </div>
-     
-    <div class="slide normal"> 
-     <header><h1>Form element</h1></header> 
-     <section class="content">
 
-<pre>
-&lt;form action="http://imagine-it.org/processform.php" 
-  <b>method="post"&gt;</b>
-&lt;/form&gt;
-</pre>
-
-<pre>
-&lt;form action="http://imagine-it.org/processform.php" 
-  <b>method="get"&gt;</b>
-&lt;/form&gt;
-</pre>
-
-     </section>
-    </div>
-    
     <div class="slide normal"> 
      <header><h1>Input element</h1></header> 
      <section class="content"> 
