@@ -12,7 +12,7 @@ var ChatRouter = Backbone.Router.extend({
   },
 
   profile: function(id) {
-    $('body').append('This isnt implemented yet!');
+    $('.wrapper').append("This isn't implemented yet!");
   }
 
 });
