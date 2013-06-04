@@ -4,15 +4,15 @@
     <meta charset="utf-8">
   	<title>BackChat</title>
     <link type="text/css" rel="stylesheet" href="css/main.css" media="screen" />
-  </head>                                                                                     
+  </head>
   <body>
 
   <!-- The wrapper HTML -->
   <div class="wrapper">
     <div class="chat-messages-wrapper"></div>
-    <div class="chat-form-wrapper"></form>
-  </div>  
-  
+    <div class="chat-form-wrapper"></div>
+  </div>
+
   <!-- The handlebars template for the messages view -->
   <script id="chat-messages-template" type="text/x-handlebars-template">
     {{#each messages}}
@@ -20,7 +20,7 @@
         <strong>{{author}}:</strong>
         <div class="chat-message-content">{{text}}</div>
         <div class="chat-message-timestamp">({{time}})</div>
-      </div> 
+      </div>
     {{/each}}
 	</script>
 
