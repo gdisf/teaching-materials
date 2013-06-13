@@ -1,16 +1,16 @@
-<!doctype html>  
+<!doctype html>
 <html lang="en">
-	
+
 	<head>
 		<meta charset="utf-8">
-		
+
 		<title>Backbone</title>
 
     <base target="_blank">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		
+
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
@@ -26,11 +26,11 @@
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
-	
+
 	<body>
-		
+
 		<div class="reveal">
-			
+
 			<div class="slides">
 
 <section>
@@ -43,7 +43,7 @@
 
 <section>
   <h1>MV* Frameworks</h1>
-  
+
   <img src="http://dl.dropbox.com/u/10998095/Screenshots/j6-bm8vdetj2.png">
 </section>
 
@@ -207,7 +207,7 @@ $('.coursera-listing').html('Best Course Ever');
 <br>
 <p>Integrated with Backbone:</p>
 <pre><code class="javascript">var view = BackboneView.extend({
-  
+
   render: function() {
     this.$el.append('&lt;br&gt;');
     this.$el.find('.coursera-listing').html('Best Course Ever');
@@ -245,7 +245,7 @@ $('.coursera-listing').html('Best Course Ever');
    'click button': 'addNewBook'
   },
   initialize: function() {
-    this.collection.bind('add', render, this);
+    this.collection.bind('add', this.render, this);
   },
   render: function(eventName) {
     var self = this;
@@ -259,7 +259,7 @@ $('.coursera-listing').html('Best Course Ever');
     this.collection.add({'title': this.$('input').val()});
   }
 });</pre></code>
-  
+
   <br>
   <a href="http://backbonejs.org/#Events-catalog">Backbone's built in events</a>
 
@@ -376,7 +376,7 @@ myBooks.fetch();
         $('#content').html(view.render().el);
     }
 });
- 
+
 var app = new AppRouter();
 Backbone.history.start({pushState: true});
 </pre></code>
@@ -426,7 +426,7 @@ var section = Backbone.RelationalModel.extend({
   // ...
 });
 </code></pre>
-   
+
    <p>Warning: watch for performance issues.</p>
 
 </section>
@@ -534,16 +534,16 @@ layout.content.show(new MyContentView());</pre></code>
 require.config(
   baseUrl: "path/to/assets",
   callback: {
-    require(["js/routes/main"]); 
+    require(["js/routes/main"]);
   }
 });
 &lt;/script&gt;
 </code></pre>
 
 <pre><code class="javascript" style="padding:20px;">define(
-  ["js/lib/jquery", 
-   "js/lib/underscore", 
-   "js/lib/backbone",], 
+  ["js/lib/jquery",
+   "js/lib/underscore",
+   "js/lib/backbone",],
 function($, _, Backbone) {
   var view = Backbone.View.extend({
     render: function() {
@@ -560,7 +560,7 @@ function($, _, Backbone) {
 
 <section>
   <h1>Testing</h1>
-  
+
   <p>
     <a href="http://visionmedia.github.io/mocha/">Mocha</a>: Test runner <br>
     <a href="http://chaijs.com/">Chai</a>: Test assertion <br>
@@ -574,10 +574,10 @@ function($, _, Backbone) {
     var changedThreadJSON  = JSON.parse(
       fs.readFileSync(path.join(__filename, '../../data/thread.json')));
     changedThreadJSON['title'] = newTitle;
-    
-    server.respondWith("POST", getPath('/api/forum/threads/2703'), 
+
+    server.respondWith("POST", getPath('/api/forum/threads/2703'),
       [200, {"Content-Type":"application/json"}, JSON.stringify(changedThreadJSON)]);
-    
+
     threadView.$('.course-forum-thread-edit-title-link').click();
     chai.expect(threadView.$('.course-forum-thread-title input').size())
       .to.be.equal(1);
@@ -604,7 +604,7 @@ function($, _, Backbone) {
   <br><br>
   <div class="fragment">
   <p>Figure out what's important to you: <br>
-    modularity? data binding? testability? persistance? 
+    modularity? data binding? testability? persistance?
   </p>
   </div>
   <br><br>
@@ -639,14 +639,14 @@ function($, _, Backbone) {
 
 			<!-- Presentation progress bar -->
 			<div class="progress"><span></span></div>
-			
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 
 		<script>
-			
+
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -664,8 +664,8 @@ function($, _, Backbone) {
 					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
 				]
 			});
-			
+
 		</script>
-  
+
   </body>
 </html>
