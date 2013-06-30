@@ -29,7 +29,7 @@
  &lt;ul&gt;
   &lt;li&gt;Noun: &lt;input type=&quot;text&quot; id=&quot;noun&quot;&gt;
   &lt;li&gt;Adjective: &lt;input type=&quot;text&quot; id=&quot;adjective&quot;&gt;
-  &lt;li&gt;Someone's Name: &lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;
+  &lt;li&gt;Someone's Name: &lt;input type=&quot;text&quot; id=&quot;person&quot;&gt;
  &lt;/ul&gt;
  
  &lt;button id=&quot;lib-button&quot;&gt;Lib it!&lt;/button&gt;
@@ -48,121 +48,116 @@
 <pre id="solution1" style="display:none;">
 function libIt() {
   var storyDiv = document.getElementById("story");
-  var name = document.getElementById("name").value;
+  var person = document.getElementById("person").value;
   var adjective = document.getElementById("adjective").value;
   var noun = document.getElementById("noun").value;
-  storyDiv.innerHTML = name + " married a " + adjective + " " + noun + "... So weird!";
+  storyDiv.innerHTML = person + " married a " + adjective + " " + noun + "... So weird!";
 }
 
 var libButton = document.getElementById('lib-button');
 libButton.addEventListener('click', libIt);
 </pre>
 
-<h3 class="page-header">The Cat Walk</h3>
-
+<h3 class="page-header">Calculator</h3>
 <ul>
- <li>Start with this webpage, which has an <code>img</code> of a cat walking, and JavaScript functions
- that animate the cat across the screen.
-
- <pre>&lt;!DOCTYPE html&gt;
+  <li>Start with this webpage, which has inputs and buttons for things to calculate: <br>
+  <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
- &lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot; /&gt;
-  &lt;title&gt;Cat Walk&lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
+&lt;head&gt;
+&lt;meta charset=utf-8 /&gt;
+&lt;title&gt;Calculator&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;label&gt;Square this number:
+    &lt;input type=&quot;number&quot; id=&quot;square-input&quot; size=&quot;2&quot;&gt;
+  &lt;/label&gt;
+  &lt;button id=&quot;square-button&quot;&gt;Calculate&lt;/button&gt;
+  &lt;br&gt;&lt;br&gt;
   
-  &lt;button id=&quot;start-button&quot;&gt;Start&lt;/button&gt;
-  &lt;button id=&quot;speed-button&quot;&gt;Go Faster!&lt;/button&gt;
-  &lt;button id=&quot;stop-button&quot;&gt;Stop&lt;/button&gt;
-  &lt;div id=&quot;info&quot;&gt;&lt;/div&gt;
+  &lt;label&gt;Half this number:
+    &lt;input type=&quot;number&quot; id=&quot;half-input&quot; size=&quot;2&quot;&gt;
+  &lt;/label&gt;
+  &lt;button id=&quot;half-button&quot;&gt;Calculate&lt;/button&gt;
+  &lt;br&gt;&lt;br&gt;
   
-  &lt;img style=&quot;position:absolute; left: 0px; top: 80px;&quot; src=&quot;http://www.anniemation.com/clip_art/images/cat-walk.gif&quot;&gt;
+  &lt;label&gt;
+    Fraction:
+    &lt;input type=&quot;number&quot; id=&quot;percent1-input&quot; size=&quot;2&quot;&gt;
+  &lt;/label&gt;
+  &lt;label&gt;
+    Whole:
+    &lt;input type=&quot;number&quot; id=&quot;percent2-input&quot; size=&quot;2&quot;&gt;
+  &lt;/label&gt;
+  &lt;button id=&quot;percent-button&quot;&gt;Calculate&lt;/button&gt;
+  &lt;br&gt;&lt;br&gt;
+  
+  &lt;label&gt;Calculate area of circle with radius:
+    &lt;input type=&quot;number&quot; id=&quot;area-input&quot; size=&quot;2&quot;&gt;
+  &lt;/label&gt;
+  &lt;button id=&quot;area-button&quot;&gt;Calculate&lt;/button&gt; 
+  &lt;br&gt;&lt;br&gt;
+  &lt;div id=&quot;solution&quot;&gt;&lt;/div&gt;
 
-  &lt;script&gt;
-var movePixels = 10;
-var delayMs = 50;
-var catTimer = null;
-function catWalk() {
-  var img = document.getElementsByTagName('img')[0];
-  var currentLeft = parseInt(img.style.left);
-  img.style.left = (currentLeft + movePixels) + 'px';
-  if (currentLeft &gt; (window.innerWidth-img.width)) {
-    img.style.left = '0px';
-  }
-}
-function startCatWalk() {
-  catTimer = window.setInterval(catWalk, delayMs);
-}
-  &lt;/script&gt;
-
- &lt;/body&gt;
-&lt;/html&gt;</pre>
- <li>(For all of these, you shouldn't need to touch the original code - just add code below.)
- <li>Add an event listener to the start button, so that the cat starts moving across the screen when its clicked.
- <li>Add an event listener to the stop button, so that the cat stops moving when clicked.
- <li>Add an event listener to the speed button, so that the cat moves faster when it's clicked.
- <br><br>
- <button  onclick="showSolution(2)" class="btn">See Solution</button>
- <br><br>
- <pre id="solution2" style="display:none;">
-// #1
-function onStartClick() {
-    startCatWalk();
-}
-var startButton = document.getElementById('start-button');
-startButton.addEventListener('click', onStartClick);
-
-// #2
-function onStopClick() {
-   window.clearInterval(catTimer);
-}
-var stopButton = document.getElementById('stop-button');
-stopButton.addEventListener('click', onStopClick);
-
-// #3
-function onSpeedClick() {
-    movePixels += 5;
-    var speed = movePixels * (1000/50);
-    document.getElementById('info').innerHTML = 'Current speed: ' + speed + 'px/second';
-}
-var speedButton = document.getElementById('speed-button');
-speedButton.addEventListener('click', onSpeedClick);
+  
+&lt;/body&gt;
+&lt;/html&gt;
 </pre>
+  <li>Add a script tag, and add the functions from the <a href="calculator.html">calculator exercise</a> (view the solution if you haven't done it yet).</li>
+  <li>For each operation, create an event listener for the button, and when it's clicked, find the value of the appropriate input and show the result of the calculation in the solution div.</li>
+  <li>Bonus: respond to key presses so that the user doesn't have to click the button.</li>
+</ul>
 
- <li><b>Bonus</b>: Disable the start/stop/faster buttons at the appropriate times (e.g. the user shouldn't be able to click "stop" if the cat isn't currently moving.)
- <br><br>
- <button  onclick="showSolution(3)" class="btn">See Solution</button>
- <br><br>
- <pre id="solution3" style="display:none;">
-function onStartClick() {
-    startCatWalk();
-    startButton.setAttribute("disabled", "disabled");
-    stopButton.removeAttribute("disabled");
-    speedButton.removeAttribute("disabled");
+<button  onclick="showSolution(2)" class="btn">See Solution</button>
+<pre id="solution2" style="display:none;">function squareNumber(num) {
+    var squaredNumber = num * num;
+    console.log('The result of squaring the number ' + num + ' is ' + squaredNumber);
+    return squaredNumber;
 }
-var startButton = document.getElementById('start-button');
-startButton.addEventListener('click', onStartClick);
 
-function onStopClick() {
-   window.clearInterval(catTimer);
-   stopButton.setAttribute("disabled", "disabled");  
-   speedButton.setAttribute("disabled", "disabled");  
-   startButton.removeAttribute("disabled");
+function halfOf(num) {
+    var half = num / 2;
+    console.log('Half of ' + num + ' is ' +  half);
+    return half;
 }
-var stopButton = document.getElementById('stop-button');
-stopButton.addEventListener('click', onStopClick);
-stopButton.setAttribute("disabled", "disabled");
 
-function onSpeedClick() {
-    movePixels += 5;
-    var speed = movePixels * (1000/50);
-    document.getElementById('info').innerHTML = 'Current speed: ' + speed + 'px/second';
+function percentOf(num1, num2) {
+    var percent = (num1/num2) * 100;
+    console.log(num1 + ' is ' + percent + '% of ' + num2);
+    return percent;
 }
-var speedButton = document.getElementById('speed-button');
-speedButton.addEventListener('click', onSpeedClick);
-speedButton.setAttribute("disabled", "disabled");
-</pre>
+
+function areaOfCircle(radius) {
+    var area = Math.PI * squareNumber(radius);
+    console.log('The area of circle with radius ' + radius + ' is ' + area);
+    return area;
+}
+    
+var squareButton = document.getElementById(&quot;square-button&quot;);
+squareButton.addEventListener(&quot;click&quot;, function() {
+  var num = document.getElementById(&quot;square-input&quot;).value;
+  document.getElementById(&quot;solution&quot;).innerHTML = squareNumber(num);
+});
+    
+var halfButton = document.getElementById(&quot;half-button&quot;);
+halfButton.addEventListener(&quot;click&quot;, function() {
+  var num = document.getElementById(&quot;half-input&quot;).value;
+  document.getElementById(&quot;solution&quot;).innerHTML = halfOf(num);
+});
+
+var percentButton = document.getElementById(&quot;percent-button&quot;);
+percentButton.addEventListener(&quot;click&quot;, function() {
+  var num1 = document.getElementById(&quot;percent1-input&quot;).value;
+  var num2 = document.getElementById(&quot;percent2-input&quot;).value;
+  document.getElementById(&quot;solution&quot;).innerHTML = percentOf(num1, num2);
+});
+    
+
+var areaButton = document.getElementById(&quot;area-button&quot;);
+areaButton.addEventListener(&quot;click&quot;, function() {
+  var num = document.getElementById(&quot;area-input&quot;).value;
+  document.getElementById(&quot;solution&quot;).innerHTML = areaOfCircle(num);
+});</pre>
 
 
  </div>

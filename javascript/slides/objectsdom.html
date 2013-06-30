@@ -268,7 +268,7 @@ lizzieTheCat.sleep(10);
        <td rowspan="2"> <a href="http://c9.io/">Cloud9 IDE</a>, <a href="http://jsbin.com/3/">JSBin</a></td>
   </tr>
   <tr><td>$$</td>
-       <td><a href="http://www.e-texteditor.com/">E-Text Editor</a></td>
+       <td><a href="http://www.sublimetext.com/">SublimeText</a></td>, 
        <td><a href="http://macromates.com/">TextMate</a>, <a href="http://www.panic.com/coda/">Coda</a>, <a href="http://macrabbit.com/espresso/">Espresso</a></td></tr>
   </tbody>
 </table>
@@ -386,8 +386,15 @@ lizzieTheCat.sleep(10);
     <div class="slide normal"> 
      <header><h1>DOM Access</h1></header> 
      <section class="content"> 
-     <p>On every webpage, the <code><a href="https://developer.mozilla.org/en/DOM/document">document</code></a> object gives us ways of accessing and changing the DOM.
+     <p>The <code><a href="https://developer.mozilla.org/en/DOM/document">document</code></a> object gives us ways of accessing and changing the DOM of the current webpage.
 </p>
+
+    <p>General strategy for DOM manipulation:</p>
+    <ol>
+      <li>Find the DOM node using an access method and store it into a variable.</p>
+      <li>Manipulate the DOM node by changing its attributes, styles, inner HTML, or appending new nodes to it.</li>
+    </ol>
+<!--
 <p>Every DOM "node" has properties that let us traverse the DOM like a tree: <code>parentNode</code>,
 <code>childNodes</code>, <code>firstChild</code>, <code>prevSibling</code>, <code>nextSibling</code>.
 </p>
@@ -398,7 +405,7 @@ for (var i = 0; i &lt; document.body.childNodes.length; i++) {
   var childNode = document.body.childNodes[i];
 }
 </pre>
-
+-->
 
      </section>
     </div>
@@ -408,28 +415,45 @@ for (var i = 0; i &lt; document.body.childNodes.length; i++) {
     
     
     <div class="slide normal"> 
-     <header><h1>DOM Access: Easier</h1></header> 
+     <header><h1>DOM Access: By Id</h1></header> 
      <section class="content"> 
-     <p>The <code>document</code> object also provides methods for finding DOM nodes without traversing:</p>
-
+<br>
+<p>The method signature:</p>
 <pre  style="border:3px dotted black;" class="prettyprint">
 document.getElementById(id);
 </pre>
 
+<br>
+<p>If the HTML had:</p>
 <pre class="prettyprint">
 &lt;img id="mainpicture" src="http://placekitten.com/200/300"&gt;
 </pre>
+
+<p>We'd access it this way:</p>
 <pre class="prettyprint">
 var img = document.getElementById('mainpicture');
 </pre>
 <br>
+
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>DOM Access: By Tag Name</h1></header> 
+     <section class="content"> 
+
+<br>
+<p>The method signature:</p>
 <pre  style="border:3px dotted black;" class="prettyprint">
 document.getElementsByTagName(tagName);
 </pre>
+<br>
+<p>If the HTML had:</p>
 <pre class="prettyprint">
 &lt;li class=&quot;catname&quot;&gt;Lizzie&lt;/li&gt;
 &lt;li class=&quot;catname&quot;&gt;Daemon&lt;/li&gt;
 </pre>
+<p>We'd access it this way:</p>
 <pre class="prettyprint">
 var listItems = document.getElementsByTagName('li');
 for (var i =0; i &lt; listItems.length; i++) {
@@ -438,8 +462,6 @@ for (var i =0; i &lt; listItems.length; i++) {
 </pre>
      </section>
     </div>
-    
-   
     
     
     
@@ -472,21 +494,21 @@ var catNames = document.querySelectorAll('ul li.catname');
     
    
     
-    
-    
     <div class="slide normal"> 
      <header><h1>DOM Nodes: Attributes</h1></header> 
      <section class="content"> 
-     <p>You can access and change attributes of DOM nodes using dot notation:</p>
+     <p>You can access and change attributes of DOM nodes using dot notation.</p>
+<p>If we had this HTML:</p>
 <pre class="prettyprint">
 &lt;img id="mainpicture" src="http://placekitten.com/200/300"&gt;
 </pre>
+<p>We could change the src attribute this way:</p>
 <pre class="prettyprint">
 var img = document.getElementById('mainpicture');
 var oldSrc = img.src;
 img.src = 'http://placekitten.com/100/500';
 </pre>
-<p>Or <code>getAttribute</code>/<code>setAttribute</code>:</p>
+<p>Or using <code>getAttribute</code>/<code>setAttribute</code>:</p>
 <pre class="prettyprint">
 var oldSrc = img.getAttribute('src');
 img.setAttribute('src', 'http://placekitten.com/100/500');
@@ -506,16 +528,20 @@ img.className = "picture";
     <div class="slide normal"> 
      <header><h1>DOM Nodes: Styles</h1></header> 
      <section class="content"> 
-     <p>You can change styles on DOM nodes via the <code>style</code> property:</p>
-
+     <p>You can change styles on DOM nodes via the <code>style</code> property.</p>
+<p>If we had this CSS:</p>
 <pre>
 body {
   color: red;
 }
 </pre>
+
+<p>We'd run this JS:
 <pre>
-document.body.style.color = 'red';
+var pageNode = document.getElementsByTagName('body')[0];
+pageNode.style.color = 'red';
 </pre>
+
 <br>
 <p>CSS property names with a "-" must be camelCased and number properties must have a unit:</p>
 <pre>
@@ -525,8 +551,8 @@ body {
 }
 </pre>
 <pre>
-document.body.style.backgroundColor = 'pink';
-document.body.style.paddingTop = '10px';
+pageNode.style.backgroundColor = 'pink';
+pageNode.style.paddingTop = '10px';
 </pre>
 
 <p style="display:none;">
@@ -538,29 +564,32 @@ Number-like properties must be set using proper CSS syntax with their units, e.g
     
    
     
-    
-    
+  
     <div class="slide normal"> 
      <header><h1>DOM innerHTML</h1></header> 
      <section class="content"> 
      <p>Each DOM node has an <code>innerHTML</code> property with the HTML of all its children:</p>
 <pre>
-document.body.innerHTML;
+var pageNode = document.getElementsByTagName('body')[0];
+</pre>
+<p>You can read out the HTML like this:</p>
+<pre>
+console.log(pageNode.innerHTML);
 </pre>
 <p>You can set <code>innerHTML</code> yourself to change the contents of the node:</p>
 <pre>
-document.body.innerHTML = "&lt;h1&gt;Oh Noes!&lt;/h1&gt; &lt;p&gt;I just changed the whole page!&lt;/p&gt;"
+pageNode.innerHTML = "&lt;h1&gt;Oh Noes!&lt;/h1&gt; &lt;p&gt;I just changed the whole page!&lt;/p&gt;"
 </pre>
 <p>You can also just add to the <code>innerHTML</code> instead of replace:</p>
 <pre>
-document.body.innerHTML += "...just adding this bit at the end of the page.";
+pageNode.innerHTML += "...just adding this bit at the end of the page.";
 </pre>
 
 <p style="display:none;">Every node in the DOM tree has an innerHTML attribute that contains all of its children serialized back into HTML format. var nav = header.nextSibling.nextSibling;var oldNavHTML = nav.innerHTML;var oldHeaderHTML = header.innerHTML; You can also set the innerHTML attribute to replace the contents of any node. 
 </pre>
      </section>
     </div>
-    
+
    
     
     
@@ -575,16 +604,17 @@ document.createTextNode(text);
 document.appendChild();
 </pre>
 <pre class="prettyprint">
+var pageNode = document.getElementsByTagName('body')[0];
+
 var newImg = document.createElement('img');
 newImg.src = 'http://placekitten.com/400/300';
 newImg.style.border = '1px solid black';
-document.body.appendChild(newImg);
-</pre>
-<pre class="prettyprint">
+pageNode.appendChild(newImg);
+
 var newParagraph = document.createElement('p');
 var paragraphText = document.createTextNode('Squee!');
 newParagraph.appendChild(paragraphText);
-document.body.appendChild(newParagraph);
+pageNode.appendChild(newParagraph);
 </pre>
 
      </section>
