@@ -300,19 +300,17 @@ window.clearInterval(timer);
 </pre>
 
 <pre class="prettyprint">
+var img = document.getElementsByTagName('img')[0];
+img.style.opacity = 1.0;
 function fadeAway() {
-  var img = document.getElementsByTagName('img')[0];
+  
   img.style.opacity = img.style.opacity - .1;
-  if (img.style.opacity < .5) {
+  if (img.style.opacity &lt; .5) {
     window.clearInterval(fadeTimer);
   }
 }
 var fadeTimer = window.setInterval(fadeAway, 100);
 </pre>
-
-<p style="display:none;">
-mention performance
-</p>
 
      </section>
     </div>
