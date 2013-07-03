@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>jQuery (Girl Develop It)</title>
+		<title>Intro to jQuery</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/presentation.css" />
@@ -30,6 +30,18 @@
 				});
 			});
 		</script>
+		<style>
+.grey-cell {
+	background: #eee;
+	padding: 10px;
+	border-right: 3px solid white;
+	font-size: 20px;
+	line-height: 1.5em;
+}
+.code-cell {
+	text-align: center;
+}
+		</style>
 	</head>
 	<body>
 		<div id="presentation">
@@ -153,9 +165,24 @@ $('div.header').append(newP);</pre>
 					<header><h1>jQuery: The Basics</h1></header>
 					<section class="content">
 						<br>
-						<div style="text-align:center">
-							<a href="http://api.jquery.com/addClass/"><img src="img/jquery_table.png"></a>
-						</div>
+						<table>
+							<tr><td colspan="3">
+							<pre style="text-align:center;">$('p').addClass('special');</pre>
+							</tr>
+							<tr>
+								<td><pre style="text-align:center; font-weight:bold;">$</pre></td>
+								<td><pre style="text-align:center; font-weight:bold;">('p')</pre></td>
+								<td><pre style="text-align:center; font-weight:bold;">addClass('special')</pre></td>
+							</tr>
+							<tr>
+								<td class="grey-cell">The global jQuery function. <br> Can also be "jQuery".</td>
+								<td class="grey-cell">Finds DOM element(s) according to what's in the quotes. <br> Returns a "jQuery collection."</td>
+								<td class="grey-cell">Built-in jQuery method that adds the specified class to the collection.
+									<br><a href="http://api.jquery.com/addClass/" target="_blank">Read the docs here.</a>
+								</td>
+							</tr>
+						</table>
+						</table>
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: the basics 2-->
@@ -166,9 +193,35 @@ $('div.header').append(newP);</pre>
 						<br>
 						<p style="text-align:center">All CSS selectors are valid, plus more. <a href="http://api.jquery.com/category/selectors/">Read the docs.</a></p>
 						<br>
-						<div style="text-align:center">
-							<img src="img/finding_elements.png">
-						</div>
+						<table style="width:100%">
+							<thead>
+								<tr>
+									<th>With this HTML..</th>
+									<th>We find it this way:
+								</tr>
+							</thead>
+							<tr>
+								<td class="code-cell"><pre>&lt;p&gt;Welcome!&lt;/p&gt;</pre><br></td>
+								<td class="code-cell"><pre>$('p')</pre><br></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>&lt;div id="main"&gt;Welcome!&lt;/div&gt;</pre><br></td>
+								<td class="code-cell"><pre>$('#main')</pre><br></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</pre><br></td>
+								<td class="code-cell"><pre>$('.intro')</pre><br></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>&lt;div id="main"&gt;
+&lt;p class="intro"&gt;Welcome!&lt;/p&gt;
+&lt;/div&gt;</pre></td>
+								<td class="code-cell"><pre>$('#main .intro')</pre></td>
+							</tr>
+						</table>
+
+
+
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: finding elements-->
@@ -179,9 +232,31 @@ $('div.header').append(newP);</pre>
 						<br>
 						<p>Pass in any HTML string and jQuery will create it and return it as a collection.</p>
 						<br>
-						<div style="text-align:center">
-							<img src="img/creating_elements.png">
-						</div>
+						<table style="width:100%;">
+							<thead>
+								<tr>
+									<th>With this jQuery...</th>
+									<th></th>
+									<th>We create this HTML:</th>
+								</tr>
+							</thead>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p&gt;')</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p&gt;&lt;/p&gt;</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p&gt;Welcome!&lt;/p&gt;')</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p&gt;Welcome!&lt;/p&gt;</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;')</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</pre></td>
+							</tr>
+						</table>
+
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: creating elements-->
@@ -189,10 +264,16 @@ $('div.header').append(newP);</pre>
 				<div class="slide normal">
 					<header><h1>jQuery: Changing Elements</h1></header>
 					<section class="content">
+						<br>If we start with this HTML:
+						<pre>&lt;a href="http://www.google.com"&gt;Google&lt;/a&gt;</pre>
 						<br>
-						<div style="text-align:center">
-							<img src="img/changing_elements.png">
-						</div>
+						We can use this jQuery:
+						<pre>$('a').html('Yahoo!')
+$('a').attr('href', 'http://www.yahoo.com')
+$('a').css({'color': 'purple'})</pre><br>
+						And we'll get this:
+						<pre>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</pre>
+
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: changing elements-->
@@ -201,9 +282,32 @@ $('div.header').append(newP);</pre>
 					<header><h1>jQuery: Reading Elements</h1></header>
 					<section class="content">
 						<br>
-						<div style="text-align:center">
-							<img src="img/reading_elements.png">
-						</div>
+
+
+						<table>
+							<tr>
+								<td colspan="3">
+								If we start with this HTML...
+								<pre>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</pre>
+								<br>
+								...We can find out lots of things about it:
+							<tr>
+								<td class="code-cell"><pre>console.log($('a').html());</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>Yahoo!</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>console.log($('a').attr('href'));</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>yahoo.com</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>console.log($('a').css('color'));</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>purple</pre></td>
+							</tr>
+						</table>
+
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: reading elements-->
@@ -213,9 +317,12 @@ $('div.header').append(newP);</pre>
 					<header><h1>jQuery: Looping</h1></header>
 					<section class="content">
 						<br>
-						<div style="text-align:center">
-							<img src="img/looping.png">
-						</div>
+						<pre>var links = $('a');
+links.each(function() {
+	var link = $(this);
+	link.html(link.html() + '!');
+});</pre>
+
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: looping-->
