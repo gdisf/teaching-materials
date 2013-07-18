@@ -46,9 +46,9 @@
       "title": "Trip through the 80s",
       "author": "meliberty"
     },
-    {"youtubeId": "vX07j9SDFcc",
-      "title": "Circle of Life",
-      "author": "parkerjademerce"
+    {"youtubeId": "oOlDewpCfZQ",
+     "title": "Four Chords",
+     "author": "axisofawesome"
     },
     {"youtubeId": "il2IrgFHfsg",
       "title": "The Ooooh Cat",
@@ -110,7 +110,9 @@ $(document).ready(function() {
 
   /* Sorts the list of videos by title */
   videosJSON.sort(function(videoA, videoB) {
-    return (videoA.title - videoB.title);
+    // String.localeCompare is a great way to compare two strings alphabetically
+    // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+    return videoA.title.localeCompare(videoB.title);
   });
 
   for (var i = 0; i < videosJSON.length; i++) {
