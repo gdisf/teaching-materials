@@ -56,8 +56,8 @@ body {
 
 var BookCollection = Backbone.Collection.extend({
     model: BookModel,
-    comparator: function() {
-      return this.get('rating');
+    comparator: function(model) {
+      return model.get('rating');
     }
 });
 

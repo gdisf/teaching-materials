@@ -106,7 +106,6 @@ function fetchBooks() {
 	  success: function(booksJSON) {
       var books = new BookCollection(booksJSON);
       var shelf = new BookShelfView({collection: books});
-      console.log(shelf);
       $('#bookshelf').append(shelf.render().$el);
 	 }
 	});

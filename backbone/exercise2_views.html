@@ -7,7 +7,7 @@
     <title>Backbone Exercise: Views</title>
     <meta charset="utf-8">
     <style>
-    li { line-height: 2.5em;}
+    li { line-height: 1.6em; margin-bottom: 20px;}
     </style>
   </head>
   <body>
@@ -17,19 +17,14 @@
 
       <p>Go through these steps, and do as many as you can in the time we have:</p>
       <ul>
-        <li>If you didn't finish the models exercise, download the starter files from <a href="exercise_steps/step1.zip">here</a>.</li>
-        <li>Create an <code>app.js</code> file and include it via a script tag in your HTML page.</li>
+        <li>If you didn't finish the models exercise (up to step 6), download the starter files from <a href="exercise_steps/step1.zip">here</a>.</li>
+        <li>Create an <code>app.js</code> file and include it via a script tag in your HTML page. Make sure you're referencing it from the right location - check your console for 404s.</li>
         <li>In <code>app.js</code>, create an array of test messages and create a <code>ChatMessages</code> collection out of them.</li>
         <li>Create a <code>views.js</code> file and include it via a script tag in your HTML page.</li>
         <li>In <code>views.js</code>, define a <code>ChatMessagesView</code> that renders the <code>#chat-messages-template</code> with the passed in collection. <br>
-          Here's an example of how to render a Handlebars template into HTML:
-          <pre>var source   = $("#template-id").html();
-var template = Handlebars.compile(source);
-var rendered = template({my_var: "here"});
-</pre>
-
         </li>
-        <li>In <code>app.js</code>, create a <code>ChatMessagesView</code>, and pass the collection and <code>.chat-messages-wrapper</code> element.</li>
+        <li>In <code>app.js</code>, create a <code>ChatMessagesView</code>, and pass the collection into it.
+          Render the view into the <code>.chat-messages-wrapper</code> element.</li>
         <li>Reload <code>index.html</code> and see if you see the messages.</li>
       </ul>
 

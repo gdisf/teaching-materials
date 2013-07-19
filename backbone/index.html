@@ -65,6 +65,20 @@
 </section>
 
 <section>
+  <h1>Backbone Models &amp; Collection</h1>
+
+  <br>
+  <p>The end goal:</p>
+  <pre><code class="javascript">var book1 = new BookModel({title: 'I, Robot',
+                      author: 'Isaac Asimov'});
+var book2 = new BookModel({title: 'Caves of Steel',
+                      author: 'Isaac Asimov'});
+var robotSeries = new BookCollection([book1, book2]);
+</pre></code>
+  </p>
+</section>
+
+<section>
     <h1>Backbone Models</h1>
 <pre><code class="javascript">var BookModel = Backbone.Model.extend({
   defaults: {
@@ -111,7 +125,7 @@ var robotSeries = new BookCollection([book1, book2]);
 <section>
   <h1>Backbone &amp; Underscore</h1>
   <br>
-  <p>Standalone Underscore:</p>
+  <p><a href="http://underscorejs.org">Underscore</a>, a library of useful functions:</p>
 <pre><code class="javascript">// On collections:
 _.each(coll, iterator); _.find(coll, iterator); // etc
 // On arrays
@@ -120,21 +134,204 @@ _.flatten(arr), _.union(*arrs), _.uniq(arr), // etc
 _.bind(func, obj), _.throttle(func, wait) // etc
 </pre></code>
 <br>
-          <p>All collection functions work on <code>BackboneCollection</code>s
-                        <b>but</b> return arrays.</p>
+          <p>All collection functions work on <code>BackboneCollection</code>s:
 <pre><code class="javascript">BackboneCollection.each(iterator);
 BackboneCollection.find(iterator);
 // etc
 </pre></code>
+
+<pre><code class="javascript">bookCollection.each(function(book) {
+  console.log(book.get("title"));
+});
+</pre></code>
+
 </section>
+
+
 
 <section>
   <h1><a href="exercise1_models.html" target="_blank">Exercise Time</a></h1>
 </section>
 
 
+
+<section>
+  <h1>Models &amp; Views</h1>
+  <br>
+
+  <p>The end goal:</p>
+  <pre><code class="javascript">var booksJSON = [{title: 'I, Robot', author: 'Isaac Asimov'},
+                 {title: 'Robot Dreams', author: 'Isaac Asimov'}];
+
+var books = new BookCollection(booksJSON);
+
+var view = new BookShelfView({collection: books});
+
+$('body').append(view.render().$el);</pre></code>
+</section>
+
 <section>
   <h1>Views</h1>
+<div>
+<pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
+
+  tagName: 'div',
+  
+  className: 'books',
+  
+  render: function() {
+
+    // Save this into a variable so we can use it in callback function later
+    var self = this;
+
+    // Iterate through each model in the collection
+    this.collection.each(function (book) {
+
+      // Create the DOM for the book img and link
+      var bookDiv = $('&lt;div class="book"&gt;&lt;/div&gt;');
+      var bookLink = $('&lt;a>').attr('href', book.get('url'));
+      var bookCover = $('&lt;img>').attr('src', book.get('thumbnail'));
+      bookLink.append(bookCover);
+      bookDiv.append(bookLink);
+
+      // Append the DOM to this view's element
+      self.$el.append(bookDiv);
+    });
+
+    return this;
+  }
+});
+</pre></code>
+
+<pre style="font-size:16px;"><code class="javascript">var shelfView = new BookShelfView({collection: bookCollection});</pre></code>
+</div>
+
+</section>
+
+
+
+<section>
+  <h1>Backbone &amp; jQuery</h1>
+  <br>
+  <p>Standalone jQuery:</p>
+<pre><code class="javascript">$('body').append('&lt;br&gt;');
+$('.coursera-listing').html('Best Course Ever');
+</pre></code>
+<br>
+<p>Every <code>Backbone.View</code> has a <code>$el</code>
+and a <code>$()</code> method:
+</p>
+<pre><code class="javascript">var view = BackboneView.extend({
+
+  render: function() {
+    this.$el.append('&lt;br&gt;');
+    this.$el.find('.coursera-listing').html('Best Course Ever');
+    // or shorter:
+    this.$('.coursera-listing').html('Best Course Ever');
+  }
+})
+</pre></code>
+</section>
+
+
+<section>
+  <h1>BookShelf App</h1>
+
+   <p>
+   <a href="demo/bookshelf_backbone1.html">Live Demo</a>
+   </p>
+   <p>
+   <img src="images/bookshelf_screenshot.png">
+   </p>
+</section>
+
+
+<section>
+  <h1>Handlebars</h1>
+  <br>
+  <p><a href="http://www.handlebarsjs.com">Handlebars</a> is an HTML
+    templating library. To use it:</p>
+  <br>
+  <p>1. Make a template script tag:</p>
+  <pre><code>&lt;script id="book-template" type="text/x-handlebars-template"&gt;
+    &lt;strong&gt;{{ book.title }}&lt;/strong&gt; was written by {{ book.author }}
+&lt;/script&gt;</code></pre>
+  <br>
+  <p>2. Compile the template and render it with your data:</p>
+  <pre><code class="javascript">var source   = $("#book-template").html();
+var template = Handlebars.compile(source);
+var myBook = {"title": "Robot Dreams", "author": "Isaac Asimov"};
+var rendered = template({book: myBook);</code></pre>
+
+</section>
+
+<section>
+  <h1>Backbone &amp; Handlebars</h1>
+  <br>
+  <p>In the HTML:</p>
+  <pre><code>&lt;script id="books-template" type="text/x-handlebars-template"&gt;
+    {{#each books}}
+      &lt;div class="book"&gt;
+        &lt;a href="{{url}}"&gt;&lt;img src="{{thumbnail}}"&gt;
+      &lt;/div&gt;
+    {{/each}}
+&lt;/script&gt;</code></pre>
+
+  <p>In the JS:</p>
+  <pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
+
+  tagName: 'div',
+  
+  className: 'books',
+  
+  render: function() {
+    // Compile the template 
+    var template = Handlebars.compile($("#books-template").html());
+    // Render the template with the current collection data
+    var rendered = template({books: this.collection.toJSON()});
+    // Append the rendered HTML to the current view's element
+    this.$el.append(rendered);
+
+    return this;
+  }
+});
+</pre></code>
+</section>
+
+
+<section>
+  <h1>Models &amp; Views</h1>
+  <br>
+
+  <p>Putting them together:</p>
+  <pre><code class="javascript">var booksJSON = [{title: 'I, Robot', author: 'Isaac Asimov'},
+                 {title: 'Robot Dreams', author: 'Isaac Asimov'}];
+
+var books = new BookCollection(booksJSON);
+
+var view = new BookShelfView({collection: books});
+
+$('body').append(view.render().$el);</pre></code>
+</section>
+
+<section>
+  <h1><a href="exercise2_views.html" target="_blank">Exercise Time</a></h1>
+</section>
+
+<section>
+  <h1>BookShelf App</h1>
+
+   <p>
+   <a href="demo/bookshelf_backbone_templated.html">Live Demo</a>
+   </p>
+   <p>
+   <img src="images/bookshelf_screenshot.png">
+   </p>
+</section>
+
+
+  <section>
+  <h1>Nested Views</h1>
 <pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
   tagName: 'div',
   className: 'book',
@@ -151,6 +348,8 @@ BackboneCollection.find(iterator);
 
 <div class="fragment">
 <pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'books',
   render: function(eventName) {
     var self = this;
     this.collection.each(function (book) {
@@ -166,6 +365,7 @@ BackboneCollection.find(iterator);
 </div>
 
 </section>
+
 
 <section>
   <h1>Views + DOM Events</h1>
@@ -196,46 +396,6 @@ BackboneCollection.find(iterator);
 </pre></code>
 
 </section>
-
-<section>
-  <h1>Backbone &amp; jQuery</h1>
-  <br>
-  <p>Standalone jQuery:</p>
-<pre><code class="javascript">$('body').append('&lt;br&gt;');
-$('.coursera-listing').html('Best Course Ever');
-</pre></code>
-<br>
-<p>Integrated with Backbone:</p>
-<pre><code class="javascript">var view = BackboneView.extend({
-
-  render: function() {
-    this.$el.append('&lt;br&gt;');
-    this.$el.find('.coursera-listing').html('Best Course Ever');
-    // or shorter:
-    this.$('.coursera-listing').html('Best Course Ever');
-  }
-})
-</pre></code>
-</section>
-
-
-<section>
-  <h1><a href="exercise2_views.html" target="_blank">Exercise Time</a></h1>
-</section>
-
-<!--
-<section>
-  <h1>BookShelf App</h1>
-
-   <p>
-   <a href="demo/bookshelf_backbone.html">Live Demo</a>
-   </p>
-   <p>
-   <img src="images/bookshelf_screenshot.png">
-   </p>
-</section>
--->
-
 
 <section>
   <h1>View/Model Events</h1>
@@ -505,6 +665,7 @@ layout.content.show(new MyContentView());</pre></code>
 
 </section>
 
+<!--
 <section>
   <h1 class="upper">Routes</h1>
 </section>
@@ -518,6 +679,7 @@ layout.content.show(new MyContentView());</pre></code>
 }
 </pre></code>
 </section>
+-->
 
 <!-- todo: bbQ?-->
 
