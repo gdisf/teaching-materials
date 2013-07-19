@@ -26,7 +26,7 @@ var ChatFormView = Backbone.View.extend({
     this.template = Handlebars.compile(source);
   },
   render: function() {
-    this.$el.html(this.template({messages: this.collection.toJSON()}));
+    this.$el.html(this.template());
     return this;
   },
   sendChat: function(e) {
