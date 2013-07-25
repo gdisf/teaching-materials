@@ -551,14 +551,15 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
 <ul>
  <li><a href="http://pamelafox.github.com/resolutionizer/">Resolutionizer</a>
  <li><a href="http://screenqueri.es/">ScreenQueries</a>
- <li><a href="http://codeinchaos.github.com/mobile-screens/">Mobile Screens</a>
  <li><a href="http://labs.adobe.com/technologies/shadow/">Adobe Shadow</a>
+ <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_View">Firefox Responsive Design View</a>
 </ul>
      </section>
     </div>
     
     
     <div class="slide normal"> 
+      <br><br>
      <header><h1><a href="exercise_media_descrip.html">Exercise Time!</a></h1></header> 
     </div>
     
@@ -581,8 +582,9 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
 Use these sites to check compatibility:
 </p>
  <ul>
-  <li><a href="http://www.quirksmode.org/css/contents.html">Quirks Mode: CSS Compatibility</a>
   <li><a href="http://caniuse.com/">caniuse.com</a>
+  <li><a href="http://www.quirksmode.org/css/contents.html">Quirks Mode: CSS Compatibility</a>
+  <li><a href="http://www.standardista.com/css3/css3-selector-browser-support/">CSS3 Selector support</a>
   <li><a href="http://html5please.com/">html5please.com</a>
 </ul>
      </section>
@@ -683,8 +685,10 @@ The best defense is to be aware and to test.
      <p>Since not all browsers work on all operating systems (IE on Mac), you may need help from these tools for cross-browser testing:
 <p>
 <ul>
-  <li><a href="http://browsershots.org/">BrowserShots</a>: Takes screenshots of your sites in different browsers.
+  <li><a href="http://www.modern.ie/en-us/virtualization-tools">Modern.ie</a> Microsoft's free access to testing tools
+  <li><a href="http://www.saucelabs.com">SauceLabs</a>: Cloud-based automated and manual testing
   <li><a href="http://www.browserstack.com/">BrowserStack</a>: Lets you debug in virtual browsers.
+  <li><a href="http://browsershots.org/">BrowserShots</a>: Takes screenshots of your sites in different browsers.
   <li><a href="https://browserling.com/">BrowserLing</a>: Ditto.
   <li><a href="http://multipleies.en.softonic.com/">MultipleIEs</a>: Makes it possible to test in multiple IE versions on one computer.
   <li><a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a>: Ditto.
@@ -698,9 +702,6 @@ The best defense is to be aware and to test.
     
     <div class="slide section"> 
      <header><h1>Good Defaults</h1></header> 
-     <section class="content"> 
-     
-     </section>
     </div>
     
    
@@ -752,7 +753,7 @@ The best defense is to be aware and to test.
     <div class="slide normal"> 
      <header><h1>CSS Frameworks</h1></header> 
      <section class="content"> 
-     <p>A CSS framework usually includes a reset, a grids system, styles for typography and forms. Some include support for mobile/print.
+     <p>Usually include a reset, a grids system, styles for typography and forms. Some include support for mobile/print.
 </p>
 <p>With <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>:</p>
 <pre>
@@ -768,7 +769,7 @@ The best defense is to be aware and to test.
 &lt;/div&gt;
 </pre>
 
-<p>Also see: <a href="http://blueprintcss.org/">Blueprint CSS</a>, <a href="http://foundation.zurb.com/">ZURB Foundation</a>, <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>
+<p>Also see: <a href="http://foundation.zurb.com/">ZURB Foundation</a>, <a href="http://purecss.io">Pure CSS</a>, <a href="http://topcoat.io">Topcoat</a>
 </p>
      </section>
     </div>
@@ -778,6 +779,7 @@ The best defense is to be aware and to test.
     
     
     <div class="slide normal"> 
+     <br><br>
      <header><h1><a href="exercise_bootstrap_descrip.html">Exercise Time!</a></h1></header> 
      <section class="content"> 
      
@@ -786,7 +788,7 @@ The best defense is to be aware and to test.
     
    
     <div class="slide section"> 
-     <header><h1>Performance &amp; Productivity</h1></header> 
+     <header><h1>Performance</h1></header> 
      <section class="content"> 
      
      </section>
@@ -878,7 +880,7 @@ https://developer.mozilla.org/en/Writing_Efficient_CSS
     
     
     <div class="slide normal"> 
-     <header><h1>Lots of Images</h1></header> 
+     <header><h1>Lots of Images: Spriting</h1></header> 
      <section class="content"> 
      <p>When a pages uses many <code>IMG</code> tags or <code>background-url</code> properties,
 it slows down loading. For smaller images, "CSS spriting" can help.</p>
@@ -899,14 +901,60 @@ it slows down loading. For smaller images, "CSS spriting" can help.</p>
      </section>
     </div>
     
+    <div class="slide normal"> 
+     <header><h1>Lots of Images: Data URIs</h1></header> 
+     <section class="content"> 
+     <p>You can convert small images to data URIs using an <a href="http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/">online converter</a> and inline them in your CSS.
+
+     <pre>
+.coursera-sharebuttons-gplus {
+    width 20px 
+    height 18px
+    margin 0
+    padding 0
+    background-repeat no-repeat
+    background-position center center
+    display inline-block
+    margin-right 4px
+    background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AUkSYqIQkQSoghodkVUcERRUUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXXPues852zzwfACAyWSDNRNYAMqUIeEeCDx8TG4eQuQIEKJHAAEAizZCFz/SMBAPh+PDwrIsAHvgABeNMLCADATZvAMByH/w/qQplcAYCEAcB0kThLCIAUAEB6jkKmAEBGAYCdmCZTAKAEAGDLY2LjAFAtAGAnf+bTAICd+Jl7AQBblCEVAaCRACATZYhEAGg7AKzPVopFAFgwABRmS8Q5ANgtADBJV2ZIALC3AMDOEAuyAAgMADBRiIUpAAR7AGDIIyN4AISZABRG8lc88SuuEOcqAAB4mbI8uSQ5RYFbCC1xB1dXLh4ozkkXKxQ2YQJhmkAuwnmZGTKBNA/g88wAAKCRFRHgg/P9eM4Ors7ONo62Dl8t6r8G/yJiYuP+5c+rcEAAAOF0ftH+LC+zGoA7BoBt/qIl7gRoXgugdfeLZrIPQLUAoOnaV/Nw+H48PEWhkLnZ2eXk5NhKxEJbYcpXff5nwl/AV/1s+X48/Pf14L7iJIEyXYFHBPjgwsz0TKUcz5IJhGLc5o9H/LcL//wd0yLESWK5WCoU41EScY5EmozzMqUiiUKSKcUl0v9k4t8s+wM+3zUAsGo+AXuRLahdYwP2SycQWHTA4vcAAPK7b8HUKAgDgGiD4c93/+8//UegJQCAZkmScQAAXkQkLlTKsz/HCAAARKCBKrBBG/TBGCzABhzBBdzBC/xgNoRCJMTCQhBCCmSAHHJgKayCQiiGzbAdKmAv1EAdNMBRaIaTcA4uwlW4Dj1wD/phCJ7BKLyBCQRByAgTYSHaiAFiilgjjggXmYX4IcFIBBKLJCDJiBRRIkuRNUgxUopUIFVIHfI9cgI5h1xGupE7yAAygvyGvEcxlIGyUT3UDLVDuag3GoRGogvQZHQxmo8WoJvQcrQaPYw2oefQq2gP2o8+Q8cwwOgYBzPEbDAuxsNCsTgsCZNjy7EirAyrxhqwVqwDu4n1Y8+xdwQSgUXACTYEd0IgYR5BSFhMWE7YSKggHCQ0EdoJNwkDhFHCJyKTqEu0JroR+cQYYjIxh1hILCPWEo8TLxB7iEPENyQSiUMyJ7mQAkmxpFTSEtJG0m5SI+ksqZs0SBojk8naZGuyBzmULCAryIXkneTD5DPkG+Qh8lsKnWJAcaT4U+IoUspqShnlEOU05QZlmDJBVaOaUt2ooVQRNY9aQq2htlKvUYeoEzR1mjnNgxZJS6WtopXTGmgXaPdpr+h0uhHdlR5Ol9BX0svpR+iX6AP0dwwNhhWDx4hnKBmbGAcYZxl3GK+YTKYZ04sZx1QwNzHrmOeZD5lvVVgqtip8FZHKCpVKlSaVGyovVKmqpqreqgtV81XLVI+pXlN9rkZVM1PjqQnUlqtVqp1Q61MbU2epO6iHqmeob1Q/pH5Z/YkGWcNMw09DpFGgsV/jvMYgC2MZs3gsIWsNq4Z1gTXEJrHN2Xx2KruY/R27iz2qqaE5QzNKM1ezUvOUZj8H45hx+Jx0TgnnKKeX836K3hTvKeIpG6Y0TLkxZVxrqpaXllirSKtRq0frvTau7aedpr1Fu1n7gQ5Bx0onXCdHZ4/OBZ3nU9lT3acKpxZNPTr1ri6qa6UbobtEd79up+6Ynr5egJ5Mb6feeb3n+hx9L/1U/W36p/VHDFgGswwkBtsMzhg8xTVxbzwdL8fb8VFDXcNAQ6VhlWGX4YSRudE8o9VGjUYPjGnGXOMk423GbcajJgYmISZLTepN7ppSTbmmKaY7TDtMx83MzaLN1pk1mz0x1zLnm+eb15vft2BaeFostqi2uGVJsuRaplnutrxuhVo5WaVYVVpds0atna0l1rutu6cRp7lOk06rntZnw7Dxtsm2qbcZsOXYBtuutm22fWFnYhdnt8Wuw+6TvZN9un2N/T0HDYfZDqsdWh1+c7RyFDpWOt6azpzuP33F9JbpL2dYzxDP2DPjthPLKcRpnVOb00dnF2e5c4PziIuJS4LLLpc+Lpsbxt3IveRKdPVxXeF60vWdm7Obwu2o26/uNu5p7ofcn8w0nymeWTNz0MPIQ+BR5dE/C5+VMGvfrH5PQ0+BZ7XnIy9jL5FXrdewt6V3qvdh7xc+9j5yn+M+4zw33jLeWV/MN8C3yLfLT8Nvnl+F30N/I/9k/3r/0QCngCUBZwOJgUGBWwL7+Hp8Ib+OPzrbZfay2e1BjKC5QRVBj4KtguXBrSFoyOyQrSH355jOkc5pDoVQfujW0Adh5mGLw34MJ4WHhVeGP45wiFga0TGXNXfR3ENz30T6RJZE3ptnMU85ry1KNSo+qi5qPNo3ujS6P8YuZlnM1VidWElsSxw5LiquNm5svt/87fOH4p3iC+N7F5gvyF1weaHOwvSFpxapLhIsOpZATIhOOJTwQRAqqBaMJfITdyWOCnnCHcJnIi/RNtGI2ENcKh5O8kgqTXqS7JG8NXkkxTOlLOW5hCepkLxMDUzdmzqeFpp2IG0yPTq9MYOSkZBxQqohTZO2Z+pn5mZ2y6xlhbL+xW6Lty8elQfJa7OQrAVZLQq2QqboVFoo1yoHsmdlV2a/zYnKOZarnivN7cyzytuQN5zvn//tEsIS4ZK2pYZLVy0dWOa9rGo5sjxxedsK4xUFK4ZWBqw8uIq2Km3VT6vtV5eufr0mek1rgV7ByoLBtQFr6wtVCuWFfevc1+1dT1gvWd+1YfqGnRs+FYmKrhTbF5cVf9go3HjlG4dvyr+Z3JS0qavEuWTPZtJm6ebeLZ5bDpaql+aXDm4N2dq0Dd9WtO319kXbL5fNKNu7g7ZDuaO/PLi8ZafJzs07P1SkVPRU+lQ27tLdtWHX+G7R7ht7vPY07NXbW7z3/T7JvttVAVVN1WbVZftJ+7P3P66Jqun4lvttXa1ObXHtxwPSA/0HIw6217nU1R3SPVRSj9Yr60cOxx++/p3vdy0NNg1VjZzG4iNwRHnk6fcJ3/ceDTradox7rOEH0x92HWcdL2pCmvKaRptTmvtbYlu6T8w+0dbq3nr8R9sfD5w0PFl5SvNUyWna6YLTk2fyz4ydlZ19fi753GDborZ752PO32oPb++6EHTh0kX/i+c7vDvOXPK4dPKy2+UTV7hXmq86X23qdOo8/pPTT8e7nLuarrlca7nuer21e2b36RueN87d9L158Rb/1tWeOT3dvfN6b/fF9/XfFt1+cif9zsu72Xcn7q28T7xf9EDtQdlD3YfVP1v+3Njv3H9qwHeg89HcR/cGhYPP/pH1jw9DBY+Zj8uGDYbrnjg+OTniP3L96fynQ89kzyaeF/6i/suuFxYvfvjV69fO0ZjRoZfyl5O/bXyl/erA6xmv28bCxh6+yXgzMV70VvvtwXfcdx3vo98PT+R8IH8o/2j5sfVT0Kf7kxmTk/8EA5jz/GMzLdsAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAWVJREFUeNqs1C9oVlEcxvGLfxYsCorKBi8aFkTwX1CmoJjENIu4GUXxA2+0WU1Gu8kggmFsa4KMmeaCQR1Gx5LinwUNIsKxPJPD5b26dxiecJ7fc77nz+/c25RSmv+pppTS9Pv9BrWORL3oNA60MrtS27bh/QFWob14glf4goJfmMGpFvBqaru7gDvwFvMYxTiWA23DGlxIrekC3klgvAqdjfcSI/Hu4SGep/Yo4+tt4GICoxVwLF7BvnhLuY5v8b9mfL8NnE3gXAU8FG8JO1tHvvyvI0/gJ97jBPbjKdZxcsAd3ghwz9+6fBRz+IEPeN26glo9TNc7HwTc0GRWf9EBG6gu4Eh2tRro3a0Ce3iAj/hedbdgaljgcXzO5Gs4Fu8SFuKfGQb4LJMudoTf4c0wwJUAD3aEF/KANw2cCnANt/KnOYzzeJzazWGbMl11ttY6bm/12VzJw/6U73M5O96+WeDvAQBUsmqjttxQYQAAAABJRU5ErkJggg==')
+}
+     </pre>
+
+<p class="notes">
+</p>
+     </section>
+    </div>
    
-    
-    
+    <div class="slide normal"> 
+     <header><h1>Lots of Images: Icon Fonts</h1></header> 
+     <section class="content"> 
+
+      <p>An icon font is a custom font with icons instead of characters. You can make your own
+        or use the popular <a href="http://fortawesome.github.io/Font-Awesome/icons/">FontAwesome</a>
+      </p>
+
+      <p>With FontAwesome:</p>
+      <pre>
+&lt;link rel="stylesheet" href="fontawesome.css" type="text/css"&gt;
+&lt;span class="icon-twitter"&gt;&lt;/span&gt;
+&lt;span class="icon-thumbs-up"&gt;&lt;/span&gt;
+      </pre>
+      <p class="notes">
+      </p>
+     </section>
+    </div>
+   
+    <div class="slide section"> 
+     <header><h1>Productivity</h1></header> 
+     <section class="content"> 
+     
+     </section>
+    </div>
     
     <div class="slide normal"> 
      <header><h1>CSS Pre-Processors</h1></header> 
      <section class="content"> 
-     <p>A pre-processor can make you more productive and your CSS better organized, by letting you write in a special language and outputting CSS.
+     <p>A pre-processor can make you more productive and your CSS better organized, by letting you write in a special language and outputting CSS. <br>
 Common features:
       <ul>
         <li>variables
@@ -925,18 +973,18 @@ Common features:
      <header><h1>CSS Pre-Processors</h1></header> 
      <section class="content"> 
 <p>For example, this <a href="http://sass-lang.com/">SaSS</a>:
-<pre>
-@mainColor: #99cc00;
+<pre style="font-size:16px;">
+$mainColor: #99cc00;
  
 #header {
   .logo {
-    color: lighten(@mainColor, 20%);
+    color: lighten($mainColor, 20%);
    @include border-radius (3px);
   }
 }
 </pre>
 <p>is compiled to:</p>
-<pre>
+<pre style="font-size:16px;">
 #header .logo {
   color: #F5D867;
   border-radius: 3px;
@@ -944,7 +992,7 @@ Common features:
   -webkit-border-radius: 3px;
 }
 </pre>
-<p>Other popular pre-processors: <a href="http://lesscss.org/">Less</a>, <a href="http://learnboost.github.com/stylus/">Styles</a>
+<p>Other popular pre-processors: <a href="http://lesscss.org/">Less</a>, <a href="http://learnboost.github.com/stylus/">Stylus</a>
 </p>
 <p class="notes">
 http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/
@@ -952,7 +1000,18 @@ http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-p
      </section>
     </div>
     
-   
+    <div class="slide normal"> 
+     <header><h1>CSS Build Tools</h1></header> 
+     <section class="content"> 
+      <p>Many web developers use build tools to help them automate all these tasks.</p>
+      <ul>
+        <li><a href="http://incident57.com/codekit/">CodeKit</a>: A mac app for compiling CSS, linting JS, etc.</li>
+        <li><a href="http://gruntjs.com/">GruntJS</a>: A command-line JS tool for automating tasks like compiling CSS</li>
+        <li><a href="https://gist.github.com/pamelafox/1285624">CSS/JS Makefile</a>
+     </section>
+    </div>
+
+
    </div>
    
   </div>
