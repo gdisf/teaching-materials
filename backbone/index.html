@@ -96,7 +96,8 @@ var robotSeries = new BookCollection([book1, book2]);
 <pre><code class="javascript">var book = new BookModel({
     title: 'I, Robot',
     author: 'Isaac Asimov',
-    rating: 5});
+    rating: 5,
+    asin: '055338256X'});
 </pre></code>
 
 </section>
@@ -180,9 +181,9 @@ $('body').append(view.render().$el);</pre></code>
 <pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
 
   tagName: 'div',
-  
+
   className: 'books',
-  
+
   render: function() {
 
     // Save this into a variable so we can use it in callback function later
@@ -285,11 +286,11 @@ var rendered = template({book: myBook);</code></pre>
   <pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
 
   tagName: 'div',
-  
+
   className: 'books',
-  
+
   render: function() {
-    // Compile the template 
+    // Compile the template
     var template = Handlebars.compile($("#books-template").html());
     // Render the template with the current collection data
     var rendered = template({books: this.collection.toJSON()});
