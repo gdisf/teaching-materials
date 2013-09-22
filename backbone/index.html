@@ -357,11 +357,10 @@ $('body').append(view.render().$el);</pre></code>
   tagName: 'div',
   className: 'books',
   render: function(eventName) {
-    var self = this;
     this.collection.each(function (book) {
-      var bookItemView = new BookItemView({model:book});
-      self.$el.append(bookItemView.render().$el);
-    });
+      var bookItemView = new BookItemView({model: book});
+      this.$el.append(bookItemView.render().$el);
+    }, this);
     return this;
   }
 });
@@ -411,18 +410,22 @@ $('body').append(view.render().$el);</pre></code>
    'click button': 'addNewBook'
   },
   initialize: function() {
-    this.collection.bind('add', this.render, this);
+    this.listenTo(this.collection, 'add', this.renderOne);
   },
-  render: function(eventName) {
-    var self = this;
-    this.collection.each(function (book) {
-      var bookItemView = new BookItemView({model:book});
-      self.$el.append(bookItemView.render().$el);
-    });
+  render: function() {
+    this.collection.each(this.renderOne, this);
     return this;
   },
+  renderOne: function(book) {
+    var bookItemView = new BookItemView({model: book});
+    this.$el.append(bookItemView.render().$el);
+  },
   addNewBook: function() {
-    this.collection.add({'title': this.$('input').val()});
+    var title = this.$('input').val();
+    if (title) {
+      this.collection.add({ title: title});
+      this.$('input').val('');
+    }
   }
 });</pre></code>
 
