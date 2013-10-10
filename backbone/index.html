@@ -537,7 +537,7 @@ myBooks.fetch();
         "book/:id":"bookDetails"
     },
     bookShelf:function () {
-        var view = new BookShelfViw({collection: new BookCollection()});
+        var view = new BookShelfView({collection: new BookCollection()});
         $('#content').html(view.render().el);
     },
     bookDetails:function (id) {
