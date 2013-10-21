@@ -70,7 +70,7 @@ fixStart('babble'): 'ba**le'
 <pre id="solution3" style="display:none;">
 function fixStart(s) {
   var c = s.charAt(0);
-  return c + s.slice(1).replace(c, '*', 'g');
+  return c + s.slice(1).replace(new RegExp(c, 'g'), '*');
 }
 </pre>
 
