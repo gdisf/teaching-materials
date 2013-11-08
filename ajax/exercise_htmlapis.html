@@ -14,33 +14,11 @@
 
       <p>In this exercise, you'll try out using several HTML APIs to add more dynamic content to the starter webpage.
       </p>
-      <!--
-      <h3>Testing locally</h3>
-
-      <p>Chrome has a permissions policy for local file:// testing that disallows AJAX requests,
-        and some APIs do not work on file:// URLs in all browsers, so if possible, we recommend trying to run a simple server
-        on your machine. The following steps should work on a Mac:
-      </p>
-      <ol>
-        <li>Open Terminal</li>
-        <li>Navigate to your project directory (wherever you will save the files) by using the <code>cd</code> command.</li>
-        <li>Run this command:  <code>python -m SimpleHTTPServer</code></li>
-        <li>If successful, you should then be able to access your project folder by typing
-        this URL in the browser bar: <code>http://localhost:8000</code></li>
-      </ol>
-      <p>If you are not on a Mac or can't do that for some reason, then we recommend using Firefox or pairing
-        with someone who can run a local server.
-      </p>
-      
-
-      <p>Okay, now that we have that setup, try to use some APIs!</p>
-
-        -->
         
       <ol>
         <li>Download <a href="htmlapis_starter.html">the starter file</a> and save them into a project folder. Open the webpage up in the browser and make sure it works. It should pull in video information via an AJAX request and display linked video thumbnails in a list.</li>
         <li>Go to <a href="http://www.flagcounter.com/">flagcounter.com</a> and set up a hit counter for your website. Put the counter somewhere near the bottom of the page.</li>
-        <li>Go to <A href="https://developers.google.com/chart/image/docs/gallery/googleometer_chart">the Google Charts API Docs</a> and read about the Google-o-meter image chart API. Generate a chart for each video that shows its rating (from the JSON). Display that chart when you click on the video. Try generating the chart URLs in the browser first, and only code it in JavaScript once you know what you want the URLs to look like.</li>
+        <li>Go to <A href="https://developers.google.com/chart/image/docs/gallery/googleometer_chart">the Google Charts API Docs</a> and read about the Google-o-meter image chart API. Add a "rating" field to each video in the JSON, like out of 100. Generate a chart for each video that shows its rating. Display that chart when you click on the video. Try generating the chart URLs in the browser first, and only code it in JavaScript once you know what you want the URLs to look like.</li>
         <li>Modify the generated Youtube iframe players so that they auto-play when clicked. <a href="https://developers.google.com/youtube/player_parameters#autohide">Read the docs here.<a></li>
         <li>Bonus: Create a bar chart that compares the ratings across all the videos, using the <a href="https://developers.google.com/chart/image/docs/gallery/bar_charts">Google Bar Charts Image API</a>.</li>
       </ol>
