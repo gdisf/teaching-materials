@@ -174,8 +174,15 @@ function BookModel(bookJSON) {
   this.review    = bookJSON.review || '';
   this.url       = 'http://www.amazon.com/gp/product/'
       + this.asin + '?tag=amazonsimilar-20';
-}
-  </pre></code>
+}</pre></code>
+
+  <pre><code class="javascript">var book = new BookModel({
+    title: "1984",
+    author: "George Orwell",
+    asin: "0451524934",
+    thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+    rating: 4
+  });</pre></code>
 </section>
 
 <section>
@@ -197,6 +204,16 @@ BookCollection.prototype.sort = function() {
   });
 };
   </pre></code>
+
+  <pre><code class="javascript">var booksJSON = [{
+    title: "1984",
+    author: "George Orwell",
+    asin: "0451524934",
+    thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+    rating: 4
+  }]
+
+var books = new BookCollection(booksJSON);</pre></code>
 
 </section>
 
