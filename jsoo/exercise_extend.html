@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: Extending Objects</title>
+    <meta charset="utf-8">
+    <style>
+    li {
+      line-height: 1.8em;
+      margin-bottom: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: Extending Objects</h1>
+      <br><br>
+
+      <p>In this exercise, you will use object oriented programming concepts to extend
+        a custom object in JavaScript.</p>
+      <br>
+      <ol>
+        <li>Use <a href="http://repl.it">repl.it</a> for this exercise, choosing "JavaScript" as the language.</li>
+        <li>Start with your solution from the last exercise (or <a href="exercise_oo_solution.js">copy it from here</a>)
+        <li>Create a new object called <code>MusicVideo</code> that extends <code>Video</code>. Its constructor
+          should also take in an <code>artist</code> argument.
+        <li>Instantiate a new <code>MusicVideo</code> object and call the <code>watch()</code> method on it.</li>
+        <li>Add a method to MusicVideo called <code>rockOut()</code> that uses <code>console.log</code> to output a string like "You rocked out to La Bamba by Ritchie Valens!.
+        </li>
+        <li>Bonus: Use an array of data and a for loop to instantiate 5 <code>MusicVideo</code> objects.</li>
+        <li>Bonus: Make an array of video data with both normal videos and music videos, loop through them, and decide on each one whether to make it a <code>Video</code> or <code>MusicVideo</code> object.</li>
+      </ol>
+
+      <br><br>
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_extend_solution.js" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      
+  </body>
+</html>
+
