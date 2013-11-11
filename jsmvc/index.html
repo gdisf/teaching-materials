@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>JS OO &amp; MVC</title>
+		<title>JS  MVC</title>
 
     <base target="_blank">
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
@@ -36,7 +36,7 @@
 			<div class="slides">
 
 <section>
-	<h1 class="upper">JavaScript<br>OO &amp; MVC</h1>
+	<h1 class="upper">JavaScript MVC</h1>
   <br>
   <br>
   <h2>teaching-materials.org/jsmvc/</h2>
@@ -108,83 +108,6 @@
 
 </section>
 
-<section>
-  <h1>Object-oriented programming</h1>
-  
-  <img src="images/bookoo.png">
-  <br><br>
-  <ul style="font-size:smaller;">
-    <li>Objects have properties and methods</li>
-    <li>Objects can inherit properties/methods of other objects</li>
-    <li>Objects can implement parent methods in different ways</li>
-  </ul>
-
-</section>
-
-<section>
-  <h1>"Object-oriented" JavaScript</h1>
-  <br><br>
-
-  <p>JS is not a strict OO language like Java, but can still be used in an OO-like way.</p>
-  <br><br>
-  <p>Future versions of JS may have more OO concepts built into the language.</p>
-
-</section>
-
-<section>
-  <h1>Defining objects in JS</h1>
-  
-  <pre><code>// The constructor function
-function Book(title, author, numPages) {
-  // The properties of this object
-  this.title = title;
-  this.author = author;
-  this.numPages = numPages;
-  this.currentPage = 0;
-}
-
-// A method on the object
-Book.prototype.read = function() {
-  this.currentPage = this.numPages;
-  console.log("You read " + this.numPages + " pages!");
-}
-
-// Instantiating a new object
-var book = new Book("Robot Dreams", "Isaac Asimov", 320);
-book.read();
-</pre></code>
-
-</section>
-
-<section>
-  <h1>Extending objects in JS</h1>
-  
-  <pre><code>// The constructor function
-function PaperBack(title, author, numPages, cover) {
-  Book.call(this, title, author, numPages);
-  this.cover = cover;
-}
-// Extending the Book object
-PaperBack.prototype = new Book();
-PaperBack.constructor = PaperBack;
-
-// A new method on this object
-PaperBack.prototype.burn = function() {
-  console.log("Omg, you burnt all " + this.numPages + " pages");
-  this.numPages = 0;
-}
-
-// Instantiating a new object
-var paperback = new PaperBack("1984", "George Orwell", 250);
-paperback.read();
- </pre></code>
-  
-</section>
-
-
-<section>
-  <h1><a href="exercise_oo.html">Exercise Time!</a></h1>
-</section>
 
 <section>
   <h1>Model vs. View</h1>
@@ -278,7 +201,12 @@ BookCollection.prototype.sort = function() {
 </section>
 
 <section>
-  <h1>The BookShelf View</h1>
+  <h1><a href="exercise_model.html">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+  <h1>A BookShelf View</h1>
   <pre><code class="javascript">
 function BookShelfView(books) {
   var shelfDiv = $('&lt;div>');
@@ -313,6 +241,35 @@ function BookShelfView(books) {
   </pre></code>
 </section>
 
+
+<section>
+  <h1>Smaller/Nested Views</h1>
+  <pre><code class="javascript">
+function BookView(book) {
+  var bookDiv = $('&lt;div class="book">');
+  var bookLink = $('&lt;a>');
+  var bookAmazonURL = 'http://www.amazon.com/gp/product/' + book.asin + '?tag=amazonsimilar-20';
+  bookLink.attr('href', book.url);
+  var bookCover = $('&lt;img>');
+  bookCover.attr('src', book.thumbnail);
+  bookLink.append(bookCover);
+  bookDiv.append(bookLink);
+
+  // Attach event listeners
+  return bookDiv;
+}
+
+function BookShelfView(books) {
+  var shelfDiv = $('&lt;div>');
+  for (var i = 0; i &lt; books.items.length; i++) {
+    var book = books.items[i];
+    shelfDiv.append(new BookView(book));
+  }
+  return shelfDiv;
+}
+  </pre></code>
+</section>
+
 <section>
   <h1>BookShelf App: <br>MVC Version</h1>
 
@@ -325,7 +282,7 @@ function BookShelfView(books) {
 </section>
 
 <section>
-  <h1><a href="exercise_mvc.html">Exercise Time!</a></h1>
+  <h1><a href="exercise_view.html">Exercise Time!</a></h1>
 </section>
 
 <section>
@@ -354,246 +311,6 @@ function BookShelfView(books) {
 </section>
 
 
-<!--
-<section>
-  <h1 class="upper">BackboneJS</h1>
-  <img src="images/backbonediagram.jpeg">
-</section>
-
-<section>
-    <h1>Backbone Models</h1>
-<pre><code class="javascript">var BookModel = Backbone.Model.extend({
-  defaults: {
-    title: 'Untitled',
-    author: 'Unknown author',
-    review: 'No review',
-  },
-  initialize: function() {
-    this.set('url', 'http://www.amazon.com/gp/product/'
-       + this.get('asin') + '?tag=amazonsimilar-20');
-  }
-});
-</pre></code>
-
-<pre><code class="javascript">var book = new BookModel({
-    title: 'I, Robot',
-    author: 'Isaac Asimov',
-    rating: 5});
-</pre></code>
-
-</section>
-
-
-
-<section>
-  <h1>Backbone Collections</h1>
-<pre><code class="javascript">var BookCollection = Backbone.Collection.extend({
-    model: BookModel,
-    comparator: function() {
-      return this.get('rating');
-    }
-});
-</pre></code>
-
-<pre><code class="javascript">var book1 = new Book({title: 'I, Robot',
-                      author: 'Isaac Asimov'});
-var book2 = new BookModel({title: 'Caves of Steel',
-                      author: 'Isaac Asimov'});
-var robotSeries = new BookCollection([book1, book2]);
-</pre></code>
-
-</section>
-
-
-
-<section>
-  <h1>Views</h1>
-<pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
-  events: {
-    'mouseover img': 'showReview',
-    'mouseout img': 'hideReview'
-  },
-  tagName: 'div',
-  className: 'book',
-  render: function() {
-    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
-    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
-    bookLink.append(bookCover);
-    this.$el.append(bookLink);
-    return this;
-  },
-  showReview: function(e) {
-    var reviewDiv = $('&lt;div class="book-review">');
-    reviewDiv.html('&lt;strong>' + this.model.get('rating') + ' stars: &lt;/strong>' + this.model.get('review'));
-    reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
-    this.$el.append(reviewDiv);
-  },
-  hideReview: function() {
-    this.$('.book-review').remove();
-  }
-});
-</pre></code>
-
-<pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
-  render: function(eventName) {
-    var self = this;
-    this.collection.each(function (book) {
-      var bookItemView = new BookItemView({model:book});
-      self.$el.append(bookItemView.render().$el);
-    });
-    return this;
-  }
-});
-</pre></code>
-
-</section>
-
-
-
-<section>
-  <h1>BookShelf App: 
-    <br>Backbone Version</h1>
-
-   <p>
-   <a href="demo/bookshelf_backbone.html">Live Demo</a>
-   </p>
-   <p>
-   <img src="images/bookshelf_screenshot.png">
-   </p>
-</section>
-
-<section>
-  <h1><a href="exercise_backbone.html">Exercise Time!</a></h1>
-</section>
-
-
-<section>
-  <h1>The Backbone Backend</h1>
-
-<pre><code class="javascript">var Book = Backbone.Model.extend(
-  url: "/api/books",
-  // ...
-});
-</pre></code>
-
-<div class="fragment">
-<pre><code class="javascript">var book = new Book({id: 12});
-book.fetch();
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code>HTTP GET /api/books/12
-{id: 12,
- title: 'Robot Dreams',
- author: 'Isaac Asimov',
- owned: false
-}
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code class="javascript">book.markAsOwned();
-book.save();
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code>HTTP PUT /api/books/12
-{id: 12,
- title: 'Robot Dreams',
- author: 'Isaac Asimov',
- owned: true
-}
-</pre></code>
-</div>
-
-</section>
-
-
-<section>
-  <h1>The Backbone Backend</h1>
-
-<pre><code class="javascript">
-var BookCollection = Backbone.Collection.extend({
-  url: "/api/books",
-  // ...
-});
-</pre></code>
-
-<div class="fragment">
-<pre><code class="javascript">var myBooks = new BookCollection();
-myBooks.fetch();
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code class="ruby">HTTP GET /api/books
-[{id: 12,
- title: 'The Naked Sun',
- author: 'Isaac Asimov'
-}, ...
-]
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code class="javascript">myBooks.create(new Book({title: 'Foundation',
-                         author: 'Isaac Asimov'}));
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code class="ruby">HTTP POST /api/books
-{title: 'Foundation', author: 'Isaac Asimov'}
-</pre></code>
-</div>
-
-</section>
-
-<section>
-  <h1>View/Model Events</h1>
-
-  <pre><code class="javascript">var BookShelfView = Backbone.View.extend({
-  initialize: function() {
-    this.collection.bind('reset', render, this);
-    this.collection.fetch();
-  },
-  render: function(eventName) {
-    var self = this;
-    this.collection.each(function (book) {
-      var bookItemView = new BookItemView({model:book});
-      self.$el.append(bookItemView.render().$el);
-    });
-    return this;
-  }
-});</pre></code>
-  
-  <pre><code class="javascript">var BookItemView = Backbone.View.extend({
-  initialize: function() {
-    this.model.bind('change', render, this);
-  },
-  render: function() {
-    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
-    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
-    bookLink.append(bookCover);
-    this.$el.append(bookLink);
-    return this;
-  }
-});</pre></code>
-</section>
-
-<section>
-  <h1>MV* Frameworks</h1>
-
-  <ul>
-    <li>Know your options.</li>
-    <li>Try out a few!</li>
-    <li>Remember the principles behind them and apply them regardless.
-  </ul>
-
-</section>
--->
 			</div>
 
 			<!-- The navigational controls UI -->

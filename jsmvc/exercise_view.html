@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: Views in MVC</title>
+    <meta charset="utf-8">
+    <style>
+    ol li {
+      margin-bottom: 1.6em;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: Views in MVC</h1>
+      <br><br>
+
+      <p>In this exercise, you will take an app and split it into a Model and View.</p>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+      <ol>
+        <li>Start with the solution from the last exercise (or <a href="exercise_model_solution.html">download from here</a>).
+        
+        <li>Create a <code>VideoItem</code> view. It should be very similar to <code>addVideoToList</code>,
+          but instead of appending to the global DIV (<code>#videos-list</code>), it should return a DIV.
+        </li>
+        <li>In the for loop in <code>document.ready</code>, change the code to create a new <code>VideoItem</code>
+          object, and append the resulting DIV to the global <code>#videos-list</code> DIV there instead.
+        </li>
+        <li>Try loading the page and see if your code works!</li>
+        <li>Bonus: Test the reusability of your code now by creating a new DIV in the HTML <code>#videos2-list</code>
+          and see if you can create new item views to insert in that DIV.
+        </li>
+      </ol>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+  
+      <br><br><br>
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_view_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      
+  </body>
+</html>
+

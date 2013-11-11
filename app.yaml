@@ -47,6 +47,13 @@ handlers:
 - url: /jsmvc
   static_dir: jsmvc
 
+- url: /jsoo/
+  static_files: jsoo/index.html
+  upload: jsoo/index.html
+
+- url: /jsoo
+  static_dir: jsoo
+
 - url: /ajax/
   static_files: ajax/index.html
   upload: ajax/index.html
