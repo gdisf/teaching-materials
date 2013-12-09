@@ -52,11 +52,14 @@
     });    
     
     // Add purify method to ChatMessage
-    test('can purify a message correctly.', function() {
+    test('has a getPurified method that returns a purified message', function() {
       var chatMessage = new ChatMessage({author: 'pamela', text: 'this is the shit!', time: (new Date()).getTime()});
       equals(chatMessage.getPurified(), 'this is the ****!')
     });
 
+    test('purifies a message as soon as it is instantiated', function() {
+      var chatMessage = new ChatMessage({author: 'pamela', text: 'this is the shit!', time: (new Date()).getTime()});
+      equals(chatMessage.get('text'), 'this is the ****!')
     </script>
   </body>
 </html>

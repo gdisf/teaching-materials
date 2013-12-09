@@ -21,10 +21,11 @@
         </li>
         <li>Create a <code>models.js</code> file and include it via a script tag in <code>index.html</code>. Make sure you're referencing it from the right location - check your console for 404s.</li>
         <li>Create a <code>ChatMessage</code> object that extends BackboneModel, and give it defaults for the 'author' and 'text' attributes of 'Unknown' and '', respectively.</li>
-        <li>Run <code>tests/runner.html</code> and confirm the first two tests pass.</li>
+        <!-- Added error line, in case they put their .js file in /js/ directory -->
+        <li>Run <code>tests/runner.html</code> and confirm the first two tests pass. Again, check the console for errors.</li>  
         <li>Create a <code>ChatMessages</code> object that extends BackboneCollection to hold <code>ChatMessage</code> models, and make it sort by the 'time' attribute by default.</li>
         <li>Run <code>tests/runner.html</code> and confirm the 2 collection tests pass.</li>
-        <li>Add a <code>getPurified</code> method to <code>ChatMessage</code> that replaces swear words in the 'text' attribute with asterisks.</li>
+        <li>Add a <code>getPurified</code> method to <code>ChatMessage</code> that replaces swear words in the 'text' attribute with asterisks and returns the purified message. <strong>Bonus:</strong> Purify the message as soon as the model is instantiated.</li>
         <li>Run <code>tests/runner.html</code> and confirm that all the tests pass.</li>
       </ol>
 
