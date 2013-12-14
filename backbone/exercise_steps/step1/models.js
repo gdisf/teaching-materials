@@ -1,7 +1,8 @@
 var ChatMessage = Backbone.Model.extend({
     defaults: {
         author: 'Unknown',
-        text: ''
+        text: '',
+        time: (new Date()).getTime()
     },
     getPurified: function() {
        // Worst purification method ever

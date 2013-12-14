@@ -2,7 +2,8 @@ var ChatMessage = Backbone.Model.extend({
     url: 'http://backchat-backend.appspot.com/messages',
     defaults: {
         author: 'Unknown',
-        text: ''
+        text: '',
+        time: (new Date()).getTime()
     },
     getPurified: function() {
        // Worst purification method ever
