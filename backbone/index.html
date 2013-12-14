@@ -426,6 +426,8 @@ $('body').append(view.render().$el);</pre></code>
       this.collection.add({ title: title});
       this.$('input').val('');
     }
+    // prevent page from refreshing
+    return false;
   }
 });</pre></code>
 
