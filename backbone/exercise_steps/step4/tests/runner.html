@@ -22,10 +22,29 @@
     <script type="text/javascript">
     
     // First exercise: Create the ChatMessage model
-    test("it can create a new ChatMessage with sensible defaults", function() {
+    test("it can create a new ChatMessage with default author as 'Unknown'", function() {
       var chatMessage = new ChatMessage();
       equals(chatMessage.get('author'), 'Unknown');
+    });
+
+    test("it can create a new ChatMessage with default text as empty string '' ", function() {
+      var chatMessage = new ChatMessage();
       equals(chatMessage.get('text'), '');
+    });
+
+    test("it can create a new ChatMessage with default time", function() {
+      var chatMessage = new ChatMessage();
+      ok(chatMessage.get('time'));
+    });
+
+    test("it can create a new ChatMessage a default time that is a number", function() {
+      var chatMessage = new ChatMessage();
+      ok(typeof chatMessage.get('time') == "number");
+    });
+
+    test("it can create a new ChatMessage a default time that is the present time", function() {
+      var chatMessage = new ChatMessage();
+      ok((new Date()).getTime() - chatMessage.get('time') < 1000*60);
     });
 
     test("it can create a new ChatMessage with passed in attributes", function() {
@@ -52,11 +71,15 @@
     });    
     
     // Add purify method to ChatMessage
-    test('can purify a message correctly.', function() {
+    test('BONUS! has a getPurified method that returns a purified message', function() {
       var chatMessage = new ChatMessage({author: 'pamela', text: 'this is the shit!', time: (new Date()).getTime()});
       equals(chatMessage.getPurified(), 'this is the ****!')
     });
 
+    test('DOUBLE BONUS! purifies a message as soon as it is instantiated', function() {
+      var chatMessage = new ChatMessage({author: 'pamela', text: 'this is the shit!', time: (new Date()).getTime()});
+      equals(chatMessage.get('text'), 'this is the ****!')
+    });
     </script>
   </body>
 </html>

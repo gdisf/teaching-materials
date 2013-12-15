@@ -420,12 +420,16 @@ $('body').append(view.render().$el);</pre></code>
     var bookItemView = new BookItemView({model: book});
     this.$el.append(bookItemView.render().$el);
   },
-  addNewBook: function() {
+  addNewBook: function(e) {
+    // prevent page from refreshing when form is submitted
+    e.preventDefault();
+
     var title = this.$('input').val();
     if (title) {
       this.collection.add({ title: title});
       this.$('input').val('');
     }
+
   }
 });</pre></code>
 
