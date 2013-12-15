@@ -2,9 +2,11 @@ var ChatMessagesView = Backbone.View.extend({
   initialize: function() {
     var source   = $("#chat-messages-template").html();
     this.template = Handlebars.compile(source);
-    this.collection.bind('add', this.render, this);
-    this.collection.bind('reset', this.render, this);
+    this.listenTo(this.collection, 'add', this.render);
+    this.listenTo(this.collection, 'reset', this.render);
     this.collection.fetch();
+
+    // polling
     var self = this;
     window.setInterval(function() {
       self.collection.fetch();
