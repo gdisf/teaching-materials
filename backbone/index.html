@@ -526,6 +526,25 @@ myBooks.fetch();
 </section>
 
 <section>
+  <h1>Backend + View</h1>
+
+<pre><code class="javascript">
+var BookShelfView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.collection, 'reset', this.render);
+    this.listenTo(this.collection, 'add', this.renderOne);
+    this.fetch();
+  },
+  render: function() {
+    this.collection.each(this.renderOne, this);
+    return this;
+  },
+  // ...
+});
+</pre></code>
+</section>
+
+<section>
   <h1><a href="exercise4_backend.html" target="_blank">Exercise Time!</a></h1>
 </section>
 
