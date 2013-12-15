@@ -577,52 +577,83 @@ Backbone.history.start({pushState: true});
   <h1><a href="exercise5_routes.html" target="_blank">Exercise Time!</a></h1>
 </section>
 
+<section>
+  <h1>Workflow</h1>
+</section>
+
+<section>
+  <h1>Pre-Compile</h1>
+  <p><a href="http://gruntjs.com/">Grunt</a></p>
+  <pre><code class="javascript">grunt.initConfig({
+  handlebars: {
+      compile: {
+        options: {
+          // Remove folder path name from file
+          processName: function (fileName) {
+            return path.basename(fileName, '.handlebars');
+          },
+          namespace: "Handlebars.templates",
+        },
+        files: {
+          'src/templates/compiled/message.handlebars.js':'src/templates/raw/message.handlebars'
+        }
+      }
+    }
+  })</pre></code>
+  <pre><code>$ grunt handlebars</code></pre>
+  <pre><code class="javascript">Handlebars.templates.message(myCollection);</pre></code>
+</section>
+
+<section>
+  <h1>Manage Dependencies</h1>
+  <p><a href="http://requirejs.org/">RequireJS</a></p>
+  <pre><code class="javascript">require.config(
+  baseUrl: "path/to/assets",
+  paths: {
+    'views':'js/views',
+    'models':'js/models',
+    'jquery':'js/jquery.min',
+    'backbone':'js/backbone',
+    'underscore':'js/underscore',
+    'handlebars':'js/handlebars'
+  }
+});</pre></code>
+  <div class="fragment">
+  <pre><code>define(
+  ['jquery',
+  'underscore',
+  'backbone',
+  'path/to/myCompiledTemplate'],
+function($, _, Backbone, template) {
+  var chatMessageView = Backbone.View.extend({
+    render: function() {
+      var self = this;
+      _.each(self.collection.models, function() {
+        self.$el.append(template.message(self.collection.toJSON()))
+      })
+      return this;
+    }
+  return {
+    view: chatMessageView
+  }
+  })
+  </code></pre>
+  </div>
+</section>
+
+<section>
+  <h1><a href="https://github.com/brendajin/backbone-require-handlebars-example">Starter Repository</a></h1>
+  <ul>
+    <li>Install <a href="http://nodejs.org/download/">Node.js</a></li>
+    <li>Install <a href="http://gruntjs.com/getting-started">grunt-cli</a></li>
+    <li>Clone the repository</li>
+    <li>Run <code>npm install</code></li>
+    <li>Run <code>grunt handlebars</code></li>
+  </ul>
+</section>
 
 <section>
   <h1>Backbone is just the base...</h1>
-</section>
-
-<section>
-  <h1 class="upper">Models</h1>
-</section>
-
-<section>
-  <h1>Relational Models</h1>
-
-  <p><a href="https://github.com/PaulUithol/Backbone-relational">BackboneRelational</a>:</p>
-<pre><code class="javascript" style="padding:20px;">
-var item = Backbone.Model.extend({
-  api: Coursera.api,
-  partialUpdate: true,
-  url: "quizzes"
-});
-
-var section = Backbone.RelationalModel.extend({
-  relations: [{
-    type: Backbone.HasMany,
-    key: "items",
-    relatedModel: Item,
-    collectionType: Items,
-
-    reverseRelation: {
-      'key': '__section',
-      'includeInJSON': false
-    }
-
-  }],
-
-  partialUpdate: true,
-
-  // ...
-});
-</code></pre>
-
-   <p>Warning: watch for performance issues.</p>
-
-</section>
-
-<section>
-  <h1 class="upper">Views</h1>
 </section>
 
 <section>
@@ -646,141 +677,6 @@ layout.content.show(new MyContentView());</pre></code>
 
 </section>
 
-<section>
-  <h1>Templating</h1>
-  <br>
-  <a href="http://jade-lang.com">Jade:</a>
-
-<pre><code>div
-    h1 {#book.get('title')}
-    p
-    each author in book.get('authors')
-        a(href=author.get('url')) {#author.get('name')}
-    if book.get('published')
-        a.btn.btn-large(href="/buy") Buy now!
-</pre></code>
-
-<pre><code class="javascript">{title: 'Best Book Ever',
- authors: [
-    {url: 'http://maddox.com', name: 'Maddox'},
-    {url: 'http://maddox.com', name: 'Maddox'}
-]}
-</pre></code>
-
-<pre><code>&lt;div&gt;
-    &lt;h1&gt;Best Book Ever&lt;/h1&gt;
-    &lt;p&gt;
-        &lt;a href=&quot;http://www.maddox.com&quot;&gt;Maddox&lt;/a&gt;
-        &lt;a href=&quot;http://www.theoatmeal.com&quot;&gt;Oatmeal&lt;/a&gt;
-    &lt;/p&gt;
-    &lt;a href=&quot;/buy&quot;&gt;Buy now!&lt;/a&gt;
-&lt;/div&gt;
-</pre></code>
-</section>
-
-
-<section>
-  <h1>Data binding</h1>
-  <br>
-  <p><a href="http://nytimes.github.io/backbone.stickit/">Backbone Stick-it</a>:</p>
-  <pre><code class="javascript">Backbone.View.extend({bindings: {
-    '#title': 'title',
-    '#author': 'authorName'
-  },render: function() {
-    this.$el.html('&lt;div id="title"/&gt;&lt;input id="author"&gt;');
-    this.stickit();
-  }
-});
-</pre></code>
-
-</section>
-
-<!--
-<section>
-  <h1 class="upper">Routes</h1>
-</section>
-
-<section>
-  <h1>Query parameters</h1>
-  <br>
-  <p><a href="https://github.com/jhudson8/backbone-query-parameters">Backbone query parameters</a>:</p>
-  <pre><code class="javascript">myRoute: function(params) {
-  var view = new MyView({section: params.section});
-}
-</pre></code>
-</section>
--->
-
-<!-- todo: bbQ?-->
-
-<section>
-  <h1 class="upper">Process</h1>
-</section>
-
-<section>
-    <h1>JS Dependencies</h1>
-
-    <p><a href="http://requirejs.org"> RequireJS:</a></p>
-<pre><code class="html" style="padding:20px;">&lt;script src="path/to/require.js" /&gt;
-&lt;script&gt;
-require.config(
-  baseUrl: "path/to/assets",
-  callback: {
-    require(["js/routes/main"]);
-  }
-});
-&lt;/script&gt;
-</code></pre>
-
-<pre><code class="javascript" style="padding:20px;">define(
-  ["js/lib/jquery",
-   "js/lib/underscore",
-   "js/lib/backbone",],
-function($, _, Backbone) {
-  var view = Backbone.View.extend({
-    render: function() {
-      _.each(['a', 'b', 'c'], function(letter) {
-        var $button = $('button').html(letter);
-      }
-    }
-  });
-  return view;
-});
-</code></pre>
-
-</section>
-
-<section>
-  <h1>Testing</h1>
-
-  <p>
-    <a href="http://visionmedia.github.io/mocha/">Mocha</a>: Test runner <br>
-    <a href="http://chaijs.com/">Chai</a>: Test assertion <br>
-    <a href="https://github.com/tmpvar/jsdom">JSDom</a>: Fake dom/events <br>
-    <a href="http://sinonjs.org/">Sinon</a>: Stubs, spies, mocks
-  </p>
-
-  <pre><code class="javascript" style="padding:20px;font-size:15px;line-height:1.3em">it('should let the user edit the title', function() {
-    var server    = sinon.fakeServer.create();
-    var newTitle = 'bananas';
-    var changedThreadJSON  = JSON.parse(
-      fs.readFileSync(path.join(__filename, '../../data/thread.json')));
-    changedThreadJSON['title'] = newTitle;
-
-    server.respondWith("POST", getPath('/api/forum/threads/2703'),
-      [200, {"Content-Type":"application/json"}, JSON.stringify(changedThreadJSON)]);
-
-    threadView.$('.course-forum-thread-edit-title-link').click();
-    chai.expect(threadView.$('.course-forum-thread-title input').size())
-      .to.be.equal(1);
-    threadView.$('.course-forum-thread-title input').val(newTitle);
-    threadView.$('.course-forum-thread-title button').click();
-    server.respond();
-    chai.expect(threadView.$('.course-forum-thread-title h2').text())
-      .to.be.equal(newTitle);
-});</pre></code>
-
-</section>
 
 <section>
   <h1>Keep your options open</h1>
@@ -796,8 +692,6 @@ function($, _, Backbone) {
    Ember? Spine? AngularJS? Enyo? and <a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">many more</a>...
   </p>
   </div>
-  <br><br>
-
 </section>
 
 <section>
