@@ -326,9 +326,9 @@ var rendered = template({book: myBook);</code></pre>
 
 var books = new BookCollection(booksJSON);
 
-var view = new BookShelfView({collection: books});
+var shelfView = new BookShelfView({collection: books});
 
-$('body').append(view.render().$el);</pre></code>
+$('#bookshelf').append(shelfView.render().$el);</pre></code>
 </section>
 
 <section>
