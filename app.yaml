@@ -54,6 +54,13 @@ handlers:
 - url: /jsoo
   static_dir: jsoo
 
+- url: /jsweb/
+  static_files: jsweb/index.html
+  upload: jsweb/index.html
+
+- url: /jsweb
+  static_dir: jsweb
+
 - url: /ajax/
   static_files: ajax/index.html
   upload: ajax/index.html
