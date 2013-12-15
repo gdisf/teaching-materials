@@ -20,12 +20,13 @@
         <li>Download the starter files from <a href="exercise_steps/step0.zip">here</a>.
         </li>
         <li>Create a <code>models.js</code> file and include it via a script tag in <code>index.html</code>. Make sure you're referencing it from the right location - check your console for 404s.</li>
-        <li>Create a <code>ChatMessage</code> object that extends BackboneModel, and give it defaults for the 'author' and 'text' attributes of 'Unknown' and '', respectively. Additionally, give the model a default time of the current time.</li>
+        <li>Create a <code>ChatMessage</code> object that extends BackboneModel, and give it defaults for the 'author' and 'text' attributes of 'Unknown' and '', respectively. Additionally, give the model a default 'time' of the current time in milliseconds using <code>(new Date()).getTime()</code>.</li>
         <!-- Added error line, in case they put their .js file in /js/ directory -->
         <li>Run <code>tests/runner.html</code> and confirm the first two tests pass. Again, check the console for errors.</li>  
         <li>Create a <code>ChatMessages</code> object that extends BackboneCollection to hold <code>ChatMessage</code> models, and make it sort by the 'time' attribute by default.</li>
         <li>Run <code>tests/runner.html</code> and confirm the 2 collection tests pass.</li>
-        <li>Add a <code>getPurified</code> method to <code>ChatMessage</code> that replaces swear words in the 'text' attribute with asterisks and returns the purified message. <strong>Bonus:</strong> Purify the message as soon as the model is instantiated.</li>
+        <li><strong>Bonus!</strong> Add a <code>getPurified</code> method to <code>ChatMessage</code> that replaces swear words in the 'text' attribute with asterisks and returns the purified message.</li>
+        <strong>Double Bonus!</strong> Purify the message as soon as the model is instantiated.</li>
         <li>Run <code>tests/runner.html</code> and confirm that all the tests pass.</li>
       </ol>
 
