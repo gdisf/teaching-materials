@@ -9,8 +9,8 @@
       <script src="../js/underscore.js" type="text/javascript"></script>
       <script src="../js/backbone.js" type="text/javascript"></script>
       <script src="../js/handlebars.js" type="text/javascript"></script>
-      <script src="../js/models.js" type="text/javascript"></script>
-      <script src="../js/views.js" type="text/javascript"></script>
+      <script src="../models.js" type="text/javascript"></script>
+      <script src="../views.js" type="text/javascript"></script>
   </head>
   <body>
     <h1 id="qunit-header">BackChat Tests</h1>
@@ -38,6 +38,16 @@
       ok(chatMessage.get('time'));
     });
 
+    test("it can create a new ChatMessage a default time that is a number", function() {
+      var chatMessage = new ChatMessage();
+      ok(typeof chatMessage.get('time') == "number");
+    });
+
+    test("it can create a new ChatMessage a default time that is the present time", function() {
+      var chatMessage = new ChatMessage();
+      ok((new Date()).getTime() - chatMessage.get('time') < 1000*60);
+    });
+
     test("it can create a new ChatMessage with passed in attributes", function() {
       var chatMessage = new ChatMessage({author: 'pamela', text: 'hi!', time: (new Date()).getTime()});
       equals(chatMessage.get('author'), 'pamela');
@@ -62,12 +72,12 @@
     });    
     
     // Add purify method to ChatMessage
-    test('has a getPurified method that returns a purified message', function() {
+    test('BONUS! has a getPurified method that returns a purified message', function() {
       var chatMessage = new ChatMessage({author: 'pamela', text: 'this is the shit!', time: (new Date()).getTime()});
       equals(chatMessage.getPurified(), 'this is the ****!')
     });
 
-    test('purifies a message as soon as it is instantiated', function() {
+    test('DOUBLE BONUS! purifies a message as soon as it is instantiated', function() {
       var chatMessage = new ChatMessage({author: 'pamela', text: 'this is the shit!', time: (new Date()).getTime()});
       equals(chatMessage.get('text'), 'this is the ****!')
     });
