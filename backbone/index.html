@@ -166,9 +166,9 @@ BackboneCollection.find(iterator);
 
 var books = new BookCollection(booksJSON);
 
-var view = new BookShelfView({collection: books});
+var shelfView = new BookShelfView({collection: books});
 
-$('body').append(view.render().$el);</pre></code>
+$('#bookshelf').append(shelfView.render().$el);</pre></code>
    <p>
    <img src="images/bookshelf_screenshot.png">
    </p>
@@ -208,7 +208,8 @@ $('body').append(view.render().$el);</pre></code>
 });
 </pre></code>
 
-<pre style="font-size:16px;"><code class="javascript">var shelfView = new BookShelfView({collection: bookCollection});</pre></code>
+<pre style="font-size:16px;"><code class="javascript">var shelfView = new BookShelfView({collection: bookCollection});
+$('#bookshelf').append(shelfView.render().$el);</pre></code>
 </div>
 
 </section>
@@ -338,21 +339,7 @@ $('body').append(view.render().$el);</pre></code>
 
   <section>
   <h1>Nested Views</h1>
-<pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
-  tagName: 'div',
-  className: 'book',
-  render: function() {
-    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
-    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
-    bookLink.append(bookCover);
-    this.$el.append(bookLink);
-    return this;
-  }
-});
-</pre></code>
-<pre style="font-size:16px;"><code class="javascript">var itemView = new BookItemView({model: bookModel});</pre></code>
 
-<div class="fragment">
 <pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
   tagName: 'div',
   className: 'books',
@@ -361,6 +348,19 @@ $('body').append(view.render().$el);</pre></code>
       var bookItemView = new BookItemView({model: book});
       this.$el.append(bookItemView.render().$el);
     }, this);
+    return this;
+  }
+});
+</pre></code>
+<div class="fragment">
+<pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'book',
+  render: function() {
+    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
+    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
+    bookLink.append(bookCover);
+    this.$el.append(bookLink);
     return this;
   }
 });
@@ -782,15 +782,6 @@ function($, _, Backbone) {
 
 </section>
 
-
-<section>
-  <h1>So you want to try Backbone?</h1>
-  <br><br>
-  <p>Start with a tutorial like <a href="http://coenraets.org/blog/2011/12/backbone-js-wine-cellar-tutorial-part-1-getting-started/">this one</a>, <b>not</b> the docs.</p>
-  <br><br>
-  <p>Port a simple app or make one from scratch, the "Backbone" way.</p>
-</section>
-
 <section>
   <h1>Keep your options open</h1>
   <br><br>
@@ -806,9 +797,6 @@ function($, _, Backbone) {
   </p>
   </div>
   <br><br>
-  <div class="fragment">
-  <p>Or when all else fails... <br>write your own.</p>
-  </div>
 
 </section>
 
