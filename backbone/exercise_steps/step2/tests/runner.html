@@ -38,6 +38,16 @@
       ok(chatMessage.get('time'));
     });
 
+    test("it can create a new ChatMessage a default time that is a number", function() {
+      var chatMessage = new ChatMessage();
+      ok(typeof chatMessage.get('time') == "number");
+    });
+
+    test("it can create a new ChatMessage a default time that is the present time", function() {
+      var chatMessage = new ChatMessage();
+      ok((new Date()).getTime() - chatMessage.get('time') < 1000*60);
+    });
+
     test("it can create a new ChatMessage with passed in attributes", function() {
       var chatMessage = new ChatMessage({author: 'pamela', text: 'hi!', time: (new Date()).getTime()});
       equals(chatMessage.get('author'), 'pamela');
