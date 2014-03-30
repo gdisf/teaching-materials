@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercises: DOM Access</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: DOM Access</h2>
+
+
+<h3 class="page-header">DOM Detective</h3>
+
+<p>Use DOM access methods to select 
+<ul>
+ <li>Open up <a href="http://www.girldevelopit.com">girldevelopit.com</a> in Chrome or Firefox,
+ and open up the console.
+ <li>Use DOM access methods to find the following parts of the page:</li>
+   <ul>
+     <li>Every image on the page</li>
+     <li>The upper left-hand logo</li>
+     <li>The logos of the media sources that featured GirlDevelopIt</li>
+     <li>The big tagline in the middle</li>
+     <li>All of the green colored class names</li>
+    <li>The "CLASSES" text in the center area</li>
+     <li>The donate link</li>
+     
+   </ul>
+ </ul>
+ <button  onclick="showSolution(1)" class="btn">See Solution</button>
+ <br><br>
+<pre id="solution1" style="display:none;">
+document.getElementsByTagName("img");
+document.getElementById("logo");
+document.getElementsByClassName("media");
+document.getElementsByClassName("tagline")[0];
+document.querySelectorAll("a.green");
+document.querySelector(".blue .topic");
+document.querySelector("#donate a");
+</pre>
+
+  <br><br><br><br><br>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

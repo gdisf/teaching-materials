@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Intro to JavaScript: Objects &amp; the DOM</title>
+<title>JS: DOM</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/presentation.css" />
@@ -32,68 +32,10 @@ $(document).ready(function(){
       
    <div id="slides">
     <div class="slide normal"> 
-     <h1 class="center">JS Objects &amp; DOM</h1>
+     <h1 class="center">JS: DOM</h1>
     </div>
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Built-in Objects</h1></header> 
-     <section class="content"> 
-     <p>JS provides several built-in objects:</p>
 
-<ul>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number">Number</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String">String</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">Date</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math">Math</a></code>
-</ul>
-     </section>
-    </div>
-    
-   
-    
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>HTML Editors</h1></header> 
-     <section class="content"> 
-     <section class="content"> 
-     <p>Since HTML files are just text files, many programs can be used to create them. Some programs provide special assistance for handling HTML, like syntax-highlighting or autocompletion. 
-</p>
-<table style="font-size:120%; border: 1px solid black;" border="1" cellspacing="0">
- <thead>
-  <tr><th></th><th>Windows</th><th>Mac</th><th>Online</th></tr>
- </thead>
-  <tbody>
-  <tr><td>Free</td>
-        <td><a href="http://notepad-plus-plus.org/">Notepad++</a></td>
-       <td><a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a>, <a href="http://smultron.sourceforge.net/">Smultron</a></td>
-       <td rowspan="2"> <a href="http://c9.io/">Cloud9 IDE</a>, <a href="http://jsbin.com/3/">JSBin</a></td>
-  </tr>
-  <tr><td>$$</td>
-       <td><a href="http://www.sublimetext.com/">SublimeText</a></td>, 
-       <td><a href="http://macromates.com/">TextMate</a>, <a href="http://www.panic.com/coda/">Coda</a>, <a href="http://macrabbit.com/espresso/">Espresso</a></td></tr>
-  </tbody>
-</table>
-
-<p>
-</p><center>
-<img style="height:200px" src="http://farm5.static.flickr.com/4096/4931311586_4f770d82e1.jpg">
-</center>
-<p></p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
+      
     <div class="slide normal"> 
      <header><h1>HTML &amp; CSS: Review</h1></header> 
      <section class="content"> 
@@ -131,6 +73,35 @@ $(document).ready(function(){
     </div>
     
    
+    <div class="slide normal"> 
+     <header><h1>HTML Editors</h1></header> 
+     <section class="content"> 
+     <section class="content"> 
+     <p>Since HTML files are just text files, many programs can be used to create them. Some programs provide special assistance for handling HTML, like syntax-highlighting or autocompletion. 
+</p>
+<table style="font-size:120%; border: 1px solid black;" border="1" cellspacing="0">
+ <thead>
+  <tr><th></th><th>Windows</th><th>Mac</th><th>Online</th></tr>
+ </thead>
+  <tbody>
+  <tr><td>Free</td>
+        <td><a href="http://notepad-plus-plus.org/">Notepad++</a></td>
+       <td><a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a>, <a href="http://smultron.sourceforge.net/">Smultron</a></td>
+       <td rowspan="2"> <a href="http://c9.io/">Cloud9 IDE</a>, <a href="http://jsbin.com/3/">JSBin</a></td>
+  </tr>
+  <tr><td>$$</td>
+       <td><a href="http://www.sublimetext.com/">SublimeText</a></td>, 
+       <td><a href="http://macromates.com/">TextMate</a>, <a href="http://www.panic.com/coda/">Coda</a>, <a href="http://macrabbit.com/espresso/">Espresso</a></td></tr>
+  </tbody>
+</table>
+
+<p>
+</p><center>
+<img style="height:200px" src="http://farm5.static.flickr.com/4096/4931311586_4f770d82e1.jpg">
+</center>
+<p></p>
+     </section>
+    </div>
     
     
     
@@ -301,8 +272,12 @@ var catNames = document.querySelectorAll('ul li.catname');
      </section>
     </div>
     
-   
+  
+    <div class="slide normal"> 
+     <h1 class="center"><a target="_blank" href="../exercises/domaccess.html">Exercise Time!</a></h1>
+    </div>
     
+
     <div class="slide normal"> 
      <header><h1>DOM Nodes: Attributes</h1></header> 
      <section class="content"> 
@@ -311,16 +286,11 @@ var catNames = document.querySelectorAll('ul li.catname');
 <pre class="prettyprint">
 &lt;img id="mainpicture" src="http://placekitten.com/200/300"&gt;
 </pre>
-<p>We could change the src attribute this way:</p>
+<p>We can change the src attribute this way:</p>
 <pre class="prettyprint">
-var img = document.getElementById('mainpicture');
+
 var oldSrc = img.src;
 img.src = 'http://placekitten.com/100/500';
-</pre>
-<p>Or using <code>getAttribute</code>/<code>setAttribute</code>:</p>
-<pre class="prettyprint">
-var oldSrc = img.getAttribute('src');
-img.setAttribute('src', 'http://placekitten.com/100/500');
 </pre>
 <br>
 <p>To set class, use the property <code>className</code>:</p>
@@ -329,9 +299,6 @@ img.className = "picture";
 </pre>
      </section>
     </div>
-    
-   
-    
     
     
     <div class="slide normal"> 
@@ -399,7 +366,10 @@ pageNode.innerHTML += "...just adding this bit at the end of the page.";
      </section>
     </div>
 
-   
+  
+    <div class="slide normal"> 
+     <h1 class="center"><a target="_blank" href="../exercises/logohijack.html">Exercise Time!</a></h1>
+    </div>
     
     
     
