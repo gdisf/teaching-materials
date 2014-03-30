@@ -14,18 +14,14 @@
         </h1>
     </div>
     <div id="content">
-        <h2>
-            Overview
-        </h2>
+    <h2>Overview</h2>
     
-    <p>This course gives an overview of JavaScript
-    It does not cover libraries like jQuery.
-    The course is divided into 4 lessons (~2hours each):</p>
+    <p>This course gives an overview of using JavaScript to manipulate web pages. It does not cover libraries like jQuery. The course is divided into 3 lessons and is about 5 hours total:</p>
     
     <ul>
       <li><a href="#lesson1">Lesson 1: Review</a></li>
-      <li><a href="#lesson3">Lesson 2: The DOM</a></li>
-      <li><a href="#lesson4">Lesson 3: Animation &amp; Events</a></li>
+      <li><a href="#lesson2">Lesson 2: The DOM</a></li>
+      <li><a href="#lesson3">Lesson 3: Animation &amp; Events</a></li>
     </ul>
     
     <h3>Prerequisite</h3>
@@ -37,31 +33,19 @@
 
      <ul>
       <li><b>Slides</b>: An HTML5-based slideset (<em>not</em> a PowerPoint) which actually embeds the actual HTML tags being described in order to better demonstrate them.
-      <li><b>In-class example</b>: An example of what the teacher should build up during the course of the lesson, switching between talking over the slides and demonstrating the concepts in the example page. 
       <li><b>Exercise(s)</b>: These can be started in class and then continued outside of it, and the teacher can decide when to reveal the solution for the exercises. For the most part, the solution to an exercise serves as the starting point for the next exercise. 
       <li><b>Additional Reading</b>: Links that teachers can recommend students read after a lesson.
       <li><b>Related Resources</b>: Slides or tutorials that were useful in the creation of the lesson content. Teachers can visit these to get an idea of how other people present the content.
-      <li><b>Room for Improvement</b>: A list of ways that the particular lesson might be improved.
      </ul>
-    
-    <p>The materials from the above lessons(slides, examples, exercises) can be downloaded in <a href="javascript.zip">this zip file</a>.</p>
-    
-    <p>For this course, I recommend having the students use <a href="http://repl.it">repl.it</a> for the first two lessons, for easy JS debugging. That's also useful for in-class examples.</p>
-
-    <h3>Related Resources</h3>
-    
-    <p>The content for the slides was based on consultation with a number of fantastic online resources, including the <a href="http://eloquentjavascript.net">Eloquent JavaScript</a> and <a href="https://developer.mozilla.org/en/JavaScript/Guide">MDN Guide on JavaScript</a>. Those are recommended reading for teachers of this course. It was also inspired by these JS slidesets: <a href="https://github.com/estelle/jsintro">Estelle's Intro to JS</a>, <a href="http://cathylill.net/courses/js101/">Cathy's JS 101</a>, <a href="http://imagine-it.org/wasp/module-js.html#delivery">WASP JS Intro</a>, and <a href="http://girldevelopit.com/materials">GDI JS Materials</a>.
-
-    </p>
-     
-    <h3>History</h3>
-    <p>This course was given by <a href="http://www.pamelafox.org">Pamela Fox</a> in May, 2012 as part of <a href="www.meetup.com/Girl-Develop-It-San-Francisco/">GirlDevelopIt</a> in San Francisco, California. The course was delivered over two weeks, on subsequent Monday and Wednesday evenings, 6-8pm.
-    </p>
     
     <p><strong>If you are using this material and have questions/comments, feel free to leave them here or on the individual lesson pages.</strong></p>
 
     <div id="lesson1" class="lesson">
-      <h1>Lesson: Review</h1>
+      <h2>Lesson: Review</h2>
+
+
+      <h3>Topics:</h3>
+      <p>JS 101 review, JS in different environments</p>
 
       <h3>Materials:</h3>
        <ul> 
@@ -80,9 +64,11 @@
       
       <h3>Materials:</h3>
        <ul> 
-         <li><a href="slides/dom.html">Objects &amp; the DOM</a>
-         <li><a href="exercises/dom.html">Exercise: DOM</a>
-         <li><a href="exercises/greasemonkey.html">Exercise: GreaseMonkey</a> (Bonus: only if time/can be assigned as homework)
+         <li><a href="slides/dom.html">Slides: The DOM</a>
+         <li><a href="exercises/domaccess.html">Exercise: DOM Access</a>
+         <li><a href="exercises/logohijack.html">Exercise: Simple DOM Manipulation</a>
+         <li><a href="exercises/dom.html">Exercise: Advanced DOM Manipulation</a>
+         <li><a href="exercises/greasemonkey.html">Bonus Exercise: GreaseMonkey</a>
        </ul>
       
       <h3>Additional Reading:</h3>
@@ -91,17 +77,6 @@
         <li><a href="http://eloquentjavascript.net/chapter12.html">Eloquent JavaScript: The DOM</a>
        </ul>
       
-      <h3>Room for Improvement:</h3>
-      <ul>
-        <li>Try to use setAttribute/getAttribute throughout, instead of .attributeName. It will work more reliably than .attributeName (maybe not with style in IE?).
-        <li>Show what happens when you give two Object properties the same name (point: can only be one).
-        <li>Show examples of real world JSON, like <a href="http://search.twitter.com/search.json?q=pamelafox">Twitter API?</a>
-        <li>Maybe give an exercise that uses more Array and String methods (after the Objects-methods, built-in methods) slide, like using join() for previous exercise.
-        <li>Talk about objects formatting, maybe show JSONLint.
-        <li>Give better explanation of how Array and String’s can be accessed like objects.
-        <li>Students asked “why would you use JS to manipulate DOM?”. Start off section with several slides about the way we use JS with the DOM: progressive enhancement, building webpages from data, reacting to user events.
-        <li>Class went 10 minutes too long. See if anything can be cut.
-      </ul>
     </div>
 
     <div id="lesson3" class="lesson">
@@ -128,14 +103,6 @@
          <li><a href="http://www.webmonkey.com/2010/02/javascript_events/">Webmonkey: JavaScript Events</a>
        </ul>
        
-       <h3>Room for Improvement:</h3>
-        <ul>
-        <li>Prepare a function ahead of time for the books give away that has the array of student names, picks a random name each time, and then removes it from the array.
-        <li>There was a lot of confusion with the difference between document.getElementById(‘bla’) and document.getElementById(‘bla’).value - spend more time in this class or class before on getting form element values. Show how you can debug form stuff by setting value= to something in the HTML, so you aren’t constantly typing stuff in.
-        <li>In this class or previous class, include a slide on debugging with the console - show how it displays errors at the bottom, clicking through to the line number. Maybe explain common errors? (Does a resource exist for that?)
-        <li>Maybe show window.innerWidth on window slide, since we use that in the exercise later? (Students figured out how to hard code a number, though).
-        <li>Give a refresher of CSS absolute positioning and where the grid starts (either as a slide or just remember to in the notes).
-        </ul> 
     </div>
 
     </div>
