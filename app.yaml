@@ -33,6 +33,13 @@ handlers:
 - url: /algorithms
   static_dir: algorithms
 
+- url: /csstools/
+  static_files: csstools/index.html
+  upload: csstools/index.html
+
+- url: /csstools
+  static_dir: csstools
+
 - url: /jquery/
   static_files: jquery/index.html
   upload: jquery/index.html
