@@ -2,15 +2,21 @@
 <html>
  <head>
   <meta charset="utf-8">
-  <title>Teaching Materials: Intro to JavaScript</title>
-  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  <title>JS 101</title>
+  <link href="../common/bootstrap.css" rel="stylesheet">
   <link href="../common/styles.css" rel="stylesheet" type="text/css" />
  </head>
  <body>
  <div class="container">
+
+<br>
+  <div class="alert">
+    Note: we now use <a href="http://khanacademy.org/cs/programming">Khan Academy Intro to JS</a> for our JS 101 workshops, and we do them in a self-paced style, where students work at their own pace and come together for pair projects when they're ready. You're welcome to use this material, but it will no longer be maintained, and we recommend Khan JS.
+  </div>
+
     <div id="header">
         <h1 class="page-header">
-            Teaching Materials: Intro to JavaScript
+            JS 101
         </h1>
     </div>
     <div id="content">
@@ -87,18 +93,6 @@
         <li><a href="http://www.quirksmode.org/js/function.html">JavaScript Functions</a>
        </ul> 
 
-      <h3>Room for Improvement:</h3>
-       <ul>
-        <li>The placeholder output strings in the exercises are confusing, give examples instead (or both?).
-        <li>For strings, show how to bring them over multiple lines, both for a long string literal and when concatenating.
-        <li>Talk about “Where you code JS”, and then say we’ll start with an online console.
-        <li>Give practical examples of when/where we use comments. Maybe show a JSDoc example.
-        <li>In scope, talk about nested functions, describe how functions find local variables.
-        <li>For arguments, make it clear that arguments can have any name.
-        <li>Show what happens when you don't return anything or return nothing.
-        <li>Discuss what happens when you call a function with no arguments when it has arguments (translateLanguage example).
-        <li>Research (but probably not show): how big are JS numbers? how are objects stored (of arbitrary size)?
-       </ul>
     </div>
 
     <div id="lesson2" class="lesson">
@@ -125,87 +119,31 @@
         <li><a href="http://eloquentjavascript.net/chapter2.html">Eloquent JavaScript: Values, Variables, &amp; Control Flow</a>
         <li><a href="https://developer.mozilla.org/en/JavaScript/Guide/Expressions_and_Operators">MDN: Expressions and Operators</a>
        </ul>
-       
-       <h3>Room for Improvement:</h3>
-       <ul>
-        <li>The “break” statement confused people when they were working on the exercise - thought it was same as return, wasn't sure when to use it. Consider not introducing it at all.
-        <li>Discuss off-by-1 errors.
-        <li>Show how to test for not defined (!= undefined && != null)
-        <li>Talk about coding conventions for if/else, dont put on one line, line up the brackets. Talk about counting brackets and show how editor highlights start/end brackets.
-        <li>Show an example of nested for loops.
-        <li>Add a slide which formally introduces ++, --, or % operators.
-       </ul>
+  
     </div>
 
     <div id="lesson3" class="lesson">
       <h2>
-        Lesson 3: Objects &amp; the DOM
+        Lesson 3: Objects
       </h2>
       
       <h3>Topics:</h3>
       
-      <p>Objects, JS built-in objects, HTML/CSS review, DOM access/modifying</p>
+      <p>Objects, JS built-in objects</p>
       
       <h3>Materials:</h3>
        <ul> 
-         <li><a href="slides/objectsdom.html">Objects &amp; the DOM</a>
+         <li><a href="slides/objectsdom.html">Objects</a>
          <li><a href="exercises/objects.html">Exercise: objects</a>
-         <li><a href="exercises/dom.html">Exercise: DOM</a>
-         <li><a href="exercises/greasemonkey.html">Exercise: GreaseMonkey</a> (Bonus: only if time/can be assigned as homework)
        </ul>
       
       <h3>Additional Reading:</h3>
        <ul>
         <li><a href="https://developer.mozilla.org/en/JavaScript/Guide/Working_with_Objects#Objects_and_properties">MDN: Objects and Properties (only that section)</a>
-        <li><a href="http://eloquentjavascript.net/chapter12.html">Eloquent JavaScript: The DOM</a>
        </ul>
-      
-      <h3>Room for Improvement:</h3>
-      <ul>
-        <li>Try to use setAttribute/getAttribute throughout, instead of .attributeName. It will work more reliably than .attributeName (maybe not with style in IE?).
-        <li>Show what happens when you give two Object properties the same name (point: can only be one).
-        <li>Show examples of real world JSON, like <a href="http://search.twitter.com/search.json?q=pamelafox">Twitter API?</a>
-        <li>Maybe give an exercise that uses more Array and String methods (after the Objects-methods, built-in methods) slide, like using join() for previous exercise.
-        <li>Talk about objects formatting, maybe show JSONLint.
-        <li>Give better explanation of how Array and String’s can be accessed like objects.
-        <li>Students asked “why would you use JS to manipulate DOM?”. Start off section with several slides about the way we use JS with the DOM: progressive enhancement, building webpages from data, reacting to user events.
-        <li>Class went 10 minutes too long. See if anything can be cut.
-      </ul>
+    
     </div>
 
-    <div id="lesson4" class="lesson">
-      <h2>
-        Lesson 4: Events &amp; Animation
-      </h2>
-      
-      <h3>Topics:</h3>
-      
-      <p>The window object, setInterval/setTimeout, Events, JS best practices</p>
-      
-      <h3>Materials:</h3>
-       <ul> 
-         <li><a href="slides/animevents.html">Events &amp; Animation</a>
-         <li><a href="exercises/events.html">Exercise: Events</a>
-         <li><a href="exercises/animation.html">Exercise: animation</a>
-         <li><a href="exercises/catwalk.html">Homework: The Cat Walk</a>
-       </ul> 
-       
-      <h3>Additional Reading:</h3>
-       <ul> 
-         <li><a href="http://www.schillmania.com/content/projects/javascript-animation-1/">JavaScript Animation Tutorial</a>
-         <li><a href="http://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/">Animating in HTML5</a> 
-         <li><a href="http://www.webmonkey.com/2010/02/javascript_events/">Webmonkey: JavaScript Events</a>
-       </ul>
-       
-       <h3>Room for Improvement:</h3>
-        <ul>
-        <li>Prepare a function ahead of time for the books give away that has the array of student names, picks a random name each time, and then removes it from the array.
-        <li>There was a lot of confusion with the difference between document.getElementById(‘bla’) and document.getElementById(‘bla’).value - spend more time in this class or class before on getting form element values. Show how you can debug form stuff by setting value= to something in the HTML, so you aren’t constantly typing stuff in.
-        <li>In this class or previous class, include a slide on debugging with the console - show how it displays errors at the bottom, clicking through to the line number. Maybe explain common errors? (Does a resource exist for that?)
-        <li>Maybe show window.innerWidth on window slide, since we use that in the exercise later? (Students figured out how to hard code a number, though).
-        <li>Give a refresher of CSS absolute positioning and where the grid starts (either as a slide or just remember to in the notes).
-        </ul> 
-    </div>
 
     </div>
 

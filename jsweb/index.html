@@ -5,24 +5,33 @@
   <title>Teaching Materials: JS 200</title>
   <link href="../common/bootstrap.css" rel="stylesheet">
   <link href="../common/styles.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+.for-teachers {
+  display: none;
+    }</style>
+    <script>
+var showTeachers = function() {
+  var forTeachers = document.querySelectorAll(".for-teachers");
+  for (var i = 0; i < forTeachers.length; i++) {
+    forTeachers[i].style.display = "block";
+  }
+}</script>
  </head>
  <body>
  <div class="container">
+  <br>
+  <p class="alert">Are you teaching this course? <a href="javascript:showTeachers();">Click here</a> to see teacher info.</a></p>
+
     <div id="header">
         <h1 class="page-header">
             Teaching Materials: JS 200
         </h1>
     </div>
     <div id="content">
+    <div class="for-teachers">
     <h2>Overview</h2>
     
-    <p>This course gives an overview of using JavaScript to manipulate web pages. It does not cover libraries like jQuery. The course is divided into 3 lessons and is about 5 hours total:</p>
-    
-    <ul>
-      <li><a href="#lesson1">Lesson 1: Review</a></li>
-      <li><a href="#lesson2">Lesson 2: The DOM</a></li>
-      <li><a href="#lesson3">Lesson 3: Animation &amp; Events</a></li>
-    </ul>
+    <p>This course gives an overview of using JavaScript to manipulate web pages. It does not cover libraries like jQuery. The course is divided into 3 lessons and is about 5 hours total.</p>
     
     <h3>Prerequisite</h3>
     <p>The students should be familiar with JavaScript (variables, functions, loops, arrays, objects). The students should have some familiarity with HTML/CSS (classes/ids).</p>
@@ -39,73 +48,70 @@
      </ul>
     
     <p><strong>If you are using this material and have questions/comments, feel free to leave them here or on the individual lesson pages.</strong></p>
-
-    <div id="lesson1" class="lesson">
-      <h2>Lesson: Review</h2>
-
-
-      <h3>Topics:</h3>
-      <p>JS 101 review, JS in different environments</p>
-
-      <h3>Materials:</h3>
-       <ul> 
-         <li><a href="slides/review.html">Slides: Review</a>
-       </ul>
     </div>
 
-    <div id="lesson2" class="lesson">
-      <h2>
-        Lesson 2: The DOM
-      </h2>
-      
-      <h3>Topics:</h3>
-      
+    <h3>Lesson 1: Review</h3><br>
+
+     <div class="for-teachers">
+      <h4>Topics:</h4>
+      <p>JS 101 concepts, JS in different environments</p>
+     </div>
+
+     <h4>Materials:</h4>
+     <ul> 
+       <li><a href="slides/review.html">Slides: Review</a>
+     </ul>
+
+     <h4>Additional Reading:</h4>
+     <ul> 
+      <li><a href="http://cs-blog.khanacademy.org/2014/03/new-way-to-review-what-you-learn-in.html">Khan JS: Review articles</a></li>
+     </ul>
+
+    <br><h3>Lesson 2: The DOM</h3><br>
+    
+    <div class="for-teachers">
+      <h4>Topics:</h4>
       <p>HTML/CSS review, DOM access/modifying</p>
-      
-      <h3>Materials:</h3>
-       <ul> 
-         <li><a href="slides/dom.html">Slides: The DOM</a>
-         <li><a href="exercises/domaccess.html">Exercise: DOM Access</a>
-         <li><a href="exercises/logohijack.html">Exercise: Simple DOM Manipulation</a>
-         <li><a href="exercises/dom.html">Exercise: Advanced DOM Manipulation</a>
-         <li><a href="exercises/greasemonkey.html">Bonus Exercise: GreaseMonkey</a>
-       </ul>
-      
-      <h3>Additional Reading:</h3>
-       <ul>
-        <li><a href="https://developer.mozilla.org/en/JavaScript/Guide/Working_with_Objects#Objects_and_properties">MDN: Objects and Properties (only that section)</a>
-        <li><a href="http://eloquentjavascript.net/chapter12.html">Eloquent JavaScript: The DOM</a>
-       </ul>
-      
     </div>
 
-    <div id="lesson3" class="lesson">
-      <h2>
-        Lesson 3: Events &amp; Animation
-      </h2>
+    <h4>Materials:</h4>
+     <ul> 
+       <li><a href="slides/dom.html">Slides: The DOM</a>
+       <li><a href="exercises/domaccess.html">Exercise: DOM Access</a>
+       <li><a href="exercises/logohijack.html">Exercise: Simple DOM Manipulation</a>
+       <li><a href="exercises/dom.html">Exercise: Advanced DOM Manipulation</a>
+       <li><a href="exercises/greasemonkey.html">Bonus Exercise: GreaseMonkey</a>
+     </ul>
+    
+    <h4>Additional Reading:</h4>
+     <ul>
+      <li><a href="http://eloquentjavascript.net/chapter12.html">Eloquent JavaScript: The DOM</a>
+     </ul>
+
+    <br><h3>Lesson 3: Events &amp; Animation</h3><br>
       
-      <h3>Topics:</h3>
-      
+    <div class="for-teachers">
+      <h4>Topics:</h4>
       <p>The window object, setInterval/setTimeout, Events, JS best practices</p>
-      
-      <h3>Materials:</h3>
-       <ul> 
-         <li><a href="slides/animevents.html">Events &amp; Animation</a>
-         <li><a href="exercises/events.html">Exercise: Events</a>
-         <li><a href="exercises/animation.html">Exercise: animation</a>
-         <li><a href="exercises/catwalk.html">Homework: The Cat Walk</a>
-       </ul> 
-       
-      <h3>Additional Reading:</h3>
-       <ul> 
-         <li><a href="http://www.schillmania.com/content/projects/javascript-animation-1/">JavaScript Animation Tutorial</a>
-         <li><a href="http://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/">Animating in HTML5</a> 
-         <li><a href="http://www.webmonkey.com/2010/02/javascript_events/">Webmonkey: JavaScript Events</a>
-       </ul>
+    </div>
+
+    <h4>Materials:</h4>
+     <ul> 
+       <li><a href="slides/animevents.html">Slides: Events &amp; Animation</a>
+       <li><a href="exercises/events.html">Exercise: Events</a>
+       <li><a href="exercises/animation.html">Exercise: animation</a>
+       <li><a href="exercises/catwalk.html">Homework: The Cat Walk</a>
+     </ul> 
+     
+    <h4>Additional Reading:</h4>
+     <ul> 
+       <li><a href="http://www.schillmania.com/content/projects/javascript-animation-1/">JavaScript Animation Tutorial</a>
+       <li><a href="http://hacks.mozilla.org/2011/08/animating-with-javascript-from-setinterval-to-requestanimationframe/">Animating in HTML5</a> 
+       <li><a href="http://www.webmonkey.com/2010/02/javascript_events/">Webmonkey: JavaScript Events</a>
+     </ul>
        
     </div>
 
-    </div>
 
     <div class="footer">
         <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />The materials are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a>.
@@ -116,7 +122,7 @@
     var disqus_shortname = 'teaching-materials'; // required: replace example with your forum shortname
 
     // The following are highly recommended additional parameters. Remove the slashes in front to use.
-    var disqus_identifier = 'javascript';
+    var disqus_identifier = 'jsweb';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
