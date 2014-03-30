@@ -58,6 +58,17 @@
 					</section>
 			  	</div><!--/jquery title slide-->
 
+
+				<div class="slide normal">
+					<header><h1>Review: DOM and Data!</h1></header>
+					<section class="content">
+
+						<!-- TODO(Brenda) -->
+
+					</section>
+				</div><!--/review-->
+
+
 				<div class="slide normal">
 					<header><h1>What's a library?</h1></header>
 					<section class="content">
@@ -102,6 +113,30 @@ math.factorial(num);
 					</section>
 				</div><!--/why use libraries?-->
 
+
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: Why?</h1></header>
+					<section class="content">
+						<p>No library:</p>
+<pre>var elems = document.getElementsByTagName("img");
+for (var i = 0; i< elems.length; i++) {
+  elems[i].style.display = "none";
+}
+</pre>
+
+						<p>jQuery:</p>
+<pre>$('img').hide();</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: why?-->
+
+
+
+
+
 				<div class="slide normal">
 					<header><h1>jQuery: Why?</h1></header>
 					<section class="content">
@@ -123,24 +158,6 @@ $('div.header').append(newP);</pre>
 					</section>
 				</div><!--/jquery: why?-->
 
-				<div class="slide normal">
-					<header><h1>jQuery: Including</h1></header>
-					<section class="content">
-						<p>Download or link from an official CDN.</p>
-						<p>Then include using a &#60;script&#62 tag on the page.</p>
-<pre>&lt;html&gt;
-&lt;body&gt;
-  &lt;h1&gt;Hi!&lt;/h1&gt;
-  &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
-  &lt;script&gt;
-  // Your code here
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery: including-->
 
 				<div class="slide normal">
 					<header><h1>jQuery: The Basics</h1></header>
@@ -226,57 +243,6 @@ $('div.header').append(newP);</pre>
 					</section>
 				</div><!--/jquery: finding elements-->
 
-				<div class="slide normal">
-					<header><h1>jQuery: Creating Elements</h1></header>
-					<section class="content">
-						<br>
-						<p>Pass in any HTML string and jQuery will create it and return it as a collection.</p>
-						<br>
-						<table style="width:100%;">
-							<thead>
-								<tr>
-									<th>With this jQuery...</th>
-									<th></th>
-									<th>We create this HTML:</th>
-								</tr>
-							</thead>
-							<tr>
-								<td class="code-cell"><pre>$('&lt;p&gt;')</pre></td>
-								<td>→</td>
-								<td class="code-cell"><pre>&lt;p&gt;&lt;/p&gt;</pre></td>
-							</tr>
-							<tr>
-								<td class="code-cell"><pre>$('&lt;p&gt;Welcome!&lt;/p&gt;')</pre></td>
-								<td>→</td>
-								<td class="code-cell"><pre>&lt;p&gt;Welcome!&lt;/p&gt;</pre></td>
-							</tr>
-							<tr>
-								<td class="code-cell"><pre>$('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;')</pre></td>
-								<td>→</td>
-								<td class="code-cell"><pre>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</pre></td>
-							</tr>
-						</table>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery: creating elements-->
-
-				<div class="slide normal">
-					<header><h1>jQuery: Changing Elements</h1></header>
-					<section class="content">
-						<br>If we start with this HTML:
-						<pre>&lt;a href="http://www.google.com"&gt;Google&lt;/a&gt;</pre>
-						<br>
-						We can use this jQuery:
-						<pre>$('a').html('Yahoo!')
-$('a').attr('href', 'http://www.yahoo.com')
-$('a').css({'color': 'purple'})</pre><br>
-						And we'll get this:
-						<pre>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</pre>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery: changing elements-->
 
 				<div class="slide normal">
 					<header><h1>jQuery: Reading Elements</h1></header>
@@ -314,161 +280,115 @@ $('a').css({'color': 'purple'})</pre><br>
 
 
 				<div class="slide normal">
+					<header><h1 class="center"><a href="exercises/exercise_finding.html">Exercise Time!</a></h1></header>
+					<section class="content"></section>
+				</div><!--/exercise2-->
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: Changing Elements</h1></header>
+					<section class="content">
+						<br>If we start with this HTML:
+						<pre>&lt;a href="http://www.google.com"&gt;Google&lt;/a&gt;</pre>
+						<br>
+						We can use this jQuery:
+						<pre>$('a').html('Yahoo!')
+$('a').attr('href', 'http://www.yahoo.com')
+$('a').css({'color': 'purple'})</pre><br>
+						And we'll get this:
+						<pre>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: changing elements-->
+
+				
+				<div class="slide normal">
+					<header><h1>jQuery: Creating Elements</h1></header>
+					<section class="content">
+						<br>
+						<p>Pass in any HTML string and jQuery will create it and return it as a collection.</p>
+						<br>
+						<table style="width:100%;">
+							<thead>
+								<tr>
+									<th>With this jQuery...</th>
+									<th></th>
+									<th>We create this HTML:</th>
+								</tr>
+							</thead>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p&gt;')</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p&gt;&lt;/p&gt;</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p&gt;Welcome!&lt;/p&gt;')</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p&gt;Welcome!&lt;/p&gt;</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;')</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</pre></td>
+							</tr>
+						</table>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: creating elements-->
+
+
+				<div class="slide normal">
 					<header><h1>jQuery: Looping</h1></header>
 					<section class="content">
 						<br>
 						<pre>var links = $('a');
-links.each(function() {
-	var link = $(this);
-	link.html(link.html() + '!');
-});</pre>
+links.each(function(index, elem) {
+   var link = $(elem);
+   link.html(link.html() + '!');
+});
+</pre>
+
+<pre>
+var processElem = function(index, elem) {
+   var link = $(elem);
+   link.html(link.html() + '!');
+};
+var links = $('a');
+links.each(processElem);</pre>
 
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: looping-->
 
+
 				<div class="slide normal">
-					<header><h1 class="center"><a href="exercises/exercise2.html">Exercise 2!</a></h1></header>
+					<header><h1>jQuery: Including</h1></header>
+					<section class="content">
+						<p><a href="http://jquery.com/download/">Download</a> or link from an official CDN.</p>
+						<p>Then include using a &#60;script&#62 tag on the page.</p>
+<pre>&lt;html&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hi!&lt;/h1&gt;
+  &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+  // Your code here
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: including-->
+
+
+				<div class="slide normal">
+					<header><h1 class="center"><a href="exercises/exercise_changing.html">Exercise Time!</a></h1></header>
 					<section class="content"></section>
 				</div><!--/exercise2-->
 
-				<div class="slide normal">
-					<header><h1>Events</h1></header>
-					<section class="content">
-						<br>
-<pre>function onButtonClick() {
-  console.log('clicked!');
-}
 
-$('#button').on('click', onButtonClick);</pre>
-
-<pre>$('#button').on('click', function () {
-  console.log('clicked!');
-});</pre>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/events1-->
-
-				<div class="slide normal">
-					<header><h1>Events</h1></header>
-					<section class="content">
-						<br>
-<pre>$('a').on('click', function (event) {
-	event.preventDefault();
-	console.log('Not going there!');
-});</pre>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/events2-->
-
-				<div class="slide normal">
-					<header><h1>Events</h1></header>
-					<section class="content">
-						<br>
-<pre>$(document).ready(function() {
-	 // Do everything
-});</pre>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/events3-->
-
-				<div class="slide normal">
-					<header><h1>Effects &amp; Animation</h1></header>
-					<section class="content">
-						<br>
-<pre>$('#error').toggle(1000);
-
-$('#error').fadeIn();
-
-$('#error').show(1000, function(){
-	$(this).addClass('redText')
-});</pre>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/effects and animation-->
-
-				<div class="slide normal">
-					<header><h1>Chaining</h1></header>
-					<section class="content">
-						<br>
-<pre>banner.css('color', 'red');
-banner.html('Welcome!');
-banner.show();</pre>
-						<p>Is the same as:</p>
-
-<pre>banner.css('color', 'red').html('Welcome!').show();</pre>
-
-						<p>Is the same as:</p>
-
-<pre>banner.css('color', 'red')
-       .html('Welcome!')
-       .show();</pre>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/chaining-->
-
-				<div class="slide normal">
-					<header><h1 class="center"><a href="exercises/exercise3.html">Exercise 3!</a></h1></header>
-					<section class="content"></section>
-				</div><!--/exercise3-->
-
-				<div class="slide normal">
-					<header><h1>jQuery Plugins</h1></header>
-					<section class="content">
-						<br>
-<pre>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</pre>
-						<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h1>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery plugins-->
-
-				<div class="slide normal">
-					<header><h1>jQuery Plugin Usage</h1></header>
-					<section class="content">
-						<ul>
-							<li>Download the plugin and associated files from the site or github repo.</li>
-							<li>Copy them into your project folder.</li>
-							<li>In the HTML, reference any associated CSS files.</li>
-						</ul>
-<pre>&lt;link rel="type/stylesheet" type="text/css" href="tablesorter.css"&gt;</pre>
-						<ul>
-							<li>In the HTML, add a &lt;script&gt; tag for the jQuery plugin itself.</li>
-						</ul>
-<pre>&lt;script src="lib/tablesorter.js"&gt;&lt;script&gt;</pre>
-						<ul>
-							<li>In the JavaScript, call the jQuery plugin on your DOM.</li>
-						</ul>
-<pre>$('table').tableSorter();</pre>		
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery plugin usage-->
-
-				<div class="slide normal">
-					<header><h1>jQuery</h1></header>
-					<section class="content">
-						<br>
-						<h3 style="text-align:center">...is great.
-						<br><br>
-						But do not become a jQuery-dependant!</h3>
-					</section>
-				</div><!--don't become a jquery dept-->
-
-				<div class="slide normal">
-					<header><h1>jQuery</h1></header>
-					<section class="content">
-						<br>
-						<h3 style="text-align:center">
-							<a href="http://docs.jquery.com">docs.jquery.com</a>
-						</h3>
-					</section>
-				</div><!--docs.jquery.com-->
 
 			</div><!--/slides-->
 		</div><!--/presentation-->

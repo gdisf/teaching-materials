@@ -47,6 +47,13 @@ handlers:
 - url: /jquery
   static_dir: jquery
 
+- url: /jquery2/
+  static_files: jquery2/index.html
+  upload: jquery2/index.html
+
+- url: /jquery2
+  static_dir: jquery2
+
 - url: /jsmvc/
   static_files: jsmvc/index.html
   upload: jsmvc/index.html
