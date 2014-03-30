@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html> 
+  <head> 
+    <!--[if gte IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]--> 
+    <!--[if lt IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <![endif]--> 
+    <meta charset="utf-8" />
+    <title>Lesson: HTML</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Tangerine" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="projection, screen">
+    body {
+  font-size: 20px;
+  font-family: 'Droid Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px; top: 0px;
+}
+
+#info {
+  position: absolute;
+  bottom: 0px;
+  font-size: 10px;
+  left: 30%;
+  z-index: 500;
+  opacity: 0;
+}
+
+.key {
+  color: black;
+  display: inline-block;
+  padding: 3px 3px 3px 3px;
+  text-shadow: none;
+  letter-spacing: 0;
+  bottom: 5px;
+  position: relative;
+  background: white;
+}
+
+#presentation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  background: #778;
+}
+
+.slides {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  display: block;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  -moz-transition: -moz-transform 1s ease-in-out;
+  -o-transition: -o-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+
+  /* so it's visible in the iframe. */
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  width: 900px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  margin-top: -350px;
+  background: white;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.slide.intro {
+  text-align: center;
+  font-size: 200%;
+}
+
+.slide.intro hgroup {
+  margin-top: 200px;
+}
+
+.content {
+  font-size: 140%;
+}
+
+.content input, button {
+  font-size: 140%;
+}
+
+.content td {
+   border: 1px solid black;
+}
+
+.invalid {
+  background-color: red;
+}
+
+.slide.section,.slide.intro {
+  text-align: center;
+}
+
+.slide.section,.slide.intro header {
+  font-size: 200%;
+}
+
+.slide li {
+  margin-bottom: 10px;
+}
+
+.slide img {
+  max-height: 90%;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+  text-align: center;
+}
+
+.slide:nth-child(even) {
+  -moz-border-radius: 20px 0;
+  -khtml-border-radius: 20px 0;
+  border-radius: 20px 0; /* includes Opera 10.5+ */
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+}
+
+.slide:nth-child(odd) {
+  -moz-border-radius: 0 20px;
+  -khtml-border-radius: 0 20px;
+  border-radius: 0 20px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+}
+
+.slide p, .slide textarea {
+  font-size: 120%;
+}
+
+.slide .counter {
+  color: #999999;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: block;
+  font-size: 70%;
+}
+
+.slide.title > .counter,
+.slide.segue > .counter,
+.slide.mainTitle > .counter {
+  display: none;
+}
+
+.force-render {
+  display: block;
+  visibility: hidden;
+}
+
+.slide.far-past {
+  display: block;
+  margin-left: -2400px;
+}
+
+.slide.past {
+  visibility: visible;
+  display: block;
+  margin-left: -1400px;
+  opacity: .0;
+}
+
+.slide.current {
+  visibility: visible;
+  display: block;
+  margin-left: -450px;
+}
+
+.slide.future {
+  visibility: visible;
+  display: block;
+  margin-left: 500px;
+  opacity: .0;
+}
+
+.slide.far-future {
+  display: block;
+  margin-left: 1500px;
+}
+
+body.three-d div.slides {
+  -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
+  transform: translateX(50px) scale(0.8) rotateY(10deg);
+}
+
+/* Content */
+header {
+  font-weight: normal;
+  letter-spacing: -.05em;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  left: 30px;
+  top: 25px;
+  font-size: 140%;
+}
+
+h1 {
+  font-size: 140%;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 90%;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+section, footer {
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin: 20px 30px 0;
+  display: block;
+  overflow: hidden;
+}
+
+footer {
+  font-size: 100%;
+  margin: 20px 0 0 30px;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 110%;
+  border-bottom: 2px solid #3f3f3f;
+}
+
+pre {
+  text-align: left;
+  font-size: 80%;
+  padding: 10px 20px;
+  background: rgba(255, 0, 0, 0.05);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  bord3r: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+pre b {
+  font-weight: normal;
+  color: #c61800;
+  text-shadow: #c61800 0 0 1px;
+  /*letter-spacing: -1px;*/
+}
+
+pre em {
+  font-weight: normal;
+  font-style: normal;
+  color: #18a600;
+  text-shadow: #18a600 0 0 1px;
+}
+
+div.example {
+  display: block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+video {
+  -moz-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+:not(header) > .key {
+  margin: 0 5px;
+  bottom: 4px;
+}
+
+#presentation-counter {
+  color: #ccc;
+  font-size: 70%;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+div:not(.current).reduced {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.no-transitions {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.no-gradients {
+  background: none;
+  background-color: #fff;
+}
+
+    </style>
+    
+    <style type="text/css" media="print">
+.slide {
+  page-break-inside: avoid;
+  page-break-after: always;
+  visibility: visible !important;
+  font-size: 20pt;
+  font-family: Arial, sans-serif;
+}
+
+@page {
+  size: landscape;
+}
+
+body {
+  font-size: 12pt;
+  background: white;
+}
+
+header h1 {
+  border-top: 2pt solid gray;
+  border-bottom: 1px dotted silver;
+}
+
+#presentation-counter, #info, .counter {
+  display: none
+}
+    </style>
+    
+  </head> 
+  <body> 
+  
+  <div id="info" style="display:none;">
+    <p>Press <span class="key">&rarr;</span> key to advance. Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>. </p>
+  </div>
+  
+  <div id="presentation">
+  
+   <div id="presentation-counter"></div>
+      
+   <div id="slides">
+   
+    
+    
+    <div class="slide section"> 
+     <header><h1>HTML</header>
+    </div> 
+    
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Anatomy of a Website</h1></header> 
+     <section class="content"> 
+      <code>
+<p><b>Content</b>: Text, Media 
+<p>+&nbsp;&nbsp;<b>HTML</b>: Structure + Semantics</p>
+<p>+&nbsp;&nbsp;&nbsp;<b>CSS</b>: Presentation + Design</p>
+<p>+&nbsp;&nbsp;&nbsp;&nbsp;<b>JS</b>: Interactivity</p>
+<p>= <b>Your Website</b>
+      </code>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>HTML: "<b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage"</h1></header> 
+     <section class="content"> 
+
+     <p>
+      <img src="htmllogo.jpg"
+      style="float:right;border:none;box-shadow:none; width:200px;">
+      It is:
+     </p>
+     <p>
+     - A text file that is "marked up" with tags<br>
+     - Saved with <code>.html</code> extension<br>
+     - The native language of web browsers.<br>
+    </p>
+     <br><br>
+
+     <p>
+      <img src="screenreader.jpg" style="float:right;">
+      It should be:
+     </p>
+     <ul>
+      <li>Semantic</li>
+      <li>Accessible</li>
+     </ul>
+
+     <br>
+     <p style="font-size:12px;">&#9758; Read more: <a href="http://www.website-accessibility.com/web-accessibility/web-accessibility-basics/how-disabled-use-web.html">How disabled people use the internet</a>
+      </p>
+     </section>
+    </div>
+
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Anatomy of an HTML tag</h1></header> 
+     <section class="content"> 
+     <p>Each tag has a "start tag", "end tag", some content in between, and optional attributes.</p>
+
+<pre>
+&lt;<span style="color:blue">tagname</span> <span style="color:red">attribute="value"</span>&gt;
+  content
+&lt;/<span style="color:blue">tagname</span>&gt;
+
+&lt;<span style="color:blue">a</span> <span style="color:red">href="http://www.google.com"</span> &gt;
+  Google
+&lt;/<span style="color:blue">a</a>&gt;
+</pre>
+
+<p>Think of a tag as a "command" to the browser and of the attributes as modifiers of that command.</p>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>The Basic HTML file</h1></header> 
+     <section class="content"> 
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;/html&gt;
+</pre>
+
+<p>The doctype isn't an actual tag, but it needs to be at start at every HTML page to tell browser which version of HTML you're using (HTML5 here).</p>
+<p>The <code>html</code> tag is always the first, root tag in the page.</p>
+
+     </section>
+    </div>
+    
+   
+    
+    <div class="slide normal"> 
+     <header><h1>Head</h1></header> 
+     <section class="content"> 
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ <strong>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Title of your page goes here&lt;/title&gt;
+ &lt;/head&gt;</strong>
+&lt;/html&gt; 
+</pre>
+     <p>The head contains "meta" information about the page, information that the browser needs before rendering.</p>
+
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>The Body</h1></header> 
+     <section class="content"> 
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Title of your page goes here&lt;/title&gt;
+ &lt;/head&gt;
+ <strong>&lt;body&gt;
+  Bulk of your content here.
+ &lt;/body&gt;</strong>
+&lt;/html&gt; 
+</pre>
+<p>The body contains the actual content of the page.</p>
+     </section>
+    </div>
+
+
+
+    
+    <div class="slide section"> 
+     <header><h1>What goes in the body?</header>
+    </div> 
+    
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Headlines</h1></header> 
+     <section class="content"> 
+     <pre>
+<b>&lt;h1&gt;</b>Header 1<b>&lt;/h1&gt;</b>
+<b>&lt;h2&gt;</b>Header 2<b>&lt;/h2&gt;</b>
+...
+<b>&lt;h6&gt;</b>Header 6<b>&lt;/h6&gt;</b>
+</pre>
+
+<h1>Header 1</h1>
+<h2>Header 2</h2>
+...
+<h6>Header 6</h6>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Paragraphs</h1></header> 
+     <section class="content"> 
+     <pre>
+<b>&lt;p&gt;</b>Paragraph 1<b>&lt;/p&gt;</b>
+<b>&lt;p&gt;</b>Paragraph 2<b>&lt;/p&gt;</b>
+<b>&lt;p&gt;</b>Paragraph 3<b>&lt;/p&gt;</b>
+</pre>
+
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<p>Paragraph 3</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Line Breaks</h1></header> 
+     <section class="content"> 
+     
+<pre>
+&lt;p&gt;
+Imagine there's no Heaven <b>&lt;br&gt;</b>
+It's easy if you try <b>&lt;br&gt;</b>
+No hell below us  <b>&lt;br&gt;</b>
+Above us only sky <b>&lt;br&gt;</b>
+&lt;/p&gt;
+</pre>
+
+<p>
+Imagine there's no Heaven <br>
+It's easy if you try <br>
+No hell below us  <br>
+Above us only sky <br>
+</p>
+
+<p>Notice: This tag does not need to be closed, since it doesn't encapsulate anything.</p>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Lists</h1></header> 
+     <section class="content"> 
+     <pre>
+<b>&lt;ul&gt;</b>
+  <b>&lt;li&gt;</b>Item 1<b>&lt;/li&gt;</b>
+  <b>&lt;li&gt;</b>Item 2<b>&lt;/li&gt;</b>
+  ...
+<b>&lt;/ul&gt;</b>
+</pre>
+
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  ...
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Ordered Lists</h1></header> 
+     <section class="content"> 
+     <pre>
+<b>&lt;ol&gt;</b>
+  <b>&lt;li&gt;</b>Item 1<b>&lt;/li&gt;</b>
+  <b>&lt;li&gt;</b>Item 2<b>&lt;/li&gt;</b>
+  ...
+<b>&lt;/ol&gt;</b>
+</pre>
+
+<ol>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  ...
+</ol>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Formatted Text</h1></header> 
+     <section class="content"> 
+     <pre>
+<b>&lt;em&gt;</b>Emphasized Info<b>&lt;/em&gt;</b>
+</pre>
+<em>Emphasized Info</em>
+<pre>
+<b>&lt;strong&gt;</b>Important Info!<b>&lt;/strong&gt;</b>
+</pre>
+<strong>Important Info!</strong>
+
+<pre>
+&lt;p&gt;
+You can have <b>&lt;em&gt;</b>emphasized info<b>&lt;/em&gt;</b>
+and <b>&lt;strong&gt;</b>important info<b>&lt;/strong&gt;</b>
+in the same paragraph.
+&lt;/p&gt;
+</pre>
+
+<p>
+You can have <em>emphasized info</em> and <strong>important info</strong>
+in the same paragraph.
+</p>
+
+     </section>
+    </div>
+    
+   
+
+    <div class="slide normal"> 
+     <header><h1>Images</h1></header> 
+     <section class="content"> 
+     <pre>
+&lt;img src="http://www.google.com/images/srpr/logo1w.png" 
+  alt="Google"&gt;
+</pre>
+
+<img src="http://www.google.com/images/srpr/logo1w.png" 
+  alt="Google">
+
+     <pre>
+&lt;img src="http://www.google.com/images/srpr/logo1w.png" 
+  alt="Google" <b>height="50"</b>&gt;
+</pre>
+
+<img src="http://www.google.com/images/srpr/logo1w.png" 
+  alt="Google" height="50">
+
+      <pre>
+&lt;img src="http://www.myspacegraphicsandanimations.com/images/
+lights-christmas-graphic55.gif" <b>alt=""</b>&gt;</pre>
+<img src="http://www.myspacegraphicsandanimations.com/images/lights-christmas-graphic55.gif" alt="">
+
+<br><br>
+&#9758; <a href="http://osric.com/chris/accidental-developer/2012/01/when-should-alt-text-be-blank/">
+When Should Alt Text Be Blank?</a>
+
+     <p class="notes">Show how to copy/paste image URL in browser, explain dangers of hotlinking.</p>
+     
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Links</h1></header> 
+     <section class="content"> 
+<pre>
+<b>&lt;a href="http://www.google.com"&gt;</b>Google<b>&lt;/a&gt;</b>
+</pre>
+
+<a href="http://www.google.com">Google</a>
+
+<pre>
+<b>&lt;a href="http://www.google.com"&gt;</b>
+  &lt;img src="http://www.google.com/images/srpr/logo1w.png" 
+    alt="Google"&gt;
+<b>&lt;/a&gt;</b>
+</pre>
+
+<a href="http://www.google.com">
+<img src="http://www.google.com/images/srpr/logo1w.png" alt="Google">
+</a>
+
+<pre>
+&lt;a href="http://www.google.com" <b>target="_blank"</b>&gt;Google&lt;/a&gt;
+</pre>
+<a href="http://www.google.com" target="_blank">Google (in new window)</a>
+
+<br><br>
+&#9758; <a href="http://uxmovement.com/navigation/why-external-links-should-open-in-new-tabs/" target="_blank">
+Why External Links Should Open in New Tabs</a>
+     </section>
+    </div>
+  
+
+    <div class="slide normal"> 
+     <header><h1>Internal Links</h1></header> 
+     <section class="content"> 
+      <pre>
+&lt;p&gt;Jump to <b>&lt;a href=&quot;#chapter1&quot;&gt;</b>the first chapter!<b>&lt;/a&gt; </b>&lt;/p&gt;
+
+&lt;h1 <b>id=&quot;chapter1&quot;</b>&gt;Chapter 1&lt;/h1&gt;
+
+&lt;p&gt;Most exciting story in the world. To be continued...&lt;/p&gt;
+
+&lt;p&gt;Read more on
+<b>&lt;a href=&quot;http://en.wikipedia.org/wiki/Fox#Diet&quot;&gt;</b>Wikipedia<b>&lt;/a&gt;</b>
+&lt;/p&gt;
+     </pre>
+
+     <p>Jump to <a href="#chapter1">the first chapter!</a></p>
+
+    <h1 id="chapter1">Chapter 1</h1>
+
+    <p>Most exciting story in the world. To be continued...</p>
+
+    <p>Read more on <a href="http://en.wikipedia.org/wiki/Fox#Diet">Wikipedia</a></p>
+
+     </section>
+    </div>
+    
+
+
+    <div class="slide normal"> 
+     <header><h1>HTML Comments</h1></header> 
+     <section class="content"> 
+      <pre>
+<b>&lt;!--</b> I can comment for humans here. <b>--&gt;</b>
+
+<b>&lt;!--</b>
+I can write a comment that
+spans multiple lines too.
+<b>--&gt;</b>
+      </pre>
+
+      Commonly used by snippet providers (like <a href="https://www.addthis.com/" target="_blank">AddThis</a>):
+      <pre>
+<b>&lt;!--</b> AddThis Button BEGIN <b>--&gt;</b>
+&lt;div class=&quot;addthis_toolbox addthis_default_style &quot;&gt;
+  &lt;a class=&quot;addthis_button_preferred_1&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;script src=&quot;http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f921b5f4f8898ae&quot;&gt;
+&lt;/script&gt;
+<b>&lt;!--</b> AddThis Button END <b>--&gt;</b>
+      </pre>
+     </section>
+    </div>
+
+    <!--
+    <div class="slide normal"> 
+     <header><h1>HTML Entities</h1></header> 
+     <section class="content"> 
+      Reserved characters:
+      <pre>
+Ace of Base <b>&amp;gt;</b> Lady GaGa <b>&amp;amp;</b> Pink <b>&amp;lt;</b> Roxette</pre>
+Ace of Base &gt; Lady GaGa &amp; Pink &lt; Roxette <br>
+<br>
+      Unicode characters:
+      <pre>
+<b>&amp;copy;</b> Copyright Apple <b>&amp;reg;</b> 2012
+<b>&amp;iquest;</b> Hablas espa<b>&amp;ntilde;</b>ol?
+<b>&amp;#9731;</b> + <b>&amp;#9788;</b> = <b>&amp;#9785;</b></pre>
+
+<p>
+&copy; Copyright Apple &reg; 2012 <br>
+&iquest; Hablas espa&ntilde;ol? <br>
+&#9731; + &#9788; = &#9785; <br>
+</p>
+&#9758; <a href="http://mathiasbynens.be/notes/ambiguous-ampersands">Ambiguous Ampersands</a>,
+<a href="http://copypastecharacter.com/">CopyPasteCharacter</a>,
+<a href="http://en.wikipedia.org/wiki/Character_encodings_in_HTML#HTML_character_references">HTML Character References</a>
+
+     </section>
+    </div>
+    -->
+
+    <div class="slide normal"> 
+     <header><h1>HTML Readability</h1></header> 
+     <section class="content"> 
+      <ul>
+       <li>Use quotes around attributes
+       <li>Indent to represent nesting
+       <li>Use same capitalization
+      </ul>
+      Bad:<br>
+      <pre>
+&lt;ul&gt;&lt;li&gt;&lt;a href=http://www.google.com&gt;Google&lt;/a&gt;&lt;/li&gt;
+&lt;LI&gt;Yahoo&lt;/LI&gt;&lt;/UL&gt;
+      </pre>
+      Good:<br>
+      <pre>
+ &lt;ul&gt;
+   &lt;li&gt;&lt;a href=&quot;http://www.google.com&quot;&gt;Google&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;Yahoo&lt;/li&gt;
+ &lt;/ul&gt;
+      </pre>
+      <a href="http://coding.smashingmagazine.com/2013/02/19/using-white-space-for-readability-in-html-and-css/">Using
+        Whitespace for Readability in HTML/CSS</a>
+     </section>
+    </div>
+
+    <div class="slide section"> 
+     <header><h1>Developing &amp; Debugging</header>
+    </div> 
+    
+
+    <div class="slide normal"> 
+     <header><h1>HTML: Editors</h1></header> 
+     <section class="content"> 
+     <p>Since HTML files are just text files, many programs can be used to create them. Some programs provide special assistance for handling HTML, like syntax-highlighting or autocompletion. 
+</p>
+<table style="font-size:120%; border: 1px solid black;" cellspacing="0">
+ <thead>
+  <tr><th><th>Windows</th><th>Mac</th><th>Online</th></tr>
+ </thead>
+  <tbody>
+  <tr><td>Free</td>
+        <td><a href="http://notepad-plus-plus.org/">Notepad++</a></td>
+       <td><a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a>, <a href="http://smultron.sourceforge.net/">Smultron</a></td>
+       <td rowspan="2"> <a href="http://c9.io/">Cloud9 IDE</a>, <a href="http://jsbin.com/">JSBin</a></td>
+  </tr>
+  <tr><td>$$</td>
+       <td><a href="http://www.e-texteditor.com/">E-Text Editor</a></td>
+       <td><a href="http://www.sublimetext.com/">SublimeText</a>,
+        <a href="http://macromates.com/">TextMate</a>, <a href="http://www.panic.com/coda/">Coda</a>, <a href="http://macrabbit.com/espresso/">Espresso</a></td></tr>
+  </tbody>
+</table>
+
+<p>
+<center>
+<img style="height:200px" src="http://farm5.static.flickr.com/4096/4931311586_4f770d82e1.jpg">
+</center>
+</p>
+     </section>
+    </div>
+
+
+    <div class="slide normal"> 
+      <header><h1>HTML Debugging</h1></header> 
+      <section class="content"> 
+      <ul>
+       <li><A href="https://developers.google.com/chrome-developer-tools/docs/elements">Chrome</a>: Right-click -> "Inspect Element"
+       <li><a href="https://developer.mozilla.org/en/Tools/Inspector">Firefox</a>: Right-click -> "Inspect Element" -> "HTML"
+       <li><a href="http://msdn.microsoft.com/en-us/library/dd565628%28VS.85%29.aspx#html_elementinfo">IE</a>: Open Tools -> Developer Tools
+      </ul>
+      <p>Chrome: <br>
+      <img src="screenshot_chromedevtools.png">
+      </p>
+      </section>
+    </div>
+    
+
+    <div class="slide normal"> 
+     <header><h1>HTML Validators</h1></header> 
+     <section class="content"> 
+     <p>Browsers will often render HTML that has mistakes in it, using different error correction strategies.</p>
+<p>To check that your HTML is actually valid according to the standard, run it through <a href="http://validator.w3.org/">the W3C validator</a>.
+</p>
+<center><img src="http://farm5.static.flickr.com/4130/4989476292_806bdbb18a.jpg">
+</center>
+<p>You can also install the <a href="https://addons.mozilla.org/en-US/firefox/addon/249/">validator add-on</a> for Firefox.</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>HTML Resources</h1></header> 
+     <section class="content"> 
+     <p>When you're on your own and trying to code HTML, do a search for the tag you're using ("img tag" or "li tag") and you will usually find good references at the top. 
+</p>
+<p><a href="http://www.w3schools.com/html/default.asp">W3Schools</a> is a simple to read reference with interactive examples & will often be the top result. The <a href="http://www.w3.org/TR/html401/">HTML spec</a> is the official reference, but can be harder to read.
+</p>
+<p>For more tutorial type sites, check out <a href="https://developer.mozilla.org/en/HTML">Mozilla Developer Network</a> and the <a href="http://dev.opera.com/articles/view/1-introduction-to-the-web-standards-cur/#toc">Opera Web Standards</a> curriculum.
+</p>
+     </section>
+    </div>
+    
+
+
+    <div class="slide normal"> 
+     <header><h1>Exercise Time</h1></header> 
+     <section class="content"> 
+     <a href="exercise_descrip.html">Exercise: HTML Basics</a>
+     </section>
+    </div>
+  
+
+
+   </div>
+   
+  </div>
+  
+  <script>
+  (function() {
+  var doc = document;
+  var disableBuilds = true;
+
+  var ctr = 0;
+  var spaces = /\s+/, a1 = [''];
+
+  var toArray = function(list) {
+    return Array.prototype.slice.call(list || [], 0);
+  };
+
+  var byId = function(id) {
+    if (typeof id == 'string') { return doc.getElementById(id); }
+    return id;
+  };
+
+  var query = function(query, root) {
+    if (!query) { return []; }
+    if (typeof query != 'string') { return toArray(query); }
+    if (typeof root == 'string') {
+      root = byId(root);
+      if(!root){ return []; }
+    }
+
+    root = root || document;
+    var rootIsDoc = (root.nodeType == 9);
+    var doc = rootIsDoc ? root : (root.ownerDocument || document);
+
+    // rewrite the query to be ID rooted
+    if (!rootIsDoc || ('>~+'.indexOf(query.charAt(0)) >= 0)) {
+      root.id = root.id || ('qUnique' + (ctr++));
+      query = '#' + root.id + ' ' + query;
+    }
+    // don't choke on something like ".yada.yada >"
+    if ('>~+'.indexOf(query.slice(-1)) >= 0) { query += ' *'; }
+
+    return toArray(doc.querySelectorAll(query));
+  };
+
+  var strToArray = function(s) {
+    if (typeof s == 'string' || s instanceof String) {
+      if (s.indexOf(' ') < 0) {
+        a1[0] = s;
+        return a1;
+      } else {
+        return s.split(spaces);
+      }
+    }
+    return s;
+  };
+
+  var addClass = function(node, classStr) {
+    classStr = strToArray(classStr);
+    var cls = ' ' + node.className + ' ';
+    for (var i = 0, len = classStr.length, c; i < len; ++i) {
+      c = classStr[i];
+      if (c && cls.indexOf(' ' + c + ' ') < 0) {
+        cls += c + ' ';
+      }
+    }
+    node.className = cls.trim();
+  };
+
+  var removeClass = function(node, classStr) {
+    var cls;
+    if (classStr !== undefined) {
+      classStr = strToArray(classStr);
+      cls = ' ' + node.className + ' ';
+      for (var i = 0, len = classStr.length; i < len; ++i) {
+        cls = cls.replace(' ' + classStr[i] + ' ', ' ');
+      }
+      cls = cls.trim();
+    } else {
+      cls = '';
+    }
+    if (node.className != cls) {
+      node.className = cls;
+    }
+  };
+
+  var toggleClass = function(node, classStr) {
+    var cls = ' ' + node.className + ' ';
+    if (cls.indexOf(' ' + classStr.trim() + ' ') >= 0) {
+      removeClass(node, classStr);
+    } else {
+      addClass(node, classStr);
+    }
+  };
+
+  var ua = navigator.userAgent;
+  var isFF = parseFloat(ua.split('Firefox/')[1]) || undefined;
+  var isWK = parseFloat(ua.split('WebKit/')[1]) || undefined;
+  var isOpera = parseFloat(ua.split('Opera/')[1]) || undefined;
+
+  var canTransition = (function() {
+  var ver = parseFloat(ua.split('Version/')[1]) || undefined;
+  // test to determine if this browser can handle CSS transitions.
+  var cachedCanTransition = 
+    (isWK || (isFF && isFF > 3.6 ) || (isOpera && ver >= 10.5));
+    return function() { return cachedCanTransition; }
+  })();
+
+  //
+  // Slide class
+  //
+  var Slide = function(node, idx) {
+    this._node = node;
+    if (idx >= 0) {
+      this._count = idx + 1;
+    }
+    if (this._node) {
+      addClass(this._node, 'slide distant-slide');
+    }
+    this._makeCounter();
+    this._makeBuildList();
+  };
+
+  Slide.prototype = {
+    _node: null,
+    _count: 0,
+    _buildList: [],
+    _visited: false,
+    _currentState: '',
+    _states: [ 'distant-slide', 'far-past',
+               'past', 'current', 'future',
+               'far-future', 'distant-slide' ],
+    setState: function(state) {
+      if (typeof state != 'string') {
+        state = this._states[state];
+      }
+      if (state == 'current' && !this._visited) {
+        this._visited = true;
+        this._makeBuildList();
+      }
+      removeClass(this._node, this._states);
+      addClass(this._node, state);
+      this._currentState = state;
+
+      // delay first auto run. Really wish this were in CSS.
+      /*
+      this._runAutos();
+      */
+      var _t = this;
+      setTimeout(function(){ _t._runAutos(); } , 400);
+    },
+    _makeCounter: function() {
+      if(!this._count || !this._node) { return; }
+      var c = doc.createElement('span');
+      c.innerHTML = this._count;
+      c.className = 'counter';
+      this._node.appendChild(c);
+    },
+    _makeBuildList: function() {
+      this._buildList = [];
+      if (disableBuilds) { return; }
+      if (this._node) {
+        this._buildList = query('[data-build] > *', this._node);
+      }
+      this._buildList.forEach(function(el) {
+        addClass(el, 'to-build');
+      });
+    },
+    _runAutos: function() {
+      if (this._currentState != 'current') {
+        return;
+      }
+      // find the next auto, slice it out of the list, and run it
+      var idx = -1;
+      this._buildList.some(function(n, i) {
+        if (n.hasAttribute('data-auto')) {
+          idx = i;
+          return true;
+        }
+        return false;
+      });
+      if (idx >= 0) {
+        var elem = this._buildList.splice(idx, 1)[0];
+        var transitionEnd = isWK ? 'webkitTransitionEnd' : (isFF ? 'mozTransitionEnd' : 'oTransitionEnd');
+        var _t = this;
+        if (canTransition()) {
+          var l = function(evt) {
+            elem.parentNode.removeEventListener(transitionEnd, l, false);
+            _t._runAutos();
+          };
+          elem.parentNode.addEventListener(transitionEnd, l, false);
+          removeClass(elem, 'to-build');
+        } else {
+          setTimeout(function() {
+            removeClass(elem, 'to-build');
+            _t._runAutos();
+          }, 400);
+        }
+      }
+    },
+    buildNext: function() {
+      if (!this._buildList.length) {
+        return false;
+      }
+      removeClass(this._buildList.shift(), 'to-build');
+      return true;
+    },
+  };
+
+  //
+  // SlideShow class
+  //
+  var SlideShow = function(slides) {
+    this._slides = (slides || []).map(function(el, idx) {
+      return new Slide(el, idx);
+    });
+
+    var h = window.location.hash;
+    try {
+      this.current = parseInt(h.split('#slide')[1], 10);
+    }catch (e) { /* squeltch */ }
+    this.current = isNaN(this.current) ? 1 : this.current;
+    var _t = this;
+    doc.addEventListener('keydown', 
+        function(e) { _t.handleKeys(e); }, false);
+    doc.addEventListener('mousewheel', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('DOMMouseScroll', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('touchstart', 
+        function(e) { _t.handleTouchStart(e); }, false);
+    doc.addEventListener('touchend', 
+        function(e) { _t.handleTouchEnd(e); }, false);
+    window.addEventListener('popstate',
+        function(e) { _t.go(e.state); }, false);
+    this._update();
+  };
+
+  SlideShow.prototype = {
+    _slides: [],
+    _update: function(dontPush) {
+      document.querySelector('#presentation-counter').innerText = this.current;
+      if (history.pushState) {
+        if (!dontPush) {
+          history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+        }
+      } else {
+        window.location.hash = 'slide' + this.current;
+      }
+      for (var x = this.current-1; x < this.current + 7; x++) {
+        if (this._slides[x-4]) {
+          this._slides[x-4].setState(Math.max(0, x-this.current));
+        }
+      }
+    },
+
+    current: 0,
+    next: function() {
+      if (!this._slides[this.current-1].buildNext()) {
+        this.current = Math.min(this.current + 1, this._slides.length);
+        this._update();
+      }
+    },
+    prev: function() {
+      this.current = Math.max(this.current-1, 1);
+      this._update();
+    },
+    go: function(num) {
+      if (!num) return;
+      if (history.pushState && this.current != num) {
+        history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+      }
+      this.current = num;
+      this._update(true);
+    },
+
+    _notesOn: false,
+    showNotes: function() {
+      var isOn = this._notesOn = !this._notesOn;
+      query('.notes').forEach(function(el) {
+        el.style.display = (notesOn) ? 'block' : 'none';
+      });
+    },
+    switch3D: function() {
+      toggleClass(document.body, 'three-d');
+    },
+    handleWheel: function(e) {
+      var delta = 0;
+      if (e.wheelDelta) {
+        delta = e.wheelDelta/120;
+        if (isOpera) {
+          delta = -delta;
+        }
+      } else if (e.detail) {
+        delta = -e.detail/3;
+      }
+
+      if (delta > 0 ) {
+        this.prev();
+        return;
+      }
+      if (delta < 0 ) {
+        this.next();
+        return;
+      }
+    },
+    handleKeys: function(e) {
+      
+      if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
+      
+      switch (e.keyCode) {
+        case 37: // left arrow
+          this.prev(); break;
+        case 39: // right arrow
+        case 32: // space
+          this.next(); break;
+        case 50: // 2
+          this.showNotes(); break;
+        case 51: // 3
+          this.switch3D(); break;
+      }
+    },
+    _touchStartX: 0,
+    handleTouchStart: function(e) {
+      this._touchStartX = e.touches[0].pageX;
+    },
+    handleTouchEnd: function(e) {
+      var delta = this._touchStartX - e.changedTouches[0].pageX;
+      var SWIPE_SIZE = 150;
+      if (delta > SWIPE_SIZE) {
+        this.next();
+      } else if (delta< -SWIPE_SIZE) {
+         this.prev();
+       }
+    },
+  };
+
+  // Initialize
+  var slideshow = new SlideShow(query('.slide'));
+})();
+
+  </script>
+  <!--[if lt IE 9]>
+  <script 
+  src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({ mode: "overlay" });</script>
+  <![endif]--> 
+  </body> 
+</html>

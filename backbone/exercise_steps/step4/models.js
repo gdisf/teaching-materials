@@ -18,6 +18,7 @@ var ChatMessage = Backbone.Model.extend({
 
 var ChatMessages = Backbone.Collection.extend({
     model: ChatMessage,
+    url: 'http://backchat-backend.appspot.com/messages',
     comparator: function(message) {
         return message.get('time');
     }

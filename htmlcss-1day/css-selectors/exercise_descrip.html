@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS 1: Selectors Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+   <div class="container">
+    <h1>CSS 1: Selectors Exercise</h1>
+    <p>Starting with <a href="../html-forms/exercise_solution.html">the solution</a> from the HTML 2 exercise,
+    add CSS rules to the webpage so that it looks like the screenshot below.
+    </p>
+    <p>First figure out what selector you can use to select a part of the page,
+    adding <code>class</code> or <code>id</code> attributes to the HTML if necessary.
+    </p>
+    <p>Then create the CSS rule with that selector and the color property (e.g. <code>color: red</code>).
+    Useful color names are
+    <code>red</code>, <code>blue</code>, <code>green</code>, <code>yellow</code>,
+    <code>purple</code>, <code>orange</code>, <code>darkred</code>, and <code>lightblue</code>.
+    </p>
+    <p>Note that there are often multiple ways to achieve the same result in CSS. Try to use a mix of the different types of selectors- id, class, position in document, etc.
+    </p>
+    <p>
+    <img src="exercise_screenshot.png" style="border:1px solid black;">
+    </p>
+    
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+  	</script>
+  	
+   </div>
+  </body>
+</html>
