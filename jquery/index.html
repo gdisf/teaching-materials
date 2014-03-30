@@ -268,16 +268,19 @@ $('div.header').append(newP);</pre>
 				<div class="slide normal">
 					<header><h1>jQuery: Reading Elements</h1></header>
 					<section class="content">
-						<br>
-
-
+						<p>If we start with this HTML...
+						<pre>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</pre>
+						</p>
+						<p>We can find it...
+						<pre>$('a')</pre>
+						</p>
+						<p>We can store it...
+						<pre>var myLink = $('a');</pre>
+						</p>
+						<p>
+						...And we can find out lots of things about it:
+						</p>
 						<table>
-							<tr>
-								<td colspan="3">
-								If we start with this HTML...
-								<pre>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</pre>
-								<br>
-								...We can find out lots of things about it:
 							<tr>
 								<td class="code-cell"><pre>console.log($('a').html());</pre></td>
 								<td>→</td>
