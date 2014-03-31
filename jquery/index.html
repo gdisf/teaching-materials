@@ -357,11 +357,22 @@ $('a').css({'color': 'purple'})</pre><br>
 								<td class="code-cell"><pre>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</pre></td>
 							</tr>
 						</table>
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: creating elements-->
 
+				<div class="slide normal">
+					<header><h1>jQuery: Injecting</h1></header>
+					<section>
+						<br>
+						<p>Just like before, we can store the reference in memory...</p>
+						<pre>var myParagraph = $('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</pre>
+						<br>
+						<p>...and inject it somewhere!</p>
+						<pre>$('body').append(myParagraph);</pre>
+						<pre>$('body').prepend(myParagraph);</pre>
+						<pre>myParagraph.appendTo($('body'));</pre>
+					</section>
+				</div><!--/jquery: injecting elements-->
 
 				<div class="slide normal">
 					<header><h1>jQuery: Looping</h1></header>
