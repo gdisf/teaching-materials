@@ -184,12 +184,42 @@ $('#error').show(1000, function(){
 
 
 
-
 				<div class="slide normal">
 					<header><h1>jQuery Patterns and Anti-Patterns</h1></header>
-				</div>
+					<section>
+						<br>
+						<p><strong>Pattern: </strong>bind events to the document
+						<pre>$(document).on('click', 'span', myFuncion );</pre>
+						</p>
+						<br>
+						<p><strong>Pattern: </strong>name variables with $
+<pre>$myVar = $('#myNode');</pre>
+						</p>
+					</section>
+				</div><!--/jquery patterns and anti-patterns-->
 
 
+
+
+				<div class="slide normal">
+					<header><h1>Storing References</h1></header>
+					<section>
+						<p><strong>Pattern: </strong>store references to callback functions
+<pre>var myCallback = function(argument) {
+	// do something cool
+}
+
+$(document).on('click', 'p', myCallback)
+</pre>
+						</p>
+						<p><strong>Anti-pattern: </strong>anonymous functions
+<pre>
+$(document).on('click', 'p', function(argument) {
+	// do something anonymous
+})
+</pre>
+					</section>
+				</div><!--/storing references-->
 
 
 
@@ -218,13 +248,31 @@ banner.show();</pre>
 				<div class="slide normal">
 					<header><h1>DOM Readiness</h1></header>
 					<section class="content">
-						<br>
-<pre>$(document).ready(function() {
-	 // Do everything
-});</pre>
+<p><strong>Pattern: </strong>If you <em>need</em> to load a script in the <code>&lt;head&gt;</code>, wait for the rest of the DOM to be ready before executing
+<pre>
+&lt;body&gt;
+	...
+	&lt;script&gt;
+		$(document).ready(function() {
+			// do something when the DOM is fully loaded
+		})
+	&lt;/script&gt;
+&lt;/body&gt;
+</pre>
+						</p>
+						<p><strong>Anti-Pattern: </strong>DOM manipulation and event binding in the <code>&lt;head&gt;</code>
+
+<pre>
+&lt;head&gt;
+	&lt;script&gt;
+		$('body').append( myNode );
+	&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+						</p>
 
 					</section>
-				</div><!--/events3-->
+				</div><!--/DOM readiness-->
 
 
 				<div class="slide normal">
