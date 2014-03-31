@@ -67,7 +67,7 @@
 						<br>
 <pre>function onButtonClick() {
   console.log('clicked!');
-}
+};
 
 $('#button').on('click', onButtonClick);</pre>
 
@@ -189,11 +189,11 @@ $('#error').show(1000, function(){
 					<section>
 						<br>
 						<p><strong>Pattern: </strong>bind events to the document
-						<pre>$(document).on('click', 'span', myFuncion );</pre>
+						<pre>$(document).on('click', 'a', myCallback);</pre>
 						</p>
 						<br>
 						<p><strong>Pattern: </strong>name variables with $
-<pre>$myVar = $('#myNode');</pre>
+<pre>var $myVar = $('#myNode');</pre>
 						</p>
 					</section>
 				</div><!--/jquery patterns and anti-patterns-->
@@ -206,17 +206,17 @@ $('#error').show(1000, function(){
 					<section>
 						<p><strong>Pattern: </strong>store references to callback functions
 <pre>var myCallback = function(argument) {
-	// do something cool
-}
+  // do something cool
+};
 
-$(document).on('click', 'p', myCallback)
+$(document).on('click', 'p', myCallback);
 </pre>
 						</p>
 						<p><strong>Anti-pattern: </strong>anonymous functions
 <pre>
 $(document).on('click', 'p', function(argument) {
-	// do something anonymous
-})
+  // do something anonymous
+});
 </pre>
 					</section>
 				</div><!--/storing references-->
@@ -251,12 +251,12 @@ banner.show();</pre>
 <p><strong>Pattern: </strong>If you <em>need</em> to load a script in the <code>&lt;head&gt;</code>, wait for the rest of the DOM to be ready before executing
 <pre>
 &lt;body&gt;
-	...
-	&lt;script&gt;
-		$(document).ready(function() {
-			// do something when the DOM is fully loaded
-		})
-	&lt;/script&gt;
+  ...
+  &lt;script&gt;
+    $(document).ready(function() {
+      // do something when the DOM is fully loaded
+    });
+  &lt;/script&gt;
 &lt;/body&gt;
 </pre>
 						</p>
@@ -264,9 +264,9 @@ banner.show();</pre>
 
 <pre>
 &lt;head&gt;
-	&lt;script&gt;
-		$('body').append( myNode );
-	&lt;/script&gt;
+  &lt;script&gt;
+    $('body').append( myNode );
+  &lt;/script&gt;
 &lt;/head&gt;
 </pre>
 						</p>
