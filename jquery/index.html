@@ -378,19 +378,22 @@ $('a').css({'color': 'purple'});</pre><br>
 					<header><h1>jQuery: Looping</h1></header>
 					<section class="content">
 						<br>
-						<pre>var links = $('a');
+<pre>
+var links = $('a');
+
 links.each(function(index, elem) {
    var link = $(elem);
    link.html(link.html() + '!');
 });
 </pre>
-
+						<br>
 <pre>
+var links = $('a');
 var processElem = function(index, elem) {
    var link = $(elem);
    link.html(link.html() + '!');
 };
-var links = $('a');
+
 links.each(processElem);</pre>
 
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
