@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Video Watcher</title>
+  <link rel="stylesheet" type="text/css" href="http://www.teaching-materials.org/common/bootstrap.css">
+ </head>
+ <body>
+
+<div class="container">
+ 
+ <div class="row">
+   <div class="span12">
+    <h2 class="page-header">Best Videos Ever ❤</h1>
+   </div>
+ </div>
+ 
+ <div class="row">
+   <div class="span3">
+     <ul>
+      <li><a href="https://www.youtube.com/watch?v=TddFnTB_7IM">Trip through the 80s</a></li>
+      <li><a href="https://www.youtube.com/watch?v=epUk3T2Kfno">Otters Holding Hands</a></li>
+      <li><a href="https://www.youtube.com/watch?v=il2IrgFHfsg">The Ooooh Cat</a></li>
+    </ul>
+   </div>
+   <div class="span9" id="video-watcher">
+   </div>
+ </div>
+</div>
+
+ <script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"></script>
+ <script type="text/javascript" src="http://www.teaching-materials.org/common/jquery.js?v=234"></script>
+ <script>
+var videoLinks = $('a');
+
+for (var i = 0; i < videoLinks.length; i++) {
+  var videoLink = $(videoLinks[i]);
+  var linkUrl = videoLink.attr('href');
+  var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
+  var thumbnailImg = $('<img>');
+  thumbnailImg.attr('src', thumbnailUrl);
+  videoLink.append(thumbnailImg);
+  console.log(videoLink);
+
+  videoLink.on('click', function(e) {
+      e.preventDefault();
+      var videoEmbed = $('<iframe></iframe>>');
+      videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl));
+      videoEmbed.attr('width', 560);
+      videoEmbed.attr('height', 315);
+      var videoWatcher = $('#video-watcher');
+      videoWatcher.hide();
+      videoWatcher.html(videoEmbed);
+      videoWatcher.fadeIn();
+  });
+}
+  
+ </script>
+ </body>
+</html>
