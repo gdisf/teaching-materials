@@ -82,13 +82,13 @@ for (var i = 0; i < videoLinks.length; i++) {
   var videoLink = $(videoLinks[i]);
   var linkUrl = videoLink.attr('href');
   var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
-  var thumbnailImg = $('<img>');
+  var thumbnailImg = $('&lt;img&gt;');
   thumbnailImg.attr('src', thumbnailUrl);
   videoLink.append(thumbnailImg);
 
   videoLink.on('click', function(e) {
       e.preventDefault();
-      var videoEmbed = $('<iframe></iframe>>');
+      var videoEmbed = $('&lt;iframe&gt;&lt;/iframe&gt;');
       videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl));
       videoEmbed.attr('width', 560);
       videoEmbed.attr('height', 315);

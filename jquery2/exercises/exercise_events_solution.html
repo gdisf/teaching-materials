@@ -29,7 +29,7 @@
 </div>
 
  <script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"></script>
- <script type="text/javascript" src="http://www.teaching-materials.org/common/jquery.js?v=234"></script>
+ <script type="text/javascript" src="http://www.teaching-materials.org/common/jquery.js"></script>
  <script>
 var videoLinks = $('a');
 
@@ -40,11 +40,10 @@ for (var i = 0; i < videoLinks.length; i++) {
   var thumbnailImg = $('<img>');
   thumbnailImg.attr('src', thumbnailUrl);
   videoLink.append(thumbnailImg);
-  console.log(videoLink);
 
   videoLink.on('click', function(e) {
       e.preventDefault();
-      var videoEmbed = $('<iframe></iframe>>');
+      var videoEmbed = $('<iframe></iframe>');
       videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl));
       videoEmbed.attr('width', 560);
       videoEmbed.attr('height', 315);
@@ -54,7 +53,6 @@ for (var i = 0; i < videoLinks.length; i++) {
       videoWatcher.fadeIn();
   });
 }
-  
  </script>
  </body>
 </html>
