@@ -19,11 +19,11 @@
         <li>
         Either start with your code from the jQuery workshop, or download the <a href="exercise_events_before.html">starter file</a>.</li>
         <li>
-        First, create a &lt;div&gt; to hold the video player, either below or to the side
+        First, in the HTML, create a &lt;div&gt; to hold the video player, either below or to the side
         of the list, and give it an id.</li>
         <li>
-        Now, in the loop where you iterate through each link, add a click listener
-        to the link. Add a console.log to make sure it works.</li>
+        Now, in the JavaScript, in the code where you iterate through each link, add a click listener
+        to the link. We recommend using an anonymous function for the callback (not a named function). Put a <code>console.log</code> inside the callback to make sure it works.</li>
         <li>When you click on a link, it should display the embedded video
         in the DIV you created. You should go on Youtube.com and find the embed code
         for a video to figure out what that HTML should look like, and then use jQuery
@@ -78,8 +78,8 @@
  &lt;script&gt;
 var videoLinks = $('a');
 
-for (var i = 0; i < videoLinks.length; i++) {
-  var videoLink = $(videoLinks[i]);
+videoLinks.each(function(ind, elem) {
+  var videoLink = $(elem);
   var linkUrl = videoLink.attr('href');
   var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
   var thumbnailImg = $('&lt;img&gt;');
@@ -97,7 +97,7 @@ for (var i = 0; i < videoLinks.length; i++) {
       videoWatcher.html(videoEmbed);
       videoWatcher.fadeIn();
   });
-}
+});
  &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</pre>
