@@ -109,8 +109,7 @@ function PaperBack(title, author, numPages, cover) {
   this.cover = cover;
 }
 // Extending the Book object
-PaperBack.prototype = new Book();
-PaperBack.constructor = PaperBack;
+PaperBack.prototype = Object.create(Book.prototype);
 
 // A new method on this object
 PaperBack.prototype.burn = function() {
@@ -121,6 +120,7 @@ PaperBack.prototype.burn = function() {
 // Instantiating a new object
 var paperback = new PaperBack("1984", "George Orwell", 250, "cover.jpg");
 paperback.read();
+paperback.burn();
  </pre></code>
   
 </section>
