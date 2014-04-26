@@ -436,14 +436,19 @@ $('#products').append(listingEl);</code></pre>
 <section>
   <h1>DOM events</h1>
 
-  <pre><code class="javascript">var View = Backbone.View.extend({
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend({
   events: {
     'mouseover img' : 'showTooltip',
     'mouseout img': 'hideTooltip'
   },
   showTooltip: function(e) {
+    var tooltipDiv = $('&lt;div class="product-tooltip">');
+    tooltipDiv.html('&lt;strong>' + this.model.get('review') + ' stars: &lt;/strong>');
+    tooltipDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
+    this.$el.append(tooltipDiv);
   },
   hideTooltip: function(e) {
+    this.$('.product-tooltip').remove();
   }
 });</code></pre>
 
@@ -460,16 +465,18 @@ $('#products').append(listingEl);</code></pre>
   <p><a href="http://www.handlebarsjs.com">Handlebars</a> is an HTML
     templating library. To use it:</p>
   <br>
-  <p>1. Make a template script tag:</p>
-  <pre><code>&lt;script id="book-template" type="text/x-handlebars-template"&gt;
-    &lt;strong&gt;{{ book.title }}&lt;/strong&gt; was written by {{ book.author }}
+  <div style="text-align:left">
+  <p>1. Include handlebars.js on your page</p>
+  <p>2. Make a template script tag:</p>
+  <pre><code>&lt;script id="product-template" type="text/x-handlebars-template"&gt;
+    &lt;strong&gt;{{ product.name }}&lt;/strong&gt;: {{ product.inventory }} in stock
 &lt;/script&gt;</code></pre>
-  <br>
-  <p>2. Compile the template and render it with your data:</p>
-  <pre><code class="javascript">var source   = $("#book-template").html();
+  <p>3. Compile the template and render it with your data:</p>
+  <pre><code class="javascript">var source   = $("#product-template").html();
 var template = Handlebars.compile(source);
-var myBook = {"title": "Robot Dreams", "author": "Isaac Asimov"};
-var rendered = template({book: myBook);</code></pre>
+var litterRobot = {"name": "Litter Robot", "inventory": 20};
+var rendered = template({product: litterRobot);</code></pre>
+  </div>
 
 </section>
 
@@ -477,68 +484,37 @@ var rendered = template({book: myBook);</code></pre>
   <h1>Backbone &amp; Handlebars</h1>
   <br>
   <p>In the HTML:</p>
-  <pre><code>&lt;script id="books-template" type="text/x-handlebars-template"&gt;
-    {{#each books}}
-      &lt;div class="book"&gt;
-        &lt;a href="{{url}}"&gt;&lt;img src="{{thumbnail}}"&gt;
-      &lt;/div&gt;
-    {{/each}}
+  <pre><code>&lt;script id="products-template" type="text/x-handlebars-template"&gt;
+  {{#each product}}
+    &lt;div class="product"&gt;
+      &lt;strong&gt;{{ product.name }}&lt;/strong&gt;: {{ product.inventory }} in stock
+    &lt;/div&gt;
+  {{/each}}
 &lt;/script&gt;</code></pre>
 
   <p>In the JS:</p>
-  <pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
-
-  tagName: 'div',
-
-  className: 'books',
-
+  <pre style="font-size:16px;"><code class="javascript">var ProductsListing = Backbone.View.extend({
+  className: 'products',
   render: function() {
-    // Compile the template
-    var template = Handlebars.compile($("#books-template").html());
-    // Render the template with the current collection data
-    var rendered = template({books: this.collection.toJSON()});
-    // Append the rendered HTML to the current view's element
+    var template = Handlebars.compile($("#products-template").html());
+    var rendered = template({products: this.collection.toJSON()});
     this.$el.append(rendered);
-
     return this;
   }
 });
+
+var products = new Products([product1, product2]);
+var listings = new ProductsListing({collection: products});
 </pre></code>
 </section>
 
-<section>
-  <h1>BookShelf App</h1>
 
-   <p>
-   <a href="demo/bookshelf_backbone_templated.html">Live Demo</a>
-   </p>
-   <p>
-   <img src="images/bookshelf_screenshot.png">
-   </p>
+<section>
+  <h1><a href="exercise_handlebars.html" target="_blank">Exercise Time</a></h1>
 </section>
 
 
-<section>
-  <h1>Models &amp; Views</h1>
-  <br>
-
-  <p>Putting them together:</p>
-  <pre><code class="javascript">var booksJSON = [{title: 'I, Robot', author: 'Isaac Asimov'},
-                 {title: 'Robot Dreams', author: 'Isaac Asimov'}];
-
-var books = new BookCollection(booksJSON);
-
-var shelfView = new BookShelfView({collection: books});
-
-$('#bookshelf').append(shelfView.render().$el);</pre></code>
-</section>
-
-<section>
-  <h1><a href="exercise2_views.html" target="_blank">Exercise Time</a></h1>
-</section>
-
-
-
+<!--
   <section>
   <h1>Nested Views</h1>
 
@@ -573,36 +549,6 @@ $('#bookshelf').append(shelfView.render().$el);</pre></code>
 
 </section>
 
-
-<section>
-  <h1>Views + DOM Events</h1>
-<pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
-  <strong>events: {
-    'mouseover img': 'showReview',
-    'mouseout img': 'hideReview'
-  },</strong>
-  tagName: 'div',
-  className: 'book',
-  render: function() {
-    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
-    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
-    bookLink.append(bookCover);
-    this.$el.append(bookLink);
-    return this;
-  },
-  <strong>showReview: function(e) {
-    var reviewDiv = $('&lt;div class="book-review">');
-    reviewDiv.html('&lt;strong>' + this.model.get('rating') + ' stars: &lt;/strong>' + this.model.get('review'));
-    reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
-    this.$el.append(reviewDiv);
-  },
-  hideReview: function() {
-    this.$('.book-review').remove();
-  }</strong>
-});
-</pre></code>
-
-</section>
 
 <section>
   <h1>View/Model Events</h1>
@@ -641,6 +587,8 @@ $('#bookshelf').append(shelfView.render().$el);</pre></code>
 <section>
   <h1><a href="exercise3_events.html" target="_blank">Exercise Time!</a></h1>
 </section>
+
+-->
 
 <section>
   <h1>The Backbone Backend</h1>
