@@ -347,98 +347,110 @@ shirt.get('inventory'); // returns 1</code></pre>
 
 
 <section>
-  <h1>Models &amp; Views</h1>
+  <h1 class="upper">Views</h1>
+</section>
+
+
+<section>
+  <h1>What's a view?</h1>
   <br>
-
-  <p>The end goal:</p>
-  <pre><code class="javascript">var booksJSON = [{title: 'I, Robot', author: 'Isaac Asimov'},
-                 {title: 'Robot Dreams', author: 'Isaac Asimov'}];
-
-var books = new BookCollection(booksJSON);
-
-var shelfView = new BookShelfView({collection: books});
-
-$('#bookshelf').append(shelfView.render().$el);</pre></code>
-   <p>
-   <img src="images/bookshelf_screenshot.png">
-   </p>
-
+  <ul>
+    <li>DOM that renders a model or collection</li>
+    <li>Events tied to that DOM</li>
+  </ul>
 </section>
 
 <section>
-  <h1>Views</h1>
-<div>
-<pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
+  <h1>Defining a view</h1>
+  <br>
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend();</code></pre>
+  <br>
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend({
+  tagName: "div", // default
+  className: "product"
+});</code></pre>
 
-  tagName: 'div',
+</section>
 
-  className: 'books',
 
+<section>
+  <h1>Customizing the render</h1>
+  <br>
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend({
+  className: "product",
   render: function() {
-
-    // Save this into a variable so we can use it in callback function later
-    var self = this;
-
-    // Iterate through each model in the collection
-    this.collection.each(function (book) {
-
-      // Create the DOM for the book img and link
-      var bookDiv = $('&lt;div class="book"&gt;&lt;/div&gt;');
-      var bookLink = $('&lt;a>').attr('href', book.get('url'));
-      var bookCover = $('&lt;img>').attr('src', book.get('thumbnail'));
-      bookLink.append(bookCover);
-      bookDiv.append(bookLink);
-
-      // Append the DOM to this view's element
-      self.$el.append(bookDiv);
-    });
-
+    this.$el.append('&lt;img src="http://placekitten.com/200/200"&gt;');
     return this;
   }
-});
-</pre></code>
-
-<pre style="font-size:16px;"><code class="javascript">var shelfView = new BookShelfView({collection: bookCollection});
-$('#bookshelf').append(shelfView.render().$el);</pre></code>
-</div>
-
+});</code></pre>
 </section>
 
-
-
 <section>
-  <h1>Backbone &amp; jQuery</h1>
+  <h1>Connecting view to model</h1>
   <br>
-  <p>Standalone jQuery:</p>
-<pre><code class="javascript">$('body').append('&lt;br&gt;');
-$('.coursera-listing').html('Best Course Ever');
-</pre></code>
-<br>
-<p>Every <code>Backbone.View</code> has a <code>$el</code>
-and a <code>$()</code> method:
-</p>
-<pre><code class="javascript">var view = BackboneView.extend({
-
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend({
+  className: "product",
   render: function() {
-    this.$el.append('&lt;br&gt;');
-    this.$el.find('.coursera-listing').html('Best Course Ever');
-    // or shorter:
-    this.$('.coursera-listing').html('Best Course Ever');
+    var imgUrl = this.model.get('imgUrl');
+    var newNode = $('&lt;img src="' + imgUrl + '"&gt;');
+    this.$el.append(newNode);
+    return this;
   }
-})
-</pre></code>
+});</code></pre>
+  <br>
+  <pre><code class="javascript">var product = new Product({imgUrl: "http://placekitten.com/200/100"});
+
+var listing = new ProductListing({
+  model: product
+});</code></pre>
+
 </section>
 
+<section>
+  <h1>Using the view</h1>
+  <br>
+  <p>Create the view:</p>
+  <pre><code class="javascript">var listing = new ProductListing({
+  model: product
+});</pre></code>
+  <p>Then append it:</p>
+  <pre><code class="javascript">listing.render();
+$('#products').append(listing.$el);</code></pre>
+  <p>..or...</p>
+  <pre><code>var listingEl = myView.render().$el;
+$('#products').append(listingEl);</code></pre>
+  <p>...or...</p>
+  <pre><code>$('#products').append(myView.render().$el);</code></pre>
+</section>
 
 <section>
-  <h1>BookShelf App</h1>
+  <h1>Using the view</h1>
+  <br>
+  <p>...or...</p>
+  <pre><code class="javascript">var listing = new ProductListing({
+  model: product,
+  el: $('#products')
+});</pre></code>
+</section>
 
-   <p>
-   <a href="demo/bookshelf_backbone1.html">Live Demo</a>
-   </p>
-   <p>
-   <img src="images/bookshelf_screenshot.png">
-   </p>
+<section>
+  <h1>DOM events</h1>
+
+  <pre><code class="javascript">var View = Backbone.View.extend({
+  events: {
+    'mouseover img' : 'showTooltip',
+    'mouseout img': 'hideTooltip'
+  },
+  showTooltip: function(e) {
+  },
+  hideTooltip: function(e) {
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1><a href="exercise3_views.html" target="_blank">Exercise Time!</a></h1>
 </section>
 
 
