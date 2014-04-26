@@ -178,94 +178,170 @@ $('#jquery-review').append(newCode);</pre></code>
   <img src="images/backbonediagram.jpeg">
 </section>
 
-<section>
-  <h1>Backbone Models &amp; Collections</h1>
 
-  <br>
-  <p>The end goal:</p>
-  <pre><code class="javascript">var book1 = new BookModel({title: 'I, Robot',
-                      author: 'Isaac Asimov'});
-var book2 = new BookModel({title: 'Caves of Steel',
-                      author: 'Isaac Asimov'});
-var robotSeries = new BookCollection([book1, book2]);
-</pre></code>
-  </p>
+
+<section>
+  <h1 class="upper">Models</h1>
 </section>
 
 <section>
-    <h1>Backbone Models</h1>
-<pre><code class="javascript">var BookModel = Backbone.Model.extend({
+  <h1>What is a model?</h1>
+
+  <ul>
+    <li>Attributes</li>
+    <li>Default attributes</li>
+    <li>Standard methods</li>
+    <li>Custom Methods</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Defining a model</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend();</code></pre>
+
+</section>
+
+<section>
+  <h1>Setting defaults</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
   defaults: {
-    title: 'Untitled',
-    author: 'Unknown author',
-    review: 'No review',
-  },
-  initialize: function() {
-    this.set('url', 'http://www.amazon.com/gp/product/'
-       + this.get('asin') + '?tag=amazonsimilar-20');
+    name: "California",
+    type: "T-shirt",
+    colors: ["light gray"],
+    tagline: "Cali says relax",
+    newProduct: true,
+    inventory: 28
   }
-});
-</pre></code>
-
-<pre><code class="javascript">var book = new BookModel({
-    title: 'I, Robot',
-    author: 'Isaac Asimov',
-    rating: 5,
-    asin: '055338256X'});
-</pre></code>
-
-</section>
-
-
-
-<section>
-  <h1>Backbone Collections</h1>
-<pre><code class="javascript">var BookCollection = Backbone.Collection.extend({
-    model: BookModel,
-    comparator: function(model) {
-      return model.get('rating');
-    }
-});
-</pre></code>
-
-<pre><code class="javascript">var book1 = new BookModel({title: 'I, Robot',
-                      author: 'Isaac Asimov'});
-var book2 = new BookModel({title: 'Caves of Steel',
-                      author: 'Isaac Asimov'});
-var robotSeries = new BookCollection([book1, book2]);
-</pre></code>
+});</code></pre>
 
 </section>
 
 <section>
-  <h1>Backbone &amp; Underscore</h1>
+  <h1>Instantiating new models</h1>
   <br>
-  <p><a href="http://underscorejs.org">Underscore</a>, a library of useful functions:</p>
-<pre><code class="javascript">// On collections:
-_.each(coll, iterator); _.find(coll, iterator); // etc
-// On arrays
-_.flatten(arr), _.union(*arrs), _.uniq(arr), // etc
-// On functions
-_.bind(func, obj), _.throttle(func, wait) // etc
-</pre></code>
-<br>
-          <p>All collection functions work on <code>BackboneCollection</code>s:
-<pre><code class="javascript">BackboneCollection.each(iterator);
-BackboneCollection.find(iterator);
-// etc
-</pre></code>
+<pre><code class="javascript">var shirt = new Product();</code></pre>
 
-<pre><code class="javascript">bookCollection.each(function(book) {
-  console.log(book.get("title"));
-});
-</pre></code>
+<pre><code class="javascript">var shirt = new Product({
+  name: "Roma",
+  colors: ["green", "white", "red"]
+});</code></pre>
+</section>
+
+<section>
+  <h1>Setting and getting attributes</h1>
+  <br>
+<pre><code class="javascript">shirt.set('tagline', 'sempre ad maiora');
+shirt.set('newProduct', false);
+shirt.set('inventory', 1);</code></pre>
+
+<pre><code class="javascript">shirt.get('tagline'); //returns 'sempre ad maiora'
+shirt.get('newProduct'); // returns false
+shirt.get('inventory'); // returns 1</code></pre>
 
 </section>
 
+<section>
+  <h1>Custom initialization</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+  initialize: function() {
+    this.set('url', 'http://products.com/' + this.id);
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Custom methods</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+  makeSentence: function() {
+    return "Check out our very special " + this.get('type') + ".";
+  }
+});</code></pre>
+
+</section>
 
 
 <section>
   <h1><a href="exercise1_models.html" target="_blank">Exercise Time</a></h1>
+</section>
+
+
+<section>
+  <h1 class="upper">Collections</h1>
+</section>
+
+<section>
+  <h1>What is a collection?</h1>
+  <br>
+  <ul>
+    <li>Multiple models</li>
+    <li>Standard methods</li>
+    <li>Custom Methods</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Defining a collection</h1>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend();</code></pre>
+  <br><br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  model: Product
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Instantiating a collection</h1>
+  <br>
+  <p>Pass an array of models:</p>
+  <pre><code class="javascript">var products = new Products([product1, product2, product3]);</code></pre>
+  <br>
+  <p>Pass a JSON array:</p>
+  <pre><code class="javascript">var products = new Products([
+    {name: "I Love JS",
+    colors: ["yellow", "black"]
+    },
+    {name: "Three Wolves",
+    colors: ["blue"]
+    }]);</code></pre>
+
+</section>
+
+<section>
+  <h1>Sort order</h1>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  comparator: 'inventory' 
+});</code></pre>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  comparator: function(model) {
+    return model.get("name").toLowerCase();
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Changing a collection</h1>
+  <br>
+  <p>Adding models:</p>
+  <pre><code class="javascript">products.add([product4, product5]);</code></pre>
+  <br>
+  <p>Removing models:</p>
+  <pre><code class="javascript">products.remove(product1);</code></pre>
+
+</section>
+
+
+
+<section>
+  <h1><a href="exercise1_collections.html" target="_blank">Exercise Time</a></h1>
 </section>
 
 
