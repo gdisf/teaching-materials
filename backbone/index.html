@@ -34,7 +34,7 @@
 			<div class="slides">
 
 <section>
-	<h1 class="upper">Getting Started with Backbone</h1>
+	<h1 class="upper">Backbone 101</h1>
   <br>
   <br>
   <h2>teaching-materials.org/backbone/</h2>
@@ -42,21 +42,135 @@
 
 
 <section>
-  <h1>MV* Frameworks</h1>
-
-  <img src="http://dl.dropbox.com/u/10998095/Screenshots/j6-bm8vdetj2.png">
+  <img src="http://backbonejs.org/docs/images/backbone.png">
+  <br><br>
+  <ul>
+    <li>An open-source JS library</li>
+    <li>Helps organize JS for large web apps</li>
+    <li>Uses object-oriented principles for models and views</li>
+  </ul>
 </section>
 
-<section style="display: block;">
-  <h1 class="upper">Why Backbone?</h1>
+<section>
+  <h1>Backbone Pre-reqs</h1>
+  <br>
+  <ul>
+    <li>Object-oriented JS</li>
+    <li>Using a library</li>
+    <li>jQuery</li>
+  </ul>
+  <br><br>
+  <p>...which we'll review!</p>
+</section>
 
-  <ul class="centered">
-    <li><b style="font-size:larger">Structure</b>
-    </li><li><b style="font-size:larger">Modularity</b>
-    </li><li><b>Persistence Layer</b>
-    </li><li><b>Common Services</b>
-    </li><li><b>Best Practices</b>
-  </li></ul>
+<section>
+  <h1>Backbone Topics</h1>
+  <br>
+  <ul>
+    <li>Models</li>
+    <li>Views</li>
+    <li>Templating</li>
+    <li>CRUD Backend</li>
+  </ul>
+  <br><br>
+  <p>...and we'll have exercises for each!</p>
+</section>
+
+
+<section>
+  <h1 class="upper">Review!</h1>
+</section>
+
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <img src="http://www.teaching-materials.org/jsoo/images/bookoo_extended.png">
+</section>
+
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <pre><code class="javascript">// The object "constructor"
+var Product = function(config) {
+  // The object "properties"
+  this.name = config.name;
+  this.type = config.type;
+  this.inventory = config.inventory || 0;
+};
+
+// An object "method"
+Product.prototype.buy = function() {
+  this.inventory--;
+  console.log("We now have " + this.inventory + " of " + this.name);
+};
+
+// Instantiating a new object
+var product = new Product({
+  name: "BetaBrand Disco FannyPack",
+  type: "Accessory",
+  inventory: 20});
+product.buy();</code></pre>
+</section>
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <pre><code class="javascript">var Shirt = function(config) {
+  // Re-using the Product constructor
+  Product.call(this, config);
+  this.colors = config.colors;
+}
+// Inheriting the Product methods
+Shirt.prototype = Object.create(Product.prototype);
+
+// Defining a new method on this object
+Shirt.prototype.addColor = function(color) {
+  this.colors.push(color);
+  console.log("We now stock " + color);
+};
+
+// Instantiating a new object
+var shirt = new Shirt({
+  name: "Three Wolves Shirt",
+  type: "T-Shirt",
+  inventory: 33,
+  colors: ["black"]});
+shirt.buy();
+shirt.addColor("teal");</code></pre>
+</section>
+
+
+<section>
+  <h1>Using a library</h1>
+  <br>
+  <ul>
+    <li>Include a script tag to the library on your page</li>
+    <li>Call functions from that library</li>
+  </ul>
+  <br>
+  <pre><code class="html">&lt;script src="http://imagine-it.org/math.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    var answer = math.sum(2, 2);
+    alert(answer);
+&lt;/script&gt;</pre></code>
+</section>
+
+
+<section id="jquery-review">
+  <h1>jQuery</h1>
+  <br>
+  <pre><code class="javascript">// Finding elements
+var code = $('code.javascript');
+// Reading elements
+alert(code.text());
+// Changing elements
+code.css('background-color', 'pink');
+// Creating elements
+var newCode = $('&lt;code&gt;// Whee!&lt;/code&gt;');
+$('#jquery-review').append(newCode);</pre></code>
+
 </section>
 
 <section>
@@ -64,94 +178,170 @@
   <img src="images/backbonediagram.jpeg">
 </section>
 
-<section>
-  <h1>Backbone Models &amp; Collections</h1>
 
-  <br>
-  <p>The end goal:</p>
-  <pre><code class="javascript">var book1 = new BookModel({title: 'I, Robot',
-                      author: 'Isaac Asimov'});
-var book2 = new BookModel({title: 'Caves of Steel',
-                      author: 'Isaac Asimov'});
-var robotSeries = new BookCollection([book1, book2]);
-</pre></code>
-  </p>
+
+<section>
+  <h1 class="upper">Models</h1>
 </section>
 
 <section>
-    <h1>Backbone Models</h1>
-<pre><code class="javascript">var BookModel = Backbone.Model.extend({
+  <h1>What is a model?</h1>
+
+  <ul>
+    <li>Attributes</li>
+    <li>Default attributes</li>
+    <li>Standard methods</li>
+    <li>Custom Methods</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Defining a model</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend();</code></pre>
+
+</section>
+
+<section>
+  <h1>Setting defaults</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
   defaults: {
-    title: 'Untitled',
-    author: 'Unknown author',
-    review: 'No review',
-  },
-  initialize: function() {
-    this.set('url', 'http://www.amazon.com/gp/product/'
-       + this.get('asin') + '?tag=amazonsimilar-20');
+    name: "California",
+    type: "T-shirt",
+    colors: ["light gray"],
+    tagline: "Cali says relax",
+    newProduct: true,
+    inventory: 28
   }
-});
-</pre></code>
-
-<pre><code class="javascript">var book = new BookModel({
-    title: 'I, Robot',
-    author: 'Isaac Asimov',
-    rating: 5,
-    asin: '055338256X'});
-</pre></code>
-
-</section>
-
-
-
-<section>
-  <h1>Backbone Collections</h1>
-<pre><code class="javascript">var BookCollection = Backbone.Collection.extend({
-    model: BookModel,
-    comparator: function(model) {
-      return model.get('rating');
-    }
-});
-</pre></code>
-
-<pre><code class="javascript">var book1 = new BookModel({title: 'I, Robot',
-                      author: 'Isaac Asimov'});
-var book2 = new BookModel({title: 'Caves of Steel',
-                      author: 'Isaac Asimov'});
-var robotSeries = new BookCollection([book1, book2]);
-</pre></code>
+});</code></pre>
 
 </section>
 
 <section>
-  <h1>Backbone &amp; Underscore</h1>
+  <h1>Instantiating new models</h1>
   <br>
-  <p><a href="http://underscorejs.org">Underscore</a>, a library of useful functions:</p>
-<pre><code class="javascript">// On collections:
-_.each(coll, iterator); _.find(coll, iterator); // etc
-// On arrays
-_.flatten(arr), _.union(*arrs), _.uniq(arr), // etc
-// On functions
-_.bind(func, obj), _.throttle(func, wait) // etc
-</pre></code>
-<br>
-          <p>All collection functions work on <code>BackboneCollection</code>s:
-<pre><code class="javascript">BackboneCollection.each(iterator);
-BackboneCollection.find(iterator);
-// etc
-</pre></code>
+<pre><code class="javascript">var shirt = new Product();</code></pre>
 
-<pre><code class="javascript">bookCollection.each(function(book) {
-  console.log(book.get("title"));
-});
-</pre></code>
+<pre><code class="javascript">var shirt = new Product({
+  name: "Roma",
+  colors: ["green", "white", "red"]
+});</code></pre>
+</section>
+
+<section>
+  <h1>Setting and getting attributes</h1>
+  <br>
+<pre><code class="javascript">shirt.set('tagline', 'sempre ad maiora');
+shirt.set('newProduct', false);
+shirt.set('inventory', 1);</code></pre>
+
+<pre><code class="javascript">shirt.get('tagline'); //returns 'sempre ad maiora'
+shirt.get('newProduct'); // returns false
+shirt.get('inventory'); // returns 1</code></pre>
 
 </section>
 
+<section>
+  <h1>Custom initialization</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+  initialize: function() {
+    this.set('url', 'http://products.com/' + this.id);
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Custom methods</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+  makeSentence: function() {
+    return "Check out our very special " + this.get('type') + ".";
+  }
+});</code></pre>
+
+</section>
 
 
 <section>
   <h1><a href="exercise1_models.html" target="_blank">Exercise Time</a></h1>
+</section>
+
+
+<section>
+  <h1 class="upper">Collections</h1>
+</section>
+
+<section>
+  <h1>What is a collection?</h1>
+  <br>
+  <ul>
+    <li>Multiple models</li>
+    <li>Standard methods</li>
+    <li>Custom Methods</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Defining a collection</h1>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend();</code></pre>
+  <br><br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  model: Product
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Instantiating a collection</h1>
+  <br>
+  <p>Pass an array of models:</p>
+  <pre><code class="javascript">var products = new Products([product1, product2, product3]);</code></pre>
+  <br>
+  <p>Pass a JSON array:</p>
+  <pre><code class="javascript">var products = new Products([
+    {name: "I Love JS",
+    colors: ["yellow", "black"]
+    },
+    {name: "Three Wolves",
+    colors: ["blue"]
+    }]);</code></pre>
+
+</section>
+
+<section>
+  <h1>Sort order</h1>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  comparator: 'inventory' 
+});</code></pre>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  comparator: function(model) {
+    return model.get("name").toLowerCase();
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Changing a collection</h1>
+  <br>
+  <p>Adding models:</p>
+  <pre><code class="javascript">products.add([product4, product5]);</code></pre>
+  <br>
+  <p>Removing models:</p>
+  <pre><code class="javascript">products.remove(product1);</code></pre>
+
+</section>
+
+
+
+<section>
+  <h1><a href="exercise1_collections.html" target="_blank">Exercise Time</a></h1>
 </section>
 
 
@@ -559,6 +749,14 @@ var BookShelfView = Backbone.View.extend({
 
 <section>
   <h1><a href="exercise4_backend.html" target="_blank">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+
+  <h1>MV* Frameworks</h1>
+  
+  <img src="http://dl.dropbox.com/u/10998095/Screenshots/j6-bm8vdetj2.png">
 </section>
 
 <section>

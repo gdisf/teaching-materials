@@ -233,7 +233,6 @@ function BookShelfView(books) {
     // and add that to the shelf div
     var bookDiv = $('&lt;div class="book">');
     var bookLink = $('&lt;a>');
-    var bookAmazonURL = 'http://www.amazon.com/gp/product/' + book.asin + '?tag=amazonsimilar-20';
     bookLink.attr('href', book.url);
     var bookCover = $('&lt;img>');
     bookCover.attr('src', book.thumbnail);
@@ -265,7 +264,6 @@ function BookShelfView(books) {
 function BookView(book) {
   var bookDiv = $('&lt;div class="book">');
   var bookLink = $('&lt;a>');
-  var bookAmazonURL = 'http://www.amazon.com/gp/product/' + book.asin + '?tag=amazonsimilar-20';
   bookLink.attr('href', book.url);
   var bookCover = $('&lt;img>');
   bookCover.attr('src', book.thumbnail);
