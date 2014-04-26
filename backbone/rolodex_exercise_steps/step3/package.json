@@ -1,0 +1,13 @@
+{
+  "name": "just-another-application",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.1.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-handlebars": "~0.5.10",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
