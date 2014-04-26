@@ -91,6 +91,8 @@ $('#button').on('click', onButtonClick);</pre>
 							<code>'focus'</code>
 							<code>'blur'</code>
 						</p>
+
+						<p>Follow along: <a href="http://jsbin.com/dosewola/7/edit">http://jsbin.com/dosewola/7/edit</a></p>
 					</section>
 				</div><!--/events1-->
 
@@ -98,7 +100,7 @@ $('#button').on('click', onButtonClick);</pre>
 				<div class="slide normal">
 					<header><h1>Remember: Callbacks</h1></header>
 					<section>
-						<img src="/jquery2/img/ryan-gosling-callback.jpg" style="width:100%;"/>
+						<img src="img/ryan-gosling-callback.jpg" style="width:100%;"/>
 					</section>
 				</div><!--/hey girl meme-->
 
@@ -143,7 +145,7 @@ $('#error').show(1000, function(){
 
 
 				<div class="slide normal">
-					<header><h1 class="center"><a href="exercises/exercise3.html">Exercise 3!</a></h1></header>
+					<header><h1 class="center"><a href="exercises/exercise_events.html">Exercise Time!</a></h1></header>
 					<section class="content"></section>
 				</div><!--/exercise3-->
 
@@ -153,7 +155,8 @@ $('#error').show(1000, function(){
 						<br>
 <pre>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</pre>
 						<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h1>
-
+						<br><br>
+						<p><a href="http://blog.pamelafox.org/2013/07/which-javascript-library-should-i-pick.html">Which plugin should you pick?</a></p>
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery plugins-->
@@ -181,20 +184,24 @@ $('#error').show(1000, function(){
 				</div><!--/jquery plugin usage-->
 
 
-
+				<div class="slide normal">
+					<header><h1 class="center"><a href="exercises/exercise_plugin.html">Exercise Time!</a></h1></header>
+					<section class="content"></section>
+				</div><!--/exercise3-->
 
 
 				<div class="slide normal">
 					<header><h1>jQuery Patterns and Anti-Patterns</h1></header>
 					<section>
 						<br>
-						<p><strong>Pattern: </strong>bind events to the document
-						<pre>$(document).on('click', 'a', myCallback);</pre>
-						</p>
-						<br>
 						<p><strong>Pattern: </strong>name variables with $
 <pre>var $myVar = $('#myNode');</pre>
 						</p>
+						<br>
+						<p><strong>Pattern: </strong>bind events to the document
+						<pre>$(document).on('click', 'a', myCallback);</pre>
+						</p>
+						
 					</section>
 				</div><!--/jquery patterns and anti-patterns-->
 
@@ -248,6 +255,18 @@ banner.show();</pre>
 				<div class="slide normal">
 					<header><h1>DOM Readiness</h1></header>
 					<section class="content">
+
+					<p><strong>Broken code: </strong>DOM manipulation and event binding in the <code>&lt;head&gt;</code>
+
+<pre>
+&lt;head&gt;
+  &lt;script&gt;
+    $('body').append( myNode );
+  &lt;/script&gt;
+&lt;/head&gt;
+</pre>
+					</p>
+
 <p><strong>Pattern: </strong>If you <em>need</em> to load a script in the <code>&lt;head&gt;</code>, wait for the rest of the DOM to be ready before executing
 <pre>
 &lt;body&gt;
@@ -260,16 +279,7 @@ banner.show();</pre>
 &lt;/body&gt;
 </pre>
 						</p>
-						<p><strong>Anti-Pattern: </strong>DOM manipulation and event binding in the <code>&lt;head&gt;</code>
-
-<pre>
-&lt;head&gt;
-  &lt;script&gt;
-    $('body').append( myNode );
-  &lt;/script&gt;
-&lt;/head&gt;
-</pre>
-						</p>
+						
 
 					</section>
 				</div><!--/DOM readiness-->

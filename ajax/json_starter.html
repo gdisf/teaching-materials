@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <title>Video Watcher</title>
   <link rel="stylesheet" type="text/css" href="http://teaching-materials.org/ajax/lib/bootstrap.css">
+  <style type="text/css">
+  /* This puts titles always on a separate line from thumbnails */
+  #videos-list img {
+    display: block;
+  }
+  </style>
  </head>
  <body>
 
@@ -41,11 +47,10 @@
   }
  ];
 
- function addVideoToList(video) {
+ var addVideoToList = function(video) {
 
     var videoLink = $('<a>');
     videoLink.append(video.title);
-    var linkUrl = videoLink.attr('href');
     var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
     var thumbnailImg = $('<img>');
     thumbnailImg.attr('src', thumbnailUrl);
@@ -53,10 +58,12 @@
     
     videoLink.on('click', function(e) {
         e.preventDefault();
+
         var videoEmbed = $('<iframe></iframe>');
         videoEmbed.attr('src', youtube.generateEmbedUrl(video.youtubeId));
         videoEmbed.attr('width', 560);
         videoEmbed.attr('height', 315);
+
         var videoWatcher = $('#video-watcher');
         videoWatcher.hide();
         videoWatcher.html(videoEmbed);

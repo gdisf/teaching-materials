@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>jQuery: Exercise 3</title>
+    <title>Exercise: jQuery Plugins</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -11,24 +11,18 @@
 
   <body>
     <div class="container">
-      <h2>jQuery: Exercise 3</h2>
+      <h2>Exercise: jQuery Plugins</h2>
       <p>
-        In this exercise, you'll add code so that you can actually watch the videos on the page.
-        First, create a &lt;div&gt; to hold the video player, either below or to the side
-        of the list, and give it an id.
+        In this exercise, you'll use a jquery plugin to make your watcher more colorful.
       </p>
-
-      <p>
-        Now, in the loop where you iterate through each link, add a click listener
-        to the link. When you click on a link, it should display the embedded video
-        in the DIV you created. You should go on Youtube.com and find the embed code
-        for a video to figure out what that HTML should look like, and then use jQuery
-        to create that HTML. You can use youtube.generateEmbedUrl() from the <a href="../youtube_doc.html">youtube.js library</a> to generate the embed URL.
-      </p>
-
-      <p>
-        As a bonus, try to make the video watcher &lt;div&gt; fade in using <a href="http://jquery.com">jQuery</a>.
-      </p>
+      <ul>
+        <li>
+        Either start with your code from the events exercise, or download this <a href="exercise_events_solution.html">starter file</a>.</li>
+        <li>Include the <a href="http://briznad.github.io/funText/">funText</a> jQuery plugin on your page. You can reference the JS from <a href="http://teaching-materials.org/jquery2/exercises/jquery.funtext.js">http://teaching-materials.org/jquery2/exercises/jquery.funtext.js</a>.</li>
+        <li>Use funText on your header, with a large shadow. Check the <a href="http://briznad.github.io/funText/">docs</a> to see how to use it.</li>
+        <li>Now use funText on each of your links, with smaller shadows.</li>
+        <li>Wasn't that fun??</li>
+      </ul>
 
       <p>
         Make sure that you use your browser developer tools to make debugging easier
@@ -36,16 +30,16 @@
         how far your code makes it, and what the values of your variables are along the way.
       </p>
 
-      <button class="btn" onclick="showSolution(3)">See Solution</button>
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
       <br>
       <br>
 
-<pre id="solution3" style="display:none;">&lt;!doctype html&gt;
+<pre id="solution1" style="display:none;">&lt;!doctype html&gt;
 &lt;html&gt;
  &lt;head&gt;
   &lt;meta charset="utf-8"&gt;
   &lt;title&gt;Video Watcher&lt;/title&gt;
-  &lt;link rel="stylesheet" type="text/css" href="lib/bootstrap.css"&gt;
+  &lt;link rel="stylesheet" type="text/css" href="http://www.teaching-materials.org/common/bootstrap.css"&gt;
  &lt;/head&gt;
  &lt;body&gt;
 
@@ -72,29 +66,33 @@
 
  &lt;script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"&gt;&lt;/script&gt;
  &lt;script type="text/javascript" src="http://www.teaching-materials.org/common/jquery.js"&gt;&lt;/script&gt;
+ &lt;script type="text/javascript" src="http://teaching-materials.org/jquery2/exercises/jquery.funtext.js"&gt;&lt;/script&gt;
  &lt;script&gt;
- var videoLinks = $('a');
- videoLinks.each(function() {
-    var videoLink = $(this);
-    var linkUrl = videoLink.attr('href');
-    var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
-    var thumbnailImg = $('&lt;img&gt;');
-    thumbnailImg.attr('src', thumbnailUrl);
-    videoLink.append(thumbnailImg);
-    
-    videoLink.on('click', function(e) {
-        e.preventDefault();
-        var videoEmbed = $('&lt;iframe&gt;&lt;/iframe>&gt;');
-        videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl));
-        videoEmbed.attr('width', 560);
-        videoEmbed.attr('height', 315);
-        var videoWatcher = $('#video-watcher');
-        videoWatcher.hide();
-        videoWatcher.html(videoEmbed);
-        videoWatcher.fadeIn();
-    });
+$('h2').funText(10, 'candy');
+
+var videoLinks = $('a');
+
+for (var i = 0; i < videoLinks.length; i++) {
+  var videoLink = $(videoLinks[i]);
+  var linkUrl = videoLink.attr('href');
+  var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
+  var thumbnailImg = $('&lt;img&gt;');
+  thumbnailImg.attr('src', thumbnailUrl);
+  videoLink.append(thumbnailImg);
+  videoLink.funText(10, 'candy');
+
+  videoLink.on('click', function(e) {
+      e.preventDefault();
+      var videoEmbed = $('&lt;iframe&gt;&lt;/iframe&gt;');
+      videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl));
+      videoEmbed.attr('width', 560);
+      videoEmbed.attr('height', 315);
+      var videoWatcher = $('#video-watcher');
+      videoWatcher.hide();
+      videoWatcher.html(videoEmbed);
+      videoWatcher.fadeIn();
   });
-  
+}
  &lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;</pre>

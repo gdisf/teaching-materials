@@ -61,6 +61,9 @@ This has the effect that the user has "down time" - there is a period of time wh
         <section class="content" style="text-align:center">
           <br>
           <img src="img/static_content_prog_enhance.png" width="">
+          <br>
+          <a href="http://www.teaching-materials.org/jquery2/exercises/exercise_events_solution.html">Example</a>
+
         </section>
 <pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
 displays a webpage
@@ -309,13 +312,13 @@ function processRequest() {
           <p>books.json:</p>
 <pre>
 [
- {'title': 'Robot Dreams',
-  'author': 'Isaac Asimov',
-  'categories': ['scifi', 'shortstories']
+ {"title": "Robot Dreams",
+  "author": "Isaac Asimov",
+  "categories": ["scifi", "shortstories"]
   },
-  {'title': 'Pirate Cinema',
-   'author': 'Cory Doctorow',
-   'categories': ['scifi', 'romance']
+  {"title": "Pirate Cinema",
+   "author": "Cory Doctorow",
+   "categories": ["scifi", "romance"]
   }
 ]
 </pre>
@@ -357,7 +360,8 @@ for (var i = 0; i < books.length; i++) {
 $.ajax({type: "GET",
   url: "filename.json",
   dataType: "json",
-  success: function(data) { }
+  success: function(data) { },
+  error: function(xhr, status, e) { }
 });
 </pre>
         </section>
@@ -373,10 +377,13 @@ $.ajax({type: "GET",
   success: function(books) { 
     for (var i = 0; i < books.length; i++) { 
       var book = books[i];
-      var p = $('<p>');
+      var p = $('&lt;p&gt;');
       p.html(book.title + ' by ' + book.author);
       $('body').append(p);
     }
+  },
+  error: function(xhr, status, e) {
+    console.log(status, e);
   }
 });
 </pre>
