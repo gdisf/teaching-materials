@@ -642,87 +642,103 @@ $('#bookshelf').append(shelfView.render().$el);</pre></code>
   <h1><a href="exercise3_events.html" target="_blank">Exercise Time!</a></h1>
 </section>
 
-
 <section>
   <h1>The Backbone Backend</h1>
+  <h2><a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a></h2>
+<table>
+  <thead>
+    <td>Operation name</td>
+    <td>HTTP method</td>
+    <td>Backbone Model</td>
+    <td>Backbone Collection</td>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>C</strong>REATE</td>
+      <td>POST</td>
+      <td>model.save()</td>
+    </tr>
+    <tr>
+      <td><strong>R</strong>EAD</td>
+      <td>GET</td>
+      <td>model.fetch()</td>
+      <td>collection.fetch()</td>
+    </tr>
+    <tr>
+      <td><strong>U</strong>PDATE</td>
+      <td>PUT</td>
+      <td>model.save()</td>
+    </tr>
+    <tr>
+      <td><strong>D</strong>ELETE</td>
+      <td>DELETE</td>
+      <td>model.destroy()</td>
+    </tr>
+  </tbody>
+</table>
+   
+</section>
+<section>
+  <h2>Saving a model</h2>
+  <h3><code>.save()</code></h3>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+    url: 'http://spacodemo.herokuapp.com',
+    urlRoot: '/product'
+  });
 
-<pre><code class="javascript">var BookModel = Backbone.Model.extend(
-  urlRoot: "/api/books",
-  // ...
-});
+  var shirt = new Product({
+    desc: "Dallas",
+    id: "019249",
+    category: "t-shirt",
+    price: "20",
+    inventory: 10
+  });
+
+  shirt.save();
+  </pre></code>
+<pre><code>// HTTP POST http://spacodemo.herokuapp.com/product/019249</code></pre>
+</section>
+<section>
+  <h2>Updating a model</h2>
+  <h3><code>.save()</code></h3>
+<pre><code class="javascript">shirt.set('inStock', true);
+
+shirt.save();
 </pre></code>
 
-<div class="fragment">
-<pre><code class="javascript">var book = new BookModel({id: 12});
-book.fetch();
-</pre></code>
-</div>
+<pre><code>HTTP PUT http://spacodemo.herokuapp.com/product/019249</pre></code>
 
-<div class="fragment">
-<pre><code>HTTP GET /api/books/12
-{id: 12,
- title: 'Robot Dreams',
- author: 'Isaac Asimov',
- owned: false
-}
-</pre></code>
-</div>
+</section>
+<section>
+  <h2>Deleting a model</h2>
+  <h3><code>.destroy()</code></h3>
+<pre><code class="javascript">shirt.destroy();</pre></code>
 
-<div class="fragment">
-<pre><code class="javascript">book.markAsOwned();
-book.save();
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code>HTTP PUT /api/books/12
-{id: 12,
- title: 'Robot Dreams',
- author: 'Isaac Asimov',
- owned: true
-}
-</pre></code>
-</div>
+<pre><code>HTTP DELETE http://spacodemo.herokuapp.com/product/019249</pre></code>
 
 </section>
 
 
 <section>
-  <h1>The Backbone Backend</h1>
+  <h2>Getting a Collection</h2>
+  <h3><code>.fetch()</code></h3>
 
-<pre><code class="javascript">
-var BookCollection = Backbone.Collection.extend({
-  url: "/api/books",
-  // ...
+<pre><code class="javascript">var ProductCollection = Backbone.Collection.extend({
+  url: "http://spacodemo.herokuapp.com/products",
+  model: Product
+  ...
 });
 </pre></code>
 
 <div class="fragment">
-<pre><code class="javascript">var myBooks = new BookCollection();
-myBooks.fetch();
+<pre><code class="javascript">var products = new ProductCollection();
+
+products.fetch(); // sets models on the collection from the response
 </pre></code>
 </div>
 
 <div class="fragment">
-<pre><code class="ruby">HTTP GET /api/books
-[{id: 12,
- title: 'The Naked Sun',
- author: 'Isaac Asimov'
-}, ...
-]
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code class="javascript">myBooks.create(new BookModel({title: 'Foundation',
-                         author: 'Isaac Asimov'}));
-</pre></code>
-</div>
-
-<div class="fragment">
-<pre><code class="ruby">HTTP POST /api/books
-{title: 'Foundation', author: 'Isaac Asimov'}
-</pre></code>
+<pre><code class="ruby">HTTP GET http://spacodemo.herokuapp.com/products</pre></code>
 </div>
 
 </section>
@@ -734,14 +750,11 @@ myBooks.fetch();
 var BookShelfView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.collection, 'reset', this.render);
-    this.listenTo(this.collection, 'add', this.renderOne);
     this.fetch();
   },
   render: function() {
-    this.collection.each(this.renderOne, this);
-    return this;
-  },
-  // ...
+    // ...
+  }
 });
 </pre></code>
 </section>

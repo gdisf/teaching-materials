@@ -21,7 +21,7 @@ html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal i
 .reveal b, .reveal u, .reveal i, .reveal center,
 .reveal dl, .reveal dt, .reveal dd, .reveal ol, .reveal ul, .reveal li,
 .reveal fieldset, .reveal form, .reveal label, .reveal legend,
-.reveal table, .reveal caption, .reveal tbody, .reveal tfoot, .reveal thead, .reveal tr, .reveal th, .reveal td,
+/*.reveal table, .reveal caption, .reveal tbody, .reveal tfoot, .reveal thead, .reveal tr, .reveal th, .reveal td,*/
 .reveal article, .reveal aside, .reveal canvas, .reveal details, .reveal embed,
 .reveal figure, .reveal figcaption, .reveal footer, .reveal header, .reveal hgroup,
 .reveal menu, .reveal nav, .reveal output, .reveal ruby, .reveal section, .reveal summary,
@@ -315,11 +315,17 @@ body {
 .reveal table th,
 .reveal table td {
 	text-align: left;
-	padding-right: .3em;
+	padding: .3em;
+	border: 1px solid gray;
 }
 
 .reveal table th {
 	text-shadow: rgb(255,255,255) 1px 1px 2px;
+}
+
+.reveal thead {
+	font-weight: bold;
+	font-size: 1.2em;
 }
 
 .reveal sup {
