@@ -34,10 +34,140 @@
 			<div class="slides">
 
 <section>
-	<h1 class="upper">Getting Started with Backbone</h1>
+	<h1 class="upper">Backbone 101</h1>
   <br>
   <br>
   <h2>teaching-materials.org/backbone/</h2>
+</section>
+
+
+<section>
+  <img src="http://backbonejs.org/docs/images/backbone.png">
+  <br><br>
+  <ul>
+    <li>An open-source JS library</li>
+    <li>Helps organize JS for large web apps</li>
+    <li>Uses object-oriented principles for models and views</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Backbone Pre-reqs</h1>
+  <br>
+  <ul>
+    <li>Object-oriented JS</li>
+    <li>Using a library</li>
+    <li>jQuery</li>
+  </ul>
+  <br><br>
+  <p>...which we'll review!</p>
+</section>
+
+<section>
+  <h1>Backbone Topics</h1>
+  <br>
+  <ul>
+    <li>Models</li>
+    <li>Views</li>
+    <li>Templating</li>
+    <li>CRUD Backend</li>
+  </ul>
+  <br><br>
+  <p>...and we'll have exercises for each!</p>
+</section>
+
+
+
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <img src="http://www.teaching-materials.org/jsoo/images/bookoo_extended.png">
+</section>
+
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <pre><code class="javascript">// The object "constructor"
+var Product = function(config) {
+  // The object "properties"
+  this.name = config.name;
+  this.type = config.type;
+  this.inventory = config.inventory || 0;
+};
+
+// An object "method"
+Product.prototype.buy = function() {
+  this.inventory--;
+  console.log("We now have " + this.inventory + " of " + this.name);
+};
+
+// Instantiating a new object
+var product = new Product({
+  name: "BetaBrand Disco FannyPack",
+  type: "Accessory",
+  inventory: 20});
+product.buy();</code></pre>
+</section>
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <pre><code class="javascript">var Shirt = function(config) {
+  // Re-using the Product constructor
+  Product.call(this, config);
+  this.colors = config.colors;
+}
+// Inheriting the Product methods
+Shirt.prototype = Object.create(Product.prototype);
+
+// Defining a new method on this object
+Shirt.prototype.addColor = function(color) {
+  this.colors.push(color);
+  console.log("We now stock " + color);
+};
+
+// Instantiating a new object
+var shirt = new Shirt({
+  name: "Three Wolves Shirt",
+  type: "T-Shirt",
+  inventory: 33,
+  colors: ["black"]});
+shirt.buy();
+shirt.addColor("teal");</code></pre>
+</section>
+
+
+<section>
+  <h1>Using a library</h1>
+  <br>
+  <ul>
+    <li>Include a script tag to the library on your page</li>
+    <li>Call functions from that library</li>
+  </ul>
+  <br>
+  <pre><code class="html">&lt;script src="http://imagine-it.org/math.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    var answer = math.sum(2, 2);
+    alert(answer);
+&lt;/script&gt;</pre></code>
+</section>
+
+
+<section id="jquery-review">
+  <h1>jQuery</h1>
+  <br>
+  <pre><code class="javascript">// Finding elements
+var code = $('code.javascript');
+// Reading elements
+alert(code.text());
+// Changing elements
+code.css('background-color', 'pink');
+// Creating elements
+var newCode = $('&lt;code&gt;// Whee!&lt;/code&gt;');
+$('#jquery-review").append(newCode);</pre></code>
+
 </section>
 
 
