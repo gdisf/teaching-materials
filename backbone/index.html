@@ -678,110 +678,6 @@ var BookShelfView = Backbone.View.extend({
   <h1><a href="exercise4_backend.html" target="_blank">Exercise Time!</a></h1>
 </section>
 
-
-<section>
-  <h1>The Router</h1>
-
-<pre><code class="javascript">var AppRouter = Backbone.Router.extend({
-    routes:{
-        "":"bookShelf",
-        "book/:id":"bookDetails"
-    },
-    bookShelf:function () {
-        var view = new BookShelfView({collection: new BookCollection()});
-        $('#content').html(view.render().el);
-    },
-    bookDetails:function (id) {
-        var view = new BookItemView({model: new BookModel({id: id})});
-        $('#content').html(view.render().el);
-    }
-});
-
-var app = new AppRouter();
-Backbone.history.start({pushState: true});
-</pre></code>
-
-</section>
-
-<section>
-  <h1><a href="exercise5_routes.html" target="_blank">Exercise Time!</a></h1>
-</section>
-
-<section>
-  <h1>Workflow</h1>
-</section>
-
-<section>
-  <h1>Pre-Compile</h1>
-  <p><a href="http://gruntjs.com/">Grunt</a></p>
-  <pre><code class="javascript">grunt.initConfig({
-  handlebars: {
-      compile: {
-        options: {
-          // Remove folder path name from file
-          processName: function (fileName) {
-            return path.basename(fileName, '.handlebars');
-          },
-          namespace: "Handlebars.templates",
-        },
-        files: {
-          'src/templates/compiled/message.handlebars.js':'src/templates/raw/message.handlebars'
-        }
-      }
-    }
-  })</pre></code>
-  <pre><code>$ grunt handlebars</code></pre>
-  <pre><code class="javascript">Handlebars.templates.message(myCollection);</pre></code>
-</section>
-
-<section>
-  <h1>Manage Dependencies</h1>
-  <p><a href="http://requirejs.org/">RequireJS</a></p>
-  <pre><code class="javascript">require.config(
-  baseUrl: "path/to/assets",
-  paths: {
-    'views':'js/views',
-    'models':'js/models',
-    'jquery':'js/jquery.min',
-    'backbone':'js/backbone',
-    'underscore':'js/underscore',
-    'handlebars':'js/handlebars'
-  }
-});</pre></code>
-  <div class="fragment">
-  <pre><code>define(
-  ['jquery',
-  'underscore',
-  'backbone',
-  'path/to/myCompiledTemplate'],
-function($, _, Backbone, template) {
-  var chatMessageView = Backbone.View.extend({
-    render: function() {
-      var self = this;
-      _.each(self.collection.models, function() {
-        self.$el.append(template.message(self.collection.toJSON()))
-      })
-      return this;
-    }
-  return {
-    view: chatMessageView
-  }
-  })
-  </code></pre>
-  </div>
-</section>
-
-<section>
-  <h1><a href="https://github.com/brendajin/backbone-require-handlebars-example">Starter Repository</a></h1>
-  <ul>
-    <li>Install <a href="http://nodejs.org/download/">Node.js</a></li>
-    <li>Install <a href="http://gruntjs.com/getting-started">grunt-cli</a></li>
-    <li>Clone the repository</li>
-    <li>Run <code>npm install</code></li>
-    <li>Run <code>grunt handlebars</code></li>
-  </ul>
-</section>
-
 <section>
   <h1>Keep your options open</h1>
   <br><br>
@@ -822,6 +718,9 @@ function($, _, Backbone, template) {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
+    <script src="lib/js/jquery-1.9.1.min.js"></script>
+    <script src="lib/js/underscore-min.js"></script>
+    <script src="lib/js/backbone.js"></script>
 
 		<script>
 
