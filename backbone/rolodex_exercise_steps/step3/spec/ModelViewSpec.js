@@ -1,5 +1,6 @@
 describe("Exercise 3: ", function() {
   describe("Define a Backbone View of a Model: ", function() {
+    var myPersonView;
 
     beforeEach(function() {
       var person = new Person({firstName: "Grace",
@@ -8,7 +9,7 @@ describe("Exercise 3: ", function() {
         imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
       })
 
-      var personView = new PersonView({
+      myPersonView = new PersonView({
         model: person
       });
     });
@@ -18,47 +19,44 @@ describe("Exercise 3: ", function() {
     });
 
     it("give your PersonView a className of 'rolodex'", function() {
-      expect(personView.$el.hasClass('rolodex')).toBe(true);
+      expect(myPersonView.$el.hasClass('rolodex')).toBe(true);
     });
 
     it("in .render, use jQuery to add an img tag to the $el", function() {
-      personView.render();
-      expect(personView.$('img').length).toBeGreaterThan(0);
+      myPersonView.render();
+      expect(myPersonView.$('img').length).toBeGreaterThan(0);
     })
 
     it("in .render, use jQuery to add an src attribute to the img", function() {
-      personView.render();
-      expect(personView.$('img').attr('src')).toBeDefined();
+      myPersonView.render();
+      expect(myPersonView.$('img').attr('src')).toBeDefined();
     });
 
     it("use model.get('imgUrl') to populate the src tag", function() {
-      personView.render();
-      expect(personView.$('img').attr('src')).toEqual(personView.model.get('imgUrl'));
+      myPersonView.render();
+      expect(myPersonView.$('img').attr('src')).toEqual(myPersonView.model.get('imgUrl'));
     })
 
     it("make sure your .render function returns this", function() {
-      var returnExpectation = personView.render();
-      expect(returnExpectation).toEqual(personView);
+      var returnExpectation = myPersonView.render();
+      expect(returnExpectation).toEqual(myPersonView);
     });
 
-    it("give your PersonView an event object, with an event for 'click'", function() {
-      expect(personView.events).toBeDefined();
-      expect(typeof personView.events).toEqual("object");
-      expect(personView.events['click']).toBeDefined();
-    });
-
-    it("give that click event a callback called 'onClick'", function() {
-      expect(personView.events['click']).toEqual('onClick');
+    it("give your PersonView an event object, with an event for 'click' that has a callback of 'onClick'", function() {
+      expect(myPersonView.events).toBeDefined();
+      expect(typeof myPersonView.events).toEqual("object");
+      expect(myPersonView.events['click']).toBeDefined();
+      expect(myPersonView.events['click']).toEqual('onClick');
     });
 
     it("make sure that 'onClick' is defined as a method on the PersonView", function() {
-      expect(personView.onClick).toBeDefined();
-      $('body').append(personView.render().$el);
-      spyOn(personView, 'onClick');
-      personView.delegateEvents();
+      expect(myPersonView.onClick).toBeDefined();
+      $('body').append(myPersonView.render().$el);
+      spyOn(myPersonView, 'onClick');
+      myPersonView.delegateEvents();
       $('img').click();
-      expect(personView.onClick).toHaveBeenCalled();
-      personView.remove();
+      expect(myPersonView.onClick).toHaveBeenCalled();
+      myPersonView.remove();
     });
   });
 
@@ -70,7 +68,7 @@ describe("Exercise 3: ", function() {
         imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
       })
 
-      personView = new PersonView({
+      myPersonView = new PersonView({
         model: person
       });
     });
