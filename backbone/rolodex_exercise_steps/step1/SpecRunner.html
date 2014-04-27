@@ -15,16 +15,24 @@
   <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="lib/underscore-min.js"></script>
   <script type="text/javascript" src="lib/backbone.js"></script>
-
+  <script type="text/javascript" src="lib/handlebars.js"></script>
+  
   <!-- include source files here... -->
   <script type="text/javascript" src="src/app.js"></script>
 
   <!-- include spec files here... -->
-  <script type="text/javascript" src="spec/CollectionSpec.js"></script>
   <script type="text/javascript" src="spec/ModelSpec.js"></script>
-
+  <script type="text/javascript" src="spec/CollectionSpec.js"></script>
+  <script type="text/javascript" src="spec/ModelViewSpec.js"></script>
+  <script type="text/javascript" src="spec/CollectionViewSpec.js"></script>
 </head>
 
 <body>
+
+<script id="rolodex-template" type="text/x-handlebars-template">
+  {{#each}}
+    <img src="{{imgUrl}}">
+  {{/each}}
+</script>
 </body>
 </html>
