@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercise 4 - Rendering a Template in a Collection</title>
+</head>
+<body>
+	<h1>Exercise 4 - Rendering a Template in a Collection</h1>
+	<p>In this exercise, we will be using <code>Handlebars</code> templates. We'll also render them with a collection.</p>
+	
+	<h2>Part 1</h2>
+	<ol>
+		<li>Open <code>index.html</code> and find the template with id <code>rolodex-template</code>.</li>
+		<li>Add an <code>#each</code> Handlebars block helper</li>
+		<li>Inside of the <code>#each</code> helper, add Handlebars <code>{{</code>expressions<code>}}</code>. 
+			<ul>
+				<li>Later, you will use JSON to render this template, so make sure that your attributes match. Examples from the models we just made are <code>{{firstName}}</code> and <code>{{lastName}}</code>. Feel free to stick to the attributes given, or switch it up.</li>
+			</ul>
+		</li>
+
+	</ol>
+	<h2>Part 2</h2>
+	<p>In the last exercise, we rendered a View of a Model. This time, we will render a View of a Collection.</p>
+	<ol>
+		<li>Open <code>SpecRunner.html</code> in a browser</li>
+		<li>Click on Spec List on the upper-right hand corner</li>
+		<li>Click on Exercise 4</li>
+		<li>Make changes in <code>src/app.js</code> to make all the tests pass.</li>
+		<li>Inside of your <code>.render</code> function, compile the Handlebars template, pass in JSON from the collection, and append it to the view's <code>$el</code></li>
+		<li>Don't forget to return <code>this</code> at the end of .render</li>
+		<li>In the <code>.initialize</code> function, use <code>.on()</code> or <code>.listenTo()</code> to add an event listener for changes to the collection. The callback should be <code>.render</code></li>
+		<li>Update the <code>$(document).ready()</code> callback from the last exercise. Instead of rendering and appending your personView to the DOM, render and append your rolodexView.</li>
+	</ol>
+	<h2>Bonus - Loop it different ways!</h2>
+	<p>In the above exercises, we used a for loop within a Handlebars <code>#each</code> block. Try moving the loop into the <code>.render()</code> function of the view.</p>
+</body>

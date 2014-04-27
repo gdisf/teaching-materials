@@ -1,4 +1,4 @@
-var Model = Backbone.Model.extend({
+var Person = Backbone.Model.extend({
 	defaults: {
 		firstName: "",
 		lastName: "",
@@ -14,17 +14,5 @@ var Model = Backbone.Model.extend({
 		return username;
 	}
 });
-
-var Collection = Backbone.Collection.extend({
-	model: Model,
-	comparator: 'lastName',
-	initialize: function() {
-		var self = this;
-		self.listenTo(self, 'add', self.sort)
-	}
-});
-
-// you can use this model later on in the exercise
-var model = new Model();
 
 // insert your new code here

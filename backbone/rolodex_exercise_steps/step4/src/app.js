@@ -43,6 +43,13 @@ var people = new People([
 	}
 ]);
 
+var person = new Person({
+	firstName: "Anita",
+	lastName: "Borg",
+	role: "Computer Scientist",
+	imgUrl: "http://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Anita_Borg.jpg/220px-Anita_Borg.jpg"
+})
+
 people.add({
 	firstName: "Grace",
 	lastName: "Hopper",
@@ -50,4 +57,30 @@ people.add({
 	imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
 })
 
+var PersonView = Backbone.View.extend({
+	className: 'rolodex',
+	events: {
+		'click' : 'onClick'
+	},
+	render: function() {
+		var myImg = $('<img>');
+		var imgSrc = this.model.get('imgUrl');
+		
+		myImg.attr('src', imgSrc);
+		this.$el.append(myImg);
+
+		return this;
+	},
+	onClick: function() {
+
+	}
+})
+
+var personView = new PersonView({
+	model: person
+})
+
+$(document).ready(function() {
+	$('body').append(personView.render().$el);
+})
 // insert your new code here

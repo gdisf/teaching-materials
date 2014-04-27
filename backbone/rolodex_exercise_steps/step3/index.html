@@ -7,44 +7,16 @@
 	<script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="lib/underscore-min.js"></script>
 	<script type="text/javascript" src="lib/backbone.js"></script>
-	<script type="text/javascript" src="lib/handlebars.runtime.js"></script>
-	<!-- include template files here... -->
-	<script type="text/javascript" src="templates/compiled/thumb.hbs.js"></script>
-	<!-- include source files here... -->
+	<script type="text/javascript" src="lib/handlebars-v1.3.0.js"></script>
+	
+	<!-- include application files here... -->
 	<script type="text/javascript" src="src/app.js"></script>
 </head>
 <body>
-	<h1>Exercise 4 - Rendering a Template in a Collection</h1>
-	<p>In this exercise, we will be using the <code>grunt</code> command line utility to pre-compile templates. We'll also render them within a collection.</p>
-	<h2>Part 1 Instructions</h2>
-	<ol>
-		<li>Make sure you have <code>npm</code> and the <code>grunt-cli</code> package installed</li>
-		<li><a href="../downloads/ex4.zip">Download this file</a></li>
-		<li>Using command line, <code>cd</code> to the root of the project</li>
-		<li>Run <code>$npm install</code> to get the necessary node_modules</li>
-		<li>Run <code>$grunt</code> or <code>$grunt handlebars</code> to compile the template. Remember to do this every time you make a change to the template.</li>
-	</ol>
-	<h2>Part 2 Instructions</h2>
-	<ol>
-		<li>Open <code>templates/raw/thumb.hbs</code></li>
-		<li>Add Handlebars <code>{{</code>expressions<code>}}</code>. 
-			<ul>
-				<li>Later, you will use JSON to render this template, so make sure that your attributes match. Examples from the models we just made are <code>{{firstName}}</code> and <code>{{lastName}}</code>. Feel free to stick to the attributes given, or switch it up.</li>
-			</ul>
-		</li>
-		<li>Wrap the whole template in an <code>#each</code> Handlebars block helper</li>
-	</ol>
-	<h2>Part 3 Instructions</h2>
-	<p>In the last exercise, we rendered a View of a Model. This time, we will render a View of a Collection.</p>
-	<ol>
-		<li>Open <code>SpecRunner.html</code> in a browser</li>
-		<li>In <code>src/app.js</code>, write code to make all the tests pass.</li>
-		<li>To see your work, create an <code>HTML</code> page, create <code>&lt;script&gt;</code> tags to bring in the dependencies, along with your code. Append your view to the DOM any way you like!</li>
-	</ol>
-	<h2>Bonus - Loop it different ways!</h2>
-	<p>In the above exercises, we used a for loop within a Handlebars <code>#each</code> block. Try moving the loop to different places, like within the collection itself! Don't forget to recompile your template.</p>
-	<h2>Double Bonus - Grunt.js</h2>
-	<p>Use the grunt command line tool to install the package <code>grunt-contrib-watch</code>. Then, configure <code>Gruntfile.js</code>. Configure it so that you can watch for changes on your templates and compile every time you save. Run <code>$grunt watch</code>, or whatever command you've configured, and make changes to your models and templates.</p>
-	<h3><a href="../solutions/ex4.zip">Solution</a></h3>
-	<script type="text/javascript">$(document).ready(function(){if(view !== undefined){$('body').append(view.$el)}})</script>
+	
+	<!-- The handlebars template for the rolodex view -->
+	<script id="rolodex-template" type="text/x-handlebars-template">
+
+	</script>
+
 </body>

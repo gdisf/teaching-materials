@@ -1,53 +1,55 @@
-describe("Define a Backbone Collection", function() {
-  var collection;
+describe("Exercise 2: ", function() {
+  describe("Define a Backbone Collection: ", function() {
+    var people;
 
-  beforeEach(function() {
-    collection = new Collection({
-      model: Model
+    beforeEach(function() {
+      people = new People({
+        model: Person
+      });
+      spyOn(people, 'add');
+      spyOn(people, 'sort');
     });
-    spyOn(collection, 'add');
-    spyOn(collection, 'sort');
+
+    it("store it as a variable called 'People'", function() {
+      expect(People).not.toBeUndefined();
+    });
+
+    it("set the model class to 'Person'", function() {
+      expect(people.models[0].get('imgUrl')).toBeDefined();
+      expect(people.models[0].get('lastName')).toBeDefined();
+      expect(people.models[0].get('firstName')).toBeDefined();
+    });
+
+    it("give it a comparator of 'lastName'", function() {
+      expect(people.comparator).toEqual("lastName");
+    });
   });
 
-  it("store it as a variable called 'Collection'", function() {
-    expect(Collection).not.toBeUndefined();
+  describe("Instantiate a new Collection : ", function() {
+    it("store it as a variable called 'people'", function() {
+      expect(people).toBeDefined();
+    });
+
+    it("add at least three models to it, and give them unique last names", function() {
+      expect(people.length).toBeGreaterThan(2);
+      expect(people.models[0].get('lastName')).not.toEqual(people.models[1].get('lastName'))
+      expect(people.models[0].get('lastName')).not.toEqual(people.models[2].get('lastName'))
+      expect(people.models[1].get('lastName')).not.toEqual(people.models[2].get('lastName'))
+    })
   });
 
-  it("set the model class to 'Model'", function() {
-    expect(collection.models[0].get('imgUrl')).toBeDefined();
-    expect(collection.models[0].get('lastName')).toBeDefined();
-    expect(collection.models[0].get('firstName')).toBeDefined();
-  });
+  describe("Add some more models: ", function(){
+    beforeEach(function() {
+      spyOn(people, 'sort');
+    });
 
-  it("give it a comparator of 'lastName'", function() {
-    expect(collection.comparator).toEqual("lastName");
-  });
-});
+    it("use .add to add at least 2 more models", function() {
+      expect(people.length).toBeGreaterThan(4);
+    });
 
-describe("Instantiate a new Collection", function() {
-  it("store it as a variable called 'collection'", function() {
-    expect(collection).toBeDefined();
-  });
-
-  it("add at least three models to it, and give them unique last names", function() {
-    expect(collection.length).toBeGreaterThan(2);
-    expect(collection.models[0].get('lastName')).not.toEqual(collection.models[1].get('lastName'))
-    expect(collection.models[0].get('lastName')).not.toEqual(collection.models[2].get('lastName'))
-    expect(collection.models[1].get('lastName')).not.toEqual(collection.models[2].get('lastName'))
-  })
-});
-
-describe("Add some more models", function(){
-  beforeEach(function() {
-    spyOn(collection, 'sort');
-  });
-
-  it("use .add to add at least 2 more models", function() {
-    expect(collection.length).toBeGreaterThan(4);
-  });
-
-  it("and now call .sort() every time a new model is added", function() {
-    collection.add({firstName: "Grace", lastName: "Hopper"});
-    expect(collection.sort).toHaveBeenCalled();
+    it("and now call .sort() every time a new model is added", function() {
+      people.add({firstName: "Grace", lastName: "Hopper"});
+      expect(people.sort).toHaveBeenCalled();
+    });
   });
 });

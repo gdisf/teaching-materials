@@ -1,37 +1,22 @@
 <!DOCTYPE html>
 <head>
 	<meta charset="utf-8">
-	<title>Exercise 5 - Fetching and rendering a Collection</title>
+	<title>Exercise 4 - Rendering a Template in a Collection</title>
 
 	<!-- include library files here... -->
 	<script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="lib/underscore-min.js"></script>
 	<script type="text/javascript" src="lib/backbone.js"></script>
-	<script type="text/javascript" src="lib/handlebars.runtime.js"></script>
-	<!-- include template files here... -->
-	<script type="text/javascript" src="templates/compiled/thumb.hbs.js"></script>
+	<script type="text/javascript" src="lib/handlebars-v1.3.0.js"></script>
+	
+	<!-- include application files here... -->
+	<script type="text/javascript" src="src/app.js"></script>
 </head>
 <body>
-	<h1>Exercise 5 - Fetching and rendering a Collection</h1>
-	<p>In this creative exercise, we will be putting all of our skills from the day together. Feel free to follow the instructions below, or branch out to practice skills at your own pace!</p>
-	<h2>Instructions - Fetching the Collection</h2>
-	<ol>
-		<li>Set up an <code>HTML</code> page with the libraries and dependencies for Backbone. Use this page as an example.</li>
-		<li>Define a Collection whose <code>url</code> property is <code>"http://spacodemo.herokuapp.com/products"</code></li>
-		<li>Have the Collection call <code>.fetch()</code> when it instantiates</li>
-	</ol>
-	<h2>Instructions - Parsing the Models</h2>
-	<ol>
-		<li>There are some data inconsistencies with our models. Use <code>model.parse()</code> to fix some of them (like pricing)</li>
-		<li>Add some additional data processing for each model. For example, if there are items in stock, set <code>'inStock'</code> to <code>true</code></li>
-	</ol>
-	<h2>Instructions - Creating a View</h2>
-	<ol>
-		<li>Create a View with a Template! You can use Handlebars templates like the last exercise, or find another way to generate templates</li>
-	</ol>
-	<h2>Instructions - <code>$(document).ready()</code></h2>
-	<ol>
-		<li>When the document is ready, instantiate your Collection and View</li>
-		<li>When the document is ready, append your View to the DOM</li>
-	</ol>
+	
+	<!-- The handlebars template for the rolodex view -->
+	<script id="rolodex-template" type="text/x-handlebars-template">
+
+	</script>
+
 </body>
