@@ -1,6 +1,5 @@
 describe("Exercise 3: ", function() {
   describe("Define a Backbone View of a Model: ", function() {
-    var personView;
 
     beforeEach(function() {
       var person = new Person({firstName: "Grace",
@@ -9,7 +8,7 @@ describe("Exercise 3: ", function() {
         imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
       })
 
-      personView = new PersonView({
+      var personView = new PersonView({
         model: person
       });
     });
@@ -20,10 +19,6 @@ describe("Exercise 3: ", function() {
 
     it("give your PersonView a className of 'rolodex'", function() {
       expect(personView.$el.hasClass('rolodex')).toBe(true);
-    });
-
-    it("give your PersonView a .render method", function() {
-      expect(personView.render).toBeDefined();
     });
 
     it("in .render, use jQuery to add an img tag to the $el", function() {
