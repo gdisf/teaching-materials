@@ -5,6 +5,7 @@ var Person = Backbone.Model.extend({
 		role: "student",
 		imgUrl: "http://placekitten.com/200/200"
 	},
+	urlRoot: 'http://spacodemo.herokuapp.com/person',
 	initialize: function() {
 		this.generateUsername();
 	},
@@ -17,6 +18,7 @@ var Person = Backbone.Model.extend({
 
 var People = Backbone.Collection.extend({
 	model: Person,
+	url: 'http://spacodemo.herokuapp.com/people',
 	comparator: 'lastName',
 	initialize: function() {
 		this.listenTo(this, 'add', this.sort)
@@ -43,19 +45,24 @@ var people = new People([
 	}
 ]);
 
-var person = new Person({
-	firstName: "Anita",
-	lastName: "Borg",
-	role: "Computer Scientist",
-	imgUrl: "http://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Anita_Borg.jpg/220px-Anita_Borg.jpg"
-})
-
 people.add({
 	firstName: "Grace",
 	lastName: "Hopper",
 	role: "Computer Scientist",
 	imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
 })
+
+var person = new Person({
+	firstName: "Anita",
+	lastName: "Borg",
+	id: '202828777d7d7dj3m2k2k',
+	role: "Computer Scientist",
+	imgUrl: "http://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Anita_Borg.jpg/220px-Anita_Borg.jpg"
+})
+
+people.add(person);
+
+person.save();
 
 var PersonView = Backbone.View.extend({
 	className: 'rolodex',
@@ -98,6 +105,7 @@ var rolodexView = new RolodexView({
 })
 
 $(document).ready(function() {
+	people.fetch();
 	$('body').append(rolodexView.render().$el);
 })
 
