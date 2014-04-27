@@ -81,7 +81,6 @@ var personView = new PersonView({
 })
 
 var RolodexView = Backbone.View.extend({
-	collection: people,
 	initialize: function() {
 		this.listenTo(this.collection, 'reset', this.render)
 	},
@@ -99,6 +98,7 @@ var rolodexView = new RolodexView({
 })
 
 $(document).ready(function() {
-	$('body').append(personView.render().$el);
+	$('body').append(rolodexView.render().$el);
 })
+
 // insert your new code here
