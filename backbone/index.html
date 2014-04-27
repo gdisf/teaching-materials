@@ -630,21 +630,19 @@ var listings = new ProductsListing({collection: products});
   <h2>Saving a model</h2>
   <h3><code>.save()</code></h3>
   <pre><code class="javascript">var Product = Backbone.Model.extend({
-    url: 'http://spacodemo.herokuapp.com',
-    urlRoot: '/product'
-  });
+  urlRoot: 'http://spacodemo.herokuapp.com/product'
+});
 
-  var shirt = new Product({
-    desc: "Dallas",
-    id: "019249",
-    category: "t-shirt",
-    price: "20",
-    inventory: 10
-  });
+var shirt = new Product({
+  desc: "GDISF Backbone.js",
+  category: "t-shirt",
+  price: "20",
+  inventory: 10
+});
 
-  shirt.save();
-  </pre></code>
-<pre><code>// HTTP POST http://spacodemo.herokuapp.com/product/019249</code></pre>
+shirt.save();
+</pre></code>
+<pre><code>HTTP POST http://spacodemo.herokuapp.com/product</code></pre>
 </section>
 <section>
   <h2>Updating a model</h2>
@@ -654,7 +652,7 @@ var listings = new ProductsListing({collection: products});
 shirt.save();
 </pre></code>
 
-<pre><code>HTTP PUT http://spacodemo.herokuapp.com/product/019249</pre></code>
+<pre><code class="ruby">HTTP PUT http://spacodemo.herokuapp.com/product/&lt;id&gt;</pre></code>
 
 </section>
 <section>
@@ -662,7 +660,7 @@ shirt.save();
   <h3><code>.destroy()</code></h3>
 <pre><code class="javascript">shirt.destroy();</pre></code>
 
-<pre><code>HTTP DELETE http://spacodemo.herokuapp.com/product/019249</pre></code>
+<pre><code class="ruby">HTTP DELETE http://spacodemo.herokuapp.com/product/&lt;id&gt;</pre></code>
 
 </section>
 
@@ -674,7 +672,6 @@ shirt.save();
 <pre><code class="javascript">var ProductCollection = Backbone.Collection.extend({
   url: "http://spacodemo.herokuapp.com/products",
   model: Product
-  ...
 });
 </pre></code>
 
