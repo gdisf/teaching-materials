@@ -49,7 +49,7 @@ people.add({
 	firstName: "Grace",
 	lastName: "Hopper",
 	role: "Computer Scientist",
-	imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
+	imgUrl: "http://www.primerlabs.com/sites/default/files/gracehopper_0.jpg"
 })
 
 var person = new Person({
