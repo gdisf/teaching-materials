@@ -88,6 +88,7 @@ var personView = new PersonView({
 })
 
 var RolodexView = Backbone.View.extend({
+	urlRoot: 'http://spacodemo.herokuapp.com/people',
 	initialize: function() {
 		this.listenTo(this.collection, 'reset', this.render)
 	},
@@ -107,6 +108,6 @@ var rolodexView = new RolodexView({
 $(document).ready(function() {
 	people.fetch();
 	$('body').append(rolodexView.render().$el);
+	// $('body').append(personView.render().$el);
+	// the personView was commented out so that the collection could be rendered instead
 })
-
-// insert your new code here

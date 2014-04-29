@@ -2,7 +2,33 @@
 <head>
 	<meta charset="utf-8">
 	<title>Exercise 4 - Rendering a Template in a Collection</title>
+	<style>
+		h1 {
+			font-family: 'Helvetica', 'Arial', sans-serif;
+			text-align: center;
+		}
 
+		ul {
+			list-style-type: none;
+	        padding:0;
+		}
+
+		body {
+			background-color: beige;
+			font-family: 'Helvetica', 'Arial', sans-serif;
+		}
+
+		.person {
+			width: 22%;
+			float: left;
+			height: 20em;
+			padding: 1%;
+		}
+
+		.person img {
+			width: 100%;
+		}
+	</style>
 	<!-- include library files here... -->
 	<script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="lib/underscore-min.js"></script>
@@ -13,11 +39,18 @@
 	<script type="text/javascript" src="src/app.js"></script>
 </head>
 <body>
+	<h1>My Friends</h1>
 	
 	<!-- The handlebars template for the rolodex view -->
 	<script id="rolodex-template" type="text/x-handlebars-template">
 		{{#each this}}
-			<img src="{{imgUrl}}">
+			<div class="person">
+				<img src="{{imgUrl}}">
+				<ul>
+					<li><strong>Name: </strong>{{firstName}} {{lastName}}</li>
+					<li><strong>Role: </strong>{{role}}</li>
+				</ul>
+			</div>
 		{{/each}}
 	</script>
 
