@@ -95,7 +95,7 @@ var RolodexView = Backbone.View.extend({
 	render: function() {
 		var source   = $("#rolodex-template").html();
 		var template = Handlebars.compile(source);
-		var rendered = template(this.collection.toJSON());
+		var rendered = template({people: this.collection.toJSON()});
 		this.$el.append(rendered);
 		return this;
 	}
