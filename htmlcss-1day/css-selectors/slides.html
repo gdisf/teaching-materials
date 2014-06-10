@@ -641,6 +641,8 @@ The "#" is how you tell CSS "this is an id."
 &lt;p class="desc"&gt;hi&lt;/p&gt; -&gt; hi
 &lt;p class="intro"&gt;hi&lt;/p&gt; -&gt; hi
 </pre>
+<br>
+<p><a href="http://khanacademy.org/style">Real world example: button classes</a></p>
      </section>
     </div>
     
@@ -728,8 +730,34 @@ Warning: If you place a space after the ".", it'll look for descendants of <code
 </p>
      </section>
     </div>
-    
-   
+
+<div class="slide normal"> 
+     <header><h1>Types of selectors: element vs. class</h1></header> 
+     <section class="content"> 
+
+     <p>
+The difference between the "." and the space is very important! 
+</p>
+
+     <pre>
+li.a {
+  color: yellow;
+}
+
+li a {
+  color: red;
+}
+</pre>
+
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#rice"&gt;Rice Krispies&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="a"&gt;NutriGrain&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+     </section>
+    </div>
     
     
     
@@ -737,12 +765,12 @@ Warning: If you place a space after the ".", it'll look for descendants of <code
      <header><h1>Types of selectors: ALL!</h1></header> 
      <section class="content"> 
      <pre>
-#header div.content form p em.required {
+#header .content form p em.required {
   color: white;
 }
 </pre>
 <p>
-Selects any <code>em</code> element with a class attribute that contains the word "required" that is a descendant of a <code>p</code> element that is a descendant of a <code>form</code> element that is a descendant of a <code>div</code> element with a class attribute that contains the word "content" that is a descendant of any element with an id attribute that equals "header".
+Selects any <code>em</code> element with a class attribute that contains the word "required" that is a descendant of a <code>p</code> element that is a descendant of a <code>form</code> element that is a descendant of an element with a class attribute that contains the word "content" that is a descendant of any element with an id attribute that equals "header".
 </p>
  
      </section>
