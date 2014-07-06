@@ -37,8 +37,8 @@
 &lt;/html&gt;
   </pre>
   <li>Add a <code>script</code> tag to the bottom.
-  <li>Change the body style so it has a font-family of "Arial, sans-serif".
-  <li>Replace each of the spans (nickname, favorites, hometown) with your own information.
+  <li>(In JS) Change the body tag's style so it has a font-family of "Arial, sans-serif".
+  <li>(In JS) Replace each of the spans (nickname, favorites, hometown) with your own information.
   <li>Iterate through each li and change the class to "listitem". Add a <code>style</code>
   tag that sets a rule for "listitem" to make the color red.
   <li>Create a new <code>img</code> element and set its <code>src</code> attribute to
@@ -90,7 +90,16 @@
  <ul>
   <li>Create a webpage with an <code>h1</code> of "My Book List".
   <li>Add a script tag to the bottom of the page, where all your JS will go.
-  <li>Copy the array of books from the <a href="objects.html">previous exercise</a>.
+  <li>Copy this array of books:
+  <pre>var books = [
+  {title: 'The Design of EveryDay Things',
+   author: 'Don Norman',
+   alreadyRead: false
+  },
+  {title: 'The Most Human Human',
+  author: 'Brian Christian',
+  alreadyRead: true
+  }];</pre>
   <li>Iterate through the array of books. For each book, create a <code>p</code>
   element with the book title and author and append it to the page.
   <li><b>Bonus</b>: Use a <code>ul</code> and <code>li</code> to display the books.
