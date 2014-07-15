@@ -86,6 +86,8 @@ var myObject = {
 document.getElementById('presentation');
 document.getElementsByClassName('slide');
 document.getElementsByTagName('body');
+document.querySelectorAll('a');
+document.querySelector('img');
 </pre>
 
 
@@ -166,6 +168,7 @@ for (var i = 0; i< elems.length; i++) {
 					<header><h1>jQuery: Why?</h1></header>
 					<section class="content">
 						<p>No library:</p>
+						<div class='header'></div>
 <pre>var p = document.createElement('p');
 p.appendChild(document.createTextNode('Welcome!'));
 p.style.cssFloat = 'left';
@@ -175,7 +178,7 @@ document.querySelector('div.header').appendChild(p);</pre>
 
 						<p>jQuery:</p>
 <pre>var newP = $('&#60;p&#62Welcome!&#60;&#47;p&#62');
-newP.css({'float': 'left', 'background-color': 'red')
+newP.css({'float': 'left', 'background-color': 'red'});
 newP.addClass('special');
 $('div.header').append(newP);</pre>
 
@@ -189,7 +192,7 @@ $('div.header').append(newP);</pre>
 					<section class="content">
 						<br>
 						<br>
-<pre style="text-align:center">&lt;p&gt;Welcome to jQuery!&lt;/p&gt;</pre>
+<pre style="text-align:center">&lt;p&gt;Welcome to jQuery!&lt;/p&gt; </pre>
 						<div style="text-align:center">
 							<img src="img/arrow.png">
 						</div><!--/arrow-->
@@ -202,6 +205,21 @@ $('div.header').append(newP);</pre>
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: the basics 1-->
+
+								<div class="slide normal">
+					<header><h1>jQuery Recipe: Select and Manipulate</h1></header>
+					<section class="content">
+						<br>
+						<br>
+						<p>Step 1: Aelect element</p>
+						<pre style="text-align:center;">$('p')</pre>
+						<p> Step 2: Chain a method to manipulate </p>
+						<pre style="text-align:center;">$('p').addClass('special');</pre>
+						<p> Step 3: Admire your results! </p>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jQuery Recipes: Select and Manipulate-->
 
 				<div class="slide normal">
 					<header><h1>jQuery: The Basics</h1></header>
@@ -228,6 +246,7 @@ $('div.header').append(newP);</pre>
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: the basics 2-->
+
 
 				<div class="slide normal">
 					<header><h1>jQuery: Finding Elements</h1></header>
@@ -329,6 +348,23 @@ $('a').css({'color': 'purple'});</pre><br>
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
 				</div><!--/jquery: changing elements-->
+
+
+								<div class="slide normal">
+					<header><h1>jQuery Recipe: Create, Manipulate & Inject</h1></header>
+					<section class="content">
+						<br>
+						<br>
+						<p>Step 1: Create element</p>
+						<pre>var p = $('&lt;p&gt;')</pre>
+						<p> Step 2: Chain a method to manipulate (optional)</p>
+						<pre>p.addClass('special');</pre>
+						<p> Step 3: Inject into your HTML </p>
+						<pre>$('body').append(p);</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jQuery Recipes: Create, Manipulate and Inject-->
 
 				
 				<div class="slide normal">
