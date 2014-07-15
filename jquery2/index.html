@@ -69,11 +69,13 @@
   console.log('clicked!');
 };
 
-$('#button').on('click', onButtonClick);</pre>
+$('button').on('click', onButtonClick);</pre>
 
-<pre>$('#button').on('click', function () {
+<pre>$('button').on('click', function () {
   console.log('clicked!');
 });</pre>
+
+<pre>$('button').click(onButtonClick)</pre>
 						<br>
 						<p><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a> 
 							<code>'keydown'</code>
@@ -109,11 +111,17 @@ $('#button').on('click', onButtonClick);</pre>
 					<header><h1>Events</h1></header>
 					<section class="content">
 						<br>
-<pre>$('a').on('click', function (event) {
+						<p>Arguments get applied in callbacks<p>
+<pre>var myCallback = function(event) {
+	console.log(event);
+}
+$('p').mouseenter(myCallback); // no need to specify arguments again</pre>
+<br>
+						<p>Preventing Default Events</p>
+<pre>$('a').click(function (event) {
 	event.preventDefault();
 	console.log('Not going there!');
 });</pre>
-
 <pre>$('form').on('submit', function (event) {
 	event.preventDefault();
 	console.log('Not submitting, time to validate!');

@@ -41,6 +41,9 @@
 .code-cell {
 	text-align: center;
 }
+#yahoo {
+	display: none;
+}
 		</style>
 	</head>
 	<body>
@@ -275,13 +278,14 @@ $('div.header').append(newP);</pre>
 					<header><h1>jQuery: Reading Elements</h1></header>
 					<section class="content">
 						<p>If we start with this HTML...
-						<pre>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</pre>
+						<a id="yahoo" href="http://www.yahoo.com" style="font-size:20px;">Yahoo!</a>
+						<pre>&lt;a id="yahoo" href="http://www.yahoo.com" style="font-size:20px"&gt;Yahoo!&lt;/a&gt;</pre>
 						</p>
 						<p>We can find it...
-						<pre>$('a');</pre>
+						<pre>$('a#yahoo');</pre>
 						</p>
 						<p>We can store it...
-						<pre>var myLink = $('a');</pre>
+						<pre>var myLink = $('a#yahoo');</pre>
 						</p>
 						<p>
 						...And we can find out lots of things about it:
@@ -298,9 +302,9 @@ $('div.header').append(newP);</pre>
 								<td class="code-cell"><pre>'http://www.yahoo.com'</pre></td>
 							</tr>
 							<tr>
-								<td class="code-cell"><pre>myLink.css('color');</pre></td>
+								<td class="code-cell"><pre>myLink.css('font-size');</pre></td>
 								<td>→</td>
-								<td class="code-cell"><pre>'purple'</pre></td>
+								<td class="code-cell"><pre>'20px'</pre></td>
 							</tr>
 						</table>
 
@@ -370,31 +374,27 @@ $('a').css({'color': 'purple'});</pre><br>
 						<p>...and inject it somewhere!</p>
 						<pre>$('body').append(myParagraph);</pre>
 						<pre>$('body').prepend(myParagraph);</pre>
-						<pre>myParagraph.appendTo($('body'));</pre>
 					</section>
 				</div><!--/jquery: injecting elements-->
 
 				<div class="slide normal">
-					<header><h1>jQuery: Looping</h1></header>
+					<header><h1>regular DOM nodes to jQuery objects</h1></header>
 					<section class="content">
 						<br>
+<pre>var paragraphs = $('p'); // an array</pre>
+<br>
+<pre>var myParagraph = paragraphs[0]; // a regular DOM node</pre>
+<br>
+<pre>var $myParagraph = $(paragraphs[0]); // a jQuery Object</pre>
+<br>
+					<p>We can also loop through our array...</p>
 <pre>
-var links = $('a');
-
-links.each(function(index, elem) {
-   var link = $(elem);
-   link.html(link.html() + '!');
-});
-</pre>
-						<br>
-<pre>
-var links = $('a');
-var processElem = function(index, elem) {
-   var link = $(elem);
-   link.html(link.html() + '!');
+for(var i = 0; i < paragraphs.length; i++) {
+   var element = paragraphs[i];
+   var paragraph = $(element);
+   paragraph.html(paragraph.html() + ' wowee!!!!');
 };
-
-links.each(processElem);</pre>
+</pre>
 
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
