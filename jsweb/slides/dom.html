@@ -14,7 +14,7 @@
 $(document).ready(function(){
     $('pre').addClass('prettyprint').attr('tabIndex', 0);
     prettyPrint();
-    
+
     var fathom = $('#presentation').fathom({
         onActivateSlide: function() {
             var $slide = $(this);
@@ -27,18 +27,18 @@ $(document).ready(function(){
 <body>
 
 <div id="presentation">
-  
+
    <div id="presentation-counter"></div>
-      
+
    <div id="slides">
-    <div class="slide normal"> 
+    <div class="slide normal">
      <h1 class="center">JS: DOM</h1>
     </div>
 
-      
-    <div class="slide normal"> 
-     <header><h1>HTML &amp; CSS: Review</h1></header> 
-     <section class="content"> 
+
+    <div class="slide normal">
+     <header><h1>HTML &amp; CSS: Review</h1></header>
+     <section class="content">
      <img src="http://dl.dropbox.com/u/10998095/Screenshots/_o-7fu6impc_.png" style="float:right; border:1px solid black; margin-left: 10px;">
 <pre class="prettyprint lang-html" style="font-size: 17px; line-height:1.2em;">
 &lt;!doctype html&gt;
@@ -48,7 +48,7 @@ $(document).ready(function(){
   &lt;title&gt;All About Cats&lt;/title&gt;
   &lt;style type=&quot;text/css&quot;&gt;
    h1 {
-     color: red; 
+     color: red;
    }
   #mainpicture {
     border: 1px solid black;
@@ -56,7 +56,7 @@ $(document).ready(function(){
   .catname {
     font-weight: bold;
   }
-  &lt;/style&gt;     
+  &lt;/style&gt;
  &lt;/head&gt;
  &lt;body&gt;
   &lt;h1&gt;CATS!&lt;/h1&gt;
@@ -71,13 +71,13 @@ $(document).ready(function(){
 </pre>
      </section>
     </div>
-    
-   
-    <div class="slide normal"> 
-     <header><h1>HTML Editors</h1></header> 
-     <section class="content"> 
-     <section class="content"> 
-     <p>Since HTML files are just text files, many programs can be used to create them. Some programs provide special assistance for handling HTML, like syntax-highlighting or autocompletion. 
+
+
+    <div class="slide normal">
+     <header><h1>HTML Editors</h1></header>
+     <section class="content">
+     <section class="content">
+     <p>Since HTML files are just text files, many programs can be used to create them. Some programs provide special assistance for handling HTML, like syntax-highlighting or autocompletion.
 </p>
 <table style="font-size:120%; border: 1px solid black;" border="1" cellspacing="0">
  <thead>
@@ -90,7 +90,7 @@ $(document).ready(function(){
        <td rowspan="2"> <a href="http://c9.io/">Cloud9 IDE</a>, <a href="http://jsbin.com/3/">JSBin</a></td>
   </tr>
   <tr><td>$$</td>
-       <td><a href="http://www.sublimetext.com/">SublimeText</a></td>, 
+       <td><a href="http://www.sublimetext.com/">SublimeText</a></td>,
        <td><a href="http://macromates.com/">TextMate</a>, <a href="http://www.panic.com/coda/">Coda</a>, <a href="http://macrabbit.com/espresso/">Espresso</a></td></tr>
   </tbody>
 </table>
@@ -102,12 +102,12 @@ $(document).ready(function(){
 <p></p>
      </section>
     </div>
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>JS in HTML</h1></header> 
-     <section class="content"> 
+
+
+
+    <div class="slide normal">
+     <header><h1>JS in HTML</h1></header>
+     <section class="content">
      <p>You can put JS inside a <code>script</code> tag (commonly at bottom of the page):</p>
 
 <pre class="prettyprint lang-html">
@@ -123,31 +123,31 @@ $(document).ready(function(){
 
 <pre class="prettyprint lang-html">
   ...
-  &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt; 
+  &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
  &lt;/body&gt;
 &lt;/html&gt;
 </pre>
      </section>
     </div>
-  
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The DOM Tree</h1></header> 
-     <section class="content"> 
+
+
+
+
+    <div class="slide normal">
+     <header><h1>The DOM Tree</h1></header>
+     <section class="content">
      <p>For <a href="../inclass/allaboutcats.html">this page</a>:</p>
      <center><img src="http://dl.dropbox.com/u/10998095/Screenshots/2dvqiz-0w2cx.png"></center>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>DOM Inspecting</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>DOM Inspecting</h1></header>
+     <section class="content">
      <ul>
        <li><a href="https://developers.google.com/chrome-developer-tools/docs/elements">Chrome</a>: Right-click -&gt; "Inspect Element"
        </li><li><a href="https://developer.mozilla.org/en/Tools/Inspector">Firefox</a>: Right-click -&gt; "Inspect Element" -&gt; "HTML"
@@ -158,14 +158,14 @@ $(document).ready(function(){
       </p>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>DOM Access</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>DOM Access</h1></header>
+     <section class="content">
      <p>The <code><a href="https://developer.mozilla.org/en/DOM/document">document</code></a> object gives us ways of accessing and changing the DOM of the current webpage.
 </p>
 
@@ -189,14 +189,14 @@ for (var i = 0; i &lt; document.body.childNodes.length; i++) {
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>DOM Access: By Id</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>DOM Access: By Id</h1></header>
+     <section class="content">
 <br>
 <p>The method signature:</p>
 <pre  style="border:3px dotted black;" class="prettyprint">
@@ -217,10 +217,10 @@ var img = document.getElementById('mainpicture');
 
      </section>
     </div>
-    
-    <div class="slide normal"> 
-     <header><h1>DOM Access: By Tag Name</h1></header> 
-     <section class="content"> 
+
+    <div class="slide normal">
+     <header><h1>DOM Access: By Tag Name</h1></header>
+     <section class="content">
 
 <br>
 <p>The method signature:</p>
@@ -242,12 +242,12 @@ for (var i =0; i &lt; listItems.length; i++) {
 </pre>
      </section>
     </div>
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>DOM Access: HTML5</h1></header> 
-     <section class="content"> 
+
+
+
+    <div class="slide normal">
+     <header><h1>DOM Access: HTML5</h1></header>
+     <section class="content">
      <p>The HTML5 spec includes a few even more convenient methods.</p>
 
 <p>Available in <a href="http://caniuse.com/#search=getElementsByClassName">IE9+, FF3.6+, Chrome 17+, Safari 5+</a>:</p>
@@ -271,16 +271,38 @@ var catNames = document.querySelectorAll('ul li.catname');
 </pre>
      </section>
     </div>
-    
-  
-    <div class="slide normal"> 
+
+    <div class="slide normal">
+      <header><h1>DOM Access: Single Element vs. NodeList</h1></header>
+      <section class="content">
+        <p>Some access methods return a single element:</p>
+        <ul>
+          <li><code>getElementById()</code></li>
+          <li><code>querySelector() </code><small>*returns only the first of the matching elements</small></li>
+        </ul>
+        <p>Others return a collection of nodes, or NodeList:</p>
+        <ul>
+          <li><code>getElementByClassName()</code></li>
+          <li><code>getElementByTagName()</code></li>
+          <li><code>querySelectorAll()</code></li>
+        </ul>
+        <p>Items in NodeLists can be accessed by array syntax:</p>
+<pre class="prettyprint">
+  var allCatNames = document.querySelectorAll('ul li.catname');
+  var firstCatName = allCatNames[0];
+</pre>
+      </section>
+    </div>
+
+
+    <div class="slide normal">
      <h1 class="center"><a target="_blank" href="../exercises/domaccess.html">Exercise Time!</a></h1>
     </div>
-    
 
-    <div class="slide normal"> 
-     <header><h1>DOM Nodes: Attributes</h1></header> 
-     <section class="content"> 
+
+    <div class="slide normal">
+     <header><h1>DOM Nodes: Attributes</h1></header>
+     <section class="content">
      <p>You can access and change attributes of DOM nodes using dot notation.</p>
 <p>If we had this HTML:</p>
 <pre class="prettyprint">
@@ -299,11 +321,11 @@ img.className = "picture";
 </pre>
      </section>
     </div>
-    
-    
-    <div class="slide normal"> 
-     <header><h1>DOM Nodes: Styles</h1></header> 
-     <section class="content"> 
+
+
+    <div class="slide normal">
+     <header><h1>DOM Nodes: Styles</h1></header>
+     <section class="content">
      <p>You can change styles on DOM nodes via the <code>style</code> property.</p>
 <p>If we had this CSS:</p>
 <pre>
@@ -337,13 +359,13 @@ Number-like properties must be set using proper CSS syntax with their units, e.g
 </p>
      </section>
     </div>
-    
-   
-    
-  
-    <div class="slide normal"> 
-     <header><h1>DOM innerHTML</h1></header> 
-     <section class="content"> 
+
+
+
+
+    <div class="slide normal">
+     <header><h1>DOM innerHTML</h1></header>
+     <section class="content">
      <p>Each DOM node has an <code>innerHTML</code> property with the HTML of all its children:</p>
 <pre>
 var pageNode = document.getElementsByTagName('body')[0];
@@ -361,21 +383,21 @@ pageNode.innerHTML = "&lt;h1&gt;Oh Noes!&lt;/h1&gt; &lt;p&gt;I just changed the 
 pageNode.innerHTML += "...just adding this bit at the end of the page.";
 </pre>
 
-<p style="display:none;">Every node in the DOM tree has an innerHTML attribute that contains all of its children serialized back into HTML format. var nav = header.nextSibling.nextSibling;var oldNavHTML = nav.innerHTML;var oldHeaderHTML = header.innerHTML; You can also set the innerHTML attribute to replace the contents of any node. 
+<p style="display:none;">Every node in the DOM tree has an innerHTML attribute that contains all of its children serialized back into HTML format. var nav = header.nextSibling.nextSibling;var oldNavHTML = nav.innerHTML;var oldHeaderHTML = header.innerHTML; You can also set the innerHTML attribute to replace the contents of any node.
 </pre>
      </section>
     </div>
 
-  
-    <div class="slide normal"> 
+
+    <div class="slide normal">
      <h1 class="center"><a target="_blank" href="../exercises/logohijack.html">Exercise Time!</a></h1>
     </div>
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>DOM Modifying</h1></header> 
-     <section class="content"> 
+
+
+
+    <div class="slide normal">
+     <header><h1>DOM Modifying</h1></header>
+     <section class="content">
      <p>The <code>document</code> object also provides ways to create nodes from scratch:</p>
 <pre style="border:3px dotted black;" >
 document.createElement(tagName);
@@ -398,12 +420,12 @@ pageNode.appendChild(newParagraph);
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
+
+
+
+
+
+    <div class="slide normal">
      <h1 class="center"><a target="_blank" href="../exercises/dom.html">Exercise Time!</a></h1>
     </div>
 
