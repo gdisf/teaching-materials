@@ -126,13 +126,13 @@ var myProfile =
   "cats": ["Tribbles", "Jean Claws"]};
 
 var p = document.createElement('p');
-p.innerHTML = myProfile.firstName + ' ' + myProfile.lastName;
-p.innerHTML += 'My cats are ' + myProfile.cats.join(',');
+p.innerHTML = 'My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ';
+p.innerHTML += 'My cats are ' + myProfile.cats.join(', ') + '.';
 
 
 var p = $('&lt;p&gt;');
-p.html(myProfile.firstName + ' ' + myProfile.lastName);
-p.append('My cats are ' + myProfile.cats.join(','));
+p.html('My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ');
+p.append('My cats are ' + myProfile.cats.join(', ') + '.');
 </pre>
         </section>
       </div><!--turn JSON into DOM-->
