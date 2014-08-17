@@ -1,4 +1,4 @@
-describe("Exercise 1: ", function() {
+describe("Exercise 0: ", function() {
   describe("Create a Backbone Model: ", function() {
     var person;
 
@@ -16,9 +16,9 @@ describe("Exercise 1: ", function() {
         expect(person.defaults.role).toEqual("student");
       });
 
-      it("such as a 'imgUrl' attribute that equals 'http://placekitten.com/200/200'", function() {
+      it("such as a 'imgUrl' attribute that equals 'http://placepuppy.it/200/200'", function() {
         expect(person.defaults.imgUrl).toBeDefined();
-        expect(person.defaults.imgUrl).toEqual("http://placekitten.com/200/200");
+        expect(person.defaults.imgUrl).toEqual("http://placepuppy.it/200/200");
       });
 
       it("such as a 'firstName' attribute that equals an empty string ''", function() {
@@ -32,7 +32,7 @@ describe("Exercise 1: ", function() {
       });
     });
 
-    describe("BONUS!! give it some custom methods", function() {
+    describe("give it some custom methods", function() {
       it("such as a method called 'generateUsername'", function() {
         expect(person.generateUsername).toBeDefined();
       });

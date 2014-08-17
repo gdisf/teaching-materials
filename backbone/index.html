@@ -110,7 +110,10 @@ Product.prototype.buy = function() {
 var product = new Product({
   name: "BetaBrand Disco FannyPack",
   type: "Accessory",
-  inventory: 20});
+  inventory: 20
+});
+
+// Calling a method on a new object
 product.buy();</code></pre>
 </section>
 
@@ -136,7 +139,9 @@ var shirt = new Shirt({
   name: "Three Wolves Shirt",
   type: "T-Shirt",
   inventory: 33,
-  colors: ["black"]});
+  colors: ["black"]
+});
+
 shirt.buy();
 shirt.addColor("teal");</code></pre>
 </section>
@@ -222,13 +227,16 @@ $('#jquery-review').append(newCode);</pre></code>
 
 <pre><code class="javascript">var shirt = new Product({
   name: "Roma",
-  colors: ["green", "white", "red"]
+  colors: ["green", "white", "red"],
+  onSale: true,
+  freeShippingEligible: false
 });</code></pre>
 </section>
 
 <section>
   <h1>Setting and getting attributes</h1>
   <br>
+    <p>Use <code>.set()</code> and <code>.get()</code> for Backbone Models</p>
 <pre><code class="javascript">shirt.set('tagline', 'sempre ad maiora');
 shirt.set('newProduct', false);
 shirt.set('inventory', 1);</code></pre>
@@ -236,6 +244,10 @@ shirt.set('inventory', 1);</code></pre>
 <pre><code class="javascript">shirt.get('tagline'); //returns 'sempre ad maiora'
 shirt.get('newProduct'); // returns false
 shirt.get('inventory'); // returns 1</code></pre>
+    <p>If you try to access Model properties via dot/bracket notation, they'll be undefined</p>
+
+<pre><code class="javascript">shirt.tagline; // undefined
+shirt['tagline']; // undefined</code></pre>
 
 </section>
 
@@ -255,7 +267,7 @@ shirt.get('inventory'); // returns 1</code></pre>
   <br>
   <pre><code class="javascript">var Product = Backbone.Model.extend({
   makeSentence: function() {
-    return "Check out our very special " + this.get('type') + ".";
+    console.log("Check out our very special " + this.get('type') + ".");
   }
 });</code></pre>
 
@@ -373,7 +385,7 @@ shirt.get('inventory'); // returns 1</code></pre>
   <pre><code class="javascript">var ProductListing = Backbone.View.extend({
   className: "product",
   render: function() {
-    this.$el.append('&lt;img src="http://placekitten.com/200/200"&gt;');
+    this.$el.append('&lt;img src="http://placepuppy.it/200/200"&gt;');
     return this;
   }
 });</code></pre>
@@ -507,83 +519,6 @@ var listings = new ProductsListing({collection: products});
   <h1><a href="rolodex_exercise_steps/step3/instructions.html" target="_blank">Exercise Time</a></h1>
 </section>
 
-
-<!--
-  <section>
-  <h1>Nested Views</h1>
-
-<pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
-  tagName: 'div',
-  className: 'books',
-  render: function(eventName) {
-    this.collection.each(function (book) {
-      var bookItemView = new BookItemView({model: book});
-      this.$el.append(bookItemView.render().$el);
-    }, this);
-    return this;
-  }
-});
-</pre></code>
-<div class="fragment">
-<pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
-  tagName: 'div',
-  className: 'book',
-  render: function() {
-    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
-    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
-    bookLink.append(bookCover);
-    this.$el.append(bookLink);
-    return this;
-  }
-});
-</pre></code>
-
-<pre style="font-size:16px;"><code class="javascript">var shelfView = new BookShelfView({collection: bookCollection});</pre></code>
-</div>
-
-</section>
-
-
-<section>
-  <h1>View/Model Events</h1>
-
-  <pre><code class="javascript">var BookShelfView = Backbone.View.extend({
-  events: {
-   'click button': 'addNewBook'
-  },
-  initialize: function() {
-    this.listenTo(this.collection, 'add', this.renderOne);
-  },
-  render: function() {
-    this.collection.each(this.renderOne, this);
-    return this;
-  },
-  renderOne: function(book) {
-    var bookItemView = new BookItemView({model: book});
-    this.$el.append(bookItemView.render().$el);
-  },
-  addNewBook: function(e) {
-    // prevent page from refreshing when form is submitted
-    e.preventDefault();
-    var title = this.$('input').val();
-    if (title) {
-      this.collection.add({ title: title});
-      this.$('input').val('');
-    }
-  }
-});</pre></code>
-
-  <br>
-  <a href="http://backbonejs.org/#Events-catalog">Backbone's built in events</a>
-
-</section>
-
-<section>
-  <h1><a href="exercise3_events.html" target="_blank">Exercise Time!</a></h1>
-</section>
-
--->
-
 <section>
   <h1>The Backbone Backend</h1>
   <h2><a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a></h2>
@@ -624,7 +559,7 @@ var listings = new ProductsListing({collection: products});
   <h2>Saving a model</h2>
   <h3><code>.save()</code></h3>
   <pre><code class="javascript">var Product = Backbone.Model.extend({
-  urlRoot: 'http://spacodemo.herokuapp.com/product'
+  urlRoot: 'http://spacodemo.herokuapp.com/products'
 });
 
 var shirt = new Product({
@@ -637,7 +572,7 @@ var shirt = new Product({
 
 shirt.save();
 </pre></code>
-<pre><code>HTTP POST http://spacodemo.herokuapp.com/product</code></pre>
+<pre><code>HTTP POST http://spacodemo.herokuapp.com/products</code></pre>
 </section>
 <section>
   <h2>Updating a model</h2>
@@ -647,7 +582,7 @@ shirt.save();
 shirt.save();
 </pre></code>
 
-<pre><code class="ruby">HTTP PUT http://spacodemo.herokuapp.com/product/&lt;id&gt;</pre></code>
+<pre><code class="ruby">HTTP PUT http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
 
 </section>
 <section>
@@ -655,7 +590,7 @@ shirt.save();
   <h3><code>.destroy()</code></h3>
 <pre><code class="javascript">shirt.destroy();</pre></code>
 
-<pre><code class="ruby">HTTP DELETE http://spacodemo.herokuapp.com/product/&lt;id&gt;</pre></code>
+<pre><code class="ruby">HTTP DELETE http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
 
 </section>
 

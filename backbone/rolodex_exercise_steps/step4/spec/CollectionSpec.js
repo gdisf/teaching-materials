@@ -1,4 +1,4 @@
-describe("Exercise 2: ", function() {
+describe("Exercise 1: ", function() {
   describe("Define a Backbone Collection: ", function() {
     var people;
 
@@ -20,8 +20,9 @@ describe("Exercise 2: ", function() {
       expect(people.models[0].get('firstName')).toBeDefined();
     });
 
-    it("give it a comparator of 'lastName'", function() {
-      expect(people.comparator).toEqual("lastName");
+    it("the comparator method to sort by the lowercase value of 'lastName'", function() {
+      var returnValue = people.comparator(new Person({lastName: 'Jin'}))
+      expect(returnValue).toEqual("jin");
     });
   });
 
@@ -45,11 +46,6 @@ describe("Exercise 2: ", function() {
 
     it("use .add to add at least 1 more model", function() {
       expect(people.length).toBeGreaterThan(3);
-    });
-
-    it("BONUS!! use .listenTo() in the .initialize function to call .sort() every time a new model is added", function() {
-      people.add({firstName: "Grace", lastName: "Hopper"});
-      expect(people.sort).toHaveBeenCalled();
     });
   });
 });
