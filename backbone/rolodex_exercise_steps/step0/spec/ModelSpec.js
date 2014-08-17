@@ -32,7 +32,7 @@ describe("Exercise 1: ", function() {
       });
     });
 
-    describe("BONUS!! give it some custom methods", function() {
+    describe("give it some custom methods", function() {
       it("such as a method called 'generateUsername'", function() {
         expect(person.generateUsername).toBeDefined();
       });
