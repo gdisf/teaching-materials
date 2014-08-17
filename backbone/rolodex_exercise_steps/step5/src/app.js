@@ -3,7 +3,7 @@ var Person = Backbone.Model.extend({
 		firstName: "",
 		lastName: "",
 		role: "student",
-		imgUrl: "http://placekitten.com/200/200"
+		imgUrl: "http://placepuppy.it/200/200"
 	},
 	urlRoot: 'http://spacodemo.herokuapp.com/person',
 	initialize: function() {

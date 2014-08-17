@@ -3,7 +3,7 @@ var areGirlDevelopersCool = true;
 var Person = Backbone.Model.extend({
 	defaults: {
 		role: 'student',
-		imgUrl: 'http://placekitten.com/200/200',
+		imgUrl: 'http://placepuppy.it/200/200',
 		firstName: '',
 		lastName: ''
 	},
@@ -29,7 +29,7 @@ var people = new People([
 		firstName: "Brenda",
 		lastName: "Jin",
 		role: "teacher",
-		imgUrl: "https://pbs.twimg.com/profile_images/378800000767548355/a8e51504bab0789d2b3ba7d6329aaf8c.jpeg"
+		imgUrl: "https://pbs.twimg.com/profile_images/494918967329165312/_DNh8TnK.jpeg"
 	},
 	{
 		firstName: "Pamela",
