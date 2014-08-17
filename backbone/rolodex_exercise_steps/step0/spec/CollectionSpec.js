@@ -46,10 +46,5 @@ describe("Exercise 2: ", function() {
     it("use .add to add at least 1 more model", function() {
       expect(people.length).toBeGreaterThan(3);
     });
-
-    it("BONUS!! use .listenTo() in the .initialize function to call .sort() every time a new model is added", function() {
-      people.add({firstName: "Grace", lastName: "Hopper"});
-      expect(people.sort).toHaveBeenCalled();
-    });
   });
 });
