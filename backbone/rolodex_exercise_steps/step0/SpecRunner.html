@@ -19,13 +19,16 @@
   
   <!-- include source files here... -->
   <script type="text/javascript" src="src/app.js"></script>
-  
+  <style>
+    img {
+      width: 100px;
+    }
+  </style>
 </head>
 
 <body>
-
 <script id="rolodex-template" type="text/x-handlebars-template">
-  {{#each}}
+  {{#each people}}
     <img src="{{imgUrl}}">
   {{/each}}
 </script>

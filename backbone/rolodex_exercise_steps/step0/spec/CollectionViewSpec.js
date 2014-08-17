@@ -87,7 +87,7 @@ describe("Exercise 3: ", function() {
 
   describe("Update the $(document).ready() function ", function() {
     it("and instead of rendering and appending your personView to the DOM, render and append your rolodexView", function() {
-      expect($('img').length).toBeGreaterThan(0);
+      expect($('img').length).toBeGreaterThan(1);
     });
   });
 });

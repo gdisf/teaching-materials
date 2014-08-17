@@ -1,36 +1,35 @@
+var areGirlDevelopersCool = true;
+
 var Person = Backbone.Model.extend({
 	defaults: {
-		firstName: "",
-		lastName: "",
-		role: "student",
-		imgUrl: "http://placepuppy.it/200/200"
+		role: 'student',
+		imgUrl: 'http://placepuppy.it/200/200',
+		firstName: '',
+		lastName: ''
 	},
-	urlRoot: 'http://spacodemo.herokuapp.com/person',
+	generateUsername: function() {
+		var username = this.get('firstName') + this.get('lastName');
+		this.set('username', username)
+		return username;
+	},
 	initialize: function() {
 		this.generateUsername();
-	},
-	generateUsername: function () {
-		var username = this.get('firstName') + this.get('lastName');
-		this.set('username', username);
-		return username;
 	}
 });
 
 var People = Backbone.Collection.extend({
 	model: Person,
-	url: 'http://spacodemo.herokuapp.com/people',
-	comparator: 'lastName',
-	initialize: function() {
-		this.listenTo(this, 'add', this.sort)
+	comparator: function(model) {
+		return model.get('lastName').toLowerCase();
 	}
-});
+})
 
 var people = new People([
 	{
 		firstName: "Brenda",
 		lastName: "Jin",
 		role: "teacher",
-		imgUrl: "https://pbs.twimg.com/profile_images/378800000767548355/a8e51504bab0789d2b3ba7d6329aaf8c.jpeg"
+		imgUrl: "https://pbs.twimg.com/profile_images/494918967329165312/_DNh8TnK.jpeg"
 	},
 	{
 		firstName: "Pamela",
@@ -43,56 +42,46 @@ var people = new People([
 		role: "TA",
 		imgUrl: "https://lh6.googleusercontent.com/-RXfQUhzv7uQ/AAAAAAAAAAI/AAAAAAAAAAA/vO3ax0T-UzY/s128-c-k/photo.jpg"
 	}
-]);
+])
 
 people.add({
-	firstName: "Grace",
-	lastName: "Hopper",
-	role: "Computer Scientist",
-	imgUrl: "http://www.primerlabs.com/sites/default/files/gracehopper_0.jpg"
+	firstName: 'Julee',
+	lastName: 'Burdekin',
+	role: 'Adobe host'
 })
-
-var person = new Person({
-	firstName: "Anita",
-	lastName: "Borg",
-	id: '202828777d7d7dj3m2k2k',
-	role: "Computer Scientist",
-	imgUrl: "http://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Anita_Borg.jpg/220px-Anita_Borg.jpg"
-})
-
-people.add(person);
-
-person.save();
 
 var PersonView = Backbone.View.extend({
 	className: 'rolodex',
-	events: {
-		'click' : 'onClick'
-	},
 	render: function() {
-		var myImg = $('<img>');
-		var imgSrc = this.model.get('imgUrl');
-		
-		myImg.attr('src', imgSrc);
+		var myImg = $('<img>').attr('src', this.model.get('imgUrl'));
 		this.$el.append(myImg);
-
 		return this;
 	},
+	events: {
+		'click': 'onClick'
+	},
 	onClick: function() {
-
+		// do something cool here
 	}
+});
+
+var person = new Person({
+	firstName: "Grace",
+    lastName: "Hopper",
+    role: "Computer Scientist",
+    imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
 })
 
 var personView = new PersonView({
 	model: person
-})
+});
 
 var RolodexView = Backbone.View.extend({
-	urlRoot: 'http://spacodemo.herokuapp.com/people',
 	initialize: function() {
-		this.listenTo(this.collection, 'reset', this.render)
+		this.collection.on('add change remove', this.render, this);
 	},
 	render: function() {
+		this.$el.html('');
 		var source   = $("#rolodex-template").html();
 		var template = Handlebars.compile(source);
 		var rendered = template({people: this.collection.toJSON()});
@@ -103,11 +92,8 @@ var RolodexView = Backbone.View.extend({
 
 var rolodexView = new RolodexView({
 	collection: people
-})
+});
 
 $(document).ready(function() {
-	people.fetch();
 	$('body').append(rolodexView.render().$el);
-	// $('body').append(personView.render().$el);
-	// the personView was commented out so that the collection could be rendered instead
 })

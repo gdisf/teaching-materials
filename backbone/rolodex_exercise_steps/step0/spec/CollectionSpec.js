@@ -1,4 +1,4 @@
-describe("Exercise 2: ", function() {
+describe("Exercise 1: ", function() {
   describe("Define a Backbone Collection: ", function() {
     var people;
 
