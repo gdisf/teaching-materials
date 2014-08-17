@@ -61,7 +61,7 @@ describe("Exercise 2: ", function() {
       myPersonView.remove();
     });
 
-    it("in the 'onClick' callback, do something fun (we won't test you on this one)", function() {
+    it("in the 'onClick' callback, do something fun (this test will always pass)", function() {
       expect(true).toBe(true);
     })
   });

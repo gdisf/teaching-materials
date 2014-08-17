@@ -20,7 +20,7 @@ describe("Exercise 1: ", function() {
       expect(people.models[0].get('firstName')).toBeDefined();
     });
 
-    it("the comparator method to sort by the lowercase value of 'lastName'", function() {
+    it("use the comparator method to sort by the lowercase value of 'lastName'", function() {
       var returnValue = people.comparator(new Person({lastName: 'Jin'}))
       expect(returnValue).toEqual("jin");
     });
