@@ -79,8 +79,9 @@ describe("Exercise 2: ", function() {
 
   describe("In app.js, listen for $(document).ready(): ", function() {
     it("and when the document is ready, append your personView to the DOM", function() {
-      expect($('.rolodex').length).toBeGreaterThan(0);
-      $('.rolodex').remove();
+      var truth = $('.rolodex').length > 0 || $('img').length > 0;
+      expect(truth).toBe(true);
+      $('.rolodex').hide();
     });
   });
 });
