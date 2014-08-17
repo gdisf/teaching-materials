@@ -102,7 +102,7 @@ var Product = function(config) {
 
 // An object "method"
 Product.prototype.buy = function() {
-  this.inventory--;
+  this.inventory = this.inventory - 1;
   console.log("We now have " + this.inventory + " of " + this.name);
 };
 
@@ -110,7 +110,10 @@ Product.prototype.buy = function() {
 var product = new Product({
   name: "BetaBrand Disco FannyPack",
   type: "Accessory",
-  inventory: 20});
+  inventory: 20
+});
+
+// Calling a method on a new object
 product.buy();</code></pre>
 </section>
 
@@ -136,7 +139,9 @@ var shirt = new Shirt({
   name: "Three Wolves Shirt",
   type: "T-Shirt",
   inventory: 33,
-  colors: ["black"]});
+  colors: ["black"]
+});
+
 shirt.buy();
 shirt.addColor("teal");</code></pre>
 </section>
@@ -222,13 +227,18 @@ $('#jquery-review').append(newCode);</pre></code>
 
 <pre><code class="javascript">var shirt = new Product({
   name: "Roma",
-  colors: ["green", "white", "red"]
+  colors: ["green", "white", "red"],
+  onSale: true,
+  freeShippingEligible: false
 });</code></pre>
 </section>
 
 <section>
   <h1>Setting and getting attributes</h1>
   <br>
+    <p>Use <code>.set()</code> and <code>.get()</code> for Backbone Models</p>
+    <p>Warning: if you use dot or bracket notation, you will not be able to take advantage of features such as sorting</p>
+  </ul>
 <pre><code class="javascript">shirt.set('tagline', 'sempre ad maiora');
 shirt.set('newProduct', false);
 shirt.set('inventory', 1);</code></pre>
@@ -236,6 +246,9 @@ shirt.set('inventory', 1);</code></pre>
 <pre><code class="javascript">shirt.get('tagline'); //returns 'sempre ad maiora'
 shirt.get('newProduct'); // returns false
 shirt.get('inventory'); // returns 1</code></pre>
+
+<pre><code class="javascript">shirt.tagline; // undefined
+shirt['tagline']; // undefined</code></pre>
 
 </section>
 
