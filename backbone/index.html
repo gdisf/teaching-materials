@@ -386,7 +386,7 @@ shirt['tagline']; // undefined</code></pre>
   <pre><code class="javascript">var ProductListing = Backbone.View.extend({
   className: "product",
   render: function() {
-    this.$el.append('&lt;img src="http://placekitten.com/200/200"&gt;');
+    this.$el.append('&lt;img src="http://placepuppy.it/200/200"&gt;');
     return this;
   }
 });</code></pre>
@@ -519,83 +519,6 @@ var listings = new ProductsListing({collection: products});
 <section>
   <h1><a href="rolodex_exercise_steps/step3/instructions.html" target="_blank">Exercise Time</a></h1>
 </section>
-
-
-<!--
-  <section>
-  <h1>Nested Views</h1>
-
-<pre style="font-size:16px;"><code class="javascript">var BookShelfView = Backbone.View.extend({
-  tagName: 'div',
-  className: 'books',
-  render: function(eventName) {
-    this.collection.each(function (book) {
-      var bookItemView = new BookItemView({model: book});
-      this.$el.append(bookItemView.render().$el);
-    }, this);
-    return this;
-  }
-});
-</pre></code>
-<div class="fragment">
-<pre style="font-size:16px;"><code class="javascript">var BookItemView = Backbone.View.extend({
-  tagName: 'div',
-  className: 'book',
-  render: function() {
-    var bookLink = $('&lt;a>').attr('href', this.model.get('url'));
-    var bookCover = $('&lt;img>').attr('src', this.model.get('thumbnail'));
-    bookLink.append(bookCover);
-    this.$el.append(bookLink);
-    return this;
-  }
-});
-</pre></code>
-
-<pre style="font-size:16px;"><code class="javascript">var shelfView = new BookShelfView({collection: bookCollection});</pre></code>
-</div>
-
-</section>
-
-
-<section>
-  <h1>View/Model Events</h1>
-
-  <pre><code class="javascript">var BookShelfView = Backbone.View.extend({
-  events: {
-   'click button': 'addNewBook'
-  },
-  initialize: function() {
-    this.listenTo(this.collection, 'add', this.renderOne);
-  },
-  render: function() {
-    this.collection.each(this.renderOne, this);
-    return this;
-  },
-  renderOne: function(book) {
-    var bookItemView = new BookItemView({model: book});
-    this.$el.append(bookItemView.render().$el);
-  },
-  addNewBook: function(e) {
-    // prevent page from refreshing when form is submitted
-    e.preventDefault();
-    var title = this.$('input').val();
-    if (title) {
-      this.collection.add({ title: title});
-      this.$('input').val('');
-    }
-  }
-});</pre></code>
-
-  <br>
-  <a href="http://backbonejs.org/#Events-catalog">Backbone's built in events</a>
-
-</section>
-
-<section>
-  <h1><a href="exercise3_events.html" target="_blank">Exercise Time!</a></h1>
-</section>
-
--->
 
 <section>
   <h1>The Backbone Backend</h1>
