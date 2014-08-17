@@ -560,7 +560,7 @@ var listings = new ProductsListing({collection: products});
   <h2>Saving a model</h2>
   <h3><code>.save()</code></h3>
   <pre><code class="javascript">var Product = Backbone.Model.extend({
-  urlRoot: 'http://spacodemo.herokuapp.com/product'
+  urlRoot: 'http://spacodemo.herokuapp.com/products'
 });
 
 var shirt = new Product({
@@ -573,7 +573,7 @@ var shirt = new Product({
 
 shirt.save();
 </pre></code>
-<pre><code>HTTP POST http://spacodemo.herokuapp.com/product</code></pre>
+<pre><code>HTTP POST http://spacodemo.herokuapp.com/products</code></pre>
 </section>
 <section>
   <h2>Updating a model</h2>
@@ -583,7 +583,7 @@ shirt.save();
 shirt.save();
 </pre></code>
 
-<pre><code class="ruby">HTTP PUT http://spacodemo.herokuapp.com/product/&lt;id&gt;</pre></code>
+<pre><code class="ruby">HTTP PUT http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
 
 </section>
 <section>
@@ -591,7 +591,7 @@ shirt.save();
   <h3><code>.destroy()</code></h3>
 <pre><code class="javascript">shirt.destroy();</pre></code>
 
-<pre><code class="ruby">HTTP DELETE http://spacodemo.herokuapp.com/product/&lt;id&gt;</pre></code>
+<pre><code class="ruby">HTTP DELETE http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
 
 </section>
 
