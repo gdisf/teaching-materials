@@ -102,7 +102,7 @@ var Product = function(config) {
 
 // An object "method"
 Product.prototype.buy = function() {
-  this.inventory = this.inventory - 1;
+  this.inventory--;
   console.log("We now have " + this.inventory + " of " + this.name);
 };
 
@@ -237,8 +237,6 @@ $('#jquery-review').append(newCode);</pre></code>
   <h1>Setting and getting attributes</h1>
   <br>
     <p>Use <code>.set()</code> and <code>.get()</code> for Backbone Models</p>
-    <p>Warning: if you use dot or bracket notation, you will not be able to take advantage of features such as sorting</p>
-  </ul>
 <pre><code class="javascript">shirt.set('tagline', 'sempre ad maiora');
 shirt.set('newProduct', false);
 shirt.set('inventory', 1);</code></pre>
@@ -246,6 +244,7 @@ shirt.set('inventory', 1);</code></pre>
 <pre><code class="javascript">shirt.get('tagline'); //returns 'sempre ad maiora'
 shirt.get('newProduct'); // returns false
 shirt.get('inventory'); // returns 1</code></pre>
+    <p>If you try to access Model properties via dot/bracket notation, they'll be undefined</p>
 
 <pre><code class="javascript">shirt.tagline; // undefined
 shirt['tagline']; // undefined</code></pre>
