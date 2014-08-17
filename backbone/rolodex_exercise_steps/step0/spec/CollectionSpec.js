@@ -20,8 +20,9 @@ describe("Exercise 2: ", function() {
       expect(people.models[0].get('firstName')).toBeDefined();
     });
 
-    it("give it a comparator of 'lastName'", function() {
-      expect(people.comparator).toEqual("lastName");
+    it("the comparator method to sort by the lowercase value of 'lastName'", function() {
+      var returnValue = people.comparator(new Person({lastName: 'Jin'}))
+      expect(returnValue).toEqual("jin");
     });
   });
 
