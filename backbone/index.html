@@ -481,7 +481,7 @@ $('#products').append(listingEl);</code></pre>
   <pre><code class="javascript">var source   = $("#product-template").html();
 var template = Handlebars.compile(source);
 var litterRobot = {"name": "Litter Robot", "inventory": 20};
-var rendered = template({product: litterRobot);</code></pre>
+var rendered = template({product: litterRobot});</code></pre>
   </div>
 
 </section>
@@ -491,9 +491,9 @@ var rendered = template({product: litterRobot);</code></pre>
   <br>
   <p>In the HTML:</p>
   <pre><code>&lt;script id="products-template" type="text/x-handlebars-template"&gt;
-  {{#each product}}
+  {{#each products}}
     &lt;div class="product"&gt;
-      &lt;strong&gt;{{ product.name }}&lt;/strong&gt;: {{ product.inventory }} in stock
+      &lt;strong&gt;{{ name }}&lt;/strong&gt;: {{ inventory }} in stock
     &lt;/div&gt;
   {{/each}}
 &lt;/script&gt;</code></pre>
