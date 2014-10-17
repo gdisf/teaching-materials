@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercises: More DOM Manipulation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: More DOM Manipulation</h2>
+
+ <h3 class="page-header">About Me</h3>
+
+<p><em>Cuz every webpage needs an "About" section.</em></p>
+ <ul>
+  <li>Start with this HTML and save it as "aboutme.html":
+  <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;/&gt;
+  &lt;title&gt;About Me&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;About Me&lt;/h1&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
+   &lt;/ul&gt;
+  
+ &lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+  <li>Add a <code>script</code> tag to the bottom.
+  <li>(In JS) Change the body tag's style so it has a font-family of "Arial, sans-serif".
+  <li>(In JS) Replace each of the spans (nickname, favorites, hometown) with your own information.
+  <li>Iterate through each li and change the class to "listitem". Add a <code>style</code>
+  tag that sets a rule for "listitem" to make the color red.
+  <li>Create a new <code>img</code> element and set its <code>src</code> attribute to
+  a picture of you. Append that element to the page.
+ </ul>
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution2" style="display:none;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;/&gt;
+  &lt;title&gt;About Me&lt;/title&gt;
+  &lt;style&gt;
+    .listitem {
+      color: red;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;About Me&lt;/h1&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
+   &lt;/ul&gt;
+  
+  &lt;script&gt;
+   document.body.style.fontFamily = 'Arial, sans-serif';
+   document.getElementById('nickname').innerHTML = 'Pamela Fox';
+   document.getElementById('favorites').innerHTML = '27';
+   document.getElementById('hometown').innerHTML = 'Pasadena, CA';
+   var items = document.getElementsByTagName('li');
+   for (var i = 0; i &lt; items.length; i++) {
+      items[i].className = 'listitem';
+   }
+    
+    var myPic = document.createElement('img');
+    myPic.src = 'http://gotocon.com/dl/jaoo_aus2008/photos/speakers/Pamela_Fox.jpg';
+    document.body.appendChild(myPic);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<h3 class="page-header">The Book List</h3>
+
+<p><em>Keep track of which books you read and which books you want to read!</em></p>
+ <ul>
+  <li>Create a webpage with an <code>h1</code> of "My Book List".
+  <li>Add a script tag to the bottom of the page, where all your JS will go.
+  <li>Copy this array of books:
+  <pre>var books = [
+  {title: 'The Design of EveryDay Things',
+   author: 'Don Norman',
+   alreadyRead: false
+  },
+  {title: 'The Most Human Human',
+  author: 'Brian Christian',
+  alreadyRead: true
+  }];</pre>
+  <li>Iterate through the array of books. For each book, create a <code>p</code>
+  element with the book title and author and append it to the page.
+  <li><b>Bonus</b>: Use a <code>ul</code> and <code>li</code> to display the books.
+  <li><b>Bonus</b>: add a property to each book with the URL of the book cover,
+  and add an <code>img</code> element for each book on the page.
+  <li><b>Bonus</b>: Change the style of the book depending on whether you have read it or not.
+ </ul>
+ <button  onclick="showSolution(3)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution3" style="display:none;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;/&gt;
+  &lt;title&gt;Book List&lt;/title&gt;
+ &lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My Book List&lt;/h1&gt;
+&lt;script&gt;
+var books = [
+  {title: 'The Design of EveryDay Things',
+   author: 'Don Norman',
+   alreadyRead: false
+  },
+  {title: 'The Most Human Human',
+   author: 'Brian Christian',
+   alreadyRead: true
+  }];
+    
+for (var i = 0; i &lt; books.length; i++) {
+  var bookP = document.createElement('p');
+  var bookDescription = document.createTextNode(books[i].title + ' by ' + books[i].author);
+  bookP.appendChild(bookDescription);
+  document.body.appendChild(bookP);
+}
+
+// Or, with the bonuses:
+var books = [
+  {title: 'The Design of EveryDay Things',
+   img: 'http://ecx.images-amazon.com/images/I/41j2ODGkJDL._AA115_.jpg',
+   author: 'Don Norman',
+   alreadyRead: false
+  },
+  {title: 'The Most Human Human',
+   img: 'http://ecx.images-amazon.com/images/I/41Z56GwEv9L._AA115_.jpg',
+   author: 'Brian Christian',
+   alreadyRead: true
+  }];
+    
+var bookList = document.createElement('ul');
+for (var i = 0; i &lt; books.length; i++) {
+  var bookItem = document.createElement('li');
+  var bookImg = document.createElement('img');
+  bookImg.src = books[i].img;
+  bookItem.appendChild(bookImg);
+  var bookDescription = document.createTextNode(books[i].title + ' by ' + books[i].author);
+  bookItem.appendChild(bookDescription);
+  if (books[i].alreadyRead) {
+    bookItem.style.color = 'grey';
+  }
+  bookList.appendChild(bookItem);
+}
+document.body.appendChild(bookList);
+&lt;/script&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+ </div>
+
+  <br><br><br><br><br>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

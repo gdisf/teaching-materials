@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>JS201: JS and the DOM</title>
+
+    <base target="_blank">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="../lib/css/main.css">
+    <link rel="stylesheet" href="../lib/css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="../lib/css/theme/solarized_light.css">
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+<section>
+  <br>
+  <h1 class="upper">JS201: JS and the DOM</h1>
+  <br>
+  <br>
+  <h2>teaching-materials.org/jsdom/</h2>
+</section>
+
+<section>
+  <h1>What is the DOM?</h1>
+  <h2>"Document Object Model"</h2>
+  <center><img src="http://dl.dropbox.com/u/10998095/Screenshots/2dvqiz-0w2cx.png"></center>
+</section>
+<section>
+  <h3>Terminology</h3>
+  <ul>
+    <li>The DOM, just like JavaScript objects, is a data structure called a "tree"</li>
+    <li>Trees can have branches, and "leaves" aka "nodes"</li>
+    <li>We can also use "dot notation" to access methods and properties</li>
+  </ul>
+</section>
+<section>
+  <h3>One simple way to visualize it...</h3>
+  <pre><code>document = {
+  head: {
+    children: [ ] //returns child nodes
+  },
+  body: {
+    classList: ['reveal'],
+    hasChildNodes: function() {
+      //returns true or false
+    }
+  },
+  querySelectorAll: function(arg) {
+    //returns matching node list
+  }
+}
+  </code></pre>
+  </section>
+  <section>
+    <h3>Try it!</h3>
+    <br>
+    <p>Open your JS console and try these...</p>
+    <pre><code>document.head.children</code></pre>
+    <pre><code>document.head.firstChild</code></pre>
+    <pre><code>document.querySelectorAll('section')</code></pre>
+    <br>
+    <p>Can you find any other methods and properties this way?</p>
+  </section>
+</section>  
+<section>
+  <h1>Traversing the DOM</h1>
+  <br>
+  <h2>Sometimes we need to find the right node</h2>
+  <ul>
+    <li>animate</li>
+    <li>react/listen</li>
+    <li>get/set data</li>
+  </ul>
+</section>
+<section>
+  <h2>Selecting a list of nodes</h2>
+  <br>
+  <p>by selector</p>
+  <pre><code>document.querySelectorAll('section h2')</code></pre>
+  <br>
+  <p>by tag name</p>
+  <pre><code>document.getElementsByTagName('code')</code></pre>
+  <br>
+  <p>by class name</p>
+  <pre><code>document.getElementsByClassName('upper')</code></pre>
+
+</section>
+<section id="section">
+  <h2>Selecting a single node</h2>
+  <br>
+  <p>by ID</p>
+  <pre><code>document.getElementById('section')</code></pre>
+  <br>
+  <p>by selector</p>
+  <pre><code>document.querySelectorAll('section h2')[3]</code></pre>
+  <br>
+  <p>by tag name</p>
+  <pre><code>document.getElementsByTagName('code')[9]</code></pre>
+  <br>
+  <p>by class name</p>
+  <pre><code>document.getElementsByClassName('upper')[0]</code></pre>
+</section>
+<section>
+  <h3>Try it!</h3>
+  <ul>
+    <li>In your browser, navigate to <a href="https://twitter.com/gdisf" target="_blank">https://twitter.com/gdisf</a></li>
+    <li>Work with a buddy. One person will verbally call out an element on the page. The other will select it using the JS console. Take turns switching!</li>
+    <li>You will know you got it right when you hover over the element in the console and the element highlights on the page.</li>
+  </ul>
+</section>
+<section>
+  <h2>Creating a node</h2>
+</section>
+<section>
+  <h3>Three step process</h3>
+  <pre><code>var myNewElement = document.createElement('code')</code></pre>
+  <h3>Edit</h3>
+  <pre><code>myNewElement.innerHTML = '//This is an example of a code block'
+myNewElement.className = 'javascript'</code></pre>
+  <h3>Append</h3>
+  <pre><code>document.body.appendChild(myNewElement)</code></pre>
+</section>
+<section>
+  <h2>Events and their Callbacks</h2>
+</section>
+<section>
+  <h3>Anonymous functions</h3>
+</section>
+<section>
+  <h3>Referenced functions</h3>
+  <!-- var myFunc vs function myFunct  -->
+</section>
+<section>
+  <h3>What about my arguments?</h3>
+  <!-- arguments are applied down the callback chain -->
+</section>
+
+      </div>
+
+      <!-- The navigational controls UI -->
+      <aside class="controls">
+        <a class="left" href="#">&#x25C4;</a>
+        <a class="right" href="#">&#x25BA;</a>
+        <a class="up" href="#">&#x25B2;</a>
+        <a class="down" href="#">&#x25BC;</a>
+      </aside>
+
+      <!-- Presentation progress bar -->
+      <div class="progress"><span></span></div>
+
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../lib/js/reveal.min.js"></script>
+    <script src="../lib/js/jquery-1.9.1.min.js"></script>
+    <script src="../lib/js/underscore-min.js"></script>
+    <script src="../lib/js/backbone.js"></script>
+    <script src="../lib/js/handlebars.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        rollingLinks: false,
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../lib/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
