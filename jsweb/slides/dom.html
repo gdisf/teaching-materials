@@ -137,7 +137,7 @@ $(document).ready(function(){
      <header><h1>The DOM Tree</h1></header> 
      <section class="content"> 
      <p>For <a href="../inclass/allaboutcats.html">this page</a>:</p>
-     <center><img src="http://dl.dropbox.com/u/10998095/Screenshots/2dvqiz-0w2cx.png"></center>
+     <center><img src="domtree.png"></center>
      </section>
     </div>
     
@@ -382,6 +382,8 @@ document.createElement(tagName);
 document.createTextNode(text);
 document.appendChild();
 </pre>
+
+<img src="dommodify_imgtobody.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
 <pre class="prettyprint">
 var pageNode = document.getElementsByTagName('body')[0];
 
@@ -389,7 +391,10 @@ var newImg = document.createElement('img');
 newImg.src = 'http://placekitten.com/400/300';
 newImg.style.border = '1px solid black';
 pageNode.appendChild(newImg);
+</pre>
 
+<img src="dommodify.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
+<pre class="prettyprint">
 var newParagraph = document.createElement('p');
 var paragraphText = document.createTextNode('Squee!');
 newParagraph.appendChild(paragraphText);
