@@ -63,9 +63,9 @@ domNode.addEventListener(eventType, eventListener, useCapture);
   
 &lt;script&gt;
 var counterButton = document.getElementById('counter');
-function onButtonClick() {
+var onButtonClick = function() {
     counterButton.innerHTML = parseInt(counterButton.innerHTML) + 1;
-}
+};
 counterButton.addEventListener('click', onButtonClick, false);
 &lt;/script&gt;
 </pre>
@@ -118,7 +118,7 @@ into the function.</p>
   &lt;script&gt;
 var kittenImg = document.getElementById('kitten');
 var infoDiv   = document.getElementById('info');
-function onClick(event) {
+var onClick = function(event) {
     info.innerHTML = 'You clicked on ' + event.clientX + ' , ' + event.clientY;
 }
 kittenImg.addEventListener('click', onClick, false);
@@ -143,10 +143,10 @@ or input click/change events.</p>
   
   &lt;script&gt;
 var button = document.getElementById('button');
-function onClick(event) {
+var onClick = function(event) {
     var myName = document.getElementById(&quot;myname&quot;).value;
     alert(&quot;Hi, &quot; + myName);
-}
+};
 button.addEventListener('click', onClick);
   &lt;/script&gt;
 </pre>
@@ -241,10 +241,10 @@ window.setInterval(callbackFunction, delayMilliseconds);
 
 <p>Commonly used to animate DOM node attributes:</p>
 <pre class="prettyprint">
-function makeImageBigger() {
+var makeImageBigger = function() {
   var img = document.getElementsByTagName('img')[0];
   img.setAttribute('width', img.width+10);
-}
+};
 window.setInterval(makeImageBigger, 1000);
 </pre>
 
@@ -264,9 +264,9 @@ window.setInterval(makeImageBigger, 1000);
 var img = document.getElementsByTagName('img')[0];
 img.style.opacity = 1.0;
 window.setInterval(fadeAway, 1000);
-function fadeAway() {
+var fadeAway = function() {
   img.style.opacity = img.style.opacity - .1;
-}
+};
 </pre>
 <p style="font-size:small;">Note: opacity is 1E9+ only (plus all other browsers).</p>
 
@@ -274,11 +274,11 @@ function fadeAway() {
 var img = document.getElementsByTagName('img')[0];
 img.style.position = 'absolute';
 img.style.top = '0px';
-function watchKittyFall() {
+var watchKittyFall = function() {
   var oldTop = parseInt(img.style.top);
   var newTop = oldTop + 10;
   img.style.top = newTop + 'px';
-}
+};
 window.setInterval(watchKittyFall, 1000);
 </pre>
 <p style="font-size:small">Note: you must specify (and strip) units.</p>
@@ -302,13 +302,13 @@ window.clearInterval(timer);
 <pre class="prettyprint">
 var img = document.getElementsByTagName('img')[0];
 img.style.opacity = 1.0;
-function fadeAway() {
-  
+
+var fadeAway = function() {  
   img.style.opacity = img.style.opacity - .1;
   if (img.style.opacity &lt; .5) {
     window.clearInterval(fadeTimer);
   }
-}
+};
 var fadeTimer = window.setInterval(fadeAway, 100);
 </pre>
 
