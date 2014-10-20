@@ -11,11 +11,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link rel="stylesheet" href="../lib/css/main.css">
-    <link rel="stylesheet" href="../lib/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../common/css/main.css">
+    <link rel="stylesheet" href="../common/css/theme/default.css" id="theme">
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="../lib/css/theme/solarized_light.css">
+    <link rel="stylesheet" href="../common/css/theme/solarized_light.css">
 
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
@@ -236,6 +236,9 @@ var myCallback = function(Event) {
 myButton.addEventListener('click', myCallback);
 </code></pre>
 </section>
+<section>
+  <h2><a href="exercises/index.html" target="_blank">Final Exercise</a></h2>
+</section>
 
       </div>
 
@@ -253,12 +256,12 @@ myButton.addEventListener('click', myCallback);
 
     </div>
 
-    <script src="../lib/js/head.min.js"></script>
-    <script src="../lib/js/reveal.min.js"></script>
-    <script src="../lib/js/jquery-1.9.1.min.js"></script>
-    <script src="../lib/js/underscore-min.js"></script>
-    <script src="../lib/js/backbone.js"></script>
-    <script src="../lib/js/handlebars.js"></script>
+    <script src="../common/js/head.min.js"></script>
+    <script src="../common/js/reveal.min.js"></script>
+    <script src="../common/js/jquery-1.9.1.min.js"></script>
+    <script src="../common/js/underscore-min.js"></script>
+    <script src="../common/js/backbone.js"></script>
+    <script src="../common/js/handlebars.js"></script>
 
     <script>
 
@@ -271,11 +274,11 @@ myButton.addEventListener('click', myCallback);
         rollingLinks: false,
         // Optional libraries used to extend on reveal.js
         dependencies: [
-          { src: '../lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
-          { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '../lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '../lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '../lib/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+          { src: '../common/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: '../common/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
         ]
       });
 
