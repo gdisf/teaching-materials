@@ -20,6 +20,13 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+    <style type="text/css">
+    button {
+      height:44px;
+      font-size:24px;
+      margin: 24px;
+      }
+    </style>
   </head>
 
   <body>
@@ -43,11 +50,28 @@
 </section>
 <section>
   <h3>Terminology</h3>
+  <br>
   <ul>
     <li>The DOM, just like JavaScript objects, is a data structure called a "tree"</li>
-    <li>Trees can have branches, and "leaves" aka "nodes"</li>
+    <li>Trees have "branches" and "leaves" aka "nodes"</li>
+    <li>Each "node" can have a "parent", "child", and/or "sibling" node</li>
     <li>We can also use "dot notation" to access methods and properties</li>
   </ul>
+</section>
+
+<section>
+  <h3>Try it!</h3>
+  <br>
+  <p>Work with a buddy. Look at the image below and take turns identifying each of the following:</p>
+  <center><table>
+    <tr>
+      <td>parent + child</td>
+      <td>sibling + sibling</td>
+      <td>leaf</td>
+      <td>branch</td>
+    </tr>
+  </table></center>
+  <center><img src="http://dl.dropbox.com/u/10998095/Screenshots/2dvqiz-0w2cx.png"></center>
 </section>
 <section>
   <h3>One simple way to visualize it...</h3>
@@ -92,29 +116,29 @@
   <h2>Selecting a list of nodes</h2>
   <br>
   <p>by selector</p>
-  <pre><code>document.querySelectorAll('section h2')</code></pre>
+  <pre><code>document.querySelectorAll('section h2');</code></pre>
   <br>
   <p>by tag name</p>
-  <pre><code>document.getElementsByTagName('code')</code></pre>
+  <pre><code>document.getElementsByTagName('code');</code></pre>
   <br>
   <p>by class name</p>
-  <pre><code>document.getElementsByClassName('upper')</code></pre>
+  <pre><code>document.getElementsByClassName('upper');</code></pre>
 
 </section>
 <section id="section">
   <h2>Selecting a single node</h2>
   <br>
   <p>by ID</p>
-  <pre><code>document.getElementById('section')</code></pre>
+  <pre><code>document.getElementById('section');</code></pre>
   <br>
   <p>by selector</p>
-  <pre><code>document.querySelectorAll('section h2')[3]</code></pre>
+  <pre><code>document.querySelectorAll('section h2')[3];</code></pre>
   <br>
   <p>by tag name</p>
-  <pre><code>document.getElementsByTagName('code')[9]</code></pre>
+  <pre><code>document.getElementsByTagName('code')[9];</code></pre>
   <br>
   <p>by class name</p>
-  <pre><code>document.getElementsByClassName('upper')[0]</code></pre>
+  <pre><code>document.getElementsByClassName('upper')[0];</code></pre>
 </section>
 <section>
   <h3>Try it!</h3>
@@ -126,29 +150,90 @@
 </section>
 <section>
   <h2>Creating a node</h2>
+  <center><img src="https://photos-3.dropbox.com/t/1/AACzn6NYy7JwA9nLzSmfUWsocie5VP_wtx1u_advSS-e4A/12/17585217/png/1024x768/3/1413759600/0/2/DOM_3step_process.png/AWmV5UeSP4Qvr2k-fxcEym7bxybkrlZlvJXMGb9XgUU"/></center>
 </section>
 <section>
   <h3>Three step process</h3>
-  <pre><code>var myNewElement = document.createElement('code')</code></pre>
-  <h3>Edit</h3>
-  <pre><code>myNewElement.innerHTML = '//This is an example of a code block'
-myNewElement.className = 'javascript'</code></pre>
-  <h3>Append</h3>
-  <pre><code>document.body.appendChild(myNewElement)</code></pre>
+  <br>
+  <h4>Create and store</h4>
+  <pre><code>var myNewElement = document.createElement('code');</code></pre>
+  <h4>Edit</h4>
+  <pre><code>myNewElement.innerHTML = '//This is an example of a code block';
+myNewElement.className = 'javascript';</code></pre>
+  <h4>Insert</h4>
+  <pre><code>document.body.appendChild(myNewElement);</code></pre>
+  <br>
+  <p>Try it on these slides!</p>
 </section>
 <section>
   <h2>Events and their Callbacks</h2>
 </section>
 <section>
+  <h3>Terminology</h3>
+  <br>
+  <ul>
+    <li><strong>Event:</strong> something that happens</li>    
+    <li><strong>Callback:</strong> a callback that executes after the event has happened</li>    
+    <li><strong>Event listener:</strong> a method that binds an event to a callback</li>
+  </ul>
+</section>
+<section>
+  <h3>A basic example</h3>
+  <p>Try this in your console</p>
+  <pre><code>var myButton = document.querySelectorAll('button#eventTarget')[0];
+
+myButton.addEventListener('click', function() {
+  console.log('button clicked!');
+});</code></pre>
+  <button id="eventTarget">&lt;button id="button" &gt; Click me! &lt;/button&gt;</button>
+</section>
+<section>
+  <h3>Try it!</h3>
+  <br>
+  <p>In your console, update the last event listener and callback so that it logs a count of how many times the button has been clicked. </p>
+</section>
+<section>
   <h3>Anonymous functions</h3>
+  <br>
+  <p>Example:</p>
+  <pre><code>var myButton = document.querySelectorAll('button#eventTarget')[0];
+
+myButton.addEventListener('click', function() {
+  console.log('button clicked!');
+});</code></pre>
+  <br>
+  <p>The callback cannot be removed.</p>
 </section>
 <section>
   <h3>Referenced functions</h3>
-  <!-- var myFunc vs function myFunct  -->
+  <p>Example:</p>
+  <pre><code>var myButton = document.querySelectorAll('button#eventTarget')[0];
+
+//store and define the function
+var myCallback = function() {
+  console.log('button clicked!');
+};
+
+myButton.addEventListener('click', myCallback);
+</code></pre>
+  <br>
+  <p>The callback can be removed.</p>
+<pre><code>myButton.removeEventListener('click', myCallback)</code></pre>
 </section>
 <section>
   <h3>What about my arguments?</h3>
-  <!-- arguments are applied down the callback chain -->
+  <br>
+  <p>Arguments like the Event Object get applied to the callback:</p>
+  <pre><code>var myButton = document.querySelectorAll('button#eventTarget')[0];
+
+//store and define the function
+var myCallback = function(Event) {
+  console.log(Event); //logs the Event object
+};
+
+//no argument needed for binding the event
+myButton.addEventListener('click', myCallback);
+</code></pre>
 </section>
 
       </div>
