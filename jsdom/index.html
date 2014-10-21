@@ -275,8 +275,8 @@ myButton.addEventListener('click', myCallback);
   <pre><code>var myButton = document.querySelectorAll('button#testButton')[0];
 
 //store and define the function
-var myCallback = function(Event) {
-  console.log(Event); //logs the Event object
+var myCallback = function(e) {
+  console.log(e); //logs the Event object
 };
 
 //no argument needed for binding the event
