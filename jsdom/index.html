@@ -288,6 +288,50 @@ myButton.addEventListener('click', myCallback);
 <section>
   <h2><a href="exercises/instructions.html" target="_blank">Final Exercise</a></h2>
 </section>
+<section>
+  <br>
+  <h1 class="upper">Appendix</h1>
+  <h2>Advanced Features of Functions</h2>
+</section>
+<section>
+  <h3>How do arguments get applied?</h3>
+  <br>
+  <h4>Part 1: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank">arguments array</a></h4>
+  <p>Each JavaScript function has an <code>arguments</code> array, regardless of how you define it.</p>
+  <pre><code>// notice no arguments here
+var myFunc1 = function() { 
+  console.log(arguments);
+}
+
+// one argument here
+var myFunc2 = function(e) {
+  console.log(e);
+  console.log(arguments);
+}
+
+myFunc1('abc', 123); // logs ['abc', 123]
+
+myFunc2({Event: 'click'}, false); // notice extraneous argument
+// logs {Event: 'click'}
+// then logs [{Event: 'click'}, false]</code></pre>
+
+</section>
+<section>
+  <h3>How do arguments get applied?</h3>
+  <br>
+  <h4>Part 2: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank">.apply()</a></h4>
+  <p>Each JavaScript function has a method <code>.apply()</code>, which calls a function with a specified scope and arguments array.</p>
+  <pre><code>var myCallback = function(e) {
+  console.log(e);
+}
+
+var myEventListener = function() {
+  myCallback.apply(this, arguments);
+}
+
+myEventListener('Wow, look at this string get applied as an argument to myCallback!')
+</code></pre>
+</section>
 
       </div>
 
