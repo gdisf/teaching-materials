@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>JS201: JS and the DOM (Review and Deep Dive)</title>
+
+    <base target="_blank">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="../common/css/main.css">
+    <link rel="stylesheet" href="../common/css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="../common/css/theme/solarized_light.css">
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style type="text/css">
+      button {
+        height:44px;
+        font-size:24px;
+        margin: 24px;
+      }
+      img.treeExample {
+        width: 45%;
+        float: left;
+      }
+      pre.treeExample {
+        width: 45%;
+        margin-left: 5%;
+        float: left;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+<section>
+  <br>
+  <h1 class="upper">JS201: JS and the DOM (Review and Deep Dive)</h1>
+  <br>
+  <br>
+  <h2>teaching-materials.org/jsdom/</h2>
+</section>
+
+<section>
+  <h1>What is the DOM?</h1>
+  <h2>"Document Object Model"</h2>
+  <center><img src="http://dl.dropbox.com/u/10998095/Screenshots/2dvqiz-0w2cx.png"></center>
+</section>
+<section>
+  <h3>Terminology</h3>
+  <br>
+  <ul>
+    <li>The DOM, just like JavaScript objects, is a data structure called a "tree"</li>
+    <li>Trees have "branches" and "leaves" aka "nodes"</li>
+    <li>Each "node" can have a "parent", "child", and/or "sibling" node</li>
+    <li>The DOM is accessed by a global variable called <code>document</code></li>
+    <li>We can also use "dot notation" to access methods and properties</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Try it!</h3>
+  <br>
+  <p>Work with a buddy. Look at the image and code on the next slide and take turns identifying each of the following:</p>
+  <br>
+  <center>
+    <table>
+      <tr>
+        <td>parent + child</td>
+        <td>sibling + sibling</td>
+        <td>leaf</td>
+        <td>tag</td>
+        <td>attribute</td>
+      </tr>
+    </table>
+  </center>
+  </section>
+  <section>
+  <center>
+  <img class="treeExample" src="https://dl.dropboxusercontent.com/u/17585217/gdisf/tree.png">
+  <pre class="treeExample"><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;This is a header - the biggest one&lt;/h1&gt;
+        &lt;p&gt;This is a paragraph&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;This is a list item&lt;/li&gt;
+            &lt;li&gt;And here is another&lt;/li&gt;
+            &lt;li&gt;Fish&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="catbox">
+            &lt;img src="http://placekitten.com/300/300" id="ms_von_cuten"&gt;
+            &lt;p&gt;Ms Von Cuten&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="catbox"&gt;
+            &lt;img src="http://placekitten.com/200/400" id="mr_snuggles"&gt;
+            &lt;p&gt;Mister Snuggles &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="catbox"&gt;
+            &lt;img src="http://placekitten.com/300/500" id="professor_buttonsworth"&gt;
+            &lt;p&gt;Professor Buttonsworth&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+    
+
+  </code></pre>
+  </center>
+</section>
+<section>
+  <h3>One simple way to visualize it...</h3>
+  <pre><code>document = {
+  head: {
+    children: [ ] //returns child nodes
+  },
+  body: {
+    classList: ['reveal'],
+    hasChildNodes: function() {
+      //returns true or false
+    }
+  },
+  querySelectorAll: function(arg) {
+    //returns matching node list
+  }
+}
+  </code></pre>
+  <br>
+  <p>Because the document is an object, we can access properties and methods with "dot notation".</p>
+  </section>
+  <section>
+    <h3>Try it!</h3>
+    <br>
+    <p>Open your JS console and try these...</p>
+    <pre><code>document.head.children</code></pre>
+    <pre><code>document.head.firstChild</code></pre>
+    <pre><code>document.querySelectorAll('section')</code></pre>
+    <br>
+    <p>Can you find any other methods and properties this way?</p>
+  </section>
+</section>  
+<section>
+  <h1>Traversing the DOM</h1>
+  <br>
+  <h2>Sometimes we need to find the right node</h2>
+  <ul>
+    <li>animate</li>
+    <li>react/listen</li>
+    <li>get/set data</li>
+  </ul>
+</section>
+<section>
+  <h2>Selecting a list of nodes</h2>
+  <br>
+  <p>by selector</p>
+  <pre><code>document.querySelectorAll('section h2');</code></pre>
+  <br>
+  <p>by tag name</p>
+  <pre><code>document.getElementsByTagName('div');</code></pre>
+  <br>
+  <p>by class name</p>
+  <pre><code>document.getElementsByClassName('upper');</code></pre>
+
+</section>
+<section id="section">
+  <h2>Selecting a single node</h2>
+  <br>
+  <p>by ID</p>
+  <pre><code>document.getElementById('section');</code></pre>
+  <br>
+  <p>by selector</p>
+  <pre><code>document.querySelectorAll('section h2')[3];</code></pre>
+  <br>
+  <p>by tag name</p>
+  <pre><code>document.getElementsByTagName('p')[9];</code></pre>
+  <br>
+  <p>by class name</p>
+  <pre><code>document.getElementsByClassName('upper')[0];</code></pre>
+</section>
+<section>
+  <h3>Try it!</h3>
+  <ul>
+    <li>In your browser, navigate to <a href="https://twitter.com/gdisf" target="_blank">https://twitter.com/gdisf</a></li>
+    <li>Work with a buddy. One person will verbally call out an element on the page. The other will select it using the JS console. Take turns switching!</li>
+    <li>You will know you got it right when you hover over the element in the console and the element highlights on the page.</li>
+  </ul>
+</section>
+<section>
+  <h2>Creating a node</h2>
+  <center><img src="https://dl.dropboxusercontent.com/u/17585217/gdisf/DOM_3step_process2.png"/></center>
+</section>
+<section>
+  <h3>Three step process</h3>
+  <br>
+  <h4>Create and store</h4>
+  <pre><code>var myNewElement = document.createElement('div');</code></pre>
+  <h4>Edit</h4>
+  <pre><code>myNewElement.innerHTML = 'I am the html inside of a <em>brand new</em> div tag!';
+myNewElement.className = 'new';</code></pre>
+  <h4>Insert</h4>
+  <pre><code>document.body.appendChild(myNewElement);</code></pre>
+  <br>
+  <p>Try it on any page!</p>
+</section>
+<section>
+  <h2>Events and their Callbacks</h2>
+</section>
+<section>
+  <h3>Terminology</h3>
+  <br>
+  <ul>
+    <li><strong>Event:</strong> something that happens</li>    
+    <li><strong>Callback:</strong> a function that executes after the event has happened</li>    
+    <li><strong>Event listener:</strong> a method that binds an event to a callback</li>
+  </ul>
+</section>
+<section>
+  <h3>A basic example</h3>
+  <p>Try this in your console</p>
+  <pre><code>var myButton = document.querySelectorAll('button#testButton')[0];
+
+myButton.addEventListener('click', function() {
+  console.log('button clicked!');
+});</code></pre>
+  <button id="testButton">&lt; button id="testButton" &gt; Click me! &lt; /button &gt;</button>
+</section>
+<section>
+  <h3>Try it!</h3>
+  <br>
+  <p>In your console, update the last event listener and callback so that it logs a count of how many times the button has been clicked. </p>
+</section>
+<section>
+  <h3>Anonymous functions</h3>
+  <br>
+  <p>Example:</p>
+  <pre><code>var myButton = document.querySelectorAll('button#testButton')[0];
+
+myButton.addEventListener('click', function() {
+  console.log('button clicked!');
+});</code></pre>
+  <br>
+  <p>The callback cannot be removed, because we don't have a reference to it.</p>
+</section>
+<section>
+  <h3>Referenced functions</h3>
+  <p>Example:</p>
+  <pre><code>var myButton = document.querySelectorAll('button#testButton')[0];
+
+//store and define the function
+var myCallback = function() {
+  console.log('button clicked!');
+};
+
+myButton.addEventListener('click', myCallback);
+</code></pre>
+  <br>
+  <p>The callback can be removed, since we have a reference.</p>
+<pre><code>myButton.removeEventListener('click', myCallback)</code></pre>
+</section>
+<section>
+  <h3>What about my arguments?</h3>
+  <br>
+  <p>Arguments like the Event Object get applied to the callback:</p>
+  <pre><code>var myButton = document.querySelectorAll('button#testButton')[0];
+
+//store and define the function
+var myCallback = function(e) {
+  console.log(e); //logs the Event object
+};
+
+//no argument needed for binding the event
+myButton.addEventListener('click', myCallback);
+</code></pre>
+</section>
+<section>
+  <h2><a href="exercises/instructions.html" target="_blank">Final Exercise</a></h2>
+</section>
+
+      </div>
+
+      <!-- The navigational controls UI -->
+      <aside class="controls">
+        <a class="left" href="#">&#x25C4;</a>
+        <a class="right" href="#">&#x25BA;</a>
+        <a class="up" href="#">&#x25B2;</a>
+        <a class="down" href="#">&#x25BC;</a>
+      </aside>
+
+      <!-- Presentation progress bar -->
+      <div class="progress"><span></span></div>
+
+
+    </div>
+
+    <script src="../common/js/head.min.js"></script>
+    <script src="../common/js/reveal.min.js"></script>
+    <script src="../common/js/jquery-1.9.1.min.js"></script>
+    <script src="../common/js/underscore-min.js"></script>
+    <script src="../common/js/backbone.js"></script>
+    <script src="../common/js/handlebars.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        rollingLinks: false,
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../common/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: '../common/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../common/css/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../common/css/bootstrap.css">
+    <link type="text/javascript" href="../../common/js/bootstrap.js">
+    <title>JS201 JS and the DOM (Review and Deep Dive): Final Exercise</title>
+    <meta charset="utf-8">
+    <style>
+    li { line-height: 1.6em; margin-bottom: 20px;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>JS201 JS and the DOM (Review and Deep Dive): Final Exercise</h1>
+      <br><br>
+      
+      <h2>Make a Froyo machine</h2>
+      <p>Your task is to create a Froyo machine! Go through these steps, and do as many as you can in the time we have:</p>
+      <ol>
+        <li>Download and unzip <a href="../exercises.zip">exercises.zip</a>. Open in your favorite text editor.</li>
+        <li>In <code>index.html</code>, we have given you a power button and 3 flavor buttons on the machine. When a user presses the power button, the <code>'click'</code> event will fire for that element. We have started writing an event listener for you. Find the anonymous function callback for the event listener.</li>
+        <li>Inside of the callback, bind a click event to each flavor button on the machine.</li>
+        <li>Next, set <code>isOn</code> to <code>true</code> inside of the same callback.</li>
+        <li>Each button on the machine should do something. Use the included Froyo images <code>img/chocolate.jpg</code>, <code>img/vanilla.jpg</code>, and <code>img/swirl.jpg</code> to create an <code>&lt;img&gt;</code> tag, add a <code>src</code> attribute, and append it to the conveyor belt <code>&lt;div&gt;</code> on the side of the machine.</li>
+        <li>Open <code>index.html</code> in your browser and make sure you can turn the button on. Make sure that your images get appended to the conveyor belt.</li>
+        <li>Now, we also want the machine to turn off. Add logic so that events are bound when the machine turns on and <em>unbound</em> when the machine turns off. Also make sure that <code>isOn</code> is changing to accurately reflect the state of the machine.</li>
+        <li><strong>BONUS: </strong>Clean up your code so that one function can create any flavor, depending on the button being pressed.</li>
+      </ol>
+
+	<p>Make sure that you use your browser developer tools to make debugging easier while working on this. Check for errors using <code>console.log()</code> to figure out how far your code makes it and what the values of your variables are along the way.</p>
+
+
+  </body>
+</html>
+
