@@ -55,6 +55,7 @@
     <li>The DOM, just like JavaScript objects, is a data structure called a "tree"</li>
     <li>Trees have "branches" and "leaves" aka "nodes"</li>
     <li>Each "node" can have a "parent", "child", and/or "sibling" node</li>
+    <li>The DOM is accessed by a global variable called <code>document</code></li>
     <li>We can also use "dot notation" to access methods and properties</li>
   </ul>
 </section>
@@ -119,7 +120,7 @@
   <pre><code>document.querySelectorAll('section h2');</code></pre>
   <br>
   <p>by tag name</p>
-  <pre><code>document.getElementsByTagName('code');</code></pre>
+  <pre><code>document.getElementsByTagName('div');</code></pre>
   <br>
   <p>by class name</p>
   <pre><code>document.getElementsByClassName('upper');</code></pre>
@@ -135,7 +136,7 @@
   <pre><code>document.querySelectorAll('section h2')[3];</code></pre>
   <br>
   <p>by tag name</p>
-  <pre><code>document.getElementsByTagName('code')[9];</code></pre>
+  <pre><code>document.getElementsByTagName('p')[9];</code></pre>
   <br>
   <p>by class name</p>
   <pre><code>document.getElementsByClassName('upper')[0];</code></pre>
@@ -156,14 +157,14 @@
   <h3>Three step process</h3>
   <br>
   <h4>Create and store</h4>
-  <pre><code>var myNewElement = document.createElement('code');</code></pre>
+  <pre><code>var myNewElement = document.createElement('div');</code></pre>
   <h4>Edit</h4>
-  <pre><code>myNewElement.innerHTML = '//This is an example of a code block';
-myNewElement.className = 'javascript';</code></pre>
+  <pre><code>myNewElement.innerHTML = 'I am the html inside of a <em>brand new</em> div tag!';
+myNewElement.className = 'new';</code></pre>
   <h4>Insert</h4>
   <pre><code>document.body.appendChild(myNewElement);</code></pre>
   <br>
-  <p>Try it on these slides!</p>
+  <p>Try it on any page!</p>
 </section>
 <section>
   <h2>Events and their Callbacks</h2>
@@ -173,7 +174,7 @@ myNewElement.className = 'javascript';</code></pre>
   <br>
   <ul>
     <li><strong>Event:</strong> something that happens</li>    
-    <li><strong>Callback:</strong> a callback that executes after the event has happened</li>    
+    <li><strong>Callback:</strong> a function that executes after the event has happened</li>    
     <li><strong>Event listener:</strong> a method that binds an event to a callback</li>
   </ul>
 </section>
@@ -202,7 +203,7 @@ myButton.addEventListener('click', function() {
   console.log('button clicked!');
 });</code></pre>
   <br>
-  <p>The callback cannot be removed.</p>
+  <p>The callback cannot be removed, because we don't have a reference to it.</p>
 </section>
 <section>
   <h3>Referenced functions</h3>
@@ -217,7 +218,7 @@ var myCallback = function() {
 myButton.addEventListener('click', myCallback);
 </code></pre>
   <br>
-  <p>The callback can be removed.</p>
+  <p>The callback can be removed, since we have a reference.</p>
 <pre><code>myButton.removeEventListener('click', myCallback)</code></pre>
 </section>
 <section>
@@ -248,6 +249,7 @@ myButton.addEventListener('click', myCallback);
 
       <!-- Presentation progress bar -->
       <div class="progress"><span></span></div>
+
 
     </div>
 
