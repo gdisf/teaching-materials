@@ -1,32 +1,54 @@
-<!doctype html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="../../common/css/bootstrap-responsive.css">
-    <link rel="stylesheet" type="text/css" href="../../common/css/bootstrap.css">
-    <link type="text/javascript" href="../../common/js/bootstrap.js">
-    <title>JSDOM: Final Exercise</title>
-    <meta charset="utf-8">
-    <style>
-    li { line-height: 1.6em; margin-bottom: 20px;}
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>JSDOM: Final Exercise</h1>
-      <br><br>
+	<head>
+		<title>Froyo Machine!</title>
+		<style>
+			#machine {
+				float:left;
+				width:40%;
+				border:3px outset gray;
+			}
+			div#power > img {
+				float:left;
+			}
+			.btn {
+				float:left;
+				clear:right;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Froyo-maker 2000e</h1>
+		<div id="machine">
+			<div id="power">
+				<img src="img/power.png" class="power">
+			</div>
+			<button id="vanilla" class="btn">Vanilla</button><br>
+			<button id="chocolate" class="btn">Chocolate</button><br>
+			<button id="swirl" class="btn">Swirl</button><br>
+		</div>
+		<div id="conveyor_belt" style="float:left">
+			<img src="img/conveyor.png">
+		</div>
+		<script>
+			var powerButton = document.getElementById('power'),
+				isOn = false;
 
-      <p>Go through these steps, and do as many as you can in the time we have:</p>
-      <ol>
-        
-      </ol>
+			powerButton.addEventListener('click', function(event){
+				event.target.parentElement.innerHTML = '<img src="img/power_on.png">'
+				// Bind your events here - find the buttons and then add events to them, using functions you create below
+				// Set isOn to true
+				// Make sure your machine can be turned off by unbinding event listeners when you turn it off! (make sure to replace the image as well- power.png is the "off" position.)					
+			});
 
-	<p>Make sure that you use your browser developer tools to make debugging easier
-while working on this. Check for errors, and use console.log() to figure out
-how far your code makes it, and what the values of your variables are along the way.</p>
-
-<p>Your task is to create a Froyo machine! Use starter.html to get started.</p>
-<p>There is a power button, and 3 other buttons on the machine already. When a uses presses the power button, the 'click' event will fire for that element. Create an event handler for the button that binds an event to the other buttons on the machine.</p>
-<p>Each button on the machine should do something. Use the included Froyo images to create and append an &lt;img&gt; tag, and the append it to the conveyor belt &lt;div&gt; on the side of the machine.</p>
-  </body>
+			function vanillaMaker(){
+				// create an img tag
+				// set it's src attribute to be img/vanilla.jpg
+				// append it to the conveyor belt
+				// create several more functions for each flavor!
+				// BONUS: Clean up your code so that one function can create any flavor, depending on the button being pressed 
+				// HINT: You can look at the ID of the button with event.target, which has the flavor of the button.
+			}
+		</script>
+	</body>
 </html>
 
