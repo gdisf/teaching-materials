@@ -1,6 +1,20 @@
 <html>
 	<head>
 		<title>Froyo Machine!</title>
+		<style>
+			#machine {
+				float:left;
+				width:40%;
+				border:3px outset gray;
+			}
+			div#power > img {
+				float:left;
+			}
+			.btn {
+				float:left;
+				clear:right;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Froyo-maker 2000e</h1>
@@ -8,13 +22,29 @@
 			<div id="power">
 				<img src="img/power.png" class="power">
 			</div>
-			<button id="vanilla">Vanilla</button>
-			<button id="chocolate">Chocolate</button>
-			<button id="swirl">Swirl</button>
+			<button id="vanilla" class="btn">Vanilla</button><br>
+			<button id="chocolate" class="btn">Chocolate</button><br>
+			<button id="swirl" class="btn">Swirl</button><br>
 		</div>
-		<div id="conveyor_belt" style="float:right">
+		<div id="conveyor_belt" style="float:left">
 			<img src="img/conveyor.png">
 		</div>
+		<script>
+			var power_button = document.getElementById("power");
+			power_button.addEventListener("click", function(event){
+				event.target.parentElement.innerHTML = '<img src="img/power_on.png">'
+				// Put your events here - find the buttons and then add events to them, using functions you create below
+				// Make sure your machine can be turned off by unbinding event listeners when you turn it off! (make sure to replace the image as well- power.png is the "off" position.)
+			});
+			function vanilla_maker(){
+				// create an img tag
+				// set it's src attribute to be img/vanilla.jpg
+				// append it to the conveyor belt
+				// create several more functions for each flavor!
+				// BONUS: Clean up your code so that one function can create any flavor, depending on the button being pressed 
+				// HINT: You can look at the ID of the button with event.target, which has the flavor of the button.
+			}
+		</script>
 	</body>
 </html>
 
