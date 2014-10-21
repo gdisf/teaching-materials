@@ -26,6 +26,16 @@
         font-size:24px;
         margin: 24px;
       }
+      img.treeExample {
+        width: 45%;
+        float: left;
+      }
+      pre.treeExample {
+        width: 45%;
+        margin-left: 5%;
+        float: left;
+        font-size: 1rem;
+      }
     </style>
   </head>
 
@@ -63,16 +73,53 @@
 <section>
   <h3>Try it!</h3>
   <br>
-  <p>Work with a buddy. Look at the image below and take turns identifying each of the following:</p>
-  <center><table>
-    <tr>
-      <td>parent + child</td>
-      <td>sibling + sibling</td>
-      <td>leaf</td>
-      <td>branch</td>
-    </tr>
-  </table></center>
-  <center><img src="http://dl.dropbox.com/u/10998095/Screenshots/2dvqiz-0w2cx.png"></center>
+  <p>Work with a buddy. Look at the image and code on the next slide and take turns identifying each of the following:</p>
+  <br>
+  <center>
+    <table>
+      <tr>
+        <td>parent + child</td>
+        <td>sibling + sibling</td>
+        <td>leaf</td>
+        <td>tag</td>
+        <td>attribute</td>
+      </tr>
+    </table>
+  </center>
+  </section>
+  <section>
+  <center>
+  <img class="treeExample" src="https://dl.dropboxusercontent.com/u/17585217/gdisf/tree.png">
+  <pre class="treeExample"><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;This is a header - the biggest one&lt;/h1&gt;
+        &lt;p&gt;This is a paragraph&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;This is a list item&lt;/li&gt;
+            &lt;li&gt;And here is another&lt;/li&gt;
+            &lt;li&gt;Fish&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="catbox">
+            &lt;img src="http://placekitten.com/300/300" id="ms_von_cuten"&gt;
+            &lt;p&gt;Ms Von Cuten&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="catbox"&gt;
+            &lt;img src="http://placekitten.com/200/400" id="mr_snuggles"&gt;
+            &lt;p&gt;Mister Snuggles &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="catbox"&gt;
+            &lt;img src="http://placekitten.com/300/500" id="professor_buttonsworth"&gt;
+            &lt;p&gt;Professor Buttonsworth&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+    
+
+  </code></pre>
+  </center>
 </section>
 <section>
   <h3>One simple way to visualize it...</h3>
