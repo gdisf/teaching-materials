@@ -214,7 +214,7 @@ $('div.header').append(newP);</pre>
 				</div><!--/jquery: the basics 1-->
 
 								<div class="slide normal">
-					<header><h1>jQuery Recipe: Select and Manipulate</h1></header>
+					<header><h1>jQuery Recipe: Select, Manipulate, Admire</h1></header>
 					<section class="content">
 						<br>
 						<br>
@@ -362,7 +362,7 @@ $('a').css({'color': 'purple'});</pre><br>
 					<section class="content">
 						<br>
 						<br>
-						<p>Step 1: Create element</p>
+						<p>Step 1: Create element and store a reference</p>
 						<pre>var p = $('&lt;p&gt;')</pre>
 						<p> Step 2: Use a method to manipulate (optional)</p>
 						<pre>p.addClass('special');</pre>
@@ -375,7 +375,7 @@ $('a').css({'color': 'purple'});</pre><br>
 
 				
 				<div class="slide normal">
-					<header><h1>jQuery: Creating Elements</h1></header>
+					<header><h1>jQuery: Create and Store</h1></header>
 					<section class="content">
 						<br>
 						<p>Pass in any HTML string and jQuery will create it and return it as a collection.</p>
@@ -404,17 +404,26 @@ $('a').css({'color': 'purple'});</pre><br>
 								<td class="code-cell"><pre>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</pre></td>
 							</tr>
 						</table>
+						<br>
+						<p>Just like with the DOM API, we can store a reference to our new element in memory...</p>
+						<pre>var myParagraph = $('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</pre>
 					</section>
 				</div><!--/jquery: creating elements-->
 
 				<div class="slide normal">
-					<header><h1>jQuery: Injecting</h1></header>
+					<header><h1>jQuery: Manipulate</h1></header>
+					<section class="content">
+						<br>
+						<p>Now that we've stored a reference, we can make further revisions to our element.</p>
+						<pre>var myParagraph = $('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</pre>
+						<pre>myParagraph.css('font-size','4em');</pre>
+					</section>
+				</div>
+				<div class="slide normal">
+					<header><h1>jQuery: Inject</h1></header>
 					<section>
 						<br>
-						<p>Just like before, we can store the reference in memory...</p>
-						<pre>var myParagraph = $('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</pre>
-						<br>
-						<p>...and inject it somewhere!</p>
+						<p>Now, we can take our stored reference to <code>myParagraph</code> and inject it somewhere!</p>
 						<pre>$('body').append(myParagraph);</pre>
 						<pre>$('body').prepend(myParagraph);</pre>
 					</section>
