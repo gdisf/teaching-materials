@@ -71,8 +71,8 @@
  &lt;script type="text/javascript" src="http://www.teaching-materials.org/common/jquery.js"&gt;&lt;/script&gt;
  &lt;script&gt;
    var videoLinks = $('a');
-   videoLinks.each(function(index, elem) {
-      var videoLink = $(elem);
+   for(var i = 0; i < videoLinks.length; i++) {
+      var videoLink = $(videoLinks[i]);
       var linkUrl = videoLink.attr('href');
       var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
       var thumbnailImg = $('&lt;img&gt;');
