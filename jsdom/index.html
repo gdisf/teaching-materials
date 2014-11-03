@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>JS201: JS and the DOM (Review and Deep Dive)</title>
+    <title>JS201: JS and the DOM (Review)</title>
 
     <base target="_blank">
 
@@ -47,7 +47,7 @@
 
 <section>
   <br>
-  <h1 class="upper">JS201: JS and the DOM (Review and Deep Dive)</h1>
+  <h1 class="upper">JS201: JS and the DOM (Review)</h1>
   <br>
   <br>
   <h2>teaching-materials.org/jsdom/</h2>
@@ -63,8 +63,8 @@
   <br>
   <ul>
     <li>The DOM, just like JavaScript objects, is a data structure called a "tree"</li>
-    <li>Trees have "branches" and "leaves" aka "nodes"</li>
-    <li>Each "node" can have a "parent", "child", and/or "sibling" node</li>
+    <li>Each point of data is called a "node"</li>
+    <li>Each "node" can have a "parent", "child", and/or "sibling" nodes</li>
     <li>The DOM is accessed by a global variable called <code>document</code></li>
     <li>We can also use "dot notation" to access methods and properties</li>
   </ul>
@@ -80,7 +80,7 @@
       <tr>
         <td>parent + child</td>
         <td>sibling + sibling</td>
-        <td>leaf</td>
+        <td>node</td>
         <td>tag</td>
         <td>attribute</td>
       </tr>
@@ -145,8 +145,8 @@
     <h3>Try it!</h3>
     <br>
     <p>Open your JS console and try these...</p>
-    <pre><code>document.head.children</code></pre>
-    <pre><code>document.head.firstChild</code></pre>
+    <pre><code>document.body</code></pre>
+    <pre><code>document.body.children</code></pre>
     <pre><code>document.querySelectorAll('section')</code></pre>
     <br>
     <p>Can you find any other methods and properties this way?</p>
@@ -212,8 +212,10 @@
 myNewElement.className = 'new';</code></pre>
   <h4>Insert</h4>
   <pre><code>document.body.appendChild(myNewElement);</code></pre>
-  <br>
-  <p>Try it on any page!</p>
+</section>
+<section>
+  <h3>Try it!</h3>
+    <p>Using the Developer Tools Console, create an <code>&lt;img&gt;</code> tag and store it. Give it an <code>src</code> attribute with an image of your choice. Finally, append it to this slide!</p>
 </section>
 <section>
   <h2>Events and their Callbacks</h2>
