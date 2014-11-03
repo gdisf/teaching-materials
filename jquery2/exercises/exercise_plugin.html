@@ -70,10 +70,7 @@
  &lt;script&gt;
 $('h2').funText(10, 'candy');
 
-var videoLinks = $('a');
-
-for (var i = 0; i < videoLinks.length; i++) {
-  var videoLink = $(videoLinks[i]);
+var thumbnailify = function(videoLink) {
   var linkUrl = videoLink.attr('href');
   var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
   var thumbnailImg = $('&lt;img&gt;');
@@ -92,6 +89,12 @@ for (var i = 0; i < videoLinks.length; i++) {
       videoWatcher.html(videoEmbed);
       videoWatcher.fadeIn();
   });
+};
+
+var videoLinks = $('a');
+for (var i = 0; i < videoLinks.length; i++) {
+  var videoLink = $(videoLinks[i]);
+  thumbnailify(videoLink);
 }
  &lt;/script&gt;
  &lt;/body&gt;

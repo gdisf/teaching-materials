@@ -101,11 +101,12 @@
     &lt;script&gt;
       var videoLinks = document.getElementsByTagName('a');
       for (var i = 0; i &lt; videoLinks.length; i++) {
-        var linkUrl = videoLinks[i].getAttribute('href');
+        var videoLink = videoLinks[i];
+        var linkUrl = videoLink.getAttribute('href');
         var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
         var thumbnailImg = document.createElement('img');
         thumbnailImg.setAttribute('src', thumbnailUrl);
-        videoLinks[i].appendChild(thumbnailImg);
+        videoLink.appendChild(thumbnailImg);
       }
     &lt;&#47;script&gt;
   &lt;&#47;body&gt;
