@@ -33,15 +33,15 @@
  <script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"></script>
  <script type="text/javascript" src="http://www.teaching-materials.org/common/jquery.js"></script>
  <script>
-   var videoLinks = $('a');
-   videoLinks.each(function(index, elem) {
-      var videoLink = $(elem);
+    var videoLinks = $('a');
+    for (var i = 0; i < videoLinks.length; i++) {
+      var videoLink = $(videoLinks[i]);
       var linkUrl = videoLink.attr('href');
       var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
       var thumbnailImg = $('<img>');
       thumbnailImg.attr('src', thumbnailUrl);
       videoLink.append(thumbnailImg);
-    });
+    }
  </script>
  </body>
 </html>
