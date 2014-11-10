@@ -273,20 +273,23 @@ var catNames = document.querySelectorAll('ul li.catname');
     </div>
 
     <div class="slide normal">
-      <header><h1>DOM Access: Single Element vs. NodeList</h1></header>
+      <header><h1>DOM Access: Single Element vs. Array</h1></header>
       <section class="content">
         <p>Some access methods return a single element:</p>
         <ul>
           <li><code>getElementById()</code></li>
           <li><code>querySelector() </code><small>*returns only the first of the matching elements</small></li>
         </ul>
-        <p>Others return a collection of nodes, or NodeList:</p>
+<pre class="prettyprint">
+  var firstCatName = document.querySelector('ul li.catname');
+</pre>
+        <br>
+        <p>Others return a collection of elements in an array:</p>
         <ul>
           <li><code>getElementByClassName()</code></li>
           <li><code>getElementByTagName()</code></li>
           <li><code>querySelectorAll()</code></li>
         </ul>
-        <p>Items in NodeLists can be accessed by array syntax:</p>
 <pre class="prettyprint">
   var catNames = document.querySelectorAll('ul li.catname');
   var firstCatName = catNames[0];
