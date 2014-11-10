@@ -160,21 +160,19 @@ margin: 30px 0 0 0;" border="1">
    What does the user do with the data? -->
 </section>
 
+
 <section>
   <h1>The Book Model</h1>
 
-  <p>Sets defaults and computes properties.</p>
-  <pre><code class="javascript">
-function BookModel(bookJSON) {
-  this.title     = bookJSON.title || 'Untitled';
-  this.author    = bookJSON.author || 'Unknown author';
+  <p>Simple version: stores properties passed in</p>
+  <pre><code class="javascript">var BookModel = function(bookJSON) {
+  this.title     = bookJSON.title;
+  this.author    = bookJSON.author;
   this.asin      = bookJSON.asin;
   this.thumbnail = bookJSON.thumbnail;
   this.rating    = bookJSON.rating;
-  this.review    = bookJSON.review || '';
-  this.url       = 'http://www.amazon.com/gp/product/'
-      + this.asin + '?tag=amazonsimilar-20';
-}</pre></code>
+  this.review    = bookJSON.review;
+};</pre></code>
 
   <pre><code class="javascript">var book = new BookModel({
     title: "1984",
@@ -186,12 +184,56 @@ function BookModel(bookJSON) {
 </section>
 
 <section>
+  <h1>The Book Model</h1>
+
+  <p>Better: Sets defaults for properties</p>
+  <pre><code class="javascript">var BookModel = function(bookJSON) {
+  this.title     = <strong>bookJSON.title || 'Untitled'</strong>;
+  this.author    = <strong>bookJSON.author || 'Unknown author'</strong>;
+  this.asin      = bookJSON.asin;
+  this.thumbnail = bookJSON.thumbnail;
+  this.rating    = bookJSON.rating;
+  this.review    = <strong>bookJSON.review || ''</strong>;
+};</pre></code>
+
+  <pre><code class="javascript">var book = new BookModel({
+    asin: "0451524934",
+    thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+    rating: 4
+  });</pre></code>
+</section>
+
+<section>
+  <h1>The Book Model</h1>
+
+  <p>Even better: computes properties</p>
+  <pre><code class="javascript">var BookModel = function(bookJSON) {
+  this.title     = bookJSON.title || 'Untitled';
+  this.author    = bookJSON.author || 'Unknown author';
+  this.asin      = bookJSON.asin;
+  this.thumbnail = bookJSON.thumbnail;
+  this.rating    = bookJSON.rating;
+  this.review    = bookJSON.review || '';
+  this.url       = <strong>'http://www.amazon.com/gp/product/'
+      + this.asin + '?tag=amazonsimilar-20'</strong>;
+};</pre></code>
+
+  <pre><code class="javascript">var book = new BookModel({
+    title: "1984",
+    author: "George Orwell",
+    asin: "0451524934",
+    thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+    rating: 4
+  });</pre></code>
+</section>
+
+
+<section>
   <h1>The BookCollection</h1>
 
   <p>Creates an array of Models and provides sorts.</p>
   
-  <pre><code class="javascript">
-function BookCollection(booksJSON) {
+  <pre><code class="javascript">var BookCollection = function(booksJSON) {
   this.items = [];
   for (var i = 0; i &lt; booksJSON.length; i++) {
     this.items.push(new BookModel(booksJSON[i]));
@@ -224,8 +266,7 @@ var books = new BookCollection(booksJSON);</pre></code>
 
 <section>
   <h1>A BookShelf View</h1>
-  <pre><code class="javascript">
-function BookShelfView(books) {
+  <pre><code class="javascript">var BookShelfView = function(books) {
   var shelfDiv = $('&lt;div>');
   for (var i = 0; i &lt; books.items.length; i++) {
     var book = books.items[i];
@@ -253,15 +294,16 @@ function BookShelfView(books) {
     });
   }
   return shelfDiv;
-}
+};
   </pre></code>
+  <!-- Proof of a good view: it can be used twice.
+   Your view should never know about the DOM of your webpage. -->
 </section>
 
 
 <section>
   <h1>Smaller/Nested Views</h1>
-  <pre><code class="javascript">
-function BookView(book) {
+  <pre><code class="javascript">var BookView = function(book) {
   var bookDiv = $('&lt;div class="book">');
   var bookLink = $('&lt;a>');
   bookLink.attr('href', book.url);
@@ -272,16 +314,16 @@ function BookView(book) {
 
   // Attach event listeners
   return bookDiv;
-}
+};
 
-function BookShelfView(books) {
+var BookShelfView = function(books) {
   var shelfDiv = $('&lt;div>');
   for (var i = 0; i &lt; books.items.length; i++) {
     var book = books.items[i];
     shelfDiv.append(new BookView(book));
   }
   return shelfDiv;
-}
+};
   </pre></code>
 </section>
 

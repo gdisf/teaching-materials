@@ -19,20 +19,24 @@
   
   <!-- include source files here... -->
   <script type="text/javascript" src="src/app.js"></script>
+  <style>
+    img {
+      width: 100px;
+    }
+  </style>
+</head>
 
-  <!-- include spec files here... -->
+<body>
+<script id="rolodex-template" type="text/x-handlebars-template">
+  {{#each people}}
+    <img src="{{imgUrl}}">
+  {{/each}}
+</script>
+<!-- include spec files here... -->
+  <script type="text/javascript" src="spec/exampleSpec.js"></script>
   <script type="text/javascript" src="spec/ModelSpec.js"></script>
   <script type="text/javascript" src="spec/CollectionSpec.js"></script>
   <script type="text/javascript" src="spec/ModelViewSpec.js"></script>
   <script type="text/javascript" src="spec/CollectionViewSpec.js"></script>
-</head>
-
-<body>
-
-<script id="rolodex-template" type="text/x-handlebars-template">
-  {{#each}}
-    <img src="{{imgUrl}}">
-  {{/each}}
-</script>
 </body>
 </html>

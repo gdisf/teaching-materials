@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <head>
 	<meta charset="utf-8">
-	<title>Exercise 5 - Fetching and rendering a Collection</title>
+	<title>Exercise 4 - Fetching and rendering a Collection</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>Exercise 5 - Fetching and rendering a Collection</h1>
+	<h1>Exercise 4 - Fetching and rendering a Collection</h1>
 	<p>In this creative exercise, we will be putting all of our skills from the day together. Do as much as you can in the time that we have.</p>
 	<p>Feel free to follow the instructions below, or branch out to practice skills at your own pace!</p>
 
@@ -21,15 +22,16 @@
 	<h2>Instructions - Add Yourself</h2>
 	<ol>
 		<li>Instantiate a new Person that is you, and give yourself a unique "id" attribute</li>
-        <li>There is a JSON REST API for individual models at <a href="http://spacodemo.herokuapp.com/person">http://spacodemo.herokuapp.com/person</a> that you can use from your app. Add the <code>urlRoot</code> to the Person Model.</li>
+        <li>There is a JSON REST API at <a href="http://spacodemo.herokuapp.com/people">http://spacodemo.herokuapp.com/people</a> that you can use from your app.</li>
+        <li> Add the <code>urlRoot</code> to the Person Model.</li>
 		<li>use <code>.save()</code> to add yourself to the collection</li>
 		<li>If you are successful, you will see yourself at <a href="http://spacodemo.herokuapp.com/people">http://spacodemo.herokuapp.com/people</a></li>
 	</ol>
 
 	<h2>Instructions - Fetching the Collection</h2>
 	<ol>
-        <li>There is a JSON REST API for the people collection at <a href="http://spacodemo.herokuapp.com/people">http://spacodemo.herokuapp.com/people</a> that you can use from your app. Add the <code>url</code> to the People collection.</li>
-        <li>In <code>$(document).ready()</code>, call .fetch() on the collection.</li>
+        <li>Using the API, add the <code>url</code> to the People collection.</li>
+        <li>In <code>$(document).ready()</code>, call <code>.fetch()</code> on the collection.</li>
         <li>Make sure that your view knows when to update. For this, you can create an <a href="http://backbonejs.org/#Events-listenTo">event listener</a> on the collection for 'reset'.</li>
 	</ol>
 

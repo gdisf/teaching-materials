@@ -21,7 +21,7 @@
 
       <p>Go through these steps, and do as many as you can in the time we have:</p>
       <ol>
-        <li>Download <a href="exercise_mvc_starter.html">this file</a> and save it into your project folder.
+        <li>Download <a href="exercise_model_starter.html">this file</a> and save it into your project folder.
           Open it up in your browser and make sure it works. You should see a list of videos,
           and when you click on them, a modal pops up that plays the video.</li>
 
@@ -30,13 +30,14 @@
         <li>Create a <code>VideoModel</code> object that represents a video.
           Your model object should take in a JSON object
           and store title, author, and youtubeID properties. It should also calculate
-          an embed and preview URL. 
+          an embed and thumbnail URL. 
 
         <li>Create a <code>VideoCollection</code> object that represents a collection of videos. 
           It should take in JSON and turn it into
           an internal <code>items</code> array of <code>VideoModel</code> instances.
 
-        <li>Modify the code in <code>document.ready</code> to create a <code>VideoCollection</code>.
+        <li>Modify the code in <code>document.ready</code> to create a new instance of a <code>VideoCollection</code>, 
+         using the data from the <code>videosJSON</code> array stored in the page.
 
         <li>Change the for loop to iterate through the items in the <code>VideoCollection</code> and
         pass them to the <code>addVideoToList</code> function.

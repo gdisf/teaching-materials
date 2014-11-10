@@ -60,6 +60,13 @@ handlers:
 
 - url: /jsmvc
   static_dir: jsmvc
+  
+- url: /jsdom/
+  static_files: jsdom/index.html
+  upload: jsdom/index.html
+
+- url: /jsdom
+  static_dir: jsdom
 
 - url: /jsoo/
   static_files: jsoo/index.html

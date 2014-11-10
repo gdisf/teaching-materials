@@ -126,13 +126,13 @@ var myProfile =
   "cats": ["Tribbles", "Jean Claws"]};
 
 var p = document.createElement('p');
-p.innerHTML = myProfile.firstName + ' ' + myProfile.lastName;
-p.innerHTML += 'My cats are ' + myProfile.cats.join(',');
+p.innerHTML = 'My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ';
+p.innerHTML += 'My cats are ' + myProfile.cats.join(', ') + '.';
 
 
 var p = $('&lt;p&gt;');
-p.html(myProfile.firstName + ' ' + myProfile.lastName);
-p.append('My cats are ' + myProfile.cats.join(','));
+p.html('My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ');
+p.append('My cats are ' + myProfile.cats.join(', ') + '.');
 </pre>
         </section>
       </div><!--turn JSON into DOM-->
@@ -238,16 +238,17 @@ Javascript tells the browser to retrieve a particular URL and send the data back
       </div><!--AJAX-->
 
       <div class="slide normal">
-        <header><h1>AJAX: XMLHttpRequest</h1></header>
+        <header><h1>Requests and Responses</h1></header>
         <section class="content">
+          <p align="center"><img src="http://abhijitjana.files.wordpress.com/2010/10/2.jpg"/></p>
           <ul>
-            <li>This Javascript object makes the whole thing possible</li>
-            <li>Sends an HTTP request to a web server complete with headers and parameters</li>
-            <li>Uses callback methods for status changes</li>
-            <li>Subject to the cross-domain security policy - you can only use it to get files from the same domain. </li>
-          </ul>
+            <li><strong>Front-End: </strong>Hey, Back-End! Here's my credentials. Can I get some data? How about books on AJAX?</li>
+            <li><strong>Back-End </strong><em>thinks about it, decides how to handle request...</em></li>
+            <li><strong>Back-End </strong><em>looks in database, searches...</em></li>
+            <li><strong>Back-End: </strong>200 OK, here are some books on AJAX!</li>
+            <li><strong>Front-End: </strong>Thanks! I'm going to make an online bookshelf with the data!</li>
         </section>
-      </div><!--AJAX: XMLHttpRequest-->
+      </div><!--Requests and Responses-->
 
       <div class="slide normal">
         <header><h1>1) Creating an XMLHttpRequest</h1></header>
@@ -454,12 +455,11 @@ $.ajax({type: "POST",
         <header><h1>AJAX Gotchas</h1></header>
         <section class="content">
           <ul>
-            <li>Can't go cross domain</li>
+            <li>Cross domain has more restrictions</li>
             <li>Multiple AJAX requests don't return in order</li>
             <li>Hard to transfer files</li>
             <li>Can't transfer binary content</li>
             <li>Browsers can over-cache/under-cache requests</li>
-            <li>Cross-browser issues up the wazoo!</li>
           </ul>
           <p>
             UI No-Nos:

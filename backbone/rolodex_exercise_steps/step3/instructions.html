@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <head>
 	<meta charset="utf-8">
-	<title>Exercise 4 - Rendering a Template in a Collection</title>
+	<title>Exercise 3 - Rendering a Template in a Collection</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>Exercise 4 - Rendering a Template in a Collection</h1>
+	<h1>Exercise 3 - Rendering a Template in a Collection</h1>
 	<p>In this exercise, we will be using <code>Handlebars</code> templates. We'll also render them with a collection.</p>
 	<ul>
 		<li>If you didn't finish the last exercise, download the solution files from <a href="../step3.zip">here</a>.</li>
@@ -26,11 +27,7 @@
 	<ol>
 		<li>Open <code>SpecRunner.html</code> in a browser</li>
 		<li>Click on Spec List on the upper-left hand corner.</li>
-		<li>Make changes in <code>src/app.js</code> to make all the tests for Exercise 4 pass.</li>
-		<li>Inside of your <code>.render</code> function, compile the Handlebars template, pass in JSON from the collection, and append it to the view's <code>$el</code></li>
-		<li>Don't forget to return <code>this</code> at the end of <code>.render</code></li>
-		<li>In the <code>.initialize</code> function, use <code>.on()</code> or <code>.listenTo()</code> to add an event listener for changes to the collection. The callback should be <code>.render</code></li>
-		<li>Update the <code>$(document).ready()</code> callback from the last exercise. Instead of rendering and appending your personView to the DOM, render and append your rolodexView.</li>
+		<li>Make changes in <code>src/app.js</code> to make all the tests for Exercise 3 pass.</li>
 	</ol>
 	<h2>Bonus - Loop it different ways!</h2>
 	<p>In the above exercises, we used a for loop within a Handlebars <code>#each</code> block. Try moving the loop into the <code>.render()</code> function of the view.</p>

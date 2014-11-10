@@ -1,4 +1,4 @@
-describe("Exercise 3: ", function() {
+describe("Exercise 2: ", function() {
   describe("Define a Backbone View of a Model: ", function() {
     var myPersonView;
 
@@ -38,7 +38,9 @@ describe("Exercise 3: ", function() {
     })
 
     it("make sure your .render function returns this", function() {
+      var newView = Backbone.View.extend();
       var returnExpectation = myPersonView.render();
+      expect(myPersonView.__proto__.render).not.toEqual(newView.__proto__.render);
       expect(returnExpectation).toEqual(myPersonView);
     });
 
@@ -58,21 +60,13 @@ describe("Exercise 3: ", function() {
       expect(myPersonView.onClick).toHaveBeenCalled();
       myPersonView.remove();
     });
+
+    it("in the 'onClick' callback, do something fun (this test will always pass)", function() {
+      expect(true).toBe(true);
+    })
   });
 
   describe("Instantiate a new PersonView: ", function() {
-    beforeEach(function() {
-      var person = new Person({firstName: "Grace",
-        lastName: "Hopper",
-        role: "Computer Scientist",
-        imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
-      })
-
-      myPersonView = new PersonView({
-        model: person
-      });
-    });
-
     it("store it as a variable called 'personView'", function() {
       expect(personView).toBeDefined();
     });
@@ -85,7 +79,9 @@ describe("Exercise 3: ", function() {
 
   describe("In app.js, listen for $(document).ready(): ", function() {
     it("and when the document is ready, append your personView to the DOM", function() {
-      expect($('body').children('.rolodex').length).toBeGreaterThan(0);
+      var truth = $('.rolodex').length > 0 || $('img').length > 0;
+      expect(truth).toBe(true);
+      $('.rolodex').hide();
     });
   });
 });
