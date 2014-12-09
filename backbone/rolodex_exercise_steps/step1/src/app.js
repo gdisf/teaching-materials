@@ -17,4 +17,11 @@ var Person = Backbone.Model.extend({
 	}
 });
 
+var person = new Person({
+	firstName: "Grace",
+    lastName: "Hopper",
+    role: "Computer Scientist",
+    imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
+});
+
 // insert your new code here

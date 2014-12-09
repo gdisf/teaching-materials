@@ -17,12 +17,19 @@ var Person = Backbone.Model.extend({
 	}
 });
 
+var person = new Person({
+	firstName: "Grace",
+    lastName: "Hopper",
+    role: "Computer Scientist",
+    imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
+});
+
 var People = Backbone.Collection.extend({
 	model: Person,
 	comparator: function(model) {
 		return model.get('lastName').toLowerCase();
 	}
-})
+});
 
 var people = new People([
 	{
@@ -42,12 +49,12 @@ var people = new People([
 		role: "TA",
 		imgUrl: "https://lh6.googleusercontent.com/-RXfQUhzv7uQ/AAAAAAAAAAI/AAAAAAAAAAA/vO3ax0T-UzY/s128-c-k/photo.jpg"
 	}
-])
+]);
 
 people.add({
 	firstName: 'Julee',
 	lastName: 'Burdekin',
 	role: 'Adobe host'
-})
+});
 
 // insert your new code here
