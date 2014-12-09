@@ -51,7 +51,7 @@ describe("Exercise 0: ", function() {
         expect(myPerson.get('userName')).toEqual('BrendaJin');
       })
 
-      it("'generateUserName' should get called whenever a new Person is instantiated", function() {
+      it("'generateUserName' should be called whenever a new Person is instantiated", function() {
         spyOn(myPerson, 'generateUserName');
         myPerson.initialize();
         expect(myPerson.generateUserName).toHaveBeenCalled();
