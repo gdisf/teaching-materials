@@ -78,7 +78,7 @@ var personView = new PersonView({
 
 var RolodexView = Backbone.View.extend({
 	initialize: function() {
-		this.collection.on('add change remove', this.render, this);
+		this.listenTo(this.collection, 'add change remove', this.render);
 	},
 	render: function() {
 		this.$el.html('');

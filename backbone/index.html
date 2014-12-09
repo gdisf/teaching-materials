@@ -459,7 +459,38 @@ $('#products').append(listingEl);</code></pre>
 });</code></pre>
 
 </section>
-
+<section>
+  <h1>Backbone events</h1>
+  <br>
+  <p>Listen to Backbone events with <a href="http://backbonejs.org/#Events-listenTo" target="_blank"><code>.listenTo()</code></a></p>
+  <pre><code>var ProductListing = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render)
+  },
+  render: function() {
+  // ...
+  }
+});</code></pre>
+  <p><code>'add' 'remove' 'sort' 'change' </code><a href="http://backbonejs.org/#Events-catalog" target="_blank">and more...</a></p>
+</section>
+<section>
+  <h1>Custom events</h1>
+  <p>Trigger custom events with <a href="http://backbonejs.org/#Events-trigger" target="_blank"><code>.trigger()</code></a></p>
+  <pre><code>var ProductModel = Backbone.Model.extend({
+  initialize: function() {
+    this.trigger('ready');
+  }
+});</code></pre>
+  <p>You can listen to these events, too</p>
+  <pre><code>var ProductView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'ready', this.render)
+  },
+  render: function() {
+  // ...
+  }
+});</code></pre>
+</section>
 <section>
   <h1><a href="rolodex_exercise_steps/step2/instructions.html" target="_blank">Exercise Time!</a></h1>
 </section>
