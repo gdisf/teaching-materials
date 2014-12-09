@@ -33,28 +33,28 @@ describe("Exercise 0: ", function() {
     });
 
     describe("give it some custom methods", function() {
-      it("such as a method called 'generateUsername'", function() {
-        expect(person.generateUsername).toBeDefined();
+      it("such as a method called 'generateUserName'", function() {
+        expect(person.generateUserName).toBeDefined();
       });
 
-      it("'generateUsername' should return a concatenated string of the 'firstName' and 'lastName'", function() {
+      it("'generateUserName' should return a concatenated string of the 'firstName' and 'lastName' with no spaces in between", function() {
         var username;
         person = new Person({firstName: "Brenda", lastName: "Jin"});
-        username = person.generateUsername();
-        expect(username).toEqual("BrendaJin");
+        userName = person.generateUserName();
+        expect(userName).toEqual("BrendaJin");
       })
 
-      it("'generateUsername' should also set the 'username' property of the Person", function() {
+      it("'generateUserName' should also set the 'userName' property of the Person. The value of 'userName' should be the same value as the 'generateUserName' method returns.", function() {
         person = new Person({firstName: "Brenda", lastName: "Jin"});
-        username = person.generateUsername();
-        expect(person.get('username')).toBeDefined();
-        expect(person.get('username')).toEqual('BrendaJin');
+        userName = person.generateUserName();
+        expect(person.get('userName')).toBeDefined();
+        expect(person.get('userName')).toEqual('BrendaJin');
       })
 
-      it("'generateUsername' should get called whenever a new Person is instantiated", function() {
-        spyOn(person, 'generateUsername');
+      it("'generateUserName' should get called whenever a new Person is instantiated", function() {
+        spyOn(person, 'generateUserName');
         person.initialize();
-        expect(person.generateUsername).toHaveBeenCalled();
+        expect(person.generateUserName).toHaveBeenCalled();
       });
     });
   });

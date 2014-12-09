@@ -7,13 +7,13 @@ var Person = Backbone.Model.extend({
 		firstName: '',
 		lastName: ''
 	},
-	generateUsername: function() {
-		var username = this.get('firstName') + this.get('lastName');
-		this.set('username', username)
-		return username;
+	generateUserName: function() {
+		var userName = this.get('firstName') + this.get('lastName');
+		this.set('userName', userName)
+		return userName;
 	},
 	initialize: function() {
-		this.generateUsername();
+		this.generateUserName();
 	}
 });
 
