@@ -423,10 +423,10 @@ var listing = new ProductListing({
   <pre><code class="javascript">listing.render();
 $('#products').append(listing.$el);</code></pre>
   <p>..or...</p>
-  <pre><code>var listingEl = myView.render().$el;
+  <pre><code>var listingEl = listing.render().$el;
 $('#products').append(listingEl);</code></pre>
   <p>...or...</p>
-  <pre><code>$('#products').append(myView.render().$el);</code></pre>
+  <pre><code>$('#products').append(listing.render().$el);</code></pre>
 </section>
 
 <section>
