@@ -200,8 +200,10 @@ $('#jquery-review').append(newCode);</pre></code>
 <section>
   <h1>Defining a model</h1>
   <br>
+  <p>You can define a basic Backbone Model with <code>.extend()</code></p>
   <pre><code class="javascript">var Product = Backbone.Model.extend();</code></pre>
-
+  <br>
+  <p>Or, you can pass in an object for more configuration...</p>
 </section>
 
 <section>
@@ -217,14 +219,16 @@ $('#jquery-review').append(newCode);</pre></code>
     inventory: 28
   }
 });</code></pre>
-
+  <p>Note the object literal being passed into <code>.extend()</code></p>
 </section>
 
 <section>
   <h1>Instantiating new models</h1>
   <br>
+  <p>Create an empty model that inherits all the defaults</p>
 <pre><code class="javascript">var shirt = new Product();</code></pre>
-
+  <br>
+  <p>Or, override the defaults with an object</p>
 <pre><code class="javascript">var shirt = new Product({
   name: "Roma",
   colors: ["green", "white", "red"],
@@ -293,12 +297,13 @@ shirt['tagline']; // undefined</code></pre>
 <section>
   <h1>Defining a collection</h1>
   <br>
+  <p>You can define a basic Backbone Collection with <code>.extend()</code></p>
   <pre><code class="javascript">var Products = Backbone.Collection.extend();</code></pre>
-  <br><br>
+  <br>
+  <p>Or, you can pass in an object for more configuration...</p>
   <pre><code class="javascript">var Products = Backbone.Collection.extend({
   model: Product
 });</code></pre>
-
 </section>
 
 <section>
@@ -307,7 +312,7 @@ shirt['tagline']; // undefined</code></pre>
   <p>Pass an array of models:</p>
   <pre><code class="javascript">var products = new Products([product1, product2, product3]);</code></pre>
   <br>
-  <p>Pass a JSON array:</p>
+  <p>Or pass a JSON array:</p>
   <pre><code class="javascript">var products = new Products([
     {name: "I Love JS",
     colors: ["yellow", "black"]
@@ -321,10 +326,12 @@ shirt['tagline']; // undefined</code></pre>
 <section>
   <h1>Sort order</h1>
   <br>
+  <p>Use <code>.comparator</code> as a property to sort a Collection</p>
   <pre><code class="javascript">var Products = Backbone.Collection.extend({
   comparator: 'inventory' 
 });</code></pre>
   <br>
+  <p>Or for something more complex, use <code>.comparator()</code> as a method that returns a value to sort by</p>
   <pre><code class="javascript">var Products = Backbone.Collection.extend({
   comparator: function(model) {
     return model.get("name").toLowerCase();
@@ -369,15 +376,16 @@ shirt['tagline']; // undefined</code></pre>
 <section>
   <h1>Defining a view</h1>
   <br>
+  <p>You can define a basic Backbone View with <code>.extend()</code></p>
   <pre><code class="javascript">var ProductListing = Backbone.View.extend();</code></pre>
   <br>
+  <p>Or, you can pass in an object for more configuration...</p>
   <pre><code class="javascript">var ProductListing = Backbone.View.extend({
   tagName: "div", // default
   className: "product"
 });</code></pre>
 
 </section>
-
 
 <section>
   <h1>Customizing the render</h1>
