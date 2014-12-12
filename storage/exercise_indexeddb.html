@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: IndexedDB and Memes</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <br>
+    <div class="container">
+      <h1>Exercise: IndexedDB and Memes</h1>
+      <br><br>
+
+      <ul>
+        <li>Download <a href="memegen.html">memegen.html</a> and save into your project folder.</li>
+        <li>Open it up and make sure it works. It should display the most amazing meme generator you've ever seen. 
+          Unfortunately, it currently saves memes in a javascript object, so when your page reloads, they will all be gone. 
+          Oh no!
+        </li>
+        <li>Add code to the page that will set up an object store to save the memes, with a non-unique index on the "type" attribute. (See the slides)</li>
+        <li>Write a function that will save a meme to the database, and call that instead of storing the meme in the local object. (See <a href="https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB#Adding_data_to_the_database">MDN article</a>.)</li>
+        <li>Write a function that will fetch all the current memes from the database and add them to the list when the page loads. (See <a href="https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB#Getting_data_from_the_database">MDN article</a>).</li>
+        <li>Reload your page and rejoice!</li>
+        <li>Bonus: add a dropdown to filter by meme type, doing an indexed query on the database.</li>
+      </ul>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre?')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+  </body>
+</html>
+
+
+

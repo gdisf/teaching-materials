@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS 2: Positioning Exercise</title>
+    <base target="_blank">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+        <h1>CSS 2: Positioning Exercise</h1>
+        <p>The goal is to use the CSS position property to create a webpage that looks like the one below. 
+        </p>
+				<p>Here's what it looks like with a window width of 800x530:
+				</p>
+				<p>
+				<img src="http://dl.dropbox.com/u/10998095/Screenshots/pedp54de5i-3.png">
+				</p>
+				<p>Here's what it looks like when the window is 400x475 - notice how elements resize:
+				</p>
+				<p>
+				<img src="http://dl.dropbox.com/u/10998095/Screenshots/ynpy5ni_iupd.png">
+				</p>
+				<p>Here are recommended steps for making this happen:
+        <ul>
+        	<li>Create a blank web page with just <code>html</code>, <code>head</code>, <code>body</code>, and a <code>style</code>
+        	tag.
+        	<li>Change the background of the page to be a sky blue and have a background image of clouds.
+        	<li>Create a <code>div</code> for the grass - position it at the bottom and give it an appropriate height.
+        	<li>Create a <code>div</code> for the "Farm Party!" banner - position it near the top center area, and style the text
+        	so that it's red. For a bonus, use a fun custom font (like from Google Web Fonts) and give it the appearance of a black stroke.
+        	<li>For each of the images shown, search for an appropriate image on Google Image search - it doesn't have to be the exact same. Try searches like "sheep animated gif"
+        	and if you need to, restrict the results to just "clip art". When you find the image, create a <code>img</code> for it on the page.
+        	<li>Position each of the <code>img</code> elements appropriately. The sheep should be around the bottom left, the cow should be on the horizon, the dude
+        	should be dancing in the middle, the tree should be on the front right, and the sun should be around the upper right.
+        	<li>As a bonus, position a picture of your face on top of the dude, and watch yourself have a farm party!
+         </ul>
+         
+  <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_solution.html">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+  	</script>
+    </div>
+  </body>
+</html>

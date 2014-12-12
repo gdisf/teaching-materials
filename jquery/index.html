@@ -1,0 +1,489 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>Intro to jQuery</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/presentation.css" />
+		<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+		<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+		<style type="text/css">
+		.special {
+			color: purple;
+			font-size: 2em;
+			line-height: 2em;
+		}
+		</style>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/fathom.js"></script>
+		<script src="js/prettify.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('pre').addClass('prettyprint').attr('tabIndex', 0);
+				prettyPrint();
+
+				var fathom = $('#presentation').fathom({
+					onActivateSlide: function() {
+						var $slide = $(this);
+						$slide.find('pre:first').focus();
+					}
+				});
+
+				$('body').keypress(function(event){
+					if (event.which === 110) {
+						$('.speaker-notes').toggle();
+					}
+				});
+			});
+		</script>
+		<style>
+.grey-cell {
+	background: #eee;
+	padding: 10px;
+	border-right: 3px solid white;
+	font-size: 20px;
+	line-height: 1.5em;
+}
+.code-cell {
+	text-align: center;
+}
+#yahoo {
+	display: none;
+}
+		</style>
+	</head>
+	<body>
+		<div id="presentation">
+			<div id="presentation-counter"></div>
+
+			<div id="slides">
+
+				<div class="slide normal">
+					<h1 class="center">Intro to jQuery</h1>
+					<section class="content">
+						<p align="center">
+						Slides: <a href="http://www.teaching-materials.org/jquery/">http://www.teaching-materials.org/jquery/</a>
+						</p>
+					</section>
+			  	</div><!--/jquery title slide-->
+
+
+				<div class="slide normal">
+					<header><h1>Review: DOM and Data!</h1></header>
+					<section class="content">
+					<p align="center">
+						Our favorite Data Types
+					</p>
+<pre>
+var myString = "This is a string!";
+var myInteger = 1;
+var myBoolean = true;
+var myArray = ["string", 1, myVar, true];
+var myObject = {
+	name: "Pamela",
+	adjective: "Cool",
+	roles: ["hacker", "teacher", "coder"]
+}
+</pre>
+					<p align="center">
+						Traversing the DOM with JavaScript
+					</p>
+<pre>
+document.getElementById('presentation');
+document.getElementsByClassName('slide');
+document.getElementsByTagName('body');
+document.querySelectorAll('a');
+document.querySelector('img');
+</pre>
+
+
+					</section>
+				</div><!--/review-->
+
+
+				<div class="slide normal">
+					<header><h1>What's a library?</h1></header>
+					<section class="content">
+						<p>A collection of reusable methods for a particular purpose.</p>
+						<p>A math library might have functions like:</p>
+<pre>
+math.sum(array);
+math.pow(num, num);
+math.factorial(num);
+</pre>
+					</section>
+				</div><!--/what's a library?-->
+
+				<div class="slide normal">
+					<header><h1>What's a library?</h1></header>
+					<section class="content">
+						<ul>
+							<li>Include a script tag to the library on your page</li>
+							<li>Call functions from that library</li>
+						</ul>
+<pre>
+&lt;body&gt;
+
+&#60;script src="http://imagine-it.org/math.js"&#62;&#60;&#47;script&#62;
+&#60;script&#62;
+	var answer = math.sum(2, 2);
+	alert(answer);
+&#60;&#47;script&#62;
+&lt;/body&gt;
+</pre>
+					</section>
+				</div><!--/what's a library?-->
+
+				<div class="slide normal">
+					<header><h1 class="center"><a href="exercises/videoplayer_library.html">Exercise Time!</a></h1></header>
+					<section class="content"></section>
+				</div><!--/exercise1-->
+
+				<div class="slide normal">
+					<header><h1>jQuery: the most popular library</h1></header>
+					<section class="content">
+						<p>Write less code for common tasks.</p>
+						<p>Abstract on top of cross-browser differences.</p>
+						<a href="http://jquery.com/"><img src="img/jquery.png"></a>
+						<p>Open source, big community</p>
+					</section>
+				</div><!--/why use libraries?-->
+
+
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: Why?</h1></header>
+					<section class="content">
+						<p>No library:</p>
+<pre>var elems = document.getElementsByTagName("img");
+for (var i = 0; i< elems.length; i++) {
+  elems[i].style.display = "none";
+}
+</pre>
+
+						<p>jQuery:</p>
+<pre>$('img').hide();</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: why?-->
+
+
+
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: Why?</h1></header>
+					<section class="content">
+						<p>No library:</p>
+						<div class='header'></div>
+<pre>var p = document.createElement('p');
+p.appendChild(document.createTextNode('Welcome!'));
+p.style.cssFloat = 'left';
+p.style.backgroundColor = 'red';
+p.className = 'special';
+document.querySelector('div.header').appendChild(p);</pre>
+
+						<p>jQuery:</p>
+<pre>var newP = $('&#60;p&#62Welcome!&#60;&#47;p&#62');
+newP.css({'float': 'left', 'background-color': 'red'});
+newP.addClass('special');
+$('div.header').append(newP);</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: why?-->
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: The Basics</h1></header>
+					<section class="content">
+						<br>
+						<br>
+<pre style="text-align:center">&lt;p&gt;Welcome to jQuery!&lt;/p&gt; </pre>
+						<div style="text-align:center">
+							<img src="img/arrow.png">
+						</div><!--/arrow-->
+<pre style="text-align:center">$('p').addClass('special');</pre>
+						<div style="text-align:center">
+							<img src="img/arrow.png">
+						</div><!--/arrow-->
+<pre style="text-align:center">&lt;p class="special">Welcome to jQuery!&lt;/p&gt;</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: the basics 1-->
+
+								<div class="slide normal">
+					<header><h1>jQuery Recipe: Select, Manipulate, Admire</h1></header>
+					<section class="content">
+						<br>
+						<br>
+						<p>Step 1: Select element</p>
+						<pre style="text-align:center;">$('p')</pre>
+						<p> Step 2: Use a jQuery method to manipulate </p>
+						<pre style="text-align:center;">$('p').addClass('special');</pre>
+						<p> Step 3: Admire your results! </p>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jQuery Recipes: Select and Manipulate-->
+
+				<div class="slide normal">
+					<header><h1>jQuery: The Basics</h1></header>
+					<section class="content">
+						<br>
+						<table>
+							<tr><td colspan="3">
+							<pre style="text-align:center;">$('p').addClass('special');</pre>
+							</tr>
+							<tr>
+								<td><pre style="text-align:center; font-weight:bold;">$</pre></td>
+								<td><pre style="text-align:center; font-weight:bold;">('p')</pre></td>
+								<td><pre style="text-align:center; font-weight:bold;">addClass('special')</pre></td>
+							</tr>
+							<tr>
+								<td class="grey-cell"><p>The global jQuery function. <br> Can also be "jQuery".</p></td>
+								<td class="grey-cell"><p>Finds DOM element(s) according to what's in the quotes. <br> Returns a "jQuery collection."</p></td>
+								<td class="grey-cell"><p>Built-in jQuery method that adds the specified class to the collection.
+									<br><a href="http://api.jquery.com/addClass/" target="_blank">Read the docs here.</a>
+								</p></td>
+							</tr>
+						</table>
+						</table>
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: the basics 2-->
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: Finding Elements</h1></header>
+					<section class="content">
+						<br>
+						<p style="text-align:center">All CSS selectors are valid, plus more. <a href="http://api.jquery.com/category/selectors/">Read the docs.</a></p>
+						<br>
+						<table style="width:100%">
+							<thead>
+								<tr>
+									<th>With this HTML..</th>
+									<th>We find it this way:
+								</tr>
+							</thead>
+							<tr>
+								<td class="code-cell"><pre>&lt;p&gt;Welcome!&lt;/p&gt;</pre><br></td>
+								<td class="code-cell"><pre>$('p')</pre><br></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>&lt;div id="main"&gt;Welcome!&lt;/div&gt;</pre><br></td>
+								<td class="code-cell"><pre>$('#main')</pre><br></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</pre><br></td>
+								<td class="code-cell"><pre>$('.intro')</pre><br></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>&lt;div id="main"&gt;
+&lt;p class="intro"&gt;Welcome!&lt;/p&gt;
+&lt;/div&gt;</pre></td>
+								<td class="code-cell"><pre>$('#main .intro')</pre></td>
+							</tr>
+						</table>
+
+
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: finding elements-->
+
+				<div class="slide normal">
+					<header><h1 class="center"><a href="exercises/domaccess.html">Exercise Time!</a></h1></header>
+					<section class="content"></section>
+				</div><!--/exercise2-->
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: Reading Elements</h1></header>
+					<section class="content">
+						<p>If we start with this HTML...
+						<a id="yahoo" href="http://www.yahoo.com" style="font-size:20px;">Yahoo!</a>
+						<pre>&lt;a id="yahoo" href="http://www.yahoo.com" style="font-size:20px"&gt;Yahoo!&lt;/a&gt;</pre>
+						</p>
+						<p>We can find it...
+						<pre>$('a#yahoo');</pre>
+						</p>
+						<p>We can store it...
+						<pre>var myLink = $('a#yahoo');</pre>
+						</p>
+						<p>
+						...And we can find out lots of things about it:
+						</p>
+						<table>
+							<tr>
+								<td class="code-cell"><pre>myLink.html();</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>'Yahoo!'</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>myLink.attr('href');</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>'http://www.yahoo.com'</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>myLink.css('font-size');</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>'20px'</pre></td>
+							</tr>
+						</table>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: reading elements-->
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: Changing Elements</h1></header>
+					<section class="content">
+						<br>If we start with this HTML:
+						<pre>&lt;a href="http://www.google.com"&gt;Google&lt;/a&gt;</pre>
+						<br>
+						We can use this jQuery:
+						<pre>$('a').html('Yahoo!');
+$('a').attr('href', 'http://www.yahoo.com');
+$('a').css({'color': 'purple'});</pre><br>
+						And we'll get this:
+						<pre>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: changing elements-->
+
+
+								<div class="slide normal">
+					<header><h1>jQuery Recipe: Create, Manipulate & Inject</h1></header>
+					<section class="content">
+						<br>
+						<br>
+						<p>Step 1: Create element and store a reference</p>
+						<pre>var p = $('&lt;p&gt;')</pre>
+						<p> Step 2: Use a method to manipulate (optional)</p>
+						<pre>p.addClass('special');</pre>
+						<p> Step 3: Inject into your HTML </p>
+						<pre>$('body').append(p);</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jQuery Recipes: Create, Manipulate and Inject-->
+
+				
+				<div class="slide normal">
+					<header><h1>jQuery: Create and Store</h1></header>
+					<section class="content">
+						<br>
+						<p>Pass in any HTML string and jQuery will create it and return it as a collection.</p>
+						<br>
+						<table style="width:100%;">
+							<thead>
+								<tr>
+									<th>With this jQuery...</th>
+									<th></th>
+									<th>We create this HTML:</th>
+								</tr>
+							</thead>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p&gt;');</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p&gt;&lt;/p&gt;</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p&gt;Welcome!&lt;/p&gt;');</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p&gt;Welcome!&lt;/p&gt;</pre></td>
+							</tr>
+							<tr>
+								<td class="code-cell"><pre>$('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</pre></td>
+								<td>→</td>
+								<td class="code-cell"><pre>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</pre></td>
+							</tr>
+						</table>
+						<br>
+						<p>Just like with the DOM API, we can store a reference to our new element in memory...</p>
+						<pre>var myParagraph = $('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</pre>
+					</section>
+				</div><!--/jquery: creating elements-->
+
+				<div class="slide normal">
+					<header><h1>jQuery: Manipulate</h1></header>
+					<section class="content">
+						<br>
+						<p>Now that we've stored a reference, we can make further revisions to our element.</p>
+						<pre>var myParagraph = $('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</pre>
+						<pre>myParagraph.css('font-size','4em');</pre>
+					</section>
+				</div>
+				<div class="slide normal">
+					<header><h1>jQuery: Inject</h1></header>
+					<section>
+						<br>
+						<p>Now, we can take our stored reference to <code>myParagraph</code> and inject it somewhere!</p>
+						<pre>$('body').append(myParagraph);</pre>
+						<pre>$('body').prepend(myParagraph);</pre>
+					</section>
+				</div><!--/jquery: injecting elements-->
+
+				<div class="slide normal">
+					<header><h1>regular DOM nodes to jQuery objects</h1></header>
+					<section class="content">
+						<br>
+<pre>var paragraphs = $('p'); // an array</pre>
+<br>
+<pre>var myParagraph = paragraphs[0]; // a regular DOM node</pre>
+<br>
+<pre>var $myParagraph = $(paragraphs[0]); // a jQuery Object</pre>
+<br>
+					<p>We can also loop through our array...</p>
+<pre>
+for(var i = 0; i < paragraphs.length; i++) {
+   var element = paragraphs[i];
+   var paragraph = $(element);
+   paragraph.html(paragraph.html() + ' wowee!!!!');
+};
+</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: looping-->
+
+
+				<div class="slide normal">
+					<header><h1>jQuery: Including</h1></header>
+					<section class="content">
+						<p><a href="http://jquery.com/download/">Download</a> or link from an official CDN.</p>
+						<p>Then include using a &#60;script&#62 tag on the page.</p>
+<pre>&lt;html&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hi!&lt;/h1&gt;
+  &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+  // Your code here
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery: including-->
+
+
+				<div class="slide normal">
+					<header><h1 class="center"><a href="exercises/videoplayer_jquery.html">Exercise Time!</a></h1></header>
+					<section class="content"></section>
+				</div><!--/exercise2-->
+
+
+
+			</div><!--/slides-->
+		</div><!--/presentation-->
+	</body>
+</html>

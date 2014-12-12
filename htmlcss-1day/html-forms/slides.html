@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html> 
+  <head> 
+    <!--[if gte IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]--> 
+    <!--[if lt IE 9]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <![endif]--> 
+    <meta charset="utf-8" />
+    <title>HTML: Forms</title>
+    <base target="_blank">
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Tangerine" rel="stylesheet" type="text/css" />
+    <link href="../slides.css" rel="stylesheet" type="text/css" />
+  </head> 
+  <body> 
+  
+  <div id="info">
+    <p>Press <span class="key">&rarr;</span> key to advance. Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>.</p>
+  </div>
+  
+  <div id="presentation">
+  
+   <div id="presentation-counter"></div>
+      
+   <div id="slides">
+  
+
+    <div class="slide section"> 
+     <header><h1>HTML: Forms</header>
+     <!--<p>The web started as a way for people to post static information, but now is largely about "user-contributed content." All that content means a lot of forms!</p>
+<p>Users see form on social sites, login screens, banking sites, and more:</p>-->
+<p style="text-align:center"><img src="http://farm5.static.flickr.com/4138/4931405344_1a5cd92b80_m.jpg">
+<br>
+<img src="http://farm5.static.flickr.com/4135/4930813031_601aa2c5c9_o.png">
+</p>
+    </div> 
+    
+    <div class="slide normal">
+     <header><h1>Forms: Browser-to-Server Communication</h1></header>
+     <section class="content">
+
+     <img src="form_diagram.png">
+
+     </section>
+    </div>
+   
+    <div class="slide normal"> 
+     <header><h1>The Form HTML</h1></header> 
+     <section class="content">
+
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  method="get"&gt;
+  &lt;input type="text" name="first"&gt;
+  &lt;input type="text" name="last"&gt;
+  &lt;button type="submit"&gt;Send Data&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+<form action="http://imagine-it.org/processform.php" 
+  method="get" target="_blank">
+  <input type="text" name="first"> <br>
+  <input type="text" name="last"> <br>
+  <button type="submit">Send Data</button>
+</form>
+
+     </section>
+    </div>
+
+    <div class="slide normal">                                                                                                                        
+      <header><h1>The Form HTTP Request: GET</h1></header>
+      <section class="content">                                                                                                                       
+      <p>Request:</p>
+      <pre>
+GET /processform.php?first=Pamela&last=Fox HTTP/1.1
+Host: imagine-it.org
+</pre>
+
+<p>Response:</p>
+<pre>
+200
+&lt;doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Welcome to my website!&lt;/title&gt;
+    &hellip;
+&lt;/html&gt;
+</pre>
+
+      </section>
+    </div>
+     
+    <div class="slide normal"> 
+     <header><h1>Form element</h1></header> 
+     <section class="content">
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  <b>method="get"&gt;</b>
+&lt;/form&gt;
+</pre>
+
+<pre>
+&lt;form action="http://imagine-it.org/processform.php" 
+  <b>method="post"&gt;</b>
+&lt;/form&gt;
+</pre>
+
+     </section>
+    </div>
+
+    <div class="slide normal">                                                                                                                        
+      <header><h1>The Form HTTP Request: POST</h1></header>
+      <section class="content">                                                                                                                       
+      <p>Request:</p>
+      <pre>
+POST /processform.php HTTP/1.1
+Host: imagine-it.org
+first=Pamela&last=Fox
+</pre>
+
+<p>Response:</p>
+<pre>
+200
+&lt;doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Welcome to my website!&lt;/title&gt;
+    &hellip;
+&lt;/html&gt;
+</pre>
+
+      </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Input element</h1></header> 
+     <section class="content"> 
+<!---<p>The <code>input</code> element is used for many different types of user input, depending on value of the <code>type</code> attribute. It defaults to a simple 1-line text input.</p>
+<p>The "name" attribute gives the server a way to identify that piece of attribute. The "value" attribute can be set to specify a default value.</p>-->
+
+<pre>
+&lt;input type="text" name="animal"&gt;
+</pre>
+
+<input type="text" name="animal"/>
+
+<pre>
+&lt;input type="text" name="animal" <b>value="Fox"</b>&gt;
+</pre>
+
+<input type="text" name="animal" value="Fox"/>
+     </section>
+    </div>
+    
+   
+  <div class="slide normal"> 
+     <header><h1>Button element</h1></header> 
+     <section class="content"> 
+     <!--<p>The <code>button</code> element is most commonly used to submit a form to the server, but can also be used for resetting a form or other scripted actions.-->
+<pre>
+&lt;button type="submit"&gt;Submit order&lt;/button&gt;
+</pre>
+
+<button type="submit">Submit order</button>
+
+<pre>
+&lt;button type="reset"&gt;Start over&lt;/button&gt;
+</pre>
+
+<button type="reset">Start over</button>
+
+<pre>
+&lt;button type="button"&gt;Customize&lt;/button&gt;
+</pre>
+
+<button type="button">Customize</button>
+     </section>
+    </div>
+      
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Label element</h1></header> 
+     <section class="content"> 
+<!--<p>The <code>label</code> element is used to caption a form control, so users know what they should put in it.
+</p>-->
+
+<pre>
+<b>&lt;label&gt;</b> Animal:
+&lt;input type="text" name="animal"&gt;
+<b>&lt;/label&gt;</b>
+</pre>
+
+Or<br>
+<pre>
+<b>&lt;label for="animal"&gt;</b> Animal: <b>&lt;/label&gt;</b>
+&lt;input type="text" name="animal" <b>id="animal"</b>&gt;
+</pre>
+
+<label>Animal
+<input type="text" name="animal"/>
+</label>
+
+     </section>
+    </div>
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Checkboxes</h1></header> 
+     <section class="content"> 
+     <!--The <code>input</code> element can be used for letting users pick multiple in a list or simply indicate yes/no, using <code>type="checkbox"</code>.-->
+
+Yes/No questions: <br>
+<pre>
+&lt;label&gt; Extra cheese?
+<b>&lt;input type="checkbox" name="cheese"/&gt;</b>
+&lt;/label&gt;
+</pre>
+
+<label> Extra cheese? <input type="checkbox" name="extracheese"/></label>
+
+<hr><br>
+Multiple options: <br>
+<pre>
+Pizza Toppings:
+<b>&lt;input type="checkbox" name="bacon" id="bacon"&gt;</b>
+&lt;label for="bacon"&gt;Bacon&lt;/label&gt;
+<b>&lt;input type="checkbox" name="cheese" id="cheese"&gt;</b>
+&lt;label for="cheese"&gt;Extra Cheese&lt;/label&gt;
+</pre>
+
+Pizza Toppings:
+<input type=checkbox name="bacon" id="bacon">
+<label for="bacon">Bacon</label>
+<input type=checkbox name="cheese" id="cheese">
+<label for="cheese">Extra Cheese</label>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Radio buttons</h1></header> 
+     <section class="content"> 
+     <!--<p>Similarly, the <code>input</code> element can be used for creating a group of radio buttons, for letting users pick one in a list, with <code>type="radio"</code>.</p>-->
+Multiple choice:
+<pre>
+<b>&lt;fieldset&gt;</b>
+  <b>&lt;legend&gt;</b>Pizza Size:<b>&lt;/legend&gt;</b>
+  &lt;label for="small"&gt;Small&lt;/label&gt;
+  <b>&lt;input type="radio" name="size" id="small" value="small"&gt;</b>
+  &lt;label for="medium"&gt;Medium&lt;/label&gt;
+  <b>&lt;input type="radio" name="size" id="medium" value="medium"&gt;</b>
+  &lt;label for="large"&gt;Large&lt;/label&gt;
+  <b>&lt;input type="radio" name="size" id="large" value="large"&gt;</b>
+<b>&lt;/fieldset&gt;</b>
+</pre>
+
+<fieldset>
+  <legend>Pizza Size:</legend>   
+  <label for="small">Small</label>
+  <input type="radio" name="size" id="small" value="small">
+  <label for="medium">Medium</label>
+  <input type="radio" name="size" id="medium" value="medium">
+  <label for="large">Large</label>
+  <input type="radio" name="size" id="large" value="large">
+</fieldset>
+
+     </section>
+    </div>
+    
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>The select element</h1></header> 
+     <section class="content"> 
+     <!--<p>The <code>select</code> element used with the <code>option</code> element produces a dropdown of options for the user to pick from.</p>-->
+<pre>
+&lt;label for="crust"&gt;Crust type:&lt;/label&gt;
+<b>&lt;select name="crust" id="crust"&gt;
+  &lt;option value="thin"&gt;Thin&lt;/option&gt;
+  &lt;option value="thick"&gt;Thick&lt;/option&gt;
+  &lt;option value="cheese"&gt;Cheese&lt;/option&gt;
+&lt;/select&gt;</b>
+</pre>
+
+<label>Crust type:
+<select name="crust">
+  <option value="thin">Thin</option>
+  <option value="thick">Thick</option>
+  <option value="cheese">Cheese</option>
+</select>
+</label>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Textarea element</h1></header> 
+     <section class="content"> 
+     <!--<p>To let the user specify multiple lines of text, use the <code>textarea</code> element, and specify <code>cols</code> or <code>rows</code> to specify a specific size.</p>-->
+<pre>
+&lt;label&gt;Delivery instructions: &lt;br&gt;
+<b>&lt;textarea name="delivery"&gt;&lt;/textarea&gt;</b>
+&lt;/label&gt;
+</pre>
+<label>Delivery instructions:<br><textarea></textarea></label>
+
+<pre>
+&lt;label&gt;Write a haiku on your love for pizza: &lt;br&gt;
+<b>&lt;textarea name="haiku" rows="3" cols="40"&gt;&lt;/textarea&gt;</b>
+&lt;/label&gt;
+</pre>
+<label>Write a haiku on your love for pizza: <br>
+<textarea rows="3" cols="40"></textarea>
+</label>
+     </section>
+    </div>
+    
+   
+    
+    
+    <div class="slide normal">
+      <header><h1>Forms in HTML5</h1></header>
+      <section class="content">
+      
+        <code>&lt;input type="email" placeholder="bla@email.com"&gt;</code> <br>
+        <input type="email" placeholder="bla@email.com"/>
+        <br><br>
+        <code>&lt;input type="range" min="0" max="50" value="10"&gt;</code> <br>
+        <input type="range" min="0" max="50" value="10" />
+        <br><br>
+        <code>&lt;input type="color"&gt;</code> <br>
+        <input type="color"/>
+        <br><br>
+        <code>&lt;input type="date" min="2010-08-14" max="2011-08-14"&gt;</code> <br>
+        <input type="date" min="2010-08-14" max="2011-08-14"/>
+	<p><a href="http://caniuse.com">caniuse.com</a></p>
+
+     </section>
+    </div>
+
+   <!--
+    <div class="slide normal"> 
+     <header><h1>Forms</h1></header> 
+     <section class="content"> 
+
+     <p>A form is processed by a server, which typically takes the inputs and stores them in a database
+     or uses them to query a database.</p>
+     
+          <p>A form consists of a <code>form</code> element with multiple input controls inside of it that help retrieve user data in some way, and attributes that specify how a server should handle the form.</p>
+<p>The example below asks for a search query, and then sends the query to the Google server once submitted.</p>
+     <pre>
+&lt;form action="http://www.google.com/search" method="get"&gt;
+  &lt;input type="text" name="q"&gt;
+  &lt;button type="submit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;</pre>
+
+    <form action="http://www.google.com/search" method="get" target="_blank">
+     <input type="text" name="q">
+     <button type="submit">Search</button>
+    </form>
+
+    <pre>
+&lt;?php
+<b>$q = $_GET["q"];</b>
+$query = sprintf("SELECT page FROM internet WHERE
+  MATCH(text) AGAINST '%s'", mysql_real_escape_string($q));
+$result = mysql_query($query);
+while ($row = @mysql_fetch_assoc($result)) {
+  echo $row["link"] + "&lt;br&gt;" + $row["description"];
+}
+?&gt;</pre>
+
+     </section>
+    </div>
+   -->
+    
+    <div class="slide section"> 
+     <header>
+        <h1><a href="exercise_descrip.html">Exercise Time!</a></h1>
+        <p><img src="partytime.gif" style="width:400px;"></p>
+      </header>
+    </div>
+    
+    
+   
+   </div>
+   
+  </div>
+  
+  <script>
+  (function() {
+  var doc = document;
+  var disableBuilds = true;
+
+  var ctr = 0;
+  var spaces = /\s+/, a1 = [''];
+
+  var toArray = function(list) {
+    return Array.prototype.slice.call(list || [], 0);
+  };
+
+  var byId = function(id) {
+    if (typeof id == 'string') { return doc.getElementById(id); }
+    return id;
+  };
+
+  var query = function(query, root) {
+    if (!query) { return []; }
+    if (typeof query != 'string') { return toArray(query); }
+    if (typeof root == 'string') {
+      root = byId(root);
+      if(!root){ return []; }
+    }
+
+    root = root || document;
+    var rootIsDoc = (root.nodeType == 9);
+    var doc = rootIsDoc ? root : (root.ownerDocument || document);
+
+    // rewrite the query to be ID rooted
+    if (!rootIsDoc || ('>~+'.indexOf(query.charAt(0)) >= 0)) {
+      root.id = root.id || ('qUnique' + (ctr++));
+      query = '#' + root.id + ' ' + query;
+    }
+    // don't choke on something like ".yada.yada >"
+    if ('>~+'.indexOf(query.slice(-1)) >= 0) { query += ' *'; }
+
+    return toArray(doc.querySelectorAll(query));
+  };
+
+  var strToArray = function(s) {
+    if (typeof s == 'string' || s instanceof String) {
+      if (s.indexOf(' ') < 0) {
+        a1[0] = s;
+        return a1;
+      } else {
+        return s.split(spaces);
+      }
+    }
+    return s;
+  };
+
+  var addClass = function(node, classStr) {
+    classStr = strToArray(classStr);
+    var cls = ' ' + node.className + ' ';
+    for (var i = 0, len = classStr.length, c; i < len; ++i) {
+      c = classStr[i];
+      if (c && cls.indexOf(' ' + c + ' ') < 0) {
+        cls += c + ' ';
+      }
+    }
+    node.className = cls.trim();
+  };
+
+  var removeClass = function(node, classStr) {
+    var cls;
+    if (classStr !== undefined) {
+      classStr = strToArray(classStr);
+      cls = ' ' + node.className + ' ';
+      for (var i = 0, len = classStr.length; i < len; ++i) {
+        cls = cls.replace(' ' + classStr[i] + ' ', ' ');
+      }
+      cls = cls.trim();
+    } else {
+      cls = '';
+    }
+    if (node.className != cls) {
+      node.className = cls;
+    }
+  };
+
+  var toggleClass = function(node, classStr) {
+    var cls = ' ' + node.className + ' ';
+    if (cls.indexOf(' ' + classStr.trim() + ' ') >= 0) {
+      removeClass(node, classStr);
+    } else {
+      addClass(node, classStr);
+    }
+  };
+
+  var ua = navigator.userAgent;
+  var isFF = parseFloat(ua.split('Firefox/')[1]) || undefined;
+  var isWK = parseFloat(ua.split('WebKit/')[1]) || undefined;
+  var isOpera = parseFloat(ua.split('Opera/')[1]) || undefined;
+
+  var canTransition = (function() {
+  var ver = parseFloat(ua.split('Version/')[1]) || undefined;
+  // test to determine if this browser can handle CSS transitions.
+  var cachedCanTransition = 
+    (isWK || (isFF && isFF > 3.6 ) || (isOpera && ver >= 10.5));
+    return function() { return cachedCanTransition; }
+  })();
+
+  //
+  // Slide class
+  //
+  var Slide = function(node, idx) {
+    this._node = node;
+    if (idx >= 0) {
+      this._count = idx + 1;
+    }
+    if (this._node) {
+      addClass(this._node, 'slide distant-slide');
+    }
+    this._makeCounter();
+    this._makeBuildList();
+  };
+
+  Slide.prototype = {
+    _node: null,
+    _count: 0,
+    _buildList: [],
+    _visited: false,
+    _currentState: '',
+    _states: [ 'distant-slide', 'far-past',
+               'past', 'current', 'future',
+               'far-future', 'distant-slide' ],
+    setState: function(state) {
+      if (typeof state != 'string') {
+        state = this._states[state];
+      }
+      if (state == 'current' && !this._visited) {
+        this._visited = true;
+        this._makeBuildList();
+      }
+      removeClass(this._node, this._states);
+      addClass(this._node, state);
+      this._currentState = state;
+
+      // delay first auto run. Really wish this were in CSS.
+      /*
+      this._runAutos();
+      */
+      var _t = this;
+      setTimeout(function(){ _t._runAutos(); } , 400);
+    },
+    _makeCounter: function() {
+      if(!this._count || !this._node) { return; }
+      var c = doc.createElement('span');
+      c.innerHTML = this._count;
+      c.className = 'counter';
+      this._node.appendChild(c);
+    },
+    _makeBuildList: function() {
+      this._buildList = [];
+      if (disableBuilds) { return; }
+      if (this._node) {
+        this._buildList = query('[data-build] > *', this._node);
+      }
+      this._buildList.forEach(function(el) {
+        addClass(el, 'to-build');
+      });
+    },
+    _runAutos: function() {
+      if (this._currentState != 'current') {
+        return;
+      }
+      // find the next auto, slice it out of the list, and run it
+      var idx = -1;
+      this._buildList.some(function(n, i) {
+        if (n.hasAttribute('data-auto')) {
+          idx = i;
+          return true;
+        }
+        return false;
+      });
+      if (idx >= 0) {
+        var elem = this._buildList.splice(idx, 1)[0];
+        var transitionEnd = isWK ? 'webkitTransitionEnd' : (isFF ? 'mozTransitionEnd' : 'oTransitionEnd');
+        var _t = this;
+        if (canTransition()) {
+          var l = function(evt) {
+            elem.parentNode.removeEventListener(transitionEnd, l, false);
+            _t._runAutos();
+          };
+          elem.parentNode.addEventListener(transitionEnd, l, false);
+          removeClass(elem, 'to-build');
+        } else {
+          setTimeout(function() {
+            removeClass(elem, 'to-build');
+            _t._runAutos();
+          }, 400);
+        }
+      }
+    },
+    buildNext: function() {
+      if (!this._buildList.length) {
+        return false;
+      }
+      removeClass(this._buildList.shift(), 'to-build');
+      return true;
+    },
+  };
+
+  //
+  // SlideShow class
+  //
+  var SlideShow = function(slides) {
+    this._slides = (slides || []).map(function(el, idx) {
+      return new Slide(el, idx);
+    });
+
+    var h = window.location.hash;
+    try {
+      this.current = parseInt(h.split('#slide')[1], 10);
+    }catch (e) { /* squeltch */ }
+    this.current = isNaN(this.current) ? 1 : this.current;
+    var _t = this;
+    doc.addEventListener('keydown', 
+        function(e) { _t.handleKeys(e); }, false);
+    doc.addEventListener('mousewheel', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('DOMMouseScroll', 
+        function(e) { _t.handleWheel(e); }, false);
+    doc.addEventListener('touchstart', 
+        function(e) { _t.handleTouchStart(e); }, false);
+    doc.addEventListener('touchend', 
+        function(e) { _t.handleTouchEnd(e); }, false);
+    window.addEventListener('popstate',
+        function(e) { _t.go(e.state); }, false);
+    this._update();
+  };
+
+  SlideShow.prototype = {
+    _slides: [],
+    _update: function(dontPush) {
+      document.querySelector('#presentation-counter').innerText = this.current;
+      if (history.pushState) {
+        if (!dontPush) {
+          history.pushState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+        }
+      } else {
+        window.location.hash = 'slide' + this.current;
+      }
+      for (var x = this.current-1; x < this.current + 7; x++) {
+        if (this._slides[x-4]) {
+          this._slides[x-4].setState(Math.max(0, x-this.current));
+        }
+      }
+    },
+
+    current: 0,
+    next: function() {
+      if (!this._slides[this.current-1].buildNext()) {
+        this.current = Math.min(this.current + 1, this._slides.length);
+        this._update();
+      }
+    },
+    prev: function() {
+      this.current = Math.max(this.current-1, 1);
+      this._update();
+    },
+    go: function(num) {
+      if (!num) return;
+      if (history.pushState && this.current != num) {
+        history.replaceState(this.current, 'Slide ' + this.current, '#slide' + this.current);
+      }
+      this.current = num;
+      this._update(true);
+    },
+
+    _notesOn: false,
+    showNotes: function() {
+      var isOn = this._notesOn = !this._notesOn;
+      query('.notes').forEach(function(el) {
+        el.style.display = (notesOn) ? 'block' : 'none';
+      });
+    },
+    switch3D: function() {
+      toggleClass(document.body, 'three-d');
+    },
+    handleWheel: function(e) {
+      var delta = 0;
+      if (e.wheelDelta) {
+        delta = e.wheelDelta/120;
+        if (isOpera) {
+          delta = -delta;
+        }
+      } else if (e.detail) {
+        delta = -e.detail/3;
+      }
+
+      if (delta > 0 ) {
+        this.prev();
+        return;
+      }
+      if (delta < 0 ) {
+        this.next();
+        return;
+      }
+    },
+    handleKeys: function(e) {
+      
+      if (/^(input|textarea)$/i.test(e.target.nodeName)) return;
+      
+      switch (e.keyCode) {
+        case 37: // left arrow
+          this.prev(); break;
+        case 39: // right arrow
+        case 32: // space
+          this.next(); break;
+        case 50: // 2
+          this.showNotes(); break;
+        case 51: // 3
+          this.switch3D(); break;
+      }
+    },
+    _touchStartX: 0,
+    handleTouchStart: function(e) {
+      this._touchStartX = e.touches[0].pageX;
+    },
+    handleTouchEnd: function(e) {
+      var delta = this._touchStartX - e.changedTouches[0].pageX;
+      var SWIPE_SIZE = 150;
+      if (delta > SWIPE_SIZE) {
+        this.next();
+      } else if (delta< -SWIPE_SIZE) {
+         this.prev();
+       }
+    },
+  };
+
+  // Initialize
+  var slideshow = new SlideShow(query('.slide'));
+})();
+
+  </script>
+  <!--[if lt IE 9]>
+  <script 
+  src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({ mode: "overlay" });</script>
+  <![endif]--> 
+  </body> 
+</html>

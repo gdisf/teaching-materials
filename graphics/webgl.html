@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  <head>
+    <title>WebGLove</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+  <div id="container" style="width:400px;height:300px;"></div>
+
+  <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+  <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+  <script>
+// set the scene size
+var WIDTH = 400,
+  HEIGHT = 300;
+
+// set some camera attributes
+var VIEW_ANGLE = 45,
+  ASPECT = WIDTH / HEIGHT,
+  NEAR = 0.1,
+  FAR = 10000;
+
+// create a WebGL renderer, camera
+// and a scene
+var camera =
+  new THREE.PerspectiveCamera(
+    VIEW_ANGLE,
+    ASPECT,
+    NEAR,
+    FAR);
+
+var scene = new THREE.Scene();
+
+// add the camera to the scene
+scene.add(camera);
+
+// the camera starts at 0,0,0
+// so pull it back
+camera.position.z = 300;
+
+// set up the sphere vars
+var SMILEY_RADIUS = 100;
+var segments = 32, rings = 32;
+
+// create the sphere's material
+var sphereMaterial =
+  new THREE.MeshLambertMaterial(
+    {
+      color: 0xFFCC00
+    });
+
+var blackMaterial =
+  new THREE.MeshLambertMaterial(
+    {
+      color: 0x000000
+    });
+
+
+var face = new THREE.Mesh(
+  new THREE.SphereGeometry(
+    SMILEY_RADIUS,
+    segments,
+    rings),
+  sphereMaterial);
+
+var EYE_RADIUS = 10;
+
+function makeEye(direction) {
+  var eye = new THREE.Mesh(
+	  new THREE.SphereGeometry(
+	    10,
+	    segments,
+	    rings),
+	  blackMaterial);
+  eye.position.x = direction*SMILEY_RADIUS/4;
+  eye.position.y = SMILEY_RADIUS/3;
+  eye.position.z = SMILEY_RADIUS;
+  return eye;
+}
+
+// Make the mouth
+var arc = new THREE.Shape();
+arc.moveTo( -SMILEY_RADIUS*.55,15);
+arc.quadraticCurveTo( 0, -SMILEY_RADIUS*.55, SMILEY_RADIUS*.55, 15);
+arc.lineTo(SMILEY_RADIUS*.55, 20);
+arc.quadraticCurveTo( 0, -SMILEY_RADIUS*.45, -SMILEY_RADIUS*.55,20 );
+
+var arcExt = arc.extrude({
+  bevelEnabled: false,
+  bevelSize: 1,
+  amount: 10,
+  extrudeMaterial: 0,
+  material: 1
+});
+var mouth = new THREE.Mesh(arcExt, blackMaterial) ;
+mouth.position.z = SMILEY_RADIUS;
+mouth.position.y = -SMILEY_RADIUS/4;
+
+// add the sphere to the scene
+scene.add(face);
+scene.add(makeEye(1));
+scene.add(makeEye(-1));
+scene.add(mouth);
+
+// create a point light
+var pointLight =
+  new THREE.PointLight(0xFFFFFF);
+
+// set its position
+pointLight.position.x = 10;
+pointLight.position.y = 50;
+pointLight.position.z = 300;
+
+// add to the scene
+scene.add(pointLight);
+
+var renderer = new THREE.WebGLRenderer();
+
+// start the renderer
+renderer.setSize(WIDTH, HEIGHT);
+
+// draw!
+renderer.render(scene, camera);
+
+// get the DOM element to attach to
+// - assume we've got jQuery to hand
+var $container = $('#container');
+
+// attach the render-supplied DOM element
+$container.append(renderer.domElement);
+
+var goForwards = true;
+window.setInterval(function() {
+	if (camera.position.z >= 700) {
+   		goForwards = false;
+   	} else if (camera.position.z <= 300) {
+   		goForwards = true;
+   	}
+
+   	if (goForwards) {
+		camera.position.z += 10;
+	} else {
+		camera.position.z -= 10;
+	}
+
+   	camera.lookAt( scene.position );
+	renderer.render(scene, camera);
+}, 50);
+
+  </script>
+  </body>
+</html>

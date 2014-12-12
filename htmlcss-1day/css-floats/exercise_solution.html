@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+    <title>GirlDevelopIt</title>
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F5DFE3;
+}
+ 
+h1, h2 {
+  color: #FE5A61;
+  font-family: Georgia, serif;
+}
+ 
+p strong, p em {
+  font-size: 1.5em;
+  text-decoration: underline;
+}
+ 
+ul ul li {
+  line-height: 2em;
+}
+ 
+table td {
+  text-align: center;
+}
+
+.location {
+  font-variant: small-caps;
+}
+ 
+form label, form legend {
+  font-weight: bold;
+}
+
+.required {
+  background-color: #F5DFE3;
+}
+
+#twitter {
+  color: #9AE4E8;
+  font-weight: bold;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  text-decoration: none;
+}
+
+#main {
+  margin: auto;
+  width: 700px;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 10px solid #FE5A61;
+}
+
+#locations {
+  float: right;
+  width: 200px;
+  background-color: #F5DFE3;
+  padding: 10px;
+  border: 1px solid #FE5A61;
+}
+
+#footer {
+  border-top: 2px dashed #F5DFE3;
+  margin-top: 10px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+#header {
+  text-align: center;
+}
+
+#binary {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  color: #FE5A61;
+}
+
+  </style>
+ </head>
+ <body>
+ <div id="main">
+ 
+  <div id="header">
+  <img src="http://girldevelopit.com/assets/pink-logo-f9a26fcc82c561f925403822c5135a28.png" width="300" alt="GirlDevelopIt Logo">
+  </div>
+  
+  <h1>About</h1>
+ 
+  <p>It can be intimidating for women to learn and ask questions when they are in an <strong>extreme minority</strong>. While open and welcoming, today's budding developer community is up to <strong>91% male</strong>. If we can empower more females with the confidence in their technological capabilities <em>we can begin to change this landscape</em>.
+  </p>
+
+
+  <div id="locations">
+  <h2>Projects</h2>
+  <ul>
+   <li>USA
+     <ul>
+      <li><a href="http://meetup.com/girldevelopit">New York</a></li>
+      <li><a href="http://www.meetup.com/girldevelopitcbus">Columbus</a></li>
+      <li><a href="http://www.meetup.com/Girl-Develop-It-Austin">Austin</a></li>
+      <li><a href="http://www.meetup.com/Girl-Develop-It-Philadelphia/">Philly</a></li>
+     </ul>
+   </li>
+   <li>World
+     <ul>
+      <li><a href="http://www.meetup.com/Girl-Develop-It-Ottawa">Ottawa</a></li>
+      <li><a href="http://www.meetup.com/girldevelopit-sydney">Sydney</a></li>
+     </ul>
+   </li>
+  </ul>
+  </div>
+
+  <h2>Upcoming Classes</h2>
+  <table border="1">
+   <thead>
+    <tr>
+     <th>Location</th>
+     <th>Topic</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td class="location">New York</td>
+     <td>JavaScript &amp; jQuery</td>
+    </tr>
+    <tr>
+      <td class="location">New York</td>
+      <td>HTML &amp; CSS</td>
+    </tr>
+   </tbody>
+  </table>
+
+  <h2>Sign Up!</h2>
+  <form action="mailto:youraddress@gmail.com" enctype="text/plain" method="post">
+    <label>Name: <input class="required" name="name" type="text"></label>
+    <br>
+    <label>Email: <input class="required" name="email" type="email"></label>
+    <br>
+    <label>Location:
+      <select name="location">
+        <option value="sf">San Francisco</option>
+        <option value="nyc">New York</option>
+      </select></label>
+    <br>
+    <fieldset>
+      <legend>Gender:</legend>
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="female" value="female">
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="male" value="male">
+    </fieldset>
+    <br>
+    <label>Experience:
+    <br>
+    <textarea name="experience"></textarea> 
+    </label>
+    <br>
+    <button type="submit">Sign Up</button>
+  </form>
+  
+  <div id="footer">
+  <a href="http://twitter.com/girldevelopit">Twitter</a> | <a href="http://www.facebook.com/girldevelopit">Facebook</a> | <a href="http://www.flickr.com/photos/40453677@N00/sets/72157626841092971/">Flickr</a>
+  </div>
+  
+  <div id="binary">
+01000111 01001001 01010010 01001100 01000100 01000101 01010110 01000101 01001100 01001111 01010000 01001001 01010100 01000111 01001001 01010010 01001100 01000100 01000101 01010110 01000101 01001100 01001111 01010000 01001001 01010100 00100000 01010011 01011001 01000100 01001110 01000101 01011001 
+  </div>
+
+ </body>
+</html>

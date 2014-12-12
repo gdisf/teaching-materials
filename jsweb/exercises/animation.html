@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercises: Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Animation</h2>
+
+
+<h3 class="page-header">The Cat Walk</h3>
+
+<p><em>Who needs Milan when you have JavaScript?</em></p>
+
+<ul>
+ <li>Start with this webpage, which has a single <code>img</code> tag of an animated GIF of a cat walking.
+ <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;Cat Walk&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  
+  &lt;img style="position:absolute;" src=&quot;http://www.anniemation.com/clip_art/images/cat-walk.gif&quot;&gt;
+  
+ &lt;/body&gt;
+&lt;/html&gt;</pre>
+ <li>Add a script tag at the bottom of the page, where you'll put all your code.
+ <li>Create a variable to store a reference to the <code>img</code>.
+ <li>Change the style of the <code>img</code> to have a "left" of "0px", so that it starts at the left hand of the screens.
+ <li>Create a function called <code>catWalk()</code> that moves the cat 10 pixels to the right of where it started, by
+ changing the "left" style property.
+ <li>Call that function every 50 milliseconds. Your cat should now be moving across the screen from left to right. Hurrah!
+ <br><br>
+ <button  onclick="showSolution(1)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution1" style="display:none;">
+var img = document.getElementsByTagName('img')[0];
+img.style.left = '0px';
+function catWalk() {
+  img.style.left = (parseInt(img.style.left) + 10) + 'px';
+}
+window.setInterval(catWalk, 50);
+</pre>
+
+
+ <li><b>Bonus #1</b>: When the cat reaches the right-hand of the screen, restart them at the left hand side ("0px"). So they should keep walking from left to right across the screen, forever and ever.
+ <br><br>
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution2" style="display:none;">
+var img = document.getElementsByTagName('img')[0];
+img.style.left = '0px';
+function catWalk() {
+  var currentLeft = parseInt(img.style.left);
+  img.style.left = (currentLeft + 10) + 'px';
+  if (currentLeft &gt; (window.innerWidth-img.width)) {
+    img.style.left = '0px';
+  }
+}
+window.setInterval(catWalk, 50);
+</pre>
+
+
+ <li><b>Bonus #2</b>: When the cat reaches the right-hand of the screen, make them move backwards instead. They should keep walking back and forth forever and ever.
+ <br><br>
+ <button  onclick="showSolution(3)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution3" style="display:none;">
+var img = document.getElementsByTagName('img')[0];
+img.style.left = '0px';
+var walkForwards = true;
+function catWalk() {
+  var currentLeft = parseInt(img.style.left);
+  
+  if (walkForwards &amp;&amp; (currentLeft &gt; (window.innerWidth-img.width))) {
+    walkForwards = false;
+  }
+  if (!walkForwards &amp;&amp; (currentLeft &lt;= 0)) {
+    walkForwards = true;
+  }
+  
+  if (walkForwards) {
+    img.style.left = (currentLeft + 10) + 'px';
+  } else {
+    img.style.left = (currentLeft - 10) + 'px';
+  }
+}
+window.setInterval(catWalk, 50);
+ </pre>
+
+ <li><b>Bonus #3</b>: When the cat reaches the middle of the screen, replace the img with an image of a cat dancing, keep it dancing for 10 seconds, and then replace the img with the original image and have it continue the walk.
+ </ul>
+ 
+ <br><br>
+
+
+ </div>
+
+  <br><br><br><br><br>
+
+  <script>
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

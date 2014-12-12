@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: JSON</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: JSON</h1>
+      <br><br>
+
+      <p>In this exercise, you'll practice using JSON to dynamically build up HTML. The starter webpage already has the videos described in JSON and functions that turn them into an interactive list. </p>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+
+      <ul>
+        <li>Download <a href="json_starter.html">json_starter.html</a> into your project folder and confirm that it works in the browser.</li>
+        <li>Read through the code to make sure you understand how it works.</li>
+        <li>Add an additional video to the JSON, so that you have 4 videos listed.</li>
+        <li>When you click on the video, it shows the video player on the side. Make it so that it also shows an h2 with the video title above the iframe.</li>
+        <li>Add an "author" property to each video in the JSON and display that next to the title.</li>
+        <li>Bonus: Add a "favorite" property to each video which is either true or false, and use that
+to decide whether to put a round red border around the video in the list.</li>
+      </ul>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="json_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+  </body>
+</html>
+

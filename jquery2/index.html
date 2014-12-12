@@ -1,0 +1,320 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>More jQuery</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/presentation.css" />
+		<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+		<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/fathom.js"></script>
+		<script src="js/prettify.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('pre').addClass('prettyprint').attr('tabIndex', 0);
+				prettyPrint();
+
+				var fathom = $('#presentation').fathom({
+					onActivateSlide: function() {
+						var $slide = $(this);
+						$slide.find('pre:first').focus();
+					}
+				});
+
+				$('body').keypress(function(event){
+					if (event.which === 110) {
+						$('.speaker-notes').toggle();
+					}
+				});
+			});
+		</script>
+		<style>
+.grey-cell {
+	background: #eee;
+	padding: 10px;
+	border-right: 3px solid white;
+	font-size: 20px;
+	line-height: 1.5em;
+}
+.code-cell {
+	text-align: center;
+}
+		</style>
+	</head>
+	<body>
+		<div id="presentation">
+			<div id="presentation-counter"></div>
+
+			<div id="slides">
+
+				<div class="slide normal">
+					<h1 class="center">More jQuery</h1>
+					<section class="content">
+						<p align="center">
+						Slides: <a href="http://www.teaching-materials.org/jquery2/">http://www.teaching-materials.org/jquery2/</a>
+						</p>
+					</section>
+			  	</div><!--/jquery title slide-->
+
+
+
+
+				<div class="slide normal">
+					<header><h1>Events</h1></header>
+					<section class="content">
+						<br>
+<pre>var onButtonClick = function() {
+  console.log('clicked!');
+};
+
+$('button').on('click', onButtonClick);</pre>
+<br>
+<pre>$('button').on('click', function () {
+  console.log('clicked!');
+});
+
+$('button').click(onButtonClick)</pre>
+						<br>
+						<p><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a> 
+							<code>'keydown'</code>
+							<code>'keypress'</code>
+							<code>'keyup'</code>
+						</p>
+						<p><a href="http://api.jquery.com/category/events/mouse-events/">Mouse Events</a> 
+							<code>'click'</code>
+							<code>'mousedown'</code>
+							<code>'mouseup'</code>
+							<code>'mousemove'</code>
+						</p>
+						<p><a href="http://api.jquery.com/category/events/form-events/">Form Events</a> 
+							<code>'change'</code>
+							<code>'focus'</code>
+							<code>'blur'</code>
+						</p>
+
+						<p>Follow along: <a href="http://jsbin.com/dosewola/7/edit">http://jsbin.com/dosewola/7/edit</a></p>
+					</section>
+				</div><!--/events1-->
+
+
+				<div class="slide normal">
+					<header><h1>Remember: Callbacks</h1></header>
+					<section>
+						<img src="img/ryan-gosling-callback.jpg" style="width:100%;"/>
+					</section>
+				</div><!--/hey girl meme-->
+
+
+				<div class="slide normal">
+					<header><h1>Events</h1></header>
+					<section class="content">
+						<br>
+						<p>Arguments get applied in callbacks<p>
+<pre>var myCallback = function(event) {
+	console.log(event);
+};
+
+$('p').on('mouseenter', myCallback);</pre>
+<br>
+						<p>Preventing Default Events</p>
+<pre>$('a').on('click', function (event) {
+	event.preventDefault();
+	console.log('Not going there!');
+});</pre>
+<pre>$('form').on('submit', function (event) {
+	event.preventDefault();
+	console.log('Not submitting, time to validate!');
+});</pre>
+
+					</section>
+				</div><!--/events2-->
+
+
+
+
+				<div class="slide normal">
+					<header><h1>Effects &amp; Animation</h1></header>
+					<section class="content">
+						<br>
+<pre>$('#error').toggle(1000);
+
+$('#error').fadeIn();
+
+$('#error').show(1000, function(){
+	$(this).addClass('redText')
+});</pre>
+
+					</section>
+				</div><!--/effects and animation-->
+
+				
+
+
+
+				<div class="slide normal">
+					<header><h1 class="center"><a href="exercises/exercise_events.html">Exercise Time!</a></h1></header>
+					<section class="content"></section>
+				</div><!--/exercise3-->
+
+				<div class="slide normal">
+					<header><h1>jQuery Plugins</h1></header>
+					<section class="content">
+						<br>
+<pre>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</pre>
+						<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h1>
+						<br><br>
+						<p><a href="http://blog.pamelafox.org/2013/07/which-javascript-library-should-i-pick.html">Which plugin should you pick?</a></p>
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery plugins-->
+
+				<div class="slide normal">
+					<header><h1>jQuery Plugin Usage</h1></header>
+					<section class="content">
+						<ul>
+							<li>Download the plugin and associated files from the site or github repo.</li>
+							<li>Copy them into your project folder.</li>
+							<li>In the HTML, reference any associated CSS files.</li>
+						</ul>
+<pre>&lt;link rel="type/stylesheet" type="text/css" href="tablesorter.css"&gt;</pre>
+						<ul>
+							<li>In the HTML, add a &lt;script&gt; tag for the jQuery plugin itself.</li>
+						</ul>
+<pre>&lt;script src="lib/tablesorter.js"&gt;&lt;script&gt;</pre>
+						<ul>
+							<li>In the JavaScript, call the jQuery plugin on your DOM.</li>
+						</ul>
+<pre>$('table').tableSorter();</pre>		
+
+<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					</section>
+				</div><!--/jquery plugin usage-->
+
+
+				<div class="slide normal">
+					<header><h1 class="center"><a href="exercises/exercise_plugin.html">Exercise Time!</a></h1></header>
+					<section class="content"></section>
+				</div><!--/exercise3-->
+
+
+				<div class="slide normal">
+					<header><h1>jQuery Patterns and Anti-Patterns</h1></header>
+					<section>
+						<br>
+						<p><strong>Pattern: </strong>name variables with $
+<pre>var $myVar = $('#myNode');</pre>
+						</p>
+						<br>
+						<p><strong>Pattern: </strong>bind events to the document
+						<pre>$(document).on('click', 'a', myCallback);</pre>
+						</p>
+						
+					</section>
+				</div><!--/jquery patterns and anti-patterns-->
+
+
+
+
+				<div class="slide normal">
+					<header><h1>Storing References</h1></header>
+					<section>
+						<p><strong>Pattern: </strong>store references to callback functions
+<pre>var myCallback = function(argument) {
+  // do something cool
+};
+
+$(document).on('click', 'p', myCallback);
+</pre>
+						</p>
+						<p><strong>Anti-pattern: </strong>anonymous functions
+<pre>
+$(document).on('click', 'p', function(argument) {
+  // do something anonymous
+});
+</pre>
+					</section>
+				</div><!--/storing references-->
+
+
+
+
+				<div class="slide normal">
+					<header><h1>Chaining</h1></header>
+					<section class="content">
+						<br>
+<pre>banner.css('color', 'red');
+banner.html('Welcome!');
+banner.show();</pre>
+						<p>Is the same as:</p>
+
+<pre>banner.css('color', 'red').html('Welcome!').show();</pre>
+
+						<p>Is the same as:</p>
+
+<pre>banner.css('color', 'red')
+       .html('Welcome!')
+       .show();</pre>
+
+					</section>
+				</div><!--/chaining-->
+
+
+				<div class="slide normal">
+					<header><h1>DOM Readiness</h1></header>
+					<section class="content">
+
+					<p><strong>Broken code: </strong>DOM manipulation and event binding in the <code>&lt;head&gt;</code>
+
+<pre>
+&lt;head&gt;
+  &lt;script&gt;
+    $('body').append( myNode );
+  &lt;/script&gt;
+&lt;/head&gt;
+</pre>
+					</p>
+
+<p><strong>Pattern: </strong>If you <em>need</em> to load a script in the <code>&lt;head&gt;</code>, wait for the rest of the DOM to be ready before executing
+<pre>
+&lt;body&gt;
+  ...
+  &lt;script&gt;
+    $(document).ready(function() {
+      // do something when the DOM is fully loaded
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+</pre>
+						</p>
+						
+
+					</section>
+				</div><!--/DOM readiness-->
+
+
+				<div class="slide normal">
+					<header><h1>jQuery</h1></header>
+					<section class="content">
+						<br>
+						<h3 style="text-align:center">...is great.
+						<br><br>
+						But do not become a jQuery-dependant!</h3>
+					</section>
+				</div><!--don't become a jquery dept-->
+
+				<div class="slide normal">
+					<header><h1>jQuery</h1></header>
+					<section class="content">
+						<br>
+						<h3 style="text-align:center">
+							<a href="http://docs.jquery.com">docs.jquery.com</a>
+						</h3>
+					</section>
+				</div><!--docs.jquery.com-->
+
+			</div><!--/slides-->
+		</div><!--/presentation-->
+	</body>
+</html>

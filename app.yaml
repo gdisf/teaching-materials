@@ -9,12 +9,106 @@ handlers:
   upload: favicon\.ico
   expiration: 1h
 
+- url: /workshops
+  static_dir: workshops
+
 - url: /htmlcss-1day/
   static_files: htmlcss-1day/index.html
   upload: htmlcss-1day/index.html
 
 - url: /htmlcss-1day
   static_dir: htmlcss-1day
+
+- url: /storage/
+  static_files: storage/index.html
+  upload: storage/index.html
+
+- url: /storage
+  static_dir: storage
+
+- url: /algorithms/
+  static_files: algorithms/index.html
+  upload: algorithms/index.html
+
+- url: /algorithms
+  static_dir: algorithms
+
+- url: /csstools/
+  static_files: csstools/index.html
+  upload: csstools/index.html
+
+- url: /csstools
+  static_dir: csstools
+
+- url: /jquery/
+  static_files: jquery/index.html
+  upload: jquery/index.html
+
+- url: /jquery
+  static_dir: jquery
+
+- url: /jquery2/
+  static_files: jquery2/index.html
+  upload: jquery2/index.html
+
+- url: /jquery2
+  static_dir: jquery2
+
+- url: /jsmvc/
+  static_files: jsmvc/index.html
+  upload: jsmvc/index.html
+
+- url: /jsmvc
+  static_dir: jsmvc
+  
+- url: /jsdom/
+  static_files: jsdom/index.html
+  upload: jsdom/index.html
+
+- url: /jsdom
+  static_dir: jsdom
+
+- url: /jsoo/
+  static_files: jsoo/index.html
+  upload: jsoo/index.html
+
+- url: /jsoo
+  static_dir: jsoo
+
+- url: /jsweb/
+  static_files: jsweb/index.html
+  upload: jsweb/index.html
+
+- url: /jsweb
+  static_dir: jsweb
+
+- url: /ajax/
+  static_files: ajax/index.html
+  upload: ajax/index.html
+
+- url: /ajax
+  static_dir: ajax
+
+- url: /graphics/
+  static_files: graphics/index.html
+  upload: graphics/index.html
+
+- url: /graphics
+  static_dir: graphics
+
+- url: /multimedia/
+  static_files: multimedia/index.html
+  upload: multimedia/index.html
+
+- url: /multimedia
+  static_dir: multimedia
+
+- url: /data-modeling/
+  static_files: data-modeling/index.html
+  upload: data-modeling/index.html
+
+- url: /data-modeling
+  static_dir: data-modeling
 
 - url: /htmlcss/
   static_files: htmlcss/index.html
@@ -29,6 +123,13 @@ handlers:
 
 - url: /javascript
   static_dir: javascript
+
+- url: /backbone/
+  static_files: backbone/index.html
+  upload: backbone/index.html
+
+- url: /backbone
+  static_dir: backbone
 
 - url: /exercises/
   static_files: exercises/index.html
@@ -58,6 +159,10 @@ handlers:
 - url: /sitemap.xml
   static_files: sitemap.xml
   upload: sitemap.xml
+
+- url: /guide
+  static_files: guide.html
+  upload: guide.html
 
 - url: /
   static_files: index.html

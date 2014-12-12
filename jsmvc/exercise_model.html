@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: Models in MVC</title>
+    <meta charset="utf-8">
+    <style>
+    ol li {
+      margin-bottom: 1.6em;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: Models in MVC</h1>
+      <br><br>
+
+      <p>In this exercise, you will take an app and split it into a Model and View.</p>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+      <ol>
+        <li>Download <a href="exercise_model_starter.html">this file</a> and save it into your project folder.
+          Open it up in your browser and make sure it works. You should see a list of videos,
+          and when you click on them, a modal pops up that plays the video.</li>
+
+        <li>Read through the code and try to understand what it's doing.</li>
+
+        <li>Create a <code>VideoModel</code> object that represents a video.
+          Your model object should take in a JSON object
+          and store title, author, and youtubeID properties. It should also calculate
+          an embed and thumbnail URL. 
+
+        <li>Create a <code>VideoCollection</code> object that represents a collection of videos. 
+          It should take in JSON and turn it into
+          an internal <code>items</code> array of <code>VideoModel</code> instances.
+
+        <li>Modify the code in <code>document.ready</code> to create a new instance of a <code>VideoCollection</code>, 
+         using the data from the <code>videosJSON</code> array stored in the page.
+
+        <li>Change the for loop to iterate through the items in the <code>VideoCollection</code> and
+        pass them to the <code>addVideoToList</code> function.
+
+        <li>Try loading the page now and see if your code works. Are there any errors? Look at the console and work through them one by one. You may have to modify a few things in your <code>addVideoToList</code> function.
+
+        <li>Bonus: Add a sort() method to the collection that sorts the <code>items</code> based on title. (Hint: Check out <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare">String.localeCompare</a>).
+        Call the <code>sort()</code> method on the collection before displaying them.
+      </ol>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+  
+      <br><br>
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_model_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      
+  </body>
+</html>
+

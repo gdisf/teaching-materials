@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML 1: Embed</title>
+    <base target="_blank">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+   <div class="container">
+   <h1>HTML 1: Embed</h1>
+   
+	 <p>In this exercise, you'll create a webpage of many embedded elements.</p>
+	 <ul>
+	 	<li>Create a new blank page with just a header (“All About Dogs”).
+	 	<li>Add an <a href="https://support.google.com/maps/answer/3544418?hl=en">embedded Google Map</a> that shows dog parks in San Francisco.
+		<li>Add an <a href="https://widgets.itunes.apple.com/builder">iTunes widget</a> that displays some dog-related content (Hint: we like the App List and TV Discovery widgets).
+		<li>Add a <a href="https://soundcloud.com/pages/embed">SoundCloud player widget</a> that plays a dog-related song.
+		<li>For each of the embeds, add comments around them to show where they start and end, and add an <code>h2</code> to split the page up into sections.
+   </ul>
+   
+   
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+   
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_solution.html">View Solution in New Window</a>
+   </p>
+   
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+  	</script>
+   </div>
+  </body>
+</html>

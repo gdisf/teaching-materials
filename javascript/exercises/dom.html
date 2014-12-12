@@ -51,8 +51,8 @@ button.innerHTML = 'Yahoooo!';
   &lt;h1&gt;About Me&lt;/h1&gt;
   
   &lt;ul&gt;
-    &lt;li&gt;Name: &lt;span id=&quot;name&quot;&gt;&lt;/span&gt;
-    &lt;li&gt;Age:  &lt;span id=&quot;age&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
     &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
    &lt;/ul&gt;
   
@@ -61,7 +61,7 @@ button.innerHTML = 'Yahoooo!';
   </pre>
   <li>Add a <code>script</code> tag to the bottom.
   <li>Change the body style so it has a font-family of "Arial, sans-serif".
-  <li>Replace each of the spans (name, age, hometown) with your own information.
+  <li>Replace each of the spans (nickname, favorites, hometown) with your own information.
   <li>Iterate through each li and change the class to "listitem". Add a <code>style</code>
   tag that sets a rule for "listitem" to make the color red.
   <li>Create a new <code>img</code> element and set its <code>src</code> attribute to
@@ -85,15 +85,15 @@ button.innerHTML = 'Yahoooo!';
   &lt;h1&gt;About Me&lt;/h1&gt;
   
   &lt;ul&gt;
-    &lt;li&gt;Name: &lt;span id=&quot;name&quot;&gt;&lt;/span&gt;
-    &lt;li&gt;Age:  &lt;span id=&quot;age&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
     &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
    &lt;/ul&gt;
   
   &lt;script&gt;
    document.body.style.fontFamily = 'Arial, sans-serif';
-   document.getElementById('name').innerHTML = 'Pamela Fox';
-   document.getElementById('age').innerHTML = '27';
+   document.getElementById('nickname').innerHTML = 'Pamela Fox';
+   document.getElementById('favorites').innerHTML = '27';
    document.getElementById('hometown').innerHTML = 'Pasadena, CA';
    var items = document.getElementsByTagName('li');
    for (var i = 0; i &lt; items.length; i++) {

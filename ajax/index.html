@@ -1,0 +1,478 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>AJAX (Girl Develop It)</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../common/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../common/presentation.css" />
+    <link rel="stylesheet" type="text/css" href="../common/prettify.css" />
+    <link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <script src="../common/jquery.js" type="text/javascript"></script>
+    <script src="../common/fathom.js"></script>
+    <script src="../common/prettify.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('pre').addClass('prettyprint').attr('tabIndex', 0);
+        prettyPrint();
+
+        var fathom = $('#presentation').fathom({
+          onActivateSlide: function() {
+            var $slide = $(this);
+            $slide.find('pre:first').focus();
+          }
+        });
+        $('body').keypress(function(event){
+           if (event.which === 110) {
+             $('.speaker-notes').toggle();
+           }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="presentation">
+      <div id="presentation-counter"></div>
+      <div id="slides">
+
+      <div class="slide normal">
+        <h1 class="center">Asynchronous Technologies: AJAX/JSON</h1>
+        <section class="content">
+          <p align="center">
+            Slides: <a href="http://www.teaching-materials.org/ajax/">http://www.teaching-materials.org/ajax/</a>
+          </p>
+        </section>
+<pre class="speaker-notes" style="display:none">Note: We're not using an API in this class, we're just going over the concept of AJAX.</pre>
+      </div><!--/ajax title slide-->
+
+      <div class="slide normal">
+        <header><h1 class="center">Review: HTML + JS, together!</h1></header>
+        <section class="content"></section>
+<pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
+displays a webpage
+waits for user interaction
+queries the server for data
+reloads the webpage
+This has the effect that the user has "down time" - there is a period of time where they can't interact with the webpage at all.</pre>
+      </div><!--/html JS review slide-->
+
+      <div class="slide normal">
+        <header><h1>Static Content + Progressive Enhancement</h1></header>
+        <section class="content" style="text-align:center">
+          <br>
+          <img src="img/static_content_prog_enhance.png" width="">
+          <br>
+          <a href="http://www.teaching-materials.org/jquery2/exercises/exercise_events_solution.html">Example</a>
+
+        </section>
+<pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
+displays a webpage
+waits for user interaction
+queries the server for data
+reloads the webpage
+This has the effect that the user has "down time" - there is a period of time where they can't interact with the webpage at all.</pre>
+      </div><!--/static content + prog enhancement-->
+
+      <div class="slide normal">
+        <header><h1>Dynamic Content</h1></header>
+        <section style="text-align:center" class="content">
+          <br>
+          <br>
+          <img src="img/dynamic_content.png">
+        </section>
+<pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
+displays a webpage
+waits for user interaction
+queries the server for data
+reloads the webpage
+This has the effect that the user has "down time" - there is a period of time where they can't interact with the webpage at all.</pre>
+      </div><!--/dynamic content-->
+
+      <div class="slide normal">
+        <header><h1>Storing data in JS: JSON</h1></header>
+        <section class="content">
+          <ul>
+            <li>Hierarchical key/value pairs.</li>
+            <li>Key can be with/without quotes (means same thing)</li>
+            <li>Value can be string, number, boolean, or array</li>
+            <li>Resembles objects/hash tables/structs of programming languages</li>
+            <li>Validate @ <a href="http://jsonlint.com">JSONLint.com</a></li>
+          </ul>
+<pre>
+{
+ "firstName": "Jane", 
+ "lastName": "Smith", 
+ "address": { 
+   "streetAddress": "425 2nd Street", 
+   "city": "San Francisco", 
+   "state": "CA", 
+   "postalCode": 94107 
+ }, 
+ "phoneNumbers": [ 
+   "212 732-1234", 
+   "646 123-4567" ] 
+} 
+</pre>
+        </section>
+      </div><!--/storing data in JS: JSON-->
+
+      <div class="slide normal">
+        <header><h1>Using JS to turn JSON into DOM</h1></header>
+        <section class="content">
+<pre>
+var myProfile = 
+ {"firstName": "Liz", 
+  "lastName": "Howard",
+  "cats": ["Tribbles", "Jean Claws"]};
+
+var p = document.createElement('p');
+p.innerHTML = 'My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ';
+p.innerHTML += 'My cats are ' + myProfile.cats.join(', ') + '.';
+
+
+var p = $('&lt;p&gt;');
+p.html('My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ');
+p.append('My cats are ' + myProfile.cats.join(', ') + '.');
+</pre>
+        </section>
+      </div><!--turn JSON into DOM-->
+
+      <div class="slide normal">
+        <header><h1 class="center"><a href="exercise_json.html">Exercise Time!</a></h1></header>
+        <section class="content">
+          <p align="center">Pair with the person(s) next to you to work through it together.</p>
+          <p align="center"><img src="img/kitties.png"></p>
+        </section>
+      </div><!--exercises-->
+
+      <div class="slide normal">
+        <header><h1>Web 1.0 &amp; User Interaction</h1></header>
+        <section class="content">
+          <br>
+          <p align="center"><img src="img/web_user_int1.png"></p>
+<pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
+displays a webpage
+waits for user interaction
+queries the server for data
+reloads the webpage
+This has the effect that the user has "down time" - there is a period of time where they can't interact with the webpage at all.</pre>
+        </section>
+      </div><!--web 1.0 and UI-->
+
+      <div class="slide normal">
+        <header><h1>Web 2.0 &amp; User Interaction</h1></header>
+        <section class="content">
+          <br>
+          <p align="center"><img src="img/web_user_int2.png"></p>
+<pre class="speaker-notes" style="display:none">The new data-driven web app is written so that it:
+displays a webpage
+waits for user interaction
+queries the server for data
+reloads part of the webpage
+
+The user can still interact with other parts of the page while one part is loading and they can selectively load the content they're interested in.
+
+This may seem like a subtle difference, but it's arguably the most important part of Web2.0 programming.</pre>
+        </section>
+      </div><!--web 2.0 and UI-->
+
+      <div class="slide normal">
+        <header><h1>AJAX in the Wild</h1></header>
+        <section class="content">
+          <p align="center">
+            <img src="img/facebook.png"><br><br>
+            <img src="img/google_maps.png">
+          </p>
+          <p align="center">What else?</p>
+<pre class="speaker-notes" style="display:none">Allows for asynchronous data transfer between a webpage &amp; web server.
+
+Javascript tells the browser to retrieve a particular URL and send the data back to the webpage.</pre>
+        </section>
+      </div><!--ajax in the wild-->
+
+      <div class="slide normal">
+        <header><h1>Web 1.0 vs.Web 2.0</h1></header>
+        <section class="content">
+          <br>
+          <table>
+            <tr>
+              <td><img src="img/web_user_int1.png" width="75%"></td>
+              <td><img src="img/web_user_int2.png" width="75%"></td>
+            </tr>
+            <tr>
+              <td>Technologies Used:</td>
+              <td>Technologies Used:</td>
+            </tr>
+            <tr>
+              <td style="vertical-align:top">
+                <ul>
+                  <li>HTML</li>
+                  <li>Server-Side Scripts</li>
+                </ul>
+              </td>
+              <td style="vertical-align:top">
+                <ul>
+                  <li>HTML</li>
+                  <li>Server-Side Scripts</li>
+                  <li>
+                    AJAX or JSONP
+                    <br>
+                    (Javascript/XML)
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </section>
+      </div><!--web 1.0 versus web 2.0-->
+
+      <div class="slide normal">
+        <header><h1>AJAX</h1></header>
+        <section class="content">
+          <p align="center">= Asynchronous JavaScript and "XML"<p>
+          <p align="center"><img src="img/ajax.png"></p>
+<pre class="speaker-notes" style="display:none">Allows for asynchronous data transfer between a webpage &amp; web server.
+
+Javascript tells the browser to retrieve a particular URL and send the data back to the webpage.</pre>
+        </section>
+      </div><!--AJAX-->
+
+      <div class="slide normal">
+        <header><h1>Requests and Responses</h1></header>
+        <section class="content">
+          <p align="center"><img src="http://abhijitjana.files.wordpress.com/2010/10/2.jpg"/></p>
+          <ul>
+            <li><strong>Front-End: </strong>Hey, Back-End! Here's my credentials. Can I get some data? How about books on AJAX?</li>
+            <li><strong>Back-End </strong><em>thinks about it, decides how to handle request...</em></li>
+            <li><strong>Back-End </strong><em>looks in database, searches...</em></li>
+            <li><strong>Back-End: </strong>200 OK, here are some books on AJAX!</li>
+            <li><strong>Front-End: </strong>Thanks! I'm going to make an online bookshelf with the data!</li>
+        </section>
+      </div><!--Requests and Responses-->
+
+      <div class="slide normal">
+        <header><h1>1) Creating an XMLHttpRequest</h1></header>
+        <section class="content">
+<pre>
+var request; 
+try {
+  if (typeof ActiveXObject != 'undefined') {
+    request = new ActiveXObject('Microsoft.XMLHTTP');
+  } else if (window["XMLHttpRequest"]) {
+    request = new XMLHttpRequest();
+  }
+} catch (e) {
+  request = false;
+}
+if (!request ) alert("Error initializing XMLHttpRequest!");
+</pre>
+          <p>IE implemented XMLHR differently than the other browsers, so you must use all this code to get it cross-browser-compatible.</p>
+ 
+          <p>Most Javascript libraries/APIs offer wrapper functions for this.</p>
+        </section>
+      </div><!--creating XMLHttpRequest-->
+
+      <div class="slide normal">
+        <header><h1>2) Sending an XMLHttpRequest</h1></header>
+        <section class="content">
+<pre>
+function sendRequest() { 
+  url="books.json";
+  request.open("GET", url, true);
+  request.onreadystatechange = processRequest;
+  request.send(null); 
+}
+</pre>
+          <p>You can open either a GET or POST connection to a URL, specify a callback function, and then send the request. </p>
+        </section>
+      </div><!--sending an XMLHttpRequest-->
+
+      <div class="slide normal">
+        <header><h1>3) Handling the Response</h1></header>
+        <section class="content">
+<pre>
+function processRequest() { 
+  if (request.readyState == 4) { 
+    if(request.status == 200) { 
+      processResponse(request);
+    } else { 
+     alert("Error loading page " +
+       request.status + ":" +
+       request.statusText); 
+    } 
+  } 
+}
+</pre>
+          <p>You can use the <strong>readyState</strong> property to check if the request has been completed, and status to check if it completed successfully</p>
+        </section>
+      </div><!--handling the response-->
+
+      <div class="slide normal">
+        <header><h1>4) Processing the Response</h1></header>
+        <section class="content">
+          <p>books.json:</p>
+<pre>
+[
+ {"title": "Robot Dreams",
+  "author": "Isaac Asimov",
+  "categories": ["scifi", "shortstories"]
+  },
+  {"title": "Pirate Cinema",
+   "author": "Cory Doctorow",
+   "categories": ["scifi", "romance"]
+  }
+]
+</pre>
+        </section>
+      </div><!--processing the response-->
+
+      <div class="slide normal">
+        <header><h1>4) Processing the Response</h1></header>
+        <section class="content">
+<pre>
+function processResponse(request) {
+var books = JSON.parse(request.responseText); 
+
+for (var i = 0; i < books.length; i++) { 
+    var book = books[i];
+    var p = document.createElement('p');
+    p.innerHTML = book.title + ' by ' + book.author;
+    document.body.appendChild(p);
+  }
+} 
+</pre>
+        <p>Would evaluate to:<br>
+          Robot Dreams, by Isaac Asimov<br>
+          Pirate Cinema, by Cory Doctorow
+        <p>
+        </section>
+      </div><!--processing the response-->
+
+      <div class="slide normal">
+        <header><h1 class="center">But we don't usually write all that code...</h1></header>
+        <section class="content"></section>
+      </div><!--we don't write all that code-->
+
+      <div class="slide normal">
+        <header><h1>jQuery + AJAX</h1></header>
+        <section class="content">
+          <p>Use the jQuery $.<a href="http://api.jquery.com/jQuery.ajax/">ajax</a> function.</p>
+<pre>
+$.ajax({type: "GET",
+  url: "filename.json",
+  dataType: "json",
+  success: function(data) { },
+  error: function(xhr, status, e) { }
+});
+</pre>
+        </section>
+      </div><!--jquery and ajax-->
+
+      <div class="slide normal">
+        <header><h1>Using jQuery for everything</h1></header>
+        <section class="content">
+<pre>
+$.ajax({type: "GET",
+  url: "books.json",
+  dataType: "json",
+  success: function(books) { 
+    for (var i = 0; i < books.length; i++) { 
+      var book = books[i];
+      var p = $('&lt;p&gt;');
+      p.html(book.title + ' by ' + book.author);
+      $('body').append(p);
+    }
+  },
+  error: function(xhr, status, e) {
+    console.log(status, e);
+  }
+});
+</pre>
+<pre class="speaker-notes" style="display:none">Don't forget that jQuery is just a library, written by human beings. Use it because it saves you time, but don't rely too hard on it!</pre>
+        </section>
+      </div><!--using jquery for everything-->
+
+      <div class="slide normal">
+        <header><h1>Debugging AJAX Requests</h1></header>
+        <section class="content">
+          <ul>
+            <li>Click the NET/Network tab in Chrome Dev Tools or Firebug, select "XHR" filter to see all XMLHttpRequests made.</li>
+            <li>See what the request responded with by clicking its "Response" tab.</li>
+          </ul>
+          <p align="center"><img src="img/debug_ajax.png"></p>
+        </section>
+      </div><!--debugging ajax requests-->
+
+      <div class="slide normal">
+        <header><h1>Exploring this will keep you busy for hours.</h1></header>
+        <section class="content">
+          <p align="center"><img src="img/airbnb.png"></p>
+<pre class="speaker-notes" style="display:none">Oh my god, explore this tab. It will teach you so much about what's in requests and responses. Google everything you don't understand. </pre>
+        </section>
+      </div><!--air bnb site-->
+
+      <div class="slide normal">
+        <header><h1 class="center"><a href="exercise_ajax.html">Exercise Time!</a></h1></header>
+        <section class="content">
+          <p align="center">Pair with the person(s) next to you to work through it together.</p>
+          <p align="center"><img src="img/kitties2.png"></p>
+        </section>
+      </div><!--exercises-->
+
+      <div class="slide normal">
+        <header><h1>AJAX + Servers</h1></header>
+        <section class="content">
+<pre>
+$.ajax({type: "GET",
+  url: "/api/books",
+  dataType: "json",
+  data: {'sortBy': 'author'},
+  success: processBooks
+});
+</pre>
+<pre>
+$.ajax({type: "POST",
+  url: "/api/book/new",
+  dataType: "json",
+  data: {'title': 'I, Robot', 'author': 'I. Asimov'}
+  success: processBoooks
+});
+</pre>
+        </section>
+      </div><!--ajax and servers-->
+
+      <div class="slide normal">
+        <header><h1>Cross Domain Policy</h1></header>
+        <section class="content">
+          <br>
+          <p align="center">For http://store.company.com/dir/page.html:</p>
+          <br>
+          <p align="center"><img src="img/cross_domain_policy.png"></p>
+        </section>
+      </div><!--cross domain policy-->
+
+      <div class="slide normal">
+        <header><h1>AJAX Gotchas</h1></header>
+        <section class="content">
+          <ul>
+            <li>Cross domain has more restrictions</li>
+            <li>Multiple AJAX requests don't return in order</li>
+            <li>Hard to transfer files</li>
+            <li>Can't transfer binary content</li>
+            <li>Browsers can over-cache/under-cache requests</li>
+          </ul>
+          <p>
+            UI No-Nos:
+            <ul>
+              <li>Not having linkable state</li>
+              <li>Not letting users know that something is loading</li>
+              <li>Breaking the back button</li>
+              <li><a href="http://ajaxpatterns.org/Ajax_Gotchas">More here.</a></li>
+            </ul>
+          </p>
+        </section>
+      </div><!--ajax gotchas-->
+
+    </div><!--/slides-->
+  </div><!--/presentation-->
+</body>

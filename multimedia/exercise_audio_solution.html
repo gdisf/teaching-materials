@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>   
+ <head>
+  <meta charset="utf-8">
+  <title>Multimedia Madness</title>
+ </head>
+ <body>
+  Moving pictures and talking webpages, oh my!
+  <br>
+  <audio controls>
+  	<source src="heartbeat.ogg">
+    <source src="heartbeat.mp3">
+  </audio>
+
+ <br>
+  <video style="width:60%; max-width:400px;" controls autoplay>
+  	<source src="media/springs.oggtheora.ogv">
+  	<source src="media/springs.mp4.mp4">
+    <track src="subtitles.vtt" kind="subtitles" srclang="en">
+  </video>
+
+  <script>
+  var video = document.getElementsByTagName("video")[0];
+
+/*
+ var logTimer = window.setInterval(function() {
+	console.log(video.currentTime);
+	if (video.currentTime >= video.duration) {
+		window.clearInterval(logTimer);
+	}
+ }, 500);
+*/
+
+video.addEventListener('timechange', function() {
+	console.log(video.currentTime);
+}, false);
+
+// video.playbackRate = video.playbackRate * 2;
+   </script>
+
+ </body>
+</html> 

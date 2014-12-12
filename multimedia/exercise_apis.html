@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise 3: Audio and Video APIs</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise 3: Audio and Video APIs</h1>
+
+      <p>Let's make a synchronized audio/video watcher!</p>
+      <ul>
+        <li>Start with your solution from the first exercise.
+        <li>Add a "play" button to the HTML in the page.
+        <li>Add JavaScript to the bottom of the page that adds a "click" event listener to that button.
+          In the event callback, play both the audio and the video files.
+        <li>Do the same for a pause button.
+        <li>Add a "seeked" event listener to both the audio and video files. In the event callback,
+          find out the currentTime of whichever file finished seeking, and set the other file to that time as well.
+      </ul>
+        
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre?')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+  </body>
+</html>
+

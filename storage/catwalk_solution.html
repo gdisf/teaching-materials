@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Cat Walk</title>
+ </head>
+ <body>
+  
+  <img style="position:absolute;" src="cat.gif">
+  
+  <script>
+var LS_LEFT_POSITION = 'cat-left-position';
+var LS_WALK_FORWARDS = 'cat-walk-forwards';
+
+var img = document.getElementsByTagName('img')[0];
+
+img.style.left = localStorage.getItem(LS_LEFT_POSITION) || '0px';
+var walkForwards = true;
+if (localStorage.getItem(LS_WALK_FORWARDS) !== null) {
+	walkForwards = (localStorage.getItem(LS_WALK_FORWARDS) == 'true');
+}
+
+function catWalk() {
+  var currentLeft = parseInt(img.style.left);
+
+  if (walkForwards && (currentLeft > (window.innerWidth-img.width))) {
+    walkForwards = false;
+    localStorage.setItem(LS_WALK_FORWARDS, false);
+  }
+  if (!walkForwards && (currentLeft <= 0)) {
+    walkForwards = true;
+    localStorage.setItem(LS_WALK_FORWARDS, true);
+  }
+  
+  if (walkForwards) {
+    img.style.left = (currentLeft + 10) + 'px';
+  } else {
+    img.style.left = (currentLeft - 10) + 'px';
+  }
+  localStorage.setItem(LS_LEFT_POSITION, img.style.left);
+}
+window.setInterval(catWalk, 50);
+  </script>
+
+ </body>
+</html>

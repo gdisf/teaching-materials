@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Backbone</title>
+
+    <base target="_blank">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/solarized_light.css">
+
+		<script>
+			// If the query includes 'print-pdf' we'll use the PDF print sheet
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+<section>
+	<h1 class="upper">Backbone 101</h1>
+  <br>
+  <br>
+  <h2>teaching-materials.org/backbone/</h2>
+</section>
+
+
+<section>
+  <img src="http://backbonejs.org/docs/images/backbone.png">
+  <br><br>
+  <ul>
+    <li>An open-source JS library</li>
+    <li>Helps organize JS for large web apps</li>
+    <li>Uses object-oriented principles for models and views</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Backbone Pre-reqs</h1>
+  <br>
+  <ul>
+    <li>Object-oriented JS</li>
+    <li>Using a library</li>
+    <li>jQuery</li>
+  </ul>
+  <br><br>
+  <p>...which we'll review!</p>
+</section>
+
+<section>
+  <h1>Backbone Topics</h1>
+  <br>
+  <ul>
+    <li>Models</li>
+    <li>Views</li>
+    <li>Templating</li>
+    <li>CRUD Backend</li>
+  </ul>
+  <br><br>
+  <p>...and we'll have exercises for each!</p>
+</section>
+
+
+<section>
+  <h1 class="upper">Review!</h1>
+</section>
+
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <img src="http://www.teaching-materials.org/jsoo/images/bookoo_extended.png">
+</section>
+
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <pre><code class="javascript">// The object "constructor"
+var Product = function(config) {
+  // The object "properties"
+  this.name = config.name;
+  this.type = config.type;
+  this.inventory = config.inventory || 0;
+};
+
+// An object "method"
+Product.prototype.buy = function() {
+  this.inventory--;
+  console.log("We now have " + this.inventory + " of " + this.name);
+};
+
+// Instantiating a new object
+var product = new Product({
+  name: "BetaBrand Disco FannyPack",
+  type: "Accessory",
+  inventory: 20
+});
+
+// Calling a method on a new object
+product.buy();</code></pre>
+</section>
+
+<section>
+  <h1>Object-oriented JS</h1>
+
+  <pre><code class="javascript">var Shirt = function(config) {
+  // Re-using the Product constructor
+  Product.call(this, config);
+  this.colors = config.colors;
+}
+// Inheriting the Product methods
+Shirt.prototype = Object.create(Product.prototype);
+
+// Defining a new method on this object
+Shirt.prototype.addColor = function(color) {
+  this.colors.push(color);
+  console.log("We now stock " + color);
+};
+
+// Instantiating a new object
+var shirt = new Shirt({
+  name: "Three Wolves Shirt",
+  type: "T-Shirt",
+  inventory: 33,
+  colors: ["black"]
+});
+
+shirt.buy();
+shirt.addColor("teal");</code></pre>
+</section>
+
+
+<section>
+  <h1>Using a library</h1>
+  <br>
+  <ul>
+    <li>Include a script tag to the library on your page</li>
+    <li>Call functions from that library</li>
+  </ul>
+  <br>
+  <pre><code class="html">&lt;script src="http://imagine-it.org/math.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    var answer = math.sum(2, 2);
+    alert(answer);
+&lt;/script&gt;</pre></code>
+</section>
+
+
+<section id="jquery-review">
+  <h1>jQuery</h1>
+  <br>
+  <pre><code class="javascript">// Finding elements
+var code = $('code.javascript');
+// Reading elements
+alert(code.text());
+// Changing elements
+code.css('background-color', 'pink');
+// Creating elements
+var newCode = $('&lt;code&gt;// Whee!&lt;/code&gt;');
+$('#jquery-review').append(newCode);</pre></code>
+
+</section>
+
+<section>
+  <h1 class="upper">BackboneJS</h1>
+  <img src="images/backbonediagram.jpeg">
+</section>
+
+
+
+<section>
+  <h1 class="upper">Models</h1>
+</section>
+
+<section>
+  <h1>What is a model?</h1>
+
+  <br>
+  <img src="images/backbonemodel.png">
+
+</section>
+
+<section>
+  <h1>Defining a model</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend();</code></pre>
+
+</section>
+
+<section>
+  <h1>Setting defaults</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+  defaults: {
+    name: "California",
+    type: "T-shirt",
+    colors: ["light gray"],
+    tagline: "Cali says relax",
+    newProduct: true,
+    inventory: 28
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Instantiating new models</h1>
+  <br>
+<pre><code class="javascript">var shirt = new Product();</code></pre>
+
+<pre><code class="javascript">var shirt = new Product({
+  name: "Roma",
+  colors: ["green", "white", "red"],
+  onSale: true,
+  freeShippingEligible: false
+});</code></pre>
+</section>
+
+<section>
+  <h1>Setting and getting attributes</h1>
+  <br>
+    <p>Use <code>.set()</code> and <code>.get()</code> for Backbone Models</p>
+<pre><code class="javascript">shirt.set('tagline', 'sempre ad maiora');
+shirt.set('newProduct', false);
+shirt.set('inventory', 1);</code></pre>
+
+<pre><code class="javascript">shirt.get('tagline'); //returns 'sempre ad maiora'
+shirt.get('newProduct'); // returns false
+shirt.get('inventory'); // returns 1</code></pre>
+    <p>If you try to access Model properties via dot/bracket notation, they'll be undefined</p>
+
+<pre><code class="javascript">shirt.tagline; // undefined
+shirt['tagline']; // undefined</code></pre>
+
+</section>
+
+<section>
+  <h1>Custom initialization</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+  initialize: function() {
+    this.set('url', 'http://products.com/' + this.id);
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Custom methods</h1>
+  <br>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+  makeSentence: function() {
+    console.log("Check out our very special " + this.get('type') + ".");
+  }
+});</code></pre>
+
+</section>
+
+
+<section>
+  <h1><a href="rolodex_exercise_steps/step0/instructions.html" target="_blank">Exercise Time</a></h1>
+</section>
+
+
+<section>
+  <h1 class="upper">Collections</h1>
+</section>
+
+<section>
+  <h1>What is a collection?</h1>
+  <br>
+  <img src="images/backbonecollection.png">
+
+</section>
+
+<section>
+  <h1>Defining a collection</h1>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend();</code></pre>
+  <br><br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  model: Product
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Instantiating a collection</h1>
+  <br>
+  <p>Pass an array of models:</p>
+  <pre><code class="javascript">var products = new Products([product1, product2, product3]);</code></pre>
+  <br>
+  <p>Pass a JSON array:</p>
+  <pre><code class="javascript">var products = new Products([
+    {name: "I Love JS",
+    colors: ["yellow", "black"]
+    },
+    {name: "Three Wolves",
+    colors: ["blue"]
+    }]);</code></pre>
+
+</section>
+
+<section>
+  <h1>Sort order</h1>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  comparator: 'inventory' 
+});</code></pre>
+  <br>
+  <pre><code class="javascript">var Products = Backbone.Collection.extend({
+  comparator: function(model) {
+    return model.get("name").toLowerCase();
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Changing a collection</h1>
+  <br>
+  <p>Adding models:</p>
+  <pre><code class="javascript">products.add([product4, product5]);</code></pre>
+  <br>
+  <p>Removing models:</p>
+  <pre><code class="javascript">products.remove(product1);</code></pre>
+
+</section>
+
+
+
+<section>
+  <h1><a href="rolodex_exercise_steps/step1/instructions.html" target="_blank">Exercise Time</a></h1>
+</section>
+
+
+
+<section>
+  <h1 class="upper">Views</h1>
+</section>
+
+
+<section>
+  <h1>What's a view?</h1>
+  <br>
+  <ul>
+    <li>DOM that renders a model or collection</li>
+    <li>Events tied to that DOM</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Defining a view</h1>
+  <br>
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend();</code></pre>
+  <br>
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend({
+  tagName: "div", // default
+  className: "product"
+});</code></pre>
+
+</section>
+
+
+<section>
+  <h1>Customizing the render</h1>
+  <br>
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend({
+  className: "product",
+  render: function() {
+    this.$el.append('&lt;img src="http://placepuppy.it/200/200"&gt;');
+    return this;
+  }
+});</code></pre>
+</section>
+
+<section>
+  <h1>Connecting view to model</h1>
+  <br>
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend({
+  className: "product",
+  render: function() {
+    var imgUrl = this.model.get('imgUrl');
+    var newNode = $('&lt;img src="' + imgUrl + '"&gt;');
+    this.$el.append(newNode);
+    return this;
+  }
+});</code></pre>
+  <br>
+  <pre><code class="javascript">var product = new Product({imgUrl: "http://placekitten.com/200/100"});
+
+var listing = new ProductListing({
+  model: product
+});</code></pre>
+
+</section>
+
+<section>
+  <h1>Using the view</h1>
+  <br>
+  <p>Create the view:</p>
+  <pre><code class="javascript">var listing = new ProductListing({
+  model: product
+});</pre></code>
+  <p>Then append it:</p>
+  <pre><code class="javascript">listing.render();
+$('#products').append(listing.$el);</code></pre>
+  <p>..or...</p>
+  <pre><code>var listingEl = myView.render().$el;
+$('#products').append(listingEl);</code></pre>
+  <p>...or...</p>
+  <pre><code>$('#products').append(myView.render().$el);</code></pre>
+</section>
+
+<section>
+  <h1>Using the view</h1>
+  <br>
+  <p>...or...</p>
+  <pre><code class="javascript">var listing = new ProductListing({
+  model: product,
+  el: $('#products')
+});</pre></code>
+</section>
+
+<section>
+  <h1>DOM events</h1>
+
+  <pre><code class="javascript">var ProductListing = Backbone.View.extend({
+  events: {
+    'mouseover img' : 'showTooltip',
+    'mouseout img': 'hideTooltip'
+  },
+  showTooltip: function(e) {
+    var tooltipDiv = $('&lt;div class="product-tooltip">');
+    tooltipDiv.html('&lt;strong>' + this.model.get('review') + ' stars: &lt;/strong>');
+    tooltipDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
+    this.$el.append(tooltipDiv);
+  },
+  hideTooltip: function(e) {
+    this.$('.product-tooltip').remove();
+  }
+});</code></pre>
+
+</section>
+
+<section>
+  <h1><a href="rolodex_exercise_steps/step2/instructions.html" target="_blank">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+  <h1>Handlebars</h1>
+  <br>
+  <p><a href="http://www.handlebarsjs.com">Handlebars</a> is an HTML
+    templating library. To use it:</p>
+  <br>
+  <div style="text-align:left">
+  <p>1. Include handlebars.js on your page</p>
+  <p>2. Make a template script tag:</p>
+  <pre><code>&lt;script id="product-template" type="text/x-handlebars-template"&gt;
+    &lt;strong&gt;{{ product.name }}&lt;/strong&gt;: {{ product.inventory }} in stock
+&lt;/script&gt;</code></pre>
+  <p>3. Compile the template and render it with your data:</p>
+  <pre><code class="javascript">var source   = $("#product-template").html();
+var template = Handlebars.compile(source);
+var litterRobot = {"name": "Litter Robot", "inventory": 20};
+var rendered = template({product: litterRobot});</code></pre>
+  </div>
+
+</section>
+
+<section>
+  <h1>Backbone &amp; Handlebars</h1>
+  <br>
+  <p>In the HTML:</p>
+  <pre><code>&lt;script id="products-template" type="text/x-handlebars-template"&gt;
+  {{#each products}}
+    &lt;div class="product"&gt;
+      &lt;strong&gt;{{ name }}&lt;/strong&gt;: {{ inventory }} in stock
+    &lt;/div&gt;
+  {{/each}}
+&lt;/script&gt;</code></pre>
+
+  <p>In the JS:</p>
+  <pre style="font-size:16px;"><code class="javascript">var ProductsListing = Backbone.View.extend({
+  className: 'products',
+  render: function() {
+    var template = Handlebars.compile($("#products-template").html());
+    var rendered = template({products: this.collection.toJSON()});
+    this.$el.append(rendered);
+    return this;
+  }
+});
+
+var products = new Products([product1, product2]);
+var listings = new ProductsListing({collection: products});
+</pre></code>
+</section>
+
+
+<section>
+  <h1><a href="rolodex_exercise_steps/step3/instructions.html" target="_blank">Exercise Time</a></h1>
+</section>
+
+<section>
+  <h1>The Backbone Backend</h1>
+  <h2><a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a></h2>
+<table>
+  <thead>
+    <td>Operation name</td>
+    <td>HTTP method</td>
+    <td>Backbone Model</td>
+    <td>Backbone Collection</td>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>C</strong>REATE</td>
+      <td>POST</td>
+      <td>model.save()</td>
+    </tr>
+    <tr>
+      <td><strong>R</strong>EAD</td>
+      <td>GET</td>
+      <td>model.fetch()</td>
+      <td>collection.fetch()</td>
+    </tr>
+    <tr>
+      <td><strong>U</strong>PDATE</td>
+      <td>PUT</td>
+      <td>model.save()</td>
+    </tr>
+    <tr>
+      <td><strong>D</strong>ELETE</td>
+      <td>DELETE</td>
+      <td>model.destroy()</td>
+    </tr>
+  </tbody>
+</table>
+   
+</section>
+<section>
+  <h2>Saving a model</h2>
+  <h3><code>.save()</code></h3>
+  <pre><code class="javascript">var Product = Backbone.Model.extend({
+  urlRoot: 'http://spacodemo.herokuapp.com/products'
+});
+
+var shirt = new Product({
+  desc: "GDISF Backbone.js",
+  category: "t-shirt",
+  id: "535d239fe7333e0b00000001",
+  price: "20",
+  inventory: 10
+});
+
+shirt.save();
+</pre></code>
+<pre><code>HTTP POST http://spacodemo.herokuapp.com/products</code></pre>
+</section>
+<section>
+  <h2>Updating a model</h2>
+  <h3><code>.save()</code></h3>
+<pre><code class="javascript">shirt.set('inStock', true);
+
+shirt.save();
+</pre></code>
+
+<pre><code class="ruby">HTTP PUT http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
+
+</section>
+<section>
+  <h2>Deleting a model</h2>
+  <h3><code>.destroy()</code></h3>
+<pre><code class="javascript">shirt.destroy();</pre></code>
+
+<pre><code class="ruby">HTTP DELETE http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
+
+</section>
+
+
+<section>
+  <h2>Getting a Collection</h2>
+  <h3><code>.fetch()</code></h3>
+
+<pre><code class="javascript">var ProductCollection = Backbone.Collection.extend({
+  url: "http://spacodemo.herokuapp.com/products",
+  model: Product
+});
+</pre></code>
+
+<div class="fragment">
+<pre><code class="javascript">var products = new ProductCollection();
+
+products.fetch(); // sets models on the collection from the response
+</pre></code>
+</div>
+
+<div class="fragment">
+<pre><code class="ruby">HTTP GET http://spacodemo.herokuapp.com/products</pre></code>
+</div>
+
+</section>
+
+<section>
+  <h1>Backend + View</h1>
+
+<pre><code class="javascript">
+var BookShelfView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.collection, 'reset', this.render);
+    this.fetch();
+  },
+  render: function() {
+    // ...
+  }
+});
+</pre></code>
+</section>
+
+<section>
+  <h1><a href="rolodex_exercise_steps/step4/instructions.html" target="_blank">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+
+  <h1>MV* Frameworks</h1>
+  
+  <img src="http://dl.dropbox.com/u/10998095/Screenshots/j6-bm8vdetj2.png">
+</section>
+
+<section>
+  <h1>Keep your options open</h1>
+  <br><br>
+  <div class="fragment">
+  <p>Figure out what's important to you: <br>
+    modularity? data binding? testability? persistance?
+  </p>
+  </div>
+  <br><br>
+  <div class="fragment">
+  <p>Review your options: <br>
+   Ember? Spine? AngularJS? Enyo? and <a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">many more</a>...
+  </p>
+  </div>
+</section>
+
+<section>
+  <h1>There's no "right answer"</h1>
+  <h1 class="fragment">...but some are better than others.</h1>
+  <!-- frameworks have flaws. -->
+</section>
+
+
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Presentation progress bar -->
+			<div class="progress"><span></span></div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+    <script src="lib/js/jquery-1.9.1.min.js"></script>
+    <script src="lib/js/underscore-min.js"></script>
+    <script src="lib/js/backbone.js"></script>
+    <script src="lib/js/handlebars.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+        rollingLinks: false,
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+				]
+			});
+
+		</script>
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+/* Set style for html document body */
+html,body { height:100%;}
+body {
+	font-size:76%;
+	padding:0;
+	margin:0;
+	background-color: #dddddd;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align:center;
+}
+
+a {
+	color:#0033cc;
+}
+
+/* Wrapper for chat box & form */
+.wrapper {
+	text-align:left;
+	margin:0 auto 0 auto;
+	width:98%;
+	height:100%;
+}
+
+
+/* Chat form */
+.chat-form {
+	padding:10px 0 5px 0;
+	text-align:left;
+}
+
+.chat-form input {
+	width:70%;
+	font-family:Arial;
+	font-size:16px;
+}
+
+.chat-form button {
+	width:100px;
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+}
+
+/* Chat messages */
+.chat-messages-wrapper {
+	padding: 8px;
+	background-color:#fff;	
+	overflow:auto;
+	height:80%;
+	border:solid 1px #fff;
+	clear:both;
+}
+
+.chat-message {
+	font-size:12px;
+	line-height:1.5em;
+	padding:2px 3px 2px 3px;
+	margin:0 0 2px 0;
+}
+.chat-message .chat-message-timestamp {
+	display:none;
+}
+
+.chat-message .chat-message-content {
+	display:inline;
+}

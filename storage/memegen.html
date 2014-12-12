@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Meme Generator</title>
+    <style>
+#meme-preview {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  text-shadow: 2px 1px 1px #000;
+  color: white;
+  font-family: Impact, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#meme-preview img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#meme-preview h1 {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+#meme-preview h2 {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+    </style>
+  </head>
+  <body>
+
+  <form id="meme-form">
+
+    <div>
+    <label>
+    <input type="radio" name="meme" value="unicornlifter" checked>
+      The unicorn lifter
+    </label>
+
+    <label>
+    <input type="radio" name="meme" value="mousecat">
+    The mouse cowboy
+    </label>
+
+    <label>
+    <input type="radio" name="meme" value="sickfox">
+    The straightedge
+    </label>
+    </div>
+
+    <div>
+      <input type="text" name="toptext" value="i dont always lift" size="100">
+    </div>
+    
+    <div>
+      <input type="text" name="bottomtext" value="but when i do, im a unicorn."  size="100">
+    </div>
+
+    <button type="submit">It's perfect, save it!</button>
+    <br><br>
+  </form>
+
+  <div id="meme-preview">
+    <img src="">
+    <h1></h1>
+    <h2></h2>
+  </div>
+
+  <ul id="meme-list">
+  </ul>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script>
+  var memes = {};
+
+  $(document).ready(function() {
+    var $form = $('#meme-form');
+    var currentMeme;
+
+    function handleFormChange() {
+      var memeType = $form.find('[name=meme]:checked').val();
+      var top = $form.find('[name=toptext]').val();
+      var bottom = $form.find('[name=bottomtext]').val();
+      currentMeme = {id: (new Date().getTime()), type: memeType, top: top, bottom: bottom};
+      showMeme(currentMeme);
+    }
+
+    $form.find('input').on('keyup click change', handleFormChange);
+    handleFormChange();
+
+    function handleFormSave(e) {
+      e.preventDefault();
+      $form.find('input[type=text]').val('');
+      memes[currentMeme.id] = currentMeme;
+      addMemeToList(memes[currentMeme.id]);
+    }
+
+    function showMeme(meme) {
+      var $memePreview = $('#meme-preview');
+      $memePreview.find('img').attr('src', 'meme-' + meme.type + '.png');
+      $memePreview.find('h1').text(meme.top);
+      $memePreview.find('h2').text(meme.bottom);
+    }
+
+
+    function addMemeToList(meme) {
+      var $item = $('<li></li>');
+      $item.attr('id', meme.id);
+      $item.html('<a href="#">' + meme.top + '</a>');
+      $('#meme-list').append($item);
+      $item.on('click', function() {
+        showMeme(meme);
+      });
+    }
+
+    $form.find('button').on('click', handleFormSave);
+  });
+  </script>
+
+
+  </body>
+</html>

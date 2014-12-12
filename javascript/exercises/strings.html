@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript 1: String functions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Strings</h2>
+
+<p>These exercises will test your knowledge of string functions, conditionals, and arrays.
+For many of them, you will want to consult the <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">JavaScript strings reference</a> to find useful string methods to call.
+</p>
+
+
+<h3 class="page-header">DrEvil</h3>
+<p>Create a function called <code>DrEvil</code>. It should take a single argument, an amount, and return '&lt;amount&gt; dollars', except it will add '(pinky)' at the
+end if the amount is 1 million.  For example:</p>
+<pre>
+  DrEvil(10): 10 dollars
+  DrEvil(1000000): 1000000 dollars (pinky)
+</pre>
+
+<button class="btn" onclick="showSolution(1)">See Solution</button>
+<pre id="solution1" style="display:none;">
+function drEvil(amount) {
+  if (amount == 1000000) {
+    return amount + " dollars (pinky)";
+  } else {
+    return amount + " dollars";
+  }
+}
+</pre>
+
+<h2>MixUp</h2>
+<p>
+Create a function called <code>mixUp</code>.
+It should take in two strings, and return the concatenation of the two strings (separated by a
+space) slicing out and swapping the first 2 characters of each.  You can assume
+that the strings are at least 2 characters long. For example:
+</p>
+<pre>
+  mixUp('mix', pod'): 'pox mid'
+  mixUp('dog', 'dinner'): 'dig donner'
+</pre>
+<p>Look up the JavaScript string reference to find methods which may be useful!</p>
+
+<button class="btn" onclick="showSolution(2)">See Solution</button>
+<pre id="solution2" style="display:none;">
+function mixUp(a, b) {
+  return b.slice(0, 2) + a.slice(2) + " " + a.slice(0, 2) + b.slice(2);
+}</pre>
+
+<h3 class="page-header">FixStart</h3>
+
+<p>Create a function called <code>fixStart</code>. 
+It should take a single argument, a string, and return a version where all occurences of its first character
+have been replaced with '*', except for the first character itself.
+You can assume that the string is at least one character long.
+For example:
+</p>
+<pre>
+fixStart('babble'): 'ba**le'
+</pre>
+<button class="btn" onclick="showSolution(3)">See Solution</button>
+<pre id="solution3" style="display:none;">
+function fixStart(s) {
+  var c = s.charAt(0);
+  return c + s.slice(1).replace(new RegExp(c, 'g'), '*');
+}
+</pre>
+
+<h3 class="page-header">Verbing</h3>
+
+<p>Create a function called <code>verbing</code>.
+It should take a single argument, a string. 
+If its length is at least 3, it should add 'ing' to its end, 
+unless it already ends in 'ing', in which case it should add 'ly' instead.
+If the string length is less than 3, it should leave it unchanged.
+For example:
+<pre>
+  verbing('swim'): 'swimming'
+  verbing('swimming'): 'swimmingly'
+  verbing('go'): 'go'
+</pre>
+
+<button class="btn" onclick="showSolution(4)">See Solution</button>
+<pre id="solution4" style="display:none;">
+function verbing(word) {
+  if (word.length &lt; 3) return word;
+  if (word.slice(-3) == 'ing') {
+    return word + 'ly';
+  } else {
+    return word + 'ing';
+  }
+}
+</pre>
+
+<h3 class="page-header">Not Bad</h3>
+
+<ul>
+  <li>Create a function called <code>notBad</code> that takes a single argument, a string.</li>
+  <li>It should find the first appearance of the substring 'not' and 'bad'.</li>
+  <li>If the 'bad' follows the 'not', then it should replace the whole 'not'...'bad' substring with
+'good' and return the result.</li>
+  <li>If it doesn't find 'not' and 'bad' in the right sequence (or at all), just return the original sentence.
+</ul>
+<p>For example:</p>
+<pre>
+  notBad('This dinner is not that bad!'): 'This dinner is good!'
+  notBad('This movie is not so bad!'): 'This movie is good!'
+  notBad('This dinner is bad!'): 'This dinner is bad!'
+</pre>
+
+<button class="btn" onclick="showSolution(5)">See Solution</button>
+<pre id="solution5" style="display:none;">
+function notBad(sentence) {
+  var notIndex = sentence.indexOf('not');
+  var badIndex = sentence.indexOf('bad');
+  if (notIndex == -1 || badIndex == -1 || badIndex < notIndex) return sentence;
+  return sentence.slice(0, notIndex) + 'good' + sentence.slice(badIndex + 3);
+}
+</pre>
+
+  
+ </div>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

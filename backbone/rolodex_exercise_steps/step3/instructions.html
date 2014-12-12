@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercise 3 - Rendering a Template in a Collection</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+	<h1>Exercise 3 - Rendering a Template in a Collection</h1>
+	<p>In this exercise, we will be using <code>Handlebars</code> templates. We'll also render them with a collection.</p>
+	<ul>
+		<li>If you didn't finish the last exercise, download the solution files from <a href="../step3.zip">here</a>.</li>
+		<li>Continue from your previous files or the solution files.</li>
+	</ul>
+	<h2>Part 1</h2>
+	<ol>
+		<li>Open <code>index.html</code> and find the template with id <code>rolodex-template</code>.</li>
+		<li>Add an <code>#each</code> Handlebars block helper</li>
+		<li>Inside of the <code>#each</code> helper, add Handlebars <code>{{</code>expressions<code>}}</code>. 
+			<ul>
+				<li>Later, you will use JSON to render this template, so make sure that your attributes match. Examples from the models we just made are <code>{{firstName}}</code> and <code>{{lastName}}</code>. Feel free to stick to the attributes given, or switch it up.</li>
+			</ul>
+		</li>
+
+	</ol>
+	<h2>Part 2</h2>
+	<p>In the last exercise, we rendered a View of a Model. This time, we will render a View of a Collection.</p>
+	<ol>
+		<li>Open <code>SpecRunner.html</code> in a browser</li>
+		<li>Click on Spec List on the upper-left hand corner.</li>
+		<li>Make changes in <code>src/app.js</code> to make all the tests for Exercise 3 pass.</li>
+	</ol>
+	<h2>Bonus - Loop it different ways!</h2>
+	<p>In the above exercises, we used a for loop within a Handlebars <code>#each</code> block. Try moving the loop into the <code>.render()</code> function of the view.</p>
+</body>

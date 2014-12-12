@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Backbone Exercise: Routes</title>
+    <meta charset="utf-8">
+    <style>
+    li { line-height: 2.5em;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Backbone Exercise: Routes</h1>
+      <br><br>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+      <ul>
+        <li>If you didn't finish the backend exercise, download the starter files from <a href="exercise_steps/step4.zip">here</a>.</li>
+        <li>Create a <code>routes.js</code> file and include it as a script tag in <code>index.html</code>.</li>
+        <li>In <code>routes.js</code>, create a <code>ChatRouter</code> that defines routes for "room" and URLs like "user/123". The room route should do everything that app.js did before. The user route should do nothing but render a TODO message on the page.</li>
+        <li>In <code>app.js</code>, create a new <code>ChatRouter</code> and start <code>Backbone.history</code>.</li>
+        <li>Load "/#room" and confirm it shows the messages. Load "/#user/123" and confirm it shows the TODO message.</li>
+      </ul>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+
+      <!--
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_backbone_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      -->
+
+  </body>
+</html>
+

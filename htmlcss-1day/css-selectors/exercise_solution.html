@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+    <title>GirlDevelopIt</title>
+  <style>
+h1, h2 {
+  color: darkgreen;
+}
+
+p strong, p em {
+  color: orange;
+}
+
+ul ul li {
+  color: red;
+}
+
+table td {
+  color: purple;
+}
+
+.location {
+  color: blue;
+}
+
+form label, form legend {
+  color: darkred;
+}
+
+.required {
+  color: red;
+}
+
+#twitter {
+  color: lightblue;
+}
+
+  </style>
+ </head>
+ <body>
+  <img src="http://girldevelopit.com/assets/pink-logo-f9a26fcc82c561f925403822c5135a28.png" width="300" alt="GirlDevelopIt Logo">
+
+  <h1>About</h1>
+ 
+  <p>It can be intimidating for women to learn and ask questions when they are in an <strong>extreme minority</strong>. While open and welcoming, today's budding developer community is up to <strong>91% male</strong>. If we can empower more females with the confidence in their technological capabilities <em>we can begin to change this landscape</em>.
+  </p>
+
+  <h2>Our Locations</h2>
+  <ul>
+   <li>USA
+     <ul>
+      <li><a href="http://meetup.com/girldevelopit">New York</a></li>
+      <li><a href="http://www.meetup.com/girldevelopitcbus">Columbus</a></li>
+      <li><a href="http://www.meetup.com/Girl-Develop-It-Austin">Austin</a></li>
+      <li><a href="http://www.meetup.com/Girl-Develop-It-Philadelphia/">Philly</a></li>
+     </ul>
+   </li>
+   <li>World
+     <ul>
+      <li><a href="http://www.meetup.com/Girl-Develop-It-Ottawa">Ottawa</a></li>
+      <li><a href="http://www.meetup.com/girldevelopit-sydney">Sydney</a></li>
+     </ul>
+   </li>
+  </ul>
+
+  <h2>Upcoming Classes</h2>
+  <table border="1">
+   <thead>
+    <tr>
+     <th>Location</th>
+     <th>Topic</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td class="location">New York</td>
+     <td>JavaScript &amp; jQuery</td>
+    </tr>
+    <tr>
+      <td class="location">San Francisco</td>
+      <td>HTML &amp; CSS</td>
+    </tr>
+   </tbody>
+  </table>
+
+  <h2>Sign Up!</h2>
+  <form action="mailto:youraddress@gmail.com" enctype="text/plain" method="post">
+    <label>Name: <input class="required" name="name" type="text"></label>
+    <br>
+    <label>Email: <input class="required" name="email" type="email"></label>
+    <br>
+    <label>Location:
+      <select name="location">
+        <option value="sf">San Francisco</option>
+        <option value="nyc">New York</option>
+      </select></label>
+    <br>
+    <fieldset>
+      <legend>Gender:</legend>
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="female" value="female">
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="male" value="male">
+    </fieldset>
+    <br>
+    <label>Experience:
+    <br>
+    <textarea name="experience"></textarea> 
+    </label>
+    <br>
+    <button type="submit">Sign Up</button>
+  </form>
+  
+  <br><br>
+  <a id="twitter" href="http://twitter.com/girldevelopit">Twitter</a> | <a href="http://www.facebook.com/girldevelopit">Facebook</a> | <a href="http://www.flickr.com/photos/40453677@N00/sets/72157626841092971/">Flickr</a>
+
+ </body>
+</html>

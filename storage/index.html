@@ -1,0 +1,1687 @@
+<!doctype html> 
+<html> 
+  <head> 
+    <title>Client Side Storage in HTML5</title> 
+    <link rel="stylesheet" type="text/css" href="../common/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../common/presentation.css" />
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.buttons.css" />
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.tables.css" />
+    <link rel="stylesheet" type="text/css" href="../common/prettify.css" />
+    <link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../common/codemirror.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/presentation.css" />
+</head> 
+<body> 
+
+<div id="demo" style="display:none"></div>
+
+<button class="notes-button btn" onclick="javascript:$('.notes').toggle();">Show/Hide Notes</button>
+
+<div id="presentation"> 
+	
+<div class="slide">
+  <br><br><br>
+  <header><h1>Client-side Storage</h1></header>
+
+  <p class="center">
+  <a href="http://teaching-materials.org/storage/">teaching-materials.org/storage</a>
+  </p>
+
+  <p class="notes">
+Today I'm going to talk about client-side storage - the ability for a website to store data persistently
+for users, entirely in the browser, using JavaScript.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Prehistoric HTML</h1>
+  <img src="img/diagram_cookiedb.png" style="float:right">
+  <ul>
+    <li><strong>cookies</strong>
+    <li>Flash Storage
+    <li>Internet Explorer UserData
+    <li>Google Gears
+    <li>Dojo Storage
+    <li>window.name
+  </ul>
+
+  <p class="notes">
+Back then, websites stored the vast majority of their data on the server, and if they did store anything on the client-side, it was in a
+cookie.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>What were cookies used for?</h1>
+  
+  <img style="float:right; width: 400px;" src="img/cookie.jpg">
+  <ul>
+   <li>Shopping carts
+   <li>User login  
+   <li>Personalization
+   <li>Ad tracking
+   <li>Analytics
+  </ul>
+
+  <p class="footer">Read more <a href="http://en.wikipedia.org/wiki/HTTP_cookie#Uses">Cookie Uses</a></p>
+
+  <p class="notes">
+  Originally websites had no way of storing state across website visits, but the engineers at Netscape were working
+  on a e-commerce solution, and they needed a way to track the content of shopping cart baskets,
+  so they invented web cookies. Websites used cookies for tracking user session
+  and personalization generally, as well as ad tracking and analytics. Google was and still is a huge user, obviously.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>Where cookies fail(ed)</h1>
+  
+  <img style="float:right; width: 400px;" src="img/nocookies.png">
+  <ul>
+    <li>Security
+    <li>User trust
+    <li>Performance
+    <li>Size
+  </ul>
+
+  <p class="notes">
+There were an increasing number of issues with cookies though, especially as web developers tried to use them
+for more and more uses.
+There were security issues - cookies are unencrypted unless your whole site is delivered over SSL, thus insecure.
+Cookies could also be stolen via DNS spoofing and cross-scripting techniques.
+Unfortunately (or fortunately) users found out about the security and privacy issues with cookies, and users started to disable or restrict cookies,
+so websites couldn't always assume they could use them.
+There were also performance issues with cookies - since they're included in every HTTP request, they can slow down the delivery of your webpage,
+and you wouldn't want to store large amounts of data in them.
+And you couldn't store huge amounts of data anyway - most browsers restricted each cookie to 4KB and allowed around 20 per domain, which isn't a
+whole lot.
+Websites wanted a way to persistently store data in the client, and cookies weren't giving them what they needed.
+Some clever developers came up with hacks, like using window.name or Flash storage, but since they were hacks,
+they still weren't what they needed.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>HTML5 to the rescue!</h1>
+  
+  <img style="float:right; width: 400px;" src="img/html5logo.png">
+  <ul>
+   <li>Web Storage APIs (localStorage/sessionStorage)</li>
+   <li>IndexedDB </li>
+   <li>File System APIs </li>
+   <li>Application Cache</li>
+   <li>...cookies</li>
+  </ul>
+
+  <p class="notes">
+Well, luckily, we are now in the era of HTML5, the new set of HTML, CSS, and JS specifications that tries to make the web better,
+and these specifications include multiple approaches to client-side storage: localStorage, IndexedDB, and the File system API.
+Let's see what these look like.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>localStorage</h1>
+
+  <ul>
+    <li>Key / value pairs - hash table</li>
+    <li>Persistent on page reloads</li>
+    <li>Avoids HTTP overhead of cookies</li>
+    <li>Great for storing user preferences</li>
+  </ul>
+
+</div>
+
+<div class="slide">
+  <h1>localStorage</h1>
+
+  <textarea class="runnable js">
+localStorage.setItem('favoriteFish', 'herring');
+$('#demo').html('My fav fish is: ' + localStorage.getItem('favoriteFish'));
+
+localStorage.removeItem('favoriteFish');
+if (!localStorage.getItem('favoriteFish')) {
+  $('#demo').append('...Oh noes, whered my fish go??');
+}
+
+localStorage.clear();
+  </textarea>
+
+  <p class="footer">Read more: <a href="http://dev.w3.org/html5/webstorage/">W3 WebStorage Spec</a></p>
+
+  <p class="notes">
+localStorage is a simple key/value store for storing string values, and persisting that data 
+in the browser. There's also a related API called sessionStorage, for just storing data in a session,
+but today we're focusing on persistent data storage.
+Both have the same easy to use API for setting and getting items, and they also includes events for being notified when stuff is added and removed.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>sessionStorage</h1>
+
+  <br><br>
+  <p>Same as localStorage but...
+    <ul>
+      <li>Lasts as long as browser is open</li>
+      <li>Opening page in new window or tab starts new session</li>
+      <li>Great for sensitive data (e.g. banking sessions)</li>
+    </ul>
+  </p>
+
+  <p class="footer">Read more: <a href="http://dev.w3.org/html5/webstorage/">W3 WebStorage Spec</a></p>
+
+  <p class="notes">
+  </p>
+</div>
+
+
+<div class="slide">
+  <h1>localStorage: API</h1>
+
+  <br>
+  <table class="table table-bordered">
+   <thead>
+    <th>method/attribute           <th>args        <th>returns
+   <tbody>
+    <tr><td>setItem      <td>String key, String value <td>
+    <tr><td>getItem      <td>String key    <td>String value
+    <tr><td>removeItem   <td>String key    <td>
+    <tr><td>clear        <td>              <td>
+    <tr><td>key          <td>int index     <td>String key
+    <tr><td>length       <td>              <td>int length
+   </thead>
+  </table>
+
+  <p class="footer">Read more: <a href="http://dev.w3.org/html5/webstorage/#the-localstorage-attribute">localStorage spec</a></p>
+
+  <p class="notes">Its a very simple API - basically an associative array with wrappers to get and retrieve the keys, a way
+  to iterate through all the keys stored, and exceptions when something goes wrong like going over quota. </p>
+</div>
+
+<div class="slide">
+  <h1>localStorage: Security</h1>
+  <br>
+  <p>Who can see data on <b>http://store.company.com/dir/page.html</b>?
+  <table class="table table-bordered">
+   <tbody>
+     <tr class="green"><td>http://store.company.com/dir2/other.html        <td>Yes  
+     <tr class="green"><td>http://store.company.com/dir/inner/another.html <td>Yes  
+     <tr class="red"><td>https://store.company.com/secure.html             <td>No (Different protocol)
+     <tr class="red"><td>http://store.company.com:81/dir/etc.html          <td>No (Different port)
+     <tr class="red"><td>http://news.company.com/dir/other.html            <td>No (Different host)
+  </table>
+
+  <p class="footer">Read more: <a href="https://developer.mozilla.org/en/Same_origin_policy_for_JavaScript">Same origin policy for JS</a>
+  </p>
+
+  <p class="notes">localStorage is subject to the same origin policy, a policy that most
+  web developers are familiar with from using XMLHttpRequest. That policy dictates
+  which websites can see which data, and its based on the subdomains and port of the URL.
+  Security-wise, it means you need to be careful when using localStorage to not use it on a shared domain
+  (like geocities!), and to be aware of security exploits like DNS spoofing.
+  You also need to realize your data won't be shared across subdomains unless you do a bit of magic with document.domain.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>localStorage: Why use a library?</h1>
+
+  <ul>
+    <li>Support check
+    <li>Serialization
+    <li>Fallbacks
+    <li>Specific use cases (Forms, expiration, etc)
+    <li>Browser quirks
+  </ul>
+
+  <p class="footer">Read more: <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">HTML5 Polyfills</a>
+  </p>
+
+  <p class="notes">Well, so, you can see that localStorage is a pretty simple API and you can just use the raw API out of the box,
+  if you roll like that. But there are a few good reasons to use a library, and there are a good number of libraries out there.
+  Most libraries will start with a check to see if the browser actually supports the API, and if it's currently enabled, and
+  some libraries will then fallback to other techniques like cookies if it doesn't see support for it.
+  Most will also handle serialization of objects using JSON.parse and JSON.stringify, and some libraries are designed for explicit use cases
+  which we'll see later.
+  And of course, there are always little browser quirks to JavaScript, and the libraries often include workarounds for those quirks.
+  Let's look at a few example libraries.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>localStorage library: <a href="https://github.com/marcuswestin/store.js">store.js</a></h1>
+  <br>
+  <p>Includes <b>serialization</b> and <b>fallbacks</b> (globalStorage/userData).
+  </p>
+
+  <textarea class="runnable js">
+store.set('song', {artist: 'Roxette',
+                   title: 'Listen to your heart'})
+
+var song = store.get('song');
+
+$('#demo').html(song.artist + ' sings "' + song.title + '"');
+
+store.remove('song');
+  </textarea>
+
+  <p class="notes">store.js is your standard localStorage library, and it includes fallbacks to globalStorage for older FireFox versions and userData
+  for older IE versions - two browser-specific solutions that never made it into standards.
+  </p>
+
+</div>
+
+
+<div class="slide">
+  <h1>localStorage library: <a href="http://github.com/pamelafox/lscache">lscache</a></h1>
+
+  <br>
+  <p>Includes <b>support check</b>, <b>serialization</b> and <b>expiration</b>.</p>
+
+  <textarea class="runnable js">
+var songs =
+[{artist: 'Ansiktet', title: 'Ackligt'}, {artist: 'Norlie & Kkv', title: 'Trojan Du Hatar'},
+ {artist: 'Michel Telo', title: 'Ai Se Que Te Pego'}, {artist: 'Avicii', title: 'Levels'},
+ {artist: 'Flo Rida & Sia', title: 'Wild Ones'}, {artist: 'Moa Lignell', title: 'When I Held Ya'},
+ {artist: 'David Guetta & Sia', title: 'Titanium'}, {artist: 'Timbuktu', title: 'Flickan '},
+ {artist: 'Rihanna & Calvin Harris', title: 'We Found Love'}, {artist: 'Takida', title: 'You Learn'}];
+
+lscache.set('swedentop10', songs, 60*24);
+
+$('#demo').html('<ol>');
+
+songs = lscache.get('swedentop10');
+
+for (var i = 0; i &lt; songs.length; i++) {
+  var song = songs[i];
+  $('#demo ol').append('<li>' + song.artist + ': ' + song.title);
+}
+  </textarea>
+
+  <p class="notes">This is my favorite library, because it's the one that I wrote - lscache.
+  lscache adds the concept of expiration to localStorage, so that you can kick items out after a particular
+  amount of time. If you are familiar with memcache on the server-side, it mimics that API,
+  because I love memcache, and wanted to be able to do the same thing on the client-side.
+  I'll talk more about why you might want expiration later.
+  </p>
+</div>
+
+
+<div class="slide">
+  <div style="margin-top: 10%;">
+    <h1>How to *not* use localStorage</h1>
+  </div>
+</div>
+
+<div class="slide">
+  <h1 class="dont-header">Don't slow down your site.</h1>
+  
+  <img src="http://www.free-animations.co.uk/animals/turtles/images/turtle_12.gif" style="float:right">
+  
+  <ul>
+    <li>localStorage access is synchronous</li>
+    <li>JSON.parse/JSON.stringify takes CPU time</li>
+  </ul>
+   So:
+  <ul>
+    <li>Don't serialize unnecessarily</li>
+    <li>Don't use excessive keys</li>
+    <li>Don't do excessive gets/sets</li>
+    <li>Don't block the UI</li>
+  </ul>
+  
+  <p class="notes">Just like localStorage can make your site faster, misusing it can make it slower. This is the main way that using localStorage can make your site worse.</p>
+</div>
+
+<div class="slide">
+  <h1>How do you know what's slowing down your site?</h1>
+  
+  <p>Time your site in target browsers and find the slow points.</p>
+  <p>
+  <img src="http://dl.dropbox.com/u/10998095/Screenshots/9wuobc8~8yri.png">
+  </p>
+  <p>&#9758; <a href="http://blog.pamelafox.org/2011/10/phonegap-loading-performance-in-ios.html">Blog post: Measuring performance in PhoneGap</a>, <a href="http://remysharp.com/2007/04/20/performance-profiling-javascript/">Blog post: Performance Profiling in JavaScript</a>, <a href="http://en.wikipedia.org/wiki/List_of_performance_analysis_tools#JavaScript">JS Performance Analysis Tools</a>
+  </p>
+</div>
+
+
+<div class="slide">
+  <h1 class="dont-header">Don't serialize unnecessarily</h1>
+  
+  <h1 class="do-header">Do use strings where possible</h1>
+  
+  <p>Before:</p>
+<pre class="prettyprint">
+function store(key, val) {
+  localStorage.setItem(key, JSON.stringify(val));
+}
+store('num', 1);
+store('on', true);
+store('name', 'pamela');</pre>
+  
+  <p>After:</p>
+<pre class="prettyprint">
+function store(key, val) {
+  localStorage.setItem(key, val);
+}
+store('num', '1');
+store('on', 'true');
+store('name', 'pamela');</pre>
+  
+  <p>How much faster? <br><br>
+  <a href="http://jsperf.com/passing-strings-vs-primitive-in-localstorage">jsperf: Primitives vs. Strings</a>
+  <a href="http://jsperf.com/json-stringify-or-string-for-localstorage">jsperf: Optional use of JSON stringify</a>
+  </p>
+  
+</div>
+
+<div class="slide">
+  <h1 class="dont-header">Don't use excessive keys</h1>
+  
+  <h1 class="do-header">Do combine keys commonly accessed together</h1>
+
+  <p>Before:</p>
+  <pre class="prettyprint">
+localStorage.setItem('first', 'pamela');
+localStorage.setItem('middle', 'susan');
+localStorage.setItem('last', 'fox');</pre>
+  
+  <p>After:</p>
+  <pre class="prettyprint">
+localStorage.setItem('name', 'pamela susan fox');</pre>
+ 
+   <p>How much faster?  <br><br>
+      <a href="http://jsperf.com/localstorage-1-long-key-vs-multiple-short-keys">jsperf: 1 long key vs. multiple short keys</a>
+   </p>
+
+   <p class="notes">
+   Balance need for serialization vs time it takes to access. 
+   </p>
+</div>
+
+<div class="slide">
+  <h1 class="dont-header">Don't do excessive gets/sets</h1>
+  
+  <h1 class="do-header">Do cache data in local memory or the DOM, and only get/set on window load/unload.</h1>
+  
+  <p>Before:</p>
+  <pre class="prettyprint">
+$('input[type="checkbox"]').click(function() {
+  localStorage.setItem($(this).attr('name'), $(this).is(':checked'));
+});</pre>
+  
+  <p>After:</p>
+  <pre class="prettyprint">
+window.onunload = function() {
+  $('input[type="checkbox"]').each(function() {
+    localStorage.setItem($(this).attr('name'), $(this).is(':checked'));
+  });
+};</pre>
+  
+  <p>Examples:  <br><br>
+  <a href="http://teaching-materials.org/exercises/">Exercise Explorer: Caching in local memory</a>,
+  <a href="https://gist.github.com/2928064">Hearty Extension: Caching in the DOM</a>
+  </p>
+  
+</div>
+
+<div class="slide">
+  <h1 class="dont-header">Don't block the UI</h1>
+  
+  <h1 class="do-header">Do defer using localStorage until onload</h1>
+  
+  <p>Before:</p>
+  <pre class="prettyprint">
+&lt;head&gt;
+&lt;script&gt;
+  $('#name').html(localStorage.getItem('name'));
+&lt;/script&gt;
+&lt;/head&gt;</pre>
+  
+  <p>After:</p>
+  <pre class="prettyprint">
+&lt;html&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;script&gt;
+window.onload = function() {
+  $('#name').html(localStorage.getItem('name'));
+};
+&lt;/script&gt;
+&lt;/html&gt;</pre>
+    
+  <p>&#9758; 
+  <a href="http://www.kryogenix.org/days/2009/07/03/not-blocking-the-ui-in-tight-javascript-loops">Not Blocking the UI in Tight JS Loops</a>
+  </p>
+  
+  <p class="notes">Many libraries actually do a localStorage get/set when loaded, watch out for that- like Modernizr.
+  Defer!
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1 class="dont-header">Don't block the UI</h1>
+  
+  <h1 class="do-header">Do use setTimeout to defer localStorage access</h1>
+  
+  <img src="http://dl.dropbox.com/u/10998095/Screenshots/p2a3d8kse931.png">
+  
+  <p>Before:</p>
+  <pre class="prettyprint">
+$('button').click(function() {
+  var name = localStorage.getItem('name');
+  $('#name').html(name);
+});</pre>
+  
+  <p>After:</p>
+  <pre class="prettyprint">
+$('button').click(function() {
+  window.setTimeout(function() {
+    var name = localStorage.getItem('name');
+    $('#name').html(name);
+  }, 10);
+});</pre>
+    
+  <p>&#9758; <a href="http://www.slideshare.net/nzakas/responsive-interfaces">Nicholas Zakas: Responsive Interfaces</a>,
+  </p>
+  
+</div>
+
+<div class="slide">
+  <h1 class="dont-header">Don't block the UI</h1>
+  
+  <h1 class="do-header">Do throttle or debounce to avoid repetitive gets/sets</h1>
+  
+  <p>Before:</p>
+  <pre class="prettyprint">
+$('textarea').keydown(function() {
+  localStorage.setItem('text', $(this).text());
+});</pre>
+  
+  <p>After:</p>
+  <pre class="prettyprint">
+$('textarea').keydown(function() {
+  $.debounce(250, function() {
+    localStorage.setItem('text', $(this).text());
+  });
+});</pre>
+  
+  <p>
+  <a href="http://horia.me/two-tips-for-localstorage">Blog Post: 2 LocalStorage Tips</a>,
+  <a href="http://benalman.com/projects/jquery-throttle-debounce-plugin/">jQuery Throttle/Debounce Plugin</a>
+  </p>
+  
+</div>
+
+ 
+
+
+<div class="slide">
+  <h1 class="dont-header">WORSE: A dysfunctional site.</h1>
+  
+  <ul>
+    <li>Don't assume localStorage works or will always work.</li>
+    <li>Don't use key names that collide.</li>
+  </ul>
+  
+</div>
+
+<div class="slide">
+  <h1 class="dont-header">Don't assume localStorage works or will always work.</h1>
+  
+  <h1 class="do-header">Do check for feature support, writeable, quota.</h1>
+  
+  Bad:
+  <pre class="prettyprint">
+localStorage.setItem('bla', 'bla');</pre>
+  
+  Better:
+  <pre class="prettyprint">
+if (window.localStorage) {
+  localStorage.setItem('bla', 'bla');
+}</pre>
+  
+  Best:
+  <pre class="prettyprint">
+if (window.localStorage) {
+  try {
+    localStorage.setItem('bla', 'bla');
+  } catch(e) {
+    if (e.name === 'QUOTA_EXCEEDED_ERR' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+    } else {
+    }
+  }
+}</pre>
+  
+  <p>Most localStorage libraries take care of this for you.</p>
+  <p class="notes">  // incognito mode </p>
+   
+</div>
+
+<div class="slide">
+  <h1 class="dont-header">Don't use key names that collide.</h1>
+
+  <h1 class="do-header">Do use highly descriptive keys with pseudo namespaces.</h1>
+  
+  Before:
+  <pre class="prettyprint">
+localStorage.setItem('name', 'pamela');</pre>
+  
+  After:
+  <pre class="prettyprint">
+localStorage.setItem('conference-speaker-first-name', 'pamela');</pre>
+  
+  After:
+  <pre class="prettyprint">
+lscache.setBucket('conference-speaker');
+lscache.set('first-name', 'pamela');</pre>
+  
+  <p>
+  No excuses: <a href="http://jsperf.com/use-descriptive-names">jsperf: Long vs. short names</a>
+  </p>
+</div>
+
+<div class="slide">
+  <h1><a href="exercise_storage.html">Exercise Time!</a></h1>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- IndexedDB -->
+
+<div class="slide section">
+  <h1>IndexedDB</h1>
+</div>
+
+<div class="slide">
+  <h1>IndexedDB</h1>
+
+  <p><code>window.indexedDB</code></p>
+
+  <ul>
+    <li>Object based data store</li>
+    <li>In-order retrieval by index or key</li>
+    <li>Asynchronous or synchronous API</li>
+  </ul>
+
+</div>
+
+<div class="slide">
+  <h1>IndexedDB</h1>
+
+  <textarea class="runnable js" style="height:500px;" rows="10">
+var videoData = [
+  { youtube: "epUk3T2Kfno", title: "Otters Holding Hands", author: "cynthiaholmes", rating: "5"},
+  { youtube: "LKpnZ7cwWuY", title: "Oooh Cat", author: "TheTenMinuteMan", rating: "4"},
+  { youtube: "TddFnTB_7IM", title: "Trip through the 80s", author: "mellberty", rating: "4.5"},
+  { youtube: "vifVEg7NepI", title: "The Coconut Song", author: "cornbugles", rating: "3.5"}
+];
+var dbName = "videos";
+var db;
+var request = indexedDB.open(dbName, 2);
+
+request.onerror = function(event) {
+  console.log(event);
+};
+
+request.onsuccess = function(event) {
+  db = event.target.result;
+  showAll();
+};
+
+request.onupgradeneeded = function(event) {
+  db = event.target.result;
+
+  var objectStore = db.createObjectStore("videos", { keyPath: "youtube" });
+  objectStore.createIndex("title", "title", { unique: false });
+  objectStore.createIndex("rating", "rating", { unique: false });
+ 
+  for (var i in videoData) {
+    objectStore.add(videoData[i]);
+  }
+};
+
+function showAll() {
+  var objectStore = db.transaction("videos").objectStore("videos");
+   
+  objectStore.openCursor().onsuccess = function(event) {
+    var cursor = event.target.result;
+    if (cursor) {
+      var iframe = document.createElement('iframe');
+      iframe.src = 'http://www.youtube.com/embed/' + cursor.key;
+      iframe.width = '300';
+      iframe.height = '200';
+      document.getElementById('demo').appendChild(iframe);
+      cursor.continue();
+    }
+  };
+};
+</textarea>
+
+  <p class="footer">Read more: 
+    <a href="http://www.w3.org/TR/IndexedDB/">Indexed DB spec</a>,
+    <a href="https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB">MDN: Using IndexedDB</a>
+  </p>
+
+  <p class="notes">As you can see from how much longer this code is, the IndexedDB API is a bit
+  more complex - but it's also more capable. It's an API for storing large amounts of structured data,
+  and doing queries on that data using indexed. It's a database, but a non-relational database- so no SQL queries.
+  Everything you do happens in a transaction, and all the requests to set or fetch data are asynchronous.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>IndexedDB: open database</h1>
+
+  <textarea class="js">
+var request = indexedDB.open("videos", 2);
+
+request.onerror = function(event) {
+  // handle error
+};
+
+request.onsuccess = function(event) {
+  db = event.target.result;
+  // manipulate DB
+};
+
+request.onupgradeneeded = function(event) {
+  db = event.target.result;
+  // set up object stores
+};
+  </textarea>
+
+</div>
+
+
+<div class="slide">
+  <h1>IndexedDB: create stores</h1>
+
+  <textarea class="js">
+var objectStore = db.createObjectStore("videos", { keyPath: "youtube" });
+
+objectStore.createIndex("title", "title", { unique: false });
+
+objectStore.createIndex("url", "url", { unique: true });
+
+  </textarea>
+
+</div>
+
+
+<div class="slide">
+  <h1>IndexedDB: create stores</h1>
+
+  <textarea class="js">
+var objectStore = db.createObjectStore("videos", { keyPath: "youtube" });
+
+objectStore.createIndex("title", "title", { unique: false });
+
+objectStore.createIndex("url", "url", { unique: true });
+
+for (var i in videoData) {
+  objectStore.add(videoData[i]);
+}
+  </textarea>
+
+</div>
+
+<div class="slide">
+  <h1>IndexedDB: querying data</h1>
+
+  <textarea class="js">
+var transaction = db.transaction(["videos"]);
+var objectStore = transaction.objectStore("videos");
+var request = objectStore.get("vifVEg7NepI");
+request.onerror = function(event) {
+  // Handle errors!
+};
+request.onsuccess = function(event) {
+  alert("Title for ID is vifVEg7NepI is " + request.result.title);
+};
+  </textarea>
+
+</div>
+
+<div class="slide">
+  <h1>IndexedDB: fetching all data</h1>
+
+  <textarea class="js">
+var objectStore = db.transaction("videos").objectStore("videos");
+ 
+objectStore.openCursor().onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    var iframe = document.createElement('iframe');
+    iframe.src = 'http://www.youtube.com/embed/' + cursor.key;
+    iframe.width = '200';
+    iframe.height = '100';
+    document.getElementById('demo').appendChild(iframe);
+    cursor.continue();
+  }
+};
+  </textarea>
+
+</div>
+
+<div class="slide">
+  <h1>IndexedDB: Why use a library?</h1>
+
+  <ul>
+    <li>Not the simplest API.</li>
+    <li>Many fundamental differences across browser versions.</li>
+    <li>Not supported in all browsers, fallbacks needed.</li>
+  </ul>
+
+</div>
+
+
+<div class="slide">
+  <h1>Storage library: <a href="http://westcoastlogic.com/lawnchair/">Lawnchair</a></h1>
+
+  <br>
+  <p>Includes <b>serialization</b>, <b>fallbacks</b> (window.name, userData, gears, indexedDB)</p>
+  <p>Optional plugins for <b>aggregation</b>, <b>pagination</b>, and <b>queries</b>.</p>
+
+  <textarea class="runnable js">
+var bands = Lawnchair(function() {
+  this.save({key:'abba', name: 'ABBA', hometown: 'Stockholm'});
+
+  this.get('abba', function(band) {
+    $('#demo').html(band.name + ' is from ' + band.hometown);
+  });
+});
+  </textarea>
+
+  <p class="notes">
+  Another popular wrapper library is LawnChair, which is similar but uses asynchronous functions for setting and getting,
+  so that it can be used with asynchronous APIs - so it actually has adapters to work with indexedDB, plus the older techniques.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>Other IndexedDB Libraries</h1>
+
+  <ul>
+    <li><a href="http://nparashuram.com/IndexedDBShim/">IndexedDB Polyfill</a>: Falls back to WebSQL.</li>
+    <li><a href="http://persistencejs.org/">persistence.js</a>: Falls back to localStorage, memory, mySQL on Node, AppEngine</li>
+    <li><a href="http://git.yathit.com/ydn-db/wiki/Home">YDN-DB</a>: Falls back to localStorage, webSQL.</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1><a href="exercise_indexeddb.html">Exercise Time!</a></h1>
+</div>
+
+
+<!--- FILE APIs -->
+<div class="slide">
+  <h1>File APIs</h1>
+</div>
+
+<div class="slide">
+  <h1>(Many) File APIs</h1>
+
+
+  <ul>
+    <li>Reading and manipulating:<br>
+    <code>File / Blob, FileList, FileReader</code><br>
+    <a href="http://dev.w3.org/2006/webapi/FileAPI/">http://dev.w3.org/2006/webapi/FileAPI/</a>
+    </li>
+    <li>Creating and writing:<br>
+    <code>BlobBuilder, FileWriter, FileSaver</code><br>
+    <a href="http://dev.w3.org/2009/dap/file-system/file-writer.html">http://dev.w3.org/2009/dap/file-system/file-writer.html</a>
+    <li>Directories and System:<br>
+    <code>FileSystem</code><br>
+    <a href="http://dev.w3.org/2009/dap/file-system/pub/FileSystem/">http://dev.w3.org/2009/dap/file-system/pub/FileSystem/</a>
+  </ul>
+</div>
+
+
+<div class="slide">
+  <h1>FileList and FileReader APIs Demo</h1>
+
+
+  <textarea class="runnable html">
+&lt;input type="file" multiple accept="image/*"
+           onchange="handleFiles(this.files)"&gt;
+
+&lt;div id="preview"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+function handleFiles(files) {
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    if (!file.type.match(/image.*/)) {
+      continue;
+    }
+    var preview = document.getElementById("preview");
+    var img = document.createElement("img");
+    img.file = file;
+    preview.appendChild(img);
+     
+    var reader = new FileReader();
+    reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+    reader.readAsDataURL(file);
+  }
+}
+&lt;/script&gt;
+</textarea>
+  <p>See: <a href="https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications">MDN: Using files from web apps</a>
+    </p>
+</div>
+
+<div class="slide">
+  <h1>FileWriter APIs: Demo</h1>
+
+  <textarea class="runnable js">
+function onInitFs(fs) {
+  fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
+    fileEntry.createWriter(function(fileWriter) {
+      fileWriter.seek(fileWriter.length);
+      var blob = new Blob(['User ran exciting demo at ' + (new Date()).getTime()], {type: 'text/plain'});
+      fileWriter.write(blob);
+      readFile(fs);
+    }, errorHandler);
+  }, errorHandler);
+}
+
+function readFile(fs) {
+  fs.root.getFile('log.txt', {}, function(fileEntry) {
+    fileEntry.file(function(file) {
+       var reader = new FileReader();
+       reader.onloadend = function(e) {
+         var txtArea = document.createElement('textarea');
+         txtArea.value = this.result;
+         document.getElementById('demo').appendChild(txtArea);
+       };
+       reader.readAsText(file);
+    }, errorHandler);
+  }, errorHandler);
+}
+
+function errorHandler(e) {
+  console.log('Error: ' + e.code);
+}
+
+window.webkitRequestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
+  
+  </textarea>
+
+  <p class="footer">Read more: 
+
+    <a href="http://www.html5rocks.com/en/tutorials/file/filesystem/">HTML5 Rocks: Exploring the file system API.
+    </a>
+  </p>
+
+  <p class="notes">The File API is a way for websites to store files on the user's file system,
+  scoped to their own little sandbox. Some developers might prefer the idea of storing files
+  to the idea of using a database, but more importantly, you can use the File API
+  to easily store binary files, like images or PDFs.
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Web options comparison -->
+
+<div class="slide">
+  <h1>Let's compare!</h1>
+
+
+  <marquee>FIGHT!!!</marquee>
+</div>
+
+
+<div class="slide">
+  <h1>Which to use?</h1>
+
+  <ul>
+   <li>What kind of data can you store?
+   <li>How much data can you store?
+   <li>How can you query data?
+   <li>How well does it perform?
+   <li>What browsers does it work in?
+  </ul>
+
+  <p class="footer">Read more: <a href="http://www.html5rocks.com/en/tutorials/offline/storage/">Client-side Storage Comparison</a></p>
+
+  <p class="notes">So HTML5 gives you a few options, and that's because they each differ a bit and have their own pros and cons.
+  Let's go through the questions I think you should be asking yourself when you're deciding which one to use.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>What kind of data can you store?</h1>
+
+  <table class="table table-bordered storage-table">
+  <tbody>
+    <tr><td>cookies        </th><td>String</td></tr>
+    <tr><td>localStorage   </th><td>Strings</td></tr>
+    <tr><td>IndexedDB      </th><td>Most JS Objects</td></tr>
+    <tr><td>File API       </th><td>Text, Binary </td></tr>
+  </tbody>
+  </table>
+
+  <p class="notes">First, what kind of data do you need to store? Cookies and localStorage technically accept only strings, but of course,
+  we know in programming that you can serialize many pieces of data in strings, so if it's not binary, you can probably store it.
+  IndexedDB can natively store most JavaScript objects (with a few exceptions like functions), and the File API
+  can store both text and binary objects.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>How much data can you store?</h1>
+
+  <table class="table table-bordered storage-table">
+   <tbody>
+    <tr><td>cookies           <td>4KB each, 20 per domain min
+    <tr><td>localStorage      <td>2.5-5MB average
+    <tr><td>IndexedDB         <td colspan="2">Temporary: up to 20% of available space per app. <br> Permanent: Can request up to 100% of available space.
+    <tr><td  style="border-right: 1px solid #ccc;">File API          
+  </table>
+
+  <p class="footer">Read more: <a href="http://dev-test.nemikor.com/web-storage/support-test/">WebStore support test</a>, <a href="http://updates.html5rocks.com/2011/11/Quota-Management-API-Fast-Facts">Chrome Quota Management API</a></p>
+
+  <p class="notes">How much you can store of those types of data matters. Cookies can only store up to 4Kb each,
+  and the spec tells browsers to support a minimum of 20 per domain and 300 total. 
+  localStorage quota varies, which some browsers supporting 2MB total per domain, and others seemingly unlimited. The average is 5MB.
+  The indexedDB and File API specs don't yet give recommendations for quota, so currently Chrome is experimenting
+  with a unified quota API for them. With that quota system, there are 2 types of storage - temporary and permanent.
+  Anything in temporary storage can be evicted by the browser whenever it feels like, while data in permanent storage
+  will only be removed at the user or app's request. An app can use up to 20% of total available temporary storage space,
+  but to use permanent storage, they must explicitly request the user, and then they can request whatever the user has available.
+  With all of these, you can never safely assume that you can store everything. It's the user's computer, not your
+  server, so it's ultimately up to them to decide what to do with their hard drive space.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>What kind of queries can you do?</h1>
+
+  <table class="table table-bordered storage-table">
+   <tbody>
+    <tr><td>cookies           <td>Key  <td>
+<pre>document.cookie</pre>
+    <tr><td>localStorage      <td>Key  <td>
+<pre>localStorage.getItem('fish');</pre>
+    <tr><td>IndexedDB         <td>Indexes <td> 
+
+<pre>var index = store.index("name");
+index.openCursor(IDBKeyRange.bound("A", "B")</pre>
+    <tr><td>File API          <td>Filename <td>
+<pre>fs.root.getFile('image.png',
+                     {}, function(fileEntry) {});
+</pre>
+  </table>
+
+  <p class="footer">Read more: <a href="https://developer.mozilla.org/en/IndexedDB/Using_IndexedDB#Using_an_index">IndexedDB: Using an Index</a>
+  </p>
+  <p class="notes">Once the data is stored, how do you get it back out? What kind of queries can you do?
+  With cookies, localStorage, and the File API, you just query by name and get back the value - basic. With IndexedDB,
+  you can create indexes on properties and cursors with key ranges, and get back the matching objects.
+  </p>
+</div>
+
+<div class="slide">
+   <h1>How well does it perform?</h1>
+
+   <table class="table table-bordered storage-table">
+    <tbody>
+     <tr><td>cookies        <td>Bigger HTTP requests, Read/writes to disk
+     <tr><td>localStorage   <td>Blocking read/writes, Serialization, Read/writes to disk
+     <tr><td>IndexedDB      <td>Async read/writes, Read/writes to disk
+     <tr><td>File API       <td>Async read/writes, Read/writes to disk
+  </table>
+
+  <p class="footer">Read more: <a href="http://calendar.perfplanet.com/2011/localstorage-read-performance/">LocalStorage read performance</a>, <a href="http://jsperf.com/localstorage-performance">localStorage performance</a>
+  </p>
+
+  <p class="notes">
+  For all of these, in order for the data to persist, the browser must write the data to disk, and read it from disk-
+  and anytime you do that, you're subject to how long it takes to read/write something from the hard drive.
+  Besides that, there are other performance characteristics for each technique.
+  Cookies are added to HTTP requests, so they affect the actual size of HTTP requests over the wire
+  and the subsequent loading time for a page.
+  localStorage is a synchronous API, so when your code sets or retrieves an item, it blocks the rest of the code from executing until the operation is done.
+  Plus, if you're serializing objects into strings, it takes time to do that.
+  The indexedDB and file APIs are both asynchronous APIs, so your code may be a bit more complex, but your website will perform better because
+  the read/write operations aren't blocking.
+  The more data you're storing and fetching, and the more complex that data is, the more performance matters.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>What browsers does it work in?</h1>
+
+  <table  class="table table-bordered storage-table">
+   <thead>
+     <tr><th>               <th>IE   <th>FF  <th>Chrome  <th>Safari  <th>Opera  <th>iOS  <th>Android
+   <tbody>
+     <tr><td>cookies        <td class="green">     <td class="green">    <td class="green">        <td class="green">        <td class="green">       <td class="green">     <td class="green">
+     <tr><td>localStorage   <td class="green">8.0+ <td class="green">3.5+<td class="green">4.0+    <td class="green">4.0+    <td class="green">10.5+  <td class="green">3.2+ <td class="green">2.1+
+     <tr><td>IndexedDB      <td class="green">10+ <td class="green">4+<td class="green">11.0+   <td class="red">        <td class="red">       <td class="red">     <td class="red">
+     <tr><td>File API       <td class="red">     <td class="red">    <td class="green">13.0    <td class="red">        <td class="red">       <td class="red">     <td class="red">
+  </table>
+
+  <p class="footer">caniuse.com: <a href="http://caniuse.com/#feat=namevalue-storage">Web Storage</a>, <a href="http://caniuse.com/#feat=indexeddb">IndexedDB</a>, <a href="http://caniuse.com/#feat=filesystem">FileSystem</a>,
+    <a href="https://hacks.mozilla.org/2012/07/why-no-filesystem-api-in-firefox/">Mozilla on File Systems API</a>
+  </p>
+
+  <p class="notes">
+  Lastly but most importantly! The HTML5 persistant storage options vary widely in their browser support, largely because there has been a lot of disagreement over what the client-side storage APIs should look like, and since localStorage was simplest and least controversial, it was implemented first. The browser engines all seem to be fairly happy with indexed DB and the file API now, so we should start to see browser support pick up for them over the next year, but at the current time, it’s pretty limited.
+   </p>
+</div>
+
+
+<div class="slide">
+  <h1>Which to use?</h1>
+
+  <table class="table table-bordered storage-table">
+   <tbody>
+   <tr><td>cookies      <td>Good fallback.
+   <tr><td>localStorage <td>Practical current option. <strong>WIN!</strong>
+   <tr><td>IndexedDB    <td>Good future option.
+   <tr><td>File API     <td>Chrome-only!
+  </table>
+
+  <p class="notes">
+  For this talk, I will focus on ways to use localStorage - but when those other options become better supported cross-platform, you should very well be able to pick the best one for the job. Let's look a bit more at localStorage now.
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Why to use local storage -->
+<div class="slide">
+  <h1>Use Cases</h1>
+</div>
+
+<div class="slide">
+  <h1>What can we do with client-side storage?</h1>
+
+  <ul>
+   <li>Remember user data
+   <li>Retain application state
+   <li>Remember form input
+   <li>Improve performance
+   <li>Help the app work offline
+  </ul>
+
+  <p class="notes">We can use localStorage for some of the things we used to use cookies for,
+  but we can also use it for a wider range of use cases to improve the user experience of our website,
+  which is hopefully what we're all trying to do.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>Remember user data</h1>
+
+  <ul>
+   <li>For apps that don't have a server-side (yet/ever)
+   <li>For apps that don't want to force user login for interactivity
+   <li>For apps that live only in the client (extensions/mobile)
+  </ul>
+
+  <p class="notes">One way we can use it is to remember user data.
+  Sure, you can remember user data on the server and often should, but there are a few times when
+  you might want to save it on the client instead - 
+  like if you want to let users have a customized experience on your site without having to sign up,
+  or if you're doing a purely client app like a browser extension or mobile app.</p>
+</div>
+
+<div class="slide">
+  <h1>Remember user data: <a href="http://pamelafox-samplecode.googlecode.com/svn/trunk/europopped/europopped.html">Europopped</a></h1>
+
+  <p>Saves favorites.</p>
+
+  <img class="image-bordered" src="img/screenshot_europopped.png">
+
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>europopped-84858380  <td>-1
+    <tr><td>europopped-99070608  <td>0
+    <tr><td>europopped-100548743 <td>1
+   </tbody>
+  </table>
+
+  <p class="notes">One of my favorite blobs is Europopped, and it catalogs the amazing music and music videos that come out of Europe.
+  I actually really love Europop (in case you didn't catch on yet), so I wanted a way to easily listen to the songs on the blog.
+  I also love maps, so I mashed up the blog posts with a Google map to view them by country. Then when I view a video and like it,
+  I can click the little like button and remember. It's all stored client-side in localStorage.
+  This mashup is completely client-side, and only a few lines of code, and it's just nice that I can add in favorites
+  without needing a server and database. Maybe if anyone else liked europop as much as me, I'd have to add a server.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>Remember user data: dillinger.io</h1>
+
+  <p>Saves user profile.</p>
+
+  <img class="image-bordered" src="img/screenshot_dillinger.png">
+
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>profile <td>{"theme":"ace/theme/textmate","showPaper":false,
+    "currentMd":"lscache\nThis is a simple library that emulates `memcache` functions using HTML5 `localStorage`,&hellip;
+   </tbody>
+  </table>
+
+  <p class="notes">dillinger.io is a Markdown editor that uses localStorage to remember the preferences and last typed text, and let you interact without ever signing in.
+  They do have a sign-in with github option, and ideally they'd migrate from localStorage to the server-side
+  once you signed in with that, so that your preferences would follow you.
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>Remember user data: Quiz Cards</h1>
+
+  <p>Saves what cards the user has seen and how well they've done.</p>
+
+  <img class="image-bordered" src="img/screenshot_quizcards.png">
+
+  <table class="table table-bordered keyvalue-table">
+    <tbody>
+      <tr><td>german-answer-mode         <td>multiple-choice
+      <tr><td>german-silverware-Besteck  <td>{"lastAsked":1322691448489, "timesAsked":1, "timesCorrect":1, "timesIncorrect":0}
+      <tr><td>german-ham-Schinken        <td>{"lastAsked":1322691462282, "timesAsked":1, "timesCorrect":1, "timesIncorrect":0}
+      <tr><td>german-bucket1             <td>[{"id":"arm-Arm","lastAsked":0}, {"id":"cheek-Backe","lastAsked":0}, {"id":"belly-Bauch","lastAsked":0},&hellip;
+  </table>
+
+  <p class="notes">I really like learning languages so I made this Chrome extension for doing interactive flash cards.
+  When you install the extension, you get a little icon in your toolbar that you can click to practice interactive flash cards.
+  It uses the Leitner system of learning, so you see cards less the better you do at them - and that's the data I store in localStorage.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Retain application state</h1>
+
+  <p>The more "app-like" your website is like, the more app state you should persist.
+  </p>
+
+  <ul>
+   <li>Open tabs
+   <li>Expanded/collapsed sections
+   <li>Layout options
+   <li>Dismissed messages
+   <li>etc.
+  </ul>
+
+  <p class="notes">
+  Even if you do have a server to store user preferences and data, there are still some pieces of data
+  that can be better served by client-side storage, like the current state of the application.
+  A user doesn't necessarily expect application state to follow them across clients,
+  and it's sometimes overkill to store that in the server.
+  (And you can always migrate it to the server later if you want).
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Retain app state: <a href="http://eatdifferent.com">EatDifferent</a></h1>
+
+  <p>Remembers which stream the user was viewing, what messages were dismissed.</p>
+
+  <img class="image-bordered" src="img/screenshot_eatdifferent.png">
+
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>lscache-promo-supplies-jan30  <td>hidden
+    <tr><td>lscache-stream-filter-users   <td>everyone
+  </table>
+
+  <p class="notes">This is the app that I'm actually building now - EatDifferent - a nutrition tracking tool.
+  The home screen has streams of different sets of users that you can click between, and I default it to the last viewed
+  stream by remembering that in localStorage. I also use localStorage to remember what messages you've dismissed in the UI.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Retain app state: <a href="http://www.jshint.com">jshint.com</a></h1>
+  <p>Remembers checked options.</p>
+
+  <img class="image-bordered" src="img/screenshot_jshint.png">
+  
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>opts  <td>{"debug":true, "forin":true, "eqnull":false, "noarg":true, "noempty":false, "eqeqeq":true, "boss":false, "loopfunc":true, "evil":true, "laxbreak":true, "bitwise":true, "strict":true, "undef":true, "curly":true, "nonew":true, "browser":true, "devel":false, "jquery":false, "es5":false, "node":false}
+  </table>
+
+  <p class="notes">
+  JSHint is a tool which checks your JS code quality and includes many options,
+  since JavaScript style varies. On the online version, you can check the options and it remembers that for the next time you visit.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Remember form input</h1>
+
+  <ul>
+    <li>Login username/email
+    <li>Unsaved drafts
+    <li>Stuff that's often the same
+  </ul>
+  
+  <ul>
+   <p>Specialized libraries:</p>
+   <li><a href="https://github.com/phunkei/autoStorage">autoStorage</a>
+   <li><a href="https://github.com/blackcoat/Savify">Savify</a>
+  </ul>
+
+  <p class="notes">
+  You can also remember user entered form input - like their login username, information in forms that they fill out often, and long text input
+  that they perhaps meant to save but didn't for whatever reason.
+  It's a great use of localStorage because the form input doesn't *need* to be remembered, but it can bring a lot of joy to the user if it is - like magic.
+  You just have to consider carefully which parts of a form should actually be remembered, and for how long.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Remember form input: <a href="http://www.jsperf.com">jsperf.com</a></h1>
+  <p>Remembers the author information.</p>
+
+  <img class="image-bordered" src="img/screenshot_jsperf.png">
+
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>author-email  <td>pamela.fox@gmail.com
+    <tr><td>author        <td>Pamela Fox
+    <tr><td>author-url    <td>http://pamelafox.org
+  </table>
+  <p class="notes">On jsperf.com, they have a form for creating new test cases. It remembers your author information, since that's always the same,
+  and it also uses the same author information to auto-populate the comments creation form.</p>
+
+</div>
+
+<div class="slide">
+  <h1>Remember form input: <a href="http://blog.pamelafox.org/2012/02/delayed-image-loading-on-long-pages.html">Disqus</a></h1>
+
+  <p>Remembers unposted comment drafts.
+  </p>
+ 
+  <img class="image-bordered" src="img/screenshot_disqus.png">
+  
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+     <tr><td>disqus.drafts  <td>[{"thread:delayed_image_loading_on_long_pages": "I'm going to write a really long and epic comment, and I will be really mad if I accidentally move away from the page and lose this comment, mmm kay?"}]
+  </table>
+  <p class="notes">Disqus is a popular embedded commenting system, and they added a feature to remember the text that you typed in a comment box
+  but didn't post, so that if you accidentally leave a page and come back, your comment draft will still be there.
+  The new Twitter does this, and they also save an expiration so they don't show the draft after a certain point.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Improve performance</h1>
+
+  <ul>
+   <li>Cache API results
+   <li>Cache AJAX results
+   <li>Cache resources
+  </ul>
+
+  <ul><p>Specialized libraries:</p>
+   <li><a href="http://github.com/pamelafox/lscache">lscache</a>, <a href="">lscache jQuery plugin</a>
+   <li><a href="https://github.com/codepo8/yql-localcache/">YQL LocalCache</a>
+   <li><a href="https://github.com/linkedin/inject">Inject</a>
+  </ul>
+    
+  <p class="notes">Websites are increasingly reliant on AJAX requests and API requests, and many times these requests can be cached so users dont have to wait so long.
+  Yes, you can set cache headers on the server so that the browser serves them out of its cache, but there are sometimes when it's better to use localStorage.
+  You have more control when you do the caching yourself in the client-  you can invalidate the resources yourself, and you can cache requests for different amounts of time in different areas of your site.
+  Plus, mobile browsers have smaller caches and can do less HTTP requests, so you can improve your performance significantly there by using localStorage for caching resources.
+  You can also improve the *apparent* loading speed for a page, by loading in old data first from localStorage, then refreshing with new data.
+</p>
+</div>
+
+<div class="slide">
+  <h1>Improve performance: <a href="http://www.ragetube.net">RageTube</a></h1>
+
+  <p>Caches parsed playlists, Youtube API search results.</p>
+
+  <img class="image-bordered" src="img/screenshot_ragetube.png">
+
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+     <tr><td>youtube: Hot Chip I Feel Better<td>[{"id":"5GOZjlwIwfk","uploaded":"2010-03-17T17:53:17.000Z","category":"Music","title":"Hot Chip - I Feel Better",&hellip;
+     <tr><td>youtube: Hot Chip I Feel Better-expiration <td>22153109
+     <tr><td>parser: http://www.a&hellip; <td>{"songs":[{"artist":"Angus &amp; Julia Stone","title":"Big Jet Plane","id":"angusandamp; julia stone-big jet plane"},&hellip;
+  </table>
+
+  <p class="notes">Here's another music video mashup of mine, which I made when I was in Australia and couldn't use Pandora or Spotify or any good streaming music service.
+  RageTube turns online playlists from an Australian TV channel into Youtube videos, and it uses two APIs - one to parse the playlists, and the other to
+  parse the Youtube API search results. I use lscache to parse both these API results - the playlist indefinitely, and the API search results for a few days, because video searches don't change that often. So if a user often loads in the same playlist, RageTube will make much less requests to the APIs.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Improve performance: <a href="http://10k.aneventapart.com/1/Uploads/185/">World Info</a></h1>
+  <p>Caches YQL API results.</p>
+  
+
+  <img class="image-bordered" src="img/screenshot_theworld.png">
+
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>thewholefrigginworld  <td>{"query": {"count":247, "created":"2012-02-12T14:32:56Z", "lang":"en-US", "results": {"place":[{"name":"Afghanistan", "centroid": {"latitude":"33.930450", "longitude":"67.678940", &hellip;
+  </table>
+
+  <p class="footer">Read more: <a href="http://coding.smashingmagazine.com/2010/10/11/local-storage-and-how-to-use-it/">LocalStorage &amp; How to Use it</a></p>
+  <p class="notes">Here's a mashup by Christian Heilmann that shows information about the world. He uses the YQL API to fetch the country info,
+  and then he stores that all in one key - "thewholefrigginworld". He also wrote a YQL-localStorage library.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Improve performance: <a href="http://m.facebook.com">Mobile Facebook</a></h1>
+  <p>Caches autocomplete data.</p>
+  <img class="image-bordered" src="img/screenshot_facebook.png">
+
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>typeahead   <td>{"time": 1329151694363, "value": {"friends": [{"path": "/anton.kovalyov", "photo": "http://profile.ak.fbcdn.net/hprofile-ak-snc4/186412_506803098_992151709_q.jpg", "text": "Anton Kovalyov", "uid": 506803098,},&hellip;
+  </table>
+  <p class="notes">Facebook mobile uses localStorage to make friend searches and autocompletes faster, by fetching your friends and caching. 
+  It's a great example of where it's okay if the data is slightly stale. Twitter does something similar.</p>
+</div>
+
+<div class="slide">
+  <h1>Improve performance: Google Mobile</h1>
+
+  <p>Caches JS and CSS files.</p>
+
+  <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>mres.-8Y5Dw_nSfQztyYx  <td>&lt;style&gt;a{color: #11c} a:visited{color: #551a8b} body{margin:0;pad&hellip;
+    <tr><td>mres.-Kx7q38gfNkQMtpx  <td>&lt;script&gt; //&lt;![CDATA[ var Zn={},bo=function(a,b){b&amp;&amp;Zn[b]||(ne&hellip;
+    <tr><td>mres:time.-8Y5Dw_nSfQztyYx  <td>1301368541872
+    <tr><td>mres:time.-Kx7q38gfNkQMtpx  <td>1301368542755
+  </table>
+  <pre>
+  var c=localStorage.getItem("mres."+a);
+  if (c) {
+    document.write(c);
+    localStorage.setItem("mres:time."+a,Date.now());
+  } else {
+     window._clearCookie("MRES");
+     document.location.reload(!0);
+  }
+  </pre>
+
+  <p class="footer">Read more: <a href="http://www.stevesouders.com/blog/2011/03/28/storager-case-study-bing-google/">Bing & Google Case Study</a>
+  </p>
+
+  <p class="notes">
+  Both Google Mobile and Bing mobile search use localStorage to cache their HTML, CSS, and JS, to ultimately make their search page download smaller.
+  It's a little complicated, but basically they assign IDs to parts of their webpage, store them in localStorage, remember the IDS and expirations in a cookie,
+  and when the server sees that cookie, it doesn't re-send those stored parts.
+  </p>
+</div>
+
+<div class="slide">
+   <h1>Improve performance: <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/demos/exp/exp_webstorage.html">ESRI Maps</a></h1>
+   <p>Caches map tile images.</p>
+
+   <img class="image-bordered" src="img/screenshot_esrimaps.png">
+
+   <table class="table table-bordered keyvalue-table">
+   <tbody>
+    <tr><td>http://server&hellip;/tile/12/1409/2075 <td>/9j/4AAQSkZJRgABAQEAYABgAAD/2wB&hellip;
+    <tr><td>http://server&hellip;/tile/12/1410/2077 <td>/9j/4AAQSkZJRgABAQEAYABgAAD/2wB&hellip;
+  </table>
+
+   <p class="footer">Read more: <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jssamples_start.htm#jssamples/exp_webstorage.html">Storing tiles in localStorage</a></p>
+
+   <p class="notes">You can actually use localStorage to cache images, by converting them from binary data into data URIs.
+   If you use a massive number of images on your site, you might want to do this.
+   Here's an example from the ESRI maps API of caching the map tile images - each key is the tile URL, and the value is the data URI.
+   </p>
+
+</div>
+
+
+<div class="slide">
+  <h1>Make app work offline</h1>
+
+  <ul>
+   <li>Cache API results
+   <li>Cache AJAX results
+   <li>Cache resources
+  </ul>
+
+  <ul>
+   <p>Specialized libraries:</p>
+   <li><a href="https://github.com/wycats/jquery-offline">jQuery offline</a>
+  </ul>
+
+  <p class="notes">Do everything that you did to increase performance, but do it so that the app can go offline. But think about the user experience. It might make sense to have stale data for a few minutes on the web, but what about for a few hours on mobile? Or a whole day? And here you have to cache all the necessary data for the app to work, not just the data that will make the app more performant.
+  </p>
+</div>
+
+<div class="slide">
+   <h1>Make app work offline: EatDifferent</h1>
+   <p>Caches user profile and log data.</p>
+
+   <img class="image-bordered" src="img/screenshot_eatdifferentpg.png">
+
+   <table class="table table-bordered keyvalue-table">
+     <tbody>
+      <tr><td>lscache-user              <td>{"first_name":"Testy", "last_name":"McTesterFace", "id", 166, &hellip;
+      <tr><td>lscache-166:log02/14/2012 <td>{"measurements":{"weight":{"units":"","value":"150"}, "meals":[{"what":"sausage","when":"12:00pm",&hellip;
+   </table>
+
+   <p class="notes">For the mobile app for EatDifferent, I use localStorage so that it works when the user is offline.
+   It remembers the information about the last logged in user, as well as previously loaded daily logs.
+   Once it gets a connection to the network, it tries to re-fetch both the user and log data,
+   and then refreshes the UI with the new data.
+   </p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Comparison of Web Storage Options -->
+
+
+
+
+
+
+
+<div class="slide">
+  <h1>In conclusion</h1>
+</div>
+
+
+
+<div class="slide">
+  <h1>Know your options</h1>
+
+  <table class="table table-bordered storage-table">
+  <thead>
+  <tr>
+    <td></td>
+    <td>Size</td>
+    <td>Data</td>
+    <td>Perf</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>cookies</td>
+    <td>20 * 4KB</td>
+    <td>Strings</td>
+    <td>Slow load</td>
+  </tr>
+  <tr>
+    <td>localStorage</td>
+    <td>2-5MB</td>
+    <td>Strings</td>
+    <td>Slow access</td>
+  </tr>
+  <tr>
+    <td>IndexedDB</td>
+    <td>&#8734;?</td>
+    <td>Objects</td>
+    <td>Async access</td>
+  </tr>
+  <tr>
+    <td>File API</td>
+    <td>&#8734;?</td>
+    <td>Text,Binary</td>
+    <td>Async access</td>
+  </tr>
+  </tbody>
+  </table>
+  
+  <p>&#9758;<a href="http://www.drdobbs.com/web-development/232900805">Understanding Client-side Storage in WebApps</a></p>
+   
+  <p class="notes">  </p>
+</div>
+
+<div class="slide">
+  <h1>...And your browsers</h1>
+
+  <table class="table table-bordered storage-table">
+   <thead>
+     <tr><th>               </th><th>IE   </th><th>FF  </th><th>Chrome  </th><th>Safari  </th><th>Opera  </th><th>iOS  </th><th>Android
+   </th></tr></thead><tbody>
+     <tr><td>cookies        </td><td class="green">     </td><td class="green">    </td><td class="green">        </td><td class="green">        </td><td class="green">       </td><td class="green">     </td><td class="green">
+     </td></tr><tr><td><a href="http://caniuse.com/#search=localstorage">localStorage</a>   </td><td class="green">8.0+ </td><td class="green">3.5+</td><td class="green">4.0+    </td><td class="green">4.0+    </td><td class="green">10.5+  </td><td class="green">3.2+ </td><td class="green">2.1+
+     </td></tr><tr><td><a href="http://caniuse.com/#search=indexeddb">IndexedDB</a>      </td><td class="green">10 </td><td class="green">FF4+</td><td class="green">11.0+   </td><td class="red">        </td><td class="red">       </td><td class="red">     </td><td class="red">
+     </td></tr><tr><td><a href="http://caniuse.com/#search=filewriter">File API</a>       </td><td class="red">     </td><td class="red">    </td><td class="green">13.0    </td><td class="red">        </td><td class="red">       </td><td class="red">     </td><td class="red">
+  </td></tr></tbody></table>
+  
+  <p>&#9758;<a href="http://caniuse.com">caniuse.com</a></p>
+  
+  <p class="notes">  </p>
+</div>
+
+
+<div class="slide">
+  <h1>Check back soon...!</h1>
+
+  <img src="img/diagram_timeline.png">
+
+  <p class="notes">
+Here's my very technical diagram of the state of client-side storage.
+We inched along with cookies and hacks for a long time, but now we've got localStorage in modern browsers
+and we're close to having IndexedDB and File API in them soon.
+So you can start taking advantage of client-side storage to improve your apps, and look forward to a future
+where you will be able to pick the best tool for the job. 
+Tusen Tack!
+  </p>
+</div>
+
+
+
+<script src="../common/jquery.js" type="text/javascript"></script>
+<script src="../common/fathom.js"></script>
+<!-- Presentation specific scripts -->
+<script src="../common/jquery.overlay.js"></script> 
+<script src="../common/codemirror.js"></script> 
+<script src="js/jsonp.js"></script>
+<script src="js/store.js"></script>
+<script src="js/lawnchair.js"></script>
+<script src="js/lscache.js"></script>
+<script> 
+$(document).ready(function(){
+  $('.slide a').attr('target', '_blank');
+
+  $('textarea').each(function(elem) {
+    var textArea = this;
+    $(textArea).attr('tabIndex', 0);
+
+    var codeMirrorOpts = {
+      lineNumbers: true
+    }
+
+    if ($(textArea).hasClass('html') || $(textArea).hasClass('script')) {
+        codeMirrorOpts.mode = {name: 'xml', htmlMode: true}
+      } else if ($(textArea).hasClass('js')) {
+        codeMirrorOpts.matchBrackets = true;
+    }
+
+    var editor = CodeMirror.fromTextArea(textArea, codeMirrorOpts);
+      
+    $(editor.getWrapperElement()).keydown(function(e) {
+      e.stopPropagation();
+    });
+
+    if ($(textArea).hasClass('runnable')) {
+      var button = $('<button class="btn run-button">Run!</button>');
+      button.click(function() {
+        var code = editor.getValue();
+        if ($(textArea).hasClass('html')) {
+          $('#demo').html(code);
+        } else if ($(textArea).hasClass('script')) {
+          $('body').append(code);
+        } else if ($(textArea).hasClass('js')) {
+          window.eval(code);
+        }
+        $("#demo").leanModal();
+      });
+      $(this).after(button);
+    }
+  });
+
+  var fathom = new Fathom('#presentation');
+
+});
+</script> 
+</body> 
+</html>

@@ -1,0 +1,77 @@
+
+
+/** Demo overlay **/
+
+#overlay {
+  position: fixed;
+  z-index:100;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+  background: #000;
+  display: none;
+}
+
+#demo {
+  width: 700px;
+  font-size: 24px;
+}
+
+
+/** Presentation specific styles **/
+
+.storage-table tbody tr td:first-child {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 28px;
+  width: 100px;
+  height: 100px;
+}
+
+.storage-table pre {
+  font-size: 18px;
+}
+
+.keyvalue-table td {
+  font-family: monospace;
+}
+
+.keyvalue-table tbody tr td:first-child {
+  width: 100px;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  font-size: 18px;
+}
+
+tr.green td {
+  background-color: #00FF00;
+}
+
+tr.red td {
+  background-color: rgba(255, 0, 0, .5);
+}
+
+.storage-table td.green {
+  background-color: #00ff00;
+}
+
+.storage-table td.orange {
+  background-color: orange;
+}
+
+.storage-table td.red {
+  background-color: #ff0000;
+}
+
+div.slide h1.dont-header {
+  background-color: #D10000;
+  font-size: 30px;
+  color: white;
+}
+
+div.slide h1.do-header {
+  background-color: #38CE38;
+  font-size: 30px;
+  color: white;
+}

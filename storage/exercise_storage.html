@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercises: LocalStorage</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <br>
+    <div class="container">
+      <h1>Exercises: LocalStorage</h1>
+      <br><br>
+      <p>These exercises will give you experience with localStorage, ramping up in complexity.
+      Once you feel comfortable with it, try using localStorage in one of your own apps or
+      browser extensions, using one of the localStorage wrapper libraries.
+      </p>
+
+      <p>As you're doing the exercises, make sure you use Chrome Dev Tools for debugging, the resources and console tab.
+      </p>
+      <br>
+      <section>
+      <h3>Cat Walk</h3>
+      <ul>
+        <li>Download <a href="catwalk.html">catwalk.html</a> and open it up. It should display a cat walking happily across the page.
+        <li>Modify the javascript so that it uses localStorage to store the the current location of the cat.
+        <li>When the page loads, check if the information is stored in localStorage, and if so,
+            set the cat to that location.
+        <li>Now modify it to remember the direction that the cat is walking in, and remember that upon page load. Remember that localStorage stores strings, not JavaScript values, so be careful about what you're comparing to.
+      </ul>
+      </section>
+      <br>
+      <section>
+      <h3>Mad Libs</h3>
+
+      <ul>
+        <li>Download <a href="madlibs.html">madlibs.html</a> and open it up. It should have a form that outputs an exciting story when you enter values and submit.
+        <li>Modify the javascript so that it stores the generated phrases in localStorage and displays them on the page. Hint: you probably want to store all of the phrases in one key (“phrases”), and simply add to the value of that key when you see a new phrase.
+        <li>Modify the javascript so that it remembers when the user typed in the form, so that if they reload the page in the middle of entering the form, their input will still be there. Hint: use one key per answer, and think carefully about what event you should respond to. You don't want to slow down their typing!
+      </ul>
+      </section>
+      <br>
+    <section>
+     <h3>Best Videos Ever...?</h3>
+
+     <ul>
+        <li>Download <a href="youtube.html">youtube.html</a> and open it up. It should display 3 of the most Amazing Youtube videos you've ever seen.
+        <li>Next to each video, put a thumbs up image and a thumbs down image, and default them both to a low opacity value. (You can use unicode from copypastecharacter.com or a custom font like font-awesome)</li>
+        <li>When user clicks on one, raise the opacity to 1.0 and make sure the other one is still faded, so that there’s a visible thumbs up or thumbs down next to the video.</li>
+        <li>Store what the user clicked for each video in localStorage, with a key for each video - like “2132132”: “up”</li>
+        <li>When the page reloads, style the thumbs according to what’s in localStorage.</li>
+    </ul>
+    </section>
+
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre?')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+  </body>
+</html>
+
+
+

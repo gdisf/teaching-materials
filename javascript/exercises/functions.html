@@ -84,12 +84,72 @@ function calculateSupply(age, numPerDay) {
   var maxAge = 100;
   var totalNeeded = (numPerDay * 365) * (maxAge - age);
   var message = 'You will need ' + totalNeeded + ' cups of tea to last you until the ripe old age of ' + maxAge;
-   console.log(message);
+  console.log(message);
 }
 
 calculateSupply(28, 36);
 calculateSupply(28, 2.5);
 calculateSupply(28, 400);</pre>
+
+
+<h3 class="page-header">The Geometrizer</h3>
+
+<p>Create 2 functions that calculate properties of a circle, using the <a href="http://math2.org/math/geometry/circles.htm">definitions</a> here.
+</p>
+
+<p>Create a function called <code>calcCircumfrence</code>:</p>
+<ul>
+  <li>Pass the radius to the function.
+  <li>Calculate the circumference based on the radius, and output "The circumference is NN".
+</ul>
+
+<p>Create a function called <code>calcArea</code>:</p>
+<ul>
+  <li>Pass the radius to the function.
+  <li>Calculate the area based on the radius, and output "The area is NN".
+</ul>
+
+<button onclick="showSolution(4)" class="btn">See Solution</button>
+<br><br>
+ <pre id="solution4" style="display:none;">
+function calcGeometry(radius) {
+  var circumference = Math.PI * 2*radius;
+  console.log("The circumference is " + circumference);
+  var area = Math.PI * radius*radius;
+  console.log("The area is " + area);
+}
+</pre>
+
+<h3 class="page-header">The Temperature Converter</h3>
+
+<p>It's hot out! Let's make a converter based on <a href="http://www.mathsisfun.com/temperature-conversion.html">the steps</a> here.</p>
+
+<p>Create a function called <code>celsiusToFahrenheit</code>:</p>
+<ul>
+  <li>Store a celsius temperature into a variable.
+  <li>Convert it to fahrenheit and output "NN°C is NN°F".
+</ul>
+
+<p>Create a function called <code>fahrenheitToCelsius</code>:</p>
+<ul>
+  <li>Now store a fahrenheit temperature into a variable.
+  <li>Convert it to celsius and output "NN°F is NN°C."
+</ul>
+
+<button onclick="showSolution(5)" class="btn">See Solution</button>
+<br><br>
+<pre id="solution5" style="display:none;">
+function celsiusToFahrenheit(celsius) {
+  var celsiusInF = (celsius*9)/5 + 32;
+  console.log(celsius + '°C is ' + celsiusInF + '°F');
+}
+
+function fahrenheitToCelsius(fahrenheit) {
+  var fahrenheitInC = ((fahrenheit - 32)*5)/9;
+  console.log(fahrenheit + '°F is ' + fahrenheitInC + '°C');
+}
+</pre>
+
 
  </div>
 

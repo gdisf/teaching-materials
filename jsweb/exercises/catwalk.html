@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise: The Cat Walk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercise: The Cat Walk</h2>
+
+<ul>
+ <li>Start with this webpage, which has an <code>img</code> of a cat walking, and JavaScript functions
+ that animate the cat across the screen.
+
+ <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;Cat Walk&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  
+  &lt;button id=&quot;start-button&quot;&gt;Start&lt;/button&gt;
+  &lt;button id=&quot;speed-button&quot;&gt;Go Faster!&lt;/button&gt;
+  &lt;button id=&quot;stop-button&quot;&gt;Stop&lt;/button&gt;
+  &lt;div id=&quot;info&quot;&gt;&lt;/div&gt;
+  
+  &lt;img style=&quot;position:absolute; left: 0px; top: 80px;&quot; src=&quot;http://www.anniemation.com/clip_art/images/cat-walk.gif&quot;&gt;
+
+  &lt;script&gt;
+var movePixels = 10;
+var delayMs = 50;
+var catTimer = null;
+function catWalk() {
+  var img = document.getElementsByTagName('img')[0];
+  var currentLeft = parseInt(img.style.left);
+  img.style.left = (currentLeft + movePixels) + 'px';
+  if (currentLeft &gt; (window.innerWidth-img.width)) {
+    img.style.left = '0px';
+  }
+}
+function startCatWalk() {
+  catTimer = window.setInterval(catWalk, delayMs);
+}
+  &lt;/script&gt;
+
+ &lt;/body&gt;
+&lt;/html&gt;</pre>
+ <li>(For all of these, you shouldn't need to touch the original code - just add code below.)
+ <li>Add an event listener to the start button, so that the cat starts moving across the screen when its clicked.
+ <li>Add an event listener to the stop button, so that the cat stops moving when clicked.
+ <li>Add an event listener to the speed button, so that the cat moves faster when it's clicked.
+ <br><br>
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution2" style="display:none;">
+// #1
+function onStartClick() {
+    startCatWalk();
+}
+var startButton = document.getElementById('start-button');
+startButton.addEventListener('click', onStartClick);
+
+// #2
+function onStopClick() {
+   window.clearInterval(catTimer);
+}
+var stopButton = document.getElementById('stop-button');
+stopButton.addEventListener('click', onStopClick);
+
+// #3
+function onSpeedClick() {
+    movePixels += 5;
+    var speed = movePixels * (1000/50);
+    document.getElementById('info').innerHTML = 'Current speed: ' + speed + 'px/second';
+}
+var speedButton = document.getElementById('speed-button');
+speedButton.addEventListener('click', onSpeedClick);
+</pre>
+
+ <li><b>Bonus</b>: Disable the start/stop/faster buttons at the appropriate times (e.g. the user shouldn't be able to click "stop" if the cat isn't currently moving.)
+ <br><br>
+ <button  onclick="showSolution(3)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution3" style="display:none;">
+function onStartClick() {
+    startCatWalk();
+    startButton.setAttribute("disabled", "disabled");
+    stopButton.removeAttribute("disabled");
+    speedButton.removeAttribute("disabled");
+}
+var startButton = document.getElementById('start-button');
+startButton.addEventListener('click', onStartClick);
+
+function onStopClick() {
+   window.clearInterval(catTimer);
+   stopButton.setAttribute("disabled", "disabled");  
+   speedButton.setAttribute("disabled", "disabled");  
+   startButton.removeAttribute("disabled");
+}
+var stopButton = document.getElementById('stop-button');
+stopButton.addEventListener('click', onStopClick);
+stopButton.setAttribute("disabled", "disabled");
+
+function onSpeedClick() {
+    movePixels += 5;
+    var speed = movePixels * (1000/50);
+    document.getElementById('info').innerHTML = 'Current speed: ' + speed + 'px/second';
+}
+var speedButton = document.getElementById('speed-button');
+speedButton.addEventListener('click', onSpeedClick);
+speedButton.setAttribute("disabled", "disabled");
+</pre>
+
+
+ </div>
+
+  <br><br><br><br><br>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>

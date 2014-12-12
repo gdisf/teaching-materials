@@ -1,0 +1,22 @@
+
+
+// Talk about toJSON()
+var booksJSON = books.toJSON();
+
+template({books: booksJSON});
+
+{{#each books}}
+  {{author}}
+
+
+var rendered = template({});
+this.$el.append(rendered);
+
+
+new ChatMessagesView({el: $('.chat-message-wrapper')});
+
+// app.js
+$('.wrapper').append(view.render().$el);
+
+Be more explicit about rendering views
+

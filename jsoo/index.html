@@ -1,0 +1,249 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>JS Object-Oriented Programming</title>
+
+    <base target="_blank">
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/solarized_light.css">
+
+		<script>
+			// If the query includes 'print-pdf' we'll use the PDF print sheet
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+			
+			<div class="slides">
+
+<section>
+	<h1 class="upper">JavaScript<br>Object-Oriented Programming</h1>
+  <br>
+  <br>
+  <h2>teaching-materials.org/jsoo/</h2>
+</section>
+
+
+
+<section>
+  <h1>Object-oriented programming</h1>
+  
+  <img src="images/bookoo.png">
+  <br><br>
+  <ul style="font-size:smaller;">
+    <li>Objects have properties and methods</li>
+    <li>There can be many "instances" of objects</li>
+  </ul>
+
+</section>
+
+
+<section>
+  <h1>Defining objects in JS</h1>
+  
+  <pre><code>// The constructor function
+function Book(title, author, numPages) {
+  // The properties of this object
+  this.title = title;
+  this.author = author;
+  this.numPages = numPages;
+  this.currentPage = 0;
+}
+
+// A method on the object
+Book.prototype.read = function() {
+  this.currentPage = this.numPages;
+  console.log("You read " + this.numPages + " pages!");
+}
+
+// Instantiating a new object
+var book = new Book("Robot Dreams", "Isaac Asimov", 320);
+book.read();
+</pre></code>
+
+</section>
+
+
+
+<section>
+  <h1><a href="exercise_oo.html">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+  <h1>Object-oriented programming</h1>
+  
+  <img src="images/bookoo_extended.png">
+  <br><br>
+  <ul style="font-size:smaller;">
+    <li>Objects can inherit properties/methods of other objects</li>
+    <li>Objects can implement parent methods in different ways</li>
+  </ul>
+
+</section>
+<section>
+  <h1>Extending objects in JS</h1>
+  
+  <pre><code>// The constructor function
+function PaperBack(title, author, numPages, cover) {
+  Book.call(this, title, author, numPages);
+  this.cover = cover;
+}
+// Extending the Book object
+PaperBack.prototype = Object.create(Book.prototype);
+
+// A new method on this object
+PaperBack.prototype.burn = function() {
+  console.log("Omg, you burnt all " + this.numPages + " pages");
+  this.numPages = 0;
+}
+
+// Instantiating a new object
+var paperback = new PaperBack("1984", "George Orwell", 250, "cover.jpg");
+paperback.read();
+paperback.burn();
+ </pre></code>
+  
+</section>
+
+
+<section>
+  <h1><a href="exercise_extend.html">Exercise Time!</a></h1>
+</section>
+
+<section>
+  <h1>Clearer Constructors</h1>
+  
+  <pre><code>function Book(title, author, numPages) {
+  this.title = title;
+  this.author = author;
+  this.numPages = numPages;
+  this.currentPage = 0;
+}
+
+var book = new Book("Robot Dreams", "Isaac Asimov", 320);
+</pre></code>
+    
+  <p>versus:</p>
+  <pre><code>function Book(config) {
+  this.title = config.title;
+  this.author = config.author;
+  this.numPages = config.numPages;
+  this.currentPage = 0;
+}
+
+var book = new Book({
+    title: "Robot Dreams",
+    author: "Isaac Asimov",
+    numPages: 320});
+  </pre></code>
+</section>
+  
+<section>
+  <h1>Optional Arguments</h1>
+  
+  <pre><code>function Book(config) {
+  this.title = config.title;
+  this.author = config.author;
+  this.numPages = config.numPages;
+  this.currentPage = 0;
+}
+
+var book = new Book({
+    title: "Robot Dreams",
+    author: "Isaac Asimov",
+    numPages: 320);
+</pre></code>
+    
+  <p>versus:</p>
+  <pre><code>function Book(config) {
+  config = config || {};
+  this.title = config.title || "Untitled";
+  this.author = config.author || "Unknown";
+  this.numPages = config.numPages || 100;
+  this.currentPage = 0;
+}
+
+var book = new Book({
+    title: "Robot Dreams",
+    numPages: 320);
+  </pre></code>
+</section>
+
+
+<section>
+  <h1><a href="exercise_constructors.html">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+  <h1>"Object-oriented" JavaScript</h1>
+  <br><br>
+
+  <p>JS is not a strict OO language like Java, but can still be used in an OO-like way.</p>
+  <br><br>
+  <p>Future versions of JS may have more OO concepts built into the language.</p>
+</section>
+
+
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Presentation progress bar -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+        rollingLinks: false,
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+				]
+			});
+			
+		</script>
+  
+  </body>
+</html>

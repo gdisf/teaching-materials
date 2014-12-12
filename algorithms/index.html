@@ -1,0 +1,837 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Intro to Algorithms</title>
+
+    <base target="_blank">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/solarized_light.css">
+
+		<script>
+			// If the query includes 'print-pdf' we'll use the PDF print sheet
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+    <style>
+    section table td {
+      border: 1px solid white;
+      margin: auto;
+    }
+    </style>
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+			
+			<div class="slides">
+
+<section>
+	<h1 class="upper">Intro to Algorithms</h1>
+  <br>
+  <br>
+  <h4>teaching-materials.org/algorithms/</h4>
+</section>
+
+<section>
+  <h2>"Algorithm"</h2>
+
+  <br>
+  <blockquote>
+    A repeatable process for determining the solution to a problem.
+  </blockquote>
+</section>
+
+<section>
+  <h2>Algorithms in Daily Life</h2>
+  <br>
+
+  <ul>
+    <li>Finding a fruit in the grocery store.
+    <li>Alphabetizing name tags.
+    <li>Re-organizing your kitchen to make finding stuff easier.
+    <li>Finding keys that you lost.
+    <li>Finding something good to watch on TV.
+    <li>Washing your car windows.
+  </ul>
+
+</section>
+
+<section>
+  <h2>Discuss!</h2>
+
+  <p>What's an algorithm that you use?</p>
+  <p>What are the steps for doing it?</p>
+
+</section>
+
+<section>
+  <h2>Example: Hanging up Laundry</h2>
+
+  <ol>
+    <li>Dump laundry on bed.
+    <li>Pick up each piece of clothing, put in a pile for that type ("shirts", "underwear", "socks", etc.)
+    <li>After all are in piles, go through each item in each pile, and hang up each one.
+  </ol>
+</section>
+
+<section>
+  <h2>Hanging Up Laundry: Code</h2>
+  <br>
+
+  <pre><code>
+var piles = {'shirts': [], 'socks': []}
+for (var i = 0; i &lt; clothing.length; i++) {
+  piles[clothing[i].type].push(clothing[i]);
+}
+for (var pile in piles) {
+  for (var i = 0; i &lt; pile.length; i++) {
+    pile[i].hangUp();
+  } 
+}</pre></code>
+</section>
+
+<section>
+  <h2>Laundry: Time Complexity</h2>
+
+  <p>How long does the algorithm take?</p>
+
+  <p class="fragment">
+    Putting an item in a pile takes 10 seconds.
+    <br>
+    Hanging an item up takes 30 seconds.
+  </p>
+
+  <table class="fragment" style="margin:auto; background:white; padding: 5px;">
+    <thead>
+      <tr><th># items<th># Seconds<th>
+    <tbody>
+    <tr class="fragment"><td>4</td><td>(4*10 + 4*30) <td>160</tr>
+    <tr class="fragment"><td>8</td><td>(8*10 + 8*30) <td>320</tr>
+    <tr class="fragment"><td>16</td><td>(16*10 + 16*30) <td>640</tr>
+  </table>
+  <br>
+
+   <p class="fragment">If N = items of clothing, it takes (N*10 + N*30) => O(N).<br>
+   <img src="http://dl.dropbox.com/u/10998095/Screenshots/8o-1jfj7nvw3.png">
+   </p>
+
+   <!-- even if you are slower, it is STILL linear -->
+
+</section>
+
+<section>
+  <h2>Laundry v2</h2>
+
+  <p>Addition: We hang up our items in sorted order in the closet.</p>
+
+  <pre><code>
+var piles = {'shirts': [], 'socks': []}
+for (var i = 0; i &lt; clothing.length; i++) {
+  piles[clothing[i].type].push(clothing[i]);
+}
+for (var type in piles) {
+  for (var i = 0; i &lt; piles[type].length; i++) {
+    var section = closetSections[type];
+    for (var j = 0; j &lt; section.length; j++) {
+      if (pile[i].color > section[j].color) {
+        pile[i].hangUp();
+      }
+    }
+  } 
+}</pre></code>
+</section>
+
+<section>
+  <h2>Laundry v2: Time Complexity</h2>
+
+  <p>Now we must loop through closet section items
+    <strong>each time</strong> we hang up an item.
+    <br>
+    Each look at an item takes 2 seconds.
+  </p>
+
+  <table class="fragment" style="margin:auto; background:white; padding: 5px; font-size:smaller;">
+    <thead>
+      <tr><th>items<th>section items<th>seconds
+    <tbody>
+    <tr class="fragment"><td>4</td><td>4</td><td>(4*10 + 4*30 + 4*4*2)<td>192</tr>
+    <tr class="fragment"><td>8</td><td>8</td><td>(8*10 + 8*30 + 8*8*2)<td>448</tr>
+    <tr class="fragment"><td>1024</td><td>1024</td><td>(1024*10 + 1024*30 + 1024*1024*2)<td>2138112</td></tr>
+  </table>
+  <br>
+
+   <p class="fragment">
+    If N = # items of clothing and # items in section,
+    it takes (N*10 + N*30 + N*N*2) => O(N^2).
+    <br>
+    <img src="http://dl.dropbox.com/u/10998095/Screenshots/dbmsxpa6eal1.png">
+   </p>
+
+   <!-- now it gets slower and slower as you add more clothes -->
+</section>
+
+
+<section>
+  <h2>Time Complexity</h2>
+
+  <table style="margin:auto; background:white; padding: 5px; font-size:smaller;">
+    <thead>
+      <tr>
+        <th>Order of growth</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    <tbody>
+      <tr><td>1   <td>constant     <td>statement <td>add two numbers</tr>
+      <tr><td>logN <td>logarithmic <td>divide in half <td>binary search</tr>
+      <tr><td>N    <td>linear      <td>loop           <td>find the maximum</tr>
+      <tr><td>NlogN <td>linearithmic <td>divide + conquer <td>merge sort </tr>
+      <tr><td>N<sup>2</sup> <td>quadratic <td>double loop <td>check all pairs</tr>
+      <tr><td>N<sup>3</sup> <td>cubic <td>triple loop <td>check all triples</tr>
+      <tr><td>2<sup>N</sup> <td>exponential <td>exhaustive search <td>check all subsets</tr>
+  </table>
+  <!-- graph of them? -->
+</section>
+
+<section>
+  <h2>Laundry: Space Complexity</h2>
+  <br>
+  <p>How much space does our algorithm require?</p>
+
+  <p>What are our factors that determine space?</p>
+
+  <p class="fragment">Assume: piles of clothing can be infinitely high.</p>
+
+  <p class="fragment">N = number of pieces of clothing, M = number of piles.</p>
+
+  <p class="fragment">Worst case: M = N.
+    <br>
+    Best case: M = 1.
+    <br>
+    Average: N/2.
+  </p>
+</section>
+
+<section>
+  <h2>Goal of Algorithms</h2>
+
+  <p>Solve a problem
+    <br>
+    in shortest time
+    <br>
+    with minimum space requirements
+  </p>
+
+  <p>...depending on your particular constraints.</p>
+
+  <!-- you may not care about space or time -->
+</section>
+
+<section>
+  <h2>Discuss!</h2>
+  <br>
+
+  <p>What's the time requirement of your algorithm?</p>
+  <p>What's the space requirement of your algorithm?</p>
+
+</section>
+
+<section>
+  <h2>Algorithms in Programming</h2>
+<!--  
+Algorithms in Computer Science
+We have many types of algorithms that we use a lot in programming for common problems like sort, search, and graph traversal. Some of them are quite similar to your “real life algorithms”. Let’s discuss some.
+link to wikipedia algorithms
+-->
+</section>
+
+<section>
+  <h2>Sequence Algorithms</h2>
+  <br>
+  <p>Many items operate on sequences (lists/arrays)</p>
+  <br>
+
+  <p class="fragment">What sort of algorithms do you do on a deck of cards?<br>
+  <code>[4, Q, 5, A, J, 10, K]</code>
+  </p>
+  <br>
+  <p class="fragment">Sort, search, shuffle, etc.</p>
+
+</section>
+
+<section>
+  <h2>Sorting Algorithms</h2>
+  <br>
+
+  <p>Rearrange items in a sequence by some property about each item
+    (like numerical or alphabetical order).</p>
+  <br>
+
+  <p class="fragment">
+  [4, Q, 5, A, J, 10, K]
+  </p>
+  
+  <p class="fragment">
+    -&gt; <br>
+    [A, 4, 5, 10, J, Q, K]
+  </p>
+</section>
+
+<section>
+  <h2>Bubble Sort</h2>
+
+  <p>A simple but not very efficient sorting algorithm.</p>
+
+  <object
+ classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+ codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0"
+ height="400" width="550"> <param name="movie" value=""> <param
+ name="quality" value="high">
+                        <embed src="../swf/bubble.swf" quality="high"
+ pluginspage="http://www.macromedia.com/go/getflashplayer"
+ type="application/x-shockwave-flash" height="400" width="550"> 
+   </object>
+
+  <p>From <a href="http://www.ee.ryerson.ca/~courses/coe428/sorting/bubblesort.html">here</a>.</p>
+
+</section>
+
+
+<section>
+  <h2>Bubble Sort: Steps</h2>
+  <br>
+  <!-- todo: wikipedia algorithm -->
+  <ol>
+    <li>Compare adjacent elements. If the first is greater than the second, swap them.
+
+    <li>Do this for each pair of adjacent elements, starting with the first two and ending with the last two. At this point the last element should be the greatest.
+
+    <li>Repeat the steps for all elements except the last one.
+
+    <li>Continue for one less element each time, until there are no more pairs to compare.
+  </ol>
+
+</section>
+
+<section>
+  <h2>Exercise: Bubble Sort Simulation</h2>
+  <br>
+  <ul>
+    <li>Line up randomly.</li>
+    <li>Sort by height using bubble sort.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Bubble Sort: Pseudo-code</h2>
+  <br>
+  <pre>
+For I = 0 to N - 2
+   For J = 0 to N - 2
+     If (A(J) > A(J + 1)
+       Temp = A(J)
+       A(J) = A(J + 1)
+       A(J + 1) = Temp
+     End-If
+   End-For
+ End-For
+  </pre>
+</section>
+
+<!-- TODO: show turning into JavaScript? -->
+
+<section>
+  <h2>Bubble Sort: Time Complexity</h2>
+  <br>
+  <p>What factors determine time?</p>
+
+  <p class="fragment">N = number of items in sequence.</p>
+  <br>
+
+  <p class="fragment">What is the best case?</p>
+  <p class="fragment">Already sorted array
+    <br>N comparisons.
+    <br>O(N)
+  </p>
+  <br>
+  <p class="fragment">What is the worst case?</p>
+  <p class="fragment">Reverse sorted array
+    <br>N*N comparisons.
+    <br>O(N<sup>2</sup>)
+  </p>
+  <!-- TODO: gif of rabbits and turtles -->
+</section>
+
+<section>
+  <h2>Bubble Sort: Space Complexity</h2>
+  <br>
+  <p>Only requires 1 extra temporary variable.</p>
+</section>
+
+<section>
+  <h2>More Sort Algorithms</h2>
+
+  <br>
+  <p>All differ in performance, 
+    and performance often depends on sequence characteristics.</p>
+  <br>
+  <ul>
+    <li>Insertion sort</li>
+    <li>Selection sort</li>
+    <li>Merge sort</li>
+    <li>Bucket sort</li>
+  </ul>
+  <!-- TODO: link these -->
+  <br>
+  <br>
+  <p>
+  <a href="http://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms">
+    Wikipedia: Comparison of algorithm performance</a>,
+    <a href="http://www.sorting-algorithms.com/">Sorting Algorithms Visualization</a>
+  </p>
+</section>
+
+<section>
+  <h2>Fun Sort Algorithms</h2>
+  <br>
+  <p>(Who says programmers don't know how to let loose?)</p>
+  <br>
+  <ul>
+    <li>Pancake sort</li>
+    <li>Spaghetti sort</li>
+    <li>BogoSort</li>
+    <li>Quantum Bogo Sort</li>
+  </ul>
+  <!-- TODO: link these -->
+</section>
+
+<section>
+  <h2>Exercise Time!</h2>
+  <br>
+
+  <ul>
+    <li>With a partner, take a deck of cards and pick one of the sort algorithms.
+    <li>Sort the deck of cards according to the algorithm.
+    <li>Keep track of the number of operations you have to do.
+    <li>If you have time, try another algorithm.
+  </ul>
+<!--
+Exercise Time!:
+2a) Use Blockly
+2) If you do feel comfortable, take this exercise
+Start with unsorted array of pictures with numbers
+Implement a sort algorithm in JavaScript. Use new Date() to time how long it takes. Use jsperf.com to compare time across browsers. (http://jsperf.com/kyle-sorting-algorithms)
+http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm
+-->
+</section>
+
+<section>
+  <h2>Searching Algorithms</h2>
+  <br>
+  <p>Find an item with a particular value in a sorted sequence.</p>
+  <br>
+  <p class="fragment">
+    Find 'J' in sequence:<br>
+  <code>[4, 5, J, 10, Q, K, A]</code>
+  </p>
+  <br>
+  <p class="fragment">
+    J is the 3rd element (index 2).
+  </p>
+
+</section>
+
+<section>
+  <h2>Binary Search</h2>
+  <br>
+  <p>Find an item by repeatedly halving the search space.</p>
+  <br>
+  <iframe width="420" height="315" src="http://www.youtube.com/embed/ube5EYFlFR0" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section>
+  <h2>Binary Search: Steps</h2>
+  <br>
+  <!-- todo wikipedia animation? -->
+  <p>To find index of element e with certain value:
+  <ul>
+    <li>Start with an array sorted in descending order.
+    <li>In each step:
+      <ul>
+      <li>Pick the middle element of the array (m) and compare it to e.
+      <li>If element values are equal, then return index of m.
+      <li>If e is greater than me, then e must be in left subarray. If m is greater than e, e must be in the right subarray.
+      </ul>
+    <li>Repeat those steps on new subarray.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Exercise: Binary Search Simulation</h2>
+  <br>
+  <ul>
+    <li>Sort yourselves by height again.
+    <li>Now let's find someone with a particular height using binary search.
+  </ul>
+</section>
+
+<section>
+  <h2>Binary Search: Pseudocode</h2>
+  <br>
+  <pre style="padding:10px;">
+BinarySearch(array, value) {
+    low = 0
+    high = array.length - 1
+    while (low &lt;= high) {
+        mid = (low + high) / 2
+        if (A[mid] > value)
+            high = mid - 1
+        else if (A[mid] &lt; value)
+            low = mid + 1
+        else
+            return mid
+    }
+    return not_found
+}</pre>
+</section>
+
+<section>
+  <h2>Binary Search: <br>Time/Space Complexity</h2>
+  <br>
+  <p class="fragment">What factors determine time?</p>
+  <br>
+  <p class="fragment">N = number of items in sequence.</p>
+  <br>
+  <p class="fragment">Since algorithm splits array in half every time,
+    at most log<sub>2</sub>N steps are performed.
+  </p>
+  <!-- TODO: show how log2N is less than others, graph -->
+</section>
+
+<section>
+  <h2>Other Searching Algorithms</h2>
+  <br>
+  <p>Performance varies depending on sequence characteristics (distribution)
+  </p>
+  <Br>
+  <ul>
+    <li><a href="http://en.wikipedia.org/wiki/Linear_search">Linear</a>
+    <li><a href="http://en.wikipedia.org/wiki/Interpolation_search">Interpolation search</a>
+  </ul>
+</section>
+
+<section>
+  <h2>Exercise Time!</h2>
+  <br>
+  <ul>
+    <li>Play the number guessing game (higher/lower).</li>
+    <li>Try and guess the number in the smallest number of tries using 
+      the principles of binary search.</li>
+    <li>Keep track of the number of guesses it takes you.</li>
+    <li>If you have time, repeat for different ranges (0-500, 0-1000, etc)
+  </ul>
+</section>
+
+<section>
+  <h2>Graph Algorithms</h2>
+  <br>
+  <p>Much data is actually connected node and vertices, which makes it much harder to find algorithms that compute solutions quickly.</p>
+  <br>
+  <p>A lot of research goes into solving graph problems.</p>
+  <br>
+  <img src="http://blog.visualmotive.com/wp-content/uploads/2009/07/graph_usairways_bundled.jpg">
+</section>
+
+<section>
+  <h2>Graph Traversal Algorithms</h2>
+  <br>
+  <p>Find a route in a graph.</p>
+
+  <p>Find a particular node in a connected graph.</p>
+
+  <img src="http://www.rci.rutgers.edu/~cfs/472_html/AI_SEARCH/AI_SearchGifs/HCS.gif">
+
+</section>
+
+
+<section>
+  <h2>Depth First Search (DFS) </h2>
+  <br>
+  <img src="http://www.rci.rutgers.edu/~cfs/472_html/AI_SEARCH/AI_SearchGifs/DFS.gif">
+</section>
+
+<section>
+  <h2>DFS: Steps</h2>
+
+  <img src="http://mhesham.files.wordpress.com/2010/04/300pxdepthfirsttree-svg_thumb.png?w=449&amp;h=288">
+  <ul>
+    <li>DFS progresses by expanding the first child node of the search tree that appears and thus going deeper and deeper until a goal node is found, or until it hits a node that has no children.
+    <li>Then the search backtracks, returning to the most recent node it hasn’t finished exploring. 
+  </ul>
+</section>
+
+<!-- TODO: simulation? string holding? draw graph as we do it -->
+
+
+</section>
+
+<section>
+  <h2>DFS: Pseudocode</h2>
+  <br>
+  <img src="http://mhesham.files.wordpress.com/2010/04/300pxdepthfirsttree-svg_thumb.png?w=449&amp;h=288">
+  <br>
+  <pre style="padding:10px;">
+procedure depth_first_search(graph, vertex):
+    label vertex as discovered
+    let S be a stack
+    S.push(v)
+    while S is not empty        
+          t ← S.top 
+          if there is an edge u adjacent to t that is undiscovered and unexplored
+             S.push(u)
+          else
+             mark t as explored
+             S.pop()
+  </pre>
+</section>
+
+<section>
+  <h2>DFS: Time/Space Complexity</h2>
+  <br>
+  <p>Time: If b is the "branching factor" and 
+    d is the deepest depth: <code>O(b<sup>d</sup>)</code>
+  </p>
+  <br>
+  <p>Space: <code>O(bd)</code></p>
+</section>
+
+<section>
+  <h2>More Graph Search Algorithms</h2>
+  <br>
+
+  <p>Many of these use "heuristics" to make a better guess
+    as to what path to go down, to avoid searching the whole space.</p>
+
+  <img src="http://www.rci.rutgers.edu/~cfs/472_html/AI_SEARCH/AI_SearchGifs/BFSearch.gif">
+  <br>
+  <ul>
+    <li><a href="http://en.wikipedia.org/wiki/Depth-limited_search">Depth-limited</a>
+    <li><a href="http://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first-search</a>
+    <li><a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A*</a>
+    <li><a href="http://en.wikipedia.org/wiki/Hill_climbing">Hill climbing</a>
+    <li><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra</a>
+  </ul>
+</section>
+
+
+<section>
+  <h2>Graph Traversal in Real Life</h2>
+
+  <br>
+  <ul>
+    <li>Word search
+    <li>Maze solving
+    <li>Calculating an optimal route
+    <li>Grocery store shopping
+    <li>Calculating chess strategies
+    <li>Making a guest list
+    <li>Finding a new book to read on Amazon
+  </ul>
+</section>
+
+
+<!-- TODO use this http://www.tastekid.com/like/Paper+Heart/movies
+    http://findtheband.com/?
+  -->
+
+<section>
+  <h2>The Traveling Salesman Problem</h2>
+
+  <p>A special variant of the graph search problem.</p>
+
+  <blockquote>
+    Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?
+  </blockquote>
+
+  <p>Considered "NP-hard" (all solutions are exponential)</p>
+
+  <p>Many different approaches, like "Ant Colony":</p>
+  <img src="http://upload.wikimedia.org/wikipedia/commons/8/8c/AntColony.gif">
+  
+  <p>
+  <a href="http://imagine-it.org/google/fountainmap.html">☞ Demo: USC Fountain Map</a>,
+  <a href="http://en.wikipedia.org/wiki/Travelling_salesman_problem">☞ Wikipedia: TSP</a>
+</p>
+  <!--
+IRL: map of two locations, how do you figure it out?
+Lots of possibilities, ant colony
+  -->
+  </p>
+
+</section>
+
+<section>
+  <h2>Exercise Time!</h2>
+  <br>
+  <ul>
+    <li>Solve a maze using a depth first algorithm.</li>
+    <li>Calculate the degrees of separation between Kevin Bacon and Bruce Willis.
+      Try it first with breadth first search, and then depth first. 
+      Draw a graph of the nodes you visit.
+    </li>
+    <li>Take the map of SF and find a route between Citizen Space and 
+      the Caltrain, using depth first search. Draw a graph of the nodes (intersections)
+      that you visit.
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>More Algorithms!</h2>
+  <br><Br>
+  <p>
+  <a href="http://en.wikipedia.org/wiki/List_of_algorithms">☞ Wikipedia: List of algorithms</a>
+  </p>
+</section>
+
+<section>
+  <h2>Geometry: Detecting Collision</h2>
+  <br>
+  <img src="http://http.developer.nvidia.com/GPUGems3/elementLinks/33fig01.jpg">
+
+  <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="450" height="450" id="CDDemo2" align="middle"><param name="allowScriptAccess" value="sameDomain" /><param name="movie" value="/blog/assets/CDDemo2.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#333333" /><embed src="/blog/assets/CDDemo2.swf" quality="high" bgcolor="#333333" width="450" height="450" name="CDDemo2" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+  </object>
+
+  <p>
+    <a href="http://gskinner.com/blog/archives/2005/10/source_code_sha.html">☞ Demo: Shape-Based Hit Detection</a>,
+    <a href="http://box2d-js.sourceforge.net/index2.html">☞ Box2d JS</a>,
+    <a href="http://active.tutsplus.com/tutorials/games/quick-tip-collision-detection-between-circles">☞ Tutorial: Collision Detection with Circles</a>,
+    <a href="http://en.wikipedia.org/wiki/Collision_detection">☞ Wikipedia: Collision Detection</a>
+  </p>
+</section>
+
+<section>
+  <h2>Math: Primality Tests</h2>
+  <br>
+  <img src="http://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif">
+
+  <p>
+  <a href="https://www.khanacademy.org/math/applied-math/cryptography/comp-number-theory/v/prime-number-adventure">☞ Khan Academy: Prime Numbers</a>
+  <a href="http://en.wikipedia.org/wiki/Primality_test">☞ Wikipedia: Primality Tests</a>
+  </p>
+
+</section>
+
+<section>
+  <h2>Statistics: k-means clustering</h2>
+  <br>
+  <iframe src="http://vis4.net/labs/clustering/kmeans.html">
+  </iframe>
+
+  <p>
+  <a href="http://vis4.net/blog/posts/map-symbol-clustering-k-means-vs-noverlap/">☞ Demo: Map symbol clustering: k-means vs noverlap</a>,
+  <a href="http://en.wikipedia.org/wiki/K-means_clustering">☞ Wikipedia: K-means clustering</a>
+  </p>
+
+</section>
+
+<section>
+  <h2>Machine learning: decision trees</h2>
+  <br>
+
+  <img src="http://upload.wikimedia.org/wikipedia/commons/f/f3/CART_tree_titanic_survivors.png">
+
+  
+  <p><a href="http://en.wikipedia.org/wiki/Decision_tree_learning">Wikipedia: Decision tree learning</a>
+  </p>
+
+</section>
+
+<section>
+  <h2>Compression: Run-length encoding</h2>
+  <br>
+  <img src="http://upload.wikimedia.org/wikipedia/commons/0/08/RunLengthEncoding.png">
+
+  <p>
+  <a href="http://pippin.gimp.org/image_processing/chap_dir.html">☞ Image Processing</a>,
+  <a href="http://www.fileformat.info/mirror/egff/ch09_03.htm">☞ fileformat: Run-length Encoding</a>,
+  <a href="http://en.wikipedia.org/wiki/Run-length_encoding">Wikipedia: Run-length Encoding</a>
+  </p>
+</section>
+
+<section>
+  <h2>Image processing: Edge detection</h2>
+  <br>
+  <img src="http://www.nada.kth.se/~tony/cern-review/cern-html/img37.gif">
+
+  <p>
+  <a href="http://nerget.com/edgeDetection/">☞ Demo: Doggy Video</a>,
+  <a href="https://developer.apple.com/safaridemos/CanvasPixelManipulation/">☞ Demo: Canvas Pixel Manipulation</a>,
+  <a href="http://www.barbafan.de/html5video?video=tron">☞ Demo: Tron Video</a>,
+  <a href="en.wikipedia.org/wiki/Edge_detection">Wikipedia: Edge detection</a>
+  </p>
+</section>
+
+<section>
+  <h2>Algorithms: <br>Wrapping Up</h2>
+
+  <!-- TODO: conclusion -->
+</section>
+
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Presentation progress bar -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+        rollingLinks: false,
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+				]
+			});
+			
+		</script>
+  
+  </body>
+</html>

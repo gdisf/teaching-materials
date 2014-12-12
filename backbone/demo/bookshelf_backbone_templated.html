@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+ <head>
+  <title>My Bookshelf</title>
+  <style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+#bookshelf {
+  background: url(bookshelf_bg.png);
+  width: 760px;
+  height: 570px;
+  padding-top: 90px;
+}
+
+.book {
+  height: 140px;
+  float: left;
+  margin: 0px 10px;
+}
+
+.book img {
+  height: 80px;
+}
+
+.book-review {
+  width: 200px;
+  background: #ffcc00;
+  border: #99000;
+  padding: 5px;
+}
+  </style>
+ </head>
+
+ <div id="bookshelf">
+
+ </div>
+
+<script id="books-template" type="text/x-handlebars-template">
+    {{#each books}}
+      <div class="book">
+        <a href="{{url}}"><img src="{{thumbnail}}">
+      </div>
+    {{/each}}
+</script>
+
+ <script src="http://teaching-materials.org/ajax/lib/jquery.min.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+
+ <script>
+ var BookModel = Backbone.Model.extend({
+  defaults: {
+    title: 'Untitled',
+    author: 'Unknown author',
+    review: 'No review',
+  },
+  initialize: function() {
+    this.set('url', 'http://www.amazon.com/gp/product/' + this.asin + '?tag=amazonsimilar-20');
+  }
+});
+
+var BookCollection = Backbone.Collection.extend({
+    model: BookModel,
+    comparator: function(model) {
+      return model.get('rating');
+    }
+});
+
+var BookShelfView = Backbone.View.extend({
+
+  tagName: 'div',
+  
+  className: 'books',
+  
+  render: function() {
+    var template = Handlebars.compile($("#books-template").html());
+    var rendered = template({books: this.collection.toJSON()});
+    this.$el.append(rendered);
+    return this;
+  }
+});
+
+$(document).ready(function() {
+
+	$.ajax({type: "GET",
+    url: "books.json",
+    dataType: "json",
+    success: function(booksJSON) {
+      var books = new BookCollection(booksJSON);
+      var shelf = new BookShelfView({collection: books});
+      $('#bookshelf').append(shelf.render().$el);
+   }
+  });
+
+});
+ </script>
+</html>

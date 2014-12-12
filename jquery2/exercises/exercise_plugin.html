@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise: jQuery Plugins</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://www.teaching-materials.org/common/bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Exercise: jQuery Plugins</h2>
+      <p>
+        In this exercise, you'll use a jquery plugin to make your watcher more colorful.
+      </p>
+      <ul>
+        <li>
+        Either start with your code from the events exercise, or download this <a href="exercise_events_solution.html">starter file</a>.</li>
+        <li>Include the <a href="http://briznad.github.io/funText/">funText</a> jQuery plugin on your page. You can reference the JS from <a href="http://teaching-materials.org/jquery2/exercises/jquery.funtext.js">http://teaching-materials.org/jquery2/exercises/jquery.funtext.js</a>.</li>
+        <li>Use funText on your header, with a large shadow. Check the <a href="http://briznad.github.io/funText/">docs</a> to see how to use it.</li>
+        <li>Now use funText on each of your links, with smaller shadows.</li>
+        <li>Wasn't that fun??</li>
+      </ul>
+
+      <p>
+        Make sure that you use your browser developer tools to make debugging easier
+        while working on this. Check for errors, and use console.log() to figure out
+        how far your code makes it, and what the values of your variables are along the way.
+      </p>
+
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br>
+      <br>
+
+<pre id="solution1" style="display:none;">&lt;!doctype html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Video Watcher&lt;/title&gt;
+  &lt;link rel="stylesheet" type="text/css" href="http://www.teaching-materials.org/common/bootstrap.css"&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+
+&lt;div class="container"&gt;
+ 
+ &lt;div class="row"&gt;
+   &lt;div class="span12"&gt;
+    &lt;h2 class="page-header">Best Videos Ever ❤&lt;/h1&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
+ 
+ &lt;div class="row"&gt;
+   &lt;div class="span3"&gt;
+     &lt;ul&gt;
+      &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=TddFnTB_7IM">Trip through the 80s&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=epUk3T2Kfno"&gt;Otters Holding Hands&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=il2IrgFHfsg"&gt;The Ooooh Cat&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+   &lt;/div&gt;
+   &lt;div class="span9" id="video-watcher"&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+ &lt;script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"&gt;&lt;/script&gt;
+ &lt;script type="text/javascript" src="http://www.teaching-materials.org/common/jquery.js"&gt;&lt;/script&gt;
+ &lt;script type="text/javascript" src="http://teaching-materials.org/jquery2/exercises/jquery.funtext.js"&gt;&lt;/script&gt;
+ &lt;script&gt;
+$('h2').funText(10, 'candy');
+
+var thumbnailify = function(videoLink) {
+  var linkUrl = videoLink.attr('href');
+  var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
+  var thumbnailImg = $('&lt;img&gt;');
+  thumbnailImg.attr('src', thumbnailUrl);
+  videoLink.append(thumbnailImg);
+  videoLink.funText(10, 'candy');
+
+  videoLink.on('click', function(e) {
+      e.preventDefault();
+      var videoEmbed = $('&lt;iframe&gt;&lt;/iframe&gt;');
+      videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl));
+      videoEmbed.attr('width', 560);
+      videoEmbed.attr('height', 315);
+      var videoWatcher = $('#video-watcher');
+      videoWatcher.hide();
+      videoWatcher.html(videoEmbed);
+      videoWatcher.fadeIn();
+  });
+};
+
+var videoLinks = $('a');
+for (var i = 0; i < videoLinks.length; i++) {
+  var videoLink = $(videoLinks[i]);
+  thumbnailify(videoLink);
+}
+ &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div><!--/container-->
+
+    <script>
+      function showSolution(num) {
+        if (confirm('You surrrrre?')) {
+          document.getElementById('solution' + num).style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+</html>

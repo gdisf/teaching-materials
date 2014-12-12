@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Intro to JavaScript: Objects &amp; the DOM</title>
+<title>Intro to JavaScript: Events &amp; Animation</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/presentation.css" />
@@ -32,11 +32,165 @@ $(document).ready(function(){
       
    <div id="slides">
     <div class="slide section"> 
-     <header><h1>Animation &amp; Events</header>
+     <header><h1>Events &amp; Animation</header>
     </div> 
     
     
+    <div class="slide normal"> 
+     <header><h1>Why we need events</h1></header> 
+     <section class="content"> 
+     <ul>
+ <li>Form validation and processing
+ <li><a href="http://nymag.com/daily/fashion/2012/05/fug-girls-met-gala-red-carpet-awards.html#photo=3x00015">Interactive slideshows</a>
+ <li><a href="http://www.queness.com/post/9283/10-addictive-games-you-wouldnt-believe-theyre-made-with-javascript">Games</a>
+ <li><a href="http://docs.google.com">Single-page webapps</a>
+ <li>...anything that involves user interaction.
+</ul>
+
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>Adding Event Listeners</h1></header> 
+     <section class="content"> 
+     <p>In IE 9+ (and all other browsers):</p>
+<pre>
+domNode.addEventListener(eventType, eventListener, useCapture);
+</pre>
+
+<pre class="prettyprint">
+&lt;button id=&quot;counter&quot;&gt;0&lt;/button&gt;
+  
+&lt;script&gt;
+var counterButton = document.getElementById('counter');
+function onButtonClick() {
+    counterButton.innerHTML = parseInt(counterButton.innerHTML) + 1;
+}
+counterButton.addEventListener('click', onButtonClick, false);
+&lt;/script&gt;
+</pre>
+
+<pre class="prettyprint" style="display:none;">
+Last lesson we learned about the Document Object Model, and how it allows us to manipulate elements on a web page. 
+Most of the time we want to do that manipulation as a result of a user's interaction with the page. That's where 'events' come in.
+An 'event' is a type of object that is created when the user interacts with a web page. 
+Events are related to the element the user interacted with, for example when a user clicks a link, a 'click' event is created for that link a element.
+To trigger some code to run when a particular event happens, we need to create an 'event listener'.
+</pre>
+     </section>
+    </div>
+    
    
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Event Types</h1></header> 
+     <section class="content"> 
+     <p>The browser triggers many <a href="https://developer.mozilla.org/en/DOM/DOM_event_reference">events</a>. A short list:</p>
+<ul>
+ <li>mouse events (<a href="https://developer.mozilla.org/en/DOM/MouseEvent">MouseEvent</a>):  <code>mousedown</code>, <code>mouseup</code>
+    , <code>click</code>, <code>dblclick</code>, <code>mousemove</code>, <code>mouseover</code>, <code>mousewheel</code>
+    , <code>mouseout</code>, <code>contextmenu</code>
+ <li>touch events (<a href="https://developer.mozilla.org/en/DOM/TouchEvent">TouchEvent</a>): <code>touchstart</code>, <code>touchmove</code>, <code>touchend</code>, <code>touchcancel</code>
+ <li>keyboard events (<a href="https://developer.mozilla.org/en/DOM/KeyboardEvent">KeyboardEvent</a>): <code>keydown</code>, <code>keypress</code>, <code>keyup</code>
+ <li>form events: <code>focus</code>, <code>blur</code>, <code>change</code>, <code>submit</code>
+<li>window events: <code>scroll</code>, <code>resize</code>, <code>hashchange</code>, <code>load</code>, <code>unload</code>
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Event Properties</h1></header> 
+     <section class="content"> 
+     <p>When your event listener is called, the browser passes an event object with information about the event
+into the function.</p>
+
+<p>Each event type has different properties. For example, <a href="https://developer.mozilla.org/en/DOM/MouseEvent">MouseEvent</a> reports the clicked coordinates:</p>
+
+<pre class="prettyprint">
+  &lt;img id=&quot;kitten&quot; src=&quot;http://placekitten.com/200/300&quot;&gt;
+  &lt;div id=&quot;info&quot;&gt;&lt;/div&gt;
+  &lt;script&gt;
+var kittenImg = document.getElementById('kitten');
+var infoDiv   = document.getElementById('info');
+function onClick(event) {
+    info.innerHTML = 'You clicked on ' + event.clientX + ' , ' + event.clientY;
+}
+kittenImg.addEventListener('click', onClick, false);
+  &lt;/script&gt;
+</pre>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Processing Form Input</h1></header> 
+     <section class="content"> 
+     <p>A common use of events is to process form input, either by responding to button click events
+or input click/change events.</p>
+
+<pre>
+  &lt;input id=&quot;myname&quot; type=&quot;text&quot;&gt;
+  &lt;button id=&quot;button&quot;&gt;Say My Name&lt;/button&gt;
+  
+  &lt;script&gt;
+var button = document.getElementById('button');
+function onClick(event) {
+    var myName = document.getElementById(&quot;myname&quot;).value;
+    alert(&quot;Hi, &quot; + myName);
+}
+button.addEventListener('click', onClick);
+  &lt;/script&gt;
+</pre>
+
+     </section>
+    </div>
+    
+   
+    
+    
+    <!-- Distracting at this point.
+    <div class="slide normal"> 
+     <header><h1>Waiting for window &quot;load&quot;</h1></header> 
+     <section class="content"> 
+     <p>When you use JS to manipulate the DOM, you should make sure
+the DOM exists.</p>
+
+<p>You can either put JS at bottom of page, or listen to the "load" event:
+</p>
+<pre class="prettyprint">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;Mouse Events&lt;/title&gt;
+  &lt;script&gt;
+function onLoad() {
+  // Setup the page
+}
+window.addEventListener(&quot;load&quot;, onLoad);
+  &lt;/script&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+     </section>
+    </div>-->
+    
+   
+    <div class="slide normal"> 
+     <h1 class="center"><a target="_blank" href="../exercises/events.html">Exercise Time!</a></h1>
+    </div>
     
     
     
@@ -146,19 +300,17 @@ window.clearInterval(timer);
 </pre>
 
 <pre class="prettyprint">
+var img = document.getElementsByTagName('img')[0];
+img.style.opacity = 1.0;
 function fadeAway() {
-  var img = document.getElementsByTagName('img')[0];
+  
   img.style.opacity = img.style.opacity - .1;
-  if (img.style.opacity < .5) {
+  if (img.style.opacity &lt; .5) {
     window.clearInterval(fadeTimer);
   }
 }
 var fadeTimer = window.setInterval(fadeAway, 100);
 </pre>
-
-<p style="display:none;">
-mention performance
-</p>
 
      </section>
     </div>
@@ -169,164 +321,7 @@ mention performance
     </div>
     
 
-    <div class="slide normal"> 
-     <header><h1>Why we need events</h1></header> 
-     <section class="content"> 
-     <ul>
- <li>Form validation and processing
- <li><a href="http://nymag.com/daily/fashion/2012/05/fug-girls-met-gala-red-carpet-awards.html#photo=3x00015">Interactive slideshows</a>
- <li><a href="http://www.queness.com/post/9283/10-addictive-games-you-wouldnt-believe-theyre-made-with-javascript">Games</a>
- <li><a href="http://docs.google.com">Single-page webapps</a>
- <li>...anything that involves user interaction.
-</ul>
 
-     </section>
-    </div>
-    
-    <div class="slide normal"> 
-     <header><h1>Adding Event Listeners</h1></header> 
-     <section class="content"> 
-     <p>In IE 9+ (and all other browsers):</p>
-<pre>
-domNode.addEventListener(eventType, eventListener, useCapture);
-</pre>
-
-<pre class="prettyprint">
-&lt;button id=&quot;counter&quot;&gt;0&lt;/button&gt;
-  
-&lt;script&gt;
-var counterButton = document.getElementById('counter');
-function onButtonClick() {
-    counterButton.innerHTML = parseInt(counterButton.innerHTML) + 1;
-}
-counterButton.addEventListener('click', onButtonClick, false);
-&lt;/script&gt;
-</pre>
-
-<pre class="prettyprint" style="display:none;">
-Last lesson we learned about the Document Object Model, and how it allows us to manipulate elements on a web page. 
-Most of the time we want to do that manipulation as a result of a user's interaction with the page. That's where 'events' come in.
-An 'event' is a type of object that is created when the user interacts with a web page. 
-Events are related to the element the user interacted with, for example when a user clicks a link, a 'click' event is created for that link a element.
-To trigger some code to run when a particular event happens, we need to create an 'event listener'.
-</pre>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Event Types</h1></header> 
-     <section class="content"> 
-     <p>The browser triggers many <a href="https://developer.mozilla.org/en/DOM/DOM_event_reference">events</a>. A short list:</p>
-<ul>
- <li>mouse events (<a href="https://developer.mozilla.org/en/DOM/MouseEvent">MouseEvent</a>):  <code>mousedown</code>, <code>mouseup</code>
-    , <code>click</code>, <code>dblclick</code>, <code>mousemove</code>, <code>mouseover</code>, <code>mousewheel</code>
-    , <code>mouseout</code>, <code>contextmenu</code>
- <li>touch events (<a href="https://developer.mozilla.org/en/DOM/TouchEvent">TouchEvent</a>): <code>touchstart</code>, <code>touchmove</code>, <code>touchend</code>, <code>touchcancel</code>
- <li>keyboard events (<a href="https://developer.mozilla.org/en/DOM/KeyboardEvent">KeyboardEvent</a>): <code>keydown</code>, <code>keypress</code>, <code>keyup</code>
- <li>form events: <code>focus</code>, <code>blur</code>, <code>change</code>, <code>submit</code>
-<li>window events: <code>scroll</code>, <code>resize</code>, <code>hashchange</code>, <code>load</code>, <code>unload</code>
-</ul>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Event Properties</h1></header> 
-     <section class="content"> 
-     <p>When your event listener is called, the browser passes an event object with information about the event
-into the function.</p>
-
-<p>Each event type has different properties. For example, <a href="https://developer.mozilla.org/en/DOM/MouseEvent">MouseEvent</a> reports the clicked coordinates:</p>
-
-<pre class="prettyprint">
-  &lt;img id=&quot;kitten&quot; src=&quot;http://placekitten.com/200/300&quot;&gt;
-  &lt;div id=&quot;info&quot;&gt;&lt;/div&gt;
-  &lt;script&gt;
-var kittenImg = document.getElementById('kitten');
-var infoDiv   = document.getElementById('info');
-function onClick(event) {
-    info.innerHTML = 'You clicked on ' + event.clientX + ' , ' + event.clientY;
-}
-kittenImg.addEventListener('click', onClick, false);
-  &lt;/script&gt;
-</pre>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Processing Form Input</h1></header> 
-     <section class="content"> 
-     <p>A common use of events is to process form input, either by responding to button click events
-or input click/change events.</p>
-
-<pre>
-  &lt;input id=&quot;name&quot; type=&quot;text&quot;&gt;
-  &lt;button id=&quot;button&quot;&gt;Say My Name&lt;/button&gt;
-  
-  &lt;script&gt;
-var button = document.getElementById('button');
-function onClick(event) {
-    var name = document.getElementById(&quot;name&quot;).value;
-    alert(&quot;Hi, &quot; + name);
-}
-button.addEventListener('click', onClick);
-  &lt;/script&gt;
-</pre>
-
-<p style="display:none"> javascript nventor example</p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Waiting for window &quot;load&quot;</h1></header> 
-     <section class="content"> 
-     <p>When you use JS to manipulate the DOM, you should make sure
-the DOM exists.</p>
-
-<p>You can either put JS at bottom of page, or listen to the "load" event:
-</p>
-<pre class="prettyprint">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
- &lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot; /&gt;
-  &lt;title&gt;Mouse Events&lt;/title&gt;
-  &lt;script&gt;
-function onLoad() {
-  // Setup the page
-}
-window.addEventListener(&quot;load&quot;, onLoad);
-  &lt;/script&gt;
- &lt;/head&gt;
- &lt;body&gt;
- &lt;/body&gt;
-&lt;/html&gt;
-</pre>
-
-     </section>
-    </div>
-    
-   
-    <div class="slide normal"> 
-     <h1 class="center"><a target="_blank" href="../exercises/events.html">Exercise Time!</a></h1>
-    </div>
-    
-    
     
     <div class="slide normal"> 
      <header><h1>JS Best Practices</h1></header> 

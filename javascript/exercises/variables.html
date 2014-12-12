@@ -32,12 +32,12 @@ console.log(future);</pre>
 
  <h3 class="page-header">The Age Calculator</h3>
 
-<p><em>Forgot how old you are? Calculate it!</em></p>
+<p><em>Forgot how old someone is? Calculate it!</em></p>
  <ul>
   <li>Store the current year in a variable.
-  <li>Store your birth year in a variable.
-  <li>Calculate your 2 possible ages based on the stored values.
-  <li>Output them to the screen like so: "You are either NN or NN", substituting the values.
+  <li>Store their birth year in a variable.
+  <li>Calculate their 2 possible ages based on the stored values.
+  <li>Output them to the screen like so: "They are either NN or NN", substituting the values.
  </ul>
  <button  onclick="showSolution(2)" class="btn">See Solution</button>
  <br><br>
@@ -45,7 +45,7 @@ console.log(future);</pre>
 var year = 1984;
 var now  = 2012;
 var age  = now - year;
-console.log('You are either ' + age + ' or ' + (age - 1));</pre>
+console.log('They are either ' + age + ' or ' + (age - 1));</pre>
 
 <h3 class="page-header">The Lifetime Supply Calculator</h3>
 
@@ -66,6 +66,49 @@ var numPerDay = 2;
 var totalNeeded = (numPerDay * 365) * (maxAge - age);
 var message = 'You will need ' + totalNeeded + ' cups of tea to last you until the ripe old age of ' + maxAge;
 console.log(message);</pre>
+
+<h3 class="page-header">The Geometrizer</h3>
+
+<p>Calculate properties of a circle, using the <a href="http://math2.org/math/geometry/circles.htm">definitions</a> here.
+</p>
+
+<ul>
+  <li>Store a radius into a variable.
+  <li>Calculate the circumference based on the radius, and output "The circumference is NN".
+  <li>Calculate the area based on the radius, and output "The area is NN".
+</ul>
+
+<button onclick="showSolution(4)" class="btn">See Solution</button>
+<br><br>
+ <pre id="solution4" style="display:none;">
+var radius = 3;
+var circumference = Math.PI * 2*radius;
+console.log("The circumference is " + circumference);
+var area = Math.PI * radius*radius;
+console.log("The area is " + area);
+</pre>
+
+<h3 class="page-header">The Temperature Converter</h3>
+
+<p>It's hot out! Let's make a converter based on <a href="http://www.mathsisfun.com/temperature-conversion.html">the steps</a> here.</p>
+
+<ul>
+  <li>Store a celsius temperature into a variable.
+  <li>Convert it to fahrenheit and output "NN°C is NN°F".
+  <li>Now store a fahrenheit temperature into a variable.
+  <li>Convert it to celsius and output "NN°F is NN°C."
+</ul>
+
+<button onclick="showSolution(5)" class="btn">See Solution</button>
+<br><br>
+<pre id="solution5" style="display:none;">
+var celsius = 30;
+var celsiusInF = (celsius*9)/5 + 32;
+console.log(celsius + '°C is ' + celsiusInF + '°F');
+var fahrenheit = 20;
+var fahrenheitInC = ((fahrenheit - 32)*5)/9;
+console.log(fahrenheit + '°F is ' + fahrenheitInC + '°C');
+</pre>
 
  </div>
 
