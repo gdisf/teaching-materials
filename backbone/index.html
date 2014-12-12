@@ -85,7 +85,7 @@
 <section>
   <h1>Object-oriented JS</h1>
 
-  <img src="http://www.teaching-materials.org/jsoo/images/bookoo_extended.png">
+  <img src="https://dl.dropboxusercontent.com/u/17585217/gdisf/product_shirt_venn.png">
 </section>
 
 
@@ -588,7 +588,7 @@ var listings = new ProductsListing({collection: products});
   <h2>Saving a model</h2>
   <h3><code>.save()</code></h3>
   <pre><code class="javascript">var Product = Backbone.Model.extend({
-  urlRoot: 'http://spacodemo.herokuapp.com/products'
+  urlRoot: 'http://gdibb.herokuapp.com/products'
 });
 
 var shirt = new Product({
@@ -601,7 +601,7 @@ var shirt = new Product({
 
 shirt.save();
 </pre></code>
-<pre><code>HTTP POST http://spacodemo.herokuapp.com/products</code></pre>
+<pre><code>HTTP POST http://gdibb.herokuapp.com/products</code></pre>
 </section>
 <section>
   <h2>Updating a model</h2>
@@ -611,7 +611,7 @@ shirt.save();
 shirt.save();
 </pre></code>
 
-<pre><code class="ruby">HTTP PUT http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
+<pre><code class="ruby">HTTP PUT http://gdibb.herokuapp.com/products/&lt;id&gt;</pre></code>
 
 </section>
 <section>
@@ -619,7 +619,7 @@ shirt.save();
   <h3><code>.destroy()</code></h3>
 <pre><code class="javascript">shirt.destroy();</pre></code>
 
-<pre><code class="ruby">HTTP DELETE http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
+<pre><code class="ruby">HTTP DELETE http://gdibb.herokuapp.com/products/&lt;id&gt;</pre></code>
 
 </section>
 
@@ -629,7 +629,7 @@ shirt.save();
   <h3><code>.fetch()</code></h3>
 
 <pre><code class="javascript">var ProductCollection = Backbone.Collection.extend({
-  url: "http://spacodemo.herokuapp.com/products",
+  url: "http://gdibb.herokuapp.com/products",
   model: Product
 });
 </pre></code>
@@ -642,7 +642,7 @@ products.fetch(); // sets models on the collection from the response
 </div>
 
 <div class="fragment">
-<pre><code class="ruby">HTTP GET http://spacodemo.herokuapp.com/products</pre></code>
+<pre><code class="ruby">HTTP GET http://gdibb.herokuapp.com/products</pre></code>
 </div>
 
 </section>
