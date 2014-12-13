@@ -3,12 +3,6 @@ describe("Exercise 2: ", function() {
     var myPersonView;
 
     beforeEach(function() {
-      var person = new Person({firstName: "Grace",
-        lastName: "Hopper",
-        role: "Computer Scientist",
-        imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
-      })
-
       myPersonView = new PersonView({
         model: person
       });
@@ -71,8 +65,9 @@ describe("Exercise 2: ", function() {
       expect(personView).toBeDefined();
     });
 
-    it("give your instantiated view a model. Make sure the model has an 'imgUrl' attribute", function() {
+    it("give your instantiated view a model. Use the one you previously instantiated and stored as person. Make sure the model has an 'imgUrl' attribute", function() {
       expect(personView.model).toBeDefined();
+      expect(personView.model).toEqual(person);
       expect(personView.model.get('imgUrl')).toBeDefined();
     });
   });

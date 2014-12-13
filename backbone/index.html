@@ -85,7 +85,7 @@
 <section>
   <h1>Object-oriented JS</h1>
 
-  <img src="http://www.teaching-materials.org/jsoo/images/bookoo_extended.png">
+  <img src="images/product_shirt_venn.png">
 </section>
 
 
@@ -200,8 +200,10 @@ $('#jquery-review').append(newCode);</pre></code>
 <section>
   <h1>Defining a model</h1>
   <br>
+  <p>You can define a basic Backbone Model with <code>.extend()</code></p>
   <pre><code class="javascript">var Product = Backbone.Model.extend();</code></pre>
-
+  <br>
+  <p>You can also pass in an object for more configuration...</p>
 </section>
 
 <section>
@@ -217,14 +219,18 @@ $('#jquery-review').append(newCode);</pre></code>
     inventory: 28
   }
 });</code></pre>
-
+  <p>Note that an object literal is being passed into <code>.extend()</code></p>
+  <br>
+  <p>Consider: Where else have we seen objects as arguments?</p>
 </section>
 
 <section>
   <h1>Instantiating new models</h1>
   <br>
+  <p>Create an empty model that inherits all the defaults</p>
 <pre><code class="javascript">var shirt = new Product();</code></pre>
-
+  <br>
+  <p>You can also override the defaults with an object</p>
 <pre><code class="javascript">var shirt = new Product({
   name: "Roma",
   colors: ["green", "white", "red"],
@@ -293,12 +299,13 @@ shirt['tagline']; // undefined</code></pre>
 <section>
   <h1>Defining a collection</h1>
   <br>
+  <p>You can define a basic Backbone Collection with <code>.extend()</code></p>
   <pre><code class="javascript">var Products = Backbone.Collection.extend();</code></pre>
-  <br><br>
+  <br>
+  <p>You can also pass in an object for more configuration...</p>
   <pre><code class="javascript">var Products = Backbone.Collection.extend({
   model: Product
 });</code></pre>
-
 </section>
 
 <section>
@@ -307,7 +314,7 @@ shirt['tagline']; // undefined</code></pre>
   <p>Pass an array of models:</p>
   <pre><code class="javascript">var products = new Products([product1, product2, product3]);</code></pre>
   <br>
-  <p>Pass a JSON array:</p>
+  <p>Or pass a JSON array:</p>
   <pre><code class="javascript">var products = new Products([
     {name: "I Love JS",
     colors: ["yellow", "black"]
@@ -321,10 +328,12 @@ shirt['tagline']; // undefined</code></pre>
 <section>
   <h1>Sort order</h1>
   <br>
+  <p>Use <code>comparator</code> as a property to sort a Collection</p>
   <pre><code class="javascript">var Products = Backbone.Collection.extend({
   comparator: 'inventory' 
 });</code></pre>
   <br>
+  <p>Or for something more complex, use <code>.comparator()</code> as a method that returns a value to sort by</p>
   <pre><code class="javascript">var Products = Backbone.Collection.extend({
   comparator: function(model) {
     return model.get("name").toLowerCase();
@@ -369,15 +378,16 @@ shirt['tagline']; // undefined</code></pre>
 <section>
   <h1>Defining a view</h1>
   <br>
+  <p>You can define a basic Backbone View with <code>.extend()</code></p>
   <pre><code class="javascript">var ProductListing = Backbone.View.extend();</code></pre>
   <br>
+  <p>You can also pass in an object for more configuration...</p>
   <pre><code class="javascript">var ProductListing = Backbone.View.extend({
   tagName: "div", // default
   className: "product"
 });</code></pre>
 
 </section>
-
 
 <section>
   <h1>Customizing the render</h1>
@@ -423,20 +433,10 @@ var listing = new ProductListing({
   <pre><code class="javascript">listing.render();
 $('#products').append(listing.$el);</code></pre>
   <p>..or...</p>
-  <pre><code>var listingEl = myView.render().$el;
+  <pre><code>var listingEl = listing.render().$el;
 $('#products').append(listingEl);</code></pre>
   <p>...or...</p>
-  <pre><code>$('#products').append(myView.render().$el);</code></pre>
-</section>
-
-<section>
-  <h1>Using the view</h1>
-  <br>
-  <p>...or...</p>
-  <pre><code class="javascript">var listing = new ProductListing({
-  model: product,
-  el: $('#products')
-});</pre></code>
+  <pre><code>$('#products').append(listing.render().$el);</code></pre>
 </section>
 
 <section>
@@ -459,7 +459,38 @@ $('#products').append(listingEl);</code></pre>
 });</code></pre>
 
 </section>
-
+<section>
+  <h1>Backbone events</h1>
+  <br>
+  <p>Listen to Backbone events with <a href="http://backbonejs.org/#Events-listenTo" target="_blank"><code>.listenTo()</code></a></p>
+  <pre><code>var ProductListing = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'change', this.render)
+  },
+  render: function() {
+  // ...
+  }
+});</code></pre>
+  <p><code>'add' 'remove' 'sort' 'change' </code><a href="http://backbonejs.org/#Events-catalog" target="_blank">and more...</a></p>
+</section>
+<section>
+  <h1>Custom events</h1>
+  <p>Trigger custom events with <a href="http://backbonejs.org/#Events-trigger" target="_blank"><code>.trigger()</code></a></p>
+  <pre><code>var ProductModel = Backbone.Model.extend({
+  initialize: function() {
+    this.trigger('ready');
+  }
+});</code></pre>
+  <p>You can listen to these events, too</p>
+  <pre><code>var ProductView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'ready', this.render)
+  },
+  render: function() {
+  // ...
+  }
+});</code></pre>
+</section>
 <section>
   <h1><a href="rolodex_exercise_steps/step2/instructions.html" target="_blank">Exercise Time!</a></h1>
 </section>
@@ -559,20 +590,19 @@ var listings = new ProductsListing({collection: products});
   <h2>Saving a model</h2>
   <h3><code>.save()</code></h3>
   <pre><code class="javascript">var Product = Backbone.Model.extend({
-  urlRoot: 'http://spacodemo.herokuapp.com/products'
+  urlRoot: 'http://gdibb.herokuapp.com/products'
 });
 
 var shirt = new Product({
   desc: "GDISF Backbone.js",
   category: "t-shirt",
-  id: "535d239fe7333e0b00000001",
   price: "20",
   inventory: 10
 });
 
 shirt.save();
 </pre></code>
-<pre><code>HTTP POST http://spacodemo.herokuapp.com/products</code></pre>
+<pre><code>HTTP POST http://gdibb.herokuapp.com/products</code></pre>
 </section>
 <section>
   <h2>Updating a model</h2>
@@ -582,7 +612,7 @@ shirt.save();
 shirt.save();
 </pre></code>
 
-<pre><code class="ruby">HTTP PUT http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
+<pre><code class="ruby">HTTP PUT http://gdibb.herokuapp.com/products/&lt;id&gt;</pre></code>
 
 </section>
 <section>
@@ -590,7 +620,7 @@ shirt.save();
   <h3><code>.destroy()</code></h3>
 <pre><code class="javascript">shirt.destroy();</pre></code>
 
-<pre><code class="ruby">HTTP DELETE http://spacodemo.herokuapp.com/products/&lt;id&gt;</pre></code>
+<pre><code class="ruby">HTTP DELETE http://gdibb.herokuapp.com/products/&lt;id&gt;</pre></code>
 
 </section>
 
@@ -600,7 +630,7 @@ shirt.save();
   <h3><code>.fetch()</code></h3>
 
 <pre><code class="javascript">var ProductCollection = Backbone.Collection.extend({
-  url: "http://spacodemo.herokuapp.com/products",
+  url: "http://gdibb.herokuapp.com/products",
   model: Product
 });
 </pre></code>
@@ -613,7 +643,7 @@ products.fetch(); // sets models on the collection from the response
 </div>
 
 <div class="fragment">
-<pre><code class="ruby">HTTP GET http://spacodemo.herokuapp.com/products</pre></code>
+<pre><code class="ruby">HTTP GET http://gdibb.herokuapp.com/products</pre></code>
 </div>
 
 </section>

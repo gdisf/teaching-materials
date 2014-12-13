@@ -7,14 +7,21 @@ var Person = Backbone.Model.extend({
 		firstName: '',
 		lastName: ''
 	},
-	generateUsername: function() {
-		var username = this.get('firstName') + this.get('lastName');
-		this.set('username', username)
-		return username;
+	generateUserName: function() {
+		var userName = this.get('firstName') + this.get('lastName');
+		this.set('userName', userName)
+		return userName;
 	},
 	initialize: function() {
-		this.generateUsername();
+		this.generateUserName();
 	}
+});
+
+var person = new Person({
+	firstName: "Grace",
+    lastName: "Hopper",
+    role: "Computer Scientist",
+    imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
 });
 
 var People = Backbone.Collection.extend({
@@ -22,7 +29,7 @@ var People = Backbone.Collection.extend({
 	comparator: function(model) {
 		return model.get('lastName').toLowerCase();
 	}
-})
+});
 
 var people = new People([
 	{
@@ -42,13 +49,13 @@ var people = new People([
 		role: "TA",
 		imgUrl: "https://lh6.googleusercontent.com/-RXfQUhzv7uQ/AAAAAAAAAAI/AAAAAAAAAAA/vO3ax0T-UzY/s128-c-k/photo.jpg"
 	}
-])
+]);
 
 people.add({
 	firstName: 'Julee',
 	lastName: 'Burdekin',
 	role: 'Adobe host'
-})
+});
 
 var PersonView = Backbone.View.extend({
 	className: 'rolodex',
@@ -65,20 +72,13 @@ var PersonView = Backbone.View.extend({
 	}
 });
 
-var person = new Person({
-	firstName: "Grace",
-    lastName: "Hopper",
-    role: "Computer Scientist",
-    imgUrl: "http://www.history.navy.mil/photos/images/h96000/h96920k.jpg"
-})
-
 var personView = new PersonView({
 	model: person
 });
 
 var RolodexView = Backbone.View.extend({
 	initialize: function() {
-		this.collection.on('add change remove', this.render, this);
+		this.listenTo(this.collection, 'add change remove', this.render);
 	},
 	render: function() {
 		this.$el.html('');
@@ -96,4 +96,4 @@ var rolodexView = new RolodexView({
 
 $(document).ready(function() {
 	$('body').append(rolodexView.render().$el);
-})
+});
