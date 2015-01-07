@@ -262,7 +262,7 @@ shirt['tagline']; // undefined</code></pre>
   <br>
   <pre><code class="javascript">var Product = Backbone.Model.extend({
   initialize: function() {
-    this.set('url', 'http://products.com/' + this.id);
+    this.set('url', 'http://products.com/' + this.get("id"));
   }
 });</code></pre>
 
