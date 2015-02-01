@@ -1,1 +1,4 @@
 
+[submodule "reveal"]
+	path = reveal
+	url = https://github.com/amygori/reveal.git
