@@ -112,34 +112,39 @@
           </section>
           <section>
             <h3>Version Control Types</h3>
-            <div class="fragment">
-              <h4>Centralized Version Control</h4>
-              <p>Examples: CVS, SVN</p>
+              <div class="fragment"><h4>Centralized Version Control</h4> 
+                <p>Examples: CVS, Subversion (SVN)</p>
+              </div>
+              <div class="fragment"><h4>Distributed Version Control</h4> 
+                <p>Examples: Git, Mercurial</p>
+              </div>
+          </section>  
+          <section>
+              <h3>Centralized Version Control</h3>
+               <div class="fragment"><p>...NOT how Git works!</p></div>
               <p>One central server, each client (person) checks out and merges changes to main server</p>
-            </div>
-            <div class="fragment">
-              <h4>Distributed Version Control</h4>
-              <p>Examples: Git, Mercurial</p>
-              <p>Each client (person) has a local repository, which they can then reconcile with the main server.</p>
-            </div>
+              <img src="images/centralized-vc.png" alt = "one central server with each person pushing changes to the main server"/>
           </section>
           <section>
-            <h3>Version Control Distribution</h3>
-            <a href = "http://redmonk.com/sogrady/2012/11/05/dvcs-2012/" target="_blank" alt ="Centralized vs Decentralized Version Control: 2010 vs 2012"><img src = "images/subversion-share-2012.png" alt ="Version control share between Bazaar, CVS, Git, Mercurial and Subversion"/></a>
+              <h3>Distributed Version Control</h3>
+               <div class="fragment"><p>...Git is distributed version control! </p></div>
+              <p>Each client (person) has a local repository, which they can then reconcile with the main server.</p>
+              <img src="images/distributed-vc.png" alt="each person works on her own local copy; each copy is reconciled with the main copy on the server" />
           </section>
-           <section>
-              <h3>Version Control Distribution Change</h3>
-              <a href = "http://redmonk.com/sogrady/2012/11/05/dvcs-2012/" target="_blank" alt ="Centralized vs Decentralized Version Control: 2010 vs 2012"><img src = "images/subversion-change-2010-2012.png" alt ="Version control distribution share between 2010 and 2012 between Bazaar, CVS, Git, Mercurial and Subversion"/></a>
-            </section>
+          <section>
+              <h3>Distributed Version Control: Level Up</h3>
+              <img src="images/distributed-to-the-max-vc.png" alt="each person works on her own local copy; each copy is reconciled with the main copy on the server" />
+          </section>
+          
         </section>
         <!-- Git-->
         <section>
           <h3>Intro to Git</h3>
-          <p>Goals of Git Design</p>
+          <p>Advantages of Git Design</p>
           <ul>
             <li>Fast -- add to your team and code base quickly</li>
-            <li>Distributed (see slide above) </li>
-            <li>Each commit has a corresponding hash (track changes from everyone)</li>
+            <li>Distributed (every contributor has her own local copy)</li>
+            <li>Each commit has a corresponding hash (tracking changes from everyone)</li>
             <li>Everyone has a local copy of the history</li>
           </ul>
         </section>
