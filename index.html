@@ -28,6 +28,7 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
 	</head>
 
 	<body>
@@ -159,16 +160,16 @@
           </section>
           <section>
             <h3>Installation and Setup</h3>
-            <p>Setup ssh keys</p>
-            <pre><code contenteditable class ="command-line">
-             $ cd ~/.ssh
+            <p>Set up ssh keys</p>
+            <pre><code>
+$ cd ~/.ssh
             </code></pre>
-            <pre><code contenteditable class ="command-line">
+            <pre><code>
 $ ssh-keygen -t rsa -C "your_email@example.com"
 # Generating public/private rsa key pair.
 # Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
             </code></pre>
-            <pre><code contenteditable class ="command-line">
+            <pre><code>
 Enter passphrase (empty for no passphrase): [Type a passphrase]
 # Enter same passphrase again: [Type passphrase again]
             </code></pre>
@@ -176,7 +177,7 @@ Enter passphrase (empty for no passphrase): [Type a passphrase]
           <section>
             <h3>Installation and Setup</h3>
             <p>Get SSH Key</p>
-            <pre><code contenteditable class ="command-line">
+            <pre><code>
 Your identification has been saved in /Users/you/.ssh/id_rsa.
 # Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
 # The key fingerprint is:
