@@ -90,7 +90,7 @@
             </div>
             <div class="fragment">
               <h4>Track and revert changes</h4>
-              <p>Mistakes happen. Wouldn't it be nice if you could see the changes that have been made and go "back in time" to fix something that went wrong?
+              <p>Mistakes happen. Wouldn't it be nice if you could see the changes that have been made and go back in time to fix something that went wrong?
             </div>
           </section>
           <section>
@@ -108,8 +108,8 @@
             <p>Rainbows and bunny rabbits!</h3>
           </section>
           <section>
-          <h3>You know how to do this already.</h3>
-          <p> Do you have files that looks like this somewhere?</p>
+          <h3>You know how to do this already</h3>
+          <p> Do you have files somewhere that look like this?</p>
           <pre><code>
 Resume-September2013.docx
 Resume-for-Duke-job.docx
@@ -123,19 +123,19 @@ ResumeREALLYREALLYNEW.docx
         <section>
           <section>
             <h3>Brief history of Version Control</h3>
-            <p><span class ="green">1990s</span> -- CVS (Concurrent Version Systems)</p>
-            <p><span class ="green">2000s</span> -- SVN (Apache Subversion)</p>
-            <p><span class ="green">2005</span> -- Git (well, Git)</p>
+            <p><span class ="green">1990s</span> &mdash; CVS (Concurrent Version Systems)</p>
+            <p><span class ="green">2000s</span> &mdash; SVN (Apache Subversion)</p>
+            <p><span class ="green">2005</span> &mdash; Git (well, Git)</p>
           </section>
           <section>
             <h3>Version Control Types</h3>
-              <div class="fragment"><h4>Centralized Version Control</h4> 
+              <div class="fragment"><h4>Centralized Version Control</h4>
                 <p>Examples: CVS, Subversion (SVN)</p>
               </div>
-              <div class="fragment"><h4>Distributed Version Control</h4> 
+              <div class="fragment"><h4>Distributed Version Control</h4>
                 <p>Examples: Git, Mercurial</p>
               </div>
-          </section>  
+          </section>
           <section>
               <h3>Centralized Version Control</h3>
                <div class="fragment"><p>...NOT how Git works!</p></div>
@@ -151,8 +151,9 @@ ResumeREALLYREALLYNEW.docx
           <section>
               <h3>Distributed Version Control: Level Up</h3>
               <img src="images/distributed-to-the-max-vc.png" alt="each person works on her own local copy; each copy is reconciled with the main copy on the server" />
+              <p>(we'll come back to this)</p>
           </section>
-          
+
         </section>
         <!-- Git-->
         <section>
@@ -243,14 +244,6 @@ $ git config --list
           <section>
           <h5>Or, put another way...</h5>
           <img src="images/git_index_structure.png" style="height:550px;"/>
-          <div class="fragment"><a href="http://ndpsoftware.com/git-cheatsheet.html">a Really Useful Visual Reference</a></div>
-          </section>
-          <section>
-            <h3>Local Git</h3>
-              
-          clone/branch --> work --> add/commit 
-          
-          <div class-"fragment">Nothing happens remotely until you say so! (ie, use Push or Pull)</div>
           </section>
         </section>
         <!-- Git commands-->
@@ -261,13 +254,16 @@ $ git config --list
               <li>init</li>
               <li>clone</li>
               <br>
-              <li>status</li>
-              <li>log</li>
-              <li>branch</li>
               <li>add</li>
               <li>commit</li>
+              <br>
+              <li>status</li>
+              <li>log</li>
+              <br>
+              <li>branch</li>
               <li>fetch</li>
               <li>merge</li>
+              <li>pull</li>
               <li>push</li>
             </ul>
           </section>
@@ -327,25 +323,26 @@ $ git config --list
         <!-- Explanation-->
         <section>
           <section>
-            <h3>Whoa. What did we just do??</h3>
-            <h5>How is all this different from just saving a file?</h5>
+            <h3>Whoa.</h3>
+            <h3>What did we just do??</h3>
+            <div class="fragment"><h5>How is all this different from just saving a file?</h5></div>
             <ul>
               <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked. </li>
-              <li class="fragment">This is also called  <span class ="green">staging</span> a file. A snapshot of our changes is now in the staging area or the cache, ready to be saved.</li>
-              <li class="fragment">A <span class ="green">commit</span> saves the changes made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom.</li>
+              <li class="fragment">This is also called  <span class ="green">staging</span> a file. A snapshot of our changes is now in the <span class ="green">staging area</span> (aka the <span class ="green">index</span>, aka the <span class ="green">cache</span>), ready to be saved.</li>
+              <li class="fragment">A <span class ="green">commit</span> saves the <span class="blue">changes</span> made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom.</li>
             </ul>
           </section>
           <section>
             <h3>Look at our progress</h3>
             <pre><code class ="command-line">
-  $ git log 
+  $ git log
             </code></pre>
             <pre><code class ="command-line">
   commit 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b
-  Author: Your name <you@your-email.com>
+  Author: Your name &lt;you@your-email.com&gt;
   Date:   Thu Feb 05 16:01:22 2015 -0700
 
-      First commit. Added hello world to repository.
+      First commit. Added hello.txt to repository.
               </code></pre>
           </section>
           <section>
@@ -357,8 +354,8 @@ $ git config --list
         <section>
           <section>
             <h3>How to undo things you didn't mean to do</h3>
-            <h4>Undoing changes in your working copy</h4> 
-            <p>If you haven't committed yet</p>
+            <h4>Undoing changes in your working copy</h4>
+            <p class="blue">If you haven't committed yet</p>
             <div class = "fragment">
               <p>Open hello.txt and add some new text</p>
               <pre><code  class ="command-line">
@@ -377,7 +374,7 @@ $ git reset my_new_file.txt
           </section>
           <section>
             <h3>Oops, didn't mean to add that file...</h3>
-            <h4>Undoing staged changes</h4> 
+            <h4>Undoing staged changes</h4>
             <div class = "fragment">
               <p>Open hello.txt and add some new text</p>
               <pre><code class ="command-line">
@@ -390,7 +387,7 @@ $ git checkout hello.txt
           </section>
           <section>
             <h3>Er, what if I already committed it?</h3>
-            <h4>Undoing committed changes</h4> 
+            <h4>Undoing committed changes</h4>
             <div class = "fragment">
               <p>Open hello_world.txt and add some new text</p>
               <pre><code class ="command-line">
