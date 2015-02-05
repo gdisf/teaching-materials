@@ -221,27 +221,27 @@ Your identification has been saved in /Users/you/.ssh/id_rsa.
           <section>
             <h3>Installation and Setup</h3>
             <p>Setup name and email in gitconfig</p>
-            <pre><code contenteditable class ="command-line">
+            <pre><code class ="command-line">
 $ git config --global user.name "Your Name Here"
 # Sets the default name for git to use when you commit
             </code></pre>
-            <pre><code contenteditable class ="command-line">
+            <pre><code class ="command-line">
 $ git config --global user.email "your_email@example.com"
 # Sets the default email for git to use when you commit
             </code></pre>
-            <pre><code contenteditable class ="command-line">
+            <pre><code class ="command-line">
 $ git config --list
             </code></pre>
           </section>
         </section>
         <!-- Git Structure -->
-        <section>
+        <section> 
           <section>
           <h3>Git Structure &amp; Workflow</h3>
           <img src="images/basic-remote-workflow.png" style="height:550px;"/>
           </section>
           <section>
-          <h5>To use git, you need a clear map in your mind of what is happening</h5>
+          <h5>Or, put another way...</h5>
           <img src="images/git_index_structure.png" style="height:550px;"/>
           <div class="fragment"><a href="http://ndpsoftware.com/git-cheatsheet.html">a Really Useful Visual Reference</a></div>
           </section>
@@ -260,7 +260,9 @@ $ git config --list
             <ul>
               <li>init</li>
               <li>clone</li>
+              <br>
               <li>status</li>
+              <li>log</li>
               <li>branch</li>
               <li>add</li>
               <li>commit</li>
@@ -271,144 +273,150 @@ $ git config --list
           </section>
           <section>
             <h3>Create a Local Repository</h3>
-            <p>Go to home directory</p>
-            <pre><code contenteditable class ="command-line">
-  cd ~/
+            <p>1. Go to your home directory</p>
+            <pre><code class ="command-line">
+  $ cd ~/
   OR
-  cd Users\username
+  $ cd Users\username
             </code></pre>
-            <p>Create a "working directory"</p>
-            <pre><code contenteditable class ="command-line">
-  mkdir my-first-repo
-  cd my-first-repo
+            <p>2. Create a new "working directory"</p>
+            <pre><code class ="command-line">
+  $ mkdir my-first-repo
+  $ cd my-first-repo
             </code></pre>
-            <p>Initialize repository with Git</p>
-            <pre><code contenteditable class ="command-line">
-  git init
-  git status
+            <p>3. Initialize it as a local Git repository</p>
+            <pre><code class ="command-line">
+  $ git init
+  $ git status
             </code></pre>
           </section>
           <section>
             <h3>Add files</h3>
-            <p>Create a new hello_world.txt file in your new folder</p>
-            <p>Check repo status</p>
-            <pre><code contenteditable class ="command-line">
-  git status
+            <p>1. Create a new file in your new folder named "hello.txt"</p>
+  <pre><code class ="command-line">
+  $ touch hello.txt
             </code></pre>
-            <p>Tell Git to track our new file</p>
-            <pre><code contenteditable class ="command-line">
-  git add hello_world.txt
-  git status
+            <p>2. Check the status of your repo with "git status"</p>
+            <pre><code class ="command-line">
+  $ git status
             </code></pre>
-            <p>File is now tracked by Git</p>
+            <p>3. Tell Git to track our new file with the "git add" command</p>
+            <pre><code class ="command-line">
+  $ git add hello.txt
+  $ git status
+            </code></pre>
+            <p>Success! The file you just added is now tracked by Git</p>
           </section>
           <section>
             <h3>Changes and commits</h3>
-            <p>Open hello_world.txt and add some more text</p>
-            <pre><code contenteditable class ="command-line">
-  git status
+            <p>1. Open hello.txt, add some more text, and save it</p>
+            <pre><code class ="command-line">
+  $ git status
             </code></pre>
-            <p>Stage and commit the change</p>
-            <pre><code contenteditable class ="command-line">
-  git add hello_world.txt
-  git commit -m "First commit. Added hello world to repository."
+            <p>2. Stage the change and check the status</p>
+            <pre><code class ="command-line">
+  $ git add hello.txt
+  $ git status
+            </code></pre>
+            <p>3. Commit the change with a good commit message describing what you did </p>
+            <pre><code class ="command-line">
+  $ git commit -m "First commit. Added hello.txt to repository."
             </code></pre>
           </section>
         </section>
         <!-- Explanation-->
         <section>
           <section>
-            <h3>What did we just do??</h3>
-            <p>How is this all different than just saving a file?</p>
+            <h3>Whoa. What did we just do??</h3>
+            <h5>How is all this different from just saving a file?</h5>
             <ul>
-              <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked</li>
-              <li class="fragment">When we <span class ="green">stage</span> an existing file (also with the keyword 'add'), we are telling Git to track the current state of our file</li>
-              <li class="fragment">A <span class ="green">commit</span> saves changes made to a file, not the file as a whole. The commit will have a 'hash' so we can track which changes were committed when and by whom.</li>
-            
+              <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked. </li>
+              <li class="fragment">This is also called  <span class ="green">staging</span> a file. A snapshot of our changes is now in the staging area or the cache, ready to be saved.</li>
+              <li class="fragment">A <span class ="green">commit</span> saves the changes made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom.</li>
             </ul>
           </section>
           <section>
             <h3>Look at our progress</h3>
-            <pre><code contenteditable class ="command-line">
-  git log
+            <pre><code class ="command-line">
+  $ git log 
             </code></pre>
-            <pre><code contenteditable class ="command-line">
-  commit [HASH HERE]
+            <pre><code class ="command-line">
+  commit 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b
   Author: Your name <you@your-email.com>
-  Date:   [DATE HERE]
+  Date:   Thu Feb 05 16:01:22 2015 -0700
 
       First commit. Added hello world to repository.
               </code></pre>
           </section>
           <section>
-            <h3>Look at our progress, visually</h3>
-            <pre><code contenteditable class ="command-line">
-  gitk
-            </code></pre>
-            <img src = "images/gitk.png" alt ="Image of commits for this curriculum repo"/>
+          <h3>Congratulations. You are now using Git.</h3>
+          <img src="images/youre-awesome.jpg" alt="Bill Murray says you're awesome." />
           </section>
         </section>
         <!-- Undoing changes -->
         <section>
           <section>
-            <h3>Nobody's Perfect</h3>
-            <h4>Undoing local changes</h4> 
+            <h3>How to undo things you didn't mean to do</h3>
+            <h4>Undoing changes in your working copy</h4> 
             <p>If you haven't committed yet</p>
             <div class = "fragment">
-              <p>Open hello_world.txt and add some new text</p>
-              <pre><code contenteditable class ="command-line">
-  change hello_world.txt
-  git checkout hello_world.txt
+              <p>Open hello.txt and add some new text</p>
+              <pre><code  class ="command-line">
+  $ git checkout hello.txt
               </code></pre>
             </div>
-            <p class="fragment">Look at hello_world.txt. Your changes are gone.</p>
+            <p class="fragment">Look at hello.txt in your editor: your changes are gone.</p>
           </section>
           <section>
-            <h3>Nobody's Perfect</h3>
-            <h4>Undoing staged changes</h4> 
-            <div class = "fragment">
-              <p>Open hello_world.txt and add some new text</p>
-              <pre><code contenteditable class ="command-line">
-git add hello_world.txt
-git reset HEAD hello_world.txt
-git checkout hello_world.txt
-              </code></pre>
-            </div>
-            <p class="fragment">Look at hello_world.txt. Your changes are gone.</p>
-          </section>
-          <section>
-            <h3>Nobody's Perfect</h3>
-            <h4>Undoing staged changes</h4> 
-            <div class = "fragment">
-              <p>Open hello_world.txt and add some new text</p>
-              <pre><code contenteditable class ="command-line">
-git add hello_world.txt
-git commit -am "Changing and committing some lines"
-git log --pretty=oneline
-git revert [HASH]
-              </code></pre>
-            </div>
-            <p class="fragment">Look at hello_world.txt. Your changes are gone.</p>
-          </section>
-          <section>
-            <h3>Nobody's Perfect</h3>
-            <h4>Remove a file from staging</h4>
+            <h3>Un-staging a file</h3>
             <p>Create new file my_new_file.txt</p>
-              <pre><code contenteditable class ="command-line">
-git add my_new_file.txt
-git reset my_new_file.txt
+              <pre><code class ="command-line">
+$ git add my_new_file.txt
+$ git reset my_new_file.txt
               </code></pre>
           </section>
           <section>
-            <h3>Nobody's Perfect</h3>
-            <h4>Delete a file</h4>
-            <p>Create new file my_other_file.txt</p>
-            <pre><code contenteditable class ="command-line">
-git add my_other_file.txt
+            <h3>Oops, didn't mean to add that file...</h3>
+            <h4>Undoing staged changes</h4> 
+            <div class = "fragment">
+              <p>Open hello.txt and add some new text</p>
+              <pre><code class ="command-line">
+$ git add hello.txt
+$ git reset HEAD hello.txt
+$ git checkout hello.txt
+              </code></pre>
+            </div>
+            <p class="fragment">Look at hello.txt in your editor: your changes are gone. </p>
+          </section>
+          <section>
+            <h3>Er, what if I already committed it?</h3>
+            <h4>Undoing committed changes</h4> 
+            <div class = "fragment">
+              <p>Open hello_world.txt and add some new text</p>
+              <pre><code class ="command-line">
+$ git add hello_world.txt
+$ git status
+$ git commit -m "Changing and committing some lines"
+$ git log --oneline
+$ git revert [HASH]
+$ git log --oneline
+              </code></pre>
+            </div>
+            <p class="fragment">Look at hello_world.txt. Your changes are gone.</p>
+          </section>
+          
+          <section>
+            <h3>Git never forgets</h3>
+            <h4>Deleting a file</h4>
+            <p>Create a new file some_other_file.txt</p>
+            <pre><code class ="command-line">
+$ git add some_other_file.txt
+$ git status
             </code></pre>
-            <p>Manually delete your file</p>
-            <pre><code contenteditable class ="command-line">
-git rm my_other_file.txt
+            <p></p>
+            <pre><code class ="command-line">
+$ git rm some_other_file.txt
+$ git status
             </code></pre>
           </section>
         </section>
