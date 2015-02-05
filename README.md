@@ -5,11 +5,11 @@ This is a fork of the official Girl Develop It Core Intro to Git and Github cour
 The course is meant to be taught in a two-hour workshop.
 
 ###Resources for Learning Git & GitHub
+* [The Official Docs](http://git-scm.com/doc)
 * [Git Cheatsheet](http://ndpsoftware.com/git-cheatsheet.html): There are lots of cheatsheets out there, but this one is a visual illustration of git structure and commands.
 * [Git Immersion](http://gitimmersion.com/): a great in-depth tutorial with hands-on exercises.
 * [Pro Git](http://git-scm.com/book/en/v2): a very thorough reference. If Git can do it, you'll find it here.
-* [The Official Docs](http://git-scm.com/doc)
-* [Atlassian's Git Tutorials](https://trello.com/c/xv4lMf95/2458-final-kw-changes):from the creator of (among other things) [SourceTree](https://www.atlassian.com/software/sourcetree/overview), a free visual git tool for Mac & Windows.
+* [Atlassian's Git Tutorials](https://www.atlassian.com/git/tutorials):from the creator of (among other things) [SourceTree](https://www.atlassian.com/software/sourcetree/overview), a free visual git tool for Mac & Windows.
 * [Git Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows/#!workflow-gitflow): an overview of different ways that teams can use git.
 
 
