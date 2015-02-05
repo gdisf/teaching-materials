@@ -424,38 +424,44 @@ $ git status
         <section>
           <section>
             <h3>Branching</h3>
-            <ul>
+             <img src="images/branches.jpg" alt="blue birds on branhces" /> 
+            <p >A branch is another copy of your repo that will allow you to isolate changes and leave the original copy untouched. You can later choose to combine these changes in whole or part with the "master" copy, or not. </p>
+           
+          </section>
+          <section>
+          <h3>Branching</h3>
+          <ul>
               <li>Develop different code on the same base</li>
-              <li>Conduct exploratory work without affecting the work on master branch</li>
-              <li>Incorporate changes to your master branch only when you are ready</li>
+              <li>Conduct experimental work without affecting the work on master branch</li>
+              <li>Incorporate changes to your master branch only if and when you are ready...or discard them easily</li>
             </ul>
           </section>
           <section>
             <h3>Branching</h3>
-            <p>Create a new branch called version2</p>
-            <pre><code contenteditable class ="command-line">
-git checkout -b version2
+            <p>Create a new branch called feature</p>
+            <pre><code class ="command-line">
+$ git checkout -b feature
             </code></pre>
-            <p>Add new lines to hello_world.txt</p>
-            <pre><code contenteditable class ="command-line">
-git add hello_world.txt
-git commit -m "Adding changes to version 2"
+            <p>Add new lines to hello.txt</p>
+            <pre><code class ="command-line">
+$ git add hello.txt
+$ git commit -m "Adding changes to feature "
             </code></pre>
           </section>
           <section>
             <h3>Branching</h3>
             <h4>Switching branches</h4>
-            <p>See all branches. Branch with * is active</p>
-            <pre><code contenteditable class ="command-line">
-git branch
+            <p>See all your local branches. Your active branch, the one you're "on," is marked with an * </p>
+            <pre><code class ="command-line">
+$ git branch
             </code></pre>
-            <p>Switch to master and look at hello_world.txt</p>
-            <pre><code contenteditable class ="command-line">
-git checkout master
+            <p>Switch to master branch and look at hello.txt</p>
+            <pre><code class ="command-line">
+$ git checkout master
             </code></pre>            
-            <p>Switch to version2 and look at hello_world.txt</p>
-            <pre><code contenteditable class ="command-line">
-git checkout version2
+            <p>Switch to feature branch and look at hello.txt</p>
+            <pre><code class ="command-line">
+$ git checkout feature
             </code></pre>
           </section>
         </section>
@@ -463,36 +469,35 @@ git checkout version2
         <section>
           <section>
             <h3>Merging</h3>
-            <h4>Merge to get changes from one branch into another*</h4>
+            <h4>Merge to get changes from one branch into another</h4>
             <p>Switch to master and merge changes</p>
-            <pre><code contenteditable class ="command-line">
-git checkout master
-git merge version2
+            <pre><code class ="command-line">
+$ git checkout master
+$ git merge feature
             </code></pre>
-            <p>*rebase is another option, but will not be covered in this workshop</p>
           </section>
           <section>
             <h3>Merging</h3>
             <h4>Merge conflicts</h4>
-            <p>Change first line in hello_world.txt in master branch</p>
-            <pre><code contenteditable class ="command-line">
-git add hello_world.txt
-git commit -m "Changing first line in master"
+            <p>Change the first line in hello.txt in master branch</p>
+            <pre><code class ="command-line">
+$ git add hello.txt
+$ git commit -m "Changing first line in master"
             </code></pre>
-            <p>Change first line in hello_world.txt in version2 branch</p>
-            <pre><code contenteditable class ="command-line">
-git checkout version2
-# open hello_world.txt and change first line
-git add hello_world.txt
-git commit -m "Changing first line in version2"
+            <p>Now change first line in hello.txt in feature branch</p>
+            <pre><code class ="command-line">
+$ git checkout feature
+   # open hello.txt and change first line
+$ git add hello.txt
+$ git commit -m "Changing first line in feature"
             </code></pre>
           </section>
           <section>
             <h3>Merging</h3>
             <h4>Merge conflicts, cont.</h4>
-            <p>Merge from master into version2</p>
-            <pre><code contenteditable class ="command-line">
-git merge master
+            <p>Merge from master into feature</p>
+            <pre><code class ="command-line">
+$ git merge master
             </code></pre>
             <p class ="fragment">You will be notified of a conflict. Go to the file and fix the problem. Then commit your edits.</p>
                        
