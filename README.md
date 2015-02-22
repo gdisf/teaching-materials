@@ -12,9 +12,11 @@ The course is meant to be taught in a two-hour workshop.
 * [Atlassian's Git Tutorials](https://www.atlassian.com/git/tutorials):from the creator of (among other things) [SourceTree](https://www.atlassian.com/software/sourcetree/overview), a free visual git tool for Mac & Windows.
 * [Git Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows/#!workflow-gitflow): an overview of different ways that teams can use git.
 
-
-###Slidedeck details
+### Slidedeck details
 [Reveal.js](https://github.com/hakimel/reveal.js) is a library that lets you create a slick slidedeck. It is installed here as a submodule (a git repository within a git repository, if you will). See the [Pro-Git chapter on submodules](http://git-scm.com/book/en/v2/Git-Tools-Submodules).
+
+### Gulp
+[Gulp.js](https://github.com/gulpjs/gulp) is used here to compile Sass, build the site, deploy it locally, and watch for changes, among other tasks. You can use this repo without using Gulp. But if you want to use it, you'll need to install Node, and then install Gulp globally (via [npm](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md_)) as well as in your project. See [the Gulp project repo](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) for instructions on installation and use. 
 
 ### Theme customization
 
