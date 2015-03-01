@@ -278,13 +278,15 @@ Initial revision of "git", the information manager from hell
   OR
   $ cd Users\username
             </code></pre>
-            <p>2. Create a new "working directory"</p>
+            <p>2. Create a new "working directory" and cd into it</p>
             <pre><code class ="command-line">
   $ mkdir my-first-repo
   $ cd my-first-repo
             </code></pre>
             <p>3. Initialize it as a local Git repository</p>
-            <pre><code class ="command-line">
+            <pre><code class ="bash">
+  # make sure you are in the right directory!          
+  $ pwd 
   $ git init
   $ git status
             </code></pre>
@@ -304,7 +306,7 @@ Initial revision of "git", the information manager from hell
   $ git add hello.txt
   $ git status
             </code></pre>
-            <p>Success! The file you just added is now tracked by Git</p>
+            <p><span class="green">Success!</span> The file you just added is now tracked by Git</p>
           </section>
           <section>
             <h3>Changes and commits</h3>
@@ -317,7 +319,7 @@ Initial revision of "git", the information manager from hell
   $ git add hello.txt
   $ git status
             </code></pre>
-            <p>3. Commit the change with a good commit message describing what you did </p>
+            <p>3. Commit the change with a good commit message that explains and describes what you did </p>
             <pre><code class ="command-line">
   $ git commit -m "First commit. Added hello.txt to repository."
             </code></pre>
@@ -336,7 +338,7 @@ Initial revision of "git", the information manager from hell
             </ul>
           </section>
           <section>
-            <h3>Look at our progress</h3>
+            <h3>Look at your progress</h3>
             <pre><code class ="command-line">
   $ git log
             </code></pre>
@@ -356,68 +358,64 @@ Initial revision of "git", the information manager from hell
         <!-- Undoing changes -->
         <section>
           <section>
-            <h3>How to undo things you didn't mean to do</h3>
-            <h4>Undoing changes in your working copy</h4>
-            <p class="blue">If you haven't committed yet</p>
+            <h3>When Mistakes are Made...</h3>
+            <p>Don't worry. Git is your friend.</p>
+            <img src="images/mistakes-were-made.jpg" alt="Those WERE the Droids I was looking for!"/>
+          </section>
+          <section>
+            <h3>Undoing changes in your working copy</h3>
+            <p class="blue">If you haven't added/committed yet</p>
             <div class = "fragment">
               <p>Open hello.txt and add some new text</p>
               <pre><code  class ="command-line">
   $ git checkout hello.txt
               </code></pre>
             </div>
-            <p class="fragment">Look at hello.txt in your editor: your changes are gone.</p>
+            <p class="fragment">Look at hello.txt in your editor: your changes are gone (you've gone back to the previous commit state).</p>
           </section>
           <section>
             <h3>Un-staging a file</h3>
-            <p>Create new file my_new_file.txt</p>
+              <ol>
+                <li>In your text editor, create a new file, and name it "my_new_file.txt"</li>
+                <li>Switch back to your terminal.</li>
+              </ol>
               <pre><code class ="command-line">
 $ git add my_new_file.txt
+$ git status
 $ git reset my_new_file.txt
+$ git status
               </code></pre>
+              <p class-"fragment">The file is removed from staging.</p>
           </section>
           <section>
-            <h3>Oops, didn't mean to add that file...</h3>
-            <h4>Undoing staged changes</h4>
+            <h3>Undoing changes you've already staged</h3>
             <div class = "fragment">
-              <p>Open hello.txt and add some new text</p>
+              <p>Open hello.txt in your editor and add some new text.</p>
               <pre><code class ="command-line">
 $ git add hello.txt
 $ git reset HEAD hello.txt
+$ git status # the file has been unstaged.
 $ git checkout hello.txt
               </code></pre>
             </div>
-            <p class="fragment">Look at hello.txt in your editor: your changes are gone. </p>
+            <p class="fragment">Now Look at hello.txt in your editor again: your changes are gone, and the file is removed from staging. </p>
           </section>
           <section>
             <h3>Er, what if I already committed it?</h3>
             <h4>Undoing committed changes</h4>
+            <p>Git lets you go back to any previous commit.</p>
             <div class = "fragment">
               <p>Open hello_world.txt and add some new text</p>
               <pre><code class ="command-line">
 $ git add hello_world.txt
 $ git status
-$ git commit -m "Changing and committing some lines"
-$ git log --oneline
-$ git revert [HASH]
+$ git commit -m "A change I will soon regret making"
+$ git log --oneline #you should see (at least) two commits here at this poing; copy the short form of the hash id
+$ git revert 53d23c4 #Your default editor will open here with a ready made commit message for the revert commit; you can just save it and close it as is. 
 $ git log --oneline
               </code></pre>
             </div>
-            <p class="fragment">Look at hello_world.txt. Your changes are gone.</p>
-          </section>
-          
-          <section>
-            <h3>Git never forgets</h3>
-            <h4>Deleting a file</h4>
-            <p>Create a new file some_other_file.txt</p>
-            <pre><code class ="command-line">
-$ git add some_other_file.txt
-$ git status
-            </code></pre>
-            <p></p>
-            <pre><code class ="command-line">
-$ git rm some_other_file.txt
-$ git status
-            </code></pre>
+            <p class="fragment">Notice that the original, regrettable commit is still there, but now you have another commit that undoes the changes introduced by the original one.</p>
           </section>
         </section>
         <!-- Branches-->
@@ -425,7 +423,7 @@ $ git status
           <section>
             <h3>Branching</h3>
              <img src="images/branches.jpg" alt="blue birds on branhces" /> 
-            <p >A branch is another copy of your repo that will allow you to isolate changes and leave the original copy untouched. You can later choose to combine these changes in whole or part with the "master" copy, or not. </p>
+            <p >A branch is essentially another copy of your repo that will allow you to isolate changes and leave the original copy untouched. You can later choose to combine these changes in whole or part with the "master" copy, or not. </p>
            
           </section>
           <section>
@@ -435,6 +433,8 @@ $ git status
               <li>Conduct experimental work without affecting the work on master branch</li>
               <li>Incorporate changes to your master branch only if and when you are ready...or discard them easily</li>
             </ul>
+
+            <p class= "fragment green"> Branches are cheap! </p>
           </section>
           <section>
             <h3>Branching</h3>
@@ -446,6 +446,7 @@ $ git checkout -b feature
             <pre><code class ="command-line">
 $ git add hello.txt
 $ git commit -m "Adding changes to feature "
+$ git log --oneline
             </code></pre>
           </section>
           <section>
@@ -455,13 +456,15 @@ $ git commit -m "Adding changes to feature "
             <pre><code class ="command-line">
 $ git branch
             </code></pre>
-            <p>Switch to master branch and look at hello.txt</p>
+            <p>Switch to master branch and look at the commit history</p>
             <pre><code class ="command-line">
 $ git checkout master
+$ git log --oneline
             </code></pre>            
-            <p>Switch to feature branch and look at hello.txt</p>
+            <p>Switch to feature branch and look at the commit history</p>
             <pre><code class ="command-line">
 $ git checkout feature
+$ git log --oneline
             </code></pre>
           </section>
         </section>
@@ -474,6 +477,7 @@ $ git checkout feature
             <pre><code class ="command-line">
 $ git checkout master
 $ git merge feature
+$ git log --oneline
             </code></pre>
           </section>
           <section>
@@ -499,7 +503,7 @@ $ git commit -m "Changing first line in feature"
             <pre><code class ="command-line">
 $ git merge master
             </code></pre>
-            <p class ="fragment">You will be notified of a conflict. Go to the file and fix the problem. Then commit your edits.</p>
+            <p class ="fragment">You will be notified of a conflict. Go to the file and fix the problem. Then add and commit your edits.</p>
                        
           </section>
         </section>
