@@ -71,12 +71,75 @@
         </section>
         
         <section>
-          <h3>What we will cover today</h3>
+          <h3>What we will cover in this workshop</h3>
           <ul>
             <li class ="fragment">What is version control and why should we care?</li>
             <li class ="fragment">Basics of git: the essential commands</li>
-            <li class ="fragment">GitHub: a little git between friends</li>
+            <li class ="fragment">GitHub (or, a little git between friends)</li>
           </ul>
+        </section>
+         <!-- Installation and Setup-->
+        <section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <a href = "http://git-scm.com/downloads" alt ="Download latest version of Git" target ="_blank">
+              <p>Install git</p>
+              <img src = "images/install-git.jpg" alt = "Download latest version of Git"/>
+            </a>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Set up ssh keys</p>
+            <pre><code>
+$ cd ~/.ssh
+            </code></pre>
+            <pre><code>
+$ ssh-keygen -t rsa -C "your_email@example.com"
+# Generating public/private rsa key pair.
+# Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+            </code></pre>
+            <pre><code>
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+# Enter same passphrase again: [Type passphrase again]
+            </code></pre>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Get SSH Key</p>
+            <pre><code>
+Your identification has been saved in /Users/you/.ssh/id_rsa.
+# Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
+# The key fingerprint is:
+# 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com
+            </code></pre>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Add SSH Key to Github</p>
+            <img src = "images/add-ssh.png" alt ="Steps to add SSH key to github account"/>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Setup name and email in gitconfig</p>
+            <pre><code class ="command-line">
+$ git config --global user.name "Your Name Here"
+# Sets the default name for git to use when you commit
+            </code></pre>
+            <pre><code class ="command-line">
+$ git config --global user.email "your_email@example.com"
+# Sets the default email for git to use when you commit
+            </code></pre>
+            <pre><code class ="command-line">
+$ git config --list
+            </code></pre>
+          </section>
+          <section>
+            <h3>Setup: Setting the default text editor</h3>
+            <p> By default git is set up to use Vim as the text editor.</p>
+            (type :q or :q! to get out of Vim)
+            <p>Follow <a href="https://help.github.com/articles/associating-text-editors-with-git/">these instructions</a> to change this to another editor. </p>
+
+          </section>
         </section>
         
         <!-- Version control-->
