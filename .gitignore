@@ -3,5 +3,3 @@ node_modules
 .sass-cache
 .DS_Store
 .idea/*
-dist
-build
