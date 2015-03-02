@@ -16,7 +16,10 @@ The course is meant to be taught in a two-hour workshop.
 [Reveal.js](https://github.com/hakimel/reveal.js) is a library that lets you create a slick slidedeck. It is installed here as a submodule (a git repository within a git repository, if you will). See the [Pro-Git chapter on submodules](http://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 ### Gulp
-[Gulp.js](https://github.com/gulpjs/gulp) is used here to compile Sass, build the site, deploy it locally, and watch for changes, among other tasks. You can use this repo without using Gulp. But if you want to use it, you'll need to install Node, and then install Gulp globally (via [npm](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md_)) as well as in your project. See [the Gulp project repo](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) for instructions on installation and use. 
+[Gulp.js](https://github.com/gulpjs/gulp) is used here to compile Sass, build the site, deploy it locally and to production, and watch for changes, among other tasks. You can use this repo without using Gulp. But if you want to use it, you'll need to install Node, and then install Gulp globally (via [npm](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md_)) as well as in your project. See [the Gulp project repo](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) for instructions on installation and use. 
+
+####Deploying to GitHub pages with Gulp
+Gulp compiles to a build folder. That build folder is deployed to GitHub pages as a subtree, not a separate repository. See [this gist](https://gist.github.com/amygori/9dbab4c6382cac2c8052) for instructions on how to deploy a subfolder to the gh-pages branch.
 
 ### Theme customization
 
