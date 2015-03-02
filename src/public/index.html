@@ -244,12 +244,21 @@ Initial revision of "git", the information manager from hell
           <h5>Or, put another way...</h5>
           <img src="images/git_index_structure.png" style="height:550px;"/>
           </section>
+          <section>
+            <h3>Things to keep in mind</h3>
+            <p> Git tracks changes to your content, not the files themselves.</p> 
+          </section>
         </section>
         <!-- Git terms and commands-->
         <section>
           <section>
             <h3> Git Vocabulary </h3>
              <p> a repo </p>
+             <p> a commit </p>
+             <p> a blob, a tree, </p>
+             <p> a branch </p>
+             <p> HEAD </p>
+
           </section> 
           <section>
           <h3>Basic Git Commands</h3>
@@ -524,7 +533,7 @@ $ git merge master
               <li class ="fragment"><span class ="green">Open source projects</span> host or mirror their repositories on GitHub</li>
               <li class ="fragment"><span class ="green">Post your own code</span> for others to use or contribute to</li>
               <li class ="fragment">Read, copy, and <span class ="green">learn</span> from the code in other people's repositories</li>
-              <li class="fragment"><span class="green">Contribute to open source projects</span> (like the <a href="https://github.com/girldevelopit/gdi-new-site"> new Girl Develop It website that is in development</a>!)</li>
+              <li class="fragment"><span class="green">Contribute to open source projects</span> (like the <a href="https://github.com/girldevelopit/gdi-new-site"> new Girl Develop It website</a>!)</li>
             </ul>
             </section>
         </section>
@@ -555,11 +564,13 @@ $ git push -u origin master
         </section>
         <!-- Fork a repository-->
         <section>
-
           <section>
-            <h3>GitHub Collaboration</h3>
-            <p>Remember this?</p>
-            <img src="images/distributed-to-the-max-vc.png" alt="GitHub collaboration illustrated"/>
+            <h3>What can I do with a GitHub Account</h3>
+            <p>
+            <p> FORK a repo: Find some code you want to use and grab a copy of it. </p> 
+            <p> (you'll need to CLONE the repo &mdash; that is, make your own local copy of it)</p>
+            <p> PUSH to a remote repo you own: post some code you want others to see.</p>
+            <p> submit a PULL REQUEST to the owner of a repo you'd like to contribute to </p>
           </section>
           <section>
             <h3>Forking</h3>
@@ -662,6 +673,22 @@ $ git push origin master
              <p>How to manage pull requests is out of the scope of this short workshop, but you can learn more from the <a href = "https://help.github.com/categories/collaborating/" target ="_blank" alt = "Links to information on GitHub about pull requests and collaboration">Github Collaborating Tutorials</a> </p>
           </section>
         </section>
+        <!-- In Conclusion -->
+        <section>
+          <section>
+          <h3> Git Best Practices </h3>
+            <ul>
+              <li>Commit early and often</li>
+                commits give you a hook into your code, like a bookmark that you can turn back to.
+              <li>Don't forget to communicate with real people</li>
+              <li>don't wait until something is perfect to commit it, or to push it. Share code to get feedback on it, and to let other people know what you are working on.</li>
+              <li>Write good commit messages</li>
+              <li>Branches are cheap</li>
+              <p>You decide what to track, even within a single project.</p>
+          <p>* You can, and should, leave some things out: anything that you are not making changes to: e.g., certain dependencies, .dot files, api keys. Git gives you an easy way to do this (.gitignore).</p>
+            </ul>
+          </section>
+        </section>
         <!-- -->
         <section>
           <h2>Questions?</h2>
@@ -679,8 +706,8 @@ $ git push origin master
 		</div>
 
 
-		<script src="../../reveal/lib/js/head.min.js"></script>
-		<script src="../../reveal/js/reveal.js"></script>
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.js"></script>
 
 		<script>
 
