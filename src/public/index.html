@@ -18,8 +18,8 @@
 		<link rel="stylesheet" href="reveal/css/theme/gdidefault.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
-		<!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/dark.css">
+		<!-- light editor--><link rel="stylesheet" href="lib/css/light.css">
+		<!-- dark editor<link rel="stylesheet" href="reveal/lib/css/dark.css">-->
 
 		<!-- If use the PDF print sheet so students can print slides-->
 		
@@ -39,7 +39,8 @@
 			<div class="slides">
 			  <!-- Opening slide -->
         <section>
-          <img src = "images/gdi_logo_badge.png">
+          <img src = "images/gdi_logo_badge.png" style=
+          "background: transparent; border:none;">
           <h3>Intro to Git and Github</h3>
         </section>
         
@@ -367,7 +368,7 @@ Initial revision of "git", the information manager from hell
         <!-- Undoing changes -->
         <section>
           <section>
-            <h3>When Mistakes are Made...</h3>
+            <h3>We all make mistakes...</h3>
             <p>Don't worry. Git is your friend.</p>
             <img src="images/mistakes-were-made.jpg" alt="Those WERE the Droids I was looking for!"/>
           </section>
@@ -567,10 +568,10 @@ $ git push -u origin master
           <section>
             <h3>What can I do with a GitHub Account</h3>
             <p>
-            <p> FORK a repo: Find some code you want to use and grab a copy of it. </p> 
-            <p> (you'll need to CLONE the repo &mdash; that is, make your own local copy of it)</p>
-            <p> PUSH to a remote repo you own: post some code you want others to see.</p>
-            <p> submit a PULL REQUEST to the owner of a repo you'd like to contribute to </p>
+            <p> <a href="https://help.github.com/articles/fork-a-repo/">FORK</a> a repo: Find some code you want to use and grab a copy of it. </p> 
+            <p> (you'll need to <a href="http://git-scm.com/docs/git-clone">CLONE</a> the repo &mdash; that is, make your own local copy of it)</p>
+            <p> <a href="https://help.github.com/articles/pushing-to-a-remote/" >PUSH</a> to a remote repo you own: post some code you want others to see.</p>
+            <p> submit a <a href="https://help.github.com/articles/creating-a-pull-request/" >PULL REQUEST</a> to the owner of a repo you'd like to contribute to </p>
           </section>
           <section>
             <h3>Forking</h3>
@@ -580,12 +581,12 @@ $ git push -u origin master
           </section>
           <section>
             <h3><a href="https://help.github.com/articles/fork-a-repo/">Forking</a></h3>
-             <p>If you want to <span class = "green">use</span> or <span class = "green">contribute</span> to a repository, you can fork it.</p>
+             <p>If you want to <span class = "green">use</span> or <span class = "green">contribute</span> to a repository, you can fork it. A fork is just a copy of a repository.</p>
             <img src = "images/fork_button.jpg" alt ="How to fork a repository. Image from https://help.github.com/articles/fork-a-repo/"/>
           </section>
           <section>
             <h3>Cloning</h3>
-            <p>Clone to get a local copy of the fork you just made</p>
+            <p>To get a local copy of the fork you just made, use the <span class="green">git clone</span> command.</p>
             <pre><code class ="command-line">
 $ cd ../
 
@@ -655,13 +656,15 @@ $ git push origin master
           <section>
             <h3><a href="https://help.github.com/articles/creating-a-pull-request/">Pull Requests</a></h3>
             <ul>
-              <li class = "fragment">After you fork and clone a repository all pushed changes will go to your fork</li>
-              <li class = "fragment">These changes will not affect the original repository</li>
-              <li class = "fragment">If you would like to get your changes to be incorporated into the original repo, you can submit a pull request: a request for the owner of the repo to pull your changes in (since you don't have permission to push)</li>
+              <li class = "fragment">After you fork and clone a repository all pushed changes will go to your fork.</li>
+              <li class = "fragment">These changes will not affect the original [upstream] repository!</li>
+              <li class = "fragment">If you would like your changes to be incorporated into the original repo, you can submit a pull request.
+              <li class = "fragment">A <span class="green">pull request</span> is a GitHub feature that lets you ask the owner of the upstream repo to pull your changes in (since you don't have permission to push)</li>
             </ul>
           </section>
           <section>
             <h3>Starting a pull request</h3>
+            <p>You need to do this on GitHub, not from the command line.</p> 
             <img src = "images/click-pull-request.png" alt ="How to initiate a pull request. Image from https://help.github.com/articles/using-pull-requests"/>
           </section>
           <section>
@@ -670,7 +673,9 @@ $ git push origin master
           </section>
           <section>
             <h3>Managing pull requests</h3>
-             <p>How to manage pull requests is out of the scope of this short workshop, but you can learn more from the <a href = "https://help.github.com/categories/collaborating/" target ="_blank" alt = "Links to information on GitHub about pull requests and collaboration">Github Collaborating Tutorials</a> </p>
+             <p>If you are the owner of repo, you will review and decide whether to merge in the pull requests you receive.</p><br>
+             
+             <p>You can learn more from the <a href = "https://help.github.com/categories/collaborating/" target ="_blank" alt = "Links to information on GitHub about pull requests and collaboration">Github Collaborating Tutorials.</a> </p>
           </section>
         </section>
         <!-- In Conclusion -->
@@ -700,7 +705,7 @@ $ git push origin master
   		<footer>
         <div class="copyright">
           Intro to Git and Github ~ Girl Develop It ~
-          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
         </div>
       </footer>
 		</div>
