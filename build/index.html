@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to Git and Github ~ Girl Develop It</title>
+
+		<meta name="description" content="This is the official Girl Develop It Core Intro to Git and GitHub course. Material based on original material by Kim Moir, Daniel Fischer, Aurelia Moser, Carina C. Zona and Izzy Johnston.
+
+    The course is meant to be taught in a two-hour workshop. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+		<meta name="author" content="Girl Develop It">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="reveal/css/reveal.css">
+		<link rel="stylesheet" href="reveal/css/theme/gdidefault.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+		<!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+		
+		<link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+			  <!-- Opening slide -->
+        <section>
+          <img src = "images/gdi_logo_badge.png">
+          <h3>Intro to Git and Github</h3>
+        </section>
+        
+        <!-- Welcome-->
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <p class ="green">Some "rules"</p>
+          <ul>
+            <li>We are here for you!</li>
+            <li>Every question is important</li>
+            <li>Help each other</li>
+            <li>Have fun</li>
+          </ul>
+          </div>
+        </section>
+        
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p class = "blue">Tell us about yourself.</p>
+          <ol>
+            <li>Who are you?</li>
+            <li>What do you want to learn here tonight?</li>
+            <li>Finish this sentence: "In a former life, I was..."</li>
+          </ol>
+          </div>
+        </section>
+        
+        <section>
+          <h3>What we will cover in this workshop</h3>
+          <ul>
+            <li class ="fragment">What is version control and why should we care?</li>
+            <li class ="fragment">Basics of git: the essential commands</li>
+            <li class ="fragment">GitHub (or, a little git between friends)</li>
+          </ul>
+        </section>
+         <!-- Installation and Setup-->
+        <section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <a href = "http://git-scm.com/downloads" alt ="Download latest version of Git" target ="_blank">
+              <p>Install git</p>
+              <img src = "images/install-git.jpg" alt = "Download latest version of Git"/>
+            </a>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Set up ssh keys</p>
+            <pre><code>
+$ cd ~/.ssh
+            </code></pre>
+            <pre><code>
+$ ssh-keygen -t rsa -C "your_email@example.com"
+# Generating public/private rsa key pair.
+# Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+            </code></pre>
+            <pre><code>
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+# Enter same passphrase again: [Type passphrase again]
+            </code></pre>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Get SSH Key</p>
+            <pre><code>
+Your identification has been saved in /Users/you/.ssh/id_rsa.
+# Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
+# The key fingerprint is:
+# 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com
+            </code></pre>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Add SSH Key to Github</p>
+            <img src = "images/add-ssh.png" alt ="Steps to add SSH key to github account"/>
+          </section>
+          <section>
+            <h3>Installation and Setup</h3>
+            <p>Setup name and email in gitconfig</p>
+            <pre><code class ="command-line">
+$ git config --global user.name "Your Name Here"
+# Sets the default name for git to use when you commit
+            </code></pre>
+            <pre><code class ="command-line">
+$ git config --global user.email "your_email@example.com"
+# Sets the default email for git to use when you commit
+            </code></pre>
+            <pre><code class ="command-line">
+$ git config --list
+            </code></pre>
+          </section>
+          <section>
+            <h3>Setup: Setting the default text editor</h3>
+            <p> By default git is set up to use Vim as the text editor.</p>
+            (type :q or :q! to get out of Vim)
+            <p>Follow <a href="https://help.github.com/articles/associating-text-editors-with-git/">these instructions</a> to change this to another editor. </p>
+
+          </section>
+        </section>
+        
+        <!-- Version control-->
+        <section>
+          <section>
+            <h3>What is version control?</h3>
+            <p>Version control is a tool that allows you to...</p>
+            <div class="fragment">
+              <h4>Collaborate</h4>
+              <p>Create anything with other people, from academic papers to entire websites and applications.</p>
+            </div>
+            <div class="fragment">
+              <h4>Track and revert changes</h4>
+              <p>Mistakes happen. Wouldn't it be nice if you could see the changes that have been made and go back in time to fix something that went wrong?
+            </div>
+          </section>
+          <section>
+          <h3>What should I use version control for?</h3>
+          <h4>Anything. But not everything.</h4>
+          <img src="images/allthethings.jpg"/ alt="version control ALL THE THINGS!" style="margin-top: 50px;">
+          </section>
+          <section>
+          <h3>You know how to do this already</h3>
+          <p> Do you have files somewhere that look like this?</p>
+          <pre><code>
+Resume-September2013.docx
+Resume-for-Duke-job.docx
+ResumeOLD.docx
+ResumeNEW.docx
+ResumeREALLYREALLYNEW.docx
+          </code></pre>
+          <div class="fragment">You invented your own version control. (It's not very effective, though, is it?)</div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Brief history of Version Control</h3>
+            <p><span class ="green">1990s</span> &mdash; CVS (Concurrent Version Systems)</p>
+            <p><span class ="green">2000s</span> &mdash; SVN (Apache Subversion)</p>
+            <p><span class ="green">2005</span> &mdash; Git </p>
+          </section>
+          <section>
+            <h3>Version Control Types</h3>
+              <div class="fragment"><h4>Centralized Version Control</h4>
+                <p>Examples: CVS, Subversion (SVN)</p>
+              </div>
+              <div class="fragment"><h4>Distributed Version Control</h4>
+                <p>Examples: Git, Mercurial</p>
+              </div>
+          </section>
+          <section>
+              <h3>Centralized Version Control</h3>
+               <div class="fragment"><p>...NOT Git!</p></div>
+              <p>One central server, each client (person) checks out and merges changes to main server</p>
+              <img src="images/centralized-vc.png" alt = "one central server with each person pushing changes to the main server"/>
+          </section>
+          <section>
+              <h3>Distributed Version Control</h3>
+               <div class="fragment"><p>...this is Git! </p></div>
+              <p>Each client (person) has a local repository, which they can then reconcile with the main server.</p>
+              <img src="images/distributed-vc.png" alt="each person works on her own local copy; each copy is reconciled with the main copy on the server" />
+          </section>
+          <section>
+              <h3>Distributed Version Control: Level Up</h3>
+              <img src="images/distributed-to-the-max-vc.png" alt="each person works on her own local copy; each copy is reconciled with the main copy on the server" />
+          </section>
+
+        </section>
+        <!-- Git-->
+        <section>
+          <h3>Chapter 1: Git is Born</h3>
+            <p>The first commit, April 2005</p>
+              <pre>
+                <code>
+commit e83c5163316f89bfbde7d9ab23ca2e25604af29
+Author: Linus Torvalds &lt;torvalds@ppc970.osdl.org&gt;
+Date: Thu Apr 7 15:13:13 2005 -0700
+Initial revision of "git", the information manager from hell
+                </code>
+              </pre>
+        </section>
+        <section>
+          <h3>Why Use Git?</h3>
+          
+          <ul>
+            <li>Fast! Access information quickly and efficiently.</li>
+            <li>Distributed! Everyone has her own local copy.</li>
+            <li>Mind-bogglingly scalable! Enabling potentially thousands (millions!) of developers to work on single project.
+            <li>Local! You don't need a network connection to use it. You only need a remote server if you want to share your code with others (e.g., using GitHub)</li>
+            <li>Branches! Keep your coding experiments separate from code that is already working.</li>
+            <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history</span></li>
+          </ul>
+        </section>
+       
+        <!-- Git Structure -->
+        <section> 
+          <section>
+          <h3>Git Structure &amp; Workflow</h3>
+          <img src="images/basic-remote-workflow.png" style="height:550px;"/>
+          </section>
+          <section>
+          <h5>Or, put another way...</h5>
+          <img src="images/git_index_structure.png" style="height:550px;"/>
+          </section>
+          <section>
+            <h3>Things to keep in mind</h3>
+            <p> Git tracks changes to your content, not the files themselves.</p> 
+          </section>
+        </section>
+        <!-- Git terms and commands-->
+        <section>
+          <section>
+            <h3> Git Vocabulary </h3>
+             <p> a repo </p>
+             <p> a commit </p>
+             <p> a blob, a tree, </p>
+             <p> a branch </p>
+             <p> HEAD </p>
+
+          </section> 
+          <section>
+          <h3>Basic Git Commands</h3>
+            <ul>
+              <li>init</li>
+              <li>clone</li>
+              <br>
+              <li>add</li>
+              <li>commit</li>
+              <br>
+              <li>status</li>
+              <li>log</li>
+              <br>
+              <li>branch</li>
+              <li>fetch</li>
+              <li>merge</li>
+              <li>pull</li>
+              <li>push</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Create a Local Repository</h3>
+            <p>1. Go to your home directory</p>
+            <pre><code class ="command-line">
+  $ cd ~/
+  OR
+  $ cd Users\username
+            </code></pre>
+            <p>2. Create a new "working directory" and cd into it</p>
+            <pre><code class ="command-line">
+  $ mkdir my-first-repo
+  $ cd my-first-repo
+            </code></pre>
+            <p>3. Initialize it as a local Git repository</p>
+            <pre><code class ="bash">
+  # make sure you are in the right directory!          
+  $ pwd 
+  $ git init
+  $ git status
+            </code></pre>
+          </section>
+          <section>
+            <h3>Add files</h3>
+            <p>1. Create a new file in your new folder named "hello.txt"</p>
+  <pre><code class ="command-line">
+  $ touch hello.txt
+            </code></pre>
+            <p>2. Check the status of your repo with "git status"</p>
+            <pre><code class ="command-line">
+  $ git status
+            </code></pre>
+            <p>3. Tell Git to track our new file with the "git add" command</p>
+            <pre><code class ="command-line">
+  $ git add hello.txt
+  $ git status
+            </code></pre>
+            <p><span class="green">Success!</span> The file you just added is now tracked by Git</p>
+          </section>
+          <section>
+            <h3>Changes and commits</h3>
+            <p>1. Open hello.txt, add some more text, and save it</p>
+            <pre><code class ="command-line">
+  $ git status
+            </code></pre>
+            <p>2. Stage the change and check the status</p>
+            <pre><code class ="command-line">
+  $ git add hello.txt
+  $ git status
+            </code></pre>
+            <p>3. Commit the change with a good commit message that explains and describes what you did </p>
+            <pre><code class ="command-line">
+  $ git commit -m "First commit. Added hello.txt to repository."
+            </code></pre>
+          </section>
+        </section>
+        <!-- Explanation-->
+        <section>
+          <section>
+            <h3>Whoa.</h3>
+            <h3>What did we just do??</h3>
+            <div class="fragment"><h5>How is all this different from just saving a file?</h5></div>
+            <ul>
+              <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked. </li>
+              <li class="fragment">This is also called  <span class ="green">staging</span> a file. A snapshot of our changes is now in the <span class ="green">staging area</span> (aka the <span class ="green">index</span>, aka the <span class ="green">cache</span>), ready to be saved.</li>
+              <li class="fragment">A <span class ="green">commit</span> saves the <span class="blue">changes</span> made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Look at your progress</h3>
+            <pre><code class ="command-line">
+  $ git log
+            </code></pre>
+            <pre><code class ="command-line">
+  commit 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b
+  Author: Your name &lt;you@your-email.com&gt;
+  Date:   Thu Feb 05 16:01:22 2015 -0700
+
+      First commit. Added hello.txt to repository.
+              </code></pre>
+          </section>
+          <section>
+          <h3>Congratulations. You are now using Git.</h3>
+          <img src="images/youre-awesome.jpg" alt="Bill Murray says you're awesome." />
+          </section>
+        </section>
+        <!-- Undoing changes -->
+        <section>
+          <section>
+            <h3>When Mistakes are Made...</h3>
+            <p>Don't worry. Git is your friend.</p>
+            <img src="images/mistakes-were-made.jpg" alt="Those WERE the Droids I was looking for!"/>
+          </section>
+          <section>
+            <h3>Undoing changes in your working copy</h3>
+            <p class="blue">If you haven't added/committed yet</p>
+            <div class = "fragment">
+              <p>Open hello.txt and add some new text</p>
+              <pre><code  class ="command-line">
+  $ git checkout hello.txt
+              </code></pre>
+            </div>
+            <p class="fragment">Look at hello.txt in your editor: your changes are gone (you've gone back to the previous commit state).</p>
+          </section>
+          <section>
+            <h3>Un-staging a file</h3>
+              <ol>
+                <li>In your text editor, create a new file, and name it "my_new_file.txt"</li>
+                <li>Switch back to your terminal.</li>
+              </ol>
+              <pre><code class ="command-line">
+$ git add my_new_file.txt
+$ git status
+$ git reset my_new_file.txt
+$ git status
+              </code></pre>
+              <p class-"fragment">The file is removed from staging.</p>
+          </section>
+          <section>
+            <h3>Undoing changes you've already staged</h3>
+            <div class = "fragment">
+              <p>Open hello.txt in your editor and add some new text.</p>
+              <pre><code class ="command-line">
+$ git add hello.txt
+$ git reset HEAD hello.txt
+$ git status # the file has been unstaged.
+$ git checkout hello.txt
+              </code></pre>
+            </div>
+            <p class="fragment">Now Look at hello.txt in your editor again: your changes are gone, and the file is removed from staging. </p>
+          </section>
+          <section>
+            <h3>Er, what if I already committed it?</h3>
+            <h4>Undoing committed changes</h4>
+            <p>Git lets you go back to any previous commit.</p>
+            <div class = "fragment">
+              <p>Open hello_world.txt and add some new text</p>
+              <pre><code class ="command-line">
+$ git add hello_world.txt
+$ git status
+$ git commit -m "A change I will soon regret making"
+$ git log --oneline #you should see (at least) two commits here at this poing; copy the short form of the hash id
+$ git revert 53d23c4 #Your default editor will open here with a ready made commit message for the revert commit; you can just save it and close it as is. 
+$ git log --oneline
+              </code></pre>
+            </div>
+            <p class="fragment">Notice that the original, regrettable commit is still there, but now you have another commit that undoes the changes introduced by the original one.</p>
+          </section>
+        </section>
+        <!-- Branches-->
+        <section>
+          <section>
+            <h3>Branching</h3>
+             <img src="images/branches.jpg" alt="blue birds on branhces" /> 
+            <p >A branch is essentially another copy of your repo that will allow you to isolate changes and leave the original copy untouched. You can later choose to combine these changes in whole or part with the "master" copy, or not. </p>
+           
+          </section>
+          <section>
+          <h3>Branching</h3>
+          <ul>
+              <li>Develop different code on the same base</li>
+              <li>Conduct experimental work without affecting the work on master branch</li>
+              <li>Incorporate changes to your master branch only if and when you are ready...or discard them easily</li>
+            </ul>
+
+            <p class= "fragment green"> Branches are cheap! </p>
+          </section>
+          <section>
+            <h3>Branching</h3>
+            <p>Create a new branch called feature</p>
+            <pre><code class ="command-line">
+$ git checkout -b feature
+            </code></pre>
+            <p>Add new lines to hello.txt</p>
+            <pre><code class ="command-line">
+$ git add hello.txt
+$ git commit -m "Adding changes to feature "
+$ git log --oneline
+            </code></pre>
+          </section>
+          <section>
+            <h3>Branching</h3>
+            <h4>Switching branches</h4>
+            <p>See all your local branches. Your active branch, the one you're "on," is marked with an * </p>
+            <pre><code class ="command-line">
+$ git branch
+            </code></pre>
+            <p>Switch to master branch and look at the commit history</p>
+            <pre><code class ="command-line">
+$ git checkout master
+$ git log --oneline
+            </code></pre>            
+            <p>Switch to feature branch and look at the commit history</p>
+            <pre><code class ="command-line">
+$ git checkout feature
+$ git log --oneline
+            </code></pre>
+          </section>
+        </section>
+        <!-- Merging-->
+        <section>
+          <section>
+            <h3>Merging</h3>
+            <h4>Merge to get changes from one branch into another</h4>
+            <p>Switch to master and merge changes</p>
+            <pre><code class ="command-line">
+$ git checkout master
+$ git merge feature
+$ git log --oneline
+            </code></pre>
+          </section>
+          <section>
+            <h3>Merging</h3>
+            <h4>Merge conflicts</h4>
+            <p>Change the first line in hello.txt in master branch</p>
+            <pre><code class ="command-line">
+$ git add hello.txt
+$ git commit -m "Changing first line in master"
+            </code></pre>
+            <p>Now change first line in hello.txt in feature branch</p>
+            <pre><code class ="command-line">
+$ git checkout feature
+   # open hello.txt and change first line
+$ git add hello.txt
+$ git commit -m "Changing first line in feature"
+            </code></pre>
+          </section>
+          <section>
+            <h3>Merging</h3>
+            <h4>Merge conflicts, cont.</h4>
+            <p>Merge from master into feature</p>
+            <pre><code class ="command-line">
+$ git merge master
+            </code></pre>
+            <p class ="fragment">You will be notified of a conflict. Go to the file and fix the problem. Then add and commit your edits.</p>
+                       
+          </section>
+        </section>
+        <!-- GitHub-->
+        <section>
+          <section>
+            <h3><a href = "http://www.github.com" alt="GitHub homepage">Share Your Code on GitHub</a></h3>
+              <img src="images/github.jpg" alt="github is social coding" style="height: 500px;"/>
+          </section>
+          <section>
+            <h3>Git + Friends = GitHub</h3>
+            <p>GitHub has over <span class="green">8 million users</span>, <br>and over <span class="green">19.2 million repositories</span></p>
+          </section>
+           <section>
+              <h3>What is GitHub for?</h3>
+              <ul>
+              <li class = "fragment">GitHub allows users to <span class = "green">host Git repositories</span> publicly and privately</li>
+              <li class ="fragment"><span class ="green">Open source projects</span> host or mirror their repositories on GitHub</li>
+              <li class ="fragment"><span class ="green">Post your own code</span> for others to use or contribute to</li>
+              <li class ="fragment">Read, copy, and <span class ="green">learn</span> from the code in other people's repositories</li>
+              <li class="fragment"><span class="green">Contribute to open source projects</span> (like the <a href="https://github.com/girldevelopit/gdi-new-site"> new Girl Develop It website</a>!)</li>
+            </ul>
+            </section>
+        </section>
+        <!-- New repository-->
+        <section>
+          <section>
+            <h3>GitHub</h3>
+            <h4>Create your first repository</h4>
+            <img src = "images/repo-create.png" alt ="image from GitHub help pages"/>
+          </section>
+          <section>
+            <h3>GitHub</h3>
+            <h4><a href="https://help.github.com/articles/create-a-repo/">Create your first repository</a></h4>
+            <img src = "images/bootcamp_2_repoinfo.png" alt ="How to create a new repository. Image from https://help.github.com/articles/create-a-repo"/>
+          </section>
+          <section>
+            <h3>GitHub</h3>
+            <h4>Set up remote repo to sync with your local repo</h4>
+            <p> GitHub has really easy-to-follow instructions for next steps. </p>
+
+            <pre><code class ="command-line">
+$ git remote add origin https://github.com/YOUR-GITHUB-USERNAME/REPO.git
+$ git push -u origin master
+            </code></pre>
+            <p class ="fragment">Now check out your GitHub repo online!</p>
+          </section>
+          
+        </section>
+        <!-- Fork a repository-->
+        <section>
+          <section>
+            <h3>What can I do with a GitHub Account</h3>
+            <p>
+            <p> FORK a repo: Find some code you want to use and grab a copy of it. </p> 
+            <p> (you'll need to CLONE the repo &mdash; that is, make your own local copy of it)</p>
+            <p> PUSH to a remote repo you own: post some code you want others to see.</p>
+            <p> submit a PULL REQUEST to the owner of a repo you'd like to contribute to </p>
+          </section>
+          <section>
+            <h3>Forking</h3>
+            <p>Think</p>  <img src="images/fork-in-the-road.jpg" style="border: 0;" /> 
+            <p>not</p>  
+            <img src="images/fork.jpg" style="height:200px; border: 0;" />
+          </section>
+          <section>
+            <h3><a href="https://help.github.com/articles/fork-a-repo/">Forking</a></h3>
+             <p>If you want to <span class = "green">use</span> or <span class = "green">contribute</span> to a repository, you can fork it.</p>
+            <img src = "images/fork_button.jpg" alt ="How to fork a repository. Image from https://help.github.com/articles/fork-a-repo/"/>
+          </section>
+          <section>
+            <h3>Cloning</h3>
+            <p>Clone to get a local copy of the fork you just made</p>
+            <pre><code class ="command-line">
+$ cd ../
+
+$ git clone https://github.com/amygori/gdi-rdu-git-github.git
+
+$ cd gdi-rdu-git-github
+$ git remote -v
+            </code></pre>
+        </section>
+        <section>
+          <h3>Wait...what?</h3>
+            <div class = "fragment">
+            There are now THREE copies of this repo that you have access to.
+            </div>
+            <br>  
+            <div class = "fragment">
+            the original (on Github) ==> <span class="green">upstream</span>
+            </div>
+            <div class = "fragment">
+            your fork (on GitHub) ==> <span class="green">origin</span>
+            </div>
+            <div class = "fragment">
+            your clone ==> <span class="green">your local repo</span>, just like you're used to
+            </div>
+        </section>
+          <section>
+        <h3>Establishing a connection to an upstream repo </h3>
+        <p>To keep track of the original repo, you need to add another remote named upstream</p>
+          <pre><code>
+$ git remote -v
+$ git remote add upstream https://github.com/amygori/gdi-rdu-git-github.git
+$ git fetch upstream
+          </code></pre>
+Downloads git references not present in your local repository, but does not modify your files (think of it like getting a table of contents rather than the contents themselves)
+          
+          </section>
+          <section>   
+            <h3>Shared Repos</h3>
+            <p>If team members are contributing to a single repo, any member of the team will want to make sure that she has everyone else's changes before pushing her own changes to the GitHub repo.</p>
+            <div class="fragment">
+          <h4>Always pull before you push!</h4>
+            </div>
+          </section>
+
+          <section>
+          <h3>Pulling</h3>
+              Commit local changes
+              <pre><code class ="command-line">
+$ git commit -m "My latest commit"
+              </code></pre>
+              Get changes that have been pushed to the remote repo
+              <pre><code class ="command-line">
+$ git pull origin master
+              </code></pre>
+              Git will prompt you to fix any conflicts, then commit
+              <pre><code class ="command-line">
+$ git commit -m "Fixing merging conflicts"
+              </code></pre>
+              Now you are ready to push local changes to GitHub
+              <pre><code class ="command-line">
+$ git push origin master
+              </code></pre>
+          </section>
+         </section> 
+        <!-- Pull requests-->
+        <section>
+          <section>
+            <h3><a href="https://help.github.com/articles/creating-a-pull-request/">Pull Requests</a></h3>
+            <ul>
+              <li class = "fragment">After you fork and clone a repository all pushed changes will go to your fork</li>
+              <li class = "fragment">These changes will not affect the original repository</li>
+              <li class = "fragment">If you would like to get your changes to be incorporated into the original repo, you can submit a pull request: a request for the owner of the repo to pull your changes in (since you don't have permission to push)</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Starting a pull request</h3>
+            <img src = "images/click-pull-request.png" alt ="How to initiate a pull request. Image from https://help.github.com/articles/using-pull-requests"/>
+          </section>
+          <section>
+            <h3>Previewing and sending pull request</h3>
+            <img src = "images/pull-request.png" alt ="How to preview and send a pull request. Image from https://help.github.com/articles/using-pull-requests"/>
+          </section>
+          <section>
+            <h3>Managing pull requests</h3>
+             <p>How to manage pull requests is out of the scope of this short workshop, but you can learn more from the <a href = "https://help.github.com/categories/collaborating/" target ="_blank" alt = "Links to information on GitHub about pull requests and collaboration">Github Collaborating Tutorials</a> </p>
+          </section>
+        </section>
+        <!-- In Conclusion -->
+        <section>
+          <section>
+          <h3> Git Best Practices </h3>
+            <ul>
+              <li>Commit early and often</li>
+                commits give you a hook into your code, like a bookmark that you can turn back to.
+              <li>Don't forget to communicate with real people</li>
+              <li>don't wait until something is perfect to commit it, or to push it. Share code to get feedback on it, and to let other people know what you are working on.</li>
+              <li>Write good commit messages</li>
+              <li>Branches are cheap</li>
+              <p>You decide what to track, even within a single project.</p>
+          <p>* You can, and should, leave some things out: anything that you are not making changes to: e.g., certain dependencies, .dot files, api keys. Git gives you an easy way to do this (.gitignore).</p>
+            </ul>
+          </section>
+        </section>
+        <!-- -->
+        <section>
+          <h2>Questions?</h2>
+          <img src = "images/git_hamster.jpg" alt ="Git Push Origin Hamster"/>
+        </section>
+			</div>
+
+
+  		<footer>
+        <div class="copyright">
+          Intro to Git and Github ~ Girl Develop It ~
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+		</div>
+
+
+		<script src="../../reveal/lib/js/head.min.js"></script>
+		<script src="../../reveal/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
