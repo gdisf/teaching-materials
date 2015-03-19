@@ -5,6 +5,7 @@ This is a fork of the official Girl Develop It Core Intro to Git and Github cour
 The course is meant to be taught in a two-hour workshop.
 
 ###Resources for Learning Git & GitHub
+* [Try Git](https://try.github.io) from CodeSchool.com
 * [The Official Docs](http://git-scm.com/doc)
 * [Git Cheatsheet](http://ndpsoftware.com/git-cheatsheet.html): There are lots of cheatsheets out there, but this one is a visual illustration of git structure and commands.
 * [Git Immersion](http://gitimmersion.com/): a great in-depth tutorial with hands-on exercises.
