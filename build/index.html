@@ -138,7 +138,7 @@ $ git config --list
             <h3>Setup: Setting the default text editor</h3>
             <p> By default git is set up to use Vim as the text editor.</p>
             (<span class="green">esc</span> + <span class="green">:q</span> or <span class="green">:q!</span> to get out of Vim)
-            <p>Follow <a href="https://help.github.com/articles/associating-text-editors-with-git/">these instructions</a> to change this to another editor. </p>
+            <p>Follow <a href="https://help.github.com/articles/associating-text-editors-with-git/">these instructions</a> to change your default text editor to whatever you prefer. </p>
 
           </section>
         </section>
@@ -163,7 +163,14 @@ $ git config --list
           <img src="images/allthethings.jpg"/ alt="version control ALL THE THINGS!" style="margin-top: 50px;">
           </section>
           <section>
-          <h3>You know how to do this already</h3>
+          <h3>To track or not to track</h3>
+            <p>You decide what goes into version control.</p>
+            <p class="fragment">You can, and should, leave some things out.</p> 
+            <p class="fragment">Like...anything that you are not making changes to or don't want anyone to have access to: e.g., certain dependencies, .dotfiles, api keys.</p> 
+            <p class="fragment">Git gives you an easy way to do this: <a href="https://help.github.com/articles/ignoring-files/">.gitignore</a></p>
+          </section>
+          <section>
+          <h3>You already manage versions of your work!</h3>
           <p> Do you have files somewhere that look like this?</p>
           <pre><code>
 Resume-September2013.docx
@@ -172,7 +179,7 @@ ResumeOLD.docx
 ResumeNEW.docx
 ResumeREALLYREALLYNEW.docx
           </code></pre>
-          <div class="fragment">You invented your own version control. (It's not very effective, though, is it?)</div>
+          <div class="fragment">You invented your own version control. (It's not terribly effective, though, is it?)</div>
           </section>
         </section>
         <section>
@@ -211,27 +218,15 @@ ResumeREALLYREALLYNEW.docx
         </section>
         <!-- Git-->
         <section>
-          <h3>Chapter 1: Git is Born</h3>
-            <p>The first commit, April 2005</p>
-              <pre>
-                <code>
-commit e83c5163316f89bfbde7d9ab23ca2e25604af29
-Author: Linus Torvalds &lt;torvalds@ppc970.osdl.org&gt;
-Date: Thu Apr 7 15:13:13 2005 -0700
-Initial revision of "git", the information manager from hell
-                </code>
-              </pre>
-        </section>
-        <section>
           <h3>Why Use Git?</h3>
           
           <ul>
             <li>Fast! Access information quickly and efficiently.</li>
             <li>Distributed! Everyone has her own local copy.</li>
-            <li>Mind-bogglingly scalable! Enabling potentially thousands (millions!) of developers to work on single project.
-            <li>Local! You don't need a network connection to use it. You only need a remote server if you want to share your code with others (e.g., using GitHub)</li>
+            <li>Mind-bogglingly scalable! Enables potentially thousands (millions!) of developers to work on single project.
+            <li>Local! You don't need a network connection to use it. You only need a remote server if you want to share your code with others (e.g., using GitHub).</li>
             <li>Branches! Keep your coding experiments separate from code that is already working.</li>
-            <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history</span></li>
+            <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history.</span></li>
           </ul>
         </section>
        
@@ -245,24 +240,34 @@ Initial revision of "git", the information manager from hell
           <h5>Or, put another way...</h5>
           <img src="images/git_index_structure.png" style="height:550px;"/>
           </section>
-          <section>
-            <h3>Things to keep in mind</h3>
-            <p> Git tracks changes to your content, not the files themselves.</p> 
-          </section>
         </section>
         <!-- Git terms and commands-->
         <section>
           <section>
-            <h3> Git Vocabulary </h3>
-             <p> a repo </p>
-             <p> a commit </p>
-             <p> a blob, a tree, </p>
-             <p> a branch </p>
-             <p> HEAD </p>
+            <h3> Git has its own peculiar Vocabulary </h3>
+            <p> Here are some of the most basic ones. </p>
+             <ul>
+             <li> A <span class="green">repository</span> is where you keep all the files you want to track.</li>
+             <li> A <span class="green">branch</span> is the name for a separate line of development, with its own history.</li>
+             <li> A <span class="green">commit</span> is an object that holds information about a particular change. </li>
+             <li> <span class="green">HEAD</span> refers to the most recent commit on the current branch.</li>
+             </ul>
 
           </section> 
           <section>
-          <h3>Basic Git Commands</h3>
+          <h3>Chapter 1: Git is Born</h3>
+            <p>The first commit, April 2005</p>
+              <pre>
+                <code>
+commit e83c5163316f89bfbde7d9ab23ca2e25604af29
+Author: Linus Torvalds &lt;torvalds@ppc970.osdl.org&gt;
+Date: Thu Apr 7 15:13:13 2005 -0700
+Initial revision of "git", the information manager from hell
+                </code>
+              </pre>
+        </section>
+          <section>
+          <h3>Some Basic Git Commands</h3>
             <ul>
               <li>init</li>
               <li>clone</li>
@@ -274,6 +279,7 @@ Initial revision of "git", the information manager from hell
               <li>log</li>
               <br>
               <li>branch</li>
+              <li>checkout</li>
               <li>fetch</li>
               <li>merge</li>
               <li>pull</li>
@@ -290,8 +296,8 @@ Initial revision of "git", the information manager from hell
             </code></pre>
             <p>2. Create a new "working directory" and cd into it</p>
             <pre><code class ="command-line">
-  $ mkdir my-first-repo
-  $ cd my-first-repo
+  $ mkdir my-repo
+  $ cd my-repo
             </code></pre>
             <p>3. Initialize it as a local Git repository</p>
             <pre><code class ="bash">
@@ -303,9 +309,9 @@ Initial revision of "git", the information manager from hell
           </section>
           <section>
             <h3>Add files</h3>
-            <p>1. Create a new file in your new folder named "hello.txt"</p>
+            <p>1. Create a new file in your new folder named "turtle.txt"</p>
   <pre><code class ="command-line">
-  $ touch hello.txt
+  $ touch turtle.txt
             </code></pre>
             <p>2. Check the status of your repo with "git status"</p>
             <pre><code class ="command-line">
@@ -313,25 +319,25 @@ Initial revision of "git", the information manager from hell
             </code></pre>
             <p>3. Tell Git to track our new file with the "git add" command</p>
             <pre><code class ="command-line">
-  $ git add hello.txt
+  $ git add turtle.txt
   $ git status
             </code></pre>
             <p><span class="green">Success!</span> The file you just added is now tracked by Git</p>
           </section>
           <section>
             <h3>Changes and commits</h3>
-            <p>1. Open hello.txt, add some more text, and save it</p>
+            <p>1. Open turtle.txt, add some text, and save it</p>
             <pre><code class ="command-line">
   $ git status
             </code></pre>
             <p>2. Stage the change and check the status</p>
             <pre><code class ="command-line">
-  $ git add hello.txt
+  $ git add turtle.txt
   $ git status
             </code></pre>
             <p>3. Commit the change with a good commit message that explains and describes what you did </p>
             <pre><code class ="command-line">
-  $ git commit -m "First commit. Added hello.txt to repository."
+  $ git commit -m "First commit. Added turtle.txt to repository."
             </code></pre>
           </section>
         </section>
@@ -357,18 +363,18 @@ Initial revision of "git", the information manager from hell
   Author: Your name &lt;you@your-email.com&gt;
   Date:   Thu Feb 05 16:01:22 2015 -0700
 
-      First commit. Added hello.txt to repository.
+      First commit. Added turtle.txt to repository.
               </code></pre>
           </section>
           <section>
-          <h3>Congratulations. You are now using Git.</h3>
+          <h3>Congratulations. <br>You are now using Git.</h3>
           <img src="images/youre-awesome.jpg" alt="Bill Murray says you're awesome." />
           </section>
         </section>
         <!-- Undoing changes -->
         <section>
           <section>
-            <h3>We all make mistakes...</h3>
+            <h3>We all make mistakes</h3>
             <p>Don't worry. Git is your friend.</p>
             <img src="images/mistakes-were-made.jpg" alt="Those WERE the Droids I was looking for!"/>
           </section>
@@ -376,56 +382,66 @@ Initial revision of "git", the information manager from hell
             <h3>Undoing changes in your working copy</h3>
             <p class="blue">If you haven't added/committed yet</p>
             <div class = "fragment">
-              <p>Open hello.txt and add some new text</p>
+              <p>Open turtle.txt and make some changes or add something new.</p>
               <pre><code  class ="command-line">
-  $ git checkout hello.txt
+  $ git checkout turtle.txt
               </code></pre>
             </div>
-            <p class="fragment">Look at hello.txt in your editor: your changes are gone (you've gone back to the previous commit state).</p>
+            <p class="fragment">Look at turtle.txt in your editor: your changes are gone (you've gone back to the previous commit state).</p>
           </section>
           <section>
             <h3>Un-staging a file</h3>
               <ol>
-                <li>In your text editor, create a new file, and name it "my_new_file.txt"</li>
+                <li>In your text editor, create a new file, and name it "possum.txt"</li>
                 <li>Switch back to your terminal.</li>
               </ol>
               <pre><code class ="command-line">
-$ git add my_new_file.txt
+$ git add possum.txt
 $ git status
-$ git reset my_new_file.txt
+$ git reset possum.txt
 $ git status
               </code></pre>
-              <p class-"fragment">The file is removed from staging.</p>
+              <p class-"fragment">The file is removed from staging, but your working copy will be unchanged.</p>
           </section>
           <section>
             <h3>Undoing changes you've already staged</h3>
             <div class = "fragment">
-              <p>Open hello.txt in your editor and add some new text.</p>
+              <p>Open turtle.txt in your editor and add some new text.</p>
               <pre><code class ="command-line">
-$ git add hello.txt
-$ git reset HEAD hello.txt
+$ git add turtle.txt
+$ git reset HEAD turtle.txt
 $ git status # the file has been unstaged.
-$ git checkout hello.txt
+$ git checkout turtle.txt #resets the working copy to its state at the last commit
               </code></pre>
             </div>
-            <p class="fragment">Now Look at hello.txt in your editor again: your changes are gone, and the file is removed from staging. </p>
+            <p class="fragment">Now look at turtle.txt in your editor again: your changes are gone, and the file is removed from staging. </p>
           </section>
           <section>
             <h3>Er, what if I already committed it?</h3>
             <h4>Undoing committed changes</h4>
             <p>Git lets you go back to any previous commit.</p>
             <div class = "fragment">
-              <p>Open hello_world.txt and add some new text</p>
+              <p>Open turtle.txt and add some new text</p>
               <pre><code class ="command-line">
-$ git add hello_world.txt
+$ git add turtle.txt
 $ git status
 $ git commit -m "A change I will soon regret making"
-$ git log --oneline #you should see (at least) two commits here at this poing; copy the short form of the hash id
-$ git revert 53d23c4 #Your default editor will open here with a ready made commit message for the revert commit; you can just save it and close it as is. 
-$ git log --oneline
+$ git log --oneline 
+  # you should see (at least) two commits here at this point
+  # copy the short form of the hash id
               </code></pre>
             </div>
-            <p class="fragment">Notice that the original, regrettable commit is still there, but now you have another commit that undoes the changes introduced by the original one.</p>
+          </section>
+          <section>
+          <h3> Git Revert </h3>
+            <h4>Undoing committed changes</h4>
+            <pre><code class ="command-line">
+$ git revert 53d23c4 
+  # Your default editor will open here
+  # you can just save it and close it as is. 
+$ git log --oneline
+            </code></pre>
+            <p >Notice that the original, regrettable commit is still there, but now you also have <span class="green">another commit that undoes the changes</span> introduced by the original one.</p>
           </section>
         </section>
         <!-- Branches-->
@@ -444,18 +460,18 @@ $ git log --oneline
               <li>Incorporate changes to your master branch only if and when you are ready...or discard them easily</li>
             </ul>
 
-            <p class= "fragment green"> Branches are cheap! </p>
+            <p class= "fragment green"> Branches are cheap!</p> 
           </section>
           <section>
             <h3>Branching</h3>
-            <p>Create a new branch called feature</p>
+            <p>Create a new branch called "feature"</p>
             <pre><code class ="command-line">
 $ git checkout -b feature
             </code></pre>
-            <p>Add new lines to hello.txt</p>
+            <p>Add new lines to turtle.txt</p>
             <pre><code class ="command-line">
-$ git add hello.txt
-$ git commit -m "Adding changes to feature "
+$ git add turtle.txt
+$ git commit -m "Adding changes to feature"
 $ git log --oneline
             </code></pre>
           </section>
@@ -493,17 +509,17 @@ $ git log --oneline
           <section>
             <h3>Merging</h3>
             <h4>Merge conflicts</h4>
-            <p>Change the first line in hello.txt in master branch</p>
+            <p>Change the first line in turtle.txt in master branch</p>
             <pre><code class ="command-line">
-$ git add hello.txt
-$ git commit -m "Changing first line in master"
+$ git add turtle.txt
+$ git commit -m "Changing turtle in master"
             </code></pre>
-            <p>Now change first line in hello.txt in feature branch</p>
+            <p>Now change first line in turtle.txt in feature branch</p>
             <pre><code class ="command-line">
 $ git checkout feature
-   # open hello.txt and change first line
-$ git add hello.txt
-$ git commit -m "Changing first line in feature"
+   # open turtle.txt and change the first line
+$ git add turtle.txt
+$ git commit -m "Changing turtle in feature"
             </code></pre>
           </section>
           <section>
@@ -571,7 +587,7 @@ $ git push -u origin master
             <p> <a href="https://help.github.com/articles/fork-a-repo/">FORK</a> a repo: Find some code you want to use and grab a copy of it. </p> 
             <p> (you'll need to <a href="http://git-scm.com/docs/git-clone">CLONE</a> the repo &mdash; that is, make your own local copy of it)</p>
             <p> <a href="https://help.github.com/articles/pushing-to-a-remote/" >PUSH</a> to a remote repo you own: post some code you want others to see.</p>
-            <p> submit a <a href="https://help.github.com/articles/creating-a-pull-request/" >PULL REQUEST</a> to the owner of a repo you'd like to contribute to </p>
+            <p> submit a <a href="https://help.github.com/articles/creating-a-pull-request/" >PULL REQUEST</a> to the owner of a repo you'd like to contribute to. </p>
           </section>
           <section>
             <h3>Forking</h3>
@@ -590,9 +606,9 @@ $ git push -u origin master
             <pre><code class ="command-line">
 $ cd ../
 
-$ git clone https://github.com/amygori/gdi-rdu-git-github.git
+$ git clone https://github.com/girldevelopit/gdi-new-site.git
 
-$ cd gdi-rdu-git-github
+$ cd gdi-new-site
 $ git remote -v
             </code></pre>
         </section>
@@ -614,10 +630,10 @@ $ git remote -v
         </section>
           <section>
         <h3>Establishing a connection to an upstream repo </h3>
-        <p>To keep track of the original repo, you need to add another remote named upstream</p>
-          <pre><code>
+        <p>To sync your fork with the original repo, you need to add another remote named upstream</p>
+          <pre style="width: 100%;"><code>
 $ git remote -v
-$ git remote add upstream https://github.com/amygori/gdi-rdu-git-github.git
+$ git remote add upstream https://github.com/girldevelopit/gdi-new-site.git
 $ git fetch upstream
           </code></pre>
 Downloads git references not present in your local repository, but does not modify your files (think of it like getting a table of contents rather than the contents themselves)
@@ -675,23 +691,7 @@ $ git push origin master
             <h3>Managing pull requests</h3>
              <p>If you are the owner of repo, you will review and decide whether to merge in the pull requests you receive.</p><br>
 
-             <p>You can learn more from the <a href = "https://help.github.com/categories/collaborating/" target ="_blank" alt = "Links to information on GitHub about pull requests and collaboration">Github Collaborating Tutorials.</a> </p>
-          </section>
-        </section>
-        <!-- In Conclusion -->
-        <section>
-          <section>
-          <h3> Git Best Practices </h3>
-            <ul>
-              <li>Commit early and often</li>
-                commits give you a hook into your code, like a bookmark that you can turn back to.
-              <li>Don't forget to communicate with real people</li>
-              <li>don't wait until something is perfect to commit it, or to push it. Share code to get feedback on it, and to let other people know what you are working on.</li>
-              <li>Write good commit messages</li>
-              <li>Branches are cheap</li>
-              <p>You decide what to track, even within a single project.</p>
-          <p>* You can, and should, leave some things out: anything that you are not making changes to: e.g., certain dependencies, .dot files, api keys. Git gives you an easy way to do this (.gitignore).</p>
-            </ul>
+             <p>You can learn more from the <br><a href = "https://help.github.com/categories/collaborating/" target ="_blank" alt = "Links to information on GitHub about pull requests and collaboration">Github Collaborating Tutorials.</a> </p>
           </section>
         </section>
         <!-- -->
