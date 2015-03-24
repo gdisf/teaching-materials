@@ -6,3 +6,4 @@ tmp/**
 .sass-cache
 css/reveal.min.css
 js/reveal.min.js
+**/npm-debug.log
