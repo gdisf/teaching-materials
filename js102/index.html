@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JS102: Objects, Arrays and Functions ~ Girl Develop It</title>
+
+		<meta name="description" content="Solidify your understanding of Objects, Arrays and Functions in JavaScript and learn the common mistakes made by beginners. This is a highly interactive course that uses exercises and projects to drive home these JS Fundamentals. You will finish with a strong foundation on one of the most important aspects of the language: objects, arrays and functions. 
+This workshop will be a traditional format, a combination of live lectures and exercise time, with TAs to help you through the exercises.">
+		<meta name="author" content="Aysegul Yonet, Bianca Gandolfo, Pamela Fox">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+				<!-- Welcome -->
+				<section>
+					<h3>Welcome to JS102</h3>
+
+					<ul>
+						<li>{Objects}</li>
+						<li>[Arrays]</li>
+						<li>And Function(s){...}</li>
+					</ul>
+					<p>Slides: http://bit.ly/JS102</p>
+				</section>
+				<!-- /Welcome -->
+				
+				<!-- Arrays -->
+				<section>
+					<h3>Arrays</h3>
+					<pre><code data-trim>
+
+						var coolTeachers = ["Pamela", "Bianca", "Brenda", "Aysegul"];
+
+					</code></pre>
+					<aside class="notes">
+						q: How long is it? 
+						What is the index of this one? 
+						What is at the 0th index? 
+						When would you use an array? 
+						How do we find out the length?
+					</aside>
+				</section>
+				<section>
+					<h3>Access and Assignment</h3>
+					
+					<pre><code data-trim>
+
+var classes = [];
+
+classes[0] = 'HTML 101';						
+classes[1] = 'JS 101';
+
+classes.push('JS 102');
+classes.pop();
+
+					</code></pre>
+					<!-- <button>Run</button> -->
+
+				</section>
+				<!-- TODO runnable -->
+				<section>
+					<pre><code data-trim>
+
+var i = 0;
+classes[i]; // ??
+
+classes[1];
+
+classes.pop(); //??
+
+classes.length;
+					</code></pre>
+				</section>
+				<section>
+					<h3>Iteration</h3>
+					<pre><code data-trim>
+
+var classes = ['HTML 101', 'JS 101', 'JS 102'];
+
+for(var i = 0; i &lt; classes.length; i++){
+						
+	console.log(i); //??
+						
+}
+					</code></pre>
+
+				</section>
+				<section>
+					<h3><a href="http://repl.it/enc/1" target="_blank">Exercise Time</a></h3>
+
+				</section>
+				<!-- /Arrays -->
+
+				<!-- Objects -->
+				<section>
+					<h3>Objects</h3>
+					<p>{}</p>
+				</section>
+				<section>
+					<h3>Assignment</h3>
+					<pre><code data-trim>
+
+var angelTheCat = {};
+
+angelTheCat.furColor = "orange";
+
+//OR
+
+var angelTheCat = {"furColor" : "orange"};
+
+					</code></pre>
+					<aside class="notes">
+						q:How many keys are in the object? 
+						What is the key name? 
+						What is the value?
+					</aside>
+
+				</section>
+				<section>
+					<h3>Access w/dots</h3>
+					<pre><code data-trim>
+
+var angelTheCat = {};
+						
+angelTheCat.furColor = "orange";
+						
+var furVariable = angelTheCat.furColor;
+
+furVariable; //??
+
+angelTheCat.furColor = "grey";
+
+furVariable; //??
+					</code></pre>
+										
+					<aside class="notes">
+						q: What is the new value after changing it?
+					</aside>
+				</section>
+				<section>
+					<h3>Brackets</h3>
+					<pre><code data-trim>
+
+angelTheCat["fur color"] = "orange";
+
+
+var facebookFriends = {};
+facebookFriends[12323] = angelTheCat;
+
+					</code></pre>
+				</section>
+				<section>
+					<h3>Variables</h3>
+					<pre><code data-trim>
+var angelTheCat = {};
+						
+angelTheCat["furColor"] = "orange";
+						
+						
+var keyVariable = "furColor";
+						
+angelTheCat[keyVariable]; //??
+
+					</code></pre>
+				</section>
+				<section>
+					<h3>Object Literals</h3>
+					<pre><code data-trim>
+
+var angelTheCat = { 
+	age: 5, 
+	furColor: "orange"
+}; 
+
+					</code></pre>
+				</section>
+				<section>
+					<h3>Values</h3>
+					<pre><code data-trim>
+
+var angelTheCat = { 
+	age: 5, 
+	furColor: "orange", 
+	isAngelic: true, 
+	likes: ["catnip", "milk"], 
+	birthday: {"month": 7, "day": 17, "year": 2009} 
+}; 
+
+					</code></pre>
+				</section>
+				<section>
+					<h3><a href="http://repl.it/enc/2" target="_blank">Exercise Time</a></h3>
+				</section>
+				<!-- /Objects -->
+
+				<!-- Arrays of Objects -->
+				<section>
+					<h3>Arrays of Objects</h3>
+					<pre><code data-trim>
+
+var cuteCats = [
+
+		{ name: "Angel", age: 18, furColor: "grey" },
+		{ name: "Evil", age: 14, furColor: "red" },
+		{ name: "Meh", age: 12, "Fur Color": "white" }
+
+	]
+
+					</code></pre>
+				</section>
+				<section>
+				<pre><code data-trim>
+
+cuteCats[0].name = ;//?
+
+cuteCats[1]furColor;//?
+
+cuteCats[2]["Fur Color"] = ;//?
+
+					</code></pre>
+				</section>
+				<section>
+					<h3>Iterating Objects</h3>
+					<pre><code data-trim>
+
+var zoo = {
+	birds : 3,
+	bears: 5,
+	cats: 12,
+}
+
+for(var key in zoo) {
+	console.log(zoo[key] + ' ' + key);
+}
+
+					</pre></code>
+				</section>
+				<section>
+					<h3><a href="http://repl.it/erX" target="_blank">Exercise Time</a></h3>
+					<a href="http://en.wikipedia.org/wiki/List_of_animal_sounds" target="_blank">A Useful Link</a>
+				</section>
+				<!-- /Arrays of Objects -->
+
+				<!-- Nested Objects -->
+				<section>
+					<h3>Nested Objects</h3>
+					<img src="images/nested.jpeg" alt="nested">
+					<pre><code data-trim>
+
+var doll = { "innerDoll" : {} };
+
+					</code></pre>
+				</section>
+				<section>
+					<pre><code data-trim>
+
+var doll = {
+	size: "large",
+	innerDoll: { size: "medium"}
+};
+
+doll.innerDoll.innerDoll = {size: "small"};
+
+console.log(doll);
+
+					</code></pre>
+				</section>
+
+				
+				<section>
+					<h3><a href="http://repl.it/enn" target="_blank">Exercise Time</a></h3>
+				</section>
+				<!-- /Nested Objects -->
+
+				<!-- Functions -->
+				<section>
+					<h2>Functions</h2>
+					<pre><code data-trim>
+
+var add = function(a, b) {
+	return a + b;
+};
+
+add(5, 4);
+
+					</pre></code>
+					<aside class="notes">
+						Declaration/definition
+						Parameters
+						Function name/body
+						Invocation/Calltime
+						Parameters
+					</aside>
+
+				</section>
+				<section>
+					<h3>Definition</h3>
+					<pre><code data-trim>
+
+var nameImprover = function (name, adj) {
+
+	return 'Col ' + name + ' Mc' + adj + ' pants';
+
+};	
+
+					</pre></code>
+				</section>
+				<section>
+					<h3>Definition vs. Call-time</h3>
+					<pre><code data-trim>
+
+var nameImprover = function (name, adj) {
+	return 'Col ' + name + ' Mc' + adj + ' pants';
+};	
+
+nameImprover("Pamela", "fancy");
+
+					</pre></code>
+				</section>
+				<section>
+					<h3>Naming Arguments</h3>
+					<pre><code data-trim>
+
+var nameImprover = function (name, adj) {
+	return 'Col ' + name + ' Mc' + adj + ' pants';
+};	
+
+nameImprover("Pamela", "shiny");
+nameImprover("Aysegul", "fancy");
+
+					</pre></code>
+				</section>
+				<section>
+					<h3>Return/Side Effects</h3>
+					<pre><code data-trim>
+
+var nameImprover = function (name, adj) {
+	return 'Col ' + name + ' Mc' + adj + ' pants';
+};	
+
+var nameLogger = function (name, adj) {
+	var newName = 'Col ' + name + ' Mc' + adj + ' pants';
+	console.log(newName); 
+};	
+
+					</pre></code>
+
+				</section>
+				<section>
+					<h3>arguments Keyword</h3>
+					<pre><code data-trim>
+
+var addTwo = function(a, b) {
+	console.log(arguments); // logs [3,10]
+	return a + b; 
+};
+
+addTwo(3, 10); // 13	
+
+					</pre></code>
+
+				</section>
+				<section>
+				<h3>arguments Keyword</h3>
+					<pre><code data-trim>
+
+var addMany = function() {
+	console.log(arguments);
+	var sum = 0;
+	for (var i = 0; i &lt; argumment.length; i++) {
+		sum += i;
+	}
+	return sum;
+};
+
+addMany(3, 10, 57,...);
+
+					</pre></code>
+
+				</section>
+				<section>
+					<h3>Defaulting Arguments</h3>
+					<pre><code data-trim>
+
+var nameLogger = function(name, adj) {
+	if(adj === undefined) adj = "Fancy";
+	var newName = 'Col ' + name + ' Mc' + adj + ' pants';
+	console.log(newName); 
+};
+
+					</pre></code>
+
+				</section>
+				<section>
+					<h3><a href="http://repl.it/enq" target="_blanl">Exercise Time</a></h3>
+				</section>
+				<section>
+					<h3>Scope</h3>
+				</section>
+				<section>
+					<h3>Local Scope</h3>
+					<pre><code data-trim>
+
+var func = function() {
+  var local = true;
+  console.log(local);
+};
+
+console.log(local);
+
+					</code></pre>
+				</section>
+				<section>
+					<h3>Global Scope</h3>
+					<pre><code data-trim>
+
+var global = "I'm available everywhere.";
+
+var func = function() {
+  var local = "I'm available inside this function.";
+  console.log("I'm available inside the function ", global);
+};
+
+console.log(global);
+
+					</code></pre>
+				</section>
+				<section>
+					<pre><code data-trim>
+
+var global = "I'm available everywhere.";
+
+var func = function() {
+  local = "I'm available everywhere too";
+};
+
+console.log(local);
+
+					</code></pre>
+					
+				</section>
+				
+				<section>
+					<h3>Precedence</h3>
+					<pre><code data-trim>
+
+var g = "global";
+
+function go() { 
+  var l = "local";
+  var g = "in here!";
+  alert(g + " inside go");
+}
+
+go();
+alert(g + " outside go");
+
+					</code></pre>
+				</section>
+				<!-- /Functions -->
+
+				<section>
+					<h1>Questions</h1>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
