@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JS 404: Intro to AngularJS Workshop for Girl Develop It 2015.</title>
+
+		<meta name="description" content="AngularJS, HTML enhanced for web apps!">
+		<meta name="author" content="Aysegul Yonet">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>AngularJS</h1>
+					
+					<p>Aysegul Yonet / <a href="https://twitter.com/tevgende" target="_blank">@AysegulYonet</a>
+					</p>
+					<p>Slides: http://bit.ly/angular-slides</p>
+				</section>
+
+				<section>
+					<h2>What we will build?</h2>
+					<a href="http://yonet.github.io/Catstagram/" target="_blank">Catstagram</a>
+					
+				</section>
+
+				<section>
+					<h2>What we will learn today?</h2>
+					<ul>
+						<li>What is AngularJS and why you might want to use it.</li>
+						<li>Parts that makes an Angular application: 
+							<ul>
+								<li>Controllers</li>
+								<li>Directives</li>
+								<li>Services</li>
+							</ul>
+						</li>
+						<!-- <li>Routing</li> -->
+						<li>Debugging your angular app.</li>
+						<li>Animation</li>
+						<li>Resources and open source directives</li>
+					</ul>
+					<aside class="notes">
+					We will look at some built-in directives and filters, then we'll create our own.
+					</aside>
+				</section>
+
+				<!-- TODO add zip start files with styles-->
+				<section>
+					<h2>What we will start with?</h2>
+					<a href="exercises/catstagram.zip" target="_blank">Download Files Here</a>
+				</section>
+				
+				<section>
+					<section>
+
+						<h2>What is Angular?</h2>
+						<aside class="notes">
+						If you were to build facebook from skretch, how would you build it? What needs to be different than a static website?
+						</aside>
+						
+					</section>
+					<section>
+						<p>AngularJS lets you extend HTML vocabulary for your application.</p>
+						<a href="http://jsfiddle.net/yonet3d/2pk4c2eo/36/" target="_blank">Example</a>
+					</section>
+					<section>
+						<p>MVVC</p>
+						<img src="images/MVVM.png"/>
+						
+					</section>
+					<section>
+						<p></p>
+						<img src="images/angular-overview.png"/>
+						<aside class="notes">
+						
+						</aside>
+					</section>
+					
+				</section>
+
+
+				<section>
+					<h2>Binding</h2>
+					<p>You can bootstrap your angular app by adding ng-app to any html tag.</p>
+					<p><a href="http://jsfiddle.net/yonet3d/m62sd5pn/" target="_blank">example</a></p>
+					<aside class="notes">
+					Only one AngularJS application can be auto-bootstrapped per HTML document. The first ngApp found in the document will be used to define the root element to auto-bootstrap as an application. To run multiple applications in an HTML document you must manually bootstrap them using angular.bootstrap instead. AngularJS applications cannot be nested within each other.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Modules</h2>
+					<p>You can think of a module as a container for the different parts of your app – controllers, services, filters, directives, ...</p>
+					<pre><code data-trim contenteditable>
+					var app = angular.module('myApp', []);
+					</code></pre>
+					<aside class="notes">
+					Modules makes your code, more readable, maintainable and testable. 
+					</aside>
+				</section>
+
+				
+
+				<section>
+					<h2>Controllers</h2>
+					<ul>
+						<li>Set up the initial state of the $scope object.</li>
+						<li>Add behavior to the $scope object.</li>
+					</ul>
+					<pre><code data-trim contenteditable>
+var app = angular.module('myApp', []);
+app.controller("FirstController", ['$scope', function($scope) {
+	$scope.message = 'Hello World!';
+	//Cool functions goes here...
+});
+					</code></pre>
+					<p><a href="http://jsfiddle.net/yonet3d/50fpkazx/1/" target="_blank">example</a></p>
+					<aside class="notes">
+					It is important that the name starts with a capital letter, camel case and Ends with Controller.
+					Controllers are view agnostic. Both controllers and directives have reference to the scope, but not to each other.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Scopes</h2>
+					<p>Scope is the glue between application controller and the view. Everything you need to be available inyour html, you have to include it in your $scope object.</p>
+					<p><a href="http://plnkr.co/edit/bKBFXKjP2rfYM8RIEZWP?p=preview" target="_blank">example</a></p>
+					<aside class="notes">
+						Scopes are arranged in hierarchical structure which mimic the DOM structure of the application.
+						Scopes provide APIs ($watch) to observe model mutations.
+						($apply) to propagate any model changes through the system into the view from outside of the "Angular realm" (controllers, services, Angular event handlers).
+					</aside>
+				</section>
+
+				<!-- Filters -->
+				<section>
+					<section>
+						<h2>Filters</h2>
+						<p>Filters are used for formatting data displayed to the user.</p>
+						<p><a href="http://jsfiddle.net/yonet3d/50fpkazx/2/" target="_blank">example</a></p>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Built-in Filters</h2>
+						<p><a href="https://docs.angularjs.org/api/ng/filter" target="_blank">List of built-in filters</a></p>
+					</section>
+					<section>
+						<h2>Custom Filters</h2> <!--data-trim-->
+						<p>You can create your own to do anything.</p>
+						<pre><code  contenteditable> 
+
+angular.module('app')
+	.filter('numberFormat', [function () {
+		return function (number) {
+			if (number !== undefined) {
+				var abs = Math.abs(number);
+				if (abs >= Math.pow(10,12)) {//trillion
+					number =  (number / Math.pow(10, 12)).toFixed(1)+ 't';
+				} else if (abs < Math.pow(10,12) && abs >= Math.pow(10, 9)) {//billion
+					number =  (number / Math.pow(10, 9)).toFixed(1)+ 'b';
+				} else if (abs < Math.pow(10, 9) && abs >= Math.pow(10, 6)) {//million
+					number =  (number / Math.pow(10, 6)).toFixed(1)+ 'm';
+				} else if (abs < Math.pow(10, 6) && abs >= Math.pow(10, 3)) {//thousand
+					number =  (number / Math.pow(10,3)).toFixed(1)+ 'k';
+				}
+			}
+			return number;
+		};
+	}]);
+
+					</code></pre>
+						<p><a href="http://jsfiddle.net/yonet3d/eapkhezd/2/" target="_blank">Example</a></p>
+					</section>
+
+				
+					
+				</section>
+				<!-- /Filters -->
+				<section>
+					<h2><a href="http://jsfiddle.net/ngk78pbz/4/" target="_blank">Exercise time...</a></h2>
+				</section>
+
+				<section>
+					<h2><a href="http://jsfiddle.net/yonet3d/ngk78pbz/" target="_blank">Solutions</a></h2>
+				</section>
+
+				<!-- /Directives -->
+				<section>
+					<section>
+						<h2>Directives</h2>
+						<p>Directives let you invent new HTML syntax, specific to your application.</p>
+						<aside class="notes">
+						</aside>
+					</section>
+					
+					<section>
+						<h2>Built-in Directives</h2>
+						<p>Angular comes with great directives you can use.</p>
+						<p><a href="https://docs.angularjs.org/api/ng/directive" target="_blank">List of built-in directives</a></p>
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section>
+						<h2>angular.element</h2>
+						<p>If jQuery is available, angular.element is an alias for the jQuery function. If jQuery is not available, angular.element delegates to Angular's built-in subset of jQuery, called "jQuery lite" or "jqLite."</p>
+						<p><a href="https://docs.angularjs.org/api/ng/function/angular.element" target="_blank">Angular's jqLite</a></p>
+						<aside class="notes">
+						What I am trying to say is you use angular.element no matter what.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Mouse Events with Angular</h2>
+						<p></p>
+						<ul>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngMousedown" target="_blank">ngMousedown</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngMouseover" target="_blank">ngMouseover</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngMouseenter" target="_blank">ngMouseenter</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngMouseleave" target="_blank">ngMouseleave</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngMousemove" target="_blank">ngMousemove</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngMouseup" target="_blank">ngMouseup</a></li>
+						</ul>
+						<p></p>
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section>
+						<h2>ngShow/ngHide</h2>
+						<p></p>
+						<ul>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngShow" target="_blank">ngShow</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngHide" target="_blank">ngHide</a></li>
+						</ul>
+						<p></p>
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section>
+						<h2>ngSwitch/ngIf</h2>
+						<p></p>
+						<ul>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngSwitch" target="_blank">ngSwitch</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/directive/ngIf" target="_blank">ngIf</a></li>
+						</ul>
+						<p></p>
+						<aside class="notes">
+						</aside>
+					</section>
+
+					<section>
+						<h2><a href="http://jsfiddle.net/yonet3d/22hgfgLw/" target="_blank">Example</a></h2>
+					</section>
+
+					<section>
+						<h2><a href="http://jsfiddle.net/yonet3d/22hgfgLw/3/" target="_blank">Exercise 1</a></h2>
+						<h2><a href="http://jsfiddle.net/yonet3d/22hgfgLw/4/" target="_blank">Exercise 2</a></h2>
+						<!-- TODO ngif exercise -->
+					</section>
+
+					<section>
+						<h2><a href="http://jsfiddle.net/yonet3d/22hgfgLw/1/" target="_blank">Solution 1</a></h2>
+						<h2><a href="http://jsfiddle.net/yonet3d/22hgfgLw/40/" target="_blank">Solution 2</a></h2>
+						<!-- TODO ngif exercise -->
+					</section>
+					<!-- TODO -->
+					<section>
+						<h2>Creating Custom Directives</h2>
+						<p>A linking function is enough to create a directive.</p>
+						<pre><code data-trim contenteditable>
+var app =  angular.module('app', [])
+app.directive('myDirective', [function(){
+	return {
+		link: function() {
+			//Do something here.
+		}
+	}
+}])
+						</code></pre>
+					</section>
+					<section>
+						<p>Linking function has access to:
+							<ul>
+								<li><i>scope:</i> is an Angular scope object.</li>
+								<li><i>element:</i> is the jqLite-wrapped element that this directive matches.</li>
+								<li><i>attrs:</i> is a hash object with key-value pairs of normalized attribute names and their corresponding attribute values.</li>
+							</ul>
+						</p>
+						<pre><code data-trim contenteditable>
+var app =  angular.module('app', [])
+app.directive('myDirective', [function(){
+	return {
+		restrict: "E", //Defaults to "A" for attribute. 
+		link: function(scope, element, attrs) {
+			//Do something here...
+		}
+	}
+}])
+						</code></pre>
+						<a href="http://jsfiddle.net/yonet3d/2pk4c2eo/1/" target="_blank">Example</a>
+					</section>
+					<section>
+						<h2>Basic behavior using element</h2>
+						<pre><code data-trim contenteditable>
+
+app.directive('superwoman', [function(){
+	return {
+		restrict: "E",
+		link: function(scope, element, attrs) {
+			element.bind('mouseenter', function(){
+				alert("I'm busy saving the world. Come back later.")
+			})
+		}
+	}
+}])
+						</code></pre>
+						<a href="http://jsfiddle.net/yonet3d/2pk4c2eo/2/" target="_blank">Example</a>
+					</section>
+					<section>
+						<h2>Using attrs</h2>
+						<pre><code data-trim contenteditable>
+
+app.directive('classy', [function(){
+	var link = function(scope, element, attrs) {
+		element.bind('mouseenter', function(){
+			element.addClass(attrs.classy);
+		})
+	}
+	return {
+		restrict:"A",
+		link: link
+	}
+}])
+						</code></pre>
+						<a href="http://jsfiddle.net/yonet3d/2pk4c2eo/6/" target="_blank">Example</a>
+					</section>
+					<section>
+						<h2>Using scope</h2>
+						<pre><code data-trim contenteditable>
+
+app.controller('SuperController', ['$scope', function($scope){
+	$scope.totalSuperwomen = 20;
+	$scope.addOne = function() {
+		$scope.totalSuperwomen ++;
+	}
+}])
+
+app.directive('superwoman', [function(){
+	return {
+		restrict: "E",
+		link: function(scope, element, attrs) {
+			element.bind('mouseenter', function(){
+				scope.addOne();
+				scope.$apply();
+			})
+		}
+	}
+}])
+
+						</code></pre>
+						<a href="http://jsfiddle.net/yonet3d/2pk4c2eo/14/" target="_blank">Example</a>
+						<a href="http://jsfiddle.net/yonet3d/2pk4c2eo/15/" target="_blank">A Better Way</a>
+					</section>
+
+					
+				</section>
+				<!-- /Directives -->
+
+				<!-- Services -->
+				<section>
+					<!-- TODO Example -->
+					<section>
+						<h2>Services</h2>
+						<p>The service factory function generates the single object or function that represents the service to the rest of the application.</p>
+						<!-- <p><a href="" target="_blank">example</a></p> -->
+						<aside class="notes">
+							You can use services to organize and share code across your app.
+						</aside>
+					</section>
+					<section>
+						<h2>Built-in Services</h2>
+						<ul>
+							<li><a href="https://docs.angularjs.org/api/ng/service/$http" target="_blank">$http</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/service/$filter" target="_blank">$filter</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/service/$rootScope" target="_blank">$rootScope</a></li>
+							<li><a href="https://docs.angularjs.org/api/ng/service/$location" target="_blank">$location</a> service parses the URL in the browser address bar and makes the URL available to your application.</li>
+							<li><a href="https://docs.angularjs.org/api/ng/service/$animate" target="_blank">$animate</a> is available in the AngularJS core, however, the ngAnimate module must be included to enable full out animation support. Otherwise, $animate will only perform simple DOM manipulation operations.</li>
+						</ul>
+						<aside class="notes">
+							Like other core Angular identifiers, built-in services always start with $ (e.g. $http).
+						</aside>
+					</section>
+					<section>
+						<h2>$http</h2>
+						<p>The $http service is a function which takes a single argument — a configuration object — that is used to generate an HTTP request and returns a promise with two $http specific methods: success and error.</p>
+						<pre><code data-trim contenteditable>
+// Simple GET request example :
+$http.get('/someUrl').
+  success(function(data, status, headers, config) {
+	// this callback will be called asynchronously
+	// when the response is available
+  }).
+  error(function(data, status, headers, config) {
+	// called asynchronously if an error occurs
+	// or server returns response with an error status.
+});
+						</code></pre>
+						<pre><code data-trim contenteditable>
+// Simple POST request example (passing data) :
+$http.post('/someUrl', {msg:'hello word!'}).
+  success(function(data, status, headers, config) {
+	// this callback will be called asynchronously
+	// when the response is available
+  }).
+  error(function(data, status, headers, config) {
+	// called asynchronously if an error occurs
+	// or server returns response with an error status.
+  });
+						</code></pre>
+						
+					</section>
+					<section>
+						<h2>Custom Services</h2>
+						<p>The service factory function generates the single object or function that represents the service to the rest of the application.</p>
+						<a href="http://jsfiddle.net/yonet3d/16tajygk/10/" target="_blank">Example</a>
+						<aside class="notes">
+							Services are often used for getter and setter functions.
+						</aside>
+					</section>
+
+					<section>
+						<h2><a href="exercises/catstagram.zip" target="_blank">Exercise time...</a></h2>
+					</section>
+
+					<section>
+						<h2><a href="https://github.com/Yonet/Catstagram" target="_blank">Solutions</a></h2>
+					</section>
+						
+				</section>
+				<!-- /Services -->
+				
+				<section>
+					<h2>Injecting Dependencies</h2>
+					<p>Dependency Injection is a software design pattern that deals with how components get hold of their dependencies.</p>
+					<pre><code data-trim contenteditable>
+
+var app = angular.module('myApp', [
+  'ui.router',
+  'myControllers'
+]);
+
+app.controller('MainController', ['$scope', '$http', function($scope, $http){
+	//
+}])
+
+					</code></pre>
+					<aside class="notes">
+					VERY IMPORTANT, order of dependencies matter. $scope is always first. 
+					</aside>
+				</section>
+
+				<section>
+					<h2><a href="http://angular-ui.github.io/"></a>Angular UI</h2>
+					<p>The companion suite(s) to the AngularJS framework.</p>
+					<ul>
+						<li><a href="http://angular-ui.github.io/bootstrap/">UI-Bootstrap</a></li>
+						<li><a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router">UI-Router</a></li>
+						<li><a href="http://plnkr.co/edit/a3KlK8dKH3wwiiksDSn2?p=preview">UI-Select</a></li>
+						<li><a href="http://angular-ui.github.io/angular-google-maps/#!/">UI-Maps</a></li>
+					</ul>
+					<pre><code data-trim contenteditable>
+
+var app = angular.module('myApp', [
+  'ngRoute',
+  'myControllers', 
+  'ui.map'
+]);
+
+					</code></pre>
+					<aside class="notes">
+					</aside>
+				</section>
+
+
+				<!-- TODO -->
+
+<!-- 				<section>
+					<h2>Routing and Views</h2>
+					<pre><code data-trim contenteditable>
+
+app.config(['$routeProvider',
+  function($routeProvider) {
+	$routeProvider.
+	  when('/', {
+		templateUrl: 'home.html',
+		controller: 'HomeController'
+	  }).
+	  when('/users', {
+		templateUrl: 'partials/users.html',
+		controller: 'UserController'
+	  }).
+	  when('/phones/:phoneId', {
+		templateUrl: 'partials/user-detail.html',
+		controller: 'UserDetailController'
+	  }).
+	  otherwise({
+		redirectTo: '/home'
+	  });
+  }]);
+
+					</code></pre>
+					<p><a href="" target="_blank">example</a></p>
+					<aside class="notes">
+					</aside>
+				</section> -->
+
+				<section>
+					<h2>Debugging</h2>
+					<p>Chrome developer tools for AngularJS</p>
+					<ul>
+						<li><a href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en">Angular Batarang</a></li>
+						<li><a href="https://chrome.google.com/webstore/detail/ng-inspector-for-angularj/aadgmnobpdmgmigaicncghmmoeflnamj?hl=en">Ng-inspector</a></li>
+					</ul>
+					<p>On your console:</p>
+					<pre><code data-trim contenteditable>
+//Gives you the last selected element on your html
+var lastElement = angular.element($0);
+//Gives you what is in your scope(functions, variables...)
+lastElement.scope();
+					</code></pre>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h2>Animations</h2>
+					<p>AngularJS 1.3 provides animation hooks for common directives such as ngRepeat, ngSwitch, and ngView, as well as custom directives via the $animate service. </p>
+					<p><a href="http://jsfiddle.net/yonet3d/m62sd5pn/" target="_blank">example</a></p>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h2>More Resources</h2>
+					<ul>
+						<li><a href="https://egghead.io/" target="_blank">EggHead.io</a></li>
+						<li><a href="http://www.meetup.com/AngularJS-SF/" target="_blank">Angular Meetup SF</a></li>
+						<li><a href="https://docs.angularjs.org/api" target="_blank">Angular API Docs</a></li>
+						<li><a href="http://www.ng-newsletter.com/" target="_blank">Ng-newsletter</a></li>
+						<li><a href="https://www.youtube.com/user/angularjs" target="_blank">Angular Youtube Channel</a></li>
+						<li><a href="https://github.com/jmcunningham/AngularJS-Learning" target="_blank">AngularJS learning Github Repo</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+					<h3>BY <a href="https://www.linkedin.com/in/aysegulyonet/" target="_blank">Aysegul Yonet</a> / aysegulyonet@gmail.com</h3>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
