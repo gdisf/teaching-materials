@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title class="logo">Catstagram</title>
+         <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+
+    <header>
+        <h1>Catstagram</h1>
+    </header>
+
+    <body ng-app='catstagram'>
+        <div ng-controller="CatController" class="body-container">
+            <form class="form-inline post-container">
+                <input ng-model="newCat.title" placeholder="Title" class="form-control"/>
+                <input ng-model="newCat.url" placeholder="Url" class="form-control"/>
+                <p>{{ newCat.title }} {{newCat.url}}</p>
+                <button ng-click="addCat(newCat)" class="btn btn-success">Submit</button>
+            </form>
+            <div ng-repeat="cat in cats" class='post-container'>
+                <div class="title">
+                    <h1>{{ cat.title }}</h1>
+                    <!-- $index refers to the current index in the cats array. cat = cats[$index] -->
+                    <p>{{ cat.likes }} <span ng-click="like($index)">like</span></p>
+                </div>
+                <img src="{{cat.url}}"/>
+                <!-- <input ng-model="newComment" placeholder="Comment" class="form-control"/> -->
+                <form ng-submit="submitComment(comment.text)">
+                    <input ng-model="cat.comment" placeholder="Write a comment..." class="form-control" rows="3" ng-mouseenter="submitComment()"/>
+                    
+                </form>
+                <div class="comments" ng-repeat="message in comments">{{ message }}</div>
+
+
+            </div>
+        </div>
+    </body>
+    
+    <footer></footer>
+</html>
