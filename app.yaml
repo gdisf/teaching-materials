@@ -82,6 +82,27 @@ handlers:
 - url: /jsweb
   static_dir: jsweb
 
+- url: /jsreview/
+  static_files: jsreview/index.html
+  upload: jsreview/index.html
+
+- url: /jsreview
+  static_dir: jsreview
+
+- url: /angular/
+  static_files: angular/index.html
+  upload: angular/index.html
+
+- url: /angular
+  static_dir: angular
+
+- url: /d3/
+  static_files: d3/index.html
+  upload: d3/index.html
+
+- url: /d3
+  static_dir: d3
+
 - url: /ajax/
   static_files: ajax/index.html
   upload: ajax/index.html
