@@ -92,9 +92,9 @@ This has the effect that the user has "down time" - there is a period of time wh
         <header><h1>Storing data in JS: JSON</h1></header>
         <section class="content">
           <ul>
-            <li>Hierarchical key/value pairs.</li>
-            <li>Key can be with/without quotes (means same thing)</li>
-            <li>Value can be string, number, boolean, or array</li>
+            <li>Key/value pairs.</li>
+            <li>Key must be stored with quotes (means same thing)</li>
+            <li>Value can be the following data types: Number, String, Boolean, Array, Object, <code>null</code></li>
             <li>Resembles objects/hash tables/structs of programming languages</li>
             <li>Validate @ <a href="http://jsonlint.com">JSONLint.com</a></li>
           </ul>
@@ -146,6 +146,32 @@ p.append('My cats are ' + myProfile.cats.join(', ') + '.');
       </div><!--exercises-->
 
       <div class="slide normal">
+        <header><h1>AJAX</h1></header>
+        <section class="content">
+          <p align="center">= Asynchronous JavaScript and "XML"<p>
+          <p align="center"><img src="img/ajax.png"></p>
+<pre class="speaker-notes" style="display:none">Allows for asynchronous data transfer between a webpage &amp; web server.
+
+Javascript tells the browser to retrieve a particular URL and send the data back to the webpage.</pre>
+        </section>
+      </div><!--AJAX-->
+
+
+      <div class="slide normal">
+        <header><h1>AJAX in the Wild</h1></header>
+        <section class="content">
+          <p align="center">
+            <img src="img/facebook.png"><br><br>
+            <img src="img/google_maps.png">
+          </p>
+          <p align="center">What else?</p>
+<pre class="speaker-notes" style="display:none">Allows for asynchronous data transfer between a webpage &amp; web server.
+
+Javascript tells the browser to retrieve a particular URL and send the data back to the webpage.</pre>
+        </section>
+      </div><!--ajax in the wild-->
+
+      <div class="slide normal">
         <header><h1>Web 1.0 &amp; User Interaction</h1></header>
         <section class="content">
           <br>
@@ -175,20 +201,6 @@ The user can still interact with other parts of the page while one part is loadi
 This may seem like a subtle difference, but it's arguably the most important part of Web2.0 programming.</pre>
         </section>
       </div><!--web 2.0 and UI-->
-
-      <div class="slide normal">
-        <header><h1>AJAX in the Wild</h1></header>
-        <section class="content">
-          <p align="center">
-            <img src="img/facebook.png"><br><br>
-            <img src="img/google_maps.png">
-          </p>
-          <p align="center">What else?</p>
-<pre class="speaker-notes" style="display:none">Allows for asynchronous data transfer between a webpage &amp; web server.
-
-Javascript tells the browser to retrieve a particular URL and send the data back to the webpage.</pre>
-        </section>
-      </div><!--ajax in the wild-->
 
       <div class="slide normal">
         <header><h1>Web 1.0 vs.Web 2.0</h1></header>
@@ -227,17 +239,6 @@ Javascript tells the browser to retrieve a particular URL and send the data back
       </div><!--web 1.0 versus web 2.0-->
 
       <div class="slide normal">
-        <header><h1>AJAX</h1></header>
-        <section class="content">
-          <p align="center">= Asynchronous JavaScript and "XML"<p>
-          <p align="center"><img src="img/ajax.png"></p>
-<pre class="speaker-notes" style="display:none">Allows for asynchronous data transfer between a webpage &amp; web server.
-
-Javascript tells the browser to retrieve a particular URL and send the data back to the webpage.</pre>
-        </section>
-      </div><!--AJAX-->
-
-      <div class="slide normal">
         <header><h1>Requests and Responses</h1></header>
         <section class="content">
           <p align="center"><img src="http://abhijitjana.files.wordpress.com/2010/10/2.jpg"/></p>
@@ -251,8 +252,103 @@ Javascript tells the browser to retrieve a particular URL and send the data back
       </div><!--Requests and Responses-->
 
       <div class="slide normal">
-        <header><h1>1) Creating an XMLHttpRequest</h1></header>
+        <header><h1>Anatomy of an XMLHttpRequest</h1></header>
         <section class="content">
+<pre>
+// instantiate a new request
+var request = new XMLHttpRequest(); 
+
+// add event listeners
+request.onload = function() = {
+
+  // transform a string into a usable object
+  console.log( JSON.parse( request.responseText ) );
+};;
+
+request.open('get', '/path/to/api', true);
+request.setRequestHeader('Content-type', 'application/json');
+request.send();
+</pre>
+        </section>
+      </div><!--Anatomy of an XMLHttpRequest-->
+
+      <div class="slide normal">
+        <header><h1>XMLHttpRequest POST</h1></header>
+        <section class="content">
+        <p>When using POST, you will want to also send along some data.</p>
+<pre>
+var data = {
+  kittenNames: ['Mary-Ann', 'Brenda'],
+  id: 'ab92ed',
+  fluffy: true
+}
+
+data = JSON.stringify( data ); // transform to string
+
+request.open('post', '/save/the/kittens', true);
+request.setRequestHeader('Content-type', 'application/json');
+request.send(data); // send request with data
+</pre>
+        </section>
+      </div><!--XMLHttpRequest with POST-->
+
+      <div class="slide normal">
+        <header><h1>XMLHttpRequest error handling</h1></header>
+        <section class="content">
+<pre>
+var request = new XMLHttpRequest();
+
+request.onload = function() {
+  // use the .status property to check the status code
+  if ( request.status === 200 ) {
+    success( JSON.parse( request.responseText ) );
+  } else {
+    console.log( 'Error!' )
+  }
+}
+
+// handle errors
+request.onerror = function() {
+  console.log( 'Error!' )
+}
+  
+request.open('get', '/path/to/api', true);
+request.setRequestHeader('Content-type', 'application/json');
+request.send();
+</pre>
+        </section>
+      </div><!--XMLHttpRequest error handling-->
+
+      <div class="slide normal">
+        <header><h1>XMLHttpRequest response handling</h1></header>
+        <section class="content">
+<pre>
+request.onload = function() {
+  processReponse( JSON.parse( request.responseText ) );
+}
+
+function processResponse(data) {
+  var books = data; 
+
+  for (var i = 0; i < books.length; i++) { 
+      var book = books[i];
+      var p = document.createElement('p');
+      p.innerHTML = book.title + ' by ' + book.author;
+      document.body.appendChild(p);
+    }
+} 
+</pre>
+        <p>Would evaluate to:<br>
+          Robot Dreams, by Isaac Asimov<br>
+          Pirate Cinema, by Cory Doctorow
+        <p>
+        </section>
+      </div><!--XMLHttpRequest response handling-->
+
+      <div class="slide normal">
+        <header><h1>XMLHttpRequest in IE</h1></header>
+        <section class="content">
+        <p>IE implemented XMLHR differently than the other browsers, so you must use the ActiveXObject if XMLHttpRequest is not available.</p>
 <pre>
 var request; 
 try {
@@ -266,87 +362,11 @@ try {
 }
 if (!request ) alert("Error initializing XMLHttpRequest!");
 </pre>
-          <p>IE implemented XMLHR differently than the other browsers, so you must use all this code to get it cross-browser-compatible.</p>
  
           <p>Most Javascript libraries/APIs offer wrapper functions for this.</p>
         </section>
-      </div><!--creating XMLHttpRequest-->
+      </div><!--XMLHttpRequest in IE-->
 
-      <div class="slide normal">
-        <header><h1>2) Sending an XMLHttpRequest</h1></header>
-        <section class="content">
-<pre>
-function sendRequest() { 
-  url="books.json";
-  request.open("GET", url, true);
-  request.onreadystatechange = processRequest;
-  request.send(null); 
-}
-</pre>
-          <p>You can open either a GET or POST connection to a URL, specify a callback function, and then send the request. </p>
-        </section>
-      </div><!--sending an XMLHttpRequest-->
-
-      <div class="slide normal">
-        <header><h1>3) Handling the Response</h1></header>
-        <section class="content">
-<pre>
-function processRequest() { 
-  if (request.readyState == 4) { 
-    if(request.status == 200) { 
-      processResponse(request);
-    } else { 
-     alert("Error loading page " +
-       request.status + ":" +
-       request.statusText); 
-    } 
-  } 
-}
-</pre>
-          <p>You can use the <strong>readyState</strong> property to check if the request has been completed, and status to check if it completed successfully</p>
-        </section>
-      </div><!--handling the response-->
-
-      <div class="slide normal">
-        <header><h1>4) Processing the Response</h1></header>
-        <section class="content">
-          <p>books.json:</p>
-<pre>
-[
- {"title": "Robot Dreams",
-  "author": "Isaac Asimov",
-  "categories": ["scifi", "shortstories"]
-  },
-  {"title": "Pirate Cinema",
-   "author": "Cory Doctorow",
-   "categories": ["scifi", "romance"]
-  }
-]
-</pre>
-        </section>
-      </div><!--processing the response-->
-
-      <div class="slide normal">
-        <header><h1>4) Processing the Response</h1></header>
-        <section class="content">
-<pre>
-function processResponse(request) {
-var books = JSON.parse(request.responseText); 
-
-for (var i = 0; i < books.length; i++) { 
-    var book = books[i];
-    var p = document.createElement('p');
-    p.innerHTML = book.title + ' by ' + book.author;
-    document.body.appendChild(p);
-  }
-} 
-</pre>
-        <p>Would evaluate to:<br>
-          Robot Dreams, by Isaac Asimov<br>
-          Pirate Cinema, by Cory Doctorow
-        <p>
-        </section>
-      </div><!--processing the response-->
 
       <div class="slide normal">
         <header><h1 class="center">But we don't usually write all that code...</h1></header>
@@ -470,6 +490,17 @@ $.ajax({type: "POST",
               <li><a href="http://ajaxpatterns.org/Ajax_Gotchas">More here.</a></li>
             </ul>
           </p>
+        </section>
+      </div><!--ajax gotchas-->
+
+      <div class="slide normal">
+        <header><h1>List of key concepts</h1></header>
+        <section class="content">
+          <ul>
+            <li>What are the parts of an HTTP request?</li>
+            <li>What does CRUD stand for?</li>
+            <li>What are the 4 basic CRUD operations and methods?</li>
+          </ul>
         </section>
       </div><!--ajax gotchas-->
 
