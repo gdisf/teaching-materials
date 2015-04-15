@@ -12,12 +12,12 @@
     <script src="../common/fathom.js"></script>
     <script src="../common/prettify.js"></script>
     <script>
-      $(document).ready(function(){
+      $(document).ready(function (){
         $('pre').addClass('prettyprint').attr('tabIndex', 0);
         prettyPrint();
 
         var fathom = $('#presentation').fathom({
-          onActivateSlide: function() {
+          onActivateSlide: function () {
             var $slide = $(this);
             $slide.find('pre:first').focus();
           }
@@ -259,16 +259,17 @@ This may seem like a subtle difference, but it's arguably the most important par
 var request = new XMLHttpRequest(); 
 
 // add event listeners
-request.onload = function() = {
+request.addEventListener('load', function () {
 
   // transform a string into a usable object
-  console.log( JSON.parse( request.responseText ) );
-};;
+  console.log(JSON.parse(request.responseText));
+});
 
 request.open('get', '/path/to/api', true);
 request.setRequestHeader('Content-type', 'application/json');
 request.send();
 </pre>
+          <p>IE implemented XMLHR differently than the other browsers, so you must use the ActiveXObject if XMLHttpRequest is not available.</p>
         </section>
       </div><!--Anatomy of an XMLHttpRequest-->
 
@@ -277,17 +278,18 @@ request.send();
         <section class="content">
         <p>When using POST, you will want to also send along some data.</p>
 <pre>
-var data = {
-  kittenNames: ['Mary-Ann', 'Brenda'],
+var kitten = {
+  name: 'Mary-Ann',
+  siblings: ['Pamela', 'Brenda', 'Bianca'],
   id: 'ab92ed',
   fluffy: true
-}
+};
 
-data = JSON.stringify( data ); // transform to string
+kitten = JSON.stringify(kitten); // transform to string
 
-request.open('post', '/save/the/kittens', true);
+request.open('post', '/save/the/kitten', true);
 request.setRequestHeader('Content-type', 'application/json');
-request.send(data); // send request with data
+request.send(kitten); // send request with data
 </pre>
         </section>
       </div><!--XMLHttpRequest with POST-->
@@ -298,20 +300,20 @@ request.send(data); // send request with data
 <pre>
 var request = new XMLHttpRequest();
 
-request.onload = function() {
+request.addEventListener('load', function () {
   // use the .status property to check the status code
-  if ( request.status === 200 ) {
-    success( JSON.parse( request.responseText ) );
+  if (request.status === 200) {
+    success(JSON.parse(request.responseText));
   } else {
-    console.log( 'Error!' )
+    console.log('Error!');
   }
-}
+});
 
 // handle errors
-request.onerror = function() {
-  console.log( 'Error!' )
-}
-  
+request.addEventListener('error', function () {
+  console.log('Error!');
+});
+
 request.open('get', '/path/to/api', true);
 request.setRequestHeader('Content-type', 'application/json');
 request.send();
@@ -323,12 +325,12 @@ request.send();
         <header><h1>XMLHttpRequest response handling</h1></header>
         <section class="content">
 <pre>
-request.onload = function() {
-  processReponse( JSON.parse( request.responseText ) );
-}
+request.addEventListener('load', function () {
+  processReponse(JSON.parse(request.responseText));
+});
 
 function processResponse(data) {
-  var books = data; 
+  var books = data;
 
   for (var i = 0; i < books.length; i++) { 
       var book = books[i];
@@ -344,29 +346,6 @@ function processResponse(data) {
         <p>
         </section>
       </div><!--XMLHttpRequest response handling-->
-
-      <div class="slide normal">
-        <header><h1>XMLHttpRequest in IE</h1></header>
-        <section class="content">
-        <p>IE implemented XMLHR differently than the other browsers, so you must use the ActiveXObject if XMLHttpRequest is not available.</p>
-<pre>
-var request; 
-try {
-  if (typeof ActiveXObject != 'undefined') {
-    request = new ActiveXObject('Microsoft.XMLHTTP');
-  } else if (window["XMLHttpRequest"]) {
-    request = new XMLHttpRequest();
-  }
-} catch (e) {
-  request = false;
-}
-if (!request ) alert("Error initializing XMLHttpRequest!");
-</pre>
- 
-          <p>Most Javascript libraries/APIs offer wrapper functions for this.</p>
-        </section>
-      </div><!--XMLHttpRequest in IE-->
-
 
       <div class="slide normal">
         <header><h1 class="center">But we don't usually write all that code...</h1></header>
