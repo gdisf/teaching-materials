@@ -110,6 +110,13 @@ handlers:
 - url: /ajax
   static_dir: ajax
 
+- url: /apis/
+  static_files: apis/index.html
+  upload: apis/index.html
+
+- url: /apis
+  static_dir: apis
+
 - url: /graphics/
   static_files: graphics/index.html
   upload: graphics/index.html

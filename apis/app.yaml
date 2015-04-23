@@ -1,0 +1,22 @@
+application: gdisf-js-apis
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /js
+  static_dir: js
+
+- url: /css
+  static_dir: css
+
+- url: /img
+  static_dir: img
+   
+- url: /index.html
+  static_files: index.html
+  upload: index.html
+     
+- url: /
+  static_files: index.html
+  upload: index.html

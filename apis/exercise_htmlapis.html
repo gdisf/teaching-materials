@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: HTML APIs</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: HTML APIs</h1>
+      <br><br>
+
+      <p>In this exercise, you'll try out using several HTML APIs to add more dynamic content to the starter webpage.
+      </p>
+        
+      <ol>
+        <li>Download <a href="htmlapis_starter.html">the starter file</a> and save them into a project folder. Open the webpage up in the browser and make sure it works. It should pull in video information from inline JSON data and display linked video thumbnails in a list.</li>
+        <li><strong>Add a counter</strong>: Go to <a href="http://www.flagcounter.com/">flagcounter.com</a> and set up a hit counter for your website. Put the counter somewhere near the bottom of the page.</li>
+        <li><strong>Add a rating chart</strong>:
+         <ul>
+           <li>Add a "rating" field to each video in the inline JSON data, a number of 100.
+           <li>Go to <A href="https://developers.google.com/chart/image/docs/gallery/googleometer_chart">the Google Charts API Docs</a> and read about the Google-o-meter image chart API parameters.
+           <li>Find an example chart that looks the most like how you want to visualize the rating, and check out what URL parameters it uses.
+           <li>Figure out what part of the URL you would need to change to make it show a chart for a particular rating (like 50 or 100).
+           <li>Using just HTML, insert an image into the page with a chart URL.
+           <li>Now, using JavaScript, insert an image for each video that has a dynamically generated chart URL. Either display them in the sidebar or display the charts when the video is played.
+         </ul>
+        <li>Bonus: Modify the generated Youtube iframe players so that they auto-play when clicked. <a href="https://developers.google.com/youtube/player_parameters#autohide">Read the docs here.<a></li>
+        <li>Bonus: Create a bar chart that compares the ratings across all the videos, using the <a href="https://developers.google.com/chart/image/docs/gallery/bar_charts">Google Bar Charts Image API</a>.</li>
+      </ol>
+        
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+      
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="htmlapis_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+  </body>
+</html>
+

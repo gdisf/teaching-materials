@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <link type="text/javascript" href="../common/bootstrap.js">
+    <title>Exercise: Youtube JS API</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: Youtube JS API</h1>
+      <br><br>
+
+      <p>In this exercise, you'll try to bring in Youtube video information using their JSON API. Go through these steps, and do as many as you can in the time we have:
+</p>
+
+      <ol>
+        <li>Start with <a href="jsapis_solution.html">this file<a> or start with your own solution from the last exercise. Open it up and make sure it's working as expected.</li>
+        <li>Go to <a href="https://developers.google.com/youtube/2.0/developers_guide_jsonc">the Youtube API docs</a> and read through them. Look at the sample output and the example URLs for the API. Find a URL that will give you search results, and test that out in the browser.
+        </li>
+        <li>The webpage currently brings in video information using the jQuery $.ajax function to bring in a local videos.json file into the page. Change that function so that it instead brings in the results of a Youtube API search from the Youtube servers and displays those results instead. Search for whatever you fancy, but limit the search to 5 results.
+          <br>Tips: Remember that the JSON that the Youtube API returns will be different than the JSON format of videos.json. You should console.log inside your callback to see what the data looks like and make sure you're using it correctly. In particular, check how they store the ID, the author, and the rating.
+        </li>
+        <li>Bonus: Create your own playlist on Youtube of your favorite videos, and bring that into the page instead.
+        </li>
+        <li>Bonus: Add a search button to the page so that people can search for any query.</li>
+      </ol>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+      
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="youtubeapi_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+  </body>
+</html>
+
