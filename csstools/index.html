@@ -397,6 +397,144 @@ header h1 {
     <div class="slide intro"> 
      <header><h1>CSS Tools &amp; Techniques</h1></header> 
     </div>
+
+    <div class="slide section"> 
+     <header><h1>Cross-Browser CSS</h1></header> 
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>Browsers</h1></header> 
+     <section class="content"> 
+     <p>Various companies and organizations provide browsers, and each browser varies in how it displays webpages.</p>
+     <img src="diagram_browsers.png">
+     <p><a href="http://en.wikipedia.org/wiki/Comparison_of_web_browsers#Release_history" target="_blank">Current browser versions</a></p>
+     </section>
+    </div>   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Browser Compatibility</h1></header> 
+     <section class="content"> 
+     <p>Older browsers do not know about newer CSS selectors/properties. 
+</p>
+<p>
+Use these sites to check compatibility:
+</p>
+ <ul>
+  <li><a href="http://caniuse.com/">caniuse.com</a>
+  <li><a href="http://www.quirksmode.org/css/contents.html">Quirks Mode: CSS Compatibility</a>
+  <li><a href="http://www.standardista.com/css3/css3-selector-browser-support/">CSS3 Selector support</a>
+  <li><a href="http://html5please.com/">html5please.com</a>
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+<!--    
+    <div class="slide normal"> 
+     <header><h1>CSS Fallbacks</h1></header> 
+     <section class="content"> 
+     <p>When the CSS parser doesn't understand a property or value, it ignores it. For fallback, specify older syntaxes first.
+</p>
+
+<pre>
+body {
+  background:url(cyan_transparent_50.png);
+  background:rgba(0,255,255,.5);
+}
+</pre>
+
+<pre>
+button.glossy {
+   background: #ccc url(gloss.png) 50% 50% repeat-x;
+   background: #ccc -webkit-gradient(linear, left top, left bottom,
+         from(rgba(255,255,255, .4)), to(rgba(0,0,0, .1)));
+}
+</pre>
+
+<pre>
+.transparent {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);    
+  opacity: .5;      
+}
+</pre>
+
+<p class="notes">
+http://css-tricks.com/rgba-browser-support/
+http://css-tricks.com/quickie-css3-tricks-with-fallbacks/
+http://www.xanthir.com/blog/b4JF0
+</p>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Conditional CSS</h1></header> 
+     <section class="content"> 
+     <p>In case you do need to specify CSS just for a particular browsers, there are a few ways.
+</p>
+<p>In IE, you can use conditional comments to specify IE stylesheets:</p>
+<pre>
+&lt;!--[if IE7]&gt;&lt;link rel="stylesheet" type="text/css" media="screen" href="css/ie7.css" /&gt;&lt;![endif]--&gt;
+</pre>
+<p>Or to conditionally add classes:</p>
+<pre>
+&lt;!--[if IE7]&gt; &lt;html class="ie7"&gt; &lt;![endif]--&gt;
+</pre>
+
+<p>You can also use a number of <a href="http://paulirish.com/2009/browser-specific-css-hacks/">CSS hacks</a> or detect browsers in JavaScript.
+</p>
+<p class="notes">
+http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+</p>
+     </section>
+    </div>
+-->    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Browser Bugs</h1></header> 
+     <section class="content"> 
+     <p>Not all browsers render CSS the same, with the most number of issues in IE.
+The best defense is to be aware and to test.
+</p>
+<ul>
+  <li><a href="http://coding.smashingmagazine.com/2010/06/07/the-principles-of-cross-browser-css-coding/">The Principles of Cross-Browser CSS Coding</a>
+  <li><a href="http://www.tutorialfeed.org/2010/01/10-common-css-browser-compatibility.html">10 Common CSS Browser Compatibility Issues</a>
+  <li><a href="http://archive.webstandards.org/css/winie/">IE's Top 10 CSS Problems</a>
+</ul>
+     </section>
+    </div>
+    
+   
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Browser Testing</h1></header> 
+     <section class="content"> 
+     <p>Since not all browsers work on all operating systems (IE on Mac), you may need help from these tools for cross-browser testing:
+<p>
+<ul>
+  <li><a href="http://www.modern.ie/en-us/virtualization-tools">Modern.ie</a> Microsoft's free access to testing tools
+  <li><a href="http://www.saucelabs.com">SauceLabs</a>: Cloud-based automated and manual testing
+  <li><a href="http://www.browserstack.com/">BrowserStack</a>: Lets you debug in virtual browsers.
+  <li><a href="http://browsershots.org/">BrowserShots</a>: Takes screenshots of your sites in different browsers.
+  <li><a href="https://browserling.com/">BrowserLing</a>: Ditto.
+  <li><a href="http://multipleies.en.softonic.com/">MultipleIEs</a>: Makes it possible to test in multiple IE versions on one computer.
+  <li><a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a>: Ditto.
+</ul>
+     </section>
+    </div>
     
     <div class="slide section"> 
      <header><h1>Cross-Device CSS</h1></header> 
@@ -562,143 +700,7 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
       <br><br>
      <header><h1><a href="exercise_media_descrip.html">Exercise Time!</a></h1></header> 
     </div>
-    
-    
-    
-    <div class="slide section"> 
-     <header><h1>Cross-Browser CSS</h1></header> 
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Browser Compatibility</h1></header> 
-     <section class="content"> 
-     <p>Older browsers do not know about newer CSS selectors/properties. 
-</p>
-<p>
-Use these sites to check compatibility:
-</p>
- <ul>
-  <li><a href="http://caniuse.com/">caniuse.com</a>
-  <li><a href="http://www.quirksmode.org/css/contents.html">Quirks Mode: CSS Compatibility</a>
-  <li><a href="http://www.standardista.com/css3/css3-selector-browser-support/">CSS3 Selector support</a>
-  <li><a href="http://html5please.com/">html5please.com</a>
-</ul>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>CSS Fallbacks</h1></header> 
-     <section class="content"> 
-     <p>When the CSS parser doesn't understand a property or value, it ignores it. For fallback, specify older syntaxes first.
-</p>
-
-<pre>
-body {
-  background:url(cyan_transparent_50.png);
-  background:rgba(0,255,255,.5);
-}
-</pre>
-
-<pre>
-button.glossy {
-   background: #ccc url(gloss.png) 50% 50% repeat-x;
-   background: #ccc -webkit-gradient(linear, left top, left bottom,
-         from(rgba(255,255,255, .4)), to(rgba(0,0,0, .1)));
-}
-</pre>
-
-<pre>
-.transparent {
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  filter: alpha(opacity=50);    
-  opacity: .5;			
-}
-</pre>
-
-<p class="notes">
-http://css-tricks.com/rgba-browser-support/
-http://css-tricks.com/quickie-css3-tricks-with-fallbacks/
-http://www.xanthir.com/blog/b4JF0
-</p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Conditional CSS</h1></header> 
-     <section class="content"> 
-     <p>In case you do need to specify CSS just for a particular browsers, there are a few ways.
-</p>
-<p>In IE, you can use conditional comments to specify IE stylesheets:</p>
-<pre>
-&lt;!--[if IE7]&gt;&lt;link rel="stylesheet" type="text/css" media="screen" href="css/ie7.css" /&gt;&lt;![endif]--&gt;
-</pre>
-<p>Or to conditionally add classes:</p>
-<pre>
-&lt;!--[if IE7]&gt; &lt;html class="ie7"&gt; &lt;![endif]--&gt;
-</pre>
-
-<p>You can also use a number of <a href="http://paulirish.com/2009/browser-specific-css-hacks/">CSS hacks</a> or detect browsers in JavaScript.
-</p>
-<p class="notes">
-http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-</p>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Browser Bugs</h1></header> 
-     <section class="content"> 
-     <p>Not all browsers render CSS the same, with the most number of issues in IE.
-The best defense is to be aware and to test.
-</p>
-<ul>
-  <li><a href="http://coding.smashingmagazine.com/2010/06/07/the-principles-of-cross-browser-css-coding/">The Principles of Cross-Browser CSS Coding</a>
-  <li><a href="http://www.tutorialfeed.org/2010/01/10-common-css-browser-compatibility.html">10 Common CSS Browser Compatibility Issues</a>
-  <li><a href="http://archive.webstandards.org/css/winie/">IE's Top 10 CSS Problems</a>
-</ul>
-     </section>
-    </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Browser Testing</h1></header> 
-     <section class="content"> 
-     <p>Since not all browsers work on all operating systems (IE on Mac), you may need help from these tools for cross-browser testing:
-<p>
-<ul>
-  <li><a href="http://www.modern.ie/en-us/virtualization-tools">Modern.ie</a> Microsoft's free access to testing tools
-  <li><a href="http://www.saucelabs.com">SauceLabs</a>: Cloud-based automated and manual testing
-  <li><a href="http://www.browserstack.com/">BrowserStack</a>: Lets you debug in virtual browsers.
-  <li><a href="http://browsershots.org/">BrowserShots</a>: Takes screenshots of your sites in different browsers.
-  <li><a href="https://browserling.com/">BrowserLing</a>: Ditto.
-  <li><a href="http://multipleies.en.softonic.com/">MultipleIEs</a>: Makes it possible to test in multiple IE versions on one computer.
-  <li><a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a>: Ditto.
-</ul>
-     </section>
-    </div>
-    
-   
-    
-    
+  
     
     <div class="slide section"> 
      <header><h1>Good Defaults</h1></header> 
