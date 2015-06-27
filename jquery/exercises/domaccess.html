@@ -19,12 +19,11 @@
  <li>Use jQuery to find the following parts of the page:</li>
    <ul>
      <li>Every image on the page</li>
-     <li>The upper left-hand logo (that says GirlDevelopIt)</li>
+     <li>The upper left-hand logo (that says GDI)</li>
      <li>The logos of the media sources that featured GirlDevelopIt (lifeHacker, TED, etc., at the bottom of the page)</li>
-     <li>The big tagline in the middle (that says "Empowering women...")</li>
-     <li>All of the green colored city names (Baltimore, Buffalo, etc.)</li>
-     <li>The "CLASSES" text in the center area (underneath the Computer icon)</li>
-     <li>The donate link (in the top right menu)</li>
+     <li>The big tagline that says "DON'T BE SHY DEVELOP IT"</li>
+     <li>The donate link (in the top menu)</li>
+     <li>BONUS: all the dots in the map</li>
    </ul>
  </ul>
  <button  onclick="showSolution(1)" class="btn">See Solution</button>
@@ -32,11 +31,10 @@
 <pre id="solution1" style="display:none;">
 $("img");
 $(".logo");
-$(".media");
-$(".tagline")
-$("a.green");
-$(".blue .topic");
-$("#donate a");
+$(".press-logos");
+$(".opener h1");
+$("header .navigation li:contains('donate')");
+$("circle");
 </pre>
 
   <br><br><br><br><br>
