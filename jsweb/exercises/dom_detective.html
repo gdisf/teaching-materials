@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Project: DOM Detective</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="../../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../common/bootstrap.css">
+  </head>
+ <body>
+<div class="container">
+<h2>Project: DOM Detective</h2>
+
+
+<h3 class="page-header">The case of the GirlDevelopIt website</h3>
+
+<ul>
+ <li>Open up <a href="http://www.girldevelopit.com">girldevelopit.com</a> in Chrome or Firefox,
+ and open up the console.
+ <li>Use DOM access methods to find the following parts of the page:</li>
+      <ul>
+     <li>Every image on the page</li>
+     <li>The upper left-hand logo (that says GDI)</li>
+     <li>The logos of the media sources that featured GirlDevelopIt (lifeHacker, TED, etc., at the bottom of the page)</li>
+     <li>The big tagline that says "DON'T BE SHY DEVELOP IT"</li>
+     <li>All of the subtitles that are paragraphs (the subtitles are the light red italicized text in each section)</li>
+     <li>BONUS: all the dots in the map</li>
+   </ul>
+ </ul>
+ <button  onclick="showSolution(1)" class="btn">See Solution</button>
+ <br><br>
+<pre id="solution1" style="display:none;">
+document.getElementsByTagName("img");
+document.getElementsByClassName("logo")[0];
+document.getElementsByClassName("press-logos");
+document.querySelector(".opener h1");
+document.querySelectorAll("p.subtitle");
+document.querySelectorAll("circle");
+</pre>
+
+  
+
+  <h3 class="page-header">The case of the BrainPickings blog</h3>
+
+<ul>
+ <li>Open up <a href="http://www.brainpickings.com">brainpickings.com</a> in Chrome or Firefox,
+ and open up the console.
+ <li>Use DOM access methods to find the following parts of the page:</li>
+      <ul>
+     <li>The bylines of each blog post</li>
+     <li>The introductory paragraph of each blog post</li>
+     <li>Every image that is inside a blog post</li>
+     <li>Every link inside the left-hand nav bar</li>
+     <li>The Facebook link in the top right social media bar</li>
+     <li>The input box for entering your name for email subscription, on the left side</li>
+        <li>Every link inside the tag cloud on the left side</li>
+   </ul>
+ </ul>
+
+  </body>
+</html>
