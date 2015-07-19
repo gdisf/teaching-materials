@@ -18,45 +18,51 @@
 
 <ul>
  <li>Open up <a href="http://www.girldevelopit.com">girldevelopit.com</a> in Chrome or Firefox,
- and open up the console.
- <li>Use DOM access methods to find the following parts of the page:</li>
-      <ul>
+ and open up the console (CMD-Option-I on Macs).
+ <li>Use <a href="https://www.khanacademy.org/computing/computer-programming/html-css-js/html-js-dom-access/a/summary-dom-access-methods">DOM access methods</a> to find the following parts of the page. You probably want to use Inspect Element to figure out what their tag names, classes, and IDs are.</li>
+      <ol>
      <li>Every image on the page</li>
-     <li>The upper left-hand logo (that says GDI)</li>
+     <li>The navigation area in the upper right</li>
+     <li>The MailChimp sign-up form in the bottom</li>
+     <li>The upper left-hand logo that says GDI (Hint: use CSS descendant selectors)</li>
      <li>The logos of the media sources that featured GirlDevelopIt (lifeHacker, TED, etc., at the bottom of the page)</li>
-     <li>The big tagline that says "DON'T BE SHY DEVELOP IT"</li>
-     <li>All of the subtitles that are paragraphs (the subtitles are the light red italicized text in each section)</li>
+     <li>The big heading that says "DON'T BE SHY DEVELOP IT"</li>
      <li>BONUS: all the dots in the map</li>
-   </ul>
+   </ol>
  </ul>
  <br><br>
 <pre id="solution1" style="display:none;">
 document.getElementsByTagName("img");
-document.getElementsByClassName("logo")[0];
-document.getElementsByClassName("press-logos");
+document.getElementsByClassName("nav");
+document.getElementById("mc_embed_signup");
+document.querySelector(".logo img");
+document.querySelectorAll(".press-logos img");
 document.querySelector(".opener h1");
-document.querySelectorAll("p.subtitle");
 document.querySelectorAll("circle");
 </pre>
-
-  
 
   <h3 class="page-header">The case of the BrainPickings blog</h3>
 
 <ul>
  <li>Open up <a href="http://www.brainpickings.org">brainpickings.com</a> in Chrome or Firefox,
  and open up the console.
- <li>Use DOM access methods to find the following parts of the page:</li>
-      <ul>
+ <li>Use <a href="https://www.khanacademy.org/computing/computer-programming/html-css-js/html-js-dom-access/a/summary-dom-access-methods">DOM access methods</a> to find the following parts of the page. You probably want to use Inspect Element to figure out what their tag names, classes, and IDs are.</li>
+    <ol>
      <li>The bylines of each blog post (the text that displays the author)</li>
-     <li>The introductory paragraph of each blog post</li>
      <li>Every image that is inside a blog post</li>
      <li>Every link inside the left-hand nav bar</li>
      <li>The Facebook link in the top right social media bar</li>
      <li>The input box for entering your name for email subscription, on the left side</li>
-        <li>Every link inside the tag cloud on the left side</li>
-   </ul>
+     <li>Every link inside the tag cloud on the left side</li>
+   </ol>
  </ul>
 
+  <script>
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+</script>
   </body>
 </html>
