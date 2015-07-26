@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../common/bootstrap.css">
+  
   </head>
  <body>
 <div class="container">
@@ -14,33 +16,29 @@
 
 
 <h3 class="page-header">DOM Detective</h3>
-
-<p>Use DOM access methods to select 
 <ul>
  <li>Open up <a href="http://www.girldevelopit.com">girldevelopit.com</a> in Chrome or Firefox,
- and open up the console.
- <li>Use DOM access methods to find the following parts of the page:</li>
-   <ul>
+ and open up the console (CMD-Option-I on Macs).
+ <li>Use <a href="https://www.khanacademy.org/computing/computer-programming/html-css-js/html-js-dom-access/a/summary-dom-access-methods">DOM access methods</a> to find the following parts of the page. You probably first want to use Inspect Element to figure out what their tag names, classes, and IDs are.</li>
+      <ol>
      <li>Every image on the page</li>
-     <li>The upper left-hand logo (that says GirlDevelopIt)</li>
+     <li>The navigation area in the upper right</li>
+     <li>The MailChimp sign-up form in the bottom</li>
+     <li>The upper left-hand logo that says GDI (Hint: use CSS descendant selectors)</li>
      <li>The logos of the media sources that featured GirlDevelopIt (lifeHacker, TED, etc., at the bottom of the page)</li>
-     <li>The big tagline in the middle (that says "Empowering women...")</li>
-     <li>All of the green colored city names (Baltimore, Buffalo, etc.)</li>
-    <li>The "CLASSES" text in the center area (underneath the Computer icon)</li>
-     <li>The donate link (in the top right menu)</li>
-     
-   </ul>
+     <li>The big heading that says "DON'T BE SHY DEVELOP IT"</li>
+     <li>BONUS: all the dots in the map</li>
+   </ol>
  </ul>
- <button  onclick="showSolution(1)" class="btn">See Solution</button>
  <br><br>
 <pre id="solution1" style="display:none;">
 document.getElementsByTagName("img");
-document.getElementById("logo");
-document.getElementsByClassName("media");
-document.getElementsByClassName("tagline")[0];
-document.querySelectorAll("a.green");
-document.querySelector(".blue .topic");
-document.querySelector("#donate a");
+document.getElementsByClassName("nav");
+document.getElementById("mc_embed_signup");
+document.querySelector(".logo img");
+document.querySelectorAll(".press-logos img");
+document.querySelector(".opener h1");
+document.querySelectorAll("circle");
 </pre>
 
   <br><br><br><br><br>
