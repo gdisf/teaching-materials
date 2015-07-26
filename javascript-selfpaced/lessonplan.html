@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>JS 101</title>
+  <link href="../common/bootstrap.css" rel="stylesheet">
+  <link href="../common/styles.css" rel="stylesheet" type="text/css" />
+ </head>
+ <body>
+ <div class="container">
+
+	<h1 class="page-header">JS 101 Lesson Plan</h1>
+
+	<h3>Facilitator Prep:</h3>
+
+	<ul>
+		<li>
+		<p>Create the doc to share with students,<a href="https://docs.google.com/document/d/1ho8bvt0YLAedt--aDcGJ66tlLAqrGiMOs-yhL4EyfTU/edit#"> like this one.</a></p>
+		</li>
+		<li>
+		<p>Make (4*num_students/2) printouts of<a href="https://docs.google.com/document/d/10anqnuEl6Saa1-r9yi2D1wXTAP2Bnav0A7KnCM4tuvs/edit"> Pairing Time doc</a>.</p>
+		</li>
+		<li>
+		<p>Make num_students printouts of<a href="https://s3.amazonaws.com/KA-share/cs/CheatSheet.pdf"> JS documentation</a>.</p>
+		</li>
+		<li>
+		<p>Make num_students printouts of<a href="https://docs.google.com/document/d/1kSfm7WQJ_rvyXpuBRDmhV2uhPPZ5zl-JGunYMfyA1j0/edit#"> Welcome doc</a> (modifying the tinyurl and coach code).</p>
+		</li>
+		<li>
+		<p>Invite students and TAs to the gdisf.slack.com channel.</p>
+		</li>
+		<li>
+		<p>Send reminders to students about completing the first tutorial beforehand.</p>
+		</li>
+	</ul>
+
+	<br>
+	<h3>TA prep:</h3>
+
+	<ul>
+		<li>
+		<p>Try out the <a href="http://khanacademy.org/cs/new/pjs">Khan Academy JS environment</a>, one of the JS challenges (like <a href="https://www.khanacademy.org/computing/computer-programming/programming/animation-basics/p/challenge-exploding-sun">Exploding Sun</a>) and a JS project (like <a href="https://www.khanacademy.org/computing/computer-programming/programming/functions/p/project-fish-tank">Fish Tank</a>).</p>
+		</li>
+	</ul>
+
+	<br>
+	<h3>Day 1:</h3>
+
+	<table class="table table-bordered">
+		<tbody>
+			<tr>
+				<td style="vertical-align:top">
+				<p>11:20</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Setup tables, name tags</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>11:30</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Early students start arriving, setting up laptops</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>11:45</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Lunch arrives, TAs mingle with students</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>12:00</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Welcome, start round of introductions <a href="https://docs.google.com/document/d/1_2JX7LL0CSy6BgJspJNdfm1uZF-nbWBV1g-i1Zb0ywY/edit">with an intro quick question</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>12:15</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Sponsor welcome, if a sponsor host is available</p>
+
+				<p>Present<a href="https://docs.google.com/presentation/d/1_pCW2Gqx2CIQPN1M7EtMPP8eRA-BY9A9dtDArRRT8pM/edit#slide=id.gb2d62616a_0_46"> &ldquo;What is GDI?&rdquo;</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>12:20</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Introduce yourself to person nearest to you, <a href="https://docs.google.com/document/d/1_2JX7LL0CSy6BgJspJNdfm1uZF-nbWBV1g-i1Zb0ywY/edit">with an intro question</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>12:25</p>
+				</td>
+				<td style="vertical-align:top">
+				<ul>
+					<li>
+					<p>Ask how many have done the first hour (as requested)</p>
+					</li>
+					<li>
+					<p>Make sure they&rsquo;ve added GDI chapter account as coach</p>
+					</li>
+					<li>
+					<p>Talk about the structure for workshop - self-paced learning, *skip* the projects and keep going, then pair on projects together.</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>12:30</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Start self-paced learning</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>1:30</p>
+				</td>
+				<td style="vertical-align:top">
+				<p><a href="https://docs.google.com/document/d/13-pqD64r2GQ1FcmZe_hGUWy4Ybyx4f11qNnQVns1Wms/edit">Stretch!</a></p>
+				&nbsp;
+
+				<p><a href="https://docs.google.com/presentation/d/1E-afLHWmYcTjO0z_hBpAw3AL4Gp4qVQNLOsxP_hq3fI/edit?usp=sharing">Pair programming intro</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>1:40</p>
+				</td>
+				<td style="vertical-align:top">
+				<p><a href="https://www.khanacademy.org/computing/computer-programming/programming/coloring/p/project-whats-for-dinner">Project: What&rsquo;s for Dinner?</a></p>
+
+				<ul>
+					<li>
+					<p>With a twist: Draw a local meal or a favorite seasonal meal</p>
+					</li>
+					<li>
+					<p>Pair people based on progress (see below)</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>2:30</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Project Show &amp; Tell (see below)</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>2:45</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Re-start self-paced learning</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>5:00</p>
+				</td>
+				<td style="vertical-align:top">
+				<p><a href="https://docs.google.com/document/d/13-pqD64r2GQ1FcmZe_hGUWy4Ybyx4f11qNnQVns1Wms/edit">Stretch!</a></p>
+				&nbsp;
+
+				<p><a href="https://www.khanacademy.org/computer-programming/project-fantasy-race/5758661127438336">Project: Fantasy Race</a></p>
+
+				<ul>
+					<li>
+					<p>Pair people based on progress (see below)</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>5:55</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Project Show &amp; Tell (see below)</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>6:15</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Go home!</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br>
+	<h3>Day 2:</h3>
+
+	<table class="table table-bordered">
+		<tbody>
+			<tr>
+				<td style="vertical-align:top">
+				<p>11:15</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Setup tables, name tags</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>11:30</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Students start arriving, eating lunch, setting up</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>12:00</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Discussion/Demo</p>
+
+				<ul>
+					<li>
+					<p>Show an inspirational use of JS</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>12:10</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Start self-paced learning</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>2:20</p>
+				</td>
+				<td style="vertical-align:top">
+				<p><a href="https://docs.google.com/document/d/13-pqD64r2GQ1FcmZe_hGUWy4Ybyx4f11qNnQVns1Wms/edit">Stretch!</a></p>
+				&nbsp;
+
+				<p>Pair Project:</p>
+
+				<ul>
+					<li>
+					<p>If they did &ldquo;Function Return Values&rdquo;: <a href="https://www.khanacademy.org/computer-programming/project-shape-maker/5588591361261568">Project: Shape-Maker</a></p>
+					</li>
+					<li>
+					<p>If they didn&rsquo;t: <a href="https://www.khanacademy.org/computing/computer-programming/programming/text-basics/p/project-ad-design">Project: Ad Design.</a> Suggest twist: make an animated ad for a local startup or one you wish existed, try to animate part of it.</p>
+					</li>
+					<li>
+					<p>Pair people based on progress (see below)</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>3:15</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Project Show &amp; Tell</p>
+
+				<ul>
+					<li>
+					<p>Alternative: Have them walk around to eachother&rsquo;s computers and admire their work</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>3:35</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Self-paced starts again</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>5:10</p>
+				</td>
+				<td style="vertical-align:top">
+				<p><a href="https://docs.google.com/document/d/13-pqD64r2GQ1FcmZe_hGUWy4Ybyx4f11qNnQVns1Wms/edit">Stretch!</a></p>
+				&nbsp;
+
+				<p>Present <a href="http://tinyurl.com/gdisf-conclusion">&ldquo;Thanks for coming!&rdquo; </a></p>
+
+				<ul>
+					<li>
+					<p>Walk through the entire JS sequence, talk about the format of each class, the prerequisites, emphasize the study groups</p>
+					</li>
+					<li>
+					<p>We do this before the pair project &nbsp;</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>5:20</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Pair Project:</p>
+
+				<ul>
+					<li>
+					<p>If they did &ldquo;Smarter Button&rdquo;: <a href="https://www.khanacademy.org/computer-programming/project-interactive-diagram/6179666102714368">Project: Interactive Diagram.</a></p>
+					</li>
+					<li>
+					<p>If they did &ldquo;Functions&rdquo; tutorial: <a href="https://www.khanacademy.org/computing/computer-programming/programming/functions/p/project-fish-tank">Project: Fish Tank</a>. Suggest twist: make it into a &lsquo;Where&rsquo;s Waldo&rsquo;, trying to hide a weird fish, or replace the fish with your own pet.</p>
+					</li>
+					<li>
+					<p>Else, <a href="https://www.khanacademy.org/computing/computer-programming/programming/text-basics/p/project-ad-design">Project: Ad Design.</a></p>
+					</li>
+				</ul>
+
+				<ul>
+					<li>
+					<p>Pair people based on progress (see below)</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align:top">
+				<p>6:00</p>
+				</td>
+				<td style="vertical-align:top">
+				<p>Project Show &amp; Tell, Science Fair Style</p>
+
+				<ul>
+					<li>
+					<p>Have them walk around to eachother&rsquo;s computers and admire their programs</p>
+					</li>
+				</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<h3>Project Show &amp; Tell</h3>
+
+	<p>We want to get students in the habits of being proud of what they&rsquo;ve made, so we do show &amp; tells. There are two ways to run a show &amp; tell:</p>
+
+	<ul>
+		<li>
+		<p><strong>Front of the room:</strong> The students can put all of their URLs in the shared doc, and once everyone&rsquo;s done working, the facilitator can open them all up, point out the neat aspects of each program, and ask the team members to raise their hand when showing their program.</p>
+		</li>
+		<li>
+		<p>Science fair style: This works well if you have large monitors (like pairing stations). Once students are done working, they walk around the room and check out other people&rsquo;s program.</p>
+		</li>
+	</ul>
+
+	<p>You can mix and match these styles throughout the workshop, or pick one based on timing, or even do both for some projects.</p>
+	<br>
+	
+	<h3>Pairing Based on Progress</h3>
+
+	<p>As students move through the course, their progress will vary more - some of them may be 1-2 tutorials ahead of others. When pairing people on the projects, the goal is to give them a project to work on that&rsquo;s roughly at their level, but when possible, pair more advanced with less advanced.</p>
+
+	<p>On day 1, students are generally close enough to each other in progress that it works to have them work through the same projects. Thus, the goal of creating the pairs is to pair more advanced with less advanced. The way to do that is to look at the coach reports on Khan Academy and select the Skill Progress tab. That will show you graphs of how many students have started and completed each node in the course, and is a great way to figure out pairs.</p>
+
+	<p>Find a node that looks roughly 50/50 (keeping into account no-show students), and come up with pairs based on that. Make the list of pairs right before connecting your laptop to the monitor, to avoid showing that data to the whole class.</p>
+
+	<p>On day 2, students get farther apart, so there are 2-3 suggested projects for each pairing time, with a prerequisite listed. To select the pairs, open the Skill progress report, find which students have completed the highest pre-req, make the pairs, and keep going down the projects list until all are paired.</p>
+
+
+	<p>It&rsquo;s okay if pairs aren&rsquo;t perfectly matched, students can always learn from each other.</p>
+
+	<p>Here&rsquo;s a screenshot of the Skill progress report halfway through Day 1:<br>
+	<img alt="Screen Shot 2015-06-20 at 3.41.35 PM.png" src="https://lh4.googleusercontent.com/bxzRQ9UHHxIalaR4UbiQtDSyroKJBGk1HMoNUigJMDwd3DXPPkI0FiBgm0VlfxpPSbOthNxdl70NMMnzpcl-xIeajOKMtDdxxi4qb7JaAT55ZBe83f55QGJhQ_A656O-c15-nGI" style="height:214px; width:486px" /></p>
+
+
+  <br>
+  <div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'teaching-materials'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    var disqus_identifier = 'javascript-selfpaced-lessonplan';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+ </body>
+</html>
