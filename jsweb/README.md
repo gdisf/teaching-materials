@@ -1,12 +1,13 @@
-# JS review: Objects, arrays, and functions
+# JS for the Web: Making webpages interactive
 
-Slides and materials are hosted [here](http://teaching-materials.org/jsreview).
+Slides and materials are hosted [here](http://teaching-materials.org/jsweb).
 
 ## Course description
 
-In this workshop, you will solidify your understanding of objects, arrays and functions in JS and learn the common mistakes made by beginners. You will finish with a strong foundation in the most important JS concepts.
+Want to make your webpages interactive? Then you'll need to use JavaScript, the language of the web.
+In this workshop, you'll learn how to use JavaScript with webpages - starting with using it to manipulate the HTML/CSS on a page, then attaching events to respond to user interaction, and finally, animating parts of your page.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio].This is the perfect follow-up workshop for those who have attended our JS 101 workshop.
+The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio]. This is the perfect follow-up workshop for those who have attended our HTML/CSS workshop and JS 101 workshops.
 
 ### Prerequisites:
 
@@ -24,6 +25,7 @@ You can review them online at a few places:
 
 ### Topics covered:
 
-* Objects, property access
-* Arrays, looping
-* Functions, arguments
+* JS DOM access
+* JS DOM manipulation
+* JS DOM events
+* JS DOM animation
