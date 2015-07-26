@@ -4,9 +4,9 @@ Slides and materials are hosted [here](http://teaching-materials.org/backbone).
 
 ## Course description
 
-In this workshop, you'll learn all about Backbone.js, a popular front-end javascript library for creating dynamic, interactive web interfaces. 
+In this workshop, you'll learn all about Backbone.js, a popular front-end JavaScript library for creating dynamic, interactive web interfaces. 
 
-The workshop will be a mix of lectures and hands-on exercises in pairs. This workshop is highly recommended for anyone attending our frontend workshop series and is a perfect follow-up for our JS MVC workshop.
+The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio]. This workshop is highly recommended for anyone attending our frontend workshop series and is a perfect follow-up for our JS MVC workshop.
 
 ### Prerequisites:
 
@@ -28,4 +28,4 @@ You can review them online at a few places:
 
 * Backbone models & views
 * Backbone events
-* Backbone CRUD (server calls)
+* CRUD (client <-> server communication)
