@@ -38,7 +38,7 @@ describe("Exercise 2: ", function() {
       expect(returnExpectation).toEqual(myPersonView);
     });
 
-    it("give your PersonView an event object, with an event for 'click' that has a callback of 'onClick'", function() {
+    it("give your PersonView an events object, with an event for 'click' that has a callback of 'onClick'", function() {
       expect(myPersonView.events).toBeDefined();
       expect(typeof myPersonView.events).toEqual("object");
       expect(myPersonView.events['click']).toBeDefined();
