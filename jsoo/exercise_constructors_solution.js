@@ -1,6 +1,5 @@
 /* From the first exercise */
 function Video(config) {
-    config = config || {};
     this.title = config.title || "Untitled";
     this.uploader = config.uploader || "Unknown";
     this.seconds = config.seconds || 0;
