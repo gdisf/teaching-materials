@@ -18,8 +18,7 @@ function MusicVideo(config) {
     this.artist = config.artist;
 }
 
-MusicVideo.prototype = new Video();
-MusicVideo.constructor = MusicVideo;
+MusicVideo.prototype = Object.create(Video.prototype);
 
 // A new method on this object
 MusicVideo.prototype.rockOut = function() {

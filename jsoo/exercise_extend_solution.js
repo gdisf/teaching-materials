@@ -14,8 +14,7 @@ function MusicVideo(title, uploader, seconds, artist) {
     this.artist = artist;
 }
 
-MusicVideo.prototype = new Video();
-MusicVideo.constructor = MusicVideo;
+MusicVideo.prototype = Object.create(Video.prototype);
 
 // A new method on this object
 MusicVideo.prototype.rockOut = function() {
