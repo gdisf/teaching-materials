@@ -113,16 +113,24 @@ var VideoItemView = function(video) {
   return videoItem;
 };
 
-
-$(document).ready(function() {
-
-  var videos = new VideoCollection(videosJSON);
-  videos.sort();
+var VideoCollectionView = function(videos) {
+  var videoList = $('<ul>');
 
   for (var i = 0; i < videos.items.length; i++) {
     var videoItem = new VideoItemView(videos.items[i]);
-    $('#videos-list').append(videoItem);
+    videoList.append(videoItem);
   }
+
+  return videoList;
+};
+
+
+$(document).ready(function() {
+  var videos = new VideoCollection(videosJSON);
+  videos.sort();
+
+  var videosCollection = new VideoCollectionView(videos);
+  $('body').append(videosCollection);
 });
 
  </script>
