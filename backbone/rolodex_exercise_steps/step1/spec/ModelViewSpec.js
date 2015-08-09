@@ -63,6 +63,7 @@ describe("Exercise 2: ", function() {
   describe("Instantiate a new PersonView: ", function() {
     it("store it as a variable called 'personView'", function() {
       expect(personView).toBeDefined();
+      expect(personView instanceof PersonView).toBe(true);
     });
 
     it("give your instantiated view a model. Use the one you previously instantiated and stored as person. Make sure the model has an 'imgUrl' attribute", function() {

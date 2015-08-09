@@ -62,6 +62,7 @@ describe("Exercise 0: ", function() {
   describe("Instantiate a Backbone Model", function() {
     it("store it as a variable called person", function() {
       expect(person).toBeDefined();
+      expect(person instanceof Person).toBe(true);
     });
   });
 });

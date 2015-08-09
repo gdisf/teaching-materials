@@ -29,6 +29,7 @@ describe("Exercise 1: ", function() {
   describe("Instantiate a new Collection : ", function() {
     it("store it as a variable called 'people'", function() {
       expect(people).toBeDefined();
+      expect(people instanceof People).toBe(true);
     });
 
     it("add at least three models to it, and give them unique last names", function() {
