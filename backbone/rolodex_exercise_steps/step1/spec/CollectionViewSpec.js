@@ -23,7 +23,7 @@ describe("Exercise 3: ", function() {
       expect(returnExpectation).toEqual(myView);
     });
 
-    it("in the .initialize function, use .on() or .listenTo() to add an event listener for changes to the collection. The callback should be .render", function() {
+    it("in the .initialize function, use .listenTo() to add an event listener for changes to the collection. The callback should be .render", function() {
       spyOn(RolodexView.prototype, 'render');
       var Collection = Backbone.Collection.extend();
       var myNewView = new RolodexView({
