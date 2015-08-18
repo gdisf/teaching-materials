@@ -16,9 +16,10 @@ describe("Exercise 0: ", function() {
         expect(myPerson.defaults.role).toEqual("student");
       });
 
-      it("such as a 'imgUrl' attribute that equals 'http://placepuppy.it/200/200'", function() {
+      it("such as a 'imgUrl' attribute that equals an image url of your choice (like 'http://lorempixel.com/200/200/animals')", function() {
         expect(myPerson.defaults.imgUrl).toBeDefined();
-        expect(myPerson.defaults.imgUrl).toEqual("http://placepuppy.it/200/200");
+        expect(typeof myPerson.defaults.imgUrl).toEqual('string');
+        expect(myPerson.defaults.imgUrl.length).toBeGreaterThan(0);
       });
 
       it("such as a 'firstName' attribute that equals an empty string ''", function() {
