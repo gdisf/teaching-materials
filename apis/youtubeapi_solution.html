@@ -53,20 +53,19 @@
 
  function addVideoToList(video) {
     var videoLink = $('<a>');
-    videoLink.append(video.title);
+    videoLink.append(video.snippet.title);
     videoLink.append('<br>');
     var linkUrl = videoLink.attr('href');
-    var thumbnailUrl = youtube.generateThumbnailUrl(video.id);
     var thumbnailImg = $('<img>');
-    thumbnailImg.attr('src', video.thumbnail.sqDefault);
+    thumbnailImg.attr('src', video.snippet.thumbnails.default.url);
     videoLink.append(thumbnailImg);
     
     videoLink.on('click', function(e) {
         e.preventDefault();
         var videoTitle = $('<h2>');
-        videoTitle.html(video.title + ' <small>' + video.uploader + '</small>');
+        videoTitle.html(video.snippet.title + ' <small>' + video.snippet.channelTitle + '</small>');
         var videoEmbed = $('<iframe></iframe>');
-        videoEmbed.attr('src', youtube.generateEmbedUrl(video.id) + '?autoplay=1');
+        videoEmbed.attr('src', youtube.generateEmbedUrl(video.id.videoId) + '?autoplay=1');
         videoEmbed.attr('width', 560);
         videoEmbed.attr('height', 315);
 
@@ -86,12 +85,14 @@
     videoItem.append(videoLink);
     $('#videos-list').append(videoItem);
  }
+   
+var apiKey = "AIzaSyCRXTR0G_Slvgyjj_Vgfry6KLiw8pIMlHs";
 
 $.ajax({
-  url: "https://gdata.youtube.com/feeds/api/videos?q=otters&v=2&alt=jsonc&max-results=5",
-  dataType: "jsonp",
+  url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=otters&safeSearch=moderate&type=video&videoEmbeddable=true&fields=items(id%2Csnippet)&key=" + apiKey,
+  dataType: "json",
   success: function(json) { 
-    var videos = json.data.items;
+    var videos = json.items;
     for (var i = 0; i < videos.length; i++) {
       addVideoToList(videos[i]);
     }
