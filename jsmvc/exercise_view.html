@@ -17,22 +17,25 @@
       <h1>Exercise: Views in MVC</h1>
       <br><br>
 
-      <p>In this exercise, you will take an app and split it into a Model and View.</p>
+      <p>In this exercise, you will take an app and add a Model View and a Collection View.</p>
 
       <p>Go through these steps, and do as many as you can in the time we have:</p>
       <ol>
         <li>Start with the solution from the last exercise (or <a href="exercise_model_solution.html" download>download from here</a>).
         
-        <li>Create a <code>VideoItem</code> view. It should be very similar to <code>addVideoToList</code>,
-          but instead of appending to the global UL (<code>#videos-list</code>), it should return a LI.
+        <li>Create a <code>VideoItemView</code>. It should take a video model argument and return a <code>&lt;li&gt;</code>.
+        <li>Create a <code>VideoCollectionView</code>. It should do the following:
+          <ol>
+            <li>It should take a video collection argument</li>
+            <li>It sould create a <code>&lt;ul&gt;</code> element</li>
+            <li>It should iterate through the collection and create a new VideoItemView for each element of the collection</li>
+            <li>It should append each VideoItemView to the <code>&lt;ul&gt;</code></li>
+            <li>It should return the <code>&lt;ul&gt;</code> from the constructor</li>
+          </ol>
         </li>
-        <li>In the for loop in <code>document.ready</code>, change the code to create a new <code>VideoItem</code>
-          object, and append the resulting LI to the global <code>#videos-list</code> UL there instead.
+        <li>Change <code>document.ready</code>. After you create your collection, instantiate a new <code>VideoCollectionView</code> that's constructed from an instance of the <code>VideoCollection</code>. Append that collection view to the <code>body</code> of the document.</li>
         </li>
         <li>Try loading the page and see if your code works!</li>
-        <li>Bonus: Test the reusability of your code now by creating a new UL in the HTML <code>#videos2-list</code>
-          and see if you can create new item views to insert in that UL.
-        </li>
       </ol>
 
       <p>Make sure that you use your browser developer tools to make debugging easier

@@ -63,10 +63,7 @@ BookCollection.prototype.sort = function() {
   });
 };
 
-function BookShelfView(books) {
-  var shelfDiv = $('<div>');
-  for (var i = 0; i < books.items.length; i++) {
-    var book = books.items[i];
+function BookView(book) {
     // Create a div with a linked image inside it, 
     // and add that to the shelf div
     var bookDiv = $('<div class="book">');
@@ -77,18 +74,25 @@ function BookShelfView(books) {
     bookLink.append(bookCover);
     bookDiv.append(bookLink);
 
-    shelfDiv.append(bookDiv);
-
     // On mouseover, pop up the review
     bookDiv.bind('mouseover', function(e) {
-    	  var reviewDiv = $('<div class="book-review">');
-    	  reviewDiv.html('<strong>' + book.rating + ' stars: </strong>' + (book.review || ' No review.'));
-    	  reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
-    	  $('body').append(reviewDiv);
+        var reviewDiv = $('<div class="book-review">');
+        reviewDiv.html('<strong>' + book.rating + ' stars: </strong>' + (book.review || ' No review.'));
+        reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
+        $('body').append(reviewDiv);
     });
+
     bookDiv.bind('mouseout', function() {
-    	$('.book-review').remove();
+      $('.book-review').remove();
     });
+
+    return bookDiv;
+}
+
+function BookShelfView(books) {
+  var shelfDiv = $('<div>');
+  for (var i = 0; i < books.items.length; i++) {
+    shelfDiv.append(new BookView(books.items[i]));
   }
   return shelfDiv;
 }
