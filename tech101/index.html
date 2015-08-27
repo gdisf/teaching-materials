@@ -65,8 +65,9 @@
 					<h3>(Hypertext Transfer Protocol)</h3>
 					<ul>
 						<li>A system with rules</li>
-						<li>How we communicate over the web</li>
+						<li>How computers communicate over the web</li>
 						<li>Made of <strong>requests</strong> and <strong>responses</strong></li>
+						<!-- ZOOM IN TO DIAGRAM -->
 					</ul>
 				</section>
 
@@ -81,10 +82,10 @@
 				</aside class="notes">
 
 				<section>
-					<h2>Requests</h2>
+					<h2>HTTP Requests</h2>
 					<ul>
 						<li>Contain a verb like <strong>GET</strong>, <strong>POST</strong>, <strong>DELETE</strong></li>
-						<li>A path on the server, like: <strong>/tech-101.html.</strong></li>
+						<li>A path on the server, like: <strong>/tech-101.html</strong></li>
 						<li>A host, like: <strong>www.girldevelopit.com</strong></li>
 					</ul>
 					<pre><code>GET /tech-101.html HTTP/1.1
@@ -93,11 +94,11 @@ Host: www.girldevelopit.com
 				</section>
 
 				<section>
-					<h2>Responses</h2>
+					<h2>HTTP Responses</h2>
 					<ul>
 						<li>Contain a response code like <strong>200</strong> or <strong>404</strong></li>
-						<li>Contain optional <strong>headers</strong></li>
-						<li>Contain optional content like <strong>HTML</strong></li>
+						<li>Contain <strong>headers</strong></li>
+						<li>Contain content like <strong>HTML</strong></li>
 <pre><code>200
 Content-Type: text/html
 &lt;doctype html&gt;
@@ -113,7 +114,8 @@ Content-Type: text/html
 				<section>
 					<h2>Clients and Servers</h2>
 					<p>Clients are computers that access the web.</p>
-					<img src="http://www.teaching-materials.org/htmlcss-1day/html-web/diagram_web.png"/>
+					<p>Servers store and provide information.</p>
+					<img src="http://www.rc.au.net/papers/www-0595/images/clntserv.gif"/>
 				</section>
 
 				<section>
@@ -124,7 +126,7 @@ Content-Type: text/html
 				<section>
 					<h2>Browsers</h2>
 					<ul>
-						<li>Are a specific type of client.</li>
+						<li>Are a specific type of client application.</li>
 						<li>Are programs that render content on the web, most often HTML pages and related resources.</li>
 						<li><strong>HTML</strong> is a "markup language" that describes a webpage. When you're on a webpage, you can <strong>"view source"</strong> to see the HTML that the browser is rendering.</li>
 					</ul>
@@ -136,18 +138,18 @@ Content-Type: text/html
 				</section>
 
 				<section>
-					<h2>What's it made of?</h2>
-					<p><strong>HTML</strong></p>
-<pre><code>&lt;img src="http://http://placekitten.com/200/300"&gt;</code></pre>
-					<p>and <strong>CSS</strong></p>
-<pre><code>&lt;style&gt;
-    img { width: 500px; }
-&lt;/style&gt;</code></pre>
+					<h2>Take a look!</h2>
+					<a href="http://www.brendajin.com"><img src="img/brenda_gdi_screenshot.png"/></a>
 				</section>
 
 				<section>
-					<h2>Take a look!</h2>
-					<a href="http://www.brendajin.com" target="_blank">http://www.brendajin.com</a>
+					<h2>What's it made of?</h2>
+					<p><strong>HTML</strong></p>
+<pre><code>&lt;h2&gt;What's it made of?&lt;/h2&gt;</code></pre>
+					<p>and <strong>CSS</strong></p>
+<pre><code>&lt;style&gt;
+    h2 { color: salmon; }
+&lt;/style&gt;</code></pre>
 				</section>
 
 				<section>
@@ -162,9 +164,8 @@ Content-Type: text/html
 				<section>
 					<h2>How do you edit your content?</h2>
 					<ul>
-						<li>Text Editor</li>
-						<li>IDE</li>
-						<li>WYSIWIG</li>
+						<li>Text Editor (such as <a href="http://www.sublimetext.com/">Sublime Text</a></li>
+						<li>WYSIWIG Editor (such as <a href="https://youtu.be/ZT-KxtS2x_I?t=1m18s">Weebly</a>)</li>
 					</ul>
 				</section>
 
@@ -182,10 +183,10 @@ Content-Type: text/html
 					<h2>How do you make a good website?</h2>
 					<h3>Answer: think about your users!</h3>
 					<ul>
-						<li><strong>UI/UX</strong> - can users accomplish what they need to?</li>
-						<li><strong>SEO</strong> - users want to be able to find your site via search engine
-						<li><strong>Accessibility</strong> - users with disabilities and varying needs - big text size, high contrast, shapes instead of colors</li>
-						<li><strong>Responsiveness</strong> - users on different screen sizes</li>
+						<li class="fragment"><strong>UI/UX</strong> - can users accomplish what they need to?</li>
+						<li class="fragment"><strong>SEO</strong> - users want to be able to find your site via search engine
+						<li class="fragment"><strong>Accessibility</strong> - users with disabilities and varying needs - big text size, high contrast, shapes instead of colors</li>
+						<li class="fragment"><strong>Responsiveness</strong> - users on different screen sizes</li>
 					</ul>
 				</section>
 
