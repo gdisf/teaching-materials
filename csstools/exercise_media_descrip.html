@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>CSS: Media Queries Exercise</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -17,7 +17,7 @@
             <li>Start with <a href="exercise_media_before.html">this webpage</a>,
             which already has HTML and CSS for a header, navigation, content, sidebar, and footer. This is what it looks like:
             <p>
-            <img src="http://dl.dropbox.com/u/10998095/Screenshots/f8_u1e22y4bw.png" style="border:1px solid black;">
+            <img src="csstools_exercise_1_before.png" style="border:1px solid black;">
             </p>
             <br><br>
             <li>Add a CSS media query and appropriate styles so that the webpage looks like the screenshot below when printed.
@@ -27,12 +27,12 @@
                 <li>The sidebar should display under the main content.
             </ul>
             <p>
-            <img src="http://dl.dropbox.com/u/10998095/Screenshots/u4i82nrsa6at.png">
+            <img src="csstools_exercise_1_before_print.png" style="border:1px solid black;">
             </p>
             <br><br>
-            <li>Add a CSS media query and appropriate styles so that the webpage looks like the screenshots below 
+            <li>Add a CSS media query and appropriate styles so that the webpage looks like the screenshots below
             when resized to smaller widths.
-            Specifically: 
+            Specifically:
                 <ul>
                     <li>The sidebar should be hidden.
                     <li>The body should have no padding.
@@ -41,17 +41,21 @@
                     <li>The header should be fixed, so that it stays at the top after scrolling.
                 </ul>
             <p>
-            <img src="http://dl.dropbox.com/u/10998095/Screenshots/cpe39ou_1igz.png">
+                <h4><strong>240x320: small phone</strong></h4>
+            <img src="csstools_exercise_1_before_small_phone.png" style="border:1px solid black; margin-right:100px;">
+                <h4><strong>320x470 Android normal</strong></h4>
+
+            <img src="csstools_exercise_1_before_android.png" style="border:1px solid black; margin-top:20px;">
             </p>
             <br><br>
         </ul>
-         
+
   <button class="btn" onclick="showSolution();">Show Solution</button>
-   
+
    <div id="solution" style="display:none; margin-top: 20px;">
    <a href="exercise_media_solution.html" target="_blank">View Solution in New Window</a>
    </p>
-   
+
     <script>
 function showSolution() {
   if (confirm('You surrrrre?')) {
