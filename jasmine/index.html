@@ -43,8 +43,123 @@
 						<small>Found at <a href ="http://www.teaching-materials.org/jasmine">http://www.teaching-materials.org/jasmine</a>.</small>
 					</p>
 				</section>
-        <!-- Compatibility-->
 
+		        <!--  High level overview of testing, TDD, and BDD -->
+				<section>
+					<h2>Why test?</h2>
+				</section>
+				<section>
+					<h3>Code is for humans</h3>
+					<h4>(and so are the bugs)</h4>
+					<ul>
+						<li>set expectations</li>
+						<li>think through the steps</li>
+						<li>break down the pieces</li>
+						<li>ensure ease of upgrades and deprecations</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Benefits of testing</h3>
+					<ul>
+						<li>shorten feedback loop</li>
+						<li>prevent regressions</li>
+						<li>document code</li>
+					</ul>
+				</section>
+				<section>
+					<h3>What is TDD?</h3>
+					<br>
+					<p><strong>Test-driven Development (TDD)</strong> is an approach to programming.</p>
+					<br>
+					<ol>
+						<li>Write an automated (failing) test. This test will describe the desired behavior
+						<li>Write a small amount of code that will make the test pass</li>
+						<li>Repeat</li>
+				</section>
+				<section>
+					<h3>What is BDD?</h3>
+					<br>
+					<p><strong>Behavior-driven Development (BDD)</strong> emerged out of TDD as an approach to programming that considers both business and technical needs.</p>
+					<br>
+					<p>From the developer perspective, BDD is a style of TDD that uses English in a natural way to describe expected behavior.</p>
+				</section>
+				<section>
+					<h3>BDD patterns</h3>
+					<br>
+					<p>In this workshop, we will be using the following pattern:
+						<pre><code>Describe "a part of an application"
+	It "should do something specific"
+</code></pre>
+					</p>
+					<br>
+					<p>So you might have something like this:
+						<pre><code>Describe "a cat trampoline"
+	It "should have a place for a cat to jump"
+	It "should not be large enough for a person"
+	It "should make cats happy"
+</code></pre>
+					</p>
+				</section>
+				<section>
+					<h3>Exercise time</h3>
+					<br>
+					<p><a href="step0.html">Click here for directions</a></p>
+					<p>Suggested time: 10 minutes</p>
+				</section>
+
+
+				<!-- Jasmine Part 1 -->
+				<section>
+					<h2>Jasmine</h2>
+				</section>
+				<section>
+					<h3>What is Jasmine?</h3>
+					<br>
+					<blockquote>Jasmine is a behavior-driven development framework for testing JavaScript code.  It does not depend on any other JavaScript frameworks.</blockquote>
+					<br>
+					<p><a href="http://jasmine.github.io/2.0/introduction.html" target="_blank">Jasmine 2.0 Docs</a></p>
+				</section>
+				<section>
+					<h3>File setup for a test suite</h3>
+				</section>
+				<section>
+					<h3><code>describe</code>, <code>it</code>, and <code>expect</code></h3>
+				</section>
+				<section>
+					<h3><code>toBe</code> or <code>not.toBe</code></h3>
+				</section>
+				<section>
+					<h3><code>beforeEach</code> and <code>afterEach</code></h3>
+				</section>
+				<section>
+					<h3>A pattern for executing tests</h3>
+					<ul>
+						<li>Set the stage</li>
+						<li>Let the players play their parts</li>
+						<li>Tear down the stage</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Exercise time</h3>
+					<br>
+					<p><a href="step1.html">Click here for directions</a></p>
+					<p>Suggested time: 20 minutes</p>
+				</section>
+
+				<!-- Jasmine Part 2 -->
+				<section>
+					<h3>Shoulda, coulda, woulda</h3>
+					<p>Sometimes, we want to test things like "control flow", and whether other functions were called. To do this, we need Spies.</p>
+				</section>
+				<section>
+					<h3>Spies</h3>
+				</section>
+				<section>
+					<h3>Exercise time</h3>
+					<br>
+					<p><a href="step2.html">Click here for directions</a></p>
+					<p>Suggested time: 20 minutes</p>
+				</section>
 			</div>
   		<footer>
         <div class="copyright">
