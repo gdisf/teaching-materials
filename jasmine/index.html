@@ -120,45 +120,125 @@
 					<p><a href="http://jasmine.github.io/2.0/introduction.html" target="_blank">Jasmine 2.0 Docs</a></p>
 				</section>
 				<section>
-					<h3>File setup for a test suite</h3>
+					<h3>Setting up the Spec Runner</h3>
+					<p>In this workshop, we'll be running our tests in a browser from a file called <code>SpecRunner.html</code>. That means, we need to make sure our files are loaded before we write tests. Here's how:</p>
+					<pre><code>&lt;!-- include jasmine library --&gt;
+&lt;link rel="stylesheet" type="text/css" href="lib/jasmine.css"&gt;
+&lt;script type="text/javascript" src="lib/jasmine.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="lib/jasmine-html.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="lib/boot.js"&gt;&lt;/script&gt;
+
+&lt;!-- include source files here... --&gt;
+&lt;script type="text/javascript" src="src/App.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="src/Game.js"&gt;&lt;/script&gt;
+
+&lt;!-- include spec files here... --&gt;
+&lt;script type="text/javascript" src="spec/GameSpec.js"&gt;&lt;/script&gt;</code></pre>
 				</section>
 				<section>
-					<h3><code>describe</code>, <code>it</code>, and <code>expect</code></h3>
+					<h3>Suites, specs, and matchers</h3>
+<pre><code>// Suites start with the keyword "describe"
+describe("A suite", function(){
+
+  // Specs start with the keyword "it"
+  it("contains spec with an expectation", function(){
+
+    // expect() statements have matchers like toBe()
+    expect(true).toBe(true);
+
+  });
+});
+</code></pre>
 				</section>
 				<section>
-					<h3><code>toBe</code> or <code>not.toBe</code></h3>
-				</section>
-				<section>
-					<h3><code>beforeEach</code> and <code>afterEach</code></h3>
+					<h3><code>toBe()</code> or <code>not.toBe()</code></h3>
+					<p>There are special functions called <strong>matchers</strong> that will compare an actual value with an expected value.</p>
+					<br>
+					<p>You can also add a <code>.not()</code> to your matcher:</p>
+					<pre><code>expect(true).not.toBe(false);</code></pre>
+					<br>
+					<p>Here are some <a href="http://jasmine.github.io/2.0/introduction.html#section-Matchers" target="_blank">other matchers</a> that are built-in:</p>
+<pre><code>.toBeDefined();
+.toEqual(); // strict equality
+.toMatch(); // for regular expressions
+.toContain(); // find an item in an array
+</code></pre>
 				</section>
 				<section>
 					<h3>A pattern for executing tests</h3>
+					<br>
 					<ul>
-						<li>Set the stage</li>
+						<li>Set up the stage</li>
 						<li>Let the players play their parts</li>
 						<li>Tear down the stage</li>
 					</ul>
 				</section>
 				<section>
+					<h3>Set up and Tear down</h3>
+					<p>Often, you'll run tests with the same set up and tear down procedures. For that, we can use the <code>beforeEach()</code> and <code>afterEach()</code> functions:</p>
+					<pre><code>describe("a self-driving car", function(){
+  describe("turning in traffic", function(){
+    beforeEach(function(){
+      startEngine();
+      navigate("Safeway");
+    });
+
+    afterEach(function(){
+      navigate("Home");
+      killEngine();
+    });
+
+    it("should signal when turning", function(){
+      turnLeft();
+      expect(leftSignalPosition).toEqual("on");
+    });
+  });
+});
+					</code></pre>
+				</section>
+				<section>
 					<h3>Exercise time</h3>
 					<br>
-					<p><a href="step1.html">Click here for directions</a></p>
+					<p><a href="step1/instructions.html" target="_blank">Click here for directions</a></p>
 					<p>Suggested time: 20 minutes</p>
 				</section>
 
 				<!-- Jasmine Part 2 -->
 				<section>
-					<h3>Shoulda, coulda, woulda</h3>
-					<p>Sometimes, we want to test things like "control flow", and whether other functions were called. To do this, we need Spies.</p>
+					<h3>Control Flow</h3>
+					<h4>Shoulda, coulda, woulda</h4>
+					<p><strong>Control Flow</strong> is the order in which the individual statements, instructions or function calls are executed or evaluated.</p>
+					<br>
+					<p>Because this can get complicated quickly, we'll need to test this.</p>
 				</section>
 				<section>
 					<h3>Spies</h3>
+					<ul>
+						<li>Stub a function and track calls to it</li>
+						<li>Keep track of which arguments it was called with</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Example</h3>
+					<pre><code>Describe "a self-driving car"
+	It "should drive at a green light"
+	It "should stop at a red light"</code></pre>
 				</section>
 				<section>
 					<h3>Exercise time</h3>
 					<br>
-					<p><a href="step2.html">Click here for directions</a></p>
+					<p><a href="step2/instructions.html" target="_blank">Click here for directions</a></p>
 					<p>Suggested time: 20 minutes</p>
+				</section>
+
+				<!-- End -->
+				<section>
+					<h2>More information</h2>
+					<ul>
+						<li>Testing is the approach, not the goal</li>
+						<li>Some things are hard to test, so get creative</li>
+						<li>Not all tests run in the DOM</li>
+					</ul>
 				</section>
 			</div>
   		<footer>
