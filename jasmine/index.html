@@ -20,7 +20,7 @@
 		 <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
 
 		<!-- If use the PDF print sheet so students can print slides-->
-		
+
 		<link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 		<!--[if lt IE 9]>
@@ -195,6 +195,7 @@ describe("A suite", function(){
   });
 });
 					</code></pre>
+					<p><a href="http://jasmine.github.io/2.0/introduction.html#section-Setup_and_Teardown" target="_blank">more from the docs</a></p>
 				</section>
 				<section>
 					<h3>Exercise time</h3>
@@ -223,10 +224,28 @@ describe("A suite", function(){
 					</ul>
 				</section>
 				<section>
-					<h3>Example</h3>
-					<pre><code>Describe "a self-driving car"
-	It "should drive at a green light"
-	It "should stop at a red light"</code></pre>
+					<h3>Using Spies</h3>
+					<ul>
+						<li>spies are usually called on Object methods</li>
+						<li>spies have their own matchers such as <code>toHaveBeenCalled()</code>, <code>toHaveBeenCalledWith()</code>, <a href="http://jasmine.github.io/2.0/introduction.html#section-Spies" target="_blank">and more!</a></li>
+					<pre><code>describe("a robot sidewalk sweeper", function(){
+  it("should look left before crossing the street", function(){
+    spyOn(robot, 'lookLeft'); // set up the spy
+    robot.crossStreet(); // execute
+
+    // use matchers to see if the function was called
+    expect(robot.lookLeft).toHaveBeenCalled();
+    expect(robot.lookLeft.calls.count()).toBeGreaterThan(1);
+  });
+});</code></pre>
+				</section>
+				<section>
+					<h3>Tracking Spies</h3>
+					<br>
+					<p>function calls to spies are tracked through the <code>calls</code> property.</p>
+					<pre><code>expect(robot.lookLeft.calls.count()).toBeGreaterThan(1);</code></pre>
+					<br>
+					<p><a href="http://jasmine.github.io/2.0/introduction.html#section-Other_tracking_properties" target="_blank">Read more about it here!</a></p>
 				</section>
 				<section>
 					<h3>Exercise time</h3>
