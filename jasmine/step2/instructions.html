@@ -20,12 +20,13 @@
 			<h3>Instructions</h3>
 			<ol>
 				<li>There will be a global Object called <code>goal</code> that contains the current position of the goal as <em>x</em> and <em>y</em> properties:
-					<pre><code>
-console.log(goal.x); // logs 0					
-console.log(goal.y); // logs 0					
-					</code></pre>
+					<pre><code>console.log(goal.x); // logs 0
+console.log(goal.y); // logs 0</code></pre>
 				</li>
-				<li>There will be a function called <code>checkWin</code> that checks whether the player has won.</li>
+				<li>There will be a function called <code>checkWin</code> that checks whether the player has won. <code>checkWin</code> will return a <code>true</code> if the player's <code>x</code> and <code>y</code> coordinates match those of the goal. Otherwise, <code>checkWin</code> will return false.</li>
+				<li><code>checkWin</code> should be called whenever <code>moveRight</code>, <code>moveLeft</code>, <code>moveDown</code>, or <code>moveUp</code> are called.</li>
+				<li>In <code>GameSpec.js</code>, write tests for the <code>checkWin</code> function. Remember that you sometimes have to "set the stage" before running the test. You should also be sure to use some spies.</li>
+				<li>In <code>Game.js</code>, write code for <code>checkWin</code>.</li>
 			</ol>
 		</div>
 	</body>
