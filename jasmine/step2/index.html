@@ -9,12 +9,62 @@
 		<script type="text/javascript" src="src/Game.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<style type="text/css">
+#player, #goal{
+	font-size: 30px;
+	position: absolute;
+}
+#grid {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 500px;
+	height: 500px;
+	background-color: green;
+}
+#content{
+	background-color: transparent;
+	background-image:       linear-gradient(0deg, transparent 24%, rgba(0, 244, 0, .05) 25%, rgba(0, 244, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 244, 0, .05) 75%, rgba(0, 244, 0, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 244, 0, .05) 25%, rgba(0, 244, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 244, 0, .05) 75%, rgba(0, 244, 0, .05) 76%, transparent 77%, transparent);
+	height:100%;
+	background-size:50px 50px;
+}
+.coordinates{
+	position: absolute;
+	text-align: center;
+	background-color: #fff;
+	border: 3px solid #666;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 30px;
+	border-radius: 10px;
+	-webkit-box-shadow: 2px 2px 4px #888;
+	-moz-box-shadow: 2px 2px 4px #888;
+	box-shadow: 2px 2px 4px #888;
+	top: -50px;
+	left: 20px;
+}
+		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="page-header">
 				<h1>Simple Game</h1>
-				<p class="lead">Use the up, left, down, and right arrow keys to get your cat to the litterbox</p>
+				<p class="lead">Use the up, left, down, and right arrow keys to get your 🐝 to the 🍯</p>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="grid" class="container">
+						<div id="content">
+							<div id="goal">🍯
+								<span class="coordinates">10,0</span></div>
+							</div>
+							<div id="player">🐝
+								<span class="coordinates">0,0</span></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
