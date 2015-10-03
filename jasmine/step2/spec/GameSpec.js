@@ -1,58 +1,34 @@
-describe("Player", function() {
-  var player;
-  var song;
-
-  beforeEach(function() {
-    player = new Player();
-    song = new Song();
+describe("the game", function(){
+  beforeEach(function(){
+    player.x = 0;
+    player.y = 0;
   });
 
-  it("should be able to play a Song", function() {
-    player.play(song);
-    expect(player.currentlyPlayingSong).toEqual(song);
-
-    //demonstrates use of custom matcher
-    expect(player).toBePlaying(song);
-  });
-
-  describe("when song has been paused", function() {
-    beforeEach(function() {
-      player.play(song);
-      player.pause();
-    });
-
-    it("should indicate that the song is currently paused", function() {
-      expect(player.isPlaying).toBeFalsy();
-
-      // demonstrates use of 'not' with a custom matcher
-      expect(player).not.toBePlaying(song);
-    });
-
-    it("should be possible to resume", function() {
-      player.resume();
-      expect(player.isPlaying).toBeTruthy();
-      expect(player.currentlyPlayingSong).toEqual(song);
+  describe("moveRight", function(){
+    it("should add 1 to player.x", function(){
+      moveRight();
+      expect(player.x).toEqual(1);
     });
   });
 
-  // demonstrates use of spies to intercept and test method calls
-  it("tells the current song if the user has made it a favorite", function() {
-    spyOn(song, 'persistFavoriteStatus');
-
-    player.play(song);
-    player.makeFavorite();
-
-    expect(song.persistFavoriteStatus).toHaveBeenCalledWith(true);
+  describe("moveLeft", function(){
+    it("should subtract 1 from player.x", function(){
+      moveLeft();
+      expect(player.x).toEqual(-1);
+    });
   });
 
-  //demonstrates use of expected exceptions
-  describe("#resume", function() {
-    it("should throw an exception if song is already playing", function() {
-      player.play(song);
+  describe("moveDown", function(){
+    it("should subtract 1 from player.y", function(){
+      moveDown();
+      expect(player.y).toEqual(1);
+    });
+  });
 
-      expect(function() {
-        player.resume();
-      }).toThrowError("song is already playing");
+  describe("moveUp", function(){
+    it("should subtract 1 from player.y", function(){
+      moveUp();
+      expect(player.y).toEqual(-1);
     });
   });
 });
