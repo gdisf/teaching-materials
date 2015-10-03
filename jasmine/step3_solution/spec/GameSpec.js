@@ -50,27 +50,9 @@ describe("checkWin", function(){
     expect(checkWin()).toEqual(false);
   });
 
-  it("should be called after moveRight", function(){
-    spyOn(window, 'checkWin');
-    moveRight();
-    expect(window.checkWin).toHaveBeenCalled();
-  });
-
-  it("should be called after moveLeft", function(){
-    spyOn(window, 'checkWin');
-    moveLeft();
-    expect(window.checkWin).toHaveBeenCalled();
-  });
-
-  it("should be called after moveDown", function(){
-    spyOn(window, 'checkWin');
-    moveDown();
-    expect(window.checkWin).toHaveBeenCalled();
-  });
-
-  it("should be called after moveUp", function(){
-    spyOn(window, 'checkWin');
-    moveUp();
-    expect(window.checkWin).toHaveBeenCalled();
+  it("should be called after render", function(){
+    spyOn(window, 'render');
+    checkWin
+    expect(window.render).toHaveBeenCalled();
   });
 });
