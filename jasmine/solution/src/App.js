@@ -26,6 +26,7 @@ $(document).ready(function(){
 		left: goal.x * 30,
 		top: goal.y * 30
 	});
+	render();
 
 	$(document).keyup(function(e){
 
