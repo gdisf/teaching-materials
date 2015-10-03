@@ -7,7 +7,3 @@ var goal = {
 	x: 10,
 	y: 0
 }
-
-function render(){
-	
-}
