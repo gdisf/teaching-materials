@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		
+		<!-- GDI Hexadecimal Color f95a61 -->
+
+		<title>Workshop Working Draft</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<!-- TITLE SLIDE START -->
+
+				<section>
+					<h2>Thinking about <span class="gdi"><strong>Web Accessibility </span></strong>and <span class="gdi"><strong>Inclusive Design</span></strong></h2>
+				</section>
+				
+				<!-- TITLE SLIDE END -->
+
+				<!-- Tim Berners-Lee QUOTE START -->
+
+				<section data-background="images/vision_revised.jpg"><br/>
+					<blockquote cite="" style="color: white">
+						<strong>&ldquo;The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect&rdquo;</strong>
+					</blockquote>
+						<small style="color: white"><strong>Tim Berners-Lee, W3C Director and inventor of the World Wide Web</strong></small>
+						
+					<aside class="notes">
+						Tim-Berners-Lee Quote. The brightess and contrast of the image used in this slide was modified to improve the contrast ration. The contrast ratio in the sli improved but modifying the  and by making the overlying text bolder. The image was choosen as an association with vision and beauty but also to illustate that all disabilities are not necessarily obvious. The fact the user is not facing the camera alludes to this concept
+					 </aside>									
+				</section>
+
+				<!-- Tim Berners-Lee QUOTE END -->
+
+
+				<!-- Tim Berners-Lee QUOTE - LOW CONTRAST EXAMPLE START -->
+
+				<!--<section data-background="images/vision.jpg">
+					<blockquote cite="" style="color: white">
+						&ldquo;The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect&rdquo;
+					</blockquote>
+						<small style="color: white">Tim Berners-Lee, W3C Director and inventor of the World Wide Web</small>
+						
+					<aside class="notes">
+						Tim-Berners-Lee Quote. The text over the image is intially difficult to read. It illustrates the topic of low contrast as an accessibility barrier. 
+					</aside>
+											
+				</section>-->
+				
+				<!-- Tim Berners-Lee QUOTE - LOW CONTRAST EXAMPLE END -->
+
+				<!-- WHAT CAN WEB DEVELOPERS DO IN REPONSE TO THE GOAL OF INCLUSIVE DESIGN START -->
+
+				<section>
+					<h2>As <span class="gdi">Web Developers</span> what can we  do to contribute to this vision?</h2>
+				</section>
+
+				<!-- WHAT CAN WEB DEVELOPERS DO IN REPONSE TO THE GOAL OF INCLUSIVE DESIGN END -->
+
+				<!-- DEFINITION OF WEB ACCESSIBILITY FROM THE W3C WEB ACCESSIBILITY INITIATIVE START -->
+
+				<section>
+                    <h2>Define <span class="gdi">Web Accessibility</span></h2>
+					<blockquote cite="test cite here">
+						&ldquo;Web accessibility means that people with disabilities can perceive, understand, navigate and interact with the Web, and that they can contribute to the Web.&rdquo;
+						</blockquote>
+						<small><a href="https://www.w3.org/WAI/intro/accessibility.php" target="_blank">Introduction to Web Accessibility</a><br/>From the W3C's Web Accessibility Initiative</small>
+						
+					<aside class="notes">
+						Step 1 - Understand the definition of Web accessibility. Definition as defined by the W3C's Web Accessibility Initiative.
+					</aside>
+					
+				</section>
+
+				<!-- DEFINITION OF WEB ACCESSIBILITY FROM THE W3C WEB ACCESSIBILITY INITIATIVE END -->
+
+
+				<!-- DIVERSITY OF ABILITIES TITLE SLIDE START -->
+
+				<section>
+					<h2><span class="gdi">Understand</span> more<br/>about this group of users and <br/>the <span class="gdi">Diversity of User Abilities</span></h2>
+
+						<aside class="notes">
+						 Step 2 - Understand more about this user group - Title for Diversity of Abilities from the WAI
+					</aside>
+				</section>	
+
+				<!-- DIVERSITY OF ABILITIES TITLE SLIDE END -->
+
+				<section>
+					<h2>Four Major<span class="gdi"></br/>Categories of Accessibility</span></h2>
+                    
+                    <small>The following categories are illustrative are not intended to be an exhaustive listing of all disabilities and barriers.</small>
+
+						<aside class="notes">
+						 Title for Diversity of Abilities from the WAI
+						 http://www.w3.org/WAI/intro/people-use-web/diversity
+					</aside>
+				</section>	
+
+				<!-- VISUAL IMPAIRMENT START -->
+
+				<section>
+					<h3>Visual</h3>
+          			<p>This can be non-sighted users, users with low-vision, users with obstructed vision, or older users.</p>
+		  			<small>Screen readers, brail output, text zooming, high color contrast controls and keyboard navigation can be useful.</small>
+				</section>
+
+				<!-- VISUAL IMPAIRMENT END -->
+
+				<!-- AUDITORY IMPAIRMENT START -->
+
+				<section>
+					<h3>Auditory</h3>
+          			<p>Hearing impaired users.</p>
+		  			<small>Captions and alternatives for sound-neccessary media can be useful.</small>
+				</section>
+
+				<!-- AUDITORY IMPAIRMENT END -->
+
+				<!-- MOTOR SKILLS START -->
+
+				<section>
+					<h3>Motor</h3>
+          			<p>A limitation in the independent or purposeful physical movement of the body or of one or more extremities.</p>
+		  			<small>Because not everyone can use a mouse or click on small links people with motor impairments typically use the keyboard, eye trackers, or single buttons to navigate their computer.</small>
+				</section>
+
+				<aside class="notes">
+
+				http://webaim.org/articles/motor/motordisabilities
+				http://www.disabled-world.com/disability/types/mobility/
+
+				</aside>
+
+				<!-- MOTOR SKILLS END-->
+
+				<!-- COGNITIVE SKILLS START -->
+
+				<section>
+					<h3>Cognitive</h3>
+          			<p>Involve disorders of any part of the nervous system, including the brain and the peripheral nervous system. This can impact how well people hear, move, see, speak, and understand information.</p>
+		  			<small>Users may user a variety of assistive technologies including spelling and grammer tools, bookmarks and history, text-to-speach and voice browser. Users may benefit from document outlines, descriptive titles and easy to read text.</small>
+				</section>
+
+				<!-- COGNITIVE SKILLS END -->
+
+				<!-- RESOURCE: MORE INFORMATION ON DIVERSITY OF WEB USERS FROM WAI START -->
+
+				<section>
+                    <h2>More on The <span class="gdi">Diversity</span> of Web Users</h2>
+					<small><a href="http://www.w3.org/WAI/intro/people-use-web/diversity" target="_blank">How People with Disabilities Use the Web - Diversity of Web Users</a><br/>From the W3C's Web Accessibility Initiative</small>
+					
+						<aside class="notes">
+						Link to additional resources about diversity of Web users
+						</aside>
+						
+				</section>
+
+				<!-- RESOURCE: MORE INFORMATION ON DIVERSITY OF WEB USERS FROM WAI START -->
+
+				<!-- CHALLANGE ASSUMPTIONS START -->
+
+				<section>
+                    <h2><span class="gdi">Challange Assuptions</span> About Who is Using Our Digital Products<h2>
+					<aside class="notes">
+						Step 3: Challange our assumptions about our end users. 
+					</aside>
+				</section>
+
+				<!-- CHALLANGE ASSUMPTIONS END-->
+                        
+                <section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/P1e7ZCKQfMA?cc_load_policy=1" frameborder="0" allowfullscreen></iframe><br/><br/>
+                    <small>You can automatically enable closed captioning by adding <strong>?cc_load_policy=1</strong> to the url of an embedded YouTube video</small><br/><br/>
+                    <small>Getting permission for video usage</small>
+					<aside class="notes">
+						Step 3: Challange our assumptions about our end users. 
+					</aside>
+				</section>
+                        
+                <section>
+                    <h2>What is</br><span class="gdi">Assistive</span> Technology?</h2>
+                    <p>Provides services beyond those offered<br/>by the browser to facilitate user interaction<br/>with web content by people with disabilities</p>  
+                    <small>From the W3C's<br/>Accessible Rich Internet Applications</a>
+                        (WAI-ARIA) 1.0 <br/><a href="http://www.w3.org/TR/wai-aria/terms" target="_blank">Important Terms</a></small>
+					<aside class="notes">
+						Step 3: Challange our assumptions about our end users. 
+					</aside>
+				</section>
+                    
+                    
+                <!-- Example of nested vertical slides -->
+				<section>
+					<section>
+                        <h2>Activate <span class="gdi">VoiceOver</span> </br/>Screen Reader - <span class="gdi">iPhone<span></h2>
+                        <small>Instructions for activating and using VoiceOver on an iOS device.</small>
+                        <p><strong><span class="gdi">Activate</span> VoiceOver</strong> from <span class="gdi">Settings</span> > <span class="gdi">General</span> > <span class="gdi">Accessibility</span></p>
+                    <aside class="notes">
+						Navigate down for screen shots - Demo and Group Activity
+					</aside>
+					</section>
+					<section>
+						<p><img src="images/iOS01.png" border="0"> &nbsp; &nbsp; <img src="images/iOS02.png" border="0"></p>
+					</section>
+					<section>
+                        <p><img src="images/iOS03.png" border="0"> &nbsp; &nbsp; <img src="images/iOS04.png" border="0"></p>
+					</section>
+                    <section>
+                        <p><img src="images/iOS05.png" border="0"></p>
+					</section>
+				</section>
+
+
+				<!-- HOW TO ACTIVATE VOICEOVER FOR iOS END -->		
+				
+				<!-- HOW TO USE VOICEOVER FOR IOS START -->
+
+				<section>
+					<section id="fragments">
+                        <h2>Using <span class="gdi">VoiceOver</span><br/>Screen Reader on <span class="gdi">iPhone</span></h2>
+                        <p>Once VoiceOver is Activated</p>
+						<p class="fragment">Activate an Item on the Screen: Double Tap</p>
+						<p class="fragment">Next Item: Flick Right</p>
+						<p class="fragment">Previous Item: Flick Left</p>
+						<p class="fragment">Scroll Down/Up: Three Finger Up/Down</p>
+						<p class="fragment">Activate Rotor: Turn Clock-wise</p>
+						<p class="fragment">Next/Previous Rotor Item: Flick Down/Flick Up</p>
+					</section>
+                    <aside class="notes">
+				    Instructions for using VoiceOver on an OSX device once it has been enabled. - Demo and Group Activity
+                    </aside>
+				</section>
+				
+				<!-- HOW TO USE VOICEOVER FOR IOS END -->
+                        
+                <!-- HOW TO ACTIVATE VOICEOVER FOR OSX START -->
+                        
+                <section>
+						<h2>Activate <span class="gdi">VoiceOver</span><br/>Screen Reader - OSX</h2>
+                    <small><span class="gdi">Instructions</span> for activating VoiceOver for OSX.</small>
+                    <p><strong><span class="gdi">Activate</span> VoiceOver</strong> from <span class="gdi">System Preferences</span> > <span class="gdi">Accessibility</span> > <span class="gdi">Enable VoiceOver</span> checkbox</p>
+				</section>
+                <aside class="notes">
+				    Instructions for using VoiceOver on an OSX device once it has been enabled. - Demo and Group Activity
+                </aside>
+                        
+                <!-- HOW TO ACTIVATE VOICEOVER FOR OSX END -->
+                        
+				<!-- IMPORTANCE OF SEMANTIC HTML START -->
+				
+				<section>
+				    <h2>Importance of</br><span class="gdi">Semantic HTML Elements</span></h2>
+                    <small>The accessibility API is part of a device's operating system and represents objects in a user interface, exposing information about each object within the application or Webpage</small>
+
+				    <p>Semantic HTML elements are immediately identified by the accessibility API and interpreted by screen readers. Non-semantic elements convey no information to the accessibility API.</p>
+                    <small>OSX Accessibility API Demo</small>
+                
+				</section>
+				
+				<!-- IMPORTANCE OF SEMANTIC HTML END -->
+                        
+                <!-- EXAMPLES OF SEMATIC VS NON-SEMANTIC HTML START -->  
+                    
+				<section>
+                    <h2><span class="gdi">Semantic</span> Elements</h2>
+                    <pre><code data-trim contenteditable> 
+                    
+<!-- Link Example -->
+ <a href="http://www.someurl.com">Go to some Web page</a>
+
+ <!-- Button Example -->
+ <button>Click me</button>
+ 
+                    </code></pre>
+                    <br/>
+                    <h2><span class="gdi">Non-Semantic</span> Elements</h2>
+                    <small>Divs styled with CSS to look semantic</small>
+                    <pre><code data-trim contenteditable>    
+                    
+ <!-- Link Example -->
+ <div class="link-class">Go to some Web page</div>
+
+ <!-- Button Example -->
+ <div class="button-class">Click Me</div> 
+ 
+                    </code></pre>
+                    
+                </section>
+  
+                <!-- EXAMPLES OF SEMATIC VS NON-SEMANTIC HTML END -->  
+				
+				<!-- Exercise 01 START -->
+
+				<section>
+					<h3>Exercise One</h3>
+          			<p>Use VoiceOver to read content that uses <br/><strong>Non-Semantic</strong> HTML elements</p>
+		  			<small><a href="https://inclusiveThinking.jsbin.com/regipe/edit?html,css,output" target="_blank">Open Exercise</a></small>
+                    <aside class="notes">
+						Open Code in JS Bin's Live Preview before using screen reader
+					</aside>
+				</section>
+
+				<!-- Exercise 01 END -->
+
+				<!-- Exercise 02 START -->
+
+				<section>
+					<h3>Exercise 2</h3>
+          			<p>Modify the HTML using <strong>Semantic</strong> HTML elements <br/>and read the page again</p>
+		  			<small><a href="https://inclusiveThinking.jsbin.com/dihebu/3/edit?html,css,output" target="_blank">Modify HTML from Exercise One</a></small>
+				</section>
+
+				<!-- Exercise 02 END -->
+
+				<!-- Exercise 03 START -->
+			
+				<section>
+					<h3>Exercise 3</h3>
+          			<p>Use an accessibility testing plugin to test the page.</p>
+                    <small>Instructions for installing WAVE or Tota11y Plugin, from Khan Academy will be given here or at the beginning of the workshop</small>
+				</section>
+
+				<!-- Excercise 03 END -->
+
+				<!-- AUTOMATED TEST RESULTS START -->
+				
+				<section>
+					<h2>We used Sematic HTML elements! <br/>What's with the all the <span style="color: red">errors</span>?</h2>
+
+				<aside class="notes">
+						Semantic elements work as expected when following guideliness and augment with AIRA
+				</aside>
+
+				</section>
+
+				<!-- AUTOMATED TEST RESULTS END -->
+
+				<!-- WCAG 2.0 START -->
+				
+				<section>
+					<h2>Web Content Accessibility Guidelines - <span class="gdi">WCAG 2.0</span></h2>
+					<p>A technical standard made of Four Principles with Twelve Guidelines containing testable Sucess Criteria</p>
+					<p>We will refer to the Web Content Accessibility Guideliness and Success Crtieria in the upcoming excercises</p>
+					<small><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/Overview.html" target="_blank"><em>Understanding Web Content Accessibility Guidelines 2.0</em></a><br/>W3C - Web Accessibility Initiative</small>
+				</section>
+
+				<!-- WCAG 2.0 END -->
+            
+                <!-- SUCCESS CRITERIA EXAMPLES START -->
+            
+                <section>
+                    <h2>WCAG <span class="gdi">Success Criteria</span> Examples</h2>
+                    <pre><code data-trim contenteditable> 
+                    
+<!-- SC 1.3.1 -->
+ DOCTYPE html lang="en"
+ 
+ <!-- SC 1.3.1 - SC 2.4.1 - SC 2.4.6 - SC 2.4.10 -->
+ <h1>Page Heading</h1> 
+ 
+ <!-- SC 1.3.1 - SC 2.4.1 - SC 2.4.6 - SC 2.4.10 -->
+ <h2>Join our mailing list</h2>
+
+ <!-- SC 1.3.1 - SC 3.3.3 - SC 4.1.2 -->
+ <label for="email">Please enter your email address</label> 
+ <input type="text" name="email" placeholder="Please enter your email address">
+
+                    </code></pre>
+                    
+                </section>
+            
+                <!-- SUCCESS CRITERIA EXAMPLES END -->
+            
+             <!-- ERROR -->
+            
+            <section>
+                        <small>(SC 1.3.1 - SC 2.4.1 - SC 2.4.6 - SC 2.4.10)</small>
+                        <h2>Looks <span class="gdi">Complicated</span></h2>
+                        <h2>It Isn't!!</h2>
+						<small><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv.html" target="_blank">Understanding WCAG Sucess Criteria</a></small>
+					</section>
+                    <aside class="notes">
+				    How to easily use the WCAG Success Criteria - Understanding WCAG Sucess Criteria
+                    </aside>
+				</section>
+
+				<!-- Exercise 04 START-->
+
+				<section>
+					<h3>Exercise 4</h3> 
+					<p>Correct errors produced by automated test results</p>
+                    <small><a href="https://jsbin.com/liyewotacu/edit?html,css,output" target="_blank">Modify HTML from Exercise Two</a></small>		
+				</section>
+
+				<!-- Exercise 04 END -->
+
+				<!-- WHAT IS ARIA START -->
+				
+				<section>
+					<h3>Accessible Rich<br/>Internet Applications (ARIA 2.0)</h3>
+					<p>A set of accessibility attributes especially suited to HTML</p>		
+				</section>
+
+				<!-- WHAT IS ARIA END -->
+
+				<!-- ARIA ROLES START -->
+				
+				<section>
+					<h2>ARIA Roles</h2>
+                    <p><span class="gdi"><strong>Roles</strong></span> define the <strong>type</strong> of element or widget presented to the accessibiltiy API</p>
+                    <p>For example you can give a div a role="link" or role="button". The div will now be announced as a link or a button by a screen reader.</p>
+				</section>
+
+				<!-- ARIA ROLES START -->
+
+				<!-- Exercise 05 START -->
+
+				<section>
+					<h3>Exercise 5</h3>
+						<p align="center">1. Assign a varity of <strong>roles</strong> to a div</p>
+						<p align="center">2. Listen to changes in the screen reader</p>
+						<small><a href="https://jsbin.com/ranoxugeqo/edit?html,output" target="_blank">Try It</a></small>
+				</section>
+
+				<!-- Exercise 05 END -->
+        
+                <!-- More Information on ARIA Roles Start -->
+        
+                <section>
+					<h2>More Information on <span class="gdi">ARIA Roles</span></h2>
+        <small><a href="http://www.w3.org/TR/wai-aria/roles" target="_blank">The Roles Model</a></small>
+				</section>
+    
+                <!-- More Information on ARIA Roles End -->
+
+
+				<!-- ARIA STATES AND PROPERTIES START -->
+				
+				<section>
+                    <h2>ARIA <span class="gdi">States</span> and <span class="gdi">Properities</span></h2>
+					<p>States and Properities announce the state of an element to the accessibility API. Often times, but not always, states are activated by user interaction</p>
+                    <p>For example you can let a user know that a form input field is required by using aria-required="true"</p>
+				</section>
+
+				<!-- ARIA STATES AND PROPERTIES START -->
+
+				<!-- Exercise 06 START -->
+
+				<section>
+					<h3>Exercise 6</h3>
+						<p align="center">1. Assign selected <strong>ARIA States</strong> and <strong>Properties</strong> to Semantic HTML</p>
+						<p align="center">2. Listen to changes in the screen reader</p>
+						<small><a href="https://jsbin.com/pajaputila/1/edit?html,output" target="_blank">Try It</a></small>
+				</section>
+
+				<!-- Exercise 06 END -->
+        
+                <!-- More Information on ARIA States Start -->
+        
+                <section>
+					<h2>More Information on <span class="gdi">ARIA States</span></h2>
+        <small><a href="http://www.w3.org/TR/wai-aria/states_and_properties" target="_blank">ARIA States and Properties</a></small>
+				</section>
+    
+                <!-- More Information on ARIA States End -->
+				
+
+				<!-- Final Project START -->
+
+				<section>
+					<h3>Final Project</h3>
+						<small><a href="http://www.followthebrush.me/workshop/final-exercise-before.html">Project Sitelet</a></small>
+                    <br/>
+                        <small>username: gdi<br/>password: pass123</small>
+                        <small>Completing final project. Recieved permission to user content</small>               
+				</section>
+
+				<!-- Final Project END -->
+
+				
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
