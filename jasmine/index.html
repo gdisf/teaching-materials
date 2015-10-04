@@ -88,6 +88,17 @@
 						<li>prevent regressions</li>
 						<li>document code</li>
 					</ul>
+
+					<!-- Speaker notes -->
+					<aside class="notes">
+						Give an example of writing too much code before testing and not knowing exactly where things went wrong. 
+
+						Give an example of upgrading a "feature" or "bug" only to find out that you broke some key functionality on your website. 
+
+						Give an example of being new to a code base and getting to read the tests to understand how the functions are supposed to fit together. 
+
+						Tests can help new developers have more confidence that their changes are not going to break an application.
+					</aside>
 				</section>
 				<section>
 					<h3>What is TDD?</h3>
@@ -95,9 +106,31 @@
 					<p><strong>Test-driven Development (TDD)</strong> is an approach to programming.</p>
 					<br>
 					<ol>
-						<li>Write an automated (failing) test. This test will describe the desired behavior
+						<li>Write an automated (failing) test. This test will describe the desired behavior</li>
 						<li>Write a small amount of code that will make the test pass</li>
 						<li>Repeat</li>
+					</ol>
+				</section>
+				<section>
+					<h3>A Note to the Purists</h3>
+					<p><strong>TDD</strong> recommends tests first before any code.</p>
+					<br>
+					<p class="fragment">But it's good to remember the <em>reason</em>: maintainable, understandable, reliable code.</p>
+					<br>
+					<p class="fragment">The most important thing is that you <strong>write tests</strong> – regardless of whether you choose to do so before, during, or after coding.</p>
+
+					<!-- Speaker notes -->
+					<aside class="notes">
+						Dogma is not the point of this exercise.
+
+						While the theory can sound nice, in reality, it's hard to write all the tests at once beforehand.
+
+						In addition, it is very difficult to write tests for adequate coverage <em>after</em> an entire feature is built.
+
+						Therefore, it's useful to break both test writing and coding up in achievable chunks.
+
+						It's also good to remember that it takes practice to become comfortable with this skill.
+					</aside>
 				</section>
 				<section>
 					<h3>What is BDD?</h3>
@@ -230,10 +263,30 @@ describe("A suite", function(){
 				<!-- Jasmine Part 2 -->
 				<section>
 					<h3>Control Flow</h3>
-					<h4>Shoulda, coulda, woulda</h4>
-					<p><strong>Control Flow</strong> is the order in which the individual statements, instructions or function calls are executed or evaluated.</p>
 					<br>
-					<p>Because this can get complicated quickly, we'll need to test this.</p>
+					<p><strong>Control Flow</strong> is the order in which the individual statements, instructions or function calls are executed or evaluated.</p>
+				</section>
+				<section>
+					<h3>Control Flow Example</h3>
+					<h4>Filtering, Sorting, and Rendering</h4>
+					<img src="./images/book_collection.png">
+				</section>
+				<section>
+					<h3>Control Flow Example</h3>
+					<h4>In words</h4>
+					<br>
+					<pre><code>Describe "a book collection"
+  It should sort based on the "sort by" field
+  It should sort by author's last name if "sort by" field is empty
+  It should call sort whenever a user selects "filter by"
+  It should re-render the collection after sort</code></pre>
+				</section>
+				<section>
+					<h3>Testing Control Flow</h3>
+					<br>
+					<p>Control flow can get complicated, and it becomes tricky to test all the possible scenarios manually.</p>
+					<br>
+					<p>Therefore, it's useful to break up the pieces and write unit tests for each piece.</p>
 				</section>
 				<section>
 					<h3>Spies</h3>
@@ -265,7 +318,7 @@ describe("A suite", function(){
 				<section>
 					<h3>Tracking Spies</h3>
 					<br>
-					<p>function calls to spies are tracked through the <code>calls</code> property.</p>
+					<p>Function calls to spies are tracked through the <code>calls</code> property.</p>
 					<pre><code>expect(robot.lookLeft.calls.count()).toBeGreaterThan(1);</code></pre>
 					<br>
 					<p><a href="http://jasmine.github.io/2.0/introduction.html#section-Other_tracking_properties" target="_blank">Read more about it here!</a></p>
@@ -274,7 +327,7 @@ describe("A suite", function(){
 					<h3>Exercise time</h3>
 					<br>
 					<p><a href="step2/instructions.html" target="_blank">Click here for directions</a></p>
-					<p>Suggested time: 30 minutes</p>
+					<p>Suggested time: 45 minutes</p>
 				</section>
 
 				<!-- End -->
