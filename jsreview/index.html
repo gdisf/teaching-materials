@@ -399,13 +399,14 @@ addTwo(3, 10); // 13
 var addMany = function() {
 	console.log(arguments);
 	var sum = 0;
-	for (var i = 0; i &lt; argumment.length; i++) {
+	for (var i = 0; i &lt; arguments.length; i++) {
 		sum += i;
 	}
 	return sum;
 };
 
-addMany(3, 10, 57,...);
+addMany(3, 10, 57, 24);
+addMany(3, 10, 57, 24, 200, 300);
 
 					</pre></code>
 
