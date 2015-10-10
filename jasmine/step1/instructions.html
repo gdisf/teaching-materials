@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Starting to program a simple game</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>Exercise 1</h1>
+				<p class="lead">Starting to program a simple game</p>
+			</div>
+			<h2>Background</h2>
+			<p>In the last exercise, you wrote some text. In this exercise, we'll be transforming that text into code.</p>
+
+			<h3>Instructions</h3>
+			<ol>
+				<li>Download <a href="../step0.zip" download>this starter file and unzip it</a>. Take a look around and make sure you understand the file structure. For your reference, here's a diagram of how it's set up:<img src="../images/directory_structure.png" class="img-responsive" alt="directory structure"></li>
+				<li>To run your tests, open <code>SpecRunner.html</code> in your browser</li>
+				<li>Note that the teachers have already created a global Object called <code>player</code> that contains the current position as <em>x</em> and <em>y</em> properties. Here's how you'd access them:
+					<pre><code>player.x = 0; // sets the player's x posiiton to 0
+player.y = 2; // sets the player's y position to 2</code></pre>
+				</li>
+				<li>In <code>GameSpec.js</code>, write tests that equate to the descriptions you wrote for the <code>moveRight</code> function.</li>
+				<li>In <code>Game.js</code>, write code for the functions that you are testing. All functions should go in the global scope.</li>
+				<li>Repeat the last 2 steps for <code>moveLeft</code>, <code>moveDown</code>, and <code>moveUp</code></li>
+			</ol>
+			<hr>
+			<h3>Bonus</h3>
+			<p>What happens when the player goes "out of bounds", or too far forwards/backwards? Add some tests for these cases and write code for the desired behavior.</p>
+			<hr>
+			<h3>Diagrams</h3>
+			<p>For your visual reference, here is an image of how position will be applied in the game:<img src="../images/coordinates.png" class="img-responsive" alt="coordinate plane"></p>
+			<div class="container">
+				<p>Examples of passing and failing tests, respectively:</p>
+				<div class="row">
+					<div class="col-xs-4">
+						<img class="img-responsive" src="../images/jasmine_passing.png" alt="passing tests">
+					</div>
+					<div class="col-xs-4">
+						<img class="img-responsive" src="../images/jasmine_failing.png" alt="failing tests">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>
