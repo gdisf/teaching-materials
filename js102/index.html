@@ -441,46 +441,48 @@ var nameLogger = function(name, adj) {
 					<h3><a href="http://repl.it/enq" target="_blanl">Exercise Time</a></h3>
 				</section>
 				<section>
-					<h3>Scope</h3>
+					<h3><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank">Scope</a></h3>
+					<p>The context in which values and expressions are "visible," or can be referenced.</p>
 				</section>
 				<section>
 					<h3>Local Scope</h3>
 					<pre><code data-trim>
 
-var func = function() {
-  var local = true;
-  console.log(local);
+var mySecretFunction = function() {
+  var meLoveChocolate = true;
+  console.log(meLoveChocolate);
 };
 
-console.log(local);
+console.log(meLoveChocolate);
 
 					</code></pre>
 				</section>
 				<section>
 					<h3>Global Scope</h3>
 					<pre><code data-trim>
+<!-- I'm available everywhere. -->
+var momsCandies = ["Milky Way", "Cadbury eggs", "Twix"];
 
-var global = "I'm available everywhere.";
-
-var func = function() {
-  var local = "I'm available inside this function.";
-  console.log("I'm available inside the function ", global);
+var keepMyCandy = function() {
+  var myCandies = ["Kit-Kat", "Hershey Bar", "M&Ms", "Snickers"];
+  console.log("I'm available inside the function ", momsCandies);
 };
 
-console.log(global);
+console.log(myCandies);
 
 					</code></pre>
 				</section>
 				<section>
 					<pre><code data-trim>
 
-var global = "I'm available everywhere.";
+<!-- I'm available everywhere. -->
+var momsCandies = ["Milky Way", "Cadbury eggs", "Twix"];
 
-var func = function() {
-  local = "I'm available everywhere too";
+var shareMyCandies = function() {
+  myCandies = ["Kit-Kat", "Hershey Bar", "M&Ms", "Snickers"];
 };
 
-console.log(local);
+console.log(myCandies);
 
 					</code></pre>
 					
