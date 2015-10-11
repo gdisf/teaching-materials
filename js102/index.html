@@ -52,7 +52,7 @@ This workshop will be a traditional format, a combination of live lectures and e
 						<li>[Arrays]</li>
 						<li>And Function(s){...}</li>
 					</ul>
-					<p>Slides: http://bit.ly/JS102</p>
+					<p>Slides: <a href="http://yonet.github.io/JS102/#/" target="_blank">bit.ly/JS102</a></p>
 				</section>
 				<!-- /Welcome -->
 				
@@ -108,10 +108,24 @@ classes.length;
 					<pre><code data-trim>
 
 var classes = ['HTML 101', 'JS 101', 'JS 102'];
-
-for(var i = 0; i &lt; classes.length; i++){
+//I took HTML 101...
+for(initial counter; condition to stop; counter++){
 						
-	console.log(i); //??
+	console.log(counter); //??
+						
+}
+					</code></pre>
+
+				</section>
+				<section>
+					<h3>Iteration</h3>
+					<pre><code data-trim>
+
+var classes = ['HTML 101', 'JS 101', 'JS 102'];
+<!-- initial counter; condition to stop; counter++ -->
+for(var i = 0; i &lt; classes.length; i++){
+
+	console.log('I took ', classes[i]); 
 						
 }
 					</code></pre>
