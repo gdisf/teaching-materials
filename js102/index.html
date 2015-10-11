@@ -125,7 +125,7 @@ var classes = ['HTML 101', 'JS 101', 'JS 102'];
 <!-- initial counter; condition to stop; counter++ -->
 for(var i = 0; i &lt; classes.length; i++){
 
-	console.log('I took ', classes[i]); 
+	console.log('I took ' + classes[i]); 
 						
 }
 					</code></pre>
@@ -413,8 +413,8 @@ addTwo(3, 10); // 13
 var addMany = function() {
 	console.log(arguments);
 	var sum = 0;
-	for (var i = 0; i &lt; argumment.length; i++) {
-		sum += i;
+	for (var i = 0; i &lt; arguments.length; i++) {
+		sum += arguments[i];
 	}
 	return sum;
 };
