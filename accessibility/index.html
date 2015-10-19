@@ -6,7 +6,7 @@
 		
 		<!-- GDI Hexadecimal Color f95a61 -->
 
-		<title>Workshop Working Draft</title>
+		<title>Workshop</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -30,6 +30,34 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+        
+        <style>
+            .link-class {
+                font-size: 10pt;
+                text-decoration: underline;
+                color: blue
+            }
+            
+            .button-class {
+            width: 6em;
+            height: 2em;
+            background: #f95a61;
+            color: #fff;
+            line-height: 2;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 0px;
+            font-family: arial, helvetica, sans-serif;
+            font-size: 14px;
+                /*Step 4: Fancy CSS3 Styles*/
+                background: -webkit-linear-gradient(top, #dddddd, #ffffff);
+                background: -moz-linear-gradient(top, #dddddd, #ffffff);
+                background: -o-linear-gradient(top, #dddddd, #ffffff);
+                background: -ms-linear-gradient(top, #dddddd, #ffffff);
+                background: linear-gradient(top, #dddddd, #ffffff)   
+            }
+            
+        </style>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -301,13 +329,16 @@
                     <pre><code data-trim contenteditable> 
                     
 <!-- Link Example -->
- <a href="http://www.someurl.com">Go to some Web page</a>
+ <a href="http://www.someurl.com">Go to some Web page</a><br/><br/>
 
  <!-- Button Example -->
  <button>Click me</button>
  
                     </code></pre>
-                    <br/>
+                    <a href="#" style="color:blue;font-size:14pt">Go to some Web page</a><br/><button style="width:150px;height:40px;font-size:14pt">Click me</button> 
+				</section>
+                
+                <section>
                     <h2><span class="gdi">Non-Semantic</span> Elements</h2>
                     <small>Divs styled with CSS to look semantic</small>
                     <pre><code data-trim contenteditable>    
@@ -320,7 +351,11 @@
  
                     </code></pre>
                     
-
+                                    
+                
+                
+                    
+ <div class="link-class" style="font-size:14pt">Go to some Web page</div>  <div class="button-class" style="font-size:14pt;color:black;border-style:solid;border-color:black;border-width:1px;">Click Me</div>
                     
                 </section>
   
@@ -387,6 +422,15 @@
 
 				<aside class="notes">
 						Semantic elements work as expected when following guideliness and augment with AIRA
+				</aside>
+
+				</section>
+        
+                <section>
+					<img src="images/wave_results.png" border="0">
+
+				<aside class="notes">
+						Once you run WAVE a red box will appear next to elements with accessibilty errors. Click on the icon. A description of the error will appear inclusding a link to "More Information". Additional information about the error will appear on the left side of the page. The last section, "Standards and Guideliness" will contain the WCAG 2.0 Success Criteria associated with the error.
 				</aside>
 
 				</section>
@@ -464,18 +508,59 @@
 				<!-- ARIA ROLES START -->
 				
 				<section>
-					<h2>ARIA Roles</h2>
+                    <h2>ARIA <span class="gdi">Roles</span></h2>
                     <p><span class="gdi"><strong>Roles</strong></span> define the <strong>type</strong> of element or widget presented to the accessibility API</p>
-                    <p>For example you can give a div a role="link" or role="button". The div will now be announced as a link or a button by a screen reader.</p>
+
 				</section>
 
-				<!-- ARIA ROLES START -->
+				<!-- ARIA ROLES END -->
+    
+                <!-- CATEGORY OF ROLES START -->
+				
+				<section>
+                    <section class="fragments">
+                    <h2>Categories of ARIA Roles</h2>
+                        <p class="fragment"><span class="gdi"><strong>Landmark Roles</strong></span> - Identify content areas of a page. Help assistive devices navigate pages.</p>
+                        <p class="fragment"><span class="gdi"><strong>Widget Roles</strong></span> - Act as standalone user interface widgets or as part of larger, composite widgets.</p>
+                        <small>
+                        <p class="fragment"><span class="gdi"><strong>Document Structure Roles</strong></span> - Describe structures that organize content in a page. Document structures are not usually interactive.</p>
+                        <p class="fragment"><span class="gdi"><strong>Abstract Roles</strong></span> - Abstract roles are used for the ontology. Not used in code.</p>
+                            </small>
+                        <small>This workshop focuses on <span class="gdi"><strong>Landmark</strong></span> and <span class="gdi"><strong>Widget</strong></span> roles</small>
+                    </section>
+                </section>
+    
+                <!-- CATEGORY OF ROLES END -->
+    
+                <section>
+                    <section class="fragments">
+                    <h2><span class="gdi">Landmark</span> Roles</h2>
+                        <small>
+                            <p class="fragment"><span class="gdi"><strong>role = main</strong></span><br/>The main content of a page. Should only be used once on a page.</p>
+                        <p class="fragment"><span class="gdi"><strong>role = banner</strong></span><br/>Typically the “header” of a page that includes the site logo.</p>
+                        <p class="fragment"><span class="gdi"><strong>role = contentinfo</strong></span><br/>Typically the “footer” of a page which includes information such as copyright.</p>
+                        <p class="fragment"><span class="gdi"><strong>role = navigation</strong></span><br/>A collection of links to navigate the site.</p>
+                        <p class="fragment"><span class="gdi"><strong>Landmark roles</strong></span> will be used in the final project</p>
+                        </small>
+                    </section>
+				</section>
+                <section>
+                    <p>Diagram of Landmark Roles Usage Here</p>
+                </section>
+                <section>
+                    <h2><span class="gdi">Widget</span> Roles</h2>
+                    <p>Common widget roles and usage outlined here</p>
+                </section>
+    
+    
+
+				<!-- POPULAR ROLES START -->
 
 				<!-- Exercise 05 START -->
 
 				<section>
 					<h3>Exercise 5</h3>
-						<p align="center">1. Assign a varity of <strong>roles</strong> to a div</p>
+                    <p align="center">1. Assign a varity of <span class="gdi"><strong>widget roles</strong></span> to a div</p>
 						<p align="center">2. Listen to changes in the screen reader</p>
 						<small><a href="https://jsbin.com/ranoxugeqo/edit?html,output" target="_blank">Try It</a></small>
 				</section>
@@ -527,6 +612,7 @@
 
 				<section>
 					<h3>Final Project</h3>
+                        <small>Will include sitelet files in repo</small>
 						<small><a href="http://www.followthebrush.me/workshop/final-exercise-before.html">Project Sitelet</a></small>
                     <br/>
                         <small>username: gdi<br/>password: pass123</small>
