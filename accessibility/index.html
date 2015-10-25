@@ -279,7 +279,7 @@
 				<!-- HOW TO USE VOICEOVER FOR IOS START -->
 
 				<section>
-					<section id="fragments">
+					<section class="fragments">
                         <h2>Using <span class="gdi">VoiceOver</span><br/>Screen Reader on <span class="gdi">iPhone</span></h2>
                         <p>Once VoiceOver is Activated</p>
 						<p class="fragment">Activate an Item on the Screen: Double Tap</p>
@@ -302,10 +302,36 @@
 						<h2>Activate <span class="gdi">VoiceOver</span><br/>Screen Reader - OSX</h2>
                     <small><span class="gdi">Instructions</span> for activating VoiceOver for OSX.</small>
                     <p><strong><span class="gdi">Activate</span> VoiceOver</strong> from <span class="gdi">System Preferences</span> > <span class="gdi">Accessibility</span> > <span class="gdi">Enable VoiceOver</span> checkbox</p>
-				</section>
-                <aside class="notes">
+				 <aside class="notes">
+                        Instructions for enabling VoiceOver for OSX
+                    </aside>
+                </section>
+                        
+                <!-- HOW TO ACTIVATE VOICEOVER FOR OSX END -->
+                
+                <!-- USING VOICEOVER FOR OSX START -->
+                
+                <section>
+					<section class="fragments">
+                        <h2>Using <span class="gdi">VoiceOver</span><br/>Screen Reader for <span class="gdi">OSX</span></h2>
+                        <p>Once VoiceOver is Activated</p>
+						<p class="fragment">CHANGE FOR OSX</p>
+                    </section>
+                    <aside class="notes">
 				    Instructions for using VoiceOver on an OSX device once it has been enabled. - Demo and Group Activity
-                </aside>
+                    </aside>
+				</section>
+                
+                <!-- USING VOICEOVER FOR OSX END -->
+                <section>
+                    <h2>Screen Readers for <span class="gdi">Windows</span></h2>
+                        <ul>
+                            <li><a href="http://www.freedomscientific.com/Products/Blindness/JAWS" target="_blank">JAWS</a></li>
+                            <li><a href="http://www.gwmicro.com/Window-Eyes/" target="_blank">Window-Eyes</a></li>   
+                            <li><a href="http://www.nvaccess.org/about/our-story/" target="_blank">NVDA</a> <small>(Open source)</small></li>
+                            <li><a href="#" target="_blank">ChromeVox</a> <small>(Chome Plug-in)</small></li>
+                        </ul>
+                </section>
                         
                 <!-- HOW TO ACTIVATE VOICEOVER FOR OSX END -->
                         
@@ -316,9 +342,7 @@
                     <small>The accessibility API is part of a device's operating system and represents objects in a user interface, exposing information about each object within the application or Webpage</small>
 
 				    <p>Semantic HTML elements are immediately identified by the accessibility API and interpreted by screen readers. Non-semantic elements convey no information to the accessibility API.</p>
-                    <small>OSX Accessibility API Demo</small>
-                
-				</section>
+                </section>
 				
 				<!-- IMPORTANCE OF SEMANTIC HTML END -->
                         
@@ -437,21 +461,61 @@
 
 				<!-- AUTOMATED TEST RESULTS END -->
 
-				<!-- WCAG 2.0 START -->
+				<!-- WCAG 2.0 FOUR PRINCIPLES START -->
 				
 				<section>
 					<h2>Web Content Accessibility Guidelines - <span class="gdi">WCAG 2.0</span></h2>
 					<p>A technical standard made of Four Principles with Twelve Guidelines containing testable Success Criteria</p>
-					<p>We will refer to the Web Content Accessibility Guideliness and Success Crtieria in the upcoming excercises</p>
-					<small><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/Overview.html" target="_blank"><em>Understanding Web Content Accessibility Guidelines 2.0</em></a><br/>W3C - Web Accessibility Initiative</small>
+                    <ol>
+                        <li><strong>P</strong>erceivable</li>
+                        <li><strong>O</strong>perable</li>
+                        <li><strong>U</strong>nderstandable</li>
+                        <li><strong>R</strong>obust</li>
+                    </ol></br></br>
+					<small>We will refer to the Web Content Accessibility Guideliness and Success Crtieria in the upcoming excercises</br>
 				</section>
 
-				<!-- WCAG 2.0 END -->
+				<!-- WCAG 2.0 FOUR PRINCIPLES END -->
+        
+                <!-- USING WCAG 2.0 START -->
+        
+                <section>
+					<h2>Using Web Content Accessibility Guidelines<span class="gdi"><br/>WCAG 2.0</span></h2>
+                    <p>At first glance the WCAG may look hard to understand. It contains a lot of information.</p>
+                    
+                    					<a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/Overview.html" target="_blank"><em>Web Content Accessibility Guidelines 2.0</em></a></small>
+                    
+                    <p>Together, let's take a look at some easier ways to use these guidelines</p>
+
+					<small><a href="http://www.w3.org/WAI/WCAG20/glance/" target="_blank"><em>WCAG 2 at a Glance</em></a></small><br/>
+
+					<small><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv.html" target="_blank"><em>Understanding Web Content Accessibility Guidelines 2.0</em></a></small>
+				</section>
+        
+                <!-- USING WCAG 2.0 END -->
             
                 <!-- SUCCESS CRITERIA EXAMPLES START -->
             
+
+            
+                <!-- SUCCESS CRITERIA EXAMPLES END -->
+            
+            
+
+				<!-- Exercise 04 START-->
+
+				<section>
+					<h3>Exercise 4</h3> 
+					<p>Correct errors produced by automated test results</p>
+                    <small><a href="https://jsbin.com/liyewotacu/edit?html,css,output" target="_blank">Modify HTML from Exercise Two</a></small>		
+				</section>
+
+				<!-- Exercise 04 END -->
+
+				<!-- Exercise 04 SOLUTION START -->
+
                 <section>
-                    <h2>WCAG <span class="gdi">Success Criteria</span> Examples</h2>
+                    <h2>WCAG <span class="gdi">Success Criteria</span> Examples and Solutions</h2>
                     <pre><code data-trim contenteditable> 
                     
 <!-- SC 1.3.1 -->
@@ -470,31 +534,8 @@
                     </code></pre>
                     
                 </section>
-            
-                <!-- SUCCESS CRITERIA EXAMPLES END -->
-            
-             <!-- ERROR -->
-            
-            <section>
-                        <small>(SC 1.3.1 - SC 2.4.1 - SC 2.4.6 - SC 2.4.10)</small>
-                        <h2>Looks <span class="gdi">Complicated</span></h2>
-                        <h2>It Isn't!!</h2>
-						<small><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv.html" target="_blank">Understanding WCAG Success Criteria</a></small>
-					</section>
-                    <aside class="notes">
-				    How to easily use the WCAG Success Criteria - Understanding WCAG Success Criteria
-                    </aside>
-				</section>
 
-				<!-- Exercise 04 START-->
-
-				<section>
-					<h3>Exercise 4</h3> 
-					<p>Correct errors produced by automated test results</p>
-                    <small><a href="https://jsbin.com/liyewotacu/edit?html,css,output" target="_blank">Modify HTML from Exercise Two</a></small>		
-				</section>
-
-				<!-- Exercise 04 END -->
+				<!-- Exercise 04 SOLUTION END -->
 
 				<!-- WHAT IS ARIA START -->
 				
@@ -520,7 +561,7 @@
 				<section>
                     <section class="fragments">
                     <h2>Categories of ARIA Roles</h2>
-                        <p class="fragment"><span class="gdi"><strong>Landmark Roles</strong></span> - Identify content areas of a page. Help assistive devices navigate pages.</p>
+                        <p class="fragment"><span class="gdi">Landmark Roles</strong></span> - Identify content areas of a page. Help assistive devices navigate pages.</p>
                         <p class="fragment"><span class="gdi"><strong>Widget Roles</strong></span> - Act as standalone user interface widgets or as part of larger, composite widgets.</p>
                         <small>
                         <p class="fragment"><span class="gdi"><strong>Document Structure Roles</strong></span> - Describe structures that organize content in a page. Document structures are not usually interactive.</p>
@@ -534,7 +575,7 @@
     
                 <section>
                     <section class="fragments">
-                        <h2><span class="gdi">Landmark</span> Roles</h2>
+                        <h2>Common<span class="gdi"> Landmark</span> Roles</h2>
                         <small>
                             <p class="fragment"><span class="gdi"><strong>role = main</strong></span><br/>The main content of a page. Should only be used once on a page.</p>
                         <p class="fragment"><span class="gdi"><strong>role = banner</strong></span><br/>Typically the “header” of a page that includes the site logo.</p>
@@ -545,7 +586,8 @@
                     </section>
 				</section>
                 <section>
-                    <p>Diagram of Landmark Roles Usage Here</p>
+                    <h2>Landmark Role <span class="gdi">Usage</span></h2>
+                    <img src="images/landmarks.png" border="0">
                 </section>
                 <section>
                     <section class="fragments">
@@ -594,7 +636,21 @@
                     <p>For example you can let a user know that a form input field is required by using aria-required="true"</p>
 				</section>
 
-				<!-- ARIA STATES AND PROPERTIES START -->
+				<!-- ARIA STATES AND PROPERTIES END -->
+    
+                <section>
+                    <section class="fragments">
+                        <h2>Indicating <span class="gdi">State</span> for Widgets</h2>
+                        <small>
+                            <p class="fragment"><span class="gdi"><strong>role = button</strong></span><br/></p>
+                        <p class="fragment"><span class="gdi"><strong>role = checkbox</strong></span><br/></p>
+                        <p class="fragment"><span class="gdi"><strong>role = radio</strong></span><br/></p>
+                        <p class="fragment">The folowing roles typically act as containers that manage othe widgets:<br/></p>
+                        <p class="fragment"><span class="gdi"><strong>role = radiogroup</strong></span><br/></p>
+                        <p class="fragment"><span class="gdi"><strong>role = tablist</strong></span><br/></p>
+                        </small>
+                    </section>
+                </section>
 
 				<!-- Exercise 06 START -->
 
