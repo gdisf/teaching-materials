@@ -315,7 +315,8 @@
 					<section class="fragments">
                         <h2>Using <span class="gdi">VoiceOver</span><br/>Screen Reader for <span class="gdi">OSX</span></h2>
                         <p>Once VoiceOver is Activated</p>
-						<p class="fragment">CHANGE FOR OSX</p>
+						<p class="fragment">Tun on VoiceOver: command + F5</p>
+                        <p class="fragment">Use the VO Keys for many tasks = control + option</p>
                     </section>
                     <aside class="notes">
 				    Instructions for using VoiceOver on an OSX device once it has been enabled. - Demo and Group Activity
@@ -339,7 +340,7 @@
 				
 				<section>
 				    <h2>Importance of</br><span class="gdi">Semantic HTML Elements</span></h2>
-                    <small>The accessibility API is part of a device's operating system and represents objects in a user interface, exposing information about each object within the application or Webpage</small>
+                    <small>The accessibility API is part of a device's operating system and represents objects in a user interface, exposing information about each object within the application or Web page.</small>
 
 				    <p>Semantic HTML elements are immediately identified by the accessibility API and interpreted by screen readers. Non-semantic elements convey no information to the accessibility API.</p>
                 </section>
@@ -418,9 +419,9 @@
                     
                 <section>
                     <h2>Using <span class="gdi">Browser Plugins</span> for <span class="gdi">Accessibility Testing</span></h2>
-                    <p>The <span class="gdi">WAVE</span> browser extension from WebAIM allows you to evaluate web content for accessibility issues directly within the browser. It is available for  Chrome and FireFox</p>
-		  			<small><a href="http://wave.webaim.org/extension/" target="_blank">WAVE Web Accessibilty Evaluation Tool</a></small>
-                    Once installed a "W" icon will appear in the browser toolbar. Press the icon to run an audit of the page. Errors and warnings will appear within the page. Click the error or warning to see more information in the left of the browser
+                    <p>The <span class="gdi">WAVE</span> browser extension from WebAIM allows you to evaluate web content for accessibility issues directly within the browser. It is available for  Chrome and FireFox.</p>
+		  			<small><a href="http://wave.webaim.org/extension/" target="_blank">WAVE Web Accessibilty Evaluation Tool</a><br>(The way the text above is linked is intentional and is an example of link context from the WCAG which we will discuss later)</small>
+                    <p>Once installed a "W" icon will appear in the browser toolbar. Press the icon to run an audit of the page. Errors and warnings will appear within the page. Click the error or warning to see more information in the left of the browser.</p>
 					</aside>
 				</section>
             
@@ -640,14 +641,14 @@
     
                 <section>
                     <section class="fragments">
-                        <h2>Indicating <span class="gdi">State</span> for Widgets</h2>
+                        <h2>Indicating <span class="gdi">State</span></h2>
                         <small>
-                            <p class="fragment"><span class="gdi"><strong>role = button</strong></span><br/></p>
-                        <p class="fragment"><span class="gdi"><strong>role = checkbox</strong></span><br/></p>
-                        <p class="fragment"><span class="gdi"><strong>role = radio</strong></span><br/></p>
-                        <p class="fragment">The folowing roles typically act as containers that manage othe widgets:<br/></p>
-                        <p class="fragment"><span class="gdi"><strong>role = radiogroup</strong></span><br/></p>
-                        <p class="fragment"><span class="gdi"><strong>role = tablist</strong></span><br/></p>
+
+                        <p class="fragment">role = checkbox  | <span class="gdi"><strong> aria-selected = true</strong></span><br/></p>
+                        <p class="fragment">input type = text | <span class="gdi"><strong> aria-required = true</strong></span><br/></p>
+                        <p class="fragment">role = button | <span class="gdi"><strong> aria-pressed = true or false </strong></span> (creates a toggle button) <br/></p>
+                        
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/widgets/overview" target="_blank">Mozilla Developer Network</a> (MDN)
                         </small>
                     </section>
                 </section>
@@ -671,6 +672,19 @@
 				</section>
     
                 <!-- More Information on ARIA States End -->
+
+                <!-- More Information on ARIA States End -->
+
+				<section>
+                    <h2>Common <span class="gdi">Accessibility Barriers</span></h2>
+					<ul>
+                        <li>Missing alt attribute on images. Can also have an impact of SEO</li>
+                        <li>Missing heading elements. Can also have an impact of SEO</li>
+                        <li>TODO</li>
+                    </ul>
+                    
+                    <small><a href="http://webaim.org/projects/screenreadersurvey6/#reasons" target="_blank">WebAIM Screen Reader User Survey</a></small>
+				</section>
 				
 
 				<!-- Final Project START -->
@@ -682,6 +696,25 @@
                     <br/>
                         <small>username: gdi<br/>password: pass123</small>
                         <small>Completing final project. Recieved permission to user content</small>               
+				</section>
+
+				<section>
+                    <h3><span class="gdi">Get Involved !!</span></h3>
+                    <small>
+                    <p><a href="http://webaim.org/community/" target="_blank">WebAIM Discussion List</a></p>
+                    <p><a href="http://www.meetup.com/a11ybay/" target="_blank">Bay Area Accessibility and Inclusive Design Meetup</p>
+                    <p><a href="http://www.w3.org/WAI/groups.html" target="_blank">W3C Working and Interest Groups - Web Accessibility Initiative (WAI)</p>
+                    <p><a href="http://a11yproject.com/" target="_blank">A11Y Project</p>
+                    <p><a href="http://community.nvda-project.org/wiki/Connect?" target="_blank">NVDA Screen Reader Community</a></p> 
+                    </small>
+				</section>
+
+				<section>
+                    <h3><span class="gdi">Special Thanks !!</span></h3>
+                    <small>
+                    <p><a href="http://www.ilrcsf.org/" target="_blank">Independent Living Resource Center of San Francisco</a></p>
+                    <p><a href="http://www.insideoutproject.net/en" target="_blank">Inside Out - The People's Art Project</a></p>  
+                    </small>
 				</section>
 
 				<!-- Final Project END -->
