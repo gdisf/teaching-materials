@@ -41,8 +41,16 @@ describe("Exercise 2: ", function() {
     it("give your PersonView an events object, with an event for 'click' that has a callback of 'onClick'", function() {
       expect(myPersonView.events).toBeDefined();
       expect(typeof myPersonView.events).toEqual("object");
-      expect(myPersonView.events['click']).toBeDefined();
-      expect(myPersonView.events['click']).toEqual('onClick');
+      var findClickEvent = function() {
+        for (var event in myPersonView.events) {
+          if ( /^click /.test(event) ) {
+            return event;
+          }
+        }
+      };
+      var clickEvent = findClickEvent();
+      expect(clickEvent).toBeDefined();
+      expect(myPersonView.events[clickEvent]).toEqual('onClick');
     });
 
     it("make sure that 'onClick' is defined as a method on the PersonView", function() {
@@ -63,6 +71,7 @@ describe("Exercise 2: ", function() {
   describe("Instantiate a new PersonView: ", function() {
     it("store it as a variable called 'personView'", function() {
       expect(personView).toBeDefined();
+      expect(personView instanceof PersonView).toBe(true);
     });
 
     it("give your instantiated view a model. Use the one you previously instantiated and stored as person. Make sure the model has an 'imgUrl' attribute", function() {

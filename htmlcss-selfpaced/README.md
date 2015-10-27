@@ -14,9 +14,9 @@ Attendees are not expected to have any previous HTML/CSS or programming experien
 
 ### Tech requirements:
 
-* Your laptop (Mac, PC, or Linux are all okay) and charger.
+* Your laptop (Mac, PC, or Linux) and charger.
+* Headphones.
 * A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC) or Notepad++ (PC).
 
 ### Topics covered:
 

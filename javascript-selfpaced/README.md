@@ -10,13 +10,13 @@ This 2-day workshop will be largely "self-paced". That means that we'll start wi
 
 ### Prerequisites:
 
-Attendees are not expected to have any previous programming experience. You are welcome to come if they do already know another language besides JS, however.
+Attendees are not expected to have any previous programming experience. To help us make the most of our time together, we ask that attendees complete the [Hour of Code](https://www.khanacademy.org/computing/hour-of-code/hour-of-code-tutorial/p/intro-to-drawing) before the workshop.
 
 ### Tech requirements:
 
-* Your laptop (Mac, PC, or Linux are all okay) and charger.
+* Your laptop (Mac, PC, or Linux) and charger.
+* Headphones.
 * A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC) or Notepad++ (PC).
 
 ### Topics covered:
 

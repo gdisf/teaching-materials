@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Checking who won</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>Exercise 2</h1>
+				<p class="lead">Checking who won</p>
+			</div>
+			<h2>Background</h2>
+			<p>In the last exercise, you wrote some functions to move control a player. If you weren't able to complete it, don't worry. You can <a href="../step1.zip" download>download and unzip the solution</a>.</p>
+			<p>In this exercise, we'll be adding more complex test cases.</p>
+
+			<h3>Instructions</h3>
+			<ol>
+				<li>There will be a global Object called <code>goal</code> that contains the current position of the goal as <em>x</em> and <em>y</em> properties:
+					<pre><code>console.log(goal.x); // logs 0
+console.log(goal.y); // logs 0</code></pre>
+				</li>
+				<li>There should be a function called <code>checkWin</code> that checks whether the player has won. A player has won when the player's <code>x</code> and <code>y</code> coordinates match those of the goal.</li>
+				<li>The teachers have written a function called <code>renderWin</code>. <code>renderWin</code> should be called whenever <code>checkWin</code>is.</li>
+				<li>In <code>GameSpec.js</code>, write tests for the <code>checkWin</code> function. Remember that you sometimes have to "set the stage" before running the test. You should also be sure to use at least 1 spy.</li>
+				<li>In <code>Game.js</code>, write code for <code>checkWin</code>.</li>
+			</ol>
+			<hr>
+			<h3>Bonus</h3>
+			<p>What can you do to improve the game play? Would you randomly set the goal? Would you add an enemy character? How would you test the code? Give it a try!</p>
+			<hr>
+			<h3>Solution</h3>
+			<p>For your reference, we have provided a basic solution: <a href="../solution.zip" download>solution.zip</a></p>
+			<img src="../images/simple_game.gif">
+		</div>
+	</body>
+</html>
