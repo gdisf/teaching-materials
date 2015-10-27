@@ -6,7 +6,7 @@
 		
 		<!-- GDI Hexadecimal Color f95a61 -->
 
-		<title>Workshop</title>
+		<title>Thinking about Web Accessibility and Inclusive Design</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -38,7 +38,11 @@
                 color: blue
             }
             
-            .button-class {
+        .wrapper{
+            text-align: center;
+        }
+
+        .button-class {
             width: 6em;
             height: 2em;
             background: #f95a61;
@@ -49,13 +53,15 @@
             border-radius: 0px;
             font-family: arial, helvetica, sans-serif;
             font-size: 14px;
-                /*Step 4: Fancy CSS3 Styles*/
-                background: -webkit-linear-gradient(top, #dddddd, #ffffff);
-                background: -moz-linear-gradient(top, #dddddd, #ffffff);
-                background: -o-linear-gradient(top, #dddddd, #ffffff);
-                background: -ms-linear-gradient(top, #dddddd, #ffffff);
-                background: linear-gradient(top, #dddddd, #ffffff)   
-            }
+            margin: 0 auto;
+            /*Step 4: Fancy CSS3 Styles*/
+            background: -webkit-linear-gradient(top, #dddddd, #ffffff);
+            background: -moz-linear-gradient(top, #dddddd, #ffffff);
+            background: -o-linear-gradient(top, #dddddd, #ffffff);
+            background: -ms-linear-gradient(top, #dddddd, #ffffff);
+            background: linear-gradient(top, #dddddd, #ffffff)   
+        }
+
             
         </style>
 
@@ -235,7 +241,6 @@
                 <section>
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/P1e7ZCKQfMA?cc_load_policy=1" frameborder="0" allowfullscreen></iframe><br/><br/>
                     <small>You can automatically enable closed captioning by adding <strong>?cc_load_policy=1</strong> to the url of an embedded YouTube video</small><br/><br/>
-                    <small>Getting permission for video usage</small>
 					<aside class="notes">
 						Step 3: Challange our assumptions about our end users. 
 					</aside>
@@ -327,9 +332,9 @@
                 <section>
                     <h2>Screen Readers for <span class="gdi">Windows</span></h2>
                         <ul>
-                            <li><a href="http://www.freedomscientific.com/Products/Blindness/JAWS" target="_blank">JAWS</a></li>
-                            <li><a href="http://www.gwmicro.com/Window-Eyes/" target="_blank">Window-Eyes</a></li>   
+                            <li><a href="http://www.freedomscientific.com/Products/Blindness/JAWS" target="_blank">JAWS</a></li>  
                             <li><a href="http://www.nvaccess.org/about/our-story/" target="_blank">NVDA</a> <small>(Open source)</small></li>
+                            <li><a href="http://www.gwmicro.com/Window-Eyes/" target="_blank">Window-Eyes</a></li> 
                             <li><a href="#" target="_blank">ChromeVox</a> <small>(Chome Plug-in)</small></li>
                         </ul>
                 </section>
@@ -376,11 +381,11 @@
  
                     </code></pre>
                     
-                                    
-                
-                
+                    <div class="link-class" style="font-size:14pt">Go to some Web page</div>  
+                    <br/>
+                    <a href="https://inclusiveThinking.jsbin.com/dibevo/edit?html,css,output" target="_blank">Non-Semantic Button</a>
                     
- <div class="link-class" style="font-size:14pt">Go to some Web page</div>  <div class="button-class" style="font-size:14pt;color:black;border-style:solid;border-color:black;border-width:1px;">Click Me</div>
+          
                     
                 </section>
   
@@ -678,24 +683,20 @@
 				<section>
                     <h2>Common <span class="gdi">Accessibility Barriers</span></h2>
 					<ul>
-                        <li>Missing alt attribute on images. Can also have an impact of SEO</li>
-                        <li>Missing heading elements. Can also have an impact of SEO</li>
-                        <li>TODO</li>
-                    </ul>
-                    
+                        <small>Missing alt attribute on images. (Also impacts SEO)</small>
+                        <small>Missing heading elements. (Also impacts SEO)</small>
+                        <small>Missing landmarks and regions.</small>
+                        <small>Missng labels for form inputs</small>
+                        <small>Poor contrast ratio</small>                      
+                    </ul>                   
                     <small><a href="http://webaim.org/projects/screenreadersurvey6/#reasons" target="_blank">WebAIM Screen Reader User Survey</a></small>
 				</section>
 				
-
 				<!-- Final Project START -->
 
 				<section>
 					<h3>Final Project</h3>
-                        <small>Will include sitelet files in repo</small>
-						<small><a href="http://www.followthebrush.me/workshop/final-exercise-before.html">Project Sitelet</a></small>
-                    <br/>
-                        <small>username: gdi<br/>password: pass123</small>
-                        <small>Completing final project. Recieved permission to user content</small>               
+						<small><a href="http://www.followthebrush.me/workshop/final-before.html" target="_blank">Project Sitelet</a></small>           
 				</section>
 
 				<section>
