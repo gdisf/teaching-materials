@@ -574,6 +574,7 @@ $ git merge master
             <pre><code class ="command-line">
 $ git remote add origin https://github.com/YOUR-GITHUB-USERNAME/REPO.git
 $ git push -u origin master
+# that -u is an option that signals that you are setting the upstream repo
             </code></pre>
             <p class ="fragment">Now check out your GitHub repo online!</p>
           </section>
@@ -585,7 +586,7 @@ $ git push -u origin master
             <h3>What can I do with a GitHub Account</h3>
             <p>
             <p> <a href="https://help.github.com/articles/fork-a-repo/">FORK</a> a repo: Find some code you want to use and grab a copy of it. </p>
-            <p> (you'll need to <a href="http://git-scm.com/docs/git-clone">CLONE</a> the repo &mdash; that is, make your own local copy of it)</p>
+            <p> (Then you'll also need to <a href="http://git-scm.com/docs/git-clone">CLONE</a> the repo &mdash; that is, make your own local copy of it)</p>
             <p> <a href="https://help.github.com/articles/pushing-to-a-remote/" >PUSH</a> to a remote repo you own: post some code you want others to see.</p>
             <p> submit a <a href="https://help.github.com/articles/creating-a-pull-request/" >PULL REQUEST</a> to the owner of a repo you'd like to contribute to. </p>
           </section>
@@ -597,7 +598,7 @@ $ git push -u origin master
           </section>
           <section>
             <h3><a href="https://help.github.com/articles/fork-a-repo/">Forking</a></h3>
-             <p>If you want to <span class = "green">use</span> or <span class = "green">contribute</span> to a repository, you can fork it. A fork is just a copy of a repository.</p>
+             <p>If you want to <span class = "green">use</span> or <span class = "green">contribute</span> to a repository, you can fork it. A fork is just a copy of a repository, saved to GitHub.</p>
             <img src = "images/fork_button.jpg" alt ="How to fork a repository. Image from https://help.github.com/articles/fork-a-repo/"/>
           </section>
           <section>
@@ -641,15 +642,15 @@ Downloads git references not present in your local repository, but does not modi
           </section>
           <section>
             <h3>Shared Repos</h3>
-            <p>If team members are contributing to a single repo, any member of the team will want to make sure that she has everyone else's changes before pushing her own changes to the GitHub repo.</p>
+            <p>If team members are contributing to a single repo, each member of the team will want to make sure that she has everyone else's changes before pushing her own changes to the GitHub repo.</p>
             <div class="fragment">
-          <h4>Always pull before you push!</h4>
+          <h4 class="green">Always pull before you push!</h4>
             </div>
           </section>
 
           <section>
           <h3>Pulling</h3>
-              Commit local changes
+              Commit local changes first
               <pre><code class ="command-line">
 $ git commit -m "My latest commit"
               </code></pre>
@@ -657,7 +658,7 @@ $ git commit -m "My latest commit"
               <pre><code class ="command-line">
 $ git pull origin master
               </code></pre>
-              Git will prompt you to fix any conflicts, then commit
+              Git may prompt you to fix any conflicts, then commit
               <pre><code class ="command-line">
 $ git commit -m "Fixing merging conflicts"
               </code></pre>
