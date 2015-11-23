@@ -22,7 +22,7 @@
 		<!-- dark editor<link rel="stylesheet" href="reveal/lib/css/dark.css">-->
 
 		<!-- If use the PDF print sheet so students can print slides-->
-		
+
 		<link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
 
 		<!--[if lt IE 9]>
@@ -43,7 +43,7 @@
           "background: transparent; border:none; box-shadow: none;">
           <h3>Intro to Git and Github</h3>
         </section>
-        
+
         <!-- Welcome-->
         <section>
           <h3>Welcome!</h3>
@@ -58,7 +58,7 @@
           </ul>
           </div>
         </section>
-        
+
         <section>
           <h3>Welcome!</h3>
           <div class = "left-align">
@@ -70,7 +70,7 @@
           </ol>
           </div>
         </section>
-        
+
         <section>
           <h3>What we will cover in this workshop</h3>
           <ul>
@@ -142,7 +142,7 @@ $ git config --list
 
           </section>
         </section>
-        
+
         <!-- Version control-->
         <section>
           <section>
@@ -165,8 +165,8 @@ $ git config --list
           <section>
           <h3>To track or not to track</h3>
             <p>You decide what goes into version control.</p>
-            <p class="fragment">You can, and should, leave some things out.</p> 
-            <p class="fragment">Like...anything that you are not making changes to or don't want anyone to have access to: e.g., certain dependencies, .dotfiles, api keys.</p> 
+            <p class="fragment">You can, and should, leave some things out.</p>
+            <p class="fragment">Like...anything that you are not making changes to or don't want anyone to have access to: e.g., certain dependencies, .dotfiles, api keys.</p>
             <p class="fragment">Git gives you an easy way to do this: <a href="https://help.github.com/articles/ignoring-files/">.gitignore</a></p>
           </section>
           <section>
@@ -219,7 +219,7 @@ ResumeREALLYREALLYNEW.docx
         <!-- Git-->
         <section>
           <h3>Why Use Git?</h3>
-          
+
           <ul>
             <li>Fast! Access information quickly and efficiently.</li>
             <li>Distributed! Everyone has her own local copy.</li>
@@ -229,9 +229,9 @@ ResumeREALLYREALLYNEW.docx
             <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history.</span></li>
           </ul>
         </section>
-       
+
         <!-- Git Structure -->
-        <section> 
+        <section>
           <section>
           <h3>Git Structure &amp; Workflow</h3>
           <img src="images/basic-remote-workflow.png" style="height:550px;"/>
@@ -253,7 +253,7 @@ ResumeREALLYREALLYNEW.docx
              <li> <span class="green">HEAD</span> refers to the most recent commit on the current branch.</li>
              </ul>
 
-          </section> 
+          </section>
           <section>
           <h3>Chapter 1: Git is Born</h3>
             <p>The first commit, April 2005</p>
@@ -301,17 +301,17 @@ Initial revision of "git", the information manager from hell
             </code></pre>
             <p>3. Initialize it as a local Git repository</p>
             <pre><code class ="bash">
-  # make sure you are in the right directory!          
-  $ pwd 
+  # make sure you are in the right directory!
+  $ pwd
   $ git init
   $ git status
             </code></pre>
           </section>
           <section>
             <h3>Add files</h3>
-            <p>1. Create a new file in your new folder named "turtle.txt"</p>
+            <p>1. Create a new file in your new folder named "kitten.txt"</p>
   <pre><code class ="command-line">
-  $ touch turtle.txt
+  $ touch kitten.txt
             </code></pre>
             <p>2. Check the status of your repo with "git status"</p>
             <pre><code class ="command-line">
@@ -319,25 +319,25 @@ Initial revision of "git", the information manager from hell
             </code></pre>
             <p>3. Tell Git to track our new file with the "git add" command</p>
             <pre><code class ="command-line">
-  $ git add turtle.txt
+  $ git add kitten.txt
   $ git status
             </code></pre>
             <p><span class="green">Success!</span> The file you just added is now tracked by Git</p>
           </section>
           <section>
             <h3>Changes and commits</h3>
-            <p>1. Open turtle.txt, add some text, and save it</p>
+            <p>1. Open kitten.txt, add some text, and save it</p>
             <pre><code class ="command-line">
   $ git status
             </code></pre>
             <p>2. Stage the change and check the status</p>
             <pre><code class ="command-line">
-  $ git add turtle.txt
+  $ git add kitten.txt
   $ git status
             </code></pre>
             <p>3. Commit the change with a good commit message that explains and describes what you did </p>
             <pre><code class ="command-line">
-  $ git commit -m "First commit. Added turtle.txt to repository."
+  $ git commit -m "First commit. Added kitten.txt to repository."
             </code></pre>
           </section>
         </section>
@@ -363,7 +363,7 @@ Initial revision of "git", the information manager from hell
   Author: Your name &lt;you@your-email.com&gt;
   Date:   Thu Feb 05 16:01:22 2015 -0700
 
-      First commit. Added turtle.txt to repository.
+      First commit. Added kitten.txt to repository.
               </code></pre>
           </section>
           <section>
@@ -375,19 +375,19 @@ Initial revision of "git", the information manager from hell
         <section>
           <section>
             <h3>We all make mistakes</h3>
-            <p>Don't worry. Git is your friend.</p>
             <img src="images/mistakes-were-made.jpg" alt="Those WERE the Droids I was looking for!"/>
+            <p class="fragment">Don't worry. Git is your friend.</p>
           </section>
           <section>
             <h3>Undoing changes in your working copy</h3>
             <p class="blue">If you haven't added/committed yet</p>
             <div class = "fragment">
-              <p>Open turtle.txt and make some changes or add something new.</p>
+              <p>Open kitten.txt and make some changes or add something new. Then:</p>
               <pre><code  class ="command-line">
-  $ git checkout turtle.txt
+  $ git checkout kitten.txt
               </code></pre>
             </div>
-            <p class="fragment">Look at turtle.txt in your editor: your changes are gone (you've gone back to the previous commit state).</p>
+            <p class="fragment">Look at kitten.txt in your editor: your changes are gone (you've gone back to the previous commit state).</p>
           </section>
           <section>
             <h3>Un-staging a file</h3>
@@ -406,27 +406,27 @@ $ git status
           <section>
             <h3>Undoing changes you've already staged</h3>
             <div class = "fragment">
-              <p>Open turtle.txt in your editor and add some new text.</p>
+              <p>Open kitten.txt in your editor and add some new text.</p>
               <pre><code class ="command-line">
-$ git add turtle.txt
-$ git reset HEAD turtle.txt
+$ git add kitten.txt
+$ git reset HEAD kitten.txt
 $ git status # the file has been unstaged.
-$ git checkout turtle.txt #resets the working copy to its state at the last commit
+$ git checkout kitten.txt #resets the working copy to its state at the last commit
               </code></pre>
             </div>
-            <p class="fragment">Now look at turtle.txt in your editor again: your changes are gone, and the file is removed from staging. </p>
+            <p class="fragment">Now look at kitten.txt in your editor again: your changes are gone, and the file is removed from staging. </p>
           </section>
           <section>
             <h3>Er, what if I already committed it?</h3>
             <h4>Undoing committed changes</h4>
             <p>Git lets you go back to any previous commit.</p>
             <div class = "fragment">
-              <p>Open turtle.txt and add some new text</p>
+              <p>Open kitten.txt and add some new text</p>
               <pre><code class ="command-line">
-$ git add turtle.txt
+$ git add kitten.txt
 $ git status
-$ git commit -m "A change I will soon regret making"
-$ git log --oneline 
+$ git commit -m "Make a change I will soon regret making"
+$ git log --oneline
   # you should see (at least) two commits here at this point
   # copy the short form of the hash id
               </code></pre>
@@ -436,9 +436,9 @@ $ git log --oneline
           <h3> Git Revert </h3>
             <h4>Undoing committed changes</h4>
             <pre><code class ="command-line">
-$ git revert 53d23c4 
+$ git revert 53d23c4
   # Your default editor will open here
-  # you can just save it and close it as is. 
+  # you can just save it and close it as is.
 $ git log --oneline
             </code></pre>
             <p >Notice that the original, regrettable commit is still there, but now you also have <span class="green">another commit that undoes the changes</span> introduced by the original one.</p>
@@ -448,9 +448,9 @@ $ git log --oneline
         <section>
           <section>
             <h3>Branching</h3>
-             <img src="images/branches.jpg" alt="blue birds on branhces" /> 
+             <img src="images/branches.jpg" alt="blue birds on branhces" />
             <p >A branch is essentially another copy of your repo that will allow you to isolate changes and leave the original copy untouched. You can later choose to combine these changes in whole or part with the "master" copy, or not. </p>
-           
+
           </section>
           <section>
           <h3>Branching</h3>
@@ -460,7 +460,7 @@ $ git log --oneline
               <li>Incorporate changes to your master branch only if and when you are ready...or discard them easily</li>
             </ul>
 
-            <p class= "fragment green"> Branches are cheap!</p> 
+            <p class= "fragment green"> Branches are cheap!</p>
           </section>
           <section>
             <h3>Branching</h3>
@@ -468,9 +468,9 @@ $ git log --oneline
             <pre><code class ="command-line">
 $ git checkout -b feature
             </code></pre>
-            <p>Add new lines to turtle.txt</p>
+            <p>Add new lines to kitten.txt</p>
             <pre><code class ="command-line">
-$ git add turtle.txt
+$ git add kitten.txt
 $ git commit -m "Adding changes to feature"
 $ git log --oneline
             </code></pre>
@@ -486,7 +486,7 @@ $ git branch
             <pre><code class ="command-line">
 $ git checkout master
 $ git log --oneline
-            </code></pre>            
+            </code></pre>
             <p>Switch to feature branch and look at the commit history</p>
             <pre><code class ="command-line">
 $ git checkout feature
@@ -509,17 +509,17 @@ $ git log --oneline
           <section>
             <h3>Merging</h3>
             <h4>Merge conflicts</h4>
-            <p>Change the first line in turtle.txt in master branch</p>
+            <p>Change the first line in kitten.txt in master branch</p>
             <pre><code class ="command-line">
-$ git add turtle.txt
-$ git commit -m "Changing turtle in master"
+$ git add kitten.txt
+$ git commit -m "Changing kitten in master"
             </code></pre>
-            <p>Now change first line in turtle.txt in feature branch</p>
+            <p>Now change first line in kitten.txt in feature branch</p>
             <pre><code class ="command-line">
 $ git checkout feature
-   # open turtle.txt and change the first line
-$ git add turtle.txt
-$ git commit -m "Changing turtle in feature"
+   # open kitten.txt and change the first line
+$ git add kitten.txt
+$ git commit -m "Changing kitten in feature"
             </code></pre>
           </section>
           <section>
@@ -530,7 +530,7 @@ $ git commit -m "Changing turtle in feature"
 $ git merge master
             </code></pre>
             <p class ="fragment">You will be notified of a conflict. Go to the file and fix the problem. Then add and commit your edits.</p>
-                       
+
           </section>
         </section>
         <!-- GitHub-->
@@ -550,7 +550,7 @@ $ git merge master
               <li class ="fragment"><span class ="green">Open source projects</span> host or mirror their repositories on GitHub</li>
               <li class ="fragment"><span class ="green">Post your own code</span> for others to use or contribute to</li>
               <li class ="fragment">Read, copy, and <span class ="green">learn</span> from the code in other people's repositories</li>
-              <li class="fragment"><span class="green">Contribute to open source projects</span> (like the <a href="https://github.com/girldevelopit/gdi-new-site"> new Girl Develop It website</a>!)</li>
+              <li class="fragment"><span class="green">Contribute to open source projects</span> (like the <a href="https://github.com/girldevelopit/gdi-new-site"> Girl Develop It website</a>!)</li>
             </ul>
             </section>
         </section>
@@ -569,7 +569,7 @@ $ git merge master
           <section>
             <h3>GitHub</h3>
             <h4>Set up remote repo to sync with your local repo</h4>
-            <p> GitHub has really easy-to-follow instructions for next steps. </p>
+            <p> After you click the big green button to create your repo, follow GitHub's instructions for next steps. </p>
 
             <pre><code class ="command-line">
 $ git remote add origin https://github.com/YOUR-GITHUB-USERNAME/REPO.git
@@ -577,22 +577,22 @@ $ git push -u origin master
             </code></pre>
             <p class ="fragment">Now check out your GitHub repo online!</p>
           </section>
-          
+
         </section>
         <!-- Fork a repository-->
         <section>
           <section>
             <h3>What can I do with a GitHub Account</h3>
             <p>
-            <p> <a href="https://help.github.com/articles/fork-a-repo/">FORK</a> a repo: Find some code you want to use and grab a copy of it. </p> 
+            <p> <a href="https://help.github.com/articles/fork-a-repo/">FORK</a> a repo: Find some code you want to use and grab a copy of it. </p>
             <p> (you'll need to <a href="http://git-scm.com/docs/git-clone">CLONE</a> the repo &mdash; that is, make your own local copy of it)</p>
             <p> <a href="https://help.github.com/articles/pushing-to-a-remote/" >PUSH</a> to a remote repo you own: post some code you want others to see.</p>
             <p> submit a <a href="https://help.github.com/articles/creating-a-pull-request/" >PULL REQUEST</a> to the owner of a repo you'd like to contribute to. </p>
           </section>
           <section>
             <h3>Forking</h3>
-            <p>Think</p>  <img src="images/fork-in-the-road.jpg" style="border: 0;" /> 
-            <p>not</p>  
+            <p>Think</p>  <img src="images/fork-in-the-road.jpg" style="border: 0;" />
+            <p>not</p>
             <img src="images/fork.jpg" style="height:200px; border: 0;" />
           </section>
           <section>
@@ -617,7 +617,7 @@ $ git remote -v
             <div class = "fragment">
             There are now THREE copies of this repo that you have access to.
             </div>
-            <br>  
+            <br>
             <div class = "fragment">
             the original (on Github) ==> <span class="green">upstream</span>
             </div>
@@ -637,9 +637,9 @@ $ git remote add upstream https://github.com/girldevelopit/gdi-new-site.git
 $ git fetch upstream
           </code></pre>
 Downloads git references not present in your local repository, but does not modify your files (think of it like getting a table of contents rather than the contents themselves)
-          
+
           </section>
-          <section>   
+          <section>
             <h3>Shared Repos</h3>
             <p>If team members are contributing to a single repo, any member of the team will want to make sure that she has everyone else's changes before pushing her own changes to the GitHub repo.</p>
             <div class="fragment">
@@ -666,7 +666,7 @@ $ git commit -m "Fixing merging conflicts"
 $ git push origin master
               </code></pre>
           </section>
-         </section> 
+         </section>
         <!-- Pull requests-->
         <section>
           <section>
@@ -680,7 +680,7 @@ $ git push origin master
           </section>
           <section>
             <h3>Starting a pull request</h3>
-            <p>You need to do this on GitHub, not from the command line.</p> 
+            <p>You need to do this on GitHub, not from the command line.</p>
             <img src = "images/click-pull-request.png" alt ="How to initiate a pull request. Image from https://help.github.com/articles/using-pull-requests"/>
           </section>
           <section>
