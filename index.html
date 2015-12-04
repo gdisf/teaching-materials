@@ -166,8 +166,8 @@ $ git config --list
           <h3>To track or not to track</h3>
             <p>You decide what goes into version control.</p>
             <p class="fragment">You can, and should, leave some things out.</p>
-            <p class="fragment">Like...anything that you are not making changes to or don't want anyone to have access to: e.g., certain dependencies, .dotfiles, api keys.</p>
-            <p class="fragment">Git gives you an easy way to do this: <a href="https://help.github.com/articles/ignoring-files/">.gitignore</a></p>
+            <p class="fragment green">libraries, .dotfiles, api keys...</p>
+            <p class="fragment">Git shows you an easy way to do this: <a href="https://help.github.com/articles/ignoring-files/">.gitignore</a></p>
           </section>
           <section>
           <h3>You already manage versions of your work!</h3>
@@ -179,7 +179,7 @@ ResumeOLD.docx
 ResumeNEW.docx
 ResumeREALLYREALLYNEW.docx
           </code></pre>
-          <div class="fragment">You invented your own version control. (It's not terribly effective, though, is it?)</div>
+          <div class="fragment">You invented your own version control!</div>
           </section>
         </section>
         <section>
@@ -203,24 +203,28 @@ Initial revision of "git", the information manager from hell
         </section>
           <section>
             <h3>Version Control Types</h3>
-              <div class="fragment"><h4>Centralized Version Control</h4>
+            </br>
+              <div class="fragment">
+                <h4>Centralized Version Control</h4>
                 <p>Examples: CVS, Subversion (SVN)</p>
               </div>
-              <div class="fragment"><h4>Distributed Version Control</h4>
+              </br>
+              <div class="fragment">
+                <h4>Distributed Version Control</h4>
                 <p>Examples: Git, Mercurial</p>
               </div>
           </section>
           <section>
               <h3>Centralized Version Control</h3>
-               <div class="fragment"><p>...NOT Git!</p></div>
-              <p>One central server, each client (person) checks out and merges changes to main server</p>
               <img src="images/centralized-vc.png" alt = "one central server with each person pushing changes to the main server"/>
+              <p>One central server, each client (person) checks out and merges changes to main server</p>
+               <p class="fragment">...NOT how Git works!</p>
           </section>
           <section>
               <h3>Distributed Version Control</h3>
-               <div class="fragment"><p>...this is Git! </p></div>
-              <p>Each client (person) has a local repository, which they can then reconcile with the main server.</p>
               <img src="images/distributed-vc.png" alt="each person works on her own local copy; each copy is reconciled with the main copy on the server" />
+              <p>Each client (person) has a local repository, which they can then reconcile with the main server.</p>
+               <p class="fragment">...this is how Git does it!</p>
           </section>
         </section>
         <!-- Git-->
@@ -228,11 +232,11 @@ Initial revision of "git", the information manager from hell
           <h3>Why Use Git?</h3>
 
           <ul>
-            <li>Fast! Access information quickly and efficiently.</li>
-            <li>Distributed! Everyone has her own local copy.</li>
-            <li>Mind-bogglingly scalable! Enables potentially thousands (millions!) of developers to work on single project.
-            <li>Local! You don't need a network connection to use it. You only need a remote server if you want to share your code with others (e.g., using GitHub).</li>
-            <li>Branches! Keep your coding experiments separate from code that is already working.</li>
+            <li><span class="green">Fast!</span> Access information quickly and efficiently.</li>
+            <li><span class="green">Distributed!</span> Everyone has her own local copy.</li>
+            <li><span class="green">Mind-bogglingly scalable!</span> Enables potentially thousands (millions!) of developers to work on single project.
+            <li><span class="green">Local!</span> You don't need a network connection to use it. You only need a remote server if you want to share your code with others (e.g., using GitHub).</li>
+            <li><span class="green">Branches!</span> Keep your coding experiments separate from code that is already working.</li>
             <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history.</span></li>
           </ul>
         </section>
