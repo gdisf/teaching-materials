@@ -1,6 +1,8 @@
 //On your terminal cd into your catsagram folder. cd ~/Desktop/catstagram
 //copy and paste python -m SimpleHTTPServer into your terminal
 //Open localhost:8000 in your browser.
+//If these steps don't work, follow the instructions at:
+// http://teaching-materials.org/resources/testinglocally.html
 
 //Create an angular app called catstagram
 // var app = ...

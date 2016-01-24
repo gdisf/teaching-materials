@@ -20,19 +20,8 @@ and turn it into DOM, using the same functions as we did for the in-page JSON.</
 
       <p>You can skip this section if you are using Firefox.</p>
 
-      <p>Chrome has a permissions policy for local file:// testing that disallows AJAX requests,
-        and some APIs do not work on file:// URLs in all browsers, so if possible, we recommend trying to run a simple server on your machine. The following steps should work on a Mac:
-      </p>
-      <ol>
-        <li>Open Terminal</li>
-        <li>Navigate to your project directory (wherever you will save the files) by using the <code>cd</code> command.</li>
-        <li>Run this command:  <code>python -m SimpleHTTPServer</code></li>
-        <li>If successful, you should then be able to access your project folder by typing
-        this URL in the browser bar: <code>http://localhost:8000</code></li>
-      </ol>
-      <p>If you are not on a Mac or can't do that for some reason, then we recommend using Firefox or pairing
-        with someone who can run a local server.
-      </p>
+      <p>If you are not yet running your code from a local server, do that now by following 
+      <a href="/resources/testinglocally.html" target="_blank">these instructions</a>. We need to do this because of security restrictions on file:// protocol with XMLHttpRequests.</p>
 
       <h3>Coding</h3>
 
