@@ -35,8 +35,6 @@ If you've identified an issue, but don't have time to help fix it, please log it
 	[ ] Follow Up Email
 * If you want your workshop to be included in our [national website](https://www.girldevelopit.com/materials), check out this [review rubric](https://docs.google.com/document/d/1zw7qX2EAO08rGAjl9683aVxtsAoZQLxmy7evu2my4OY/edit). Please note that this is not a requirement for inclusion in this repository.
 
-
-
 ## For admins
 
 We use Github Pages to host our slides! If you're merging changes, make sure you sync `master` to [Github Pages](http://brettterpstra.com/2012/09/26/github-tip-easily-sync-your-master-to-github-pages/)
