@@ -95,6 +95,15 @@
      </section>
     </div>
     
+	<div class="slide normal">
+     <header><h1>Browsers</h1></header>
+     <section class="content">
+     <p>Each browser varies in how it displays webpages.</p>
+     <p>Example: Default form fields.</p>
+     <img src="img/selectbox.png" width="80%">
+     </section>
+    </div>
+    
     <div class="slide normal">
      <header><h1>Browser Compatibility</h1></header>
      <section class="content">
@@ -104,21 +113,22 @@
      <li>Usually they ignore unknown selectors, sometimes unpredictable.</li>
      </ul>
 		<p><img src="img/border-radius-support.png" width="60%"></p>
-			<img src="img/border-radius.jpg" width="50%">
-<p>
-Use these sites to check compatibility:
-</p>
+<p>Use these sites to check compatibility:</p>
  <ul>
   <li><a href="http://caniuse.com/">caniuse.com</a>
   <li><a href="http://www.quirksmode.org/css/contents.html">Quirks Mode: CSS Compatibility</a>
-  <li><a href="http://www.standardista.com/css3/css3-selector-browser-support/">CSS3 Selector support</a>
   <li><a href="http://html5please.com/">html5please.com</a>
 </ul>
      </section>
     </div>
 
-
-
+    <div class="slide normal">
+     <header><h1>Browser Compatibility</h1></header>
+     <section class="content">
+		<iframe src="https://vine.co/v/b0JEbzaKKJO/embed/simple" width="600" height="600" frameborder="0" text-align="center"></iframe>
+		<script src="https://platform.vine.co/static/scripts/embed.js"></script>
+     </section>
+    </div>
 
 <!--
     <div class="slide normal">
@@ -386,7 +396,7 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
 
     <div class="slide normal">
       <br><br>
-     <header><h1><a href="exercise_media_descrip.html">Exercise Time!</a></h1></header>
+     <header><h1><a href="exercises/exercise_media_descrip.html">Exercise Time!</a></h1></header>
     </div>
 
 
@@ -415,31 +425,67 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
     </div>
 
 
+    <div class="slide normal">
+     <header><h1>CSS Grids</h1></header>
+     <section class="content">
+     	<p>A grid system lets you layout pages according to fractions of a grid (usually 12, 16, or 24 columns).</p>
+
+		<p>Example: Foundation Grid System</p>
+		<p><img src="img/foundation-grid.png" width="100%"></p>
+
+     </section>
+    </div>
+
+
+    <div class="slide normal">
+     <header><h1>CSS Grids</h1></header>
+     <section class="content">
+     	<p>A grid system lets you layout pages according to fractions of a grid (usually 12, 16, or 24 columns).</p>
+
+		<p>Example: Bootstrap Grid System</p>
+		<p><img src="img/bootstrap-grid-system.jpg" width="100%"></p>
+		
+     </section>
+    </div>
 
 
 
     <div class="slide normal">
      <header><h1>CSS Grids</h1></header>
      <section class="content">
-     <p>A grids system lets you layout pages according to fractions of a grid (usually 12, 16, or 24 columns).</p>
-<p>Using <a href="http://yuilibrary.com/yui/docs/cssgrids/">YUI CSS Grids</a>:</p>
+     <p>Example: Foundation grid with mixed classes</p>
+<p>Using <a href="http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html">Foundation CSS Grids</a>:</p>
 <pre>
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://yui.yahooapis.com/3.5.1/build/cssgrids/grids-min.css&quot;&gt;
-    &lt;div class=&quot;yui3-g&quot;&gt;
-        &lt;div class=&quot;yui3-u-5-24&quot;&gt;
-
-        &lt;/div&gt;
-        &lt;div class=&quot;yui3-u-19-24&quot;&gt;
-
-        &lt;/div&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.0.6/css/foundation.css&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;small-2 large-4 columns&quot;&gt; ... &lt;/div&gt;
+        &lt;div class=&quot;small-4 large-4 columns&quot;&gt; ... &lt;/div&gt;
+        &lt;div class=&quot;small-6 large-4 columns&quot;&gt; ... &lt;/div&gt;
    &lt;/div&gt;
 </pre>
 
+		<p><img src="img/foundation-example.png" width="100%"></p>
 <p>Also see: <a href="http://960.gs/">960 Grids</a>, <a href="http://1kbgrid.com/">1KB Grid</a></p>
      </section>
     </div>
+    
+
+    <div class="slide normal">
+     <header><h1>CSS Grids</h1></header>
+     <img src="img/devtools.png">
+    </div>
 
 
+    <div class="slide normal">
+     <header><h1>CSS Frameworks</h1></header>
+     <section class="content">
+		<ul>
+			<li>Why reinvent the wheel?</li>
+			<li>Responsiveness and cross browser consistency for free.</li>
+			<li>Modular and reusable components.</li>
+		</ul>
+     </section>
+    </div>
 
 
 
@@ -467,23 +513,10 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
      </section>
     </div>
 
-    <div class="slide normal">
-     <header><h1>CSS Frameworks</h1></header>
-     <section class="content">
-		<ul>
-			<li>Why reinvent the wheel?</li>
-			<li>Responsiveness and cross browser consistency for free.</li>
-			<li>Modular and reusable components.</li>
-		</ul>
-     </section>
-    </div>
-
-
-
 
     <div class="slide normal">
      <br><br>
-     <header><h1><a href="exercise_bootstrap_descrip.html">Exercise Time!</a></h1></header>
+     <header><h1><a href="exercises/exercise_bootstrap_descrip.html">Exercise Time!</a></h1></header>
      <section class="content">
 
      </section>
