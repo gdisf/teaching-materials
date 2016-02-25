@@ -463,16 +463,15 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
         &lt;div class=&quot;small-6 large-4 columns&quot;&gt; ... &lt;/div&gt;
    &lt;/div&gt;
 </pre>
-
 		<p><img src="img/foundation-example.png" width="100%"></p>
-<p>Also see: <a href="http://960.gs/">960 Grids</a>, <a href="http://1kbgrid.com/">1KB Grid</a></p>
+		<p>Also see: <a href="http://960.gs/">960 Grids</a>, <a href="http://1kbgrid.com/">1KB Grid</a></p>
      </section>
     </div>
     
 
     <div class="slide normal">
      <header><h1>CSS Grids</h1></header>
-     <img src="img/devtools.png">
+     <img src="img/devtools.png" style="width:100%">
     </div>
 
 
@@ -483,6 +482,7 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
 			<li>Why reinvent the wheel?</li>
 			<li>Responsiveness and cross browser consistency for free.</li>
 			<li>Modular and reusable components.</li>
+			<li>Usually include a reset, a grids system, styles for typography and forms. Some include support for mobile/print.</li>
 		</ul>
      </section>
     </div>
@@ -492,23 +492,20 @@ https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
     <div class="slide normal">
      <header><h1>CSS Frameworks</h1></header>
      <section class="content">
-     <p>Usually include a reset, a grids system, styles for typography and forms. Some include support for mobile/print.
-</p>
-<p>With <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>:</p>
+<p>With <a href="http://v4-alpha.getbootstrap.com/">Twitter Bootstrap</a>:</p>
 <pre>
-&lt;link href=&quot;https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-XXXXXXXX&quot; crossorigin=&quot;anonymous&quot;&gt;
 &lt;div class=&quot;container-fluid&quot;&gt;
   &lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;span4 well&quot;&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;span8&quot;&gt;
-      &lt;div class=&quot;alert&quot;&gt;Hello!&lt;/div&gt;
-     &lt;/div&gt;
+    &lt;div class=&quot;col-xs-12 col-sm-6 col-md-8&quot;&gt;First Column&lt;/div&gt;
+    &lt;div class=&quot;col-xs-6 col-md-4 &quot;&gt;Second Column&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
 
-<p>Also see: <a href="http://foundation.zurb.com/">ZURB Foundation</a>, <a href="http://purecss.io">Pure CSS</a>, <a href="http://topcoat.io">Topcoat</a>
+<img src="img/bootstrap_example_grid.png" style="width: 100%"/>
+
+<p>Also see: <a href="http://purecss.io">Pure CSS</a>, <a href="http://topcoat.io">Topcoat</a>
 </p>
      </section>
     </div>
