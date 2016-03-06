@@ -203,15 +203,17 @@ for(var i = 0; i &lt; classes.length; i++){
 				<!-- Objects -->
 				<section>
 					<h3>Objects</h3>
-					<p>{} - a collection of value</p>
-					<p>Values are stored in a <strong>key</strong>and we name the key.</p>
+					<p>{ } - a collection of values</p>
+					<p>Values are stored in a <strong>key</strong> and we name the key.</p>
 					<p>How are arrays and objects similar? different?</p>
 				</section>
 				<section>
 					<h3>Assignment</h3>
 					<pre><code data-trim>
 
-var angelTheCat = {};
+var angelTheCat = {
+	"name": "Angelito"
+};
 
 angelTheCat.furColor = "orange";
 
@@ -221,31 +223,32 @@ var angelTheCat = {"furColor" : "orange"};
 
 					</code></pre>
 					<aside class="notes">
-						q:How many keys are in the object? 
+						What is angelTheCat?
 						What is the key name? 
 						What is the value?
+						What data types are the values in this object? 
 					</aside>
 
 				</section>
 				<section>
-					<h3>Access w/dots</h3>
+					<h3>Access and Update</h3>
 					<pre><code data-trim>
 
 var angelTheCat = {};
 						
 angelTheCat.furColor = "orange";
 						
-var furVariable = angelTheCat.furColor;
+var furColorOfAngel = angelTheCat.furColor;
 
-furVariable; //??
+furColorOfAngel; //what does this return?
 
 angelTheCat.furColor = "grey";
 
-furVariable; //??
+furColorOfAngel; //??
 					</code></pre>
 										
 					<aside class="notes">
-						q: What is the new value after changing it?
+						q: What is stored in furColorOfAngel?
 					</aside>
 				</section>
 				<section>
@@ -305,6 +308,9 @@ var angelTheCat = {
 				<!-- /Objects -->
 
 				<!-- Arrays of Objects -->
+				<section>
+					<h2>Nested Data Structures</h2>
+				</section>
 				<section>
 					<h3>Arrays of Objects</h3>
 					<pre><code data-trim>
