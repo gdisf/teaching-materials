@@ -444,9 +444,9 @@ add(5, 4);
 					<h3>Definition</h3>
 					<pre><code data-trim>
 
-var nameImprover = function (name, adj) {
+var makeMeADJ = function (name, adj) {
 
-	return 'Col ' + name + ' Mc' + adj + ' pants';
+	return 'DJ ' + adj + name + 'is spinning tonight!';
 
 };	
 
@@ -456,11 +456,11 @@ var nameImprover = function (name, adj) {
 					<h3>Definition vs. Call-time</h3>
 					<pre><code data-trim>
 
-var nameImprover = function (name, adj) {
-	return 'Col ' + name + ' Mc' + adj + ' pants';
+var makeMeADJ = function (name, adj) {
+	return 'DJ ' + adj + name + 'will keep you on the dance floor';
 };	
 
-nameImprover("Pamela", "fancy");
+makeMeADJ("Jaclyn", "zesty and zany");
 
 					</pre></code>
 				</section>
@@ -468,12 +468,12 @@ nameImprover("Pamela", "fancy");
 					<h3>Naming Arguments</h3>
 					<pre><code data-trim>
 
-var nameImprover = function (name, adj) {
-	return 'Col ' + name + ' Mc' + adj + ' pants';
+var makeMeADJ = function (name, adj) {
+	return 'DJ ' + name + 'says HANDS IN THE AIR!';
 };	
 
-nameImprover("Pamela", "shiny");
-nameImprover("Aysegul", "fancy");
+makeMeADJ("Steph Curry", "snazzy");
+makeMeADJ("Jaclyn", "zany");
 
 					</pre></code>
 				</section>
@@ -481,20 +481,20 @@ nameImprover("Aysegul", "fancy");
 					<h3>Return/Side Effects</h3>
 					<pre><code data-trim>
 
-var nameImprover = function (name, adj) {
-	return 'Col ' + name + ' Mc' + adj + ' pants';
+var makeMeADJ = function (name, adj) {
+	return 'DJ ' + adj + name + 'will keep you on the dance floor';
 };	
 
-var nameLogger = function (name, adj) {
-	var newName = 'Col ' + name + ' Mc' + adj + ' pants';
-	console.log(newName); 
+var sayMyName = function (name, adj) {
+	var convertMyName = 'What's my name?' + adj + " " + name;
+	console.log(newName);
 };	
 
 					</pre></code>
 
 				</section>
 				<section>
-					<h3>arguments Keyword</h3>
+					<h3>Arguments Keyword</h3>
 					<pre><code data-trim>
 
 var addTwo = function(a, b) {
@@ -503,6 +503,7 @@ var addTwo = function(a, b) {
 };
 
 addTwo(3, 10); // 13	
+addTwo(4,5,6); //WHOA - what's happening here?
 
 					</pre></code>
 
@@ -513,14 +514,17 @@ addTwo(3, 10); // 13
 
 var addMany = function() {
 	console.log(arguments);
+	
 	var sum = 0;
+
 	for (var i = 0; i &lt; arguments.length; i++) {
 		sum += arguments[i];
 	}
+	
 	return sum;
 };
 
-addMany(3, 10, 57,...);
+addMany(3, 10, 57, 101, 9);
 
 					</pre></code>
 
