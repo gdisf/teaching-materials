@@ -11,7 +11,7 @@ Want to help us maintain our curricula? Here's how!
 1. [Fork our repo](https://help.github.com/articles/fork-a-repo/)
 2. Make changes directly to your fork
 3. If there is an existing issue number, tag commits with it
-4. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+4. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/) to our `master` branch
 
 ### Issues
 

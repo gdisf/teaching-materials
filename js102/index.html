@@ -55,8 +55,66 @@ This workshop will be a traditional format, a combination of live lectures and e
 					<p>Slides: <a href="http://yonet.github.io/JS102/#/" target="_blank">bit.ly/JS102</a></p>
 				</section>
 				<!-- /Welcome -->
+
+				<!-- Tone Setting -->
+				<section>
+					<h2>Hello!</h2>
+					<p>Some 'guidelines' for today</p>
+					<ul>
+						<li>We are here to support your learning in a safe, inclusive environment</li>
+						<li>Every question is valid, ask it!</li>
+						<li>Your best resource is the person sitting next to you</li>
+						<li>Have fun! If you want to try something, try it!</li>
+					</ul>
+				</section>
+				<!-- Tone Setting -->
+
+				<!-- Introductions -->
+				<section>
+					<h3>Let's Get to Know Each Other</h3>
+					<ul>
+						<li>What's your name?</li>
+						<li>What do you want to get out today's workshop?</li>
+						<li>What's your spirit animal?</li>
+					</ul>
+				</section>
+				<!-- Introductions -->
+
+				<!-- Overview of learning objectives -->
+				<section>
+					<h2>What You'll Be Learning About</h2>
+					<ul>
+						<li>Different ways to represent and manipulate data</li>
+						<li>Loops and Functions</li>
+						<li>Scope in JS</li>
+					</ul>
+					<p>Want to code along? Open up repl.it or run your js file in node</p>
+				</section>
+				<!-- Overview of learning objectives -->
+
+				<!-- JS Fundamentals -->
+				<section>
+					<h3>JavaScript Fundamentals</h3>
+					<h4>What do you know about ...</h4>
+					<ul>
+						<li>"variables"</li>
+						<li>"strings"</li>
+						<li>"boolean"</li>
+						<li>"numbers"</li>
+						<li>"return value"</li>
+						<li>"data structure - arrays"</li>
+						<li>"data structure - objects"</li>
+					</ul>
+				</section>
+				<!-- JS Fundamentals -->
 				
 				<!-- Arrays -->
+				<section>
+					<h3>Arrays</h3>
+					<p>How do you create - or instantiate - an array?</p>
+					<p>How do you access values? Update them? Insert new ones? Remove something?</p>
+					<img src="images/cats_on_bookshelf.jpg" width="50%" height="70%">
+				</section>
 				<section>
 					<h3>Arrays</h3>
 					<pre><code data-trim>
@@ -65,11 +123,10 @@ This workshop will be a traditional format, a combination of live lectures and e
 
 					</code></pre>
 					<aside class="notes">
-						q: How long is it? 
-						What is the index of this one? 
 						What is at the 0th index? 
-						When would you use an array? 
+						What is the index of "Brenda"? 
 						How do we find out the length?
+						When would you use an array? 
 					</aside>
 				</section>
 				<section>
@@ -77,13 +134,15 @@ This workshop will be a traditional format, a combination of live lectures and e
 					
 					<pre><code data-trim>
 
-var classes = [];
+		var classes = [];
 
-classes[0] = 'HTML 101';						
-classes[1] = 'JS 101';
+	classes[0] = 'HTML 101';						
+	classes[1] = 'JS 101';
 
-classes.push('JS 102');
-classes.pop();
+	classes.push('JS 102');
+	classes.pop();
+	classes.unshift("Jasmine Testing");
+	classes.shift();
 
 					</code></pre>
 					<!-- <button>Run</button> -->
@@ -93,12 +152,15 @@ classes.pop();
 				<section>
 					<pre><code data-trim>
 
+						classes = ["HTML 101","JS 101", "JS 102", "Jasmine Testing"];
+
 var i = 0;
-classes[i]; // ??
+
+classes[i]; //what gets returned?
 
 classes[1];
 
-classes.pop(); //??
+classes[4] = "HTML 201"
 
 classes.length;
 					</code></pre>
@@ -133,6 +195,7 @@ for(var i = 0; i &lt; classes.length; i++){
 				</section>
 				<section>
 					<h3><a href="http://repl.it/enc/1" target="_blank">Exercise Time</a></h3>
+					<h3><a href="https://repl.it/enc/85" target="_blank">A few more exercises</a></h3>
 
 				</section>
 				<!-- /Arrays -->
@@ -140,13 +203,17 @@ for(var i = 0; i &lt; classes.length; i++){
 				<!-- Objects -->
 				<section>
 					<h3>Objects</h3>
-					<p>{}</p>
+					<p>{ } - a collection of values</p>
+					<p>Values are stored in a <strong>key</strong> and we name the key.</p>
+					<p>How are arrays and objects similar? different?</p>
 				</section>
 				<section>
 					<h3>Assignment</h3>
 					<pre><code data-trim>
 
-var angelTheCat = {};
+var angelTheCat = {
+	"name": "Angelito"
+};
 
 angelTheCat.furColor = "orange";
 
@@ -156,31 +223,32 @@ var angelTheCat = {"furColor" : "orange"};
 
 					</code></pre>
 					<aside class="notes">
-						q:How many keys are in the object? 
+						What is angelTheCat?
 						What is the key name? 
 						What is the value?
+						What data types are the values in this object? 
 					</aside>
 
 				</section>
 				<section>
-					<h3>Access w/dots</h3>
+					<h3>Access and Update</h3>
 					<pre><code data-trim>
 
 var angelTheCat = {};
 						
 angelTheCat.furColor = "orange";
 						
-var furVariable = angelTheCat.furColor;
+var furColorOfAngel = angelTheCat.furColor;
 
-furVariable; //??
+furColorOfAngel; //what does this return?
 
 angelTheCat.furColor = "grey";
 
-furVariable; //??
+furColorOfAngel; //??
 					</code></pre>
 										
 					<aside class="notes">
-						q: What is the new value after changing it?
+						q: What is stored in furColorOfAngel?
 					</aside>
 				</section>
 				<section>
@@ -236,10 +304,14 @@ var angelTheCat = {
 				</section>
 				<section>
 					<h3><a href="http://repl.it/enc/2" target="_blank">Exercise Time</a></h3>
+					<h3><a href="http://www.teaching-materials.org/javascript/exercises/objects.html" target="_blank">Create JS Objects practice</a></h3>
 				</section>
 				<!-- /Objects -->
 
 				<!-- Arrays of Objects -->
+				<section>
+					<h2>Nested Data Structures</h2>
+				</section>
 				<section>
 					<h3>Arrays of Objects</h3>
 					<pre><code data-trim>
@@ -318,7 +390,36 @@ console.log(doll);
 				</section>
 				<!-- /Nested Objects -->
 
+				<!-- Functions Intro -->
+				<section>
+					<h2>So, what about Functions?</h2>
+					<ul>
+						<li>first-class object because they have properties and methods</li>
+						<li>execute a function - callMe()</li>
+						<li>return is pretty important</li>
+						<li>a few different ways to setup a function</li>
+					</ul>
+				</section>
+				<!-- Functions Intro -->
+
 				<!-- Functions -->
+				<section>
+					<h2>Ways to Declare a Function</h2>
+					<pre><code>
+function sayMyName(firstName, lastName){
+	return "hello!, Are you " + firstName + lastName + "?"
+}
+
+var sayHello = function(name) {
+	return "Hello!" + " " + name
+}
+
+var sayGoodbye = function goodbye(name) {
+	return "see you later," + name
+}
+					</code>
+					</pre>
+				</section>
 				<section>
 					<h2>Functions</h2>
 					<pre><code data-trim>
@@ -343,9 +444,9 @@ add(5, 4);
 					<h3>Definition</h3>
 					<pre><code data-trim>
 
-var nameImprover = function (name, adj) {
+var makeMeADJ = function (name, adj) {
 
-	return 'Col ' + name + ' Mc' + adj + ' pants';
+	return 'DJ ' + adj + name + 'is spinning tonight!';
 
 };	
 
@@ -355,11 +456,11 @@ var nameImprover = function (name, adj) {
 					<h3>Definition vs. Call-time</h3>
 					<pre><code data-trim>
 
-var nameImprover = function (name, adj) {
-	return 'Col ' + name + ' Mc' + adj + ' pants';
+var makeMeADJ = function (name, adj) {
+	return 'DJ ' + adj + name + 'will keep you on the dance floor';
 };	
 
-nameImprover("Pamela", "fancy");
+makeMeADJ("Jaclyn", "zesty and zany");
 
 					</pre></code>
 				</section>
@@ -367,12 +468,12 @@ nameImprover("Pamela", "fancy");
 					<h3>Naming Arguments</h3>
 					<pre><code data-trim>
 
-var nameImprover = function (name, adj) {
-	return 'Col ' + name + ' Mc' + adj + ' pants';
+var makeMeADJ = function (name, adj) {
+	return 'DJ ' + name + 'says HANDS IN THE AIR!';
 };	
 
-nameImprover("Pamela", "shiny");
-nameImprover("Aysegul", "fancy");
+makeMeADJ("Steph Curry", "snazzy");
+makeMeADJ("Jaclyn", "zany");
 
 					</pre></code>
 				</section>
@@ -380,20 +481,20 @@ nameImprover("Aysegul", "fancy");
 					<h3>Return/Side Effects</h3>
 					<pre><code data-trim>
 
-var nameImprover = function (name, adj) {
-	return 'Col ' + name + ' Mc' + adj + ' pants';
+var makeMeADJ = function (name, adj) {
+	return 'DJ ' + adj + name + 'will keep you on the dance floor';
 };	
 
-var nameLogger = function (name, adj) {
-	var newName = 'Col ' + name + ' Mc' + adj + ' pants';
-	console.log(newName); 
+var sayMyName = function (name, adj) {
+	var convertMyName = 'What's my name?' + adj + " " + name;
+	console.log(newName);
 };	
 
 					</pre></code>
 
 				</section>
 				<section>
-					<h3>arguments Keyword</h3>
+					<h3>Arguments Keyword</h3>
 					<pre><code data-trim>
 
 var addTwo = function(a, b) {
@@ -402,6 +503,7 @@ var addTwo = function(a, b) {
 };
 
 addTwo(3, 10); // 13	
+addTwo(4,5,6); //WHOA - what's happening here?
 
 					</pre></code>
 
@@ -412,14 +514,17 @@ addTwo(3, 10); // 13
 
 var addMany = function() {
 	console.log(arguments);
+	
 	var sum = 0;
+
 	for (var i = 0; i &lt; arguments.length; i++) {
 		sum += arguments[i];
 	}
+	
 	return sum;
 };
 
-addMany(3, 10, 57,...);
+addMany(3, 10, 57, 101, 9);
 
 					</pre></code>
 
@@ -439,6 +544,7 @@ var nameLogger = function(name, adj) {
 				</section>
 				<section>
 					<h3><a href="http://repl.it/enq" target="_blanl">Exercise Time</a></h3>
+					<h3><a href="https://repl.it/BtW8" target="_blanl">Functions Exercises</a></h3>
 				</section>
 				<section>
 					<h3><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank">Scope</a></h3>
@@ -506,6 +612,14 @@ alert(g + " outside go");
 					</code></pre>
 				</section>
 				<!-- /Functions -->
+
+				<!-- Closing Takeaways -->
+				<section>
+					<h3>Closing Takeaways</h3>
+					<p>I learned _____ because of ____ </p>
+					<p>Did you help anybody learn something new? Did someone help you?</p>
+				</section>
+				<!-- Closing Takeaways -->
 
 				<section>
 					<h1>Questions</h1>

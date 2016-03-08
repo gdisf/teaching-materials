@@ -1,6 +1,6 @@
 # GDI SF JS 200 Workshop Follow-Up
 
-Thanks for attending the workshop, and thank you to our TAs **[TODO: TA names]** for being such great helpers. We’d love your feedback [in this survey](https://docs.google.com/a/girldevelopit.com/forms/d/1nwx55EOUjoTH7uhVs1vYNRlFVUl6x4s1t4SBr3OHqXQ/viewform).
+Thanks for attending the workshop, and thank you to our TAs **[TODO: TA names]** for being such great helpers. 
 
 The slides are available at:
 http://www.teaching-materials.org/jsweb/
