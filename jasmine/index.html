@@ -137,6 +137,21 @@
 					</aside>
 				</section>
 				<section>
+					<h3>What to test</h3>
+					<ul>
+						<li><strong>inputs/outputs</strong> – when something goes into a function, what should come out?</li>
+						<li><strong>"side effects"</strong> – when a function executes, what will change outside of the function?</li>
+					</ul>
+					<pre><code>
+window.bees = 200;
+
+function collectHoney(honeyBucket){ // input honeyBucket
+	window.bees = 0; // side effect occurs outside function
+	return honeyBucket++; // output
+};
+					</code></pre>
+				</section>
+				<section>
 					<h3>What is TDD?</h3>
 					<br>
 					<p><strong>Test-driven Development (TDD)</strong> is an approach to programming.</p>
