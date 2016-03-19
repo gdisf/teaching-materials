@@ -11,11 +11,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link rel="stylesheet" href="../common/css/main.css">
-    <link rel="stylesheet" href="../common/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../common/css/reveal.css">
+    <link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="../common/css/theme/solarized_light.css">
+    <link rel="stylesheet" href="../common/css/theme/gdilight.css">
 
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
@@ -36,6 +36,10 @@
         float: left;
         font-size: 1rem;
       }
+      .reveal pre code {
+        box-shadow: none;
+        display: block;
+      }
     </style>
   </head>
 
@@ -51,6 +55,7 @@
   <br>
   <br>
   <h2>teaching-materials.org/jsdom/</h2>
+  <img src="../common/css/images/pink-logo.png" >
 </section>
 
 <section>
@@ -116,7 +121,7 @@
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-    
+
 
   </code></pre>
   </center>
@@ -151,7 +156,7 @@
     <br>
     <p>Can you find any other methods and properties this way?</p>
   </section>
-</section>  
+</section>
 <section>
   <h1>Traversing the DOM</h1>
   <br>
@@ -224,8 +229,8 @@ myNewElement.className = 'new';</code></pre>
   <h3>Terminology</h3>
   <br>
   <ul>
-    <li><strong>Event:</strong> something that happens</li>    
-    <li><strong>Callback:</strong> a function that executes after the event has happened</li>    
+    <li><strong>Event:</strong> something that happens</li>
+    <li><strong>Callback:</strong> a function that executes after the event has happened</li>
     <li><strong>Event listener:</strong> a method that binds an event to a callback</li>
   </ul>
 </section>
@@ -301,7 +306,7 @@ myButton.addEventListener('click', myCallback);
   <h4>Part 1: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank">arguments array</a></h4>
   <p>Each JavaScript function has an <code>arguments</code> array, regardless of how you define it.</p>
   <pre><code>// notice no arguments here
-var myFunc1 = function() { 
+var myFunc1 = function() {
   console.log(arguments);
 }
 
