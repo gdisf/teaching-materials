@@ -21,7 +21,7 @@ You can review them online at a few places:
 
 * Your laptop (Mac, PC, or Linux are all okay) and charger.
 * A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend [Sublime Text 2](www.sublimetext.com/2), (free; available for both Mac and PC) or Notepad++ (PC).
+* A text editor. We recommend [Sublime Text 2](http://www.sublimetext.com/2), (free; available for both Mac and PC) or Notepad++ (PC).
 
 ### Topics covered:
 
