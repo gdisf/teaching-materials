@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS: Advanced Selectors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+      ol li {
+        line-height: 2em;
+      }
+    </style>
+  </head>
+  <body>
+   <div class="container">
+   <h1>CSS: Advanced Selectors Exercise</h1>
+
+   <p>In this exercise, you'll turn a boring table into an exciting table using selectors and basic properties. It's going to be hot, hot, hot!
+   <ol>
+    <li>Download <a href="exercise_tables_before.html">this webpage</a> into a folder.</li>
+    <li>Add a rule that will make the first row of the table bold.</li>
+    <li>Add a rule that will make the first cell in each data row have a red background.</li>
+    <li>Add a rule that will "zebra stripe" the backgrounds of the rows, alternating between white and <code>#eee</code>.</li>
+    <li>Add a rule that will turn the label red when the checkbox is clicked.</li>
+    <li>Add a rule that will make the first letter of the pepper name huge.</li>
+    <li>Add a rule that will find any pepper with hotness above 1 billion and color the link red.</li>
+   </ol>
+
+   <p>In the end, your table should look like this screenshot:</p>
+   <img src="images/exercise_tables.png" style="border:1px solid #ccc; max-height: 400px;">
+   <br><br>
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_tables_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+
+    <script>
+      function showSolution() {
+        if (confirm('You surrrrre?')) {
+          document.getElementById('solution').style.display = 'block';
+          window.scrollTo(0, document.body.scrollHeight);
+        }
+      }
+    </script>
+
+
+
+   </div>
+  </body>
+</html>
