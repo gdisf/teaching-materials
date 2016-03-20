@@ -87,7 +87,7 @@
 					<br>
 					<p>Projects can live a long time</p>
 					<p class="fragment">Code bases can get big</p>
-					<p class="fragment">Developer come and go</p>
+					<p class="fragment">Developers come and go</p>
 					<p class="fragment">Time required for manually testing adds up</p>
 					<p class="fragment">"upgrades" and "bug fixes" can break other features</p>
 				</section>
@@ -194,6 +194,15 @@
 					<blockquote>Jasmine is a behavior-driven development framework for testing JavaScript code.  It does not depend on any other JavaScript frameworks.</blockquote>
 					<br>
 					<p><a href="http://jasmine.github.io/2.0/introduction.html" target="_blank">Jasmine 2.0 Docs</a></p>
+				</section>
+				<section>
+					<h3>Terminology</h3>
+					<br>
+					<h4>Spec</h4>
+					<p>A <strong>spec</strong> is short for "specification". This is a building block in Jasmine that describes a certain behavior precisely</p>
+					<br>
+					<h4>Suite</h4>
+					<p>A <strong>suite</strong> is a grouping of specs</p>
 				</section>
 				<section>
 					<h3>Setting up the Spec Runner</h3>
@@ -309,12 +318,18 @@ describe("A suite", function(){
 					<p>Therefore, it's useful to break up the pieces and write unit tests for each piece.</p>
 				</section>
 				<section>
+					<h3>Terminology</h3>
+					<br>
+					<h4>Stub</h4>
+					<p>A <strong>stub</strong> is a piece of code used to stand in for some other functionality</p>
+				</section>
+				<section>
 					<h3>Spies</h3>
 					<br>
 					<p>Spies can test the control flow of an application by:</p>
 					<br>
 					<ul>
-						<li>stubbing a function</li>
+						<li>stubbing (standing in for) a function</li>
 						<li>tracking calls to a function</li>
 						<li>exposing arguments that a function was called with</li>
 					</ul>
