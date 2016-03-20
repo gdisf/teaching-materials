@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS: Less</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+    ol li {
+      line-height: 2em;
+    }
+    </style>
+  </head>
+  <body>
+   <div class="container">
+   <h1>CSS: Less Exercise</h1>
+
+   <p>Note: You will have to use Firefox for this exercise, as Chrome does not work with Less when you're developing on the file system.
+   </p>
+
+   <ol>
+    <li>Download <a href="exercise_less_before.html">this webpage</a> into a folder. You'll be turning the CSS in that file into Less instead.</li>
+    <li>Open the webpage and see what it looks like.
+    <li>Download less.js from <a href="http://lesscss.org/">lesscss.org</a> and put it in the same folder
+      as your exercise.
+    </li>
+    <li>Move the styles from the webpage into a separate file and save it as "styles.less".
+    </li>
+    <li>Add links to the LESS and JS file in the HEAD of your page:
+      <pre>&lt;link rel="stylesheet/less" type="text/css" href="styles.less">
+&lt;script src="http://cloud.github.com/downloads/cloudhead/less.js/less-1.3.1.min.js" type="text/javascript">&lt;/script></pre>
+    <li>Open the page in Firefox and check that it loads and is styled.</li>
+    <li>Find all the colors used in the styles and turn them into variables.
+    <a href="http://lesscss.org/#-variables">Less docs: variables</a></li>
+    <li>Create a mix-in for rounded-corners and use that wherever border-radius is used.
+      <a href="http://lesscss.org/#-parametric-mixins">Less docs: mix-ins</a>
+    </li>
+    <li>Create a mix-in for box-shadow and use that wherever box-shadow is used.
+      <a href="http://lesscss.org/#-parametric-mixins">Less docs: mix-ins (scroll)</a>
+    </li>
+    <li>Re-structure the styles so that they are nested according to the DOM structure.
+      For example, all of the sidebar related styles can nest underneath a main sidebar selector.
+      <a href="http://lesscss.org/#-nested-rules">Less docs: nested rules</a>
+    </li>
+   </ol>
+
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_less_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+
+    <script>
+      function showSolution() {
+        if (confirm('You surrrrre?')) {
+          document.getElementById('solution').style.display = 'block';
+          window.scrollTo(0, document.body.scrollHeight);
+        }
+      }
+    </script>
+
+
+   </div>
+  </body>
+</html>
