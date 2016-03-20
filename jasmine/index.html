@@ -42,26 +42,42 @@
 					<p>
 						<small>Slides: <a href ="http://www.teaching-materials.org/jasmine">http://www.teaching-materials.org/jasmine</a></small>
 					</p>
+				</section>
+
+		        <!--  High level overview of testing, TDD, and BDD -->
+				<section>
+					<h2>Testing Overview</h2>
+					<br>
+					<h3>Unit Tests</h3>
+					<p><strong>Unit Tests </strong> verify that a relatively small piece of code is doing what it is intended to do. They are narrow in scope and do not check outside systems.</p>
+					<br>
+					<p>This workshop focuses on Unit Tests</p>
 
 					<!-- Speaker notes -->
 					<aside class="notes">
-						Discuss the differences between:
-
-						QA Tests – product-oriented tests that focus on identifying "bugs" in software from the perspective of users
-
-						Integration Tests – demonstrate that different pieces of the system work together.
-
-						Unit Tests – written by the programmer to verify that a relatively small piece of code is doing what it is intended to do. They are narrow in scope and do not check outside systems.
-
-						This workshop focuses on Unit Tests
-
 						Sources:
 						http://www.tutorialspoint.com/software_testing/software_testing_qa_qc_testing.htm
 						http://stackoverflow.com/questions/5357601/whats-the-difference-between-unit-tests-and-integration-tests
 					</aside>
 				</section>
-
-		        <!--  High level overview of testing, TDD, and BDD -->
+				<section>
+					<h2>Testing Overview</h2>
+					<br>
+					<h3>Integration Tests</h3>
+					<p>Integration Tests – demonstrate that different pieces of the system work together.</p>
+				</section>
+				<section>
+					<h2>Testing Overview</h2>
+					<br>
+					<h3>QA Tests</h3>
+					<p>QA Tests – product-oriented tests that focus on identifying "bugs" in software from the perspective of users. May be automated or manual.</p>
+				</section>
+				<section>
+					<h2>Testing Overview</h2>
+					<br>
+					<h3>Regression Tests</h3>
+					<p>Regression Tests – product-oriented tests that make sure that new changes do not break mission-critical functionality that has already been built (logging in/out, checkout out).</p>
+				</section>
 				<section>
 					<h2>Why test?</h2>
 				</section>
@@ -119,6 +135,21 @@
 
 						Tests can help new developers have more confidence that their changes are not going to break an application.
 					</aside>
+				</section>
+				<section>
+					<h3>What to test</h3>
+					<ul>
+						<li><strong>inputs/outputs</strong> – when something goes into a function, what should come out?</li>
+						<li><strong>"side effects"</strong> – when a function executes, what will change outside of the function?</li>
+					</ul>
+					<pre><code>
+window.bees = 200;
+
+function collectHoney(honeyBucket){ // input honeyBucket
+	window.bees = 0; // side effect occurs outside function
+	return honeyBucket++; // output
+};
+					</code></pre>
 				</section>
 				<section>
 					<h3>What is TDD?</h3>
@@ -377,6 +408,18 @@ describe("A suite", function(){
 					<!-- Speaker notes -->
 					<aside class="notes">
 						It also may be worthwhile to mention that automated tests are also applicable to serverside JS testing
+					</aside>
+				</section>
+				<section>
+					<h2>Fixtures</h2>
+					<br>
+					<p>If you find yourself wanting to use a specific, known set of data repeatedly (especially across different tests), you may want to try using a <strong>fixture</strong>.</p>
+					<br>
+					<p>A fixture is a way to consistently represent and load data for your tests. You'll need to find a plugin to use with Jasmine.</p>
+
+					<!-- Speaker notes -->
+					<aside class="notes">
+						Examples of fixtures include: user, starting game board position, and fake credit card or account information.
 					</aside>
 				</section>
 				<section>
