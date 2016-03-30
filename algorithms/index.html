@@ -51,60 +51,7 @@
                 <h3>Intro to Algorithms</h3>
             </section>
             <section>
-                <h2>Welcome!</h2>
-                <h4 class="blue">Wifi Info</h4>
-                <p>
-                    <strong>Network:</strong>Name</p>
-                <p>
-                    <strong>Password:</strong>Password</p>
-                <br/>
-            </section>
-            <section>
-                <h2>Thanks to our sponsor:</h2>
-                <img src="images/sponsors/sendgrid.jpg" style="border:none; width: 400px;" alt="SendGrid" />
-            </section>
-            <!-- Welcome-->
-            <section class="hide-pdf">
-                <h3>Welcome!</h3>
-                <div class="left-align">
-                    <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
-                    <p class="green">Some "rules"</p>
-                    <ul>
-                        <li>We are here for you!</li>
-                        <li>Every question is important</li>
-                        <li>Help each other</li>
-                        <li>Have fun</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="hide-pdf">
-                <h3>About your instructor</h3>
-                <h4><span class="green">Lucas Willett</span></h4>
-                <div class="left">
-                    <ul>
-                        <li>Fact 1</li>
-                        <li>Fact 2</li>
-                        <li>Fact 3</li>
-                        <li>Fact 4</li>
-                        <li>Twitter: <a href="http://twitter.com/ltw_">@ltw_</a>
-                        </li>
-                        <li>E-mail: <a href="mailto:paige@girldevelopit.com">me@ltw.io</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <section>
-                <h3>Thank you to our Teaching Assistants today</h3>
-                <p>TA Name</p>
-                <p>TA Name</p>
-                <p>TA Name</p>
-            </section>
-            <section>
-                <h3>Now it's all about you!</h3>
-                <ul>
-                    <li>Tell us who you are.</li>
-                    <li>What do you hope to get out of this class?</li>
-                    <li>Unlimited amount of money - where would you travel to?</li>
+                <h3>Schedule</h3>
             </section>
             <section>
                 <h2>What we'll be covering in this class</h2>
@@ -116,10 +63,12 @@
                     <li>finish with an overview of the many types of algorithms out there</li>
                 </ul>
             </section>
+
             <section data-background="#f05b62">
                 <h1 style="color: #fafafa;">Algorithms</h1>
                 <p style="color: #fafafa;"><em>"A repeatable process for determining the solution to a problem."</em></p>
             </section>
+
             <section>
                 <h3>Algorithms in Daily Life</h3>
                 <ul>
@@ -131,7 +80,6 @@
                     <li class="fragment">Washing your car windows.</li>
                 </ul>
             </section>
-
 
             <section data-background="#f05b62">
                 <h1 style="color: #fafafa;">Discuss!</h1>
@@ -231,7 +179,6 @@
                </p>
                <!-- even if you are slower, it is STILL constant -->
             </section>
-
 
             <section>
               <h2>Laundry v2</h2>
@@ -843,252 +790,8 @@
               <p>How would you find the first 10 primes? What about the first 100?</p>
             </section>
 
-
-
             <section>
-                <h2>Prime Resources</h2>
-                <a href="https://www.khanacademy.org/math/applied-math/cryptography/comp-number-theory/v/prime-number-adventure"><span class="green">☞</span> Khan Academy: Prime Numbers</a>
-                <br>
-
-                <a href="http://en.wikipedia.org/wiki/Primality_test"><span class="green">☞</span> Wikipedia: Primality Tests</a>
-                </p>
-                <img src="http://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif">
-            </section>
-            
-
-            <section>
-              <h2>Graph Algorithms</h2>
-              <p>Much data is actually connected node and vertices, which makes it much harder to find algorithms that compute solutions quickly.</p>
-              <br>
-              <p>A lot of research goes into solving graph problems.</p>
-              <img src="http://blog.visualmotive.com/wp-content/uploads/2009/07/graph_usairways_bundled.jpg">
-            </section>
-
-            <section>
-              <h2>Graph Traversal Algorithms</h2>
-              <br>
-              <p>Find a route in a graph.</p>
-
-              <p>Find a particular node in a connected graph.</p>
-
-              <img src="http://www.rci.rutgers.edu/~cfs/472_html/AI_SEARCH/AI_SearchGifs/HCS.gif">
-
-            </section>
-
-
-            <section>
-              <h2>Depth First Search (DFS) </h2>
-              <br>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif">
-            </section>
-
-            <section>
-              <h2>DFS: Steps</h2>
-              <img src="http://mhesham.files.wordpress.com/2010/04/300pxdepthfirsttree-svg_thumb.png?w=449&amp;h=288">
-              <ul>
-                <li>DFS progresses by expanding the first child node of the search tree that appears and thus going deeper and deeper until a goal node is found, or until it hits a node that has no children.
-                <li>Then the search backtracks, returning to the most recent node it hasn’t finished exploring. 
-              </ul>
-            </section>
-            <!-- TODO: simulation? string holding? draw graph as we do it -->
-
-            </section>
-
-            <section>
-              <h2>DFS: Pseudocode</h2>
-              <img src="http://mhesham.files.wordpress.com/2010/04/300pxdepthfirsttree-svg_thumb.png?w=449&amp;h=288">
-              <br>
-              <pre style="padding:10px;"><code>
-            procedure depth_first_search(graph, vertex):
-                label vertex as discovered
-                let S be a stack
-                S.push(v)
-                while S is not empty        
-                      t ← S.top 
-                      if there is an edge u adjacent to t that is undiscovered and unexplored
-                         S.push(u)
-                      else
-                         mark t as explored
-                         S.pop()
-              </code></pre>
-            </section>
-
-            <section>
-              <h2>DFS: Time/Space Complexity</h2>
-              <br>
-              <p>Time: If b is the "branching factor" and 
-                d is the deepest depth: <code>O(b<sup>d</sup>)</code>
-              </p>
-              <br>
-              <p>Space: <code>O(bd)</code></p>
-            </section>
-
-            <section>
-              <h2>More Graph Search Algorithms</h2>
-              <br>
-
-              <p>Many of these use "heuristics" to make a better guess
-                as to what path to go down, to avoid searching the whole space.</p>
-
-              <img src="http://www.rci.rutgers.edu/~cfs/472_html/AI_SEARCH/AI_SearchGifs/BFSearch.gif">
-              <br>
-              <ul>
-                <li><a href="http://en.wikipedia.org/wiki/Depth-limited_search">Depth-limited</a>
-                <li><a href="http://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first-search</a>
-                <li><a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A*</a>
-                <li><a href="http://en.wikipedia.org/wiki/Hill_climbing">Hill climbing</a>
-                <li><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra</a>
-              </ul>
-            </section>
-
-
-            <section>
-              <h2>Graph Traversal in Real Life</h2>
-
-              <br>
-              <ul>
-                <li>Word search
-                <li>Maze solving
-                <li>Calculating an optimal route
-                <li>Grocery store shopping
-                <li>Calculating chess strategies
-                <li>Making a guest list
-                <li>Finding a new book to read on Amazon
-              </ul>
-            </section>
-
-            <!-- TODO use this http://www.tastekid.com/like/Paper+Heart/movies
-                http://findtheband.com/?
-              -->
-
-            <section>
-              <h2>The Traveling Salesman Problem</h2>
-              <p>A special variant of the graph search problem.</p>
-              <br>
-              <blockquote>
-                Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?
-              </blockquote>
-            </section>
-
-            <section>
-              <h2>The Traveling Salesman Problem</h2>
-              <p>Considered "NP-hard" (all solutions are exponential)</p>
-
-              <p>Many different approaches, like "Ant Colony":</p>
-              <img src="http://upload.wikimedia.org/wikipedia/commons/8/8c/AntColony.gif">
-              
-              <p>
-              <a href="http://imagine-it.org/google/fountainmap.html"><span class="green">☞</span> Demo: USC Fountain Map</a>,
-              <a href="http://en.wikipedia.org/wiki/Travelling_salesman_problem"><span class="green">☞</span> Wikipedia: TSP</a>
-            </p>
-              <!--
-            IRL: map of two locations, how do you figure it out?
-            Lots of possibilities, ant colony
-              -->
-              </p>
-
-            </section>
-
-            <section>
-              <h2>Exercise Time!</h2>
-              <br>
-              <ul>
-                <li>Solve a maze using a depth first algorithm.</li>
-                <li>Calculate the degrees of separation between Kevin Bacon and Bruce Willis.
-                  Try it first with breadth first search, and then depth first. 
-                  Draw a graph of the nodes you visit.
-                </li>
-                <li>Take the map of SF and find a route between Citizen Space and 
-                  the Caltrain, using depth first search. Draw a graph of the nodes (intersections)
-                  that you visit.
-                </li>
-              </ul>
-            </section>
-
-            <section>
-              <h2>More Algorithms!</h2>
-              <br><Br>
-              <p>
-              <a href="http://en.wikipedia.org/wiki/List_of_algorithms"><span class="green">☞</span> Wikipedia: List of algorithms</a>
-              </p>
-            </section>
-
-            <section>
-              <h2>Geometry: Detecting Collision</h2>
-              <br>
-              <img src="http://http.developer.nvidia.com/GPUGems3/elementLinks/33fig01.jpg">
-
-<!--               <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="450" height="450" id="CDDemo2" align="middle"><param name="allowScriptAccess" value="sameDomain" /><param name="movie" value="/blog/assets/CDDemo2.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#333333" /><embed src="/blog/assets/CDDemo2.swf" quality="high" bgcolor="#333333" width="450" height="450" name="CDDemo2" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
-              </object> -->
-
-              <p>
-                <a href="http://gskinner.com/blog/archives/2005/10/source_code_sha.html"><span class="green">☞</span> Demo: Shape-Based Hit Detection</a>,
-                <a href="http://box2d-js.sourceforge.net/index2.html"><span class="green">☞</span> Box2d JS</a>,
-                <a href="http://active.tutsplus.com/tutorials/games/quick-tip-collision-detection-between-circles"><span class="green">☞</span> Tutorial: Collision Detection with Circles</a>,
-                <a href="http://en.wikipedia.org/wiki/Collision_detection"><span class="green">☞</span> Wikipedia: Collision Detection</a>
-              </p>
-            </section>
-
-            <section>
-              <h2>Math: Primality Tests</h2>
-              <br>
-              <img src="http://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif">
-
-              <p>
-              <a href="https://www.khanacademy.org/math/applied-math/cryptography/comp-number-theory/v/prime-number-adventure"><span class="green">☞</span> Khan Academy: Prime Numbers</a>
-              <a href="http://en.wikipedia.org/wiki/Primality_test"><span class="green">☞</span> Wikipedia: Primality Tests</a>
-              </p>
-
-            </section>
-
-            <section>
-              <h2>Statistics: k-means clustering</h2>
-              <br>
-              <iframe src="http://vis4.net/labs/clustering/kmeans.html">
-              </iframe>
-
-              <p>
-              <a href="http://vis4.net/blog/posts/map-symbol-clustering-k-means-vs-noverlap/"><span class="green">☞</span> Demo: Map symbol clustering: k-means vs noverlap</a>,
-              <a href="http://en.wikipedia.org/wiki/K-means_clustering"><span class="green">☞</span> Wikipedia: K-means clustering</a>
-              </p>
-            </section>
-
-            <section>
-              <h2>Machine learning: decision trees</h2>
-              <br>
-
-              <img src="http://upload.wikimedia.org/wikipedia/commons/f/f3/CART_tree_titanic_survivors.png">
-
-              
-              <p><a href="http://en.wikipedia.org/wiki/Decision_tree_learning">Wikipedia: Decision tree learning</a>
-              </p>
-
-            </section>
-
-            <section>
-              <h2>Compression:</h2>
-              <h3>Run-length encoding</h3>
-              <br>
-              <img src="http://upload.wikimedia.org/wikipedia/commons/0/08/RunLengthEncoding.png">
-
-              <p>
-              <a href="http://pippin.gimp.org/image_processing/chap_dir.html"><span class="green">☞</span> Image Processing</a>,
-              <a href="http://www.fileformat.info/mirror/egff/ch09_03.htm"><span class="green">☞</span> fileformat: Run-length Encoding</a>,
-              <a href="http://en.wikipedia.org/wiki/Run-length_encoding">Wikipedia: Run-length Encoding</a>
-              </p>
-            </section>
-
-            <section>
-              <h2>Image processing:</h2>
-              <h3>Edge detection</h3>
-              <img src="http://www.nada.kth.se/~tony/cern-review/cern-html/img37.gif">
-
-              <p>
-              <a href="http://nerget.com/edgeDetection/"><span class="green">☞</span> Demo: Doggy Video</a>,
-              <a href="https://developer.apple.com/safaridemos/CanvasPixelManipulation/"><span class="green">☞</span> Demo: Canvas Pixel Manipulation</a>,
-              <a href="http://www.barbafan.de/html5video?video=tron"><span class="green">☞</span> Demo: Tron Video</a>,
-              <a href="en.wikipedia.org/wiki/Edge_detection">Wikipedia: Edge detection</a>
-              </p>
+                <h2>More Resources</h2>
             </section>
 
             <section data-background="#f05b62">
@@ -1099,7 +802,7 @@
         </div>
         <footer>
             <div class="copyright">
-                Intro to Algorithms &hearts; Girl Develop It Chicago --
+                Intro to Algorithms &hearts; Girl Develop It San Frnacisco --
                 <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">
                     <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" />
                 </a>
