@@ -185,9 +185,11 @@
               <hr>
               </div>
                 <p class="fragment">If N = items of clothing,<br> it takes (N*0 + 2) => O(2) => O(1).<br>
-                <img src="IMAGE">
                </p>
-               <!-- even if you are slower, it is STILL constant -->
+            </section>
+
+            <section>
+                <img src="images/big-o-graph.png">
             </section>
 
             <section>
@@ -248,13 +250,16 @@
                   <hr>
               </div>
                 <p class="fragment">If N = items of clothing,<br> it takes (N*10 + N*30) => O(N).<br>
-                <img src="http://dl.dropbox.com/u/10998095/Screenshots/8o-1jfj7nvw3.png">
                </p>
-               <!-- even if you are slower, it is STILL linear -->
             </section>
+
+            <section>
+                <img src="images/big-o-graph.png">
+            </section>
+
             <section>
               <h2>Laundry v3</h2>
-              <p><span class="green">Addition</span>: We hang up our items in sorted order in the closet.</p>
+              <p><span class="green">Addition</span>: We sort our clothes as we hang them up in the closet.</p>
 
               <pre><code>
             var piles = {'shirts': [], 'socks': []}
@@ -274,6 +279,7 @@
               } 
             }</code></pre>
             </section>
+
             <section>
               <h2>Laundry v3</h2>
               <p>Now we must loop through closet section items
@@ -314,10 +320,13 @@
                <p class="fragment">
                 If N = # items of clothing and # items in section,
                 <br>it takes (N*10 + N*30 + N*N*2) => O(N^2)
-                <img src="http://dl.dropbox.com/u/10998095/Screenshots/dbmsxpa6eal1.png">
                </p>
-               <!-- now it gets slower and slower as you add more clothes -->
             </section>
+
+            <section>
+                <img src="images/big-o-graph.png">
+            </section>
+
             <section>
               <h2>Time Complexity</h2>
               <pre><table style="margin:auto; background:white; padding: 5px; font-size:smaller;">
@@ -373,7 +382,6 @@
                         <td>check all subsets</td>
                     </tr>
               </table></pre>
-              <!-- graph of them? -->
             </section>
 
             <section data-background="#f05b62">
@@ -384,24 +392,40 @@
                 <h3 style="color: #fafafa;">What is the time complexity of...</h3>
                 <br>
                 <p style="color: #fafafa;">skipping to the front of a line</p>
+                <br><br>
+                <p>O(1) - Constant</p>
+                <p>O(n) - Linear</p>
+                <p>O(n^2) - Quadratic</p>
             </section>
 
             <section data-background="#f05b62">
                 <h3 style="color: #fafafa;">What is the time complexity of...</h3>
                 <br>
                 <p style="color: #fafafa;">waiting in a line</p>
+                <br><br>
+                <p>O(1) - Constant</p>
+                <p>O(n) - Linear</p>
+                <p>O(n^2) - Quadratic</p>
             </section>
 
             <section data-background="#f05b62">
                 <h3 style="color: #fafafa;">What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">skipping half of a line</p>
+                <p style="color: #fafafa;">skipping half of a line</p>                
+                <br><br>
+                <p>O(1) - Constant</p>
+                <p>O(n) - Linear</p>
+                <p>O(n^2) - Quadratic</p>
             </section>
 
             <section data-background="#f05b62">
                 <h3 style="color: #fafafa;">What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">sorting your books in alphabetical order</p>
+                <p style="color: #fafafa;">sorting your books in alphabetical order</p>                
+                <br><br>
+                <p>O(1) - Constant</p>
+                <p>O(n) - Linear</p>
+                <p>O(n^2) - Quadratic</p>
             </section>
 
             <section data-background="#f05b62">
@@ -414,6 +438,10 @@
 
         things[4]
                 </code></pre>
+                <br><br>
+                <p>O(1) - Constant</p>
+                <p>O(n) - Linear</p>
+                <p>O(n^2) - Quadratic</p>
             </section>
 
             <section data-background="#f05b62">
@@ -428,6 +456,11 @@
             things[i]
         }
                 </code></pre>
+                <br><br>
+                <p>O(1) - Constant</p>
+                <p>O(n) - Linear</p>
+                <p>O(n^2) - Quadratic</p>
+
             </section>
 
             <section data-background="#f05b62">
@@ -451,6 +484,10 @@
         // roses + kittens
         // whiskers + kittens
                 </code></pre>
+                <br><br>
+                <p>O(1) - Constant</p>
+                <p>O(n) - Linear</p>
+                <p>O(n^2) - Quadratic</p>
             </section>
 
 
