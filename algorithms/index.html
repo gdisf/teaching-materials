@@ -494,11 +494,11 @@
             <!-- END OF TIME COMPLEXITY -->
 
 
-           <!-- JK: START  OF SPACE COMPLEXITY -->
+           <!-- START  OF SPACE COMPLEXITY -->
             <section>
               <h2>Laundry: Space Complexity</h2>
-              <p>How much space does our algorithm require?</p>
-              <p>What are our factors that determine space?</p><br>
+              <p>How much space does sorting items of clothing into piles take?</p>
+
               <p class="fragment"><span class="green">Assume</span>: piles of clothing can be infinitely high.</p>
               <p class="fragment">N = number of pieces of clothing,<br>M = number of piles.</p>
               <p class="fragment">
@@ -507,7 +507,117 @@
                 <span class="blue">Average</span>: N/2
               </p>
             </section>
-            <!-- JK: END OF SPACE COMPLEXITY -->
+
+            <section>
+                <h3>Time Efficient Grocery Shopping</h2>
+                <br>
+                <ol class="fragment">
+                    <li>Drive large car to grocery store</li>
+                    <li>Buy every thing you need</li>
+                </ol>
+                <br><br>
+                <p class="fragment green">What is the space complexity?</p>
+
+            </section>
+
+              <section>
+              <h2>Grocery Shopping v1</h2>
+              <p class="green">How much space does the algorithm take?</p>
+              <p class="fragment">
+                Each item takes 10cm^3 in the car
+              </p>
+              <div class="fragment">
+                <hr>
+                  <table style="margin:auto; background:white; padding: 5px;">
+                    <thead>
+                        <tr class="orange">
+                            <th>#items</th>
+                            <th>#cm^3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>(4*10) = 40</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>(8*10) = 80</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>(16*100) = 160</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <hr>
+              </div>
+                <p class="fragment">If N = number of grocery items,<br> it takes (N*10) => O(N).<br>
+               </p>
+            </section>
+
+            <section>
+                <img src="images/big-o-graph.png">
+            </section>
+
+            <section>
+                <h3>Space Efficient Grocery Shopping</h2>
+                <br>
+                <ol class="fragment">
+                    <li>Walk to grocery store with tote bag</li>
+                    <li>Buy one item</li>
+                    <li>Walk home and drop off the item</li>
+                    <li>Repeat until done</li>
+                </ol>
+            </section>
+
+            <section>
+              <h2>Grocery Shopping v2</h2>
+              <p class="green">How much space does the algorithm take?</p>
+              <p class="fragment">
+                Each item takes 10cm^3 in the tote bag
+              </p>
+              <div class="fragment">
+                <hr>
+                  <table style="margin:auto; background:white; padding: 5px;">
+                    <thead>
+                        <tr class="orange">
+                            <th>#items</th>
+                            <th>#cm^3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>(10) = 10</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>(10) = 10</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>(10) = 10</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <hr>
+              </div>
+                <p class="fragment">If N = number of grocery items,<br> it takes (10) => O(1).<br>
+               </p>
+            </section>
+
+            <section>
+                <img src="images/big-o-graph.png">
+            </section>
+
+            <section data-background="#f05b62">
+                <h4 style="color: #fafafa;">What's more important? Time or space?</h4>
+                <img class="fragment" src="images/old-apple-computer.jpg">
+            </section>
+
+
+            <!-- END OF SPACE COMPLEXITY -->
 
             <!-- AD: START  OF GOAL OF ALGORITHMS -->
                 <section>
