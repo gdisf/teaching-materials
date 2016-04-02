@@ -1,0 +1,3 @@
+[submodule "algorithms/reveal"]
+	path = algorithms/reveal
+	url = https://github.com/Cara-Jo/reveal.js.git

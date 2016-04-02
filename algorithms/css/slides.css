@@ -1,0 +1,950 @@
+div.sliders {
+  text-align: right;
+  margin: 0 auto;
+}
+pre.massive {
+  width: auto !important;
+}
+pre.massive code {
+  width: 900px;
+  max-height: 500px;
+  font-size:90%;
+}
+
+/******************************
+* Class 1 Browser unordered list
+*******************************/
+/* line 9, source/slides.css */
+li.chrome {
+  list-style-image: url('../images/chrome.svg');
+}
+
+/* line 9, source/slides.css */
+li.firefox {
+  list-style-image: url('../images/firefox.svg');
+}
+
+/* line 9, source/slides.css */
+li.ie {
+  list-style-image: url('../images/ie.svg');
+}
+
+/* line 9, source/slides.css */
+li.webkit {
+  list-style-image: url('../images/webkit.svg');
+}
+
+/* line 9, source/slides.css */
+li.opera {
+  list-style-image: url('../images/opera.svg');
+}
+
+/******************************
+* Class 1 HTML5 Features
+*******************************/
+.html5-features{
+    margin:0;
+}
+/* line 15, source/slides.css */
+.html5-features li {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  background-color: white;
+  display: block;
+  float: left;
+  font-size: 0.6em;
+  list-style: none;
+  margin: 1%;
+  min-height: 120px;
+  text-align: center;
+  width: 23%;
+  color: #333;
+}
+/* line 35, source/slides.css */
+.html5-features li img {
+  display: block;
+  margin: 10px auto;
+  border: none;
+  width: 50px;
+}
+
+/******************************
+* Class 2 Attribute Selectors
+*******************************/
+
+/* line 44, source/slides.css */
+.attribute-selectors article {
+  font-size: 0.9em;
+  margin: 0 auto;
+  width: 700px;
+  overflow: hidden;
+  zoom: 1;
+}
+
+/* line 51, source/slides.css */
+.attribute-selectors div {
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  margin: 10px;
+  float: left;
+}
+/* line 59, source/slides.css */
+.attribute-selectors div[foo^="bar"] {
+  color: red;
+}
+/* line 62, source/slides.css */
+.attribute-selectors div[foo$="bar"] {
+  background-color: red;
+}
+/* line 65, source/slides.css */
+.attribute-selectors div[foo*="bar"] {
+  border: solid 5px red;
+}
+.attribute-selectors a[href^="http://"] {
+  color: red;
+}
+.attribute-selectors img[src$=".jpg"] {
+  border: solid 5px red;
+}
+
+/******************************
+* Class 2 Nth-child pseudo-selectors
+*******************************/
+
+/* line 72, source/slides.css */
+.nth-child table {
+  margin: 0 auto;
+}
+/* line 75, source/slides.css */
+.nth-child table td {
+  border: solid 1px black;
+  height: 25px;
+  width: 25px;
+}
+/* line 82, source/slides.css */
+.nth-child table tr:nth-child(even) td:nth-child(even) {
+  background-color: black;
+}
+/* line 86, source/slides.css */
+.nth-child table tr:nth-child(even) td:nth-child(odd) {
+  background-color: white;
+}
+/* line 92, source/slides.css */
+.nth-child table tr:nth-child(odd) td:nth-child(even) {
+  background-color: white;
+}
+/* line 96, source/slides.css */
+.nth-child table tr:nth-child(odd) td:nth-child(odd) {
+  background-color: black;
+}
+
+/* line 104, source/slides.css */
+.reveal .nth-child-table table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 0.5em;
+  width: 80%;
+}
+/* line 110, source/slides.css */
+.reveal .nth-child-table th {
+  color: #333;
+  background-color: #CCC;
+  font-weight: bold;
+}
+/* line 114, source/slides.css */
+.reveal .nth-child-table th, .reveal .nth-child-table td {
+  border: solid 1px black;
+  padding: 0;
+  text-align: center;
+  width: 14%;
+}
+
+/******************************
+* Class 2 Pseudo-Enabled
+*******************************/
+.pseudo-enabled .example{
+  line-height: 46px;
+}
+.pseudo-enabled input{
+  height: 30px;
+  width: 250px;
+  vertical-align: middle;
+  line-height: 30px;
+  font-size: 0.8em;
+}
+/* line 124, source/slides.css */
+.pseudo-enabled input:enabled {
+  background-color: green;
+}
+/* line 128, source/slides.css */
+.pseudo-enabled input:disabled {
+  background-color: grey;
+}
+
+/******************************
+* Class 2 Pseudo-Checked
+*******************************/
+
+/* line 134, source/slides.css */
+.pseudo-checked input:checked + label {
+  color: red;
+}
+
+/******************************
+* Class 2 Border Raidus
+*******************************/
+
+/* line 139, source/slides.css */
+.border-radius {
+  overflow: hidden;
+  /**zoom: 1;*/
+}
+/* line 141, source/slides.css */
+.border-radius article {
+  margin: 0 auto;
+  width: 700px;
+}
+/* line 148, source/slides.css */
+.border-radius .example {
+  background-color: #cccccc;
+  border: solid 4px black;
+  height: 200px;
+  margin: 20px auto;
+  width: 400px;
+}
+/* line 156, source/slides.css */
+.border-radius #example1 {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+}
+/* line 160, source/slides.css */
+.border-radius #example2 {
+  -webkit-border-radius: 10px 40px;
+  -moz-border-radius: 10px 40px;
+  -ms-border-radius: 10px 40px;
+  -o-border-radius: 10px 40px;
+  border-radius: 10px 40px;
+}
+/* line 164, source/slides.css */
+.border-radius #example3 {
+  -webkit-border-radius: 10px 20px 40px 80px;
+  -moz-border-radius: 10px 20px 40px 80px;
+  -ms-border-radius: 10px 20px 40px 80px;
+  -o-border-radius: 10px 20px 40px 80px;
+  border-radius: 10px 20px 40px 80px;
+}
+/* line 168, source/slides.css */
+.border-radius #example4 {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  float: left;
+  height: 200px;
+}
+/* line 173, source/slides.css */
+.border-radius #example5 {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  float: right;
+  height: 200px;
+  width: 200px;
+}
+
+/******************************
+* Class 2 RGBA
+*******************************/
+
+/* line 192, source/slides.css */
+article.rgba-opacity {
+  font-size: 16px;
+  margin: 0 auto;
+  width: 700px;
+}
+/* line 197, source/slides.css */
+article.rgba-opacity div {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  border: solid 1px black;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px;
+  text-align: center;
+  width: 45%;
+  font-size: 0.8em;
+}
+/* line 207, source/slides.css */
+article.rgba-opacity .opacity {
+  float: right;
+  clear: right;
+}
+/* line 212, source/slides.css */
+article.rgba-opacity .rgba {
+  float: left;
+  clear: left;
+}
+/* line 183, source/slides.css */
+article.rgba-opacity .example1.opacity {
+  background-color: red;
+  opacity: 1;
+}
+/* line 187, source/slides.css */
+article.rgba-opacity .example1.rgba {
+  background-color: red;
+}
+/* line 183, source/slides.css */
+article.rgba-opacity .example2.opacity {
+  background-color: red;
+  opacity: 0.8;
+}
+/* line 187, source/slides.css */
+article.rgba-opacity .example2.rgba {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+/* line 183, source/slides.css */
+article.rgba-opacity .example3.opacity {
+  background-color: red;
+  opacity: 0.5;
+}
+/* line 187, source/slides.css */
+article.rgba-opacity .example3.rgba {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+/* line 183, source/slides.css */
+article.rgba-opacity .example4.opacity {
+  background-color: red;
+  opacity: 0.2;
+}
+/* line 187, source/slides.css */
+article.rgba-opacity .example4.rgba {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+/* line 183, source/slides.css */
+article.rgba-opacity .example5.opacity {
+  background-color: red;
+  opacity: 0;
+}
+/* line 187, source/slides.css */
+article.rgba-opacity .example5.rgba {
+  background-color: rgba(255, 0, 0, 0);
+}
+
+/******************************
+* Class 2 Box Shadows
+*******************************/
+/* line 225, source/slides.css */
+.box-shadow div {
+  border: solid 2px black;
+  height: 200px;
+  margin: 0 auto;
+  width: 200px;
+}
+/* line 232, source/slides.css */
+.box-shadow .example1 div {
+  -webkit-box-shadow: 5px 5px red;
+  -moz-box-shadow: 5px 5px red;
+  box-shadow: 5px 5px red;
+}
+/* line 236, source/slides.css */
+.box-shadow .example2 div {
+  -webkit-box-shadow: 0 0 5px 5px red;
+  -moz-box-shadow: 0 0 5px 5px red;
+  box-shadow: 0 0 5px 5px red;
+}
+
+/******************************
+* Class 2 Text Shadows
+*******************************/
+
+/* line 242, source/slides.css */
+article.text-shadow {
+  font-size: 30px;
+  margin: 0 auto;
+  width: 700px;
+}
+/* line 247, source/slides.css */
+article.text-shadow div {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+/* line 252, source/slides.css */
+article.text-shadow .example1 {
+  text-shadow: 2px 2px 10px red;
+}
+/* line 256, source/slides.css */
+article.text-shadow .example2 {
+  text-shadow: 1px 1px 10px red, 10px 10px 10px orange, 15px 15px 10px yellow, 20px 20px 10px green, 25px 25px 10px blue, 30px 30px 10px purple;
+}
+
+/* line 264, source/slides.css */
+.multiple-backgrounds div.example {
+  background-image: url("../images/html5-features.png"), url("../images/sky.jpg");
+  background-position: 50% 50%, 50% 50%;
+  background-repeat: no-repeat;
+  height: 200px;
+  margin: 0 auto;
+  width: 700px;
+}
+
+/******************************
+* Class 2 Gradients
+*******************************/
+
+/* line 274, source/slides.css */
+article.gradients {
+  font-size: 30px;
+  margin: 0 auto;
+  width: 700px;
+}
+/* line 279, source/slides.css */
+article.gradients div {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  border: solid 1px black;
+  float: left;
+  height: 200px;
+  margin: 10px;
+  text-align: center;
+  width: 200px;
+}
+/* line 289, source/slides.css */
+article.gradients .linear-example1 {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff0000), color-stop(16.66667%, #ffa500), color-stop(33.33333%, #ffff00), color-stop(50%, #008000), color-stop(66.66667%, #0000ff), color-stop(83.33333%, #4b0082), color-stop(100%, #ee82ee));
+  background-image: -webkit-linear-gradient(#ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -moz-linear-gradient(#ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -o-linear-gradient(#ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: linear-gradient(#ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+}
+/* line 294, source/slides.css */
+article.gradients .linear-example2 {
+  background-image: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #ff0000), color-stop(16.66667%, #ffa500), color-stop(33.33333%, #ffff00), color-stop(50%, #008000), color-stop(66.66667%, #0000ff), color-stop(83.33333%, #4b0082), color-stop(100%, #ee82ee));
+  background-image: -webkit-linear-gradient(right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -moz-linear-gradient(right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -o-linear-gradient(right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: linear-gradient(right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+}
+/* line 299, source/slides.css */
+article.gradients .linear-example3 {
+  background-image: -webkit-gradient(linear, 100% 100%, 0% 0%, color-stop(0%, #ff0000), color-stop(16.66667%, #ffa500), color-stop(33.33333%, #ffff00), color-stop(50%, #008000), color-stop(66.66667%, #0000ff), color-stop(83.33333%, #4b0082), color-stop(100%, #ee82ee));
+  background-image: -webkit-linear-gradient(bottom right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -moz-linear-gradient(bottom right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -o-linear-gradient(bottom right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: linear-gradient(bottom right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+}
+
+article.gradients .linear-example4 {
+  background-image: -webkit-linear-gradient(#ff0000, #ffffff);
+  background-image: -moz-linear-gradient(#ff0000, #ffffff);
+  background-image: -o-linear-gradient(#ff0000, #ffffff);
+  background-image: linear-gradient(#ff0000, #ffffff);
+}
+
+article.gradients .linear-example5 {
+  background-image: -webkit-linear-gradient(right, #ff0000, #ffffff);
+  background-image: -moz-linear-gradient(right, #ff0000, #ffffff);
+  background-image: -o-linear-gradient(right, #ff0000, #ffffff);
+  background-image: linear-gradient(right, #ff0000, #ffffff);
+}
+
+article.gradients .linear-example6 {
+  background-image: -webkit-linear-gradient(bottom right, #ff0000, #ffffff);
+  background-image: -moz-linear-gradient(bottom right, #ff0000, #ffffff);
+  background-image: -o-linear-gradient(bottom right, #ff0000, #ffffff);
+  background-image: linear-gradient(bottom right, #ff0000, #ffffff);
+}
+
+/* line 305, source/slides.css */
+article.gradients .radial-example1 {
+  background-image: -webkit-gradient(radial, circle cover, 0, circle cover, 100, color-stop(0%, #ff0000), color-stop(16.66667%, #ffa500), color-stop(33.33333%, #ffff00), color-stop(50%, #008000), color-stop(66.66667%, #0000ff), color-stop(83.33333%, #4b0082), color-stop(100%, #ee82ee));
+  background-image: -webkit-radial-gradient(circle cover, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -moz-radial-gradient(circle cover, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -o-radial-gradient(circle cover, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: radial-gradient(circle cover, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+}
+/* line 310, source/slides.css */
+article.gradients .radial-example2 {
+  background-image: -webkit-gradient(radial, 0 0, 0, 0 0, 100, color-stop(0%, #ff0000), color-stop(16.66667%, #ffa500), color-stop(33.33333%, #ffff00), color-stop(50%, #008000), color-stop(66.66667%, #0000ff), color-stop(83.33333%, #4b0082), color-stop(100%, #ee82ee));
+  background-image: -webkit-radial-gradient(0 0, circle, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -moz-radial-gradient(0 0, circle, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -o-radial-gradient(0 0, circle, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: radial-gradient(0 0, circle, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+}
+/* line 315, source/slides.css */
+article.gradients .radial-example3 {
+  background-image: -webkit-gradient(radial, 0 50%, 0, 0 50%, 100, color-stop(0%, #ff0000), color-stop(16.66667%, #ffa500), color-stop(33.33333%, #ffff00), color-stop(50%, #008000), color-stop(66.66667%, #0000ff), color-stop(83.33333%, #4b0082), color-stop(100%, #ee82ee));
+  background-image: -webkit-radial-gradient(0 50%, circle, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -moz-radial-gradient(0 50%, circle, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: -o-radial-gradient(0 50%, circle, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+  background-image: radial-gradient(0 50%, circle, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+}
+
+article.gradients .radial-example4 {
+  background-image: -webkit-radial-gradient(circle cover, #ff0000, #ffffff);
+  background-image: -moz-radial-gradient(circle cover, #ff0000, #ffffff);
+  background-image: -o-radial-gradient(circle cover, #ff0000, #ffffff);
+  background-image: radial-gradient(circle cover, #ff0000, #ffffff);
+}
+
+article.gradients .radial-example5 {
+  background-image: -webkit-radial-gradient(0 0, circle, #ff0000, #ffffff);
+  background-image: -moz-radial-gradient(0 0, circle, #ff0000, #ffffff);
+  background-image: -o-radial-gradient(0 0, circle, #ff0000, #ffffff);
+  background-image: radial-gradient(0 0, circle, #ff0000, #ffffff);
+}
+
+article.gradients .radial-example6 {
+  background-image: -webkit-radial-gradient(0 50%, circle, #ff0000, #ffffff);
+  background-image: -moz-radial-gradient(0 50%, circle, #ff0000, #ffffff);
+  background-image: -o-radial-gradient(0 50%, circle, #ff0000, #ffffff);
+  background-image: radial-gradient(0 50%, circle, #ff0000, #ffffff);
+}
+
+/******************************
+* Class 2 Transitions
+*******************************/
+
+/* line 324, source/slides.css */
+.transition-duration .example {
+  border: solid 2px black;
+  background-color: #cccccc;
+  height: 100px;
+  margin: 10px auto;
+  width: 100px;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 3s;
+  -moz-transition-duration: 3s;
+  -o-transition-duration: 3s;
+  transition-duration: 3s;
+}
+/* line 334, source/slides.css */
+.transition-duration .example:hover {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: red;
+  height: 200px;
+  width: 200px;
+}
+
+/* line 344, source/slides.css */
+.transition-delay article {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  width: 400px;
+}
+/* line 353, source/slides.css */
+.transition-delay article:hover div {
+  background-color: red;
+}
+/* line 357, source/slides.css */
+.transition-delay article:hover .example1 {
+  left: 0;
+  top: 0;
+}
+/* line 361, source/slides.css */
+.transition-delay article:hover .example2 {
+  left: 380px;
+  top: 0;
+}
+/* line 365, source/slides.css */
+.transition-delay article:hover .example3 {
+  left: 380px;
+  top: 180px;
+}
+/* line 369, source/slides.css */
+.transition-delay article:hover .example4 {
+  left: 0;
+  top: 180px;
+}
+/* line 376, source/slides.css */
+.transition-delay div {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #cccccc;
+  font-size: 18px;
+  line-height: 20px;
+  height: 20px;
+  left: 190px;
+  position: absolute;
+  top: 90px;
+  width: 20px;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+/* line 389, source/slides.css */
+.transition-delay div.example1 {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 392, source/slides.css */
+.transition-delay div.example2 {
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  -o-transition-delay: 1s;
+  transition-delay: 1s;
+}
+/* line 395, source/slides.css */
+.transition-delay div.example3 {
+  -webkit-transition-delay: 2s;
+  -moz-transition-delay: 2s;
+  -o-transition-delay: 2s;
+  transition-delay: 2s;
+}
+/* line 398, source/slides.css */
+.transition-delay div.example4 {
+  -webkit-transition-delay: 3s;
+  -moz-transition-delay: 3s;
+  -o-transition-delay: 3s;
+  transition-delay: 3s;
+}
+
+/* line 406, source/slides.css */
+.transition-timing-function article {
+  margin: 0 auto;
+  width: 600px;
+}
+/* line 410, source/slides.css */
+.transition-timing-function article:hover div {
+  background-color: red;
+  width: 580px;
+}
+/* line 416, source/slides.css */
+.transition-timing-function div {
+  background-color: #cccccc;
+  height: 20px;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 20px 0;
+  padding: 4px;
+  text-align: left;
+  width: 100px;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 4s;
+  -moz-transition-duration: 4s;
+  -o-transition-duration: 4s;
+  transition-duration: 4s;
+}
+/* line 429, source/slides.css */
+.transition-timing-function div.ease {
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+/* line 432, source/slides.css */
+.transition-timing-function div.linear {
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+/* line 435, source/slides.css */
+.transition-timing-function div.ease-in {
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+/* line 438, source/slides.css */
+.transition-timing-function div.ease-out {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+/* line 441, source/slides.css */
+.transition-timing-function div.ease-in-out {
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+/* line 444, source/slides.css */
+.transition-timing-function div.cubic-bezier {
+  -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
+  -moz-transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
+  -o-transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
+  transition-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1);
+}
+/******************************
+* Class 2 Gradients
+*******************************/
+
+/* line 451, source/slides.css */
+article.transform-scale {
+  margin: 0 auto;
+  padding: 100px;
+  width: 700px;
+  overflow: hidden;
+  /**zoom: 1;*/
+}
+/* line 458, source/slides.css */
+article.transform-scale div {
+  background-color: #cccccc;
+  border: solid 2px #000;
+  float: left;
+  font-size: 0.4em;
+  height: 100px;
+  line-height: 100px;
+  margin: 0 35px;
+  text-align: center;
+  width: 100px;
+  color: #333;
+}
+/* line 470, source/slides.css */
+article.transform-scale .example1:hover {
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
+  transform: scale(2);
+}
+/* line 474, source/slides.css */
+article.transform-scale .example2:hover {
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
+}
+/* line 478, source/slides.css */
+article.transform-scale .example3, article.transform-scale .example4 {
+  float: right;
+}
+/* line 481, source/slides.css */
+article.transform-scale .example3:hover {
+  -webkit-transform: scale(0.5, 1);
+  -moz-transform: scale(0.5, 1);
+  -ms-transform: scale(0.5, 1);
+  -o-transform: scale(0.5, 1);
+  transform: scale(0.5, 1);
+}
+/* line 485, source/slides.css */
+article.transform-scale .example4:hover {
+  -webkit-transform: scale(1, 0.5);
+  -moz-transform: scale(1, 0.5);
+  -ms-transform: scale(1, 0.5);
+  -o-transform: scale(1, 0.5);
+  transform: scale(1, 0.5);
+}
+
+/* line 491, source/slides.css */
+article.transform-rotate {
+  margin: 0 auto;
+  padding: 100px;
+  width: 700px;
+  overflow: hidden;
+  /**zoom: 1;*/
+}
+/* line 498, source/slides.css */
+article.transform-rotate div {
+  background-color: #cccccc;
+  border: solid 2px black;
+  float: left;
+  font-size: 0.4em;
+  height: 120px;
+  line-height: 120px;
+  margin: 0 25px;
+  text-align: center;
+  width: 120px;
+  color: #333;
+}
+/* line 510, source/slides.css */
+article.transform-rotate .example1:hover {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 513, source/slides.css */
+article.transform-rotate .example2:hover {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+/* line 516, source/slides.css */
+article.transform-rotate .example3:hover {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+/* line 519, source/slides.css */
+article.transform-rotate .example4:hover {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 525, source/slides.css */
+article.transform-translate {
+  margin: 0 auto;
+  padding: 100px;
+  width: 700px;
+  overflow: hidden;
+  /**zoom: 1;*/
+}
+/* line 532, source/slides.css */
+article.transform-translate div {
+  background-color: #cccccc;
+  border: solid 2px black;
+  float: left;
+  font-size: 0.4em;
+  height: 120px;
+  line-height: 120px;
+  margin: 0 25px;
+  text-align: center;
+  width: 170px;
+  color: #333;
+}
+/* line 544, source/slides.css */
+article.transform-translate .example1:hover {
+  -webkit-transform: translate(20px);
+  -moz-transform: translate(20px);
+  -ms-transform: translate(20px);
+  -o-transform: translate(20px);
+  transform: translate(20px);
+}
+/* line 547, source/slides.css */
+article.transform-translate .example2:hover {
+  -webkit-transform: translate(0, 20px);
+  -moz-transform: translate(0, 20px);
+  -ms-transform: translate(0, 20px);
+  -o-transform: translate(0, 20px);
+  transform: translate(0, 20px);
+}
+/* line 551, source/slides.css */
+article.transform-translate .example3:hover {
+  -webkit-transform: translate(-20px, 20px);
+  -moz-transform: translate(-20px, 20px);
+  -ms-transform: translate(-20px, 20px);
+  -o-transform: translate(-20px, 20px);
+  transform: translate(-20px, 20px);
+}
+
+/* line 556, source/slides.css */
+article.transform-origin {
+  margin: 0 auto;
+  padding: 100px;
+  width: 700px;
+  overflow: hidden;
+  /**zoom: 1;*/
+}
+/* line 563, source/slides.css */
+article.transform-origin div {
+  background-color: #cccccc;
+  border: solid 2px black;
+  float: left;
+  font-size: 0.4em;
+  height: 120px;
+  line-height: 120px;
+  margin: 0 20px;
+  text-align: center;
+  width: 180px;
+  color: #333;
+}
+/* line 574, source/slides.css */
+article.transform-origin div:hover {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 579, source/slides.css */
+article.transform-origin .example1 {
+  -webkit-transform-origin: top left;
+  -moz-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -o-transform-origin: top left;
+  transform-origin: top left;
+}
+/* line 583, source/slides.css */
+article.transform-origin .example2 {
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -o-transform-origin: center center;
+  transform-origin: center center;
+}
+/* line 587, source/slides.css */
+article.transform-origin .example3 {
+  -webkit-transform-origin: 0 50px;
+  -moz-transform-origin: 0 50px;
+  -ms-transform-origin: 0 50px;
+  -o-transform-origin: 0 50px;
+  transform-origin: 0 50px;
+}
+
+/* line 594, source/slides.css */
+.media-queries .example {
+  height: 100px;
+  margin: 0 auto;
+  width: 300px;
+  background-color: grey;
+}
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  /* line 594, source/slides.css */
+  .media-queries .example {
+    background-color: red;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  /* line 594, source/slides.css */
+  .media-queries .example {
+    background-color: blue;
+  }
+}
