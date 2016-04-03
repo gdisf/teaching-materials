@@ -2,10 +2,11 @@
 
 ## Insertion sort
 
-* Begin at the left-most element of the array
-* Go through the remaining elements
-* When the correct position is found, insert the element in its correct position
-* Repeat
+* Create a new array where the sorted elements will go
+* Start with the first element in the un-sorted array
+* Go through the sorted array until you find the correct position for the element
+* Insert the element in its correct position
+* Repeat until the un-sorted array is empty
 
 ## Selection sort
 
@@ -23,7 +24,7 @@
 
 ## Bucket sort
 
-* Set up an array of initially empty "buckets".
+* Set up an array of initially empty "buckets" that represent a range (ie. buckets for 1-5, 6-10, etc)
 * Scatter: Go over the original array, putting each object in its bucket.
 * Sort each non-empty bucket.
 * Gather: Visit the buckets in order and put all elements back into the original array.
