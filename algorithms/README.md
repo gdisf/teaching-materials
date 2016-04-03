@@ -24,3 +24,15 @@ Attendees would benefit from a basic understanding of a programming language, li
 ### Topics covered:
 * Big O notation
 * Hands-on re-enactment of sort and search
+
+### Schedule
+
+* 10:00 - 10:45 Introduction
+* 10:45 - 1:45 Defining an algorithm, time/space complexity, goal of algorithms
+* 1:45 - 12:00 break
+* 12:00 - 1:00 Sorting and bubble sort
+* 1:00 - 2:00 lunch
+* 2:00 - 3:15 More sorting, searching
+* 3:15 - 3:45 break
+* 3:45 - 4:45 More searching, primes
+* 4:45 - 5:00 Conclusion
