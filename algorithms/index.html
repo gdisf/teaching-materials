@@ -451,11 +451,9 @@
                 <h3>What is the time complexity of...</h3>
                 <br>
                 <p>looking up an element in an array</p>
-                <br>
-                <pre><code>
-        var things = ["raindrops", "roses", "whiskers", "kittens"]
+                <pre><code>var things = ["raindrops", "roses", "whiskers", "kittens"]
 
-        things[4]
+things[4]
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
@@ -466,13 +464,11 @@
                 <h3>What is the time complexity of...</h3>
                 <br>
                 <p>iterating over an array</p>
-                <br>
-                <pre><code>
-        var things = ["raindrops", "roses", "whiskers", "kittens"]
+                <pre><code>var things = ["raindrops", "roses", "whiskers", "kittens"]
 
-        for (var i = 0; i &lt; things.length; i++) {
-            things[i]
-        }
+for (var i = 0; i &lt; things.length; i++) {
+    things[i]
+}
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
@@ -480,26 +476,24 @@
 
             </section>
 
-            <section data-background="#f05b62">
+            <section>
                 <h3>What is the time complexity of...</h3>
                 <br>
                 <p>making every pair combination of items in array</p>
-                <br>
-                <pre><code>
-        var things = ["raindrops", "roses", "whiskers", "kittens"]
+                <pre><code>var things = ["raindrops", "roses", "whiskers", "kittens"]
 
-        for (var i = 0; i &lt; things.length; i++) {
-            for (var j = i + 1; j &lt; things.length; j++) {
-                things[i] + things[j]
-            }
-        }
+for (var i = 0; i &lt; things.length; i++) {
+    for (var j = i + 1; j &lt; things.length; j++) {
+        things[i] + things[j]
+    }
+}
 
-        // raindrops + roses
-        // raindrops + whiskers
-        // raindrops + kittens
-        // roses + whiskers
-        // roses + kittens
-        // whiskers + kittens
+// raindrops + roses
+// raindrops + whiskers
+// raindrops + kittens
+// roses + whiskers
+// roses + kittens
+// whiskers + kittens
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
@@ -635,36 +629,47 @@
 
             <!-- END OF SPACE COMPLEXITY -->
 
-            <!-- AD: START  OF GOAL OF ALGORITHMS -->
-                <section>
-                  <h2>Goal of Algorithms</h2>
-                  <ul>
-                    <li class="fragment">Solve a problem</li>
-                    <li class="fragment">in a repeatable way</li>
-                    <li class="fragment"><strike>in the shortest time</strike></li>
-                    <li class="fragment"><strike>using the least amount of space</strike></li>
-                  </ul>
-                </section>
+            <!-- START  OF GOAL OF ALGORITHMS -->
+            <section>
+              <h2>Goal of Algorithms</h2>
+              <br>
+              <ul>
+                <li class="fragment">Solve a problem</li>
+                <li class="fragment">in a repeatable way</li>
+            </ul>
+            </section>
 
-                <section>
-                  <h2>Goal of Whiteboarding Interviews</h2>
-                  <ul>
-                    <li>Show how your thought process</li>
-                    <li>Solve the most obvious (to you!) solution first</li>
-                    <li>Improve it</li>
-                  </ul><br><br>
-                </section>
+            <section>
+            <h2>Optimizations</h2>
+            <br>
+            <p>Designing algorithms is about making decisions. Decisions have tradeoffs.</p>
+            <br>
+            <p>You may want to optimize to complete the task:</p>
+            <ul>
+                <li class="fragment">in the shortest time</li>
+                <li class="fragment">using the least amount of space</li>
+            </ul>
+            </section>
 
-                <!-- Algorithms from the beginning of class!-->
-                <section data-background="#f05b62">
-                    <h1>Discuss!</h1>
-                    <p>What's the time requirement of your algorithm?</p>
-                    <p>What's the space requirement of your algorithm?</p>
-                </section>
-            <!-- AD: END  OF GOAL OF ALGORITHMS -->
+            <section>
+              <h2>Goal of Whiteboarding Interviews</h2>
+              <ul>
+                <li>Show how your thought process</li>
+                <li>Solve the most obvious (to you!) solution first</li>
+                <li>Improve it</li>
+              </ul><br>
+            </section>
 
-            <!-- AD: START  OF SORTING ALGORITHMS -->
-            <section data-background="#f05b62">
+            <!-- Algorithms from the beginning of class!-->
+            <section>
+                <h1>Discuss!</h1>
+                <p>What's the time requirement of your algorithm?</p>
+                <p>What's the space requirement of your algorithm?</p>
+            </section>
+            <!-- END  OF GOAL OF ALGORITHMS -->
+
+            <!-- START  OF SORTING ALGORITHMS -->
+            <section>
                 <h1>Algorithms in Programming</h1>
             <!--  
             Algorithms in Computer Science
@@ -828,7 +833,7 @@
             http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm
             -->
             </section>
-            <!-- AD: END OF BUBBLE SORT -->
+            <!-- END OF BUBBLE SORT -->
 
             <section>
                 <h2>Searching Algorithms</h2>
@@ -853,14 +858,14 @@
             <section>
               <h2>Binary Search: Steps</h2><br>
               <!-- todo wikipedia animation? -->
-              <p>To find index of element e with certain value:</p>
+              <p>To find the index of element <em>e</em> with a certain value:</p>
               <ul>
                 <li>Start with an array sorted in descending order.
                 <li>In each step:
                   <ul>
-                  <li>Pick the middle element of the array (m) and compare it to e.
-                  <li>If element values are equal, then return index of m.
-                  <li>If e is greater than me, then e must be in left subarray. If m is greater than e, e must be in the right subarray.
+                      <li>Pick the middle element of the array <em>m</em> and compare it to <em>e</em>.
+                      <li>If element values are equal, then return index of <em>m</em>.
+                      <li>If <em>e</em> is greater than me, then <em>e</em> must be in left subarray. If <en>m</en> is greater than <em>e</em>, <em>e</em> must be in the right subarray.
                   </ul>
                 <li>Repeat those steps on new subarray.</li>
               </ul>
@@ -871,8 +876,8 @@
               <h3>Binary Search Simulation</h3>
               <br>
               <ul>
-                <li>Sort yourselves by height again.
-                <li>Now let's find someone with a particular height using binary search.
+                <li>Sort your cards by number.
+                <li>Now let's find a card with a particular number using binary search.
               </ul>
             </section>
 
@@ -935,8 +940,39 @@
               </ul>
             </section>
 
-            <section data-background="#f05b62">
-                <h1>More Algorithms!</h1>
+            <section>
+                <h1>Data Structures</h1>
+                <br>
+                <p>A way to store data (so that it can be used as desired)</p>
+            </section>
+
+            <section>
+                <h2>Data Structures + Algorithms</h2>
+                <br>
+                <p>A good way to approach an algorithm is to think about the data structures that you know.</p>
+                <br>
+                <p>What are their properties, and how can they be used to your advantage?</p>
+            </section>
+
+            <section>
+                <h2>Example: Arrays</h2>
+                <img src="images/list.png">
+            </section>
+            <section>
+                <h2>Example: Sets</h2>
+                <img src="images/sets.png">
+            </section>
+            <section>
+                <h2>Example: Dictionaries/Objects</h2>
+                <img src="images/map.png">
+            </section>
+            <section>
+                <h2>Example: Binary Trees</h2>
+                <img src="images/binary_tree.png">
+            </section>
+
+            <section>
+                <h1>Try an algorithm!</h1>
             </section>
 
             <section>
@@ -954,23 +990,38 @@
 
             </section>
 
-
-
-
-            <section data-background="#f05b62">
+            <section>
                 <h2>Finding Primes</h2>
                 <p>How would you find the first 1000 primes?</p>
-                 <p>How would you find all primes under 1000?</p>
+                <p>How would you find all primes under 1000?</p>
+                <br>
+                <h3>Challenge</h3>
+                <p>What are the tradeoffs?</p>
+            </section>
+
+
+            <section>
+                <h2>Vocabulary Review</h2>
+                <ul>
+                    <li>Algorithm: A repeatable process for determining the solution to a problem</li>
+                    <li>Time Complexity: How long the algorithm takes</li>
+                    <li>Space Complexity: How much space the algorithm takes</li>
+                    <li>Optimization: Making an algorithm take less time or space</li>
+                    <li>Data Structure: A way to organize data</li>
+                </ul>
             </section>
 
             <section>
-                <h2>More Resources</h2>
+                <h2>Resources</h2>
+                <ul>
+                    <li><a href="https://www.khanacademy.org/computing/computer-science/algorithms" target="_blank">Khan Academy</a></li>
+                    <li><a href="http://www.codewars.com/" target="_blank">Code Wars</a></li>
+                    <li>Practice!</li>
+                </ul>
             </section>
 
-            <section data-background="#f05b62">
-                <h1>Algorithms:</h1>
-                <h2>Wrapping Up</h2>
-              <!-- TODO: conclusion -->
+            <section>
+                <h1>Thank you!</h1>
             </section>
         </div>
         <footer>
