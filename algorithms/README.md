@@ -1,5 +1,4 @@
 # Algorithms 101
-=================== 
 
 ## Course Description
 
