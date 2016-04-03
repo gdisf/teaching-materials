@@ -12,14 +12,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link rel="stylesheet" href="reveal/css/reveal.css">
-    <link rel="stylesheet" href="reveal/css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="../common/css/reveal.css">
+    <link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
 
 
     <!-- For syntax highlighting -->
     <!-- light editor-->
-    <link rel="stylesheet" href="reveal/lib/css/light.css">
-    <!-- dark editor<link rel="stylesheet" href="reveal/lib/css/dark.css">-->
+    <link rel="stylesheet" href="../common/lib/css/light.css">
+    <!-- dark editor<link rel="stylesheet" href="../common/lib/css/dark.css">-->
     <link rel="stylesheet" href="css/slides.css">
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <link rel="stylesheet" href="css/algorithms.css">
@@ -47,8 +47,7 @@
         <div class="slides">
             <!-- Opening -->
             <section>
-                <img src="images/gdi_logo_badge.png" style="padding: 10px; width:400px;" alt="gdi" />
-                <h3>Intro to Algorithms</h3>
+                <h1>Intro to Algorithms</h1>
             </section>
             <section>
                 <h3>Schedule</h3>
@@ -63,8 +62,8 @@
             </section>
 
             <section data-background="#f05b62">
-                <h1 style="color: #fafafa;">Algorithms</h1>
-                <p style="color: #fafafa;"><em>"A repeatable process for determining the solution to a problem."</em></p>
+                <h1>Algorithms</h1>
+                <p><em>"A repeatable process for determining the solution to a problem."</em></p>
             </section>
 
             <section>
@@ -80,16 +79,16 @@
             </section>
 
             <section data-background="#f05b62">
-                <h1 style="color: #fafafa;">Discuss!</h1>
-                <p style="color: #fafafa;">What's an algorithm that you used today?</p>
-                <p style="color: #fafafa;">Write out the steps for doing it?</p>
+                <h1>Discuss!</h1>
+                <p>What's an algorithm that you used today?</p>
+                <p>Write out the steps for doing it?</p>
             </section>
 
             <!-- TIME COMPLEXITY: AMELIA -->
 
             <section>
                 <h2>Complexity</h2>
-                <p class="green">How do you know if your algorithm is good?</p>
+                <p class="red">How do you know if your algorithm is good?</p>
                 <p class="orange">How do you compare algorithms?</p>
                 <br>
                 <ul class="fragment">
@@ -109,7 +108,7 @@
                 </ol>
                 <br><br>
                 <div class="fragment">
-                    <p class="green">Saves time, but requires you to have a large car</p>
+                    <p class="red">Saves time, but requires you to have a large car</p>
                     <p>Lower time complexity</p>
                     <p>Higher space complexity</p>
                 </div>
@@ -126,7 +125,7 @@
                 </ol>
                 <br><br>
                 <div class="fragment">
-                    <p class="green">Takes a long time, but doesn't require a car</p>
+                    <p class="red">Takes a long time, but doesn't require a car</p>
                     <p>Higher time complexity</p>
                     <p>Lower space complexity</p>
                 </div>
@@ -149,12 +148,12 @@
             laundry.drop()
             </code></pre>
             <br>
-            <p class="green fragment">How long does the algorithm take?</p>
+            <p class="red fragment">How long does the algorithm take?</p>
             </section>
 
             <section>
               <h2>Laundry v1</h2>
-              <p class="green">How long does the algorithm take?</p>
+              <p class="red">How long does the algorithm take?</p>
               <p class="fragment">
                 Dumping out my laundry takes 2 seconds
               </p>
@@ -217,7 +216,7 @@
             </section>
             <section>
               <h2>Laundry v2</h2>
-              <p class="green">How long does the algorithm take?</p>
+              <p class="red">How long does the algorithm take?</p>
               <p class="fragment">
                 Putting an item in a pile takes 10 seconds.
                 <br>
@@ -259,7 +258,7 @@
 
             <section>
               <h2>Laundry v3</h2>
-              <p><span class="green">Addition</span>: We sort our clothes as we hang them up in the closet.</p>
+              <p><span class="red">Addition</span>: We sort our clothes as we hang them up in the closet.</p>
 
               <pre><code>
             var piles = {'shirts': [], 'socks': []}
@@ -283,7 +282,7 @@
             <section>
               <h2>Laundry v3</h2>
               <p>Now we must loop through closet section items
-                <strong class="green">each time</strong> we hang up an item.<br>Each look at an item takes 2 seconds.
+                <strong class="red">each time</strong> we hang up an item.<br>Each look at an item takes 2 seconds.
               </p>
 
               <table class="fragment" style="margin:auto; background:white; padding: 5px; font-size:smaller;">
@@ -385,13 +384,13 @@
             </section>
 
             <section data-background="#f05b62">
-                <h1 style="color: #fafafa;">Quiz Time!</h1>
+                <h1>Quiz Time!</h1>
             </section>
 
             <section data-background="#f05b62">
-                <h3 style="color: #fafafa;">What is the time complexity of...</h3>
+                <h3>What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">skipping to the front of a line</p>
+                <p>skipping to the front of a line</p>
                 <br><br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
@@ -399,9 +398,9 @@
             </section>
 
             <section data-background="#f05b62">
-                <h3 style="color: #fafafa;">What is the time complexity of...</h3>
+                <h3>What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">waiting in a line</p>
+                <p>waiting in a line</p>
                 <br><br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
@@ -409,9 +408,9 @@
             </section>
 
             <section data-background="#f05b62">
-                <h3 style="color: #fafafa;">What is the time complexity of...</h3>
+                <h3>What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">skipping half of a line</p>                
+                <p>skipping half of a line</p>
                 <br><br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
@@ -419,9 +418,9 @@
             </section>
 
             <section data-background="#f05b62">
-                <h3 style="color: #fafafa;">What is the time complexity of...</h3>
+                <h3>What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">sorting your books in alphabetical order</p>                
+                <p>sorting your books in alphabetical order</p>
                 <br><br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
@@ -429,9 +428,9 @@
             </section>
 
             <section data-background="#f05b62">
-                <h3 style="color: #fafafa;">What is the time complexity of...</h3>
+                <h3>What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">looking up an element in an array</p>
+                <p>looking up an element in an array</p>
                 <br>
                 <pre><code>
         var things = ["raindrops", "roses", "whiskers", "kittens"]
@@ -445,9 +444,9 @@
             </section>
 
             <section data-background="#f05b62">
-                <h3 style="color: #fafafa;">What is the time complexity of...</h3>
+                <h3>What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">iterating over an array</p>
+                <p>iterating over an array</p>
                 <br>
                 <pre><code>
         var things = ["raindrops", "roses", "whiskers", "kittens"]
@@ -464,9 +463,9 @@
             </section>
 
             <section data-background="#f05b62">
-                <h3 style="color: #fafafa;">What is the time complexity of...</h3>
+                <h3>What is the time complexity of...</h3>
                 <br>
-                <p style="color: #fafafa;">making every pair combination of items in array</p>
+                <p>making every pair combination of items in array</p>
                 <br>
                 <pre><code>
         var things = ["raindrops", "roses", "whiskers", "kittens"]
@@ -499,11 +498,11 @@
               <h2>Laundry: Space Complexity</h2>
               <p>How much space does sorting items of clothing into piles take?</p>
 
-              <p class="fragment"><span class="green">Assume</span>: piles of clothing can be infinitely high.</p>
+              <p class="fragment"><span class="red">Assume</span>: piles of clothing can be infinitely high.</p>
               <p class="fragment">N = number of pieces of clothing,<br>M = number of piles.</p>
               <p class="fragment">
                 <span class="orange">Worst case</span>: M = N<br>
-                <span class="green">Best case</span>: M = 1<br>
+                <span class="red">Best case</span>: M = 1<br>
                 <span class="blue">Average</span>: N/2
               </p>
             </section>
@@ -522,7 +521,7 @@
 
               <section>
               <h2>Grocery Shopping v1</h2>
-              <p class="green">How much space does the algorithm take?</p>
+              <p class="red">How much space does the algorithm take?</p>
               <p class="fragment">
                 Each item takes 10cm^3 in the car
               </p>
@@ -573,7 +572,7 @@
 
             <section>
               <h2>Grocery Shopping v2</h2>
-              <p class="green">How much space does the algorithm take?</p>
+              <p class="red">How much space does the algorithm take?</p>
               <p class="fragment">
                 Each item takes 10cm^3 in the tote bag
               </p>
@@ -612,7 +611,7 @@
             </section>
 
             <section data-background="#f05b62">
-                <h4 style="color: #fafafa;">What's more important? Time or space?</h4>
+                <h4>What's more important? Time or space?</h4>
                 <img class="fragment" src="images/old-apple-computer.jpg">
             </section>
 
@@ -641,15 +640,15 @@
 
                 <!-- Algorithms from the beginning of class!-->
                 <section data-background="#f05b62">
-                    <h1 style="color: #fafafa;">Discuss!</h1>
-                    <p style="color: #fafafa;">What's the time requirement of your algorithm?</p>
-                    <p style="color: #fafafa;">What's the space requirement of your algorithm?</p>
+                    <h1>Discuss!</h1>
+                    <p>What's the time requirement of your algorithm?</p>
+                    <p>What's the space requirement of your algorithm?</p>
                 </section>
             <!-- AD: END  OF GOAL OF ALGORITHMS -->
 
             <!-- AD: START  OF SORTING ALGORITHMS -->
             <section data-background="#f05b62">
-                <h1 style="color: #fafafa;">Algorithms in Programming</h1>
+                <h1>Algorithms in Programming</h1>
             <!--  
             Algorithms in Computer Science
             We have many types of algorithms that we use a lot in programming for common problems like sort, search, and graph traversal. Some of them are quite similar to your “real life algorithms”. Let’s discuss some.
@@ -732,7 +731,7 @@
               <table style="margin:auto; background:white; padding: 5px; font-size:smaller;" class="fragment">
                 <thead>
                     <tr>
-                        <th><span class="green">What is the best case?</span></th>
+                        <th><span class="red">What is the best case?</span></th>
                         <th><span class="orange">What is the worst case?</span></th>
                     </tr>
                 </thead>
@@ -783,7 +782,7 @@
             <section>
               <h2>Fun Sort Algorithms</h2>
               <br>
-              <p class="green">(Who says programmers don't know how to let loose?)</p>
+              <p class="red">(Who says programmers don't know how to let loose?)</p>
               <br>
               <ul>
                 <li>Pancake sort</li>
@@ -920,13 +919,13 @@
             </section>
 
             <section data-background="#f05b62">
-                <h1 style="color: #fafafa;">More Algorithms!</h1>
+                <h1>More Algorithms!</h1>
             </section>
 
             <section>
               <h2>Finding Primes</h2>
               <br>
-              <p class="green">Prime number: a number that is only divisible by 1 and itself.</p>
+              <p class="red">Prime number: a number that is only divisible by 1 and itself.</p>
               <br>
               <p>Why should computer scientists care?</p>
               <div class="fragment">
@@ -942,9 +941,9 @@
 
 
             <section data-background="#f05b62">
-                <h2 style="color: #fafafa;">Finding Primes</h2>
-                <p style="color: #fafafa;">How would you find the first 1000 primes?</p>
-                 <p style="color: #fafafa;">How would you find all primes under 1000?</p>
+                <h2>Finding Primes</h2>
+                <p>How would you find the first 1000 primes?</p>
+                 <p>How would you find all primes under 1000?</p>
             </section>
 
             <section>
@@ -952,14 +951,14 @@
             </section>
 
             <section data-background="#f05b62">
-                <h1 style="color: #fafafa;">Algorithms:</h1>
-                <h2 style="color: #fafafa;">Wrapping Up</h2>
+                <h1>Algorithms:</h1>
+                <h2>Wrapping Up</h2>
               <!-- TODO: conclusion -->
             </section>
         </div>
         <footer>
             <div class="copyright">
-                Intro to Algorithms &hearts; Girl Develop It San Frnacisco --
+                Intro to Algorithms &hearts; Girl Develop It San Francisco --
                 <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">
                     <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" />
                 </a>
@@ -968,8 +967,8 @@
     </div>
 
 
-    <script src="reveal/lib/js/head.min.js"></script>
-    <script src="reveal/js/reveal.min.js"></script>
+    <script src="../common/lib/js/head.min.js"></script>
+    <script src="../common/js/reveal.min.js"></script>
     <script src="js/jquery-1.8.2.min.js"></script>
     <script src="js/slides.js"></script>
     <script>
@@ -990,29 +989,29 @@
                 return !document.body.classList;
             }
         }, {
-            src: 'reveal/plugin/markdown/showdown.js',
+            src: '../common/plugin/markdown/showdown.js',
             condition: function() {
                 return !!document.querySelector('[data-markdown]');
             }
         }, {
-            src: 'reveal/plugin/markdown/markdown.js',
+            src: '../common/plugin/markdown/markdown.js',
             condition: function() {
                 return !!document.querySelector('[data-markdown]');
             }
         }, {
-            src: 'reveal/plugin/highlight/highlight.js',
+            src: '../common/plugin/highlight/highlight.js',
             async: true,
             callback: function() {
                 hljs.initHighlightingOnLoad();
             }
         }, {
-            src: 'reveal/plugin/zoom-js/zoom.js',
+            src: '../common/plugin/zoom-js/zoom.js',
             async: true,
             condition: function() {
                 return !!document.body.classList;
             }
         }, {
-            src: 'reveal/plugin/notes/notes.js',
+            src: '../common/plugin/notes/notes.js',
             async: true,
             condition: function() {
                 return !!document.body.classList;
