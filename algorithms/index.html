@@ -788,18 +788,19 @@ for (var i = 0; i &lt; things.length; i++) {
                 and performance often depends on sequence characteristics.</p>
                 <br>
                 <ul>
-                    <li>Insertion sort</li>
-                    <li>Selection sort</li>
-                    <li>Merge sort</li>
-                    <li>Bucket sort</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank">Insertion sort</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Selection_sort" target="_blank">Selection sort</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank">Merge sort</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Bucket_sort" target="_blank">Bucket sort</a></li>
                 </ul>
               <!-- TODO: link these -->
-             ><br>
-              <p>
-                  <a href="http://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms">
+                <br>
+                <br>
+                <p>
+                    <a href="http://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms" target="_blank">
                     Wikipedia: Comparison of algorithm performance</a>,
                     <a href="http://www.sorting-algorithms.com/">Sorting Algorithms Visualization</a>
-              </p>
+                </p>
             </section>
             <section>
               <h2>Fun Sort Algorithms</h2>
@@ -903,7 +904,7 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
             <section>
-              <h2>Binary Search: 
+              <h2>Binary Search:</h2>
               <h3>Time/Space Complexity</h3>
               <br>
               <p class="fragment">What factors determine time?</p>
@@ -911,9 +912,14 @@ for (var i = 0; i &lt; things.length; i++) {
               <p class="fragment">N = number of items in sequence.</p>
               <br>
               <p class="fragment">Since algorithm splits array in half every time,
-                at most log<sub>2</sub>N steps are performed.
+                at most <a href="http://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity">log<sub>2</sub>N</a> steps are performed.
               </p>
-              <!-- TODO: show how log2N is less than others, graph -->
+            </section>
+
+            <section>
+                <h2>Binary Search:</h2>
+                <h3>Visualized</h3>
+                <img src="https://blog.penjee.com/wp-content/uploads/2015/11/binary-search-tree-sorted-array-animation.gif">
             </section>
 
             <section>
@@ -921,7 +927,7 @@ for (var i = 0; i &lt; things.length; i++) {
               <br>
               <p>Performance varies depending on sequence characteristics (distribution)
               </p>
-              <Br>
+              <br>
               <ul>
                 <li><a href="http://en.wikipedia.org/wiki/Linear_search">Linear</a>
                 <li><a href="http://en.wikipedia.org/wiki/Interpolation_search">Interpolation search</a>
@@ -932,11 +938,12 @@ for (var i = 0; i &lt; things.length; i++) {
               <h2>Exercise Time!</h2>
               <br>
               <ul>
+                <li>Pick a search algorithm.</li>
                 <li>Play the number guessing game (higher/lower).</li>
                 <li>Try and guess the number in the smallest number of tries using 
                   the principles of binary search.</li>
                 <li>Keep track of the number of guesses it takes you.</li>
-                <li>If you have time, repeat for different ranges (0-500, 0-1000, etc)
+                <li>If you have time, repeat for different ranges (0-500, 0-1000, etc).</li>
               </ul>
             </section>
 
