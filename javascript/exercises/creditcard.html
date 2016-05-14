@@ -29,21 +29,29 @@
 6666-6666-6666-1666
 </code></pre>
 
-<p>The following credit card numbers are invalid:</p>
-<pre><code>a923-3211-9c01-1112 //invalid characters
-4444-4444-4444-4444 //only one type of number
-1211-1111-1111-1112 //sum less than 16
-6666-6666-6666-6661 //odd final number
-</code></pre>
+<p>The following credit card numbers are invalid:
+  <ul>
+    <li><code>a923-3211-9c01-1112</code> <em>invalid characters</em></li>
+    <li><code>4444-4444-4444-4444</code> <em>only one type of number</em></li>
+    <li><code>1211-1111-1111-1112</code> <em>sum less than 16</em></li>
+    <li><code>6666-6666-6666-6661</code> <em>odd final number</em></li>
+  </ul>
+</p>
 
 <p>In order to run the function, you'll need to load javascript on an HTML page. From there, you will open your developer console to call the function.</p>
 
 <img src="../images/console.png"/ width=400>
 
-<p><strong>Bonus:</strong> Return an object indicating whether the credit card is valid, and if not, what the error is</p>
-
-<pre><code>{ valid: true, number:  192887668901 }
-{ valid: false, number: 19288766890, error: ‘wrong_length’ }
-</code></pre>
+<p>
+  <strong>Bonus:</strong> Return an object indicating whether the credit card is valid, and if not, what the error is
+  <br>
+  <code>{ valid: true, number:  'a923-3211-9c01-1112' }</code>
+  <br>
+  <code>{ valid: false, number: 'a923-3211-9c01-1112', error: ‘wrong_length’ }</code>
+</p>
 
 <p><strong>Double Bonus:</strong> Make your credit card scheme even more advanced! What are the rules, and what are some numbers that pass or fail? Ideas: check expiration date! Check out the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm" target="_blank">Luhn Algorithm</a> for inspiration.</p>
+
+</div>
+</body>
+</html>
