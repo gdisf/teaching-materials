@@ -393,7 +393,8 @@ $ git status
 $ git add kitten.txt
 $ git reset HEAD kitten.txt
 $ git status # the file has been unstaged.
-$ git checkout kitten.txt #resets the working copy to its state at the last commit
+$ git checkout kitten.txt
+# resets the working copy to its state at the last commit
               </code></pre>
             </div>
             <p class="fragment">Now look at kitten.txt in your editor again: your changes are gone, and the file is removed from staging. </p>
@@ -489,6 +490,14 @@ $ git log --oneline
             </code></pre>
           </section>
           <section>
+            <h3>What could possibly go wrong?</h3>
+            <img src="images/merge_conflicts_are_coming.jpg"/>
+          </section>
+          <section>
+            <h3>What is a merge conflict?</h3>
+            <img src="images/merge-conflict.png"/>
+          </section>
+          <section>
             <h3>Merging</h3>
             <h4>Merge conflicts</h4>
             <p>Change the first line in kitten.txt in master branch</p>
@@ -557,7 +566,10 @@ $ git merge master #remember, you are on the feature branch here
             <pre><code class ="command-line">
 $ git remote add origin https://github.com/YOUR-GITHUB-USERNAME/REPO.git
 $ git push -u origin master
-# that -u is an option that signals that you are setting a tracking reference to the remote branch as the default; you only need to use this flag the first time
+
+# that -u is an option that signals that you are setting
+# a tracking reference to the remote branch as the default;
+# you only need to use this flag the first time
             </code></pre>
             <p class ="fragment">Now check out your GitHub repo online!</p>
           </section>
@@ -591,7 +603,7 @@ $ git push -u origin master
             <pre><code class ="command-line">
 $ cd ../
 
-$ git clone https://github.com/<YOUR-GITHUB-USERNAME>/tiny-repo.git
+$ git clone https://github.com/your-github-username/tiny-repo.git
 
 $ cd tiny-repo
 $ git remote -v
