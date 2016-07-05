@@ -20,7 +20,6 @@ var validateCreditCard = function(creditCardNum){
   if(ccNumberNoDashes.length !== 16){
     return false;
   }
-  console.log(ccNumberNoDashes)
 
   // All of the digits must be numbers
   for(var i = 0; i < ccNumberNoDashes.length; i++){    
