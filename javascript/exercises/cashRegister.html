@@ -15,9 +15,45 @@
 
 <p><em>  </em></p>
 <ul>
- <li>Write a function called <code>cashRegister</code> that will take one argument (an array of a strings) and returns the total. Note, you will have to convert the string to a number value to compute the total.
+ <li>Write a function called <code>cashRegister</code> that takes an object containing shopping cart values for various customers. The function should return a new object that contains the sum of each cart.
 
-<button class="btn" style="display:block;" onclick="showSolution(1)">See Solution</button>
+ <li>Example input
+<pre>var prices = {
+  brenda: [{ 
+    "banana": {
+        "price": "$1.25"
+      }
+    },
+    { "handkerchief": {
+        "price": "$.99"
+      }
+    },
+    { "t-shirt": {
+        "price": "$25.01"
+      }
+    }],
+  claire: [
+    { "apple": {
+        "price": "$0.60"
+      }
+    },
+    { "nalgene": {
+        "price": "$10.34"
+      }
+    },
+    { "protein_shake": {
+        "price": "$22.36"
+      }
+    }]
+};
+
+// Solution
+
+// { "brenda": 33.3, "claire": 33.3 }
+</pre>
+
+<!-- <button class="btn" style="display:block;" onclick="showSolution(1)">See Solution</button>
+
 <br><br>
 <pre id="solution1" style="display:none;">
 function cashRegister(arr) {
@@ -41,6 +77,7 @@ function showSolution(num) {
     document.getElementById('solution' + num).style.display = 'block';
   }
 }
+
   </script>
   </body>
 </html>
