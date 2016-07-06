@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript: The Currency Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../../common/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+
+<h2 class="page-header">The Currency Converter</h2>
+
+<p><em>  </em></p>
+<ul>
+ <li>Write a function called <code>USDtoJPU</code> that will take one argument (a string), 
+ convert that string to a number, convert that number from an amount of US dollars ($) to Japanese Yen (¥), and return the result. It should also log a string like "$5 is about ¥500."
+ <!-- <li>Write a function called <code>halfNumber</code> that will take one argument (a number),
+ divide it by 2, and return the result. It should also log a string like "Half of  5 is 2.5.".
+ <li>Write a function called <code>percentOf</code> that will take two numbers, figure out what percent the
+ first number represents of the second number, and return the result. It should also log a string like "2 is 50% of 4."
+ <li>Write a function called <code>areaOfCircle</code> that will take one argument (the radius), calculate the area based on that,
+ and return the result. It should also log a string like "The area for a circle with radius 2 is 12.566370614359172."
+  <ul><li>Bonus: Round the result so there are only two digits after the decimal.</li></ul>
+ <li>Write a function that will take one argument (a number) and perform the following operations, using the functions
+ you wrote earlier1:
+      <ol>
+       <li>Take half of the number and store the result.
+       <li>Square the result of #1 and store that result.
+       <li>Calculate the area of a circle with the result of #2 as the radius.
+       <li>Calculate what percentage that area is of the squared result (#3).
+      </ol>
+</ul>
+<button class="btn" style="display:block;" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+function squareNumber(num) {
+    var squaredNumber = num * num;
+    console.log('The result of squaring the number ' + num + ' is ' + squaredNumber);
+    return squaredNumber;
+}
+
+squareNumber(3);
+
+function halfOf(num) {
+    var half = num / 2;
+    console.log('Half of ' + num + ' is ' +  half);
+    return half;
+}
+
+halfOf(5);
+
+function percentOf(num1, num2) {
+    var percent = (num1/num2) * 100;
+    console.log(num1 + ' is ' + percent + '% of ' + num2);
+    return percent;
+}
+
+percentOf(5, 10);
+
+function areaOfCircle(radius) {
+    var area = Math.PI * squareNumber(radius);
+    console.log('The area of circle with radius ' + radius + ' is ' + area);
+    return area;
+}
+
+areaOfCircle(2);
+
+function doCrazyStuff(num) {
+    var half    = halfOf(num);
+    var squared = squareNumber(half);
+    var area    = areaOfCircle(squared);
+    var result  = percentOf(squared, area);
+}
+
+doCrazyStuff(5);
+</pre>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script> -->
+  </body>
+</html>
