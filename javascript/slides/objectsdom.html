@@ -228,18 +228,56 @@ lizzieTheCat.sleep(10);
     
     
     <div class="slide normal"> 
+     <header><h1>Object pro tip</h1></header> 
+     <section class="content"> 
+     <p><code>Object.keys()</code> lists all the property names of an object in an array.</p>
+
+<pre class="prettyprint">
+var lizzieTheCat = {
+  age: 18,
+  furColor: 'grey',
+  meow: function() {
+    console.log('meowww');
+  },
+  eat: function(food) {
+    console.log('Yum, I love ' + food);  
+  },
+  sleep: function(numMinutes) {
+    for (var i = 0; i < numMinutes; i++) {
+      console.log('z');
+    }
+  }
+};
+</pre>
+
+<pre class="prettyprint">
+Object.keys(lizzieTheCat); // ["age", "furColor", "meow", "eat", "sleep"]
+</pre>
+     </section>
+    </div>
+    
+
+
+
+
+    <div class="slide normal"> 
      <header><h1>Built-in Objects</h1></header> 
      <section class="content"> 
      <p>JS provides several built-in objects:</p>
 
 <ul>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number">Number</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String">String</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">Date</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math">Math</a></code>
+  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a></code><br>
+    <code>Array.isArray()</code>
+  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number">Number</a></code><br>
+    <code>Number()</code><br>
+    <code>Number.parseInt()</code><br>
+    <code>Number.parseFloat()</code>
+  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">Date</a></code><br>
+    <code>Date.UTC()</code><br>
+    <code>Date.now()</code><br>
+    <code>Date.parse()</code>
+  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math">Math</a></code><br>
+    Sooooooooo many useful things!
 </ul>
      </section>
 

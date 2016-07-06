@@ -23,7 +23,7 @@ var validateCreditCard = function(creditCardNum){
 
   // All of the digits must be numbers
   for(var i = 0; i < ccNumberNoDashes.length; i++){    
-    if(!Number.isInteger(Number(ccNumberNoDashes[i]))){ 
+    if(!Number.parseInt(ccNumberNoDashes[i]) && ccNumberNoDashes[i] !== '0'){ 
       return false;
     }
   }
