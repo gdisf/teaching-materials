@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript: The Cash Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../../common/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+
+<h2 class="page-header">The Cash Register</h2>
+
+<p><em>  </em></p>
+<ul>
+ <li>Write a function called <code>cashRegister</code> that will take one argument (an array of a strings) and returns the total. Note, you will have to convert the string to a number value to compute the total.
+
+<button class="btn" style="display:block;" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+function cashRegister(arr) {
+    var total = 0;   
+
+    for(var i = 0; i < arr.length; i++){
+      var price = arr[i].substr(1);
+      total += Number(price);
+    }
+    return total;
+}
+
+cashRegister(["$23.04", "$432.25", "$8.07"]);
+
+</pre>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>
