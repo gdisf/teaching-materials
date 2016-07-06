@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercises: Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../../common/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+
+<h1>Homework: Credit Card Validation</h1>
+
+<p>You're starting your own credit card business. You've come up with a new way to validate credit cards with a simple function called <code>validateCreditCard</code> that returns <code>true</code> or <code>false</code>.</p>
+
+<p>Here are the rules for a valid number:
+<ul>
+	<li>Number must be 16 digits, all of them must be numbers</li>
+	<li>You must have at least two different numbers represented (all of the numbers cannot be the same)</li>
+	<li>The final number must be even</li>
+	<li>The sum of all the digits must be greater than 16</li>
+</ul>
+</p>
+
+<p>The following credit card numbers are valid:</p>
+<pre><code>9999-9999-8888-0000
+6666-6666-6666-1666
+</code></pre>
+
+<p>The following credit card numbers are invalid:
+  <ul>
+    <li><code>a923-3211-9c01-1112</code> <em>invalid characters</em></li>
+    <li><code>4444-4444-4444-4444</code> <em>only one type of number</em></li>
+    <li><code>1111-1111-1111-1110</code> <em>sum less than 16</em></li>
+    <li><code>6666-6666-6666-6661</code> <em>odd final number</em></li>
+  </ul>
+</p>
+
+<p>In order to run the function, you'll need to load javascript on an HTML page. From there, you will open your developer console to call the function.</p>
+
+<img src="../images/console.png"/ width=400>
+
+<p>
+  <strong>Bonus:</strong> Return an object indicating whether the credit card is valid, and if not, what the error is
+  <br>
+  <code>{ valid: true, number:  'a923-3211-9c01-1112' }</code>
+  <br>
+  <code>{ valid: false, number: 'a923-3211-9c01-1112', error: ‘wrong_length’ }</code>
+</p>
+
+<p><strong>Double Bonus:</strong> Make your credit card scheme even more advanced! What are the rules, and what are some numbers that pass or fail? Ideas: check expiration date! Check out the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm" target="_blank">Luhn Algorithm</a> for inspiration.</p>
+
+</div>
+</body>
+</html>
