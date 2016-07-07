@@ -22,8 +22,15 @@ var validateCreditCard = function(creditCardNum){
   }
 
   // All of the digits must be numbers
-  for(var i = 0; i < ccNumberNoDashes.length; i++){    
-    if(!Number.parseInt(ccNumberNoDashes[i]) && ccNumberNoDashes[i] !== '0'){ 
+  for(var i = 0; i < ccNumberNoDashes.length; i++){        
+    // store the current digit 
+    var currentNumber = ccNumberNoDashes[i];
+
+    // turn the digit from a string to an integer (if the digit is in fact a digit and not anther char)
+    currentNumber = Number.parseInt(currentNumber);
+
+    // check that the digit is a number
+    if(!Number.isInteger(currentNumber)){
       return false;
     }
   }
