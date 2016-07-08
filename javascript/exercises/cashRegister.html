@@ -15,25 +15,25 @@
 
 <p><em>  </em></p>
 <ul>
- <li>Write a function called <code>cashRegister</code> that takes an object containing shopping cart values for various customers. The function should return a new object that contains the sum of each cart.
+ <li>Write a function called <code>cashRegister</code> that takes an object containing shopping cart values for various customers. The function should return an array that contains the name of the person and the sum of their cart. (ie [ [ 'Ernie', 237.54 ], [ 'Bert', 3.38 ] ])''
 
  <li>Example input
 <pre>var prices = {
   brenda: { 
-    "banana": "$1.25",
-    "handkerchief": "$.99",
-    "t-shirt": "$25.01"
+    banana: "$1.25",
+    handkerchief: "$.99",
+    Tshirt: "$25.01"
     },
   claire: {
-    "apple": "$0.60",
-    "nalgene": "$10.34",
-    "protein_shake": "$22.36"
+    apple: "$0.60",
+    nalgene: "$10.34",
+    proteinShake: "$22.36"
     }
 };
 
 // Solution
 
-// { "brenda": 33.3, "claire": 33.3 }
+// [ "brenda": 33.3, "claire": 33.3 ]
 </pre>
 
 <!-- <button class="btn" style="display:block;" onclick="showSolution(1)">See Solution</button>
