@@ -46,5 +46,6 @@ function cashRegister(cart){
   return result;
 }
 
+
 /************* test ************/
-console.log(cashRegister(carts));
+console.log(cashRegister(carts)); //[ 27.25, 33.3 ]
