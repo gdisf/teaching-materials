@@ -15,43 +15,41 @@
 
 <p><em>  </em></p>
 <ul>
- <li>Write a function called <code>cashRegister</code> that takes an object containing shopping cart values for various customers. The function should return an array that contains the name of the person and the sum of their cart. (ie [ [ 'Ernie', 237.54 ], [ 'Bert', 3.38 ] ])''
+ <li>Write a function called <code>cashRegister</code> that takes a shopping cart object. The object contains item names and prices (itemName: itemPrice). The function should return the total price of the shopping cart.
 
- <li>Example input
-<pre>var prices = {
-  brenda: { 
-    banana: "$1.25",
-    handkerchief: "$.99",
-    Tshirt: "$25.01"
-    },
-  claire: {
-    apple: "$0.60",
-    nalgene: "$10.34",
-    proteinShake: "$22.36"
-    }
+ <li>Example
+<pre>
+// Input
+var cartForParty = {  
+  banana: "1.25",
+  handkerchief: ".99",
+  Tshirt: "25.01",
+  apple: "0.60",
+  nalgene: "10.34",
+  proteinShake: "22.36"
 };
 
-// Solution
-
-// [ "brenda": 33.3, "claire": 33.3 ]
+// Output
+cashRegister(cartForParty)); // 60.55
 </pre>
+</li>
 
-<!-- <button class="btn" style="display:block;" onclick="showSolution(1)">See Solution</button>
+<button class="btn" style="display:block;" onclick="showSolution(1)">See Solution</button>
 
 <br><br>
 <pre id="solution1" style="display:none;">
-function cashRegister(arr) {
-    var total = 0;   
+function cashRegister(cart){
+  var items = Object.keys(cart); // array of items by key   
+  var sum = 0; 
+  
+  for (var i = 0; i < items.length; i++) {
+    var itemName = items[i]; // get the name of the key for the item
+    var itemPrice = cart[itemName]; // get the price for the item
+    sum += Number.parseFloat(itemPrice); // convert the price to a float and add it to the sum
+  }
 
-    for(var i = 0; i < arr.length; i++){
-      var price = arr[i].substr(1);
-      total += Number(price);
-    }
-    return total;
+  return sum;
 }
-
-cashRegister(["$23.04", "$432.25", "$8.07"]);
-
 </pre>
 
   <script>
