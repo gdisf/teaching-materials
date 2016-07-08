@@ -1,0 +1,18 @@
+.navbar {
+    background-color: #f95a61;
+    color: #fff;
+}
+
+.jumbotron .btn {
+    background-color: #f95a61;
+    border: #f95a61;
+}
+
+footer {
+    margin: 10px;
+    text-align: center;
+}
+
+footer a {
+    color: #333333;
+}

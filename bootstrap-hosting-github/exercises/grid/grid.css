@@ -1,0 +1,26 @@
+body {
+  padding: 2rem;
+}
+
+h3 {
+  margin-top: 2rem;
+}
+
+.row {
+  margin-bottom: 1rem;
+}
+.row .row {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+#animals div{
+  padding: 1rem;
+  background-color: rgba(0,0,0,.15);
+  border: 1px solid rgba(0,0,0,.2);
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

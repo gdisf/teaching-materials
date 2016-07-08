@@ -1,0 +1,37 @@
+.navbar {
+    background-color: #f95a61;
+    color: #fff;
+}
+
+.jumbotron .btn {
+    background-color: #f95a61;
+    border: #f95a61;
+}
+
+.jumbotron {
+    background: url('iheartcode.jpeg') no-repeat;
+    background-width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.jumbotron h1 {
+    color: #f95a61;
+}
+
+.jumbotron p {
+    color: #ffffff;
+}
+
+#carousel {
+    text-align: center;
+}
+
+footer {
+    margin: 10px;
+    text-align: center;
+}
+
+footer a {
+    color: #333333;
+}
