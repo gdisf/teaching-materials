@@ -462,13 +462,20 @@ rainbowColors.push('Dancing');
     
     
     <div class="slide normal"> 
-     <header><h1>Iterating through arrays</h1></header> 
+     <header><h1>Using for loops with arrays and strings</h1></header> 
      <section class="content"> 
      <p>Use a for loop to easily process each item in an array:</p>
 <pre>
 var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
 for (var i = 0; i < rainbowColors.length; i++) {
   console.log(rainbowColors[i]);
+}
+</pre>
+     <p>or a string:</p>
+<pre>
+var rainbowColorsLetters = 'ROYGBIV';
+for (var i = 0; i < rainbowColorsLetters.length; i++) {
+  console.log(rainbowColorsLetters[i]);
 }
 </pre>
 

@@ -1,8 +1,8 @@
 /*
 Here are the rules for a valid number:
 Number must be 16 digits, all of them must be numbers
-You must have at least two different numbers represented (all of the numbers cannot be the same)
-The final number must be even
+You must have at least two different digits represented (all of the digits cannot be the same)
+The final digit must be even
 The sum of all the digits must be greater than 16
 */
 
@@ -22,8 +22,15 @@ var validateCreditCard = function(creditCardNum){
   }
 
   // All of the digits must be numbers
-  for(var i = 0; i < ccNumberNoDashes.length; i++){    
-    if(!Number.isInteger(Number(ccNumberNoDashes[i]))){ 
+  for(var i = 0; i < ccNumberNoDashes.length; i++){        
+    // store the current digit 
+    var currentNumber = ccNumberNoDashes[i];
+
+    // turn the digit from a string to an integer (if the digit is in fact a digit and not anther char)
+    currentNumber = Number.parseInt(currentNumber);
+
+    // check that the digit is a number
+    if(!Number.isInteger(currentNumber)){
       return false;
     }
   }

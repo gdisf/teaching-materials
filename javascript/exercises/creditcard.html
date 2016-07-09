@@ -18,16 +18,17 @@
 <p>Here are the rules for a valid number:
 <ul>
 	<li>Number must be 16 digits, all of them must be numbers</li>
-	<li>You must have at least two different numbers represented (all of the numbers cannot be the same)</li>
-	<li>The final number must be even</li>
+	<li>You must have at least two different digits represented (all of the digits cannot be the same)</li>
+	<li>The final digit must be even</li>
 	<li>The sum of all the digits must be greater than 16</li>
 </ul>
 </p>
 
 <p>The following credit card numbers are valid:</p>
-<pre><code>9999-9999-8888-0000
-6666-6666-6666-1666
-</code></pre>
+<ul>
+  <li><code>9999-9999-8888-0000</code></li>
+  <li><code>6666-6666-6666-1666</code></li>
+</ul>
 
 <p>The following credit card numbers are invalid:
   <ul>
@@ -39,9 +40,10 @@
 </p>
 
 <p>In order to run the function, you'll need to load javascript on an HTML page. From there, you will open your developer console to call the function.</p>
-
 <img src="../images/console.png"/ width=400>
-
+<p>Hint: Remove the dashed from the input string before checking if the input credit card number is valid.</p>
+<br>
+<br>
 <p>
   <strong>Bonus:</strong> Return an object indicating whether the credit card is valid, and if not, what the error is
   <br>
