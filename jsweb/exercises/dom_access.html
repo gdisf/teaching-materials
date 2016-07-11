@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercise: DOM Access</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="../../common/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../common/bootstrap.css">
+  </head>
+  <body>
+    <div class="container">
+    <h2>Exercise: DOM Detective</h2>
+    <h3 class="page-header">CASE #1: Can She Develop It?</h3>
+    <ul>
+      <li>Navigate to the<a href="http://www.girldevelopit.com">GirlDevelopIt</a> site,
+     and open up the Dev Tools console – Cmd-Opt-I (Mac), Ctrl-Shift-I (Windows)
+      </li>
+      <li>Use the <a href="https://www.khanacademy.org/computing/computer-programming/html-css-js/html-js-dom-access/a/summary-dom-access-methods">DOM access methods</a> we learned to find the following parts of the page. There may be multiple ways to select the same DOM node.</li>
+        <ol>
+          <li>Every image on the page (as a collection)</li>
+          <li>The navigation area in the upper right</li>
+          <li>The MailChimp form at the bottom</li>
+          <li>The GDI logo in the upper-left</li>
+          <li>The media logos (TED, lifehacker, etc.), at the bottom</li>
+          <li>The "DON'T BE SHY DEVELOP IT" headline</li>
+          <li>All the red dots on the US map (as a collection)</li>
+       </ol>
+    </ul>
+    <!-- <button onclick="showSolution(1)" class="btn">See Solution</button> -->
+    <br><br>
+    <pre id="solution1" style="display:none;">
+      document.getElementsByTagName("img");
+      document.getElementsByClassName("nav");
+      document.getElementById("mc_embed_signup");
+      document.querySelector(".logo img");
+      document.querySelectorAll(".press-logos img");
+      document.querySelector(".opener h1");
+      document.querySelectorAll("circle");
+    </pre>
+    <h3 class="page-header">CASE #2: Picking Brain Pickings</h3>
+    <ul>
+      <li>Open up <a href="http://www.brainpickings.org">brainpickings.com</a> in Chrome or Firefox,
+      and open up the console.
+      <li>Use <a href="https://www.khanacademy.org/computing/computer-programming/html-css-js/html-js-dom-access/a/summary-dom-access-methods">DOM access methods</a> to find the following parts of the page. You probably first want to use Inspect Element to figure out what their tag names, classes, and IDs are.</li>
+        <ol>
+          <li>The bylines of each blog post, e.g. "BY MARIA POPOVA" (as a collection)</li>
+          <li>Every image inside a blog post</li>
+          <li>Every link inside the left nav bar</li>
+          <li>The Instagram link in the left nav bar</li>
+          <li>The "Name" input box for email subscription in the left nav bar</li>
+          <li>Every quote insode a blog post</li>
+        </ol>
+    </ul>
+    <script>
+      function showSolution(num) {
+        if (confirm('Are you sure?')) {
+          document.getElementById('solution' + num).style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+</html>
