@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Credit Card Validator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript" src="./validateCreditCardSolution.js"></script>
+    <link href="../../common/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Credit Card Validator</h2>
+  <button class="btn btn-info digit-input">1</button>
+  <button class="btn btn-info digit-input">2</button>
+  <button class="btn btn-info digit-input">3</button>
+  <button class="btn btn-info digit-input">4</button>
+  <button class="btn btn-info digit-input">5</button>
+  <button class="btn btn-info digit-input">a</button>
+  <button class="btn btn-info digit-input">b</button>
+  <button class="btn btn-info digit-input">c</button>
+  <button class="btn btn-info digit-input">d</button>
+  <button class="btn btn-info digit-input">e</button>
+  <div id="cc-input" style="margin: 20px 0; height: 30px; font-size: 24px;"></div>
+  <div id="cc-input-counter" style="height: 20px; font-size: 14px;"></div>
+  <button id="validator" class="btn btn-primary">Validate Credit Card</button>
+  <br><br><br><br><br>
+
+  <script>
+    var possibleDigitBtns = document.getElementsByClassName('digit-input');
+    for (var i = 0; i < possibleDigitBtns.length; i++) {
+      possibleDigitBtns[i].addEventListener('click', function(e) {
+        var possibleDigit = e.target.innerHTML;
+        var creditCardNum = document.getElementById('cc-input').innerHTML;
+        creditCardNum += possibleDigit;
+
+        document.getElementById('cc-input').innerHTML = creditCardNum;
+        document.getElementById('cc-input-counter').innerHTML = 'Character Count: ' + creditCardNum.length;
+      });
+    }
+
+    document.getElementById('validator').addEventListener('click', function(e) {
+      var creditCardNum = document.getElementById('cc-input').innerHTML;
+      if (validateCreditCard(creditCardNum)) {
+        alert('Credit card number is valid.');
+        document.getElementById('cc-input').innerHTML = '';
+      } else {
+        alert('Credit card number is not valid.');
+        document.getElementById('cc-input').innerHTML = '';
+      }
+    });
+  </script>
+  </body>
+</html>
