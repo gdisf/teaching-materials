@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercises: Objects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../../common/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Objects</h2>
+
+
+<h3 class="page-header">Object Property Access</h3>
+
+<p><em>Major US Cites:  List all major cities two times, in the majorCities object, using <code>console.log</code> statements. The first time, list all the major cities using dot notation. The second time, list all the major cities using bracket notation. </em></p>
+
+ <pre>
+   var majorCities = {
+      NewYork : "New York City",
+      California: "Los Angeles",
+      Illinois: "Chicago",
+      Texas: "Houston",
+      Pennsylvania: "Philadelphia",
+      Arizona: "Phoenix"
+   }</pre>
+  
+ <button  onclick="showSolution(1)" class="btn">See Solution</button>
+ <br><br>
+<pre id="solution1" style="display:none;">
+/* Dot Notation Solution */
+console.log(majorCities.NewYork); // "New York City"
+console.log(majorCities.California); // "Los Angeles"
+console.log(majorCities.Illinois); // "Chicago"
+console.log(majorCities.Texas); // "Houston"
+console.log(majorCities.Pennsylvania); // "Philadelphia"
+console.log(majorCities.Arizona); // "Phoenix"
+
+/* Bracket Notation Solution */
+console.log(majorCities["NewYork"]); // "New York City"
+console.log(majorCities["California"]); // "Los Angeles"
+console.log(majorCities["Illinois"]); // "Chicago"
+console.log(majorCities["Texas"]); // "Houston"
+console.log(majorCities["Pennsylvania"]); // "Philadelphia"
+console.log(majorCities["Arizona"]); // "Phoenix"
+</pre>
+
+<h3 class="page-header">Object Property Access</h3>
+
+<p><em>Store each city name in a separate variable. Use both bracket and dot notation. Use <code>console.log</code> statements to check your work. </em></p>
+  
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+<pre id="solution2" style="display:none;">
+  var city1 = majorCities["NewYork"]);
+  var city2 = majorCities["California"]);
+  var city3 = majorCities["Illinois"]);
+  var city4 = majorCities.Texas;
+  var city5 = majorCities.Pennsylvania;
+  var city6 = majorCities.Arizona;
+
+  console.log(city1) // "New York City"
+  console.log(city2); // "Los Angeles"
+  console.log(city3); // "Chicago"
+  console.log(city4); // "Houston"
+  console.log(city5); // "Philadelphia"
+  console.log(city6); // "Phoenix"  
+</pre>
+
+ <h3 class="page-header">Object Property Access With Variables</h3>
+
+<p><em>In the first example, you used strings with bracket notation to access property values. In this exercise use <i>variable</i> names to access property values.</em></p>
+
+<pre>
+  var state1 = "NewYork"
+  var city1 = majorCities[state1];
+  console.log(city1) // "New York City"
+</pre>
+ 
+
+ <button  onclick="showSolution(3)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution3" style="display:none;">
+  var state1 = "NewYork"
+  var state2 = "California"
+  var state3 = "Illinois"
+  var state4 = "Texas"
+  var state5 = "Pennsylvania"
+  var state6 = "Arizona"
+
+  var city1 = majorCities[state1];
+  var city2 = majorCities[state2];
+  var city3 = majorCities[state3];
+  var city4 = majorCities[state4];
+  var city5 = majorCities[state5];
+  var city6 = majorCities[state6];
+  
+  console.log(city1) // "New York City"
+  console.log(city2); // "Los Angeles"
+  console.log(city3); // "Chicago"
+  console.log(city4); // "Houston"
+  console.log(city5); // "Philadelphia"
+  console.log(city6); // "Phoenix"  
+ </pre>
+
+  <br><br><br><br><br>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>
