@@ -49,15 +49,15 @@
           <li>JSBin, JSFiddle (Online)</li>
         </ul>
         <pre>
-          &lt;h1&gt;My JavaScript questions&lt;/h1&gt;
-          &lt;ul&gt;
-            &lt;li&gt;
-              How do HTML/CSS and Javascript work together?
-            &lt;/li&gt;
-            &lt;li&gt;
-              How can I animate elements on the screen?
-            &lt;/li&gt;
-          &lt;/ul&gt;
+  &lt;h1&gt;My JavaScript questions&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      How do HTML/CSS and Javascript work together?
+    &lt;/li&gt;
+    &lt;li&gt;
+      How can I animate elements on the screen?
+    &lt;/li&gt;
+  &lt;/ul&gt;
         </pre>
       </section>
     </div>
@@ -67,22 +67,22 @@
       <section class="content">
         <p>You can write your JS inside a <code>script</code> tag in your HTML file:</p>
           <pre class="prettyprint lang-html">
-            &lt;html&gt;
-              &lt;body&gt;
-                &lt;script&gt;
-                  console.log("I am Javascript running on a web page!");
-                &lt;/script&gt;
-              &lt;/body&gt;
-            &lt;/html&gt;
+  &lt;html&gt;
+    &lt;body&gt;
+      &lt;script&gt;
+        console.log("I am Javascript running on a web page!");
+      &lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
           </pre>
         <br/>
         <p>You can also write your JS in a separate file and reference it from your HTML file via a <code>script</code> tag:</p>
         <pre class="prettyprint lang-html">
-          &lt;html&gt;
-            &lt;body&gt;
-              &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
-            &lt;/body&gt;
-          &lt;/html&gt;
+  &lt;html&gt;
+    &lt;body&gt;
+      &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
         </pre>
       </section>
     </div>
@@ -166,25 +166,25 @@
       <section class="content">
         <p>HTML:</p>
         <pre class="prettyprint">
-          &lt;ul id="hobby-list"&gt;
-            &lt;li class=&quot;hobby&quot;&gt;Playing the banjo&lt;/li&gt;
-            &lt;li class=&quot;hobby&quot;&gt;Paddleboarding&lt;/li&gt;
-          &lt;/ul&gt;
+  &lt;ul id="hobby-list"&gt;
+    &lt;li class=&quot;hobby&quot;&gt;Playing the banjo&lt;/li&gt;
+    &lt;li class=&quot;hobby&quot;&gt;Paddleboarding&lt;/li&gt;
+  &lt;/ul&gt;
         </pre>
         <p>JavaScript:</p>
         <pre class="prettyprint">
-          // By Id
-          var hobbiesList = document.getElementById('hobby-list');
+  // By Id
+  var hobbiesList = document.getElementById('hobby-list');
 
-          // By Tag Name
-          var hobbies = document.getElementsByTagName('li');
+  // By Tag Name
+  var hobbies = document.getElementsByTagName('li');
 
-          // By Class Name
-          var alsoHobbies = document.getElementsByClassName('hobby');
+  // By Class Name
+  var alsoHobbies = document.getElementsByClassName('hobby');
 
-          // By CSS Query
-          var firstHobby = document.querySelector('ul li.hobby');
-          var againAlsoHobbies = document.querySelectorAll('ul li.hobby');
+  // By CSS Query
+  var firstHobby = document.querySelector('ul li.hobby');
+  var againAlsoHobbies = document.querySelectorAll('ul li.hobby');
         </pre>
      </section>
     </div>
@@ -217,20 +217,20 @@
       <section class="content">
         <p>You can access and change the attributes of a DOM node using dot notation.</p>
         <pre class="prettyprint">
-          &lt;img id="lizzie-the-cat" src="http://placekitten.com/200/300"&gt;
+  &lt;img id="lizzie-the-cat" src="http://placekitten.com/200/300"&gt;
         </pre>
         <br/>
         <p>Changing the <code>src</code> of an image:</p>
         <pre class="prettyprint">
-          var catImage = document.getElementById('lizzie-the-cat');
-          var oldImageSource = catImage.src;
-          oldImageSource.src = 'http://placekitten.com/100/500';
+  var catImage = document.getElementById('lizzie-the-cat');
+  var oldImageSource = catImage.src;
+  oldImageSource.src = 'http://placekitten.com/100/500';
         </pre>
         <br/>
         <p>Changing the <code>className</code> of a DOM node:</p>
         <pre class="prettyprint">
-          var catImage = document.getElementById('lizzie-the-cat');
-          catImage.className = "portrait";
+  var catImage = document.getElementById('lizzie-the-cat');
+  catImage.className = "portrait";
         </pre>
         <br>
       </section>
@@ -242,18 +242,18 @@
         <p>You can access and change the styles of a DOM nodes via the <code>style</code> property. CSS property names with a "-" must be camelCased and number properties must have a unit.</p>
         <p>CSS:</p>
         <pre>
-          body {
-            color: red;
-            background-color: pink;
-            padding-top: 10px;
-          }
+  body {
+    color: red;
+    background-color: pink;
+    padding-top: 10px;
+  }
         </pre>
         <p>Applying the Same Styles via JavaScript:</p>
         <pre>
-          var pageNode = document.getElementsByTagName('body')[0];
-          pageNode.style.color = 'red';
-          pageNode.style.backgroundColor = 'pink';
-          pageNode.style.paddingTop = '10px';
+  var pageNode = document.getElementsByTagName('body')[0];
+  pageNode.style.color = 'red';
+  pageNode.style.backgroundColor = 'pink';
+  pageNode.style.paddingTop = '10px';
         </pre>
       </section>
     </div>
@@ -263,18 +263,18 @@
       <section class="content">
         <p>Each DOM node has an <code>innerHTML</code> attribute that contains the HTML of all its children:</p>
         <pre>
-          var pageNode = document.getElementsByTagName('body')[0];
-          console.log(pageNode.innerHTML);
+  var pageNode = document.getElementsByTagName('body')[0];
+  console.log(pageNode.innerHTML);
         </pre>
         <br/>
         <p>You can set <code>innerHTML</code> yourself to replace the contents of the node:</p>
         <pre>
-          pageNode.innerHTML = "&lt;h1&gt;Oh, no! Everything is gone!&lt;/h1&gt;"
+  pageNode.innerHTML = "&lt;h1&gt;Oh, no! Everything is gone!&lt;/h1&gt;"
         </pre>
         <br/>
         <p>You can also just add to the <code>innerHTML</code>, instead of replacing it altogether:</p>
         <pre>
-          pageNode.innerHTML += "P.S. Please do write back.";
+  pageNode.innerHTML += "P.S. Please do write back.";
         </pre>
       </section>
     </div>
@@ -288,24 +288,24 @@
       <section class="content">
         <p>The <code>document</code> object also allows us to create new nodes from scratch:</p>
         <pre style="border:3px dotted black;" >
-          document.createElement(tagName);
-          document.createTextNode(text);
-          document.appendChild(childToAppend);
+  document.createElement(tagName);
+  document.createTextNode(text);
+  document.appendChild(childToAppend);
         </pre>
         <img src="dommodify_imgtobody.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
         <pre class="prettyprint">
-          var body = document.getElementsByTagName('body')[0];
-          var newImg = document.createElement('img');
-          newImg.src = 'http://placekitten.com/400/300';
-          newImg.style.border = '1px solid black';
-          body.appendChild(newImg);
+  var body = document.getElementsByTagName('body')[0];
+  var newImg = document.createElement('img');
+  newImg.src = 'http://placekitten.com/400/300';
+  newImg.style.border = '1px solid black';
+  body.appendChild(newImg);
         </pre>
         <img src="dommodify.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
         <pre class="prettyprint">
-          var newParagraph = document.createElement('p');
-          var newText = document.createTextNode('Squee!');
-          newParagraph.appendChild(newText);
-          body.appendChild(newParagraph);
+  var newParagraph = document.createElement('p');
+  var newText = document.createTextNode('Squee!');
+  newParagraph.appendChild(newText);
+  body.appendChild(newParagraph);
         </pre>
       </section>
     </div>
