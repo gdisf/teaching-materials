@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercises: Objects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../../common/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Objects continued</h2>
+
+
+<h3 class="page-header">Overwrite Object Properties</h3>
+
+<p><em>Change the cities listed in the <code>UnitedStatesCities</code> object to the each state's capitol. Use <code>console.log</code> statements to check your work. </em></p>
+
+ <pre>
+   var UnitedStatesCities = {
+      NewYork : "New York City",
+      California: "Los Angeles",
+      Illinois: "Chicago",
+      Texas: "Houston",
+      Pennsylvania: "Philadelphia",
+      Arizona: "Phoenix"
+   }</pre>
+  
+ <button  onclick="showSolution(1)" class="btn">See Solution</button>
+ <br><br>
+<pre id="solution1" style="display:none;">
+UnitedStatesCities["NewYork"] = "Albany"
+UnitedStatesCities.California = "Sacramento"
+UnitedStatesCities.Illinois = "Springfield"
+UnitedStatesCities["Texas"] = "Austin"
+UnitedStatesCities["Pennsylvania"] = "Harrisburg"
+UnitedStatesCities.Arizona = "Phoenix"
+
+
+console.log(UnitedStatesCities.NewYork); // "New York City"
+console.log(UnitedStatesCities.California); // "Los Angeles"
+console.log(UnitedStatesCities.Illinois); // "Chicago"
+console.log(UnitedStatesCities["Texas"]); // "Houston"
+console.log(UnitedStatesCities["Pennsylvania"]); // "Philadelphia"
+console.log(UnitedStatesCities["Arizona"]); // "Phoenix"
+</pre>
+
+<h3 class="page-header">Add Object Values and Properties</h3>
+
+<p><em>Add five more states and their capitol cities to the <code>UnitedStatesCities</code> object. Use <code>console.log</code> statements to check your work. </em></p>
+  
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+<pre id="solution2" style="display:none;">
+  UnitedStatesCities["Alabama"] = "Montgomery";
+  UnitedStatesCities["Alaska"] = "Juneau";
+  UnitedStatesCities["West Virgina"] = "Charleston";
+  UnitedStatesCities.Wisconsin = "Madison";
+  UnitedStatesCities.Wyoming = "Cheyenne";
+  
+  console.log(UnitedStatesCities)
+</pre>
+
+ <h3 class="page-header">Delete Object Values and Properties</h3>
+
+<p><em>Remove the states from the <code>UnitedStatesCities</code> object that you have never been to.</em></p>
+ 
+ <button  onclick="showSolution(3)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution3" style="display:none;">
+  /*Solution will vary. Below is one possiblity.*/
+
+  delete UnitedStatesCities["West Virgina"]
+  delete UnitedStatesCities.Alaska
+ </pre>
+
+  <br><br><br><br><br>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>
