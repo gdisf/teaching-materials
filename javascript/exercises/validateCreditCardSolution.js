@@ -6,7 +6,7 @@ The final digit must be even
 The sum of all the digits must be greater than 16
 */
 
-var validateCreditCard = function(creditCardNum){
+function validateCreditCard(creditCardNum){
   
   //Remove dashes from creditCardNum string
   var ccNumberNoDashes = '';
