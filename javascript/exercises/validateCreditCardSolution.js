@@ -35,7 +35,7 @@ var validateCreditCard = function(creditCardNum){
     }
   }
 
-  // The credit card number must be composted of at least two different digits (i.e. all of the digits cannot be the same)
+  // The credit card number must be composed of at least two different digits (i.e. all of the digits cannot be the same)
   var obj = {};
   for(var i = 0; i < ccNumberNoDashes.length; i++){
     obj[ccNumberNoDashes[i]] = true;
