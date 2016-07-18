@@ -29,26 +29,21 @@
 * Sort each non-empty bucket.
 * Gather: Visit the buckets in order and put all elements back into the original array.
 
-## Pancake sort
+## Bubble Sort
 
-Simply put, we have a spatula and a stack of pancakes. The goal is to order the pancakes from largest on the bottom, to smallest on the top. The only caveat being we can only action we can preform is flip which is preformed by inserting the spatula and flipping the entire stack above the spatula over.
-
-## Spaghetti sort
-
-Once you have all your spaghetti rods, take them loosely in your fist and lower them to the table, so that they all stand upright, resting on the table surface. Now, for each rod, lower your other hand from above until it meets with a rod—this one is clearly the longest. Remove this rod and insert it into the front of the (initially empty) output list (or equivalently, place it in the last unused slot of the output array). Repeat until all rods have been removed.
-
-* Take all the elements
-* Find the longest/largest one
-* Place that element at the *front* of the sorted output
-* Repeat
+* Compare the 0th and 1st elements. If they are in the wrong order, swap them. 
+* Compare the 1st and 2nd elements. If they are in the wrong oder, swap them.
+* Continue comparing until you reach the end of the array. 
+* Go back to the beginning and compare the 0th and 1st elements. 
+* Loop through the array as many times as needed until everything is sorted.
 
 ## Bogosort
 
-* If the cards are not sorted, shuffle them
+* If the values are not sorted, shuffle them
 * Repeat
 
 ## Quantum Bogosort
 
-1. Quantumly randomise the list, such that there is no way of knowing what order the list is in until it is observed. This will divide the universe into O(n!) universes; however, the division has no cost, as it happens constantly anyway.
-2. If the list is not sorted, destroy the universe. (This operation is left as an exercise to the reader.)
-3. All remaining universes contain lists which are sorted.
+* Quantumly randomise the list, such that there is no way of knowing what order the list is in until it is observed. This will divide the universe into O(n!) universes; however, the division has no cost, as it happens constantly anyway.
+* If the list is not sorted, destroy the universe. (This operation is left as an exercise to the reader.)
+* All remaining universes contain lists which are sorted.
