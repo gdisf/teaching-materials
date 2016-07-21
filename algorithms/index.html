@@ -593,119 +593,60 @@ for (var i = 0; i &lt; things.length; i++) {
 
            <!-- START  OF SPACE COMPLEXITY -->
             <section>
-              <h2>Laundry: Space Complexity</h2>
-              <p>How much space does sorting items of clothing into piles take?</p>
-
-              <p class="fragment"><span class="red">Assume</span>: piles of clothing can be infinitely high.</p>
-              <p class="fragment">N = number of pieces of clothing,<br>M = number of piles.</p>
-              <p class="fragment">
-                <span class="orange">Worst case</span>: M = N<br>
-                <span class="red">Best case</span>: M = 1<br>
-                <span class="blue">Average</span>: N/2
-              </p>
-            </section>
-
-            <section>
-                <h3>Time Efficient Grocery Shopping</h2>
+                <h3>Time Efficient Grocery Shopping</h3>
                 <br>
-                <ol class="fragment">
-                    <li>Drive large car to grocery store</li>
-                    <li>Buy every thing you need</li>
+                <ol>
+                    <li>Drive car to grocery store</li>
+                    <li>Get cart</li>
+                    <li>Put everything in the cart</li>
+                    <li>Buy items and drive home</li>
                 </ol>
-                <br>
-                <p class="fragment green">What is the space complexity?</p>
-
             </section>
 
-              <section>
-              <h2>Grocery Shopping v1</h2>
-              <p class="red">How much space does the algorithm take?</p>
-              <p class="fragment">
-                Each item takes 10cm^3 in the car
-              </p>
-              <div class="fragment">
-                <hr>
-                  <table style="margin:auto; background:white; padding: 5px;">
-                    <thead>
-                        <tr class="orange">
-                            <th>#items</th>
-                            <th>#cm^3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>(4*10) = 40</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>(8*10) = 80</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td>(16*100) = 160</td>
-                        </tr>
-                    </tbody>
-                  </table>
-                  <hr>
-              </div>
-                <p class="fragment">If N = number of grocery items,<br> it takes (N*10) => O(N).<br>
+            <section>
+                <img style='width:60%;' src="images/time-grocery.png">
+            </section>
+
+            <section>
+                <img class='left' style='width:40%;' src="images/time-grocery.png">
+
+                <p class=''>The size of the cart grows as the number of items on the list grows.<br>
                </p>
+
+               <p>If N is the number of items on the list, then the cart array needs to be size N. 
+               </p> 
+
+               <p>The space complexity is O(N)
+               </p>
+                <img src="images/time-grocery-results.png">
             </section>
 
             <section>
-                <img src="images/big-o-graph.png">
-            </section>
-
-            <section>
-                <h3>Space Efficient Grocery Shopping</h2>
+                <h3>Space Efficient Grocery Shopping</h3>
                 <br>
-                <ol class="fragment">
-                    <li>Walk to grocery store with tote bag</li>
-                    <li>Buy one item</li>
+                <ol>
+                    <li>Walk to grocery store</li>
+                    <li>Buy first item on list</li>
                     <li>Walk home and drop off the item</li>
                     <li>Repeat until done</li>
                 </ol>
             </section>
 
             <section>
-              <h2>Grocery Shopping v2</h2>
-              <p class="red">How much space does the algorithm take?</p>
-              <p class="fragment">
-                Each item takes 10cm^3 in the tote bag
-              </p>
-              <div class="fragment">
-                <hr>
-                  <table style="margin:auto; background:white; padding: 5px;">
-                    <thead>
-                        <tr class="orange">
-                            <th>#items</th>
-                            <th>#cm^3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>4</td>
-                            <td>(10) = 10</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>(10) = 10</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td>(10) = 10</td>
-                        </tr>
-                    </tbody>
-                  </table>
-                  <hr>
-              </div>
-                <p class="fragment">If N = number of grocery items,<br> it takes (10) => O(1).<br>
-               </p>
+                <img style='width:60%;' src="images/space-grocery.png">
             </section>
 
-            <section>
-                <img src="images/big-o-graph.png">
+             <section>
+                <img class='left' style='width:40%;' src="images/space-grocery.png">
+
+                <img style='width:32%;' src="images/space-grocery-result.png">
+                <br>
+
+               <p class="fragment">If N is the number of items on the list, then the cart array needs to be size 1. 
+               </p> 
+
+               <p class="fragment">The space complexity is O(1) or constant.
+               </p>
             </section>
 
             <section>
@@ -713,18 +654,16 @@ for (var i = 0; i &lt; things.length; i++) {
                 <img class="fragment" src="images/old-apple-computer.jpg">
             </section>
 
-
-            <!-- END OF SPACE COMPLEXITY -->
-
-
-
             <!-- Algorithms from the beginning of class!-->
             <section>
-                <h1>Discuss!</h1>
+                <h2 style="color:#2a4758;">Discuss!</h2>
                 <p>What's the time requirement of your algorithm?</p>
                 <p>What's the space requirement of your algorithm?</p>
             </section>
-            <!-- END  OF GOAL OF ALGORITHMS -->
+
+
+            <!-- END OF SPACE COMPLEXITY -->
+
 
             <!-- START  OF SORTING ALGORITHMS -->
             <section>
