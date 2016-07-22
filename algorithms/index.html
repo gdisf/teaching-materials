@@ -37,7 +37,13 @@
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
+
+
 </head>
+
+<style>
+    .left { text-align: left; }
+</style>
 
 <body>
 
@@ -677,179 +683,10 @@ for (var i = 0; i &lt; things.length; i++) {
                 <img style="width:30%;" src="images/crepes-space-results.png">
             </section>
 
-
             <!-- END OF SPACE COMPLEXITY -->
 
-
-            <!-- START  OF SORTING ALGORITHMS -->
-            <section>
-                <h1>Algorithms in Programming</h1>
-            <!--  
-            Algorithms in Computer Science
-            We have many types of algorithms that we use a lot in programming for common problems like sort, search, and graph traversal. Some of them are quite similar to your “real life algorithms”. Let’s discuss some.
-            link to wikipedia algorithms
-            -->
-            </section>
-            <section>
-              <h2>Sequence Algorithms</h2>
-              <p>Many algorithms operate on lists of things</p>
-              <p>In programming, basic lists are called arrays</p>
-              <br>
-              <code class="fragment">[4, Q, 5, A, J, 10, K]</code>
-              <br>
-              <br>
-              <p class="fragment">What sort of algorithms can you do on a deck of cards?<br>
-              </p>
-              <br>
-              <p class="fragment">Sort, search, shuffle, etc.</p>
-            </section>
-            <section>
-              <h2>Sorting Algorithms</h2>
-              <br>
-              <p>Rearrange items in a sequence by some property about each item.<br>(like numerical or alphabetical order)</p><br>
-              <code class="fragment">
-              [4, Q, 5, A, J, 10, K]
-              </code>
-              <br><p class="fragment">-&gt;</p>
-              <code class="fragment">
-                [4, 5, 10, J, Q, K, A]
-              </code>
-            </section>
-            <section>
-              <h2>Bubble Sort</h2>
-              <p>A simple but not very efficient sorting algorithm.</p>
-              <img src="images/bubble-sort-zine.png">
-            
-              <p><a href="http://www.ee.ryerson.ca/~courses/coe428/sorting/bubblesort.html">An interactive example</a></p>
-            </section>
-            <section>
-              <h2>Bubble Sort: Steps</h2>
-              <br>
-              <!-- todo: wikipedia algorithm -->
-              <ol>
-                <li>Compare adjacent elements. If the first is greater than the second, swap them.</li>
-                <li>Do this for each pair of adjacent elements, starting with the first two and ending with the last two. At this point the last element should be the greatest.</li>
-                <li>Repeat the steps for all elements except the last one.</li>
-                <li>Continue for one less element each time, until there are no more pairs to compare.</li>
-              </ol>
-            </section>
-            <section>
-              <h2>Exercise: Bubble Sort Simulation</h2>
-              <br>
-              <ul>
-                <li>Line up randomly.</li>
-                <li>Sort by [something secret] using bubble sort.</li>
-              </ul>
-            </section>
-            <section>
-              <h2>Bubble Sort:</h2>
-              <h3>Pseudo-code</h3>
-              <br>
-              <pre><code>
-            For I = 0 to N - 2
-               For J = 0 to N - 2
-                 If (A(J) > A(J + 1)
-                   Temp = A(J)
-                   A(J) = A(J + 1)
-                   A(J + 1) = Temp
-                 End-If
-               End-For
-             End-For
-              </code></pre>
-            </section>
-            <!-- TODO: show turning into JavaScript? -->
-            <section>
-              <h2>Bubble Sort:</h2>
-              <h3>Time Complexity</h3><br>
-              <p>What factors determine time?</p>
-              <p class="fragment">N = number of items in sequence.</p><br>
-              <table style="margin:auto; background:white; padding: 5px; font-size:smaller;" class="fragment">
-                <thead>
-                    <tr>
-                        <th><span class="red">What is the best case?</span></th>
-                        <th><span class="orange">What is the worst case?</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="fragment">
-                            Already sorted array </br>
-                            N comparisons.</br>
-                            O(N)
-                        </td>
-                        <td class="fragment">
-                            Reverse sorted array</br>
-                            N*N comparisons.</br>
-                            O(N<sup>2</sup>)
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-              <!-- TODO: gif of rabbits and turtles -->
-            </section>
-            <section>
-                <h2>Bubble Sort:</h2>
-                <h3>Space Complexity</h3>
-                <br>
-                <p class="fragment">Only requires 1 extra temporary variable.</p>
-
-            </section>
-            <section>
-                <h2>More Sort Algorithms</h2>
-                <br>
-                <p>All differ in performance, 
-                and performance often depends on sequence characteristics.</p>
-                <br>
-                <ul>
-                    <li><a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank">Insertion sort</a></li>
-                    <li><a href="https://en.wikipedia.org/wiki/Selection_sort" target="_blank">Selection sort</a></li>
-                    <li><a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank">Merge sort</a></li>
-                    <li><a href="https://en.wikipedia.org/wiki/Bucket_sort" target="_blank">Bucket sort</a></li>
-                </ul>
-              <!-- TODO: link these -->
-                <br>
-                <br>
-                <p>
-                    <a href="http://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms" target="_blank">
-                    Wikipedia: Comparison of algorithm performance</a>,
-                    <a href="http://www.sorting-algorithms.com/">Sorting Algorithms Visualization</a>
-                </p>
-            </section>
-            <section>
-              <h2>Fun Sort Algorithms</h2>
-              <br>
-              <p class="red">(Who says programmers don't know how to let loose?)</p>
-              <br>
-              <ul>
-                <li>Pancake sort</li>
-                <li>Spaghetti sort</li>
-                <li>BogoSort </li>
-                <p class="orange">"A particularly ineffective sorting algorithm"</p>
-                <li>Quantum Bogo Sort</li>
-              </ul>
-              <!-- TODO: link these -->
-            </section>
-            <section>
-              <h2>Exercise Time!</h2>
-              <br>
-              <ul>
-                <li>With a partner, take a deck of cards and pick one of the sort algorithms.
-                <li>Sort the deck of cards according to the algorithm.
-                <li>Keep track of the number of operations you have to do.
-                <li>If you have time, try another algorithm.
-              </ul>
-            <!--
-            Exercise Time!:
-            2a) Use Blockly
-            2) If you do feel comfortable, take this exercise
-            Start with unsorted array of pictures with numbers
-            Implement a sort algorithm in JavaScript. Use new Date() to time how long it takes. Use jsperf.com to compare time across browsers. (http://jsperf.com/kyle-sorting-algorithms)
-            http://faculty.cs.niu.edu/~hutchins/csci241/sorting.htm
-            -->
-            </section>
-            <!-- END OF BUBBLE SORT -->
-
-            <section>
+            <!-- START OF SEARCHING -->
+                        <section>
                 <h2>Searching Algorithms</h2>
                 <br>
                 <p>Find an item with a particular value in a sorted sequence.</p>
@@ -959,6 +796,248 @@ for (var i = 0; i &lt; things.length; i++) {
                 <li>If you have time, repeat for different ranges (0-500, 0-1000, etc).</li>
               </ul>
             </section>
+            <!-- END OF SEARCHING -->
+
+            <!-- START  OF SORTING ALGORITHMS -->
+            <section>
+                <h2>Sorting</h2>
+                <span  class='left'>
+                <p>Why so important?</p>
+                <br>
+                <p>You do it all the time in real life </p>
+                <ul>
+                    <li>The way your clothes are organized</li>
+                    <li>Where your dishes are in the kitchen</li>
+                    <li>Your books on your bookshelf</li>
+                </ul></br></br>
+                <p>They're not in perfect order, but in a way that makes it easier for you to search for things</p>
+            </span>
+            </section>
+
+            <section>
+                <h2>Sorting</h2>
+                <span  class='left'>
+                <p>Many different sorting algorithms for many types of data</p><br>
+                <ul>
+                <li>I sort my dishes by size and shape, not alphabetically</li>
+                <li>I sort my yarn by color, not by size.</li>
+                <li>I sort my books alphabetically by author, not by color</li>
+                </ul></br></br>
+
+                <p>There are lots of different types of data computers need to sort, just like in the real world</p>
+            </span>
+            </section>
+
+            <section>
+                <img src='images/ruby-sort.png'>
+            </section>
+
+            <section>
+               <h2>Selection Sort</h2>
+
+               <ol>
+                <li>Iterate over the unsorted array, keeping track of the minimum value as you go</li><br>
+                <li>When you get to the end of the array, you know which element is the minimum</li><br>
+                <li>Swap the minimum element and the first element in the unsorted array</li><br>
+                <li>The first element is now considered sorted</li><br>
+                <li>Repeat until the rest of the array is sorted</li>
+                </ol>
+            </section>
+
+            <section>
+                <ol class='left'>
+                <li>Find minimum</li>
+                <li>Swap in front</li>
+                <li>Repeat with unsorted</li>
+                </ol>
+                <img style="border:none !important;width:95%;" src='images/cards0.png'>
+            </section>
+
+            <section>
+                <ol class='left'>
+                <li>Find minimum</li>
+                <li>Swap in front</li>
+                <li>Repeat with unsorted</li>
+                </ol>
+                <img style="border:none !important;width:95%;" src='images/cards1.png'>
+            </section>
+
+            <section>
+                <ol class='left'>
+                <li>Find minimum</li>
+                <li>Swap in front</li>
+                <li>Repeat with unsorted</li>
+                </ol>
+                <img style="border:none !important;width:95%;" src='images/cards2.png'>
+            </section>
+
+            <section>
+                <ol class='left'>
+                <li>Find minimum</li>
+                <li>Swap in front</li>
+                <li>Repeat with unsorted</li>
+                </ol>
+                <img style="border:none !important;width:95%;" src='images/cards3.png'>
+            </section>
+
+            <section>
+                <ol class='left'>
+                <li>Find minimum</li>
+                <li>Swap in front</li>
+                <li>Repeat with unsorted</li>
+                </ol>
+                <img style="border:none !important;width:95%;" src='images/cards4.png'>
+            </section>
+
+            <section>
+                <ol class='left'>
+                <li>Find minimum</li>
+                <li>Swap in front</li>
+                <li>Repeat with unsorted</li>
+                </ol>
+                <img style="border:none !important;width:95%;" src='images/cards5.png'>
+            </section>
+
+            <section>
+                <ol class='left'>
+                <li>Find minimum</li>
+                <li>Swap in front</li>
+                <li>Repeat with unsorted</li>
+                </ol><br>
+                <img style="border:none !important;width:95%;" src='images/cards6.png'>
+            </section>
+
+            <section>
+              <h3 style="color:#2a4758;">Selection Sort Simulation</h3>
+              <br>
+              <ul>
+                <li>Line up randomly.</li>
+                <li>Sort by [something secret] using selection sort.</li>
+              </ul>
+            </section>
+            
+            <section>
+              <h3>Selection Sort:</h3>
+              <h3>Time Complexity</h3><br>
+              <span class='left'>
+                  <p style="color:#2a4758;">What factors determine time?</p><br>
+
+                  <p>What is the best case?</p>
+                  <p>What is the worst case?</p><br>
+
+                  <p>They are the same! No matter what, selection sort has a time complexity of O(N^2)</p>
+            </span>
+            </section>
+
+            <section>
+                <h3>Selection Sort:</h3>
+                <h3>Space Complexity</h3>
+                <br>
+                <p class='left fragment'>Only requires 1 extra temporary variable. O(1)</p>
+            </section>
+
+            <section>
+                <h2>More Sort Algorithms</h2>
+                <br>
+                <p>All differ in performance, 
+                and performance often depends on sequence characteristics.</p>
+                <br>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank">Insertion sort</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Selection_sort" target="_blank">Selection sort</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank">Merge sort</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Bucket_sort" target="_blank">Bucket sort</a></li>
+                </ul>
+                <br>
+                <br>
+                <p>
+                    <a href="http://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms" target="_blank">
+                    Wikipedia: Comparison of algorithm performance</a>,
+                    <a href="http://www.sorting-algorithms.com/">Sorting Algorithms Visualization</a>
+                </p>
+            </section>
+
+            <section>
+              <h2 style="color:#2a4758;">Which sort is best?</h2>
+              <br>
+              <ul>
+                <li>With a partner, take a deck of cards and pick one of the sort algorithms
+                <li>Get a feel for the algorithm by sort the deck of cards according to the algorithm.
+                <li>Try to match the algorithm to its ideal dataset
+              </ul>
+            </section>
+
+            <section>
+              <ul class='right'>
+                <li>You run a calendar app. People insert events into the app one at a time and you need to sort the events</li><br>
+                <li>You work at a 100k person company and what to create a list of birthdays so everyone can celebrate each month. Year doesn't matter, just date.</li><br>
+                <li>You have a list of names that is mostly sorted, but you have to finish the sorting!</li><br>
+                <li>Two companies are merging and they each have seniority lists based on hire dates. They need to combine these lists into one sorted list.</li>
+              </ul>
+            </section>
+
+            <section>
+                <h3>Insertion Sort</h3>
+                <p style="color:#2a4758;" class="left">When is it good?</p><br>
+                <ul class="left">
+
+                    <li>Good for incremental sorting.</li></br>
+                    <li>When you need elements sorted, but you only get them a few at a time</li>
+                    <br>
+                    <li>You run a calendar app. People insert events into the app one at a time and you need to sort the events</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Bucket Sort</h3>
+                <p style="color:#2a4758;" class="left">When is it good?</p><br>
+                <ul class="left">
+                    <li>When there is a known range of values with a known distribution</li></br>
+                    <li>Birthdays</li>
+                    <li>GPAs</li>
+                    <li>You work at a 100k person company and what to create a list of birthdays so everyone can celebrate each month. Year doesn't matter, just date.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Bubble Sort</h3>
+                <p style="color:#2a4758;" class="left">When is it good?</p><br>
+                <ul class="left">
+                    <li>When you are in computer science class</li></br>
+                    <li>When the values are mostly sorted</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Merge Sort</h3>
+                <p style="color:#2a4758;" class="left">When is it good?</p><br>
+                <ul class="left">
+                    <li>When you are combining already sorted arrays</li></br>
+                    <li>Two companies are merging and they each have seniority lists based on hire dates. They need to combine these lists into one sorted list.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>What if...</h3>
+                <p style="color:#2a4758;" class="left">You have 6 stacks of mostly sorted papers. How would you sort them all together?</p><br>
+                <ol class="left">
+                    <li>Use bubble sort or selection sort to sort each pile</li></br>
+                    <li>Use merge sort to combine the sorted piles</li>
+                </ol>
+            </section>
+
+            <section>
+                <h3>Explore more!</h3>
+                <p style="color:#2a4758;" class="left">I focused on which type of data is good or bad for each sorting example, but each sorting algorithm also has its own space trade offs as well.</p><br>
+                <ul class="left">
+                    <li>Quick Sort</li>
+                    <li>Quick3 Sort</li>
+                    <li>Heap Sort</li>
+                    <li>Shell Sort</li>
+                </ul>
+            </section>
+
+            <!-- END OF SORTING -->
 
             <section>
                 <h1>Data Structures</h1>
