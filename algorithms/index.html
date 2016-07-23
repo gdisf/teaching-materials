@@ -60,15 +60,16 @@
 <pre><code>
 10:00 - 1PM     Introduction
                 Defining an algorithm
-                Time/space complexity
+                Data Structures
                 Goal of algorithms
-                Sorting
+                Time/space complexity
 
 1:00 - 2:00     Lunch
 
 2:00 - 5:00     Searching
-                Data Structures
-                Primes
+                Sorting
+                Binary Search
+                Algorithms in Real Life
                 Conclusion
 </pre></code>
             </section>
@@ -76,9 +77,24 @@
                 <h2>What we'll be covering in this class</h2>
                 <ul>
                     <li>what is an algorithm?</li>
-                    <li>intro to algorithmic complexity (how good is an algorithm)</li>
-                    <li>demonstrate sort and search algorithms (the classics)</li>
+                    <li>intro to algorithmic complexity 
+                        <br>(how good is an algorithm)</li>
+                    <li>demonstrate sort and search algorithms 
+                        <br>(the classics)</li>
                 </ul>
+            </section>
+            <section>
+                <h2>Expectations</h2> <br>
+                <ul>
+                    <li>Particpation</li>
+                    <li>Keep coming up with more solutions </li>
+                    <li>Postivity/Energy</li>
+                </ul>
+                <br><br>
+                <h4>Not expecting:</h4>
+                <ul>
+                    <li>Syntax</li>
+                    <li>Knowing all the things</li>
             </section>
 
             <section>
@@ -148,7 +164,43 @@
                 </span>
             </section>
 
+            <!-- START OF DATA STRUCTURE -->
+            
+            <section>
+                <h1>Data Structures</h1>
+                <br>
+                <p>A way to store data <br>(so that it can be used as desired)</p>
+            </section>
+
+            <section>
+                <h2>Data Structures + Algorithms</h2>
+                <br>
+                <p>A good way to approach an algorithm is to think about the data structures that you know.</p>
+                <br>
+                <p>What are their properties, and how can they be used to your advantage?</p>
+            </section>
+
+            <section>
+                <h2>Example: Arrays/List</h2>
+                <img src="images/list.png">
+            </section>
+            <section>
+                <h2>Example: Sets</h2>
+                <img src="images/sets.png">
+                <p> Like a list but: 
+                    <ul>
+                        <li> Not ordered </li>
+                        <li> Unique Items</li>
+                </p>
+            </section>
+            <section>
+                <h2>Example: Dictionaries/ Objects/ Hash Maps/ Maps</h2>
+                <img src="images/hash-table.png">
+                <p> key : value </p>
+            </section>
+
             <!-- START  OF GOAL OF ALGORITHMS -->
+
             <section>
               <h2>Goal of Algorithms</h2>
               <br>
@@ -309,18 +361,16 @@
             </section>
             <section>
               <h2>Laundry v2 Code</h2>
-              <pre><code>
-            var piles = {'shirts': [], 'socks': []}
+                <pre><code>
+                    piles = {'shirts': [], 'socks': []}
 
-            for (var i = 0; i &lt; clothing.length; i++) {
-              piles[clothing[i].type].push(clothing[i]);
-            }
+                    for clothing_item in laundry: 
+                      piles[clothing_item.type].append(clothing_item)
 
-            for (var pile in piles) {
-              for (var i = 0; i &lt; pile.length; i++) {
-                pile[i].hangUp();
-              } 
-            }</code></pre>
+                    for pile in piles:
+                        for clothing_item in pile:
+                            clothing_item.hang_up()
+                </code></pre>
             </section>
             <section>
               <h2>Laundry v2</h2>
@@ -369,22 +419,20 @@
               <p><span class="red">Addition</span>: We sort our clothes as we hang them up in the closet.</p>
 
               <pre><code>
-            var piles = {'shirts': [], 'socks': []}
+                 piles = {'shirts': [], 'socks': []}
+                 closet = {'sock_drawer': [], 'shirt_section': []}
 
-            for (var i = 0; i &lt; clothing.length; i++) {
-              piles[clothing[i].type].push(clothing[i]);
-            }
+                    for clothing_item in laundry: 
+                      piles[clothing_item.type].append(clothing_item)
+                    
+                    for pile in piles:
+                        for clothing_item in pile:
+                            section = closet[clothing_item.closet_section]
+                            for hung_clothing in section:
+                                if clothing_item.color > hung_clothing.color:
+                                    clothing_item.hang_up()
 
-            for (var type in piles) {
-              for (var i = 0; i &lt; piles[type].length; i++) {
-                var section = closetSections[type];
-                for (var j = 0; j &lt; section.length; j++) {
-                  if (pile[i].color > section[j].color) {
-                    pile[i].hangUp();
-                  }
-                }
-              } 
-            }</code></pre>
+           </code></pre>
             </section>
 
             <section>
@@ -686,7 +734,7 @@ for (var i = 0; i &lt; things.length; i++) {
             <!-- END OF SPACE COMPLEXITY -->
 
             <!-- START OF SEARCHING -->
-                        <section>
+        <section>
                 <h2>Searching Algorithms</h2>
                 <br>
                 <p>Find an item with a particular value in a sorted sequence.</p>
@@ -705,7 +753,6 @@ for (var i = 0; i &lt; things.length; i++) {
               <p>Find an item by repeatedly halving the search space.</p><br>
               <iframe width="420" height="315" src="http://www.youtube.com/embed/ube5EYFlFR0" frameborder="0" allowfullscreen></iframe>
             </section>
-
             <section>
               <h2>Binary Search: Steps</h2><br>
               <!-- todo wikipedia animation? -->
@@ -737,20 +784,20 @@ for (var i = 0; i &lt; things.length; i++) {
               <h3>Pseudocode</h3>
               <br>
               <pre style="padding:10px;"><code>
-            BinarySearch(array, value) {
+            def BinarySearch(array, value):
+                """returns bool if value is in array"""
                 low = 0
-                high = array.length - 1
-                while (low &lt;= high) {
+                high = len(array) - 1
+                while low &lt; high:
                     mid = (low + high) / 2
-                    if (A[mid] > value)
+                    if array[mid] > value:
                         high = mid - 1
-                    else if (A[mid] &lt; value)
+                    elif array[mid] &lt; value:
                         low = mid + 1
-                    else
-                        return mid
-                }
-                return not_found
-            }</code></pre>
+                    else:
+                        return True
+            </code></pre>
+            python code
             </section>
 
             <section>
@@ -769,7 +816,7 @@ for (var i = 0; i &lt; things.length; i++) {
             <section>
                 <h2>Binary Search:</h2>
                 <h3>Visualized</h3>
-                <img src="https://blog.penjee.com/wp-content/uploads/2015/11/binary-search-tree-sorted-array-animation.gif">
+                <img src="images/binary-search.jpg">
             </section>
 
             <section>
@@ -1040,37 +1087,6 @@ for (var i = 0; i &lt; things.length; i++) {
             <!-- END OF SORTING -->
 
             <section>
-                <h1>Data Structures</h1>
-                <br>
-                <p>A way to store data (so that it can be used as desired)</p>
-            </section>
-
-            <section>
-                <h2>Data Structures + Algorithms</h2>
-                <br>
-                <p>A good way to approach an algorithm is to think about the data structures that you know.</p>
-                <br>
-                <p>What are their properties, and how can they be used to your advantage?</p>
-            </section>
-
-            <section>
-                <h2>Example: Arrays</h2>
-                <img src="images/list.png">
-            </section>
-            <section>
-                <h2>Example: Sets</h2>
-                <img src="images/sets.png">
-            </section>
-            <section>
-                <h2>Example: Dictionaries/Objects</h2>
-                <img src="images/map.png">
-            </section>
-            <section>
-                <h2>Example: Binary Trees</h2>
-                <img src="images/binary_tree.png">
-            </section>
-
-            <section>
                 <h1>Try an algorithm!</h1>
             </section>
 
@@ -1108,6 +1124,13 @@ for (var i = 0; i &lt; things.length; i++) {
                     <li>Optimization: Making an algorithm take less time or space</li>
                     <li>Data Structure: A way to organize data</li>
                 </ul>
+            </section>
+
+            <section>
+                <h2>Algorithms... not as scary</h2>
+                <p> What did you learn today?
+                </p>
+                <p>What surprised you?</p>
             </section>
 
             <section>
