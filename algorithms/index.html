@@ -214,7 +214,7 @@
             <section>
               <h2>Goal of Whiteboarding Interviews</h2>
               <ul>
-                <li>Show how your thought process</li>
+                <li>Show your thought process</li>
                 <li>Solve the most obvious (to you!) solution first</li>
                 <li>Improve it</li>
               </ul><br>
@@ -648,6 +648,10 @@ for (var i = 0; i &lt; things.length; i++) {
 
            <!-- START  OF SPACE COMPLEXITY -->
             <section>
+                <h2>Space Complexity</h2>
+            </section>
+
+            <section>
                 <h3>Time Efficient Grocery Shopping</h3>
                 <br>
                 <ol>
@@ -668,12 +672,12 @@ for (var i = 0; i &lt; things.length; i++) {
                 <p class=''>The size of the cart grows as the number of items on the list grows.<br>
                </p>
 
-               <p>If N is the number of items on the list, then the cart array needs to be size N. 
+               <p class='fragment'>If N is the number of items on the list, then the cart array needs to be size N. 
                </p> 
 
-               <p>The space complexity is O(N)
+               <p class='fragment'>The space complexity is O(N)
                </p>
-                <img src="images/time-grocery-results.png">
+                <img class='fragment' src="images/time-grocery-results.png">
             </section>
 
             <section>
@@ -719,7 +723,7 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <h2 style="color:#2a4758;">Making Crepes</h2>
-                <p>Write two algorithms for making crepes, one that is time efficient and one that is space efficient. Pseudocode first then whiteboard code if you have time.</p>
+                <p>Write two algorithms for making crepes, one that is time efficient and one that is space efficient. <br><br>Pseudocode first then whiteboard code if you have time.</p>
             </section>
 
             <section>
@@ -849,30 +853,35 @@ for (var i = 0; i &lt; things.length; i++) {
             <!-- START  OF SORTING ALGORITHMS -->
             <section>
                 <h2>Sorting</h2>
-                <span  class='left'>
-                <p>Why so important?</p>
-                <br>
-                <p>You do it all the time in real life </p>
-                <ul>
-                    <li>The way your clothes are organized</li>
-                    <li>Where your dishes are in the kitchen</li>
-                    <li>Your books on your bookshelf</li>
-                </ul></br></br>
-                <p>They're not in perfect order, but in a way that makes it easier for you to search for things</p>
-            </span>
             </section>
 
             <section>
                 <h2>Sorting</h2>
                 <span  class='left'>
-                <p>Many different sorting algorithms for many types of data</p><br>
+                <p>Why so important?</p>
+                <br>
+                <p>You do it all the time in real life </p>
                 <ul>
-                <li>I sort my dishes by size and shape, not alphabetically</li>
-                <li>I sort my yarn by color, not by size.</li>
-                <li>I sort my books alphabetically by author, not by color</li>
+                    <li class='fragment'>The way your clothes are organized</li>
+                    <li class='fragment'>Where your dishes are in the kitchen</li>
+                    <li class='fragment'>Your books on your bookshelf</li>
+                </ul></br></br>
+                <p class='fragment'>They're not in perfect order, but in a way that makes it easier for you to search for things</p>
+            </span>
+            </section>
+
+            <section>
+                <h3>Sorting</h3>
+                <span  class='left'>
+                <p>Many sorting algorithms for many types of data</p><br>
+                <ul>
+                <li class='fragment'>I sort my dishes by size and shape, not alphabetically</li>
+                <li class='fragment'>I sort my books alphabetically, not by color</li>
+                <li class='fragment'>When I sort my yarn I dump them all over the ground</li>
+                <li class='fragment'>When I sort my dishes I pull them out of the diswasher one at a time</li>
                 </ul></br></br>
 
-                <p>There are lots of different types of data computers need to sort, just like in the real world</p>
+                <p class='fragment'>There are lots of different types of data computers need to sort, just like in the real world</p>
             </span>
             </section>
 
@@ -968,12 +977,10 @@ for (var i = 0; i &lt; things.length; i++) {
               <h3>Selection Sort:</h3>
               <h3>Time Complexity</h3><br>
               <span class='left'>
-                  <p style="color:#2a4758;">What factors determine time?</p><br>
-
                   <p>What is the best case?</p>
                   <p>What is the worst case?</p><br>
 
-                  <p>They are the same! No matter what, selection sort has a time complexity of O(N^2)</p>
+                  <p class='fragment'>They are the same! No matter what, selection sort has a time complexity of O(N^2)</p>
             </span>
             </section>
 
@@ -988,7 +995,7 @@ for (var i = 0; i &lt; things.length; i++) {
                 <h2>More Sort Algorithms</h2>
                 <br>
                 <p>All differ in performance, 
-                and performance often depends on sequence characteristics.</p>
+                and performance often depends on data characteristics.</p>
                 <br>
                 <ul>
                     <li><a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank">Insertion sort</a></li>
@@ -1026,7 +1033,7 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <h3>Insertion Sort</h3>
-                <p style="color:#2a4758;" class="left">When is it good?</p><br>
+                <p class="left">When is it best?</p><br>
                 <ul class="left">
 
                     <li>Good for incremental sorting.</li></br>
@@ -1038,18 +1045,18 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <h3>Bucket Sort</h3>
-                <p style="color:#2a4758;" class="left">When is it good?</p><br>
+                <p class="left">When is it best?</p><br>
                 <ul class="left">
                     <li>When there is a known range of values with a known distribution</li></br>
-                    <li>Birthdays</li>
-                    <li>GPAs</li>
+                    <li>Birthdays</li><br>
+                    <li>GPAs</li><br>
                     <li>You work at a 100k person company and what to create a list of birthdays so everyone can celebrate each month. Year doesn't matter, just date.</li>
                 </ul>
             </section>
 
             <section>
                 <h3>Bubble Sort</h3>
-                <p style="color:#2a4758;" class="left">When is it good?</p><br>
+                <p class="left">When is it best?</p><br>
                 <ul class="left">
                     <li>When you are in computer science class</li></br>
                     <li>When the values are mostly sorted</li>
@@ -1058,7 +1065,7 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <h3>Merge Sort</h3>
-                <p style="color:#2a4758;" class="left">When is it good?</p><br>
+                <p class="left">When is it best?</p><br>
                 <ul class="left">
                     <li>When you are combining already sorted arrays</li></br>
                     <li>Two companies are merging and they each have seniority lists based on hire dates. They need to combine these lists into one sorted list.</li>
@@ -1094,7 +1101,7 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <h3 class='blue'>Finding Friends</h3>
-                <p class='left'>Write a series of algorithms to suggest friends to facebook users. Remember to write an MVP algorithm first.<br>Don't feel like you have to copy what facebook does, just write an algorithm that gets the job done.</p>
+                <p class='left'>Write a series of algorithms to suggest friends to facebook users. Remember to write an MVP algorithm first.<br><br>Don't feel like you have to copy what facebook does, just write an algorithm that gets the job done.</p>
             </section>
 
             <section>
@@ -1127,11 +1134,7 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <img src='images/amazon-category-recommendation.png'>
-            </section>
-
-            <section>
-                <img src='images/amazon-category-recommendation.png'>
-                <p>If you buy something in category A, recommend EVERYTHING ELSE in category A.</p>
+                <p class='fragment'>If you buy something in category A, recommend EVERYTHING ELSE in category A.</p>
             </section>
 
             <section>
