@@ -13,13 +13,26 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     <link rel="stylesheet" href="../common/css/reveal.css">
+
+    <!-- FOR LIGHT -->
     <link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
-
-
-    <!-- For syntax highlighting -->
-    <!-- light editor-->
     <link rel="stylesheet" href="../common/lib/css/light.css">
-    <!-- dark editor<link rel="stylesheet" href="../common/lib/css/dark.css">-->
+    <style>
+        .highlight { color: #2a4758 !important; }
+    </style>
+
+
+    <!-- FOR DARK -->
+    <!-- 
+    <link rel="stylesheet" href="../common/css/theme/gdidefault.css" id="theme">
+    <link rel="stylesheet" href="../common/lib/css/dark.css">
+
+    <style>
+        table {background-color: black !important;}
+        .highlight { color: #d8ae64;}
+    </style>
+    -->
+
     <link rel="stylesheet" href="css/slides.css">
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <link rel="stylesheet" href="css/algorithms.css">
@@ -43,7 +56,6 @@
 
 <style>
     .left { text-align: left; }
-    .blue { color: #2a4758; }
 </style>
 
 <body>
@@ -221,7 +233,7 @@
             </section>
 
              <section>
-                <h3 style="color:#2a4758;">What is an algorithm you use?</h3>
+                <h3 class='highlight'>What is an algorithm you use?</h3>
                 <br>
                 <p>Write down steps for several versions of an algorithm to solve an everyday problem</p>
                 <br>
@@ -715,14 +727,14 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <!-- Algorithms from the beginning of class!-->
             <section>
-                <h2 style="color:#2a4758;">Discuss!</h2>
+                <h2 class='highlight'>Discuss!</h2>
                 <p>What's the time requirement of your algorithm?</p>
                 <p>What's the space requirement of your algorithm?</p>
             </section>
 
 
             <section>
-                <h2 style="color:#2a4758;">Making Crepes</h2>
+                <h2 class='highlight'>Making Crepes</h2>
                 <p>Write two algorithms for making crepes, one that is time efficient and one that is space efficient. <br><br>Pseudocode first then whiteboard code if you have time.</p>
             </section>
 
@@ -965,7 +977,7 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
             <section>
-              <h3 style="color:#2a4758;">Selection Sort Simulation</h3>
+              <h3 class='highlight'> Selection Sort Simulation</h3>
               <br>
               <ul>
                 <li>Line up randomly.</li>
@@ -1013,7 +1025,7 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
             <section>
-              <h2 style="color:#2a4758;">Which sort is best?</h2>
+              <h2 class='highlight'> Which sort is best?</h2>
               <br>
               <ul>
                 <li>With a partner, take a deck of cards and pick one of the sort algorithms
@@ -1074,7 +1086,7 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <h3>What if...</h3>
-                <p style="color:#2a4758;" class="left">You have 6 stacks of mostly sorted papers. How would you sort them all together?</p><br>
+                <p class='highlight' class="left">You have 6 stacks of mostly sorted papers. How would you sort them all together?</p><br>
                 <ol class="left">
                     <li>Use bubble sort or selection sort to sort each pile</li></br>
                     <li>Use merge sort to combine the sorted piles</li>
@@ -1083,7 +1095,7 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <h3>Explore more!</h3>
-                <p style="color:#2a4758;" class="left">I focused on which type of data is good or bad for each sorting example, but each sorting algorithm also has its own space trade offs as well.</p><br>
+                <p class='highlight' class="left">I focused on which type of data is good or bad for each sorting example, but each sorting algorithm also has its own space trade offs as well.</p><br>
                 <ul class="left">
                     <li>Quick Sort</li>
                     <li>Quick3 Sort</li>
@@ -1100,7 +1112,7 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
             <section>
-                <h3 class='blue'>Finding Friends</h3>
+                <h3 class='highlight'>Finding Friends</h3>
                 <p class='left'>Write a series of algorithms to suggest friends to facebook users. Remember to write an MVP algorithm first.<br><br>Don't feel like you have to copy what facebook does, just write an algorithm that gets the job done.</p>
             </section>
 
