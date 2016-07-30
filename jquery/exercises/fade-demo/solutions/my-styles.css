@@ -1,0 +1,22 @@
+#cc-input {
+    margin: 20px 0; 
+    height: 30px; 
+    font-size: 24px;
+}
+
+#cc-input-counter {
+    height: 20px; 
+    font-size: 14px;
+}
+
+.hide {
+	display:none;
+	padding-top: 60px;
+	text-align: center;
+}
+
+.hide>p {
+	font-size: 40px;
+	line-height: 1.5;
+	padding-bottom: 70px;
+}

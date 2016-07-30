@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Credit Card Validator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript" src="./cc-validation-solution.js"></script>
+    <link href="./bootstrap.css" rel="stylesheet">
+    <link href="./my-styles.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery.js"></script>
+  </head>
+ <body>
+<div class="container">
+<h2>Credit Card Validator</h2>
+  <div class="to-process">
+    <button class="btn btn-info digit-input">1</button>
+    <button class="btn btn-info digit-input">2</button>
+    <button class="btn btn-info digit-input">3</button>
+    <button class="btn btn-info digit-input">4</button>
+    <button class="btn btn-info digit-input">5</button>
+    <button class="btn btn-info digit-input">a</button>
+    <button class="btn btn-info digit-input">b</button>
+    <button class="btn btn-info digit-input">c</button>
+    <button class="btn btn-info digit-input">d</button>
+    <button class="btn btn-info digit-input">e</button>
+    <div id="cc-input"></div>
+    <div id="cc-input-counter"></div>
+    <button id="validator" class="btn btn-primary">Validate Credit Card</button>
+  </div>
+  <div class="hide"> 
+    <p>Thank you</p>
+    <button class="btn btn-info">Continue Shopping</button>
+    <button class="btn btn-info">Check Out</button>
+  </div>
+
+  <script>
+  $(document).ready(function(){
+    $(".digit-input").on("click", function() {
+        var $clickedDigit = $(this).html();
+        var $ccNumber = $('#cc-input').html();
+        $ccNumber += $clickedDigit;
+        $("#cc-input").html($ccNumber);
+        $("#cc-input-counter").html('Character Count: ' + $ccNumber.length);
+    });
+    $("#validator").on("click", function(){
+      var $ccNumber = $('#cc-input').html();
+      if (validateCreditCard($ccNumber)) {
+        alert('Credit card number is valid.');
+        $('.to-process').fadeOut();
+        $('#cc-input-counter').fadeOut();
+        $('.hide').fadeIn();
+        } else {
+        alert('Credit card number is not valid.');
+      }
+      $('#cc-input').html('');
+    });
+  });
+  </script>
+  </body>
+</html>
