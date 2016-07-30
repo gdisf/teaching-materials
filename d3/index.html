@@ -57,7 +57,7 @@
 				<!-- TODO -->
 				<section>
 					<h2>What d3 is not?</h2>
-					<p>						
+					<p>
 						Not a prototyping tool.
 					</p>
 					<br>
@@ -70,7 +70,7 @@
 					<section>
 						<h2><a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank">SVG</a></h2>
 						<ul>
-							SVG is another HTML element, except you can't put another HTML element inside an SVG. 
+							SVG is another HTML element, except you can't put another HTML element inside an SVG.
 						</ul>
 
 						<p>
@@ -110,10 +110,10 @@ fill='#25B0B0'>
 					<section>
 						<h3><a href="http://jsfiddle.net/yonet3d/arq8r1ar/3/" target="_blank">Line</a></h3>
 						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-<line 
+<line
 	x1="10"
-	y1="10" 
-	x2="100" 
+	y1="10"
+	x2="100"
 	y2="100"
 	stroke="blue"
 	stroke-width="100">
@@ -134,7 +134,7 @@ L100,150'
 fill=none
 stroke='#25B0B0'>
 </path>
-										
+
 						</code></pre>
 						<ul>
 							<li>M - move.</li>
@@ -164,7 +164,7 @@ stroke='#25B0B0'>
 	<circle cx=100 cy=10 r=30 fill='#25B0B0'>
 	</circle>
 </g>
-										
+
 						</code></pre>
 					</section>
 					<section>
@@ -196,7 +196,7 @@ stroke='#25B0B0'>
 						<h2>Central Principle</h2>
 						<p>
 							Code samples here?
-						</p> 
+						</p>
 						<aside class="notes">The central principle of D3 design is to enable the programmer to first use a CSS-style selector to select a given set of Document Object Model (DOM) nodes, then use operators to manipulate them in a similar manner to jQuery.</aside>
 
 					</section> -->
@@ -215,7 +215,7 @@ stroke='#25B0B0'>
 					<p>
 						Selectors in D3 are declared the same way as CSS rules. An important difference is that a D3 selector object only contains the elements that matched the selection rule when the selection was first created.
 					</p>
-					
+
 					<aside class="notes">
 						The selection can be based on tag (as in the below example), class, identifier, attribute, or place in the hierarchy. Once elements are selected, one can apply operations to them. This includes getting and setting attributes, display texts, and styles. Elements may also be added and removed. This process of modifying, creating and removing HTML elements can be made dependent on data, which is the basic concept of D3.js.
 					</aside>
@@ -253,7 +253,7 @@ var bars = d3.select('svg').selectAll('rect').data(someData);
 //if we have more data, add new rectangles for those data items
 bars.enter().append('rect')
 
-//if we have less data points, remove the rectangles that no longer have a data pairing. 
+//if we have less data points, remove the rectangles that no longer have a data pairing.
 bars.exit().remove();
 					</code></pre>
 				</section>
@@ -312,7 +312,7 @@ d3.selectAll("p").style("color", function() {
 	return "hsl(" + Math.random() * 360 + ",100%,50%)";
 });
 					</code></pre>
-					
+
 				</section> -->
 				<section>
 					<h2>Transition</h2>
@@ -334,13 +334,13 @@ d3.selectAll("circle")
 				<section>
 					<p>In case you get stuck...<a href="http://jsfiddle.net/yonet3d/w319gwyw/"> Solution for Exercise 1</a></p>
 				</section>
-					
+
 				<!-- 3 -->
 
 
 
 
-				
+
 <!-- 		<section>
 					<h2>Data</h2>
 				</section> -->
@@ -355,7 +355,7 @@ var bars = d3.select('svg').selectAll('rect');
 bars.enter().append('rect')
 	.attr('class', 'bar');
 
-//if we have less data points, remove the rectangles that no longer have a data pairing. 
+//if we have less data points, remove the rectangles that no longer have a data pairing.
 bars.exit().remove();
 
 					</code></pre>
@@ -372,9 +372,9 @@ d3.select("body").selectAll("p")
 	.enter().append("p")
 		.text(function(d) { return "I’m number " + d + "!"; });
 					</code></pre>
-					
+
 				</section> -->
-				
+
 				<section>
 					<h2>More Advanced D3</h2>
 					<p>Scales and Domains</p>
@@ -393,7 +393,7 @@ d3.select("body").selectAll("p")
 						<li>range - get or set the scale's output range.</li>
 					</ul>
 
-				
+
 				</section>
 				<section>
 					<h2>Quantitative Scale</h2>
@@ -417,7 +417,7 @@ d3.select(".chart")
 
 					<!-- <img src="images/quantitative-scale.png"> -->
 				</section>
-					
+
 				<section>
 					<h2>Ordinal Scale</h2>
 					<p>Ordinal Scale have a discrete domain, such as a set of names or categories.</p>
@@ -469,7 +469,7 @@ var xAxis = d3.svg.axis()
 d3.time.format("%Y-%m-%d");
 							</code></pre>
 							<a href="http://jsfiddle.net/yonet3d/pfL3w9v6/2/">JSFiddle</a>
-						
+
 					</section>
 					<section>
 						<p>d3.time.scale - constructs a linear time scale.</p>
@@ -503,7 +503,7 @@ var xScale = d3.time.scale()
 						<li class="fragment">d3.merge - merges multiple arrays into one array.</li>
 						<li class="fragment">d3.nest - groups array elements hierarchically.</li>
 					</ul>
-					
+
 				</section>
 				<section>
 					<h2>Loading External Resources</h2>
@@ -513,7 +513,7 @@ var xScale = d3.time.scale()
 						<li class="fragment">d3.tsv</li>
 					</ul>
 					<aside class="notes">Don't forget to put the functions inside the async function.</aside>
-					
+
 				</section>
 
 				<section>
@@ -549,7 +549,7 @@ var xScale = d3.time.scale()
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="../common/js/reveal.min.js"></script>
 
 		<script>
 
