@@ -121,16 +121,16 @@
           <h2>CSS Media Queries</h2>
           <p>A media query consists of a media type and an optional combination of media features. CSS rules inside the query will be applied
             only if the query is true.</p>
-            <pre>
-              @media &lt;media types&gt; and &lt;media features&gt; {
-              /* media-specific rules */
-            }
-          </pre>
+          <pre><code>
+@media &lt;media types&gt; and &lt;media features&gt; {
+  /* media-specific rules */
+}
+          </code></pre>
           <p>They can also be specified for a linked stylesheet:</p>
-          <pre>
-            &lt;link rel="stylesheet" media="&lt;media types&gt;
-            and &lt;media features&gt;" href="alternative.css" /&gt;
-          </pre>
+          <pre><code>
+&lt;link rel="stylesheet" media="&lt;media types&gt; and &lt;media features&gt;"
+      href="alternative.css" /&gt;
+          </code></pre>
           <p class="notes">
             https://developer.mozilla.org/en/CSS/@media#Media_groups
             https://developer.mozilla.org/en/CSS/Media_queries
@@ -140,20 +140,20 @@
         <section>
           <h2>Print Styles</h2>
           <p>All modern browsers support the "print" media type for specifying print styles.</p>
-          <pre>
-            @media print {
-              body {
-                background: white;
-              }
-              #header, #footer {
-                display: none;
-              }
-              .section {
-                page-break-inside: avoid;
-                page-break-after: always;
-              }
-            }
-          </pre>
+          <pre><code>
+@media print {
+  body {
+    background: white;
+  }
+  #header, #footer {
+    display: none;
+  }
+  .section {
+    page-break-inside: avoid;
+    page-break-after: always;
+  }
+}
+          </code></pre>
           <p class="notes">
             http://reference.sitepoint.com/css/pagedmedia
           </p>
@@ -165,15 +165,14 @@
           <p>Modern mobile browsers support media queries which depend on the <code>device-width</code> and/or
           <code>orientation</code>:</p>
           <p>Targeting iPads:</p>
-          <pre>
-          @media only screen
-            and (min-device-width : 768px)
-            and (max-device-width : 1024px) {
-            img {
-              width: 100%;
-            }
-          }
-          </pre>
+          <pre><code>
+@media only screen and (min-device-width : 768px)
+                   and (max-device-width : 1024px) {
+                     img {
+                       width: 100%;
+                     }
+                   }
+          </code></pre>
           <p>Read more: <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media Queries for Standard Devices</a></p>
         </section>
 
@@ -182,21 +181,20 @@
           <p>A more general approach is just to query on <code>min-width</code> and <code>max-width</code>,
           which are calculated based on window size, not device size.
           </p>
-          <pre>
-          @media screen and (max-width: 640px) {
-            #sidebar {
-              display: none;
-            }
-          }
-          </pre>
-          <pre>
-          @media (min-width: 768px) and (max-width: 979px) {
-            #sidebar {
-              width: 200px;
-            }
-          }
-          </pre>
-
+          <pre><code>
+@media screen and (max-width: 640px) {
+  #sidebar {
+    display: none;
+  }
+}
+          </code></pre>
+          <pre><code>
+@media (min-width: 768px) and (max-width: 979px) {
+  #sidebar {
+    width: 200px;
+  }
+}
+          </code></pre>
           <p class="notes">
             http://css-tricks.com/css-media-queries/
             http://css-tricks.com/resolution-specific-stylesheets/
@@ -206,16 +204,16 @@
         <section>
           <h2>Pixel Density Queries</h2>
           <p>The experimental <code>device-pixel-ratio</code> feature can be used to detect pixel density:</p>
-          <pre>
-          @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-                 only screen and (-o-min-device-pixel-ratio: 3/2),
-                 only screen and (min--moz-device-pixel-ratio: 1.5),
-                 only screen and (min-device-pixel-ratio: 1.5) {
-                   #logo {
-                     background-image:url(images/icon@2x.png);
-                   }
-                 }
-          </pre>
+          <pre><code>
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+         #logo {
+           background-image:url(images/icon@2x.png);
+         }
+       }
+          </code></pre>
           <p class="notes">
             https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
           </p>
@@ -275,15 +273,15 @@
           <h2>CSS Grids</h2>
           <p>Example: Foundation grid with mixed classes</p>
           <p>Using <a href="http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html">Foundation CSS Grids</a>:</p>
-          <pre>
-            &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
-            href=&quot;https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.0.6/css/foundation.css&quot;&gt;
-            &lt;div class=&quot;row&quot;&gt;
-              &lt;div class=&quot;small-2 large-4 columns&quot;&gt; ... &lt;/div&gt;
-              &lt;div class=&quot;small-4 large-4 columns&quot;&gt; ... &lt;/div&gt;
-              &lt;div class=&quot;small-6 large-4 columns&quot;&gt; ... &lt;/div&gt;
-            &lt;/div&gt;
-          </pre>
+          <pre><code>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
+href=&quot;https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.0.6/css/foundation.css&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;small-2 large-4 columns&quot;&gt; ... &lt;/div&gt;
+  &lt;div class=&quot;small-4 large-4 columns&quot;&gt; ... &lt;/div&gt;
+  &lt;div class=&quot;small-6 large-4 columns&quot;&gt; ... &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
           <p><img src="img/foundation-example.png" width="100%"></p>
           <p>Also see: <a href="http://960.gs/">960 Grids</a>, <a href="http://1kbgrid.com/">1KB Grid</a></p>
         </section>
@@ -306,29 +304,25 @@
         <section>
           <h2>CSS Frameworks</h2>
           <p>With <a href="http://v4-alpha.getbootstrap.com/">Twitter Bootstrap</a>:</p>
-          <pre>
-            &lt;link href=&quot;https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css&quot;
-                     rel=&quot;stylesheet&quot; integrity=&quot;sha384-XXXXXXXX&quot;
-                     crossorigin=&quot;anonymous&quot;&gt;
-            &lt;div class=&quot;container-fluid&quot;&gt;
-              &lt;div class=&quot;row&quot;&gt;
-                &lt;div class=&quot;col-xs-12 col-sm-6 col-md-8&quot;&gt;First Column&lt;/div&gt;
-                &lt;div class=&quot;col-xs-6 col-md-4&quot;&gt;Second Column&lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          </pre>
-
+          <pre><code>
+&lt;link href=&quot;https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css&quot;
+         rel=&quot;stylesheet&quot; integrity=&quot;sha384-XXXXXXXX&quot;
+         crossorigin=&quot;anonymous&quot;&gt;
+&lt;div class=&quot;container-fluid&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-xs-12 col-sm-6 col-md-8&quot;&gt;First Column&lt;/div&gt;
+    &lt;div class=&quot;col-xs-6 col-md-4&quot;&gt;Second Column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
           <img src="img/bootstrap_example_grid.png" style="width: 60%"/>
-
           <p>Also see: <a href="http://purecss.io">Pure CSS</a>, <a href="http://topcoat.io">Topcoat</a>
           </p>
         </section>
 
-
         <section>
           <h2><a href="exercises/exercise_bootstrap_descrip.html">Exercise Time!</a></h2>
         </section>
-
 
         <section>
           <h2>Extras</h2>
@@ -352,7 +346,6 @@
             <li>Icon fonts (<a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome</a>)</li>
           </ul>
         </section>
-
       </div>
 
       <footer>
