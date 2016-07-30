@@ -4,32 +4,10 @@
 	<head>
 		<title>More jQuery</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="../common/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="../common/presentation.css" />
-		<link rel="stylesheet" type="text/css" href="../common/prettify.css" />
+		<link rel="stylesheet" href="../common/css/reveal.css">
+		<link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
 		<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
 		<script src="../common/js/jquery.js" type="text/javascript"></script>
-		<script src="../common/js/fathom.js"></script>
-    <script src="../common/js/prettify.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('pre').addClass('prettyprint').attr('tabIndex', 0);
-				prettyPrint();
-
-				var fathom = $('#presentation').fathom({
-					onActivateSlide: function() {
-						var $slide = $(this);
-						$slide.find('pre:first').focus();
-					}
-				});
-
-				$('body').keypress(function(event){
-					if (event.which === 110) {
-						$('.speaker-notes').toggle();
-					}
-				});
-			});
-		</script>
 		<style>
 .grey-cell {
 	background: #eee;
@@ -44,26 +22,24 @@
 		</style>
 	</head>
 	<body>
-		<div id="presentation">
-			<div id="presentation-counter"></div>
+    <div class="reveal">
+			<div class="slides">
 
-			<div id="slides">
-
-				<div class="slide normal">
+				<section>
 					<h1 class="center">More jQuery</h1>
-					<section class="content">
+					<div class="content">
 						<p align="center">
 						Slides: <a href="http://www.teaching-materials.org/jquery2/">http://www.teaching-materials.org/jquery2/</a>
 						</p>
-					</section>
-			  	</div><!--/jquery title slide-->
+					</div>
+        </section><!--/jquery title slide-->
 
 
 
 
-				<div class="slide normal">
-					<header><h1>Events</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>Events</h2></header>
+					<div class="content">
 						<br>
 <pre>var onButtonClick = function() {
   console.log('clicked!');
@@ -95,21 +71,20 @@ $('button').click(onButtonClick)</pre>
 						</p>
 
 						<p>Follow along: <a href="http://jsbin.com/dosewola/7/edit">http://jsbin.com/dosewola/7/edit</a></p>
-					</section>
-				</div><!--/events1-->
+					</div>
+				</section><!--/events1-->
 
 
-				<div class="slide normal">
-					<header><h1>Remember: Callbacks</h1></header>
-					<section>
+				<section>
+					<header><h2>Remember: Callbacks</h2></header>
 						<img src="img/ryan-gosling-callback.jpg" style="width:100%;"/>
-					</section>
-				</div><!--/hey girl meme-->
+
+				</section><!--/hey girl meme-->
 
 
-				<div class="slide normal">
-					<header><h1>Events</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>Events</h2></header>
+					<p>
 						<br>
 						<p>Arguments get applied in callbacks<p>
 <pre>var myCallback = function(event) {
@@ -128,15 +103,15 @@ $('p').on('mouseenter', myCallback);</pre>
 	console.log('Not submitting, time to validate!');
 });</pre>
 
-					</section>
-				</div><!--/events2-->
+					</p>
+				</section><!--/events2-->
 
 
 
 
-				<div class="slide normal">
-					<header><h1>Effects &amp; Animation</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>Effects &amp; Animation</h2></header>
+					<p>
 						<br>
 <pre>$('#error').toggle(1000);
 
@@ -146,62 +121,55 @@ $('#error').show(1000, function(){
 	$(this).addClass('redText')
 });</pre>
 
-					</section>
-				</div><!--/effects and animation-->
+					<p>
+				</section><!--/effects and animation-->
 
 
 
 
 
-				<div class="slide normal">
-					<header><h1 class="center"><a href="exercises/exercise_events.html">Exercise Time!</a></h1></header>
-					<section class="content"></section>
-				</div><!--/exercise3-->
+				<section>
+					<header><h2><a href="exercises/exercise_events.html">Exercise Time!</a></h2></header>
+					<p> </p>
+				</section><!--/exercise3-->
 
-				<div class="slide normal">
-					<header><h1>jQuery Plugins</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>jQuery Plugins</h2></header>
+					<p>
 						<br>
-<pre>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</pre>
-						<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h1>
+<cite>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</cite>
+						<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h3>
 						<br><br>
 						<p><a href="http://blog.pamelafox.org/2013/07/which-javascript-library-should-i-pick.html">Which plugin should you pick?</a></p>
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery plugins-->
+					</p>
+				</section><!--/jquery plugins-->
 
-				<div class="slide normal">
-					<header><h1>jQuery Plugin Usage</h1></header>
-					<section class="content">
+				<section>
+					<h2>jQuery Plugin Usage</h2>
 						<ul>
 							<li>Download the plugin and associated files from the site or github repo.</li>
 							<li>Copy them into your project folder.</li>
 							<li>In the HTML, reference any associated CSS files.</li>
-						</ul>
 <pre>&lt;link rel="type/stylesheet" type="text/css" href="tablesorter.css"&gt;</pre>
-						<ul>
 							<li>In the HTML, add a &lt;script&gt; tag for the jQuery plugin itself.</li>
-						</ul>
 <pre>&lt;script src="lib/tablesorter.js"&gt;&lt;script&gt;</pre>
-						<ul>
 							<li>In the JavaScript, call the jQuery plugin on your DOM.</li>
-						</ul>
 <pre>$('table').tableSorter();</pre>
 
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery plugin usage-->
+				</section><!--/jquery plugin usage-->
 
 
-				<div class="slide normal">
-					<header><h1 class="center"><a href="exercises/exercise_plugin.html">Exercise Time!</a></h1></header>
-					<section class="content"></section>
-				</div><!--/exercise3-->
+				<section>
+					<header><h2><a href="exercises/exercise_plugin.html">Exercise Time!</a></h2></header>
+            <p></p>
+        </section><!--/exercise3-->
 
 
-				<div class="slide normal">
-					<header><h1>jQuery Patterns and Anti-Patterns</h1></header>
-					<section>
+				<section>
+					<header><h2>jQuery Patterns and Anti-Patterns</h2></header>
+					<p>
 						<br>
 						<p><strong>Pattern: </strong>name variables with $
 <pre>var $myVar = $('#myNode');</pre>
@@ -211,15 +179,15 @@ $('#error').show(1000, function(){
 						<pre>$(document).on('click', 'a', myCallback);</pre>
 						</p>
 
-					</section>
-				</div><!--/jquery patterns and anti-patterns-->
+					</p>
+				</section><!--/jquery patterns and anti-patterns-->
 
 
 
 
-				<div class="slide normal">
-					<header><h1>Storing References</h1></header>
-					<section>
+				<section>
+					<header><h2>Storing References</h2></header>
+					<p>
 						<p><strong>Pattern: </strong>store references to callback functions
 <pre>var myCallback = function(argument) {
   // do something cool
@@ -234,15 +202,15 @@ $(document).on('click', 'p', function(argument) {
   // do something anonymous
 });
 </pre>
-					</section>
-				</div><!--/storing references-->
+					</p>
+				</section><!--/storing references-->
 
 
 
 
-				<div class="slide normal">
-					<header><h1>Chaining</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>Chaining</h2></header>
+					<p>
 						<br>
 <pre>banner.css('color', 'red');
 banner.html('Welcome!');
@@ -257,13 +225,13 @@ banner.show();</pre>
        .html('Welcome!')
        .show();</pre>
 
-					</section>
-				</div><!--/chaining-->
+					</p>
+				</section><!--/chaining-->
 
 
-				<div class="slide normal">
-					<header><h1>DOM Readiness</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>DOM Readiness</h2></header>
+					<p>
 
 					<p><strong>Broken code: </strong>DOM manipulation and event binding in the <code>&lt;head&gt;</code>
 
@@ -290,31 +258,59 @@ banner.show();</pre>
 						</p>
 
 
-					</section>
-				</div><!--/DOM readiness-->
+					</p>
+				</section><!--/DOM readiness-->
 
 
-				<div class="slide normal">
-					<header><h1>jQuery</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>jQuery</h2></header>
+					<p>
 						<br>
-						<h3 style="text-align:center">...is great.
+						<h4 style="text-align:center">...is great.
 						<br><br>
-						But do not become a jQuery-dependant!</h3>
-					</section>
-				</div><!--don't become a jquery dept-->
+						But do not become a jQuery-dependant!</h4>
+					</p>
+				</section><!--don't become a jquery dept-->
 
-				<div class="slide normal">
-					<header><h1>jQuery</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>jQuery</h2></header>
+					<p>
 						<br>
 						<h3 style="text-align:center">
 							<a href="http://docs.jquery.com">docs.jquery.com</a>
 						</h3>
-					</section>
-				</div><!--docs.jquery.com-->
+					</p>
+				</section><!--docs.jquery.com-->
 
 			</div><!--/slides-->
 		</div><!--/presentation-->
+
+    <script src="../common/lib/js/head.min.js"></script>
+    <script src="../common/js/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
 	</body>
 </html>
