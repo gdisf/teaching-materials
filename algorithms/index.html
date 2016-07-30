@@ -56,6 +56,25 @@
 
 <style>
     .left { text-align: left; }
+
+    #info {
+      font-size: small;
+      position: absolute;
+      bottom: 0px;
+      left: 30%;
+      z-index: 500;
+    }
+
+    .key {
+		    color: black;
+				display: inline-block;
+				padding: 3px 3px 3px 3px;
+				text-shadow: none;
+				letter-spacing: 0;
+				position: relative;
+				background: white;
+		}
+
 </style>
 
 <body>
@@ -67,6 +86,12 @@
             <!-- Opening -->
             <section>
                 <h1>Intro to Algorithms</h1>
+
+								<div id="info">
+										<p>Press <span class="key">&rarr;</span> key to advance.                                                                                                         
+										Zoom in/out: <span class="key">Ctrl or Command</span> + <span class="key">+/-</span>.
+										</p>
+					      </div>
             </section>
             <section>
                 <h3>Schedule</h3>
