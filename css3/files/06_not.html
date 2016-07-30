@@ -1,0 +1,45 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+head, style {display: block;}
+[contenteditable] {-webkit-user-modify: read-write-plaintext-only;}
+style:first-of-type {visibility:hidden;}
+style:last-of-type {padding: 20px; font-size: 1.5em; white-space: pre; font-family: monospace; white-space:pre; border-radius: 10px; border: 3px solid #aaa; background-color:#dedede; margin: 20px auto; width: 80%; font-family:"Courier New", Courier, monospace;}
+:root {background-color:#ccc; 
+  background-image:url(../css/page-bg.jpg);}
+ol {font-family:Verdana, Geneva, sans-serif; font-size:1.2em}
+li {color: black;}
+li li {color: green;}
+</style>
+
+<style contenteditable>li:not(:first-child) {color: #900; font-weight:bold;}
+</style>
+<title>CSS Selector Test</title>
+</head>
+
+<body><ol>
+<li class="myClass" title="unicorns eat rainbows">First List Item - &lt;li class=&quot;myClass&quot; title=&quot;unicorns eat rainbows&quot;&gt;</li>
+<li>Second List Item has a <span>span</span> - &lt;li&gt;Second List Item has a &lt;span&gt;span&lt;/span&gt;&lt;/li&gt;</li>
+<li class="myClass">Third List Item - &lt;li class=&quot;myClass&quot;&gt;</li>
+<li>Fourth List Item</li>
+<li>Fifth List Item
+	<ul>
+    	<li>Child 1 external  <a href="http://site.com/file.pdf" title="external pdf file">pdf</a> - &lt;a href=&quot;http://site.com/file.pdf&quot; title=&quot;external pdf file&quot;&gt;</li>
+    	<li>Child 2</li>
+    	<li>Child 3</li>
+    </ul>
+</li>
+<li>Sixth  List Item</li>
+<li id="myID">Seventh List Item - &lt;li id=&quot;myID&quot;&gt;</li>
+<li>Eighth List Item</li>
+<li class="myClass">Ninth List Item - &lt;li class=&quot;myClass&quot;&gt;</li>
+<li>Tenth List Item with an external <a href="http://standardista.com">Link</a> - &lt;a href=&quot;http://standardista.com&quot;&gt;Link&lt;/a&gt;</li>
+<li>Eleventh List Item with a <a href="local.pdf" title="a local pdf file">PDF</a> - &lt;a href=&quot;local.pdf&quot;  title=&quot;a local pdf file&quot;&gt;PDF&lt;/a&gt;</li>
+<li>Twelvth List Item</li>
+<li title="unicorn ate a rainbow">Thirteenth List Item -  &lt;li title=&quot;unicorn ate a rainbow&quot;&gt;</li>
+</ol>
+</body>
+</html>
+
