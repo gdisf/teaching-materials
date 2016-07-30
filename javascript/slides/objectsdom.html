@@ -14,7 +14,7 @@
 $(document).ready(function(){
     $('pre').addClass('prettyprint').attr('tabIndex', 0);
     prettyPrint();
-    
+
     var fathom = $('#presentation').fathom({
         onActivateSlide: function() {
             var $slide = $(this);
@@ -27,25 +27,25 @@ $(document).ready(function(){
 <body>
 
 <div id="presentation">
-  
+
    <div id="presentation-counter"></div>
-      
+
    <div id="slides">
-    <div class="slide normal"> 
+    <div class="slide normal">
      <h1 class="center">JS Objects</h1>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Objects</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Objects</h1></header>
+     <section class="content">
      <p>Objects are a data type that let us store a collection of properties and methods.</p>
 
 <pre style="border:3px dotted black;" class="prettyprint">
-var objectName = { 
+var objectName = {
   propertyName: propertyValue,
   propertyName: propertyValue,
   ...
@@ -56,7 +56,7 @@ var objectName = {
 var aboutMe = {
   hometown: "Pasadena, CA",
   hair: "brown"
-}; 
+};
 </pre>
 
 <pre class="prettyprint">
@@ -77,21 +77,21 @@ Just like objects in the real world, Javascript objects have attributes - called
 </pre>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Objects Access</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Objects Access</h1></header>
+     <section class="content">
      <p>Access properties using "dot notation":</p>
 
 <pre class="prettyprint">
 var aboutMe = {
   hometown: "Pasadena, CA",
   hair: "brown"
-}; 
+};
 
 var myHometown = aboutMe.hometown;
 </pre>
@@ -104,26 +104,31 @@ var myHair = aboutMe["hair"];
 <pre class="prettyprint">
 var myGender = aboutMe["gender"];
 </pre>
+<p>Properties can also be accessed with variable keys</p>
+<pre class="prettyprint">
+var myProperty = "hair";
+var myHair = aboutMe[myProperty];
+</pre>
 
 
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Changing Objects</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Changing Objects</h1></header>
+     <section class="content">
      <p>Use dot or bracket notation with the assignment operator to change objects.</p>
 <p>Change existing properties:</p>
 <pre class="prettyprint">
 var aboutMe = {
   hometown: "Pasadena, CA",
   hair: "brown"
-}; 
+};
 aboutMe.hair = "blue";
 </pre>
 <p>Or add new properties:</p>
@@ -136,19 +141,19 @@ delete aboutMe.gender;
 </pre>
      </section>
     </div>
-    
+
 <!--OBJ2 Following this slide, there should be 1 - 3 exercises that allow students to practice acessed and changes values using dot notion. Move note on bracket notion to join material on Object.keys() -->
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Arrays of Objects</h1></header> 
-     <section class="content"> 
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Arrays of Objects</h1></header>
+     <section class="content">
      <p>Since arrays can hold any data type, they can also hold objects:</p>
 <pre class="prettyprint">
 var myCats = [
-  {name: "Lizzie", 
+  {name: "Lizzie",
    age: 18},
   {name: "Daemon",
    age: 1}
@@ -161,14 +166,14 @@ for (var i = 0; i < myCats.length; i++) {
 </pre>
      </section>
     </div>
-    
+
 <!-- OBJ3 practice accessing nested values    -->
 <!-- OBJ4 Add in for(var key in obj) ?????????? -->
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Objects as Arguments</h1></header> 
-     <section class="content"> 
+
+
+    <div class="slide normal">
+     <header><h1>Objects as Arguments</h1></header>
+     <section class="content">
      <p>Just like other data types, objects can be passed into functions:</p>
 
 <pre class="prettyprint">
@@ -187,17 +192,17 @@ describeCat(lizzieTheCat);
 </pre>
      </section>
     </div>
-    
-   
-    <div class="slide normal"> 
+
+
+    <div class="slide normal">
      <h1 class="center"><a target="_blank" href="../exercises/objects.html">Exercise Time!</a></h1>
     </div>
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Object methods</h1></header> 
-     <section class="content"> 
+
+
+
+    <div class="slide normal">
+     <header><h1>Object methods</h1></header>
+     <section class="content">
      <p>Object properties can also be functions. Object functions are called "methods".</p>
 
 <pre class="prettyprint">
@@ -208,7 +213,7 @@ var lizzieTheCat = {
     console.log('meowww');
   },
   eat: function(food) {
-    console.log('Yum, I love ' + food);  
+    console.log('Yum, I love ' + food);
   },
   sleep: function(numMinutes) {
     for (var i = 0; i < numMinutes; i++) {
@@ -225,14 +230,14 @@ lizzieTheCat.sleep(10);
 </pre>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Object pro tip</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Object pro tip</h1></header>
+     <section class="content">
      <p><code>Object.keys()</code> lists all the property names of an object in an array.</p>
 
 <pre class="prettyprint">
@@ -243,7 +248,7 @@ var lizzieTheCat = {
     console.log('meowww');
   },
   eat: function(food) {
-    console.log('Yum, I love ' + food);  
+    console.log('Yum, I love ' + food);
   },
   sleep: function(numMinutes) {
     for (var i = 0; i < numMinutes; i++) {
@@ -258,14 +263,14 @@ Object.keys(lizzieTheCat); // ["age", "furColor", "meow", "eat", "sleep"]
 </pre>
      </section>
     </div>
-    
 
 
 
 
-    <div class="slide normal"> 
-     <header><h1>Built-in Objects</h1></header> 
-     <section class="content"> 
+
+    <div class="slide normal">
+     <header><h1>Built-in Objects</h1></header>
+     <section class="content">
      <p>JS provides several built-in objects:</p>
 
 <ul>
