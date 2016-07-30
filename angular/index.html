@@ -14,11 +14,11 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="../common/css/reveal.css">
+		<link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="../common/lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
@@ -26,7 +26,7 @@
 				var link = document.createElement( 'link' );
 				link.rel = 'stylesheet';
 				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
+				link.href = '../common/css/print/pdf.css';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
@@ -44,7 +44,7 @@
 			<div class="slides">
 				<section>
 					<h1>AngularJS</h1>
-					
+
 					<p>Aysegul Yonet / <a href="https://twitter.com/tevgende" target="_blank">@AysegulYonet</a>
 					</p>
 					<p>Slides: http://bit.ly/angular-slides</p>
@@ -53,14 +53,14 @@
 				<section>
 					<h2>What we will build?</h2>
 					<a href="http://yonet.github.io/Catstagram/" target="_blank">Catstagram</a>
-					
+
 				</section>
 
 				<section>
 					<h2>What we will learn today?</h2>
 					<ul>
 						<li>What is AngularJS and why you might want to use it.</li>
-						<li>Parts that makes an Angular application: 
+						<li>Parts that makes an Angular application:
 							<ul>
 								<li>Controllers</li>
 								<li>Directives</li>
@@ -82,7 +82,7 @@
 					<h2>What we will start with?</h2>
 					<a href="exercises/catstagram.zip" target="_blank">Download Files Here</a>
 				</section>
-				
+
 				<section>
 					<section>
 
@@ -90,7 +90,7 @@
 						<aside class="notes">
 						If you were to build facebook from skretch, how would you build it? What needs to be different than a static website?
 						</aside>
-						
+
 					</section>
 					<section>
 						<p>AngularJS lets you extend HTML vocabulary for your application.</p>
@@ -99,16 +99,16 @@
 					<section>
 						<p>MVVC</p>
 						<img src="images/MVVM.png"/>
-						
+
 					</section>
 					<section>
 						<p></p>
 						<img src="images/angular-overview.png"/>
 						<aside class="notes">
-						
+
 						</aside>
 					</section>
-					
+
 				</section>
 
 
@@ -128,11 +128,11 @@
 					var app = angular.module('myApp', []);
 					</code></pre>
 					<aside class="notes">
-					Modules makes your code, more readable, maintainable and testable. 
+					Modules makes your code, more readable, maintainable and testable.
 					</aside>
 				</section>
 
-				
+
 
 				<section>
 					<h2>Controllers</h2>
@@ -181,7 +181,7 @@ app.controller("FirstController", ['$scope', function($scope) {
 					<section>
 						<h2>Custom Filters</h2> <!--data-trim-->
 						<p>You can create your own to do anything.</p>
-						<pre><code  contenteditable> 
+						<pre><code  contenteditable>
 
 angular.module('app')
 	.filter('numberFormat', [function () {
@@ -206,8 +206,8 @@ angular.module('app')
 						<p><a href="http://jsfiddle.net/yonet3d/eapkhezd/2/" target="_blank">Example</a></p>
 					</section>
 
-				
-					
+
+
 				</section>
 				<!-- /Filters -->
 				<section>
@@ -226,7 +226,7 @@ angular.module('app')
 						<aside class="notes">
 						</aside>
 					</section>
-					
+
 					<section>
 						<h2>Built-in Directives</h2>
 						<p>Angular comes with great directives you can use.</p>
@@ -326,7 +326,7 @@ app.directive('myDirective', [function(){
 var app =  angular.module('app', [])
 app.directive('myDirective', [function(){
 	return {
-		restrict: "E", //Defaults to "A" for attribute. 
+		restrict: "E", //Defaults to "A" for attribute.
 		link: function(scope, element, attrs) {
 			//Do something here...
 		}
@@ -398,7 +398,7 @@ app.directive('superwoman', [function(){
 						<a href="http://jsfiddle.net/yonet3d/2pk4c2eo/15/" target="_blank">A Better Way</a>
 					</section>
 
-					
+
 				</section>
 				<!-- /Directives -->
 
@@ -453,7 +453,7 @@ $http.post('/someUrl', {msg:'hello word!'}).
 	// or server returns response with an error status.
   });
 						</code></pre>
-						
+
 					</section>
 					<section>
 						<h2>Custom Services</h2>
@@ -471,10 +471,10 @@ $http.post('/someUrl', {msg:'hello word!'}).
 					<section>
 						<h2><a href="https://github.com/Yonet/Catstagram" target="_blank">Solutions</a></h2>
 					</section>
-						
+
 				</section>
 				<!-- /Services -->
-				
+
 				<section>
 					<h2>Injecting Dependencies</h2>
 					<p>Dependency Injection is a software design pattern that deals with how components get hold of their dependencies.</p>
@@ -491,7 +491,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 
 					</code></pre>
 					<aside class="notes">
-					VERY IMPORTANT, order of dependencies matter. $scope is always first. 
+					VERY IMPORTANT, order of dependencies matter. $scope is always first.
 					</aside>
 				</section>
 
@@ -508,7 +508,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 
 var app = angular.module('myApp', [
   'ngRoute',
-  'myControllers', 
+  'myControllers',
   'ui.map'
 ]);
 
@@ -597,8 +597,8 @@ lastElement.scope();
 
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="../common/lib/js/head.min.js"></script>
+		<script src="../common/js/reveal.js"></script>
 
 		<script>
 
@@ -619,12 +619,12 @@ lastElement.scope();
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../common/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
 
