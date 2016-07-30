@@ -12,6 +12,35 @@
 <div class="container">
 <h2>Exercises: Objects</h2>
 
+<h3 class="page-header">Zookeeping</h3>
+
+<p><em>What kind of animals do you have in your zoo?!</em></p>
+
+<ul>
+ <li>Create an object to represent all of the <code>animals</code> you have at your zoo.</li>
+ <li>You can use <code>Object.keys(animals)</code> to get an array of animal types and then you can read the animal types using <code>console.log</code>.</li>
+ <li>Once you get an array of animal types, you can even count the number of animals in your zoo using `animalTypes.length`!</li>
+ <li>Keep track of each type of animal, as well as their name, on different lines:</li>
+  <ul class="unstyled">
+   <li>Monkey: George, Curious</li>
+   <li>Cat: Kitty Pawry</li>
+   <li>Horse: Bo Jack</li>
+  </ul>
+</ul>
+<button onclick="showSolution(1)" class="btn">See Solution</button>
+<br>
+<br>
+<pre id="solution1" style="display:none;">
+ var animals = {
+    monkey: 'George, Curious',
+    cat: 'Kitty Pawry',
+    horse: 'Seabiscuit'
+ };
+
+ var animalTypes = Object.keys(animals);
+ console.log(animalTypes);
+ console.log(animalTypes.length);
+</pre>
 
 <h3 class="page-header">The Recipe Card</h3>
 
@@ -29,9 +58,9 @@
    <li>cocoa
   </ul>
 </ul>
- <button  onclick="showSolution(1)" class="btn">See Solution</button>
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
  <br><br>
-<pre id="solution1" style="display:none;">
+<pre id="solution2" style="display:none;">
  var recipe = {
     'title': 'Mole',
     'servings': 2,
@@ -55,9 +84,9 @@ for (var i = 0; i &lt; recipe.ingredients.length; i++) {
   <li>Iterate through the array of books. For each book, log the book title and book author like so: "The Hobbit by J.R.R. Tolkien".
   <li>Now use an if/else statement to change the output depending on whether you read it yet or not. If you read it, log a string like 'You already read "The Hobbit" by J.R.R. Tolkien', and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
  </ul>
- <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <button  onclick="showSolution(3)" class="btn">See Solution</button>
  <br><br>
- <pre id="solution2" style="display:none;">
+ <pre id="solution3" style="display:none;">
 var books = [
   {title: 'The Design of EveryDay Things',
    author: 'Don Norman',
@@ -85,9 +114,9 @@ for (var i = 0; i &lt; books.length; i++) {
  <code>duration</code> (a number), and <code>stars</code> (an array of strings).
  <li>Create a function to print out the movie information like so: "Puff the Magic Dragon lasts for 30 minutes. Stars: Puff, Jackie, Living Sneezes."
 </ul>
-<button class="btn" onclick="showSolution(3)">See Solution</button>
+<button class="btn" onclick="showSolution(4)">See Solution</button>
 <br><br>
-<pre id="solution3" style="display:none;">
+<pre id="solution4" style="display:none;">
 var myFavMovie = {
     title: 'Puff the Magic Dragon',
     duration: 30,
