@@ -4,13 +4,13 @@
 	<head>
 		<title>More jQuery</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/presentation.css" />
-		<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+		<link rel="stylesheet" type="text/css" href="../common/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="../common/presentation.css" />
+		<link rel="stylesheet" type="text/css" href="../common/prettify.css" />
 		<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
-		<script src="js/jquery.js" type="text/javascript"></script>
-		<script src="js/fathom.js"></script>
-		<script src="js/prettify.js"></script>
+		<script src="../common/js/jquery.js" type="text/javascript"></script>
+		<script src="../common/js/fathom.js"></script>
+    <script src="../common/js/prettify.js"></script>
 		<script>
 			$(document).ready(function(){
 				$('pre').addClass('prettyprint').attr('tabIndex', 0);
@@ -77,18 +77,18 @@ $('button').on('click', onButtonClick);</pre>
 
 $('button').click(onButtonClick)</pre>
 						<br>
-						<p><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a> 
+						<p><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a>
 							<code>'keydown'</code>
 							<code>'keypress'</code>
 							<code>'keyup'</code>
 						</p>
-						<p><a href="http://api.jquery.com/category/events/mouse-events/">Mouse Events</a> 
+						<p><a href="http://api.jquery.com/category/events/mouse-events/">Mouse Events</a>
 							<code>'click'</code>
 							<code>'mousedown'</code>
 							<code>'mouseup'</code>
 							<code>'mousemove'</code>
 						</p>
-						<p><a href="http://api.jquery.com/category/events/form-events/">Form Events</a> 
+						<p><a href="http://api.jquery.com/category/events/form-events/">Form Events</a>
 							<code>'change'</code>
 							<code>'focus'</code>
 							<code>'blur'</code>
@@ -149,7 +149,7 @@ $('#error').show(1000, function(){
 					</section>
 				</div><!--/effects and animation-->
 
-				
+
 
 
 
@@ -186,7 +186,7 @@ $('#error').show(1000, function(){
 						<ul>
 							<li>In the JavaScript, call the jQuery plugin on your DOM.</li>
 						</ul>
-<pre>$('table').tableSorter();</pre>		
+<pre>$('table').tableSorter();</pre>
 
 <pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
 					</section>
@@ -210,7 +210,7 @@ $('#error').show(1000, function(){
 						<p><strong>Pattern: </strong>bind events to the document
 						<pre>$(document).on('click', 'a', myCallback);</pre>
 						</p>
-						
+
 					</section>
 				</div><!--/jquery patterns and anti-patterns-->
 
@@ -288,7 +288,7 @@ banner.show();</pre>
 &lt;/body&gt;
 </pre>
 						</p>
-						
+
 
 					</section>
 				</div><!--/DOM readiness-->
