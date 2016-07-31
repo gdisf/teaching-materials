@@ -169,11 +169,11 @@
           <p>Targeting iPads:</p>
           <pre><code>
 @media only screen and (min-device-width : 768px)
-                   and (max-device-width : 1024px) {
-                     img {
-                       width: 100%;
-                     }
-                   }
+and (max-device-width : 1024px) {
+  img {
+    width: 100%;
+  }
+}
           </code></pre>
           <p>Read more: <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media Queries for Standard Devices</a></p>
         </section>
@@ -208,13 +208,13 @@
           <p>The experimental <code>device-pixel-ratio</code> feature can be used to detect pixel density:</p>
           <pre><code>
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (-o-min-device-pixel-ratio: 3/2),
-       only screen and (min--moz-device-pixel-ratio: 1.5),
-       only screen and (min-device-pixel-ratio: 1.5) {
-         #logo {
-           background-image:url(images/icon@2x.png);
-         }
-       }
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  #logo {
+    background-image:url(images/icon@2x.png);
+  }
+}
           </code></pre>
           <p class="notes">
             https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
