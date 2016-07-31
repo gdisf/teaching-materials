@@ -121,27 +121,24 @@
           <h2>CSS Media Queries</h2>
           <p>A media query consists of a media type and an optional combination of media features. CSS rules inside the query will be applied
             only if the query is true.</p>
-          <pre><code>
-@media &lt;media types&gt; and &lt;media features&gt; {
+          <pre><code>@media &lt;media types&gt; and &lt;media features&gt; {
   /* media-specific rules */
 }
           </code></pre>
           <p>They can also be specified for a linked stylesheet:</p>
-          <pre><code>
-&lt;link rel="stylesheet" media="&lt;media types&gt; and &lt;media features&gt;"
+          <pre><code>&lt;link rel="stylesheet" media="&lt;media types&gt; and &lt;media features&gt;"
       href="alternative.css" /&gt;
           </code></pre>
-          <p class="notes">
+          <aside class="notes">
             https://developer.mozilla.org/en/CSS/@media#Media_groups
             https://developer.mozilla.org/en/CSS/Media_queries
-          </p>
+          </aside>
         </section>
 
         <section>
           <h2>Print Styles</h2>
           <p>All modern browsers support the "print" media type for specifying print styles.</p>
-          <pre><code>
-@media print {
+          <pre><code>@media print {
   body {
     background: white;
   }
@@ -156,9 +153,9 @@
   }
 }
           </code></pre>
-          <p class="notes">
+          <aside class="notes">
             http://reference.sitepoint.com/css/pagedmedia
-          </p>
+          </aside>
         </section>
 
 
@@ -167,8 +164,7 @@
           <p>Modern mobile browsers support media queries which depend on the <code>device-width</code> and/or
           <code>orientation</code>:</p>
           <p>Targeting iPads:</p>
-          <pre><code>
-@media only screen and (min-device-width : 768px)
+          <pre><code>@media only screen and (min-device-width : 768px)
 and (max-device-width : 1024px) {
   img {
     width: 100%;
@@ -183,31 +179,28 @@ and (max-device-width : 1024px) {
           <p>A more general approach is just to query on <code>min-width</code> and <code>max-width</code>,
           which are calculated based on window size, not device size.
           </p>
-          <pre><code>
-@media screen and (max-width: 640px) {
+          <pre><code>@media screen and (max-width: 640px) {
   #sidebar {
     display: none;
   }
 }
           </code></pre>
-          <pre><code>
-@media (min-width: 768px) and (max-width: 979px) {
+          <pre><code>@media (min-width: 768px) and (max-width: 979px) {
   #sidebar {
     width: 200px;
   }
 }
           </code></pre>
-          <p class="notes">
+          <aside class="notes">
             http://css-tricks.com/css-media-queries/
             http://css-tricks.com/resolution-specific-stylesheets/
-          </p>
+          </aside>
         </section>
 
         <section>
           <h2>Pixel Density Queries</h2>
           <p>The experimental <code>device-pixel-ratio</code> feature can be used to detect pixel density:</p>
-          <pre><code>
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+          <pre><code>@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
 only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (min-device-pixel-ratio: 1.5) {
@@ -216,9 +209,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
 }
           </code></pre>
-          <p class="notes">
+          <aside class="notes">
             https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
-          </p>
+          </aside>
         </section>
 
         <section>
@@ -275,8 +268,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
           <h2>CSS Grids</h2>
           <p>Example: Foundation grid with mixed classes</p>
           <p>Using <a href="http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html">Foundation CSS Grids</a>:</p>
-          <pre><code>
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
+          <pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
 href=&quot;https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.0.6/css/foundation.css&quot;&gt;
 
 &lt;div class=&quot;row&quot;&gt;
@@ -307,8 +299,7 @@ href=&quot;https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.0.6/css
         <section>
           <h2>CSS Frameworks</h2>
           <p>With <a href="http://v4-alpha.getbootstrap.com/">Twitter Bootstrap</a>:</p>
-          <pre><code>
-&lt;link href=&quot;https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css&quot;
+          <pre><code>&lt;link href=&quot;https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css&quot;
       rel=&quot;stylesheet&quot; integrity=&quot;sha384-XXXXXXXX&quot;
       crossorigin=&quot;anonymous&quot; &gt;
 
