@@ -34,37 +34,36 @@
 				<section>
 					<header><h2>Events</h2></header>
 					<div class="content">
-						<br>
 <pre><code class="javascript">var onButtonClick = function() {
   console.log('clicked!');
 };
 
-$('button').on('click', onButtonClick);</code></pre>
-<br>
-<pre><code class="javascript">$('button').on('click', function () {
+$('button').on('click', onButtonClick);
+
+$('button').on('click', function () {
   console.log('clicked!');
 });
 
 $('button').click(onButtonClick)</code></pre>
-						<br>
-						<p><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a>
+<small><ul>
+						<li><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a>
 							<code>'keydown'</code>
 							<code>'keypress'</code>
 							<code>'keyup'</code>
-						</p>
-						<p><a href="http://api.jquery.com/category/events/mouse-events/">Mouse Events</a>
+						</li>
+						<li><a href="http://api.jquery.com/category/events/mouse-events/">Mouse Events</a>
 							<code>'click'</code>
 							<code>'mousedown'</code>
 							<code>'mouseup'</code>
 							<code>'mousemove'</code>
-						</p>
-						<p><a href="http://api.jquery.com/category/events/form-events/">Form Events</a>
+						</li>
+						<li><a href="http://api.jquery.com/category/events/form-events/">Form Events</a>
 							<code>'change'</code>
 							<code>'focus'</code>
 							<code>'blur'</code>
-						</p>
-
-						<p>Follow along: <a href="http://jsbin.com/dosewola/7/edit">http://jsbin.com/dosewola/7/edit</a></p>
+						</li>
+        </ul></small>
+            <p>Follow along: <a href="http://jsbin.com/dosewola/7/edit">http://jsbin.com/dosewola/7/edit</a></p>
 					</div>
 				</section><!--/events1-->
 
@@ -86,7 +85,6 @@ $('button').click(onButtonClick)</code></pre>
 };
 
 $('p').on('mouseenter', myCallback);</code></pre>
-<br>
 						<p>Preventing Default Events</p>
 <pre><code class="javascript">$('a').on('click', function (event) {
 	event.preventDefault();
@@ -150,7 +148,7 @@ $('#error').show(1000, function(){
 <pre><code>&lt;script src="lib/tablesorter.js"&gt;&lt;script&gt;</code></pre>
 							<li>In the JavaScript, call the jQuery plugin on your DOM.</li>
 <pre><code>$('table').tableSorter();</code></pre>
-
+            </ul>
 <aside class="notes">shorter, cross-browser</aside>
 				</section><!--/jquery plugin usage-->
 
