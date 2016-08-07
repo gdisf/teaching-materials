@@ -10,49 +10,34 @@
   <body>
     <div class="container">
       <h1>Exercise: AJAX</h1>
-      <br><br>
-
-      <p>In this exercise, you'll use jQuery's $.ajax function to pull in a JSON file
-and turn it into DOM, using the same functions as we did for the in-page JSON.</p>
-      
-
+      <br>
+      <br>
+      <p>In this exercise, you'll use jQuery's $.ajax function to pull in a JSON file and turn it into DOM, using the same functions as we did for the in-page JSON.</p>
       <h3>The Setup</h3>
-
       <p>You can skip this section if you are using Firefox.</p>
-
-      <p>If you are not yet running your code from a local server, do that now by following 
-      <a href="/resources/testinglocally.html" target="_blank">these instructions</a>. We need to do this because of security restrictions on file:// protocol with XMLHttpRequests.</p>
-
+      <p>If you are not yet running your code from a local server, do that now by following <a href="../resources/testinglocally.html" target="_blank">these instructions</a>. We need to do this because of security restrictions on file:// protocol with XMLHttpRequests.</p>
       <h3>Coding</h3>
-
       <p>Go through these steps, and do as many as you can in the time we have:</p>
       <ul>
         <li>Start with your solution from the last exercise, or download <a href="json_solution.html" download>json_solution.html</a>
           into your project folder and start from there.</li>
         <li>The webpage currently has an in-page JSON describing the videos, and we want to put that into a separate file. Make a file in your project folder called videos.json, and copy the value of the videos variable into that file. Delete the variable from the page.</li>
-        <li>Use the jQuery $.ajax function to bring in the data from videos.json. In the success callback,
-iterate through the videos and render each one into the page, using the addVideoToList function that we already have.
-Look at the slides and the jQuery documentation to remember how to use the $.ajax function.</li>
-        <li>Bonus: Create another JSON file with another set of videos, and bring that into the page as well.
-Try to generalize your code so that you could bring any number of JSON files in.</li>
+        <li>Use the jQuery $.ajax function to bring in the data from videos.json. In the success callback,iterate through the videos and render each one into the page, using the addVideoToList function that we already have.Look at the slides and the jQuery documentation to remember how to use the $.ajax function.</li>
+        <li>Bonus: Create another JSON file with another set of videos, and bring that into the page as well. Try to generalize your code so that you could bring any number of JSON files in.</li>
       </ul>
-
-      <p>Make sure that you use your browser developer tools to make debugging easier
-while working on this. Check for errors, and use console.log() to figure out
-how far your code makes it, and what the values of your variables are along the way.</p>
-  
-
+      <p>Make sure that you use your browser developer tools to make debugging easier while working on this. Check for errors, and use console.log() to figure out how far your code makes it, and what the values of your variables are along the way.</p>
       <button class="btn" onclick="showSolution(1)">See Solution</button>
-      <br><br>
+      <br>
+      <br>
       <a id="solution1" style="display:none;" href="ajax_solution.html" target="_blank">View Solution</a>
-
-  <script>
-        function showSolution(num) {
-          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
-            document.getElementById('solution' + num).style.display = 'block';
-          }
+    </diiv>
+    <script>
+      function showSolution(num) {
+        if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+          document.getElementById('solution' + num).style.display = 'block';
         }
-  </script>
+      }
+    </script>
   </body>
 </html>
 
