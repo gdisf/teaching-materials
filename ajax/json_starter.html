@@ -1,62 +1,56 @@
 <!doctype html>
-<html>
- <head>
-  <meta charset="utf-8">
-  <title>Video Watcher</title>
-  <link rel="stylesheet" type="text/css" href="http://teaching-materials.org/ajax/lib/bootstrap.css">
-  <style type="text/css">
-  /* This puts titles always on a separate line from thumbnails */
-  #videos-list img {
-    display: block;
-  }
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Video Watcher</title>
+    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
+    <style type="text/css">
+      /* This puts titles always on a separate line from thumbnails */
+      #videos-list img {
+        display: block;
+      }
   </style>
- </head>
- <body>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h2 class="page-header">Best Videos Ever ❤</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3">
+          <ul id="videos-list"></ul>
+        </div>
+        <div class="span9" id="video-watcher"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../common/youtube.js"></script>
+    <script type="text/javascript" src="../common/jquery.js"></script>
+    <script>
+      var videos = [
+      {
+        "youtubeId": "TddFnTB_7IM",
+        "title": "Trip through the 80s"
+      },
+      {
+        "youtubeId": "epUk3T2Kfno",
+        "title": "Otters Holding Hands"
+      },
+      {
+        "youtubeId": "il2IrgFHfsg",
+        "title": "The Ooooh Cat"
+      }];
+      var addVideoToList = function(video) {
 
-<div class="container">
- 
- <div class="row">
-   <div class="span12">
-    <h2 class="page-header">Best Videos Ever ❤</h2>
-   </div>
- </div>
- 
- <div class="row">
-   <div class="span3">
-     <ul id="videos-list">
-    </ul>
-   </div>
-   <div class="span9" id="video-watcher">
-   </div>
- </div>
-</div>
+      var videoLink = $('<a>');
+      videoLink.append(video.title);
+      var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
+      var thumbnailImg = $('<img>');
+      thumbnailImg.attr('src', thumbnailUrl);
+      videoLink.append(thumbnailImg);
 
- <script type="text/javascript" src="http://teaching-materials.org/ajax/lib/youtube.js"></script>
- <script type="text/javascript" src="http://teaching-materials.org/ajax/lib/jquery.min.js"></script>
- <script>
-
- var videos = [
-  {"youtubeId": "TddFnTB_7IM",
-    "title": "Trip through the 80s"
-  },
-  {"youtubeId": "epUk3T2Kfno",
-    "title": "Otters Holding Hands"
-  },
-  {"youtubeId": "il2IrgFHfsg",
-    "title": "The Ooooh Cat"
-  }
- ];
-
- var addVideoToList = function(video) {
-
-    var videoLink = $('<a>');
-    videoLink.append(video.title);
-    var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
-    var thumbnailImg = $('<img>');
-    thumbnailImg.attr('src', thumbnailUrl);
-    videoLink.append(thumbnailImg);
-    
-    videoLink.on('click', function(e) {
+      videoLink.on('click', function(e) {
         e.preventDefault();
 
         var videoEmbed = $('<iframe></iframe>');
@@ -68,16 +62,16 @@
         videoWatcher.hide();
         videoWatcher.html(videoEmbed);
         videoWatcher.fadeIn();
-    });
+      });
 
-    var videoItem = $('<li>');
-    videoItem.append(videoLink);
-    $('#videos-list').append(videoItem);
- }
+      var videoItem = $('<li>');
+      videoItem.append(videoLink);
+        $('#videos-list').append(videoItem);
+      }
 
- for (var i = 0; i < videos.length; i++) {
-    addVideoToList(videos[i]);
- }
- </script>
- </body>
+      for (var i = 0; i < videos.length; i++) {
+        addVideoToList(videos[i]);
+      }
+    </script>
+  </body>
 </html>
