@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <script type="text/javascript" src="./cc-validation-solution.js"></script>
-    <link href="./bootstrap.css" rel="stylesheet">
-    <link href="./my-styles.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Add a script tag to your credit card validation JS file here -->
+    <!-- Add a link to the bootstrap.css file here -->
+    <!-- Add a link to the my-styles.css file here -->
   </head>
  <body>
 <div class="container">
@@ -29,23 +28,14 @@
   <button id="validator" class="btn btn-primary">Validate Credit Card</button>
 
   <script>
-    $(".digit-input").on("click", function() {
-      var clickedDigit = $(this).html();
-      var ccNumber = $('#cc-input').html();
-      ccNumber += clickedDigit;
-      $("#cc-input").html(ccNumber);
-      $("#cc-input-counter").html('Character Count: ' + ccNumber.length);
-    });
+    // Write your Javascript here
+    // STEP 1: Have all button clicks result in a growing string of characters
+    // in the DOM node with id of 'cc-input'
     
-    $("#validator").on("click", function(){
-      var ccNumber = $('#cc-input').html();
-      if (validateCreditCard(ccNumber)) {
-        alert('Credit card number is valid.');
-        } else {
-        alert('Credit card number is not valid.');
-      }
-      $('#cc-input').html('');
-    });
+    // STEP 2: Add a character count in the DOM node with id of 'cc-input-counter'
+    
+    // STEP 3: Have a click on the button with id of 'validator'
+    // alert whether the input credit card number is valid
   </script>
   </body>
 </html>
