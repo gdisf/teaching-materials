@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Class 4 ~ HTML/CSS ~ Girl Develop It</title>
+
+    <meta name="description" content="This is curriculum for the GDI RDU intro to web series. It was developed from the official Girl Develop It Core HTML/CSS curriculum">
+    <meta name="author" content="Girl Develop It">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- For syntax highlighting -->
+    <!-- light editor--><link rel="stylesheet" href="lib/css/light.css">
+    <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+
+    <link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!-- If use the PDF print sheet so students can print slides-->
+
+    <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+          <section>
+            <img src="img/circle-gdi-logo.png" alt="GDI Logo" class="noborder">
+            <h1>Intro to HTML/CSS</h1>
+            <h2>Class 4</h2>
+          </section>
+
+          <section>
+            <h3>Static Positioning</h3>
+            <ul>
+              <li>HTML elements are positioned <code>static</code> by default.</li>
+              <li>Static elements are positioned in the normal ﬂow of the page</li>
+              <li>Static elements ignore top, bottom, right or left property specifications.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Static Positioning: Inline</h3>
+            <p>In normal flow, inline boxes flow from left to right, wrapping to next line when needed.</p>
+<pre><code class="html">&lt;img src="img/cookie1.png"/&gt;
+&lt;img src="img/cookie2.png"/&gt;
+&lt;img src="img/cookie3.png"/&gt;
+...
+&lt;img src="img/cookie2.png"/&gt;
+&lt;img src="img/cookie3.png"/&gt;
+</code></pre>
+            <img src="img/cookie1.png" alt="Stocking-shaped cookie"/>
+            <img src="img/cookie2.png" alt="Tree-shaped cookie"/>
+            <img src="img/cookie3.png" alt="Snowflake-shaped cookie"/>
+            <img src="img/cookie1.png" alt="Stocking-shaped cookie"/>
+            <img src="img/cookie2.png" alt="Tree-shaped cookie"/>
+            <img src="img/cookie3.png" alt="Snowflake-shaped cookie"/>
+            <img src="img/cookie1.png" alt="Stocking-shaped cookie"/>
+            <img src="img/cookie2.png" alt="Tree-shaped cookie"/>
+          </section>
+
+          <section>
+            <h3>Static Positioning: Block</h3>
+            <p>In normal flow, block boxes flow from top to bottom, making a new line after every box.</p>
+<pre><code class ="html">&lt;p&gt;Greetings&lt;/p&gt;
+&lt;p&gt;Hello&lt;/p&gt;
+&lt;p&gt;Hi there!&lt;/p&gt;
+</code></pre>
+            <p>Greetings</p>
+            <p>Hello</p>
+            <p>Hi there!</p>
+          </section>
+
+          <!-- Relative Positioning-->
+          <section>
+            <h3>Relative Positioning</h3>
+            <ul>
+              <li>Takes the element out of the normal flow, allowing it to be moved to the top, left, right or bottom. </li>
+              <li>Does not affect the elements surrounding it.</li>
+              <li>Makes an element a "positioning context" in which to position other elements relative to it.</li>
+              <li>Relative positioning and absolute positioning are used together.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Relative Positioning</h3>
+            <p>The "relative" value will still put the element in the normal flow, but then offset it according to top/left/right/bottom properties.</p>
+<pre><code class="css">.relative{
+  position: relative;
+  left: 80px;
+  top: 20px;
+  height: 100px;
+  background-color: yellow;
+}
+</code></pre>
+            <div style="border:2px solid black;">
+              <div style="position: relative; left: 80px; top: 20px; height: 100px; background-color: yellow; color:black; text-align:left">
+                Hello, hi!
+              </div>
+            </div>
+          </section>
+
+          <!-- Absolute positioning-->
+          <section >
+            <h3>Absolute Positioning</h3>
+            <ul>
+              <li>Positions element outside of the normal flow.</li>
+              <li>An absolutely positioned element is offset from its container block, positioned relative.</li>
+              <li>Its container block is the first element that has a position other than static.</li>
+              <li>If no such element is found, the container block is &lt;html&gt;.</li>
+              <li>Other elements act as if it's not there.</li>
+              <li>Determined by its oﬀset values in the properties top, bottom, right and left.</li>
+            </ul>
+          </section>
+
+          <section  style="border: 1px solid black">
+            <h3>Absolute Positioning</h3>
+            <p>The "absolute" value will take the element out of the normal flow and position it in relation to the window (or the closest non-static element).</p>
+<pre><code class="css">.top{
+  position: absolute;
+  top: -40px;
+  right: 10px;
+  background-color: yellow
+}
+.bottom{
+  position: absolute;
+  bottom: -40px;
+  left:60px;
+  background-color: green
+}
+</code></pre>
+            <div>
+              <div style="position: absolute; top: -40px; right: 10px; background-color: yellow; color:black">
+                Up here
+              </div>
+              <div style="position: absolute; bottom: -40px; left:60px; background-color: green">
+                Down here
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Example: Absolute Positioning</h3>
+            <div class="halfblock">
+              <p>Here's an example of an image with a caption absolutely positioned over top of it.</p>
+              <p>The containing div has a position of relative, and the caption has a position of absolute.</p>
+            </div>
+            <div class="halfblock">
+              <img src="img/example-absolute.png" class="noborder" alt="Photo with caption overlayed on top"/>
+            </div>
+            <div class="clear"></div>
+            <p>Bonus: Look up <code>fixed</code> positioning. What's the difference between <code>fixed</code> and <code>absolute</code>?</p>
+          </section>
+
+          <section>
+            <h3>Z-index</h3>
+            <p>Sometimes elements overlap. You can change the order of overlapping with z-index. The element with highest z-index goes on top.</p>
+<pre><code class ="css">.bottom{
+  position: absolute;
+  bottom: 10px;
+  left:60px;
+  background-color: yellow;
+}
+.top{
+  position: absolute;
+  bottom: 15px;
+  left:60px;
+  background-color: green;
+  z-index: 2;
+}
+</code></pre>
+            <div style="position: absolute; bottom: -20px; left:60px; background-color: yellow; color:black">Bottom</div>
+            <div style="position: absolute; bottom: -15px; left:60px; background-color: green; z-index: 2; ">Top</div>
+          </section>
+
+          <section>
+            <h3>Let's Develop it!</h3>
+            <p>Let's add some positioning.</p>
+            <p>Let's create a div that contains an image and a caption, and position the caption absolutely in front of the image the image.</p>
+            <p>Bonus: Use semantic HTML5 elements for your image and caption.</p>
+          </section>
+
+          <!-- Float-->
+          <section>
+            <h3>Float</h3>
+            <ul>
+              <li>"Floating" an element takes it in the normal flow, as far to the left or right of its containing element as possible.</li>
+              <li>Any other elements, such as paragraphs or lists, will wrap around the floated element.</li>
+              <li>Always specify a width when floating an element--otherwise the element is likely to take up the whole width of the container and not appear floated.</li>
+              <li>You can specify a) whether an element is floated or not, and b) which side it ﬂoats on.</li>
+            </ul>
+          </section>
+
+          <!--example float-->
+          <section>
+            <h3>Float: Example</h3>
+            <p>Below a &lt;blockquote&gt; is floated to the left, allowing text to wrap around it on the right</p>
+            <img src="img/example-floatbq.png" alt="example float" />
+          </section>
+
+          <section>
+            <h3>Float</h3>
+<pre><code class="css">.float{
+  float:left;
+  width:200px;
+  background:yellow;
+}
+</code></pre>
+            <div style ="float:left; text-align: left;width:200px;background:yellow; color:black; padding: 10px;">
+              <small>Hi, I'm a yellow box with black text.<br/>
+              I like to hang out on the left side.</small>
+            </div>
+            <div class="left-align">Not floating element</div>
+            <div class="left-align">Not floating element</div>
+            <div class="left-align">Not floating element with wrapping Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+          </section>
+
+          <section>
+            <h3>Placing elements side by side</h3>
+            <p>If you want two block level elements to be side by side, you need to float both elements. One left, and one right.</p>
+            <div style="border:5px solid black; padding:20px; width:720px; height:160px; margin:0 auto;">
+              <div style="background-color: #688836; color: white; width:300px; height:160px; margin-right:20px; float:left;">
+                <p>width: 300px;<br />
+                float: left;</p>
+              </div>
+              <div style="background-color: #C3C3C3; width:400px; height:160px; float:right;">
+                <p>width: 400px;<br />
+                float: right;</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Clear-->
+          <section>
+            <h3>Clear</h3>
+            <ul>
+              <li>Clearing tells the element on which side (right, left, both) other elements <strong>cannot</strong> appear. </li>
+              <li>If you had an image floated left, and you did not want the paragraph to appear next to it, you would add <strong>clear: left;</strong> to the paragraph.</li>
+              <li>Clearing both sides makes sure ﬂoats don’t ﬂow past the clear element.</li>
+            </ul>
+<pre><code class="css">clear: right;
+clear: left;
+clear: both;
+</code></pre>
+          </section>
+
+          <section>
+            <h3>Clear</h3>
+<pre><code class ="css">.float{
+  float:left;
+  width:50px;
+  background:yellow;
+}
+.clear-left{
+  clear:left
+}
+</code></pre>
+            <div style ="float:left;width:50px;background:yellow; color:black; ">
+              hi<br/>
+              hi<br/>
+              hi
+            </div>
+            <div class="left-align">Not floating element</div>
+            <div class="left-align">Not floating element</div>
+            <div class="left-align" style="clear: left;">Non-floating element with a class of <strong>.clear-left</strong></div>
+          </section>
+
+          <!-- Exercise-->
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>Let's float our side bar and content areas.</p>
+          </section>
+
+          <section>
+            <h2>Questions?</h2>
+            <p><a href="/gdi-featured-html-css-intro/#/1">Return to Table of Contents</a></p>
+          </section>
+</div><!-- Close slides -->
+
+    <div>
+      <footer>
+        <div class="copyright">
+          HTML/CSS ~ Girl Develop It
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div>
+</div><!-- Closes Reveal -->
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
