@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="../common/css/reveal.css">
 		<link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
 
-    <!--2-column style from national slides-->
+    <!--Adapting the 2-column style from national slides-->
     <style>
-      .halfblock {
-          float: left;
-          width: 45%;
-          text-align: left;
-          margin-right: 5%;
-        }
+      .flex-container {
+        display: flex;
+      }
+      .flex-item {
+        flex-basis: 50%;
+      }
     </style>
 
 		<!-- For syntax highlighting -->
@@ -43,7 +43,6 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <img src="img/circle-gdi-logo.png" alt="GDI Logo" class="noborder">
           <h1>Intro to HTML/CSS</h1>
           <h2>Class 3</h2>
         </section>
@@ -51,7 +50,7 @@
         <!-- Quiz 1-->
         <section>
           <h3>Quiz Part 1</h3>
-          <p>Within your &lt;html&gt;&lt;/html&gt; tags, which are the two nested tags required for a website?</p>
+          <p>Within your <code>&lt;html&gt;&lt;/html&gt;</code> tags, which are the two nested tags required for a website?</p>
           <div class="fragment">
 <pre><code class="html xml">&lt;html&gt;
   &lt;head&gt;
@@ -60,8 +59,7 @@
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-
-      </div>
+          </div>
         </section>
 
         <!-- Quiz 2-->
@@ -77,7 +75,7 @@
         <!-- Quiz 3-->
         <section>
           <h3>Quiz Part 3</h3>
-          <p class="fragment">What does a complete link (anchor) element look like?  Hint: needs an 'href'.</p>
+          <p class="fragment">What does a complete link (anchor) element look like?  Hint: needs an <code>href</code>.</p>
           <div class="fragment">
 <pre><code class="html xml">&lt;a href="http://google.com/"&gt;This goes to google&lt;/a&gt;
 </code></pre>
@@ -87,14 +85,16 @@
         <!-- Inline vs. block-->
         <section>
           <h3>Inline vs Block</h3>
-          <div class="halfblock">
-            <p>So far, we have mostly seen <strong>"block"</strong> elements. They appear on the next line, like paragraphs.</p>
-            <p>There are also <strong>"inline"</strong> elements. They appear on the same line that they are written on.</p>
+          <div class="flex-container">
+            <div class="flex-item">
+              <p>So far, we have mostly seen <strong>"block"</strong> elements. They appear on the next line, like paragraphs.</p>
+              <hr>
+              <p>There are also <strong>"inline"</strong> elements. They appear on the same line that they are written on.</p>
+            </div>
+            <div class="flex-item">
+              <img src="img/example-blockinline.png" alt="example of inline and block elements" />
+            </div>
           </div>
-          <div class="halfblock">
-            <img src="img/example-blockinline.png" alt="example of inline and block elements" />
-          </div>
-          <div class="clear"></div>
         </section>
 
         <section>
@@ -102,19 +102,19 @@
           <ul>
             <li>CSS divides HTML into two types: inline and block.</li>
             <li>After block elements, browsers render a new line.</li>
-            <li><strong>Inline elements:</strong> img, a, br, em, strong</li>
-            <li><strong>Block elements:</strong> p, h1, ul, li, almost everything else</li>
+            <li><strong>Inline elements:</strong> <code>img</code>, <code>a</code>, <code>br</code>, <code>em</code>, <code>strong</code></li>
+            <li><strong>Block elements:</strong> <code>p</code>, <code>h1</code>, <code>ul</code>, <code>li</code>, almost everything else</li>
           </ul>
         </section>
 
         <!-- Divs -->
         <section>
-          <h3>Element: Div</h3>
+          <h3>Element: <code>div</code></h3>
           <ul>
-            <li>Block level element. Each new div is rendered on a new line.</li>
-            <li>A division, or section of content within an HTML page.</li>
+            <li>Block level element. Each new <code>div</code> is rendered on a new line.</li>
+            <li>A "division," or section, of content within an HTML page.</li>
             <li>Used to group elements to format them with CSS.</li>
-            <li>Apply IDs and Classes to divs to control their styles with CSS.</li>
+            <li>Apply IDs and Classes to <code>div</code>s to control their styles with CSS.</li>
           </ul>
         </section>
         <section>
@@ -135,15 +135,15 @@
         </section>
 
         <section>
-          <h3>Grouping elements with div</h3>
+          <h3>Grouping elements with <code>div</code></h3>
           <ul>
-            <li>The div tag is used everywhere to group elements together into sections.</li>
-            <li>You can wrap groups of elements in a div to style them differently.</li>
+            <li>The <code>div</code> tag is used everywhere to group elements together into sections.</li>
+            <li>You can wrap groups of elements in a <code>div</code> to style them differently.</li>
           </ul>
         </section>
 
         <section>
-          <h3>Grouping elements with div, cont.</h3>
+          <h3>Grouping elements with <code>div</code>, contined</h3>
 <pre><code class="css">.align-right{
   text-align:right;
   color: purple;
@@ -169,13 +169,13 @@
 
         <section>
           <h3>Let's Develop It</h3>
-           <p>Let's create a site using divs to separate content into different sections on our page.</p>
+           <p>Use <code>div</code>s to separate content into different sections on your page.</p>
            <p>Create a header, content area, sidebar, and a footer.</p>
         </section>
 
         <section>
-          <h3>Sample Code</h3>
-           <p>A page divided into divs might look like this:</p>
+          <h3>Sample Code: <code>div</code> Elements</h3>
+           <p>A page divided into <code>div</code>s might look like this:</p>
 <pre><code class="html">&lt;!doctype html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -201,18 +201,24 @@
 
         <section>
           <h3>HTML5</h3>
-         <p class="left-align">HTML5 offers new elements for better document structure and semantics</p>
-         <p class="left-align">Some of the most commonly used new tags include:</p>
+          <p>HTML5 offers new elements for better document structure and semantics.</p>
+          <p>Some of the most commonly used new tags include:</p>
+          <div class="flex-container">
+            <div class="flex-item">
+              <img src="img/HTML5PageLayout_2.jpg">
+            </div>
+            <div class="flex-item">
 <pre><code class ="html">&lt;header&gt;&lt;/header&gt;
 &lt;nav&gt;&lt;/nav&gt;
 &lt;main&gt;&lt;/main&gt;
-&lt;article&gt;&lt;/article&gt;
 &lt;section&gt;&lt;/section&gt;
+&lt;article&gt;&lt;/article&gt;
 &lt;aside&gt;&lt;/aside&gt;
 &lt;footer&gt;&lt;/footer&gt;
 </code></pre>
-
-        <p><a href="https://developer.mozilla.org/en-US/docs/web/html/element">Full list on Mozilla Developer Network (MDN)</a>.</p>
+            </div>
+          </div>
+          <p><a href="https://developer.mozilla.org/en-US/docs/web/html/element">Full list on Mozilla Developer Network (MDN)</a>.</p>
         </section>
 
         <section>
@@ -240,53 +246,60 @@
 &lt;/html&gt;
 </code></pre>
         </section>
+        
+        <section>
+          <h3>Let's Develop It</h3>
+           <p>Try replacing some your <code>div</code> elements with semantic HTML5 elements.</p>
+           <p>(Note: all <code>div</code>s have semantic equivalents!)</p>
+        </section>
 
         <!-- Span -->
         <section>
-          <h3>Element: Span</h3>
+          <h3>Element: <code>span</code></h3>
           <ul>
-          <li>Inline element. Each new span is rendered next to each other &amp; only wraps when it reaches the edge of the containing element.</li>
+          <li>Inline element. Each new <code>span</code> is rendered next to surrounding content, and only wraps when it reaches the edge of the containing element.</li>
           <li>Can be used to apply styles to text inline so as not to break the flow of content.</li>
           </ul>
         </section>
 
         <section>
-          <h3>Span</h3>
-          <p>Span is used to apply a specific style inline</p>
+          <h3><code>span</code></h3>
+          <p><code>span</code> is used to apply a specific style inline</p>
 
 <pre><code class="css">.highlight{
   color:teal;
 }
 </code></pre>
-<pre><code class="html">&lt;p&gt;Paragraph with &lt;span class="highlight"&gt;teal&lt;/span&gt; text.&lt;/p&gt;
+<pre><code class="html xml">&lt;p&gt;Paragraph with &lt;span class="highlight"&gt;teal&lt;/span&gt; text.&lt;/p&gt;
 </code></pre>
           <p>Paragraph with <span style="color:teal;">teal</span> text.</p>
         </section>
         <!-- Exercise-->
          <section>
           <h3>Let's Develop It</h3>
-         <p>Let's add some spans to our content to help highlight some text. </p>
+         <p>Let's add some <code>span</code> elements to our content to help highlight some text. </p>
         </section>
 
         <!-- Pseudo class-->
         <section>
           <h3>Pseudo-classess</h3>
-          <div class="halfblock">
-            <p>Changing the format of a link when you hover over it is accomplished by using pseudo-classes.</p>
-            <p>CSS pseudo-classes are used to add special effects to some selectors.</p>
-          </div>
-
-          <div class="halfblock">
-            <p>Syntax:</p>
+          <p>Changing the format of a link when you hover over it is accomplished by using pseudo-classes.</p>
+          <p>CSS pseudo-classes are used to add special effects to some selectors.</p>
+          <div class="flex-container">
+            <div class="flex-item">
+              <p>Syntax:</p>
 <pre><code class="css">selector:pseudo-class{
   property:value;
 }
 </code></pre>
-            <p>Example:</p>
+            </div>
+            <div class="flex-item">
+              <p>Example:</p>
 <pre><code class="css">a:link{
   text-decoration: none;
 }
 </code></pre>
+            </div>
           </div>
         </section>
 
@@ -298,8 +311,9 @@ a:visited {color:#00FF00;} /* visited link */
 a:hover, a:focus {color:#FF00FF;} /* mouse over or select with keyboard*/
 a:active {color:#0000FF;} /* selected link */
 </code></pre>
-          <p>a:hover <strong>MUST</strong> come after a:link and a:visited in the CSS definition to be effective!</p>
-          <p>a:active <strong>MUST</strong> come after a:hover in the CSS definition to be effective!</p>
+          <p><code>a:hover</code> <strong>MUST</strong> come after <code>a:link</code> and <code>a:visited</code> in the CSS definition to be effective!</p>
+          <p><code>a:active</code> <strong>MUST</strong> come after <code>a:hover</code> in the CSS definition to be effective!</p>
+          <p>Pseudo-classes cannot be used with inline styles.</p>
         </section>
 
         <!-- Exercise-->
@@ -308,6 +322,72 @@ a:active {color:#0000FF;} /* selected link */
           <p>Add pseudo classes to your links</p>
         </section>
 
+        <!-- Sizing -->
+        <!-- Width-->
+        <section>
+          <h3>Property: Width</h3>
+          <p>Set the width of a block-level element or <code>img</code>.</p>
+          <p>Won't work for other inline elements (unless you change their <code>display</code> property).</p>
+          <p>Accepts a variety of length units:</p>  
+<pre><code class="css">#sidebar {
+  width: 200px;
+  /* or */
+  width: 20em; /* relative to font size */
+  /* or */
+  width: 20%; /* relative to containing element width */
+  /* or */
+  width: 20vw; /* relative to window: 1vw = 1% window width */
+  /* and more (see link below) */
+}
+</code></pre>
+          <p><a href="https://css-tricks.com/the-lengths-of-css/" title="CSS Lengths on CSS-Tricks" target="_blank">More on CSS Length Units</a></p>
+        </section>
+
+        <!-- height-->
+        <section>
+          <h3>Property: Height</h3>
+          <p>Works like <code>width</code>, with all the same units:</p>
+<pre><code class="css">p.alert {
+  height: 50px;
+  /* or */
+  height: 5em; /* relative to font size */
+  /* or */
+  height: 10%; /* containing element MUST have specified width */
+  /* or */
+  height: 10vh; /* relative to window: 1vh = 1% window height */
+}
+</code></pre>
+        </section>
+
+        <!-- min & max -->
+        <section>
+          <h3>Min & Max</h3>
+          <p>Set upper or lower limits to the size of elements.</p>
+          <ul>
+            <li>No element can be smaller than its <code>min-width</code> or <code>min-height</code>.</li>
+            <li>No element can be larger than its <code>max-width</code> or <code>max-height</code>.</li>
+          </ul>
+<pre><code class="css">img {
+  max-width: 100%; /* may be no wider than the containing element */
+}
+</code></pre>
+<pre><code class="css">#sidebar {
+  width: 30%; /* will be 30% of the width of the containing element */
+  min-width: 200px; /* but will stop shrinking with its parent at 200px */
+}
+</code></pre>          
+        </section>
+
+        <!-- Exercise -->
+        <section>
+          <h3>Let's develop it!</h3>
+          <div>
+            <p>Add a width &amp; height to some <code>img</code> &amp; <code>div</code> elements.</p>
+            <p>Use <code>id</code>s or <code>class</code>es to target specific elements with CSS.</p>
+            <p>Set a rule for all <code>img</code> tags so they can never outsize their parents.</p>
+          </div>
+        </section>
+        
         <!-- Box model-->
         <section>
           <h3>The Box Model</h3>
@@ -328,8 +408,13 @@ a:active {color:#0000FF;} /* selected link */
 
         <section>
           <h3>Padding</h3>
-          <p>Notice that the padding adds to the total width of the box.</p>
-          <img src="img/box-model-padding.png" alt="Graphic illustrating box model, padding highlighted"/>
+          <p>Four values<p>
+<pre><code class="css">padding: top right bottom left;</code></pre>
+          <p>Two values</p>
+<pre><code class="css">padding: top/bottom right/left;</code></pre>
+          <p>One value</p>
+<pre><code class="css">padding: all;</code></pre>
+          <p><small>*<code>background</code> properties apply to padding as well as content.</small></p>
         </section>
 
         <section>
@@ -340,20 +425,11 @@ a:active {color:#0000FF;} /* selected link */
 <pre><code class="css">padding-top: 10px;</code></pre>
           <p>10 on top, 5 on right, 3 on bottom, 5 on left</p>
 <pre><code class="css">padding: 10px 5px 3px 5px;</code></pre>
+          <p><small>*Padding adds to the total size of the box, unless <code>box-sizing: border box</code> is applied.</small></p>
         </section>
 
         <section>
-          <h3>Padding</h3>
-          <p>Four values<p>
-<pre><code class="css">padding: top right bottom left;</code></pre>
-          <p>Two values</p>
-<pre><code class="css">padding: top/bottom right/left;</code></pre>
-          <p>One value</p>
-<pre><code class="css">padding: all;</code></pre>
-        </section>
-
-        <section>
-          <h3>Padding</h3>
+          <h3>Example: Padding</h3>
 <pre><code class="css">padding: 10px 20px 30px 40px;</code></pre>
           <img src="img/box-model-padding2.png" alt="Graphic illustrating box model, with uneven padding"/>
         </section>
@@ -376,15 +452,18 @@ a:active {color:#0000FF;} /* selected link */
 <pre><code class="css">border-top: 1px solid #ff0000;
 border-bottom: 4px dotted #000000;
 </code></pre>
+          <p><small>*Like <code>padding</code>, <code>border</code> adds to the total size of the box.</small></p>
         </section>
 
         <section>
           <h3>Border - Other Properties</h3>
+          <p>You can specify each property separately, or all three together.</p>
 <pre><code class="css">border-width: 10px;
 border-style: dashed;
 border-color: #666666;
 </code></pre>
-          <p>You can specify each property separately, or all three together.</p>
+<pre><code class="css">border: 10px dashed #666666;
+</code></pre>
         </section>
 
         <!-- Margin -->
@@ -436,48 +515,12 @@ width: 300px;
           <p>Let's center our entire document in the browser.</p>
         </section>
 
-        <!-- Sizing -->
-        <!-- Width-->
         <section>
-          <h3>Property: Width</h3>
-          <p>Sets the width of an element.</p>
-          <p>Does not include padding or borders. Remember to add these to the width.</p>
-<pre><code class="css">div#sidebar{
-  width: 31%;
-  padding: 1%;
-  border: none; //Total width is 33%
-}
-</code></pre>
+          <h1>Questions?</h1>
+          <br>
+          <p><a href="index.html#/1">Return to Table of Contents</a></p>
         </section>
-
-        <!-- height-->
-        <section>
-          <h3>Property: Height</h3>
-          <p>Sets the height of an element.</p>
-          <p>Does not include padding or borders. Remember to add these to the height.</p>
-<pre><code class="css">p.alert{
-  height: 50px;
-  padding: 5px;
-  border: 2px solid red; //Total height is 64px
-}
-</code></pre>
-           <p>Bonus: Look up the <code>box-sizing</code> property.  How can this affect your width and height calculations?</p>
-        </section>
-
-        <!-- Exercise -->
-        <section>
-          <h3>Let's develop it!</h3>
-          <div>
-            <p>Add a width &amp; height to our divs.</p>
-            <p>Use IDs to target each div with CSS</p>
-          </div>
-        </section>
-
-        <section>
-          <h2>Questions?</h2>
-          <p><a href="/gdi-featured-html-css-intro/#/1">Return to Table of Contents</a></p>
-        </section>
-</div><!-- Close slides -->
+      </div><!-- Close slides -->
 
       <footer>
         <div class="copyright">
