@@ -4,281 +4,239 @@
 	<head>
 		<title>More jQuery</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/presentation.css" />
-		<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+		<link rel="stylesheet" href="../common/css/reveal.css">
+		<link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
 		<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
-		<script src="js/jquery.js" type="text/javascript"></script>
-		<script src="js/fathom.js"></script>
-		<script src="js/prettify.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('pre').addClass('prettyprint').attr('tabIndex', 0);
-				prettyPrint();
+    <!-- For syntax highlighting -->
+    <!-- For syntax highlighting -->
+		<!-- light editor --><link rel="stylesheet" href="../common/lib/css/light.css">
 
-				var fathom = $('#presentation').fathom({
-					onActivateSlide: function() {
-						var $slide = $(this);
-						$slide.find('pre:first').focus();
-					}
-				});
+    <!-- If use the PDF print sheet so students can print slides-->
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
 
-				$('body').keypress(function(event){
-					if (event.which === 110) {
-						$('.speaker-notes').toggle();
-					}
-				});
-			});
-		</script>
-		<style>
-.grey-cell {
-	background: #eee;
-	padding: 10px;
-	border-right: 3px solid white;
-	font-size: 20px;
-	line-height: 1.5em;
-}
-.code-cell {
-	text-align: center;
-}
-		</style>
 	</head>
 	<body>
-		<div id="presentation">
-			<div id="presentation-counter"></div>
+    <div class="reveal">
+			<div class="slides">
 
-			<div id="slides">
-
-				<div class="slide normal">
+				<section>
 					<h1 class="center">More jQuery</h1>
-					<section class="content">
+					<div class="content">
 						<p align="center">
 						Slides: <a href="http://www.teaching-materials.org/jquery2/">http://www.teaching-materials.org/jquery2/</a>
 						</p>
-					</section>
-			  	</div><!--/jquery title slide-->
+					</div>
+        </section><!--/jquery title slide-->
 
 
 
 
-				<div class="slide normal">
-					<header><h1>Events</h1></header>
-					<section class="content">
-						<br>
-<pre>var onButtonClick = function() {
+				<section>
+					<header><h2>Events</h2></header>
+					<div class="content">
+<pre><code class="javascript">var onButtonClick = function() {
   console.log('clicked!');
 };
 
-$('button').on('click', onButtonClick);</pre>
-<br>
-<pre>$('button').on('click', function () {
+$('button').on('click', onButtonClick);
+
+$('button').on('click', function () {
   console.log('clicked!');
 });
 
-$('button').click(onButtonClick)</pre>
-						<br>
-						<p><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a> 
+$('button').click(onButtonClick)</code></pre>
+<small><ul>
+						<li><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a>
 							<code>'keydown'</code>
 							<code>'keypress'</code>
 							<code>'keyup'</code>
-						</p>
-						<p><a href="http://api.jquery.com/category/events/mouse-events/">Mouse Events</a> 
+						</li>
+						<li><a href="http://api.jquery.com/category/events/mouse-events/">Mouse Events</a>
 							<code>'click'</code>
 							<code>'mousedown'</code>
 							<code>'mouseup'</code>
 							<code>'mousemove'</code>
-						</p>
-						<p><a href="http://api.jquery.com/category/events/form-events/">Form Events</a> 
+						</li>
+						<li><a href="http://api.jquery.com/category/events/form-events/">Form Events</a>
 							<code>'change'</code>
 							<code>'focus'</code>
 							<code>'blur'</code>
-						</p>
+						</li>
+        </ul></small>
+            <p>Follow along: <a href="http://jsbin.com/dosewola/7/edit">http://jsbin.com/dosewola/7/edit</a></p>
+					</div>
+				</section><!--/events1-->
 
-						<p>Follow along: <a href="http://jsbin.com/dosewola/7/edit">http://jsbin.com/dosewola/7/edit</a></p>
-					</section>
-				</div><!--/events1-->
 
-
-				<div class="slide normal">
-					<header><h1>Remember: Callbacks</h1></header>
-					<section>
+				<section>
+					<header><h2>Remember: Callbacks</h2></header>
 						<img src="img/ryan-gosling-callback.jpg" style="width:100%;"/>
-					</section>
-				</div><!--/hey girl meme-->
+
+				</section><!--/hey girl meme-->
 
 
-				<div class="slide normal">
-					<header><h1>Events</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>Events</h2></header>
+					<p>
 						<br>
 						<p>Arguments get applied in callbacks<p>
-<pre>var myCallback = function(event) {
+<pre><code class="javascript">var myCallback = function(event) {
 	console.log(event);
 };
 
-$('p').on('mouseenter', myCallback);</pre>
-<br>
+$('p').on('mouseenter', myCallback);</code></pre>
 						<p>Preventing Default Events</p>
-<pre>$('a').on('click', function (event) {
+<pre><code class="javascript">$('a').on('click', function (event) {
 	event.preventDefault();
 	console.log('Not going there!');
-});</pre>
-<pre>$('form').on('submit', function (event) {
+});</code></pre>
+<pre><code class="javascript">$('form').on('submit', function (event) {
 	event.preventDefault();
 	console.log('Not submitting, time to validate!');
-});</pre>
+});</code></pre>
 
-					</section>
-				</div><!--/events2-->
-
-
+					</p>
+				</section><!--/events2-->
 
 
-				<div class="slide normal">
-					<header><h1>Effects &amp; Animation</h1></header>
-					<section class="content">
+
+
+				<section>
+					<header><h2>Effects &amp; Animation</h2></header>
+					<p>
 						<br>
-<pre>$('#error').toggle(1000);
+<pre><code class="javascript">$('#error').toggle(1000);
 
 $('#error').fadeIn();
 
 $('#error').show(1000, function(){
 	$(this).addClass('redText')
-});</pre>
+});</code></pre>
 
-					</section>
-				</div><!--/effects and animation-->
-
-				
+					<p>
+				</section><!--/effects and animation-->
 
 
 
-				<div class="slide normal">
-					<header><h1 class="center"><a href="exercises/exercise_events.html">Exercise Time!</a></h1></header>
-					<section class="content"></section>
-				</div><!--/exercise3-->
 
-				<div class="slide normal">
-					<header><h1>jQuery Plugins</h1></header>
-					<section class="content">
+
+				<section>
+					<header><h2><a href="exercises/exercise_events.html">Exercise Time!</a></h2></header>
+					<p><a href="exercises/exercise_events.html">click here!</a> </p>
+				</section><!--/exercise3-->
+
+				<section>
+					<header><h2>jQuery Plugins</h2></header>
+					<p>
 						<br>
-<pre>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</pre>
-						<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h1>
+<cite>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</cite>
+						<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h3>
 						<br><br>
 						<p><a href="http://blog.pamelafox.org/2013/07/which-javascript-library-should-i-pick.html">Which plugin should you pick?</a></p>
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery plugins-->
+<aside class="notes">shorter, cross-browser</pre>
+					</p>
+				</section><!--/jquery plugins-->
 
-				<div class="slide normal">
-					<header><h1>jQuery Plugin Usage</h1></header>
-					<section class="content">
+				<section>
+					<h2>jQuery Plugin Usage</h2>
 						<ul>
 							<li>Download the plugin and associated files from the site or github repo.</li>
 							<li>Copy them into your project folder.</li>
 							<li>In the HTML, reference any associated CSS files.</li>
-						</ul>
-<pre>&lt;link rel="type/stylesheet" type="text/css" href="tablesorter.css"&gt;</pre>
-						<ul>
+<pre><code>&lt;link rel="type/stylesheet" type="text/css" href="tablesorter.css"&gt;</code></pre>
 							<li>In the HTML, add a &lt;script&gt; tag for the jQuery plugin itself.</li>
-						</ul>
-<pre>&lt;script src="lib/tablesorter.js"&gt;&lt;script&gt;</pre>
-						<ul>
+<pre><code>&lt;script src="lib/tablesorter.js"&gt;&lt;script&gt;</code></pre>
 							<li>In the JavaScript, call the jQuery plugin on your DOM.</li>
-						</ul>
-<pre>$('table').tableSorter();</pre>		
-
-<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
-					</section>
-				</div><!--/jquery plugin usage-->
+<pre><code>$('table').tableSorter();</code></pre>
+            </ul>
+<aside class="notes">shorter, cross-browser</aside>
+				</section><!--/jquery plugin usage-->
 
 
-				<div class="slide normal">
-					<header><h1 class="center"><a href="exercises/exercise_plugin.html">Exercise Time!</a></h1></header>
-					<section class="content"></section>
-				</div><!--/exercise3-->
+				<section>
+					<header><h2><a href="exercises/exercise_plugin.html">Exercise Time!</a></h2></header>
+            <p><a href="exercises/exercise_plugin.html">click here!</a></p>
+        </section><!--/exercise3-->
 
 
-				<div class="slide normal">
-					<header><h1>jQuery Patterns and Anti-Patterns</h1></header>
-					<section>
+				<section>
+					<header><h2>jQuery Patterns and Anti-Patterns</h2></header>
+					<p>
 						<br>
 						<p><strong>Pattern: </strong>name variables with $
-<pre>var $myVar = $('#myNode');</pre>
+<pre><code class="javascript">var $myVar = $('#myNode');</code></pre>
 						</p>
 						<br>
 						<p><strong>Pattern: </strong>bind events to the document
-						<pre>$(document).on('click', 'a', myCallback);</pre>
+						<pre><code class="javascript">$(document).on('click', 'a', myCallback);</code></pre>
 						</p>
-						
-					</section>
-				</div><!--/jquery patterns and anti-patterns-->
+
+					</p>
+				</section><!--/jquery patterns and anti-patterns-->
 
 
 
 
-				<div class="slide normal">
-					<header><h1>Storing References</h1></header>
-					<section>
+				<section>
+					<header><h2>Storing References</h2></header>
+					<p>
 						<p><strong>Pattern: </strong>store references to callback functions
-<pre>var myCallback = function(argument) {
+<pre><code class="javascript">var myCallback = function(argument) {
   // do something cool
 };
 
 $(document).on('click', 'p', myCallback);
-</pre>
+</code></pre>
 						</p>
 						<p><strong>Anti-pattern: </strong>anonymous functions
-<pre>
+<pre><code class="javascript">
 $(document).on('click', 'p', function(argument) {
   // do something anonymous
 });
-</pre>
-					</section>
-				</div><!--/storing references-->
+</code></pre>
+					</p>
+				</section><!--/storing references-->
 
 
 
 
-				<div class="slide normal">
-					<header><h1>Chaining</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>Chaining</h2></header>
+					<p>
 						<br>
-<pre>banner.css('color', 'red');
+<pre><code class="javascript">banner.css('color', 'red');
 banner.html('Welcome!');
-banner.show();</pre>
+banner.show();</code></pre>
 						<p>Is the same as:</p>
 
-<pre>banner.css('color', 'red').html('Welcome!').show();</pre>
+<pre><code class="javascript">banner.css('color', 'red').html('Welcome!').show();</code></pre>
 
 						<p>Is the same as:</p>
 
-<pre>banner.css('color', 'red')
+<pre><code class="javascript">banner.css('color', 'red')
        .html('Welcome!')
-       .show();</pre>
+       .show();</code></pre>
 
-					</section>
-				</div><!--/chaining-->
+					</p>
+				</section><!--/chaining-->
 
 
-				<div class="slide normal">
-					<header><h1>DOM Readiness</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>DOM Readiness</h2></header>
+					<p>
 
 					<p><strong>Broken code: </strong>DOM manipulation and event binding in the <code>&lt;head&gt;</code>
 
-<pre>
-&lt;head&gt;
+<pre><code class="html">&lt;head&gt;
   &lt;script&gt;
     $('body').append( myNode );
   &lt;/script&gt;
 &lt;/head&gt;
-</pre>
+</code></pre>
 					</p>
 
 <p><strong>Pattern: </strong>If you <em>need</em> to load a script in the <code>&lt;head&gt;</code>, wait for the rest of the DOM to be ready before executing
-<pre>
-&lt;body&gt;
+<pre><code class="html">&lt;body&gt;
   ...
   &lt;script&gt;
     $(document).ready(function() {
@@ -286,35 +244,70 @@ banner.show();</pre>
     });
   &lt;/script&gt;
 &lt;/body&gt;
-</pre>
+</code></pre>
 						</p>
-						
-
-					</section>
-				</div><!--/DOM readiness-->
 
 
-				<div class="slide normal">
-					<header><h1>jQuery</h1></header>
-					<section class="content">
+					</p>
+				</section><!--/DOM readiness-->
+
+
+				<section>
+					<header><h2>jQuery</h2></header>
+					<p>
 						<br>
-						<h3 style="text-align:center">...is great.
+						<h4 style="text-align:center">...is great.
 						<br><br>
-						But do not become a jQuery-dependant!</h3>
-					</section>
-				</div><!--don't become a jquery dept-->
+						But do not become a jQuery-dependant!</h4>
+					</p>
+				</section><!--don't become a jquery dept-->
 
-				<div class="slide normal">
-					<header><h1>jQuery</h1></header>
-					<section class="content">
+				<section>
+					<header><h2>jQuery</h2></header>
+					<p>
 						<br>
 						<h3 style="text-align:center">
 							<a href="http://docs.jquery.com">docs.jquery.com</a>
 						</h3>
-					</section>
-				</div><!--docs.jquery.com-->
+					</p>
+				</section><!--docs.jquery.com-->
 
 			</div><!--/slides-->
+      <footer>
+        <div class="copyright">
+    More jQuery -- San Francisco --
+          <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+
 		</div><!--/presentation-->
+    <script src="../common/js/jquery.js" type="text/javascript"></script>
+    <script src="../common/lib/js/head.min.js"></script>
+    <script src="../common/js/reveal.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
 	</body>
 </html>
