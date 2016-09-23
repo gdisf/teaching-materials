@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap: Gallery Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Bootstrap: Gallery Exercise</h1>
+        <p>The goal of this exercise is to use the CSS components you've learned so far from <a href="http://v4-alpha.getbootstrap.com">Bootstrap</a> to create a gallery of your work or hobbies on your website.</p>
+
+        <h3>Part 1: Setup</h3>
+        <ol>
+          <li>Make a copy of your <code>index.html</code> from the previous exercise.</li>
+          <li>Name it <code>gallery.html</code> and save it in the same folder as your <code>index.html</code>.</li>
+          <li>Delete the main content from <code>gallery.html</code>, but keep the header, navigation, and footer if you have it.</li>
+          <li>Paste <a href="gallery_starter.html">this starter code</a> into your contact.html instead. You will not use that exact content, but use the HTML structure as a general template for your own content.</li>
+        </ol>
+
+        <h3>Part 2: Create gallery!</h3>
+        <h5>Create cards</h5>
+        <ul>
+          <li>Use the <a href="http://v4-alpha.getbootstrap.com/components/card/#content-types">card content type</a> classes such as <code>.card-block</code> and <code>.card-text</code> to create your cards.</li>
+          <li>Use the <code>.card-column</code> class to organize your cards like a Pinterest board.</li>
+        </ul>
+
+        <h3>Bonus</h3>
+        <ul>
+          <li>Organize your cards into different sections.</li>
+          <li>Add links to your cards that open in a new tab; include the attribute <code>target="_blank"</code>.</li>
+        </ul>
+
+  <button class="btn" onclick="showSolution();">Show Solution</button>
+
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="gallery_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+      </script>
+    </div>
+  </body>
+</html>

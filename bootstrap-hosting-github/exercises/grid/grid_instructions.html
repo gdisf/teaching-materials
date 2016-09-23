@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap: Fluid Grid Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Bootstrap: Fluid Grid Exercise</h1>
+        <p>The goal of this exercise use the <a href="http://v4-alpha.getbootstrap.com/layout/grid/">responsive grids classes</a> from <a href="http://v4-alpha.getbootstrap.com">Twitter Bootstrap</a> to lay out a columnar website that fluidly resizes based on screen resolution</p>
+        <ul>
+            <li>Start with the starter code file<a href="grid_starter.html"><code>grid_starter.html</code></a> by right clicking and saving the file it to your computer.</li>
+            <li>Use the <a href="http://v4-alpha.getbootstrap.com/layout/grid/">Bootstrap grids classes</a> to make the content a fluid layout according to the following:</li>
+        </ul>
+        
+        <img src="grid.gif" alt="Responsive Grid instructions" />
+        <br/>
+
+        <p>Bonus: Add images, using the <a href="http://v4-alpha.getbootstrap.com/components/card/">card group</a> class to organize the content.</p>
+        <p>Play around with changing the styling (fonts, colors) by editing grid.css.</p>
+        <p>Or play around with adding more components!</p>
+
+
+  <button class="btn" onclick="showSolution();">Show Solution</button>
+
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="grid_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+      </script>
+    </div>
+  </body>
+</html>

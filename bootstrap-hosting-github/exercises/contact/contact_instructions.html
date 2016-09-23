@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap: Contact Form Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Bootstrap: Contact Form Exercise</h1>
+        <p>The goal of this exercise is to use the CSS components you've learned so far from <a href="http://v4-alpha.getbootstrap.com">Bootstrap</a> to create a contact form for your website.</p>
+
+        <h3>Part 1: Setup</h3>
+        <ol>
+          <li>Make a copy of your <code>index.html</code> from the previous exercise.</li>
+          <li>Name it <code>contact.html</code> and save it in the same folder as your <code>index.html</code>.</li>
+          <li>Delete the main content from <code>contact.html</code>, but keep the header, navigation, and footer if you have it.</li>
+          <li>Paste <a href="contact_starter.html">this starter code</a> into your contact.html instead.</li>
+        </ol>
+
+        <h3>Part 2: Create form!</h3>
+        <h5>Add input fields</h5>
+        <ul>
+          <li>Use the <a href="http://v4-alpha.getbootstrap.com/components/forms/#form-controls">form control</a> classes such as <code>.form-group</code> and <code>.form-control</code> to style your Name, Email, Subject, and Message fields.</li>
+          <li>Use the <a href="http://v4-alpha.getbootstrap.com/components/buttons/">button</a> component's <code>.btn</code> classes to style your Send button.</li>
+        </ul>
+
+        <h3>Bonus</h3>
+        <ul>
+          <li>Add a header and introductory text to your Contact page.</li>
+          <li>Use the <a href="http://v4-alpha.getbootstrap.com/layout/grid" target="_blank">grid classes</a> we have already learned to style/position your new content on the page.</li>
+        </ul>
+
+  <button class="btn" onclick="showSolution();">Show Solution</button>
+
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="contact_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+
+    <script>
+function showSolution() {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+}
+      </script>
+    </div>
+  </body>
+</html>
