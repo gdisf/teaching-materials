@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>HTML/CSS 2-Day ~ Girl Develop It</title>
+
+    <meta name="description" content="An introduction to HTML & CSS presented in two, 6-hour sessions.">
+    <meta name="author" content="Girl Develop It San Francisco">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="../common/css/reveal.css">
+		<link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor --><link rel="stylesheet" href="../common/lib/css/light.css">
+		 <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <!-- <img src="img/circle-gdi-logo.png" alt="GDI Logo" class="noborder"> -->
+          <h1>Intro to HTML/CSS</h1>
+          <p>http://www.teaching-materials.org/htmlcss-2day</p>
+        </section>
+
+        <section>
+          <h3>Materials</h3>
+          <ul>
+            <li><a href="class1.html">Class 1 Slides</a></li>
+            <li><a href="files/reference-sheet-1.pdf">Class 1 Reference</a></li>
+            <li><a href="class2.html">Class 2 Slides</a></li>
+            <li><a href="files/reference-sheet-2.pdf">Class 2 Reference</a></li>
+            <li><a href="class3.html">Class 3 Slides</a></li>
+            <li><a href="files/reference-sheet-3.pdf">Class 3 Reference</a></li>
+            <li><a href="class4.html">Class 4 Slides</a></li>
+            <li><a href="files/reference-sheet-4.pdf">Class 4 Reference</a></li>
+            <li><a href="homework.html">Homework</a></li>
+            <li><a href="files/sample-code.zip">Sample files</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <footer>
+        <div class="copyright">
+          Intro to HTML & CSS (2-day) -- Girl Develop It San Francisco --
+          <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div><!-- close reveal -->
+
+
+    <script src="../common/lib/js/head.min.js"></script>
+    <script src="../common/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/plugin/zoom-js/zoom.js', async: true },
+          { src: '../common/plugin/notes/notes.js', async: true },
+          //{ src: '../common/plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

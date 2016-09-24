@@ -1,0 +1,9 @@
+Want to learn how to build your own website? Already have your own site and want to have more control over it? Interested in learning to program but want to start small? If you answered yes to any of the questions above, this course is for you!
+
+This beginner course will guide you through the basics of HTML and CSS. By the end of the class, you will have developed a first version of your own website.
+
+Tech Requirements: Your laptop. Note: A netbook or tablet is NOT a substitute.
+
+A modern browser with either Chrome and the "Web Developer" extension or Firefox and Firebug installed.
+
+A text editor. We recommend Sublime Text 2 (It's free and available for both Mac and PC).

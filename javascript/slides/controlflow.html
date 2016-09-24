@@ -3,13 +3,13 @@
 <head>
 <title>Intro to JavaScript</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/presentation.css" />
-<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+<link rel="stylesheet" type="text/css" href="../../common/normalize.css" />
+<link rel="stylesheet" type="text/css" href="../../common/presentation.css" />
+<link rel="stylesheet" type="text/css" href="../../common/prettify.css" />
 <link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<script src="js/jquery.js" type="text/javascript"></script>
-<script src="js/fathom.js"></script>
-<script src="js/prettify.js"></script>
+<script src="../../common/jquery.js" type="text/javascript"></script>
+<script src="../../common/fathom.js"></script>
+<script src="../../common/prettify.js"></script>
 <script>
 $(document).ready(function(){
     $('pre').addClass('prettyprint').attr('tabIndex', 0);
@@ -110,21 +110,21 @@ Since the value of 'x' is 5, and 5 is greater than 0, the condition is evaluated
      <p>Use these operators to compare two values for equality, inequality, or difference.</p>
 
 <pre>
-  var myAge = 28;
+  var myFavoriteNumber = 28;
 </pre>
 <br>
 <table border="1" cellspacing="5" cellpadding="5" style="font-size: 16px; line-height: 1em;">
   <thead>
   <tr><td>Operator  <td>Meaning <td>True expressions
   <tbody>
-  <tr><td>==    <td>Equality <td><code>myAge == 28</code> <br> <code>myAge == '28'</code> <br> <code>28 == '28'</code>
-  <tr><td>===  <td>Strict equality <td><code>myAge === 28</code>     
-  <tr><td>!=     <td>Inequality <td><code>myAge != 29</code>      
-  <tr><td>!==   <td>Strict inequality <td><code>myAge != '28'</code> <br> <code>28 != '28'</code>
-  <tr><td>&gt;  <td>Greater than <td><code>myAge &gt; 25</code> <br> <code>'28' &gt; 25</code>   
-  <tr><td>&gt;=<td>Greater than or equal <td><code>myAge &gt;= 28</code> <br> <code>'28' &gt;= 25</code>
-  <tr><td>&lt;   <td>Less than <td><code>myAge &lt; 30</code>  <br> <code>'28' &lt; 30</code>
-  <tr><td>&lt;= <td>Less than or equal <td><code>myAge &lt;= 28</code>  <br> <code>'28' &lt;= 28 </code>
+  <tr><td>==    <td>Equality <td><code>myFavoriteNumber == 28</code> <br> <code>myFavoriteNumber == '28'</code> <br> <code>28 == '28'</code>
+  <tr><td>===  <td>Strict equality <td><code>myFavoriteNumber === 28</code>
+  <tr><td>!=     <td>Inequality <td><code>myFavoriteNumber != 29</code>
+  <tr><td>!==   <td>Strict inequality <td><code>myFavoriteNumber !== '28'</code> <br> <code>28 !== '28'</code>
+  <tr><td>&gt;  <td>Greater than <td><code>myFavoriteNumber &gt; 25</code> <br> <code>'28' &gt; 25</code>
+  <tr><td>&gt;=<td>Greater than or equal <td><code>myFavoriteNumber &gt;= 28</code> <br> <code>'28' &gt;= 25</code>
+  <tr><td>&lt;   <td>Less than <td><code>myFavoriteNumber &lt; 30</code>  <br> <code>'28' &lt; 30</code>
+  <tr><td>&lt;= <td>Less than or equal <td><code>myFavoriteNumber &lt;= 28</code>  <br> <code>'28' &lt;= 28 </code>
 </table>
 
 <p><b>Common mistake</b>: Do not confuse <code>=</code> (the assignment operator) with <code>==</code>.</p>
@@ -165,7 +165,7 @@ var negNum = -2;
  <tr><td>!     <td>NOT <td> <code>!(posNum === negNum)</code>  <br><br> <code> !(posNum &lt; 0) </code>
 </table>
 
-<p>When combining together multiple conditions, use parantheses to group:</p>
+<p>When combining together multiple conditions, use parentheses to group:</p>
 <pre>
 var myAge = 28;
 if ((myAge &gt;= 0 && myAge &lt; 3)  || myAge &gt; 90) {
@@ -448,11 +448,11 @@ myFavoriteThings[0] = 'Celery Root';
 </pre>
 <p>Or to add to an array:</p>
 <pre>
-rainbowColors[4] = 'Playgrounds';
+myFavoriteThings[4] = 'Playgrounds';
 </pre>
 <p>You can also use the <code>push</code> method:</p>
 <pre>
-rainbowColors.push('Dancing');
+myFavoriteThings.push('Dancing');
 </pre>
      </section>
     </div>
@@ -462,13 +462,20 @@ rainbowColors.push('Dancing');
     
     
     <div class="slide normal"> 
-     <header><h1>Iterating through arrays</h1></header> 
+     <header><h1>Using for loops with arrays and strings</h1></header> 
      <section class="content"> 
      <p>Use a for loop to easily process each item in an array:</p>
 <pre>
 var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
 for (var i = 0; i < rainbowColors.length; i++) {
   console.log(rainbowColors[i]);
+}
+</pre>
+     <p>or a string:</p>
+<pre>
+var rainbowColorsLetters = 'ROYGBIV';
+for (var i = 0; i < rainbowColorsLetters.length; i++) {
+  console.log(rainbowColorsLetters[i]);
 }
 </pre>
 

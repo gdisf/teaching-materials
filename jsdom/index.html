@@ -11,11 +11,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link rel="stylesheet" href="../common/css/main.css">
-    <link rel="stylesheet" href="../common/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../common/css/reveal.css">
+    <link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="../common/css/theme/solarized_light.css">
+    <link rel="stylesheet" href="../common/css/theme/gdilight.css">
 
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
@@ -36,6 +36,10 @@
         float: left;
         font-size: 1rem;
       }
+      .reveal pre code {
+        box-shadow: none;
+        display: block;
+      }
     </style>
   </head>
 
@@ -49,8 +53,9 @@
   <br>
   <h1 class="upper">JS201: JS and the DOM (Review)</h1>
   <br>
-  <br>
-  <h2>teaching-materials.org/jsdom/</h2>
+  <p>
+    <small>Slides: <a href="http://www.teaching-materials.org/jsdom" class="roll"><span data-title="http://www.teaching-materials.org/jsdom">http://www.teaching-materials.org/jsdom</span></a></small>
+  </p>
 </section>
 
 <section>
@@ -116,7 +121,7 @@
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-    
+
 
   </code></pre>
   </center>
@@ -151,7 +156,7 @@
     <br>
     <p>Can you find any other methods and properties this way?</p>
   </section>
-</section>  
+</section>
 <section>
   <h1>Traversing the DOM</h1>
   <br>
@@ -224,8 +229,8 @@ myNewElement.className = 'new';</code></pre>
   <h3>Terminology</h3>
   <br>
   <ul>
-    <li><strong>Event:</strong> something that happens</li>    
-    <li><strong>Callback:</strong> a function that executes after the event has happened</li>    
+    <li><strong>Event:</strong> something that happens</li>
+    <li><strong>Callback:</strong> a function that executes after the event has happened</li>
     <li><strong>Event listener:</strong> a method that binds an event to a callback</li>
   </ul>
 </section>
@@ -301,7 +306,7 @@ myButton.addEventListener('click', myCallback);
   <h4>Part 1: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank">arguments array</a></h4>
   <p>Each JavaScript function has an <code>arguments</code> array, regardless of how you define it.</p>
   <pre><code>// notice no arguments here
-var myFunc1 = function() { 
+var myFunc1 = function() {
   console.log(arguments);
 }
 
@@ -336,18 +341,12 @@ myEventListener('Wow, look at this string get applied as an argument to myCallba
 </section>
 
       </div>
-
-      <!-- The navigational controls UI -->
-      <aside class="controls">
-        <a class="left" href="#">&#x25C4;</a>
-        <a class="right" href="#">&#x25BA;</a>
-        <a class="up" href="#">&#x25B2;</a>
-        <a class="down" href="#">&#x25BC;</a>
-      </aside>
-
-      <!-- Presentation progress bar -->
-      <div class="progress"><span></span></div>
-
+      <footer>
+        <div class="copyright">
+          JS401 Intro to Unit Testing with Jasmine -- San Francisco --
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
 
     </div>
 

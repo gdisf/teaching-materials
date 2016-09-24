@@ -1,786 +1,380 @@
-
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <!--[if gte IE 9]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <![endif]-->
-    <!--[if lt IE 9]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
-    <![endif]-->
+    <title>CSS Tools &amp; Techniques</title>
+
     <meta charset="utf-8" />
-    <title>CSS Tools & Techniques</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="../common/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="../common/presentation.css" />
-		<link rel="stylesheet" type="text/css" href="../common/prettify.css" />
-		<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
-		<style type="text/css">
-		.special {
-			color: purple;
-			font-size: 2em;
-			line-height: 2em;
-		}
-		</style>
-		<script src="../common/jquery.js" type="text/javascript"></script>
-		<script src="../common/fathom.js"></script>
-		<script src="../common/prettify.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('pre').addClass('prettyprint').attr('tabIndex', 0);
-				prettyPrint();
+    <meta name="description" content="In this workshop, you will learn CSS tools and techniques: CSS frameworks like Twitter Bootstrap, media queries to make responsive websites, and more." />
+    <meta name="author" content="Girl Develop It San Francisco" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-				var fathom = $('#presentation').fathom({
-					onActivateSlide: function() {
-						var $slide = $(this);
-						$slide.find('pre:first').focus();
-					}
-				});
+    <link rel="stylesheet" href="../common/css/reveal.css" />
+    <link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme" />
 
-				$('body').keypress(function(event){
-					if (event.which === 110) {
-						$('.speaker-notes').toggle();
-					}
-				});
-			});
-		</script>
-		<style>
-.grey-cell {
-	background: #eee;
-	padding: 10px;
-	border-right: 3px solid white;
-	font-size: 20px;
-	line-height: 1.5em;
-}
-.code-cell {
-	text-align: center;
-}
-		</style>
-	</head>
-	<body>
+    <!-- For syntax highlighting -->
+    <!-- light editor -->
+    <link rel="stylesheet" href="../common/lib/css/light.css" />
+    <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
+    <!-- If use the PDF print sheet so students can print slides-->
 
-  <div id="presentation">
-   <div id="presentation-counter"></div>
+    <link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script src="../common/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-   <div id="slides">
+  <body>
+    <div class='reveal'>
+      <div class="slides">
+        <section>
+          <h1>CSS Tools &amp; Techniques</h1>
+        </section>
 
+        <section>
+          <h2>Cross-Browser CSS</h2>
+        </section>
 
-    <div class="slide intro">
-     <header><h1>CSS Tools &amp; Techniques</h1></header>
-    </div>
+        <section>
+          <h2>Browsers</h2>
+          <ul>
+            <li>Browsers interpret and present information on the web.</li>
+            <li>Each browser varies in how it displays webpages.</li>
+            <li>Layout engine: a program browsers run to render markup (HTML) and formatting (CSS).</li>
+            <li> Most popular are WebKit (Apple), Blink (Chrome), Gecko (Mozilla)</li>
+            <img src="img/diagram_browsers.png">
+            <p><a href="http://en.wikipedia.org/wiki/Comparison_of_web_browsers#Release_history" target="_blank">Current browser versions</a></p>
+          </ul>
+        </section>
 
-    <div class="slide section">
-     <header><h1>Cross-Browser CSS</h1></header>
-    </div>
+        <section>
+          <h2>Browsers</h2>
+          <p>Each browser varies in how it displays webpages.</p>
+          <p>Example: Web browser vs mobile browsers.</p>
+          <img src="img/cnn-web.png" width="50%">
+          <img src="img/cnn-iphone.png" width="30%">
+        </section>
 
-    <div class="slide normal">
-     <header><h1>Browsers</h1></header>
-     <section class="content">
-     <ul>
-     <li>Browsers interpret and present information on the web.</li>
-     <li>Each browser varies in how it displays webpages.</li>
-     <li>Layout engine: a program browsers run to render markup (HTML) and formatting (CSS).</li>
-     <li> Most popular are WebKit (Apple), Blink (Chrome), Gecko (Mozilla)</li>
-     <img src="img/diagram_browsers.png">
-     <p><a href="http://en.wikipedia.org/wiki/Comparison_of_web_browsers#Release_history" target="_blank">Current browser versions</a></p>
-     </section>
-    </div>
-  
-    <div class="slide normal">
-     <header><h1>Browsers</h1></header>
-     <section class="content">
-     <p>Each browser varies in how it displays webpages.</p>
-     <p>Example: Web browser vs mobile browsers.</p>
-     <img src="img/cnn-web.png" width="50%">
-     <img src="img/cnn-iphone.png" width="30%">
-     </section>
-    </div>
-    
-	<div class="slide normal">
-     <header><h1>Browsers</h1></header>
-     <section class="content">
-     <p>Each browser varies in how it displays webpages.</p>
-     <p>Example: Default form fields.</p>
-     <img src="img/selectbox.png" width="80%">
-     </section>
-    </div>
-    
-    <div class="slide normal">
-     <header><h1>Browser Compatibility</h1></header>
-     <section class="content">
-     <ul>
-     <li>The language of the web and standards evolve.</li>
-     <li>Older browsers do not know about newer CSS selectors or properties (or newer HTML attributes for that matter!)</li>
-     <li>Usually they ignore unknown selectors, sometimes unpredictable.</li>
-     </ul>
-		<p><img src="img/border-radius-support.png" width="60%"></p>
-<p>Use these sites to check compatibility:</p>
- <ul>
-  <li><a href="http://caniuse.com/">caniuse.com</a>
-  <li><a href="http://www.quirksmode.org/css/contents.html">Quirks Mode: CSS Compatibility</a>
-  <li><a href="http://html5please.com/">html5please.com</a>
-</ul>
-     </section>
-    </div>
+        <section>
+          <h2>Browsers</h2>
+          <p>Each browser varies in how it displays webpages.</p>
+          <p>Example: Default form fields.</p>
+          <img src="img/selectbox.png" width="60%">
+        </section>
 
-    <div class="slide normal">
-     <header><h1>Browser Compatibility</h1></header>
-     <section class="content">
-		<iframe src="https://vine.co/v/b0JEbzaKKJO/embed/simple" width="600" height="600" frameborder="0" text-align="center"></iframe>
-		<script src="https://platform.vine.co/static/scripts/embed.js"></script>
-     </section>
-    </div>
+        <section>
+          <h2>Browser Compatibility</h2>
+          <ul>
+            <li>The language of the web and standards evolve.</li>
+            <li>Older browsers do not know about newer CSS selectors or properties (or newer HTML attributes for that matter!)</li>
+            <li>Usually they ignore unknown selectors, sometimes unpredictable.</li>
+          </ul>
+          <p><img src="img/border-radius-support.png" width="60%"></p>
+          <p>Use these sites to check compatibility:</p>
+          <ul>
+            <li><a href="http://caniuse.com/">caniuse.com</a></li>
+            <li><a href="http://www.quirksmode.org/css/contents.html">Quirks Mode: CSS Compatibility</a></li>
+            <li><a href="http://html5please.com/">html5please.com</a></li>
+          </ul>
+        </section>
 
-<!--
-    <div class="slide normal">
-     <header><h1>CSS Fallbacks</h1></header>
-     <section class="content">
-     <p>When the CSS parser doesn't understand a property or value, it ignores it. For fallback, specify older syntaxes first.
-</p>
+        <section>
+          <h2>Browser Compatibility</h2>
+          <iframe src="https://vine.co/v/b0JEbzaKKJO/embed/simple" width="600" height="600" frameborder="0" text-align="center"></iframe>
+          <script src="https://platform.vine.co/static/scripts/embed.js"></script>
+        </section>
 
-<pre>
-body {
-  background:url(cyan_transparent_50.png);
-  background:rgba(0,255,255,.5);
-}
-</pre>
+        <section>
+          <h2>Browser Bugs</h2>
+          <ul>
+            <li>Not all browsers render CSS the same, with the most number of issues in IE.</li>
+            <li>The best defense is to be aware and to test.</li>
+          </ul>
+          <ul>
+            <li><a href="http://coding.smashingmagazine.com/2010/06/07/the-principles-of-cross-browser-css-coding/">The Principles of Cross-Browser CSS Coding</a></li>
+            <li><a href="http://www.tutorialfeed.org/2010/01/10-common-css-browser-compatibility.html">10 Common CSS Browser Compatibility Issues</a></li>
+            <li><a href="http://archive.webstandards.org/css/winie/">IE's Top 10 CSS Problems</a></li>
+          </ul>
+        </section>
 
-<pre>
-button.glossy {
-   background: #ccc url(gloss.png) 50% 50% repeat-x;
-   background: #ccc -webkit-gradient(linear, left top, left bottom,
-         from(rgba(255,255,255, .4)), to(rgba(0,0,0, .1)));
-}
-</pre>
+        <section>
+          <h2>Browser Testing</h2>
+          <p>Since not all browsers work on all operating systems (IE on Mac), you may need help from these tools for cross-browser testing:
+          </p>
+          <ul>
+            <li><a href="http://www.modern.ie/en-us/virtualization-tools">Modern.ie</a> Microsoft's free access to testing tools</li>
+            <li><a href="http://www.saucelabs.com">SauceLabs</a>: Cloud-based automated and manual testing</li>
+            <li><a href="http://www.browserstack.com/">BrowserStack</a>: Lets you debug in virtual browsers.</li>
+            <li><a href="http://browsershots.org/">BrowserShots</a>: Takes screenshots of your sites in different browsers.</li>
+            <li><a href="https://browserling.com/">BrowserLing</a>: Ditto.</li>
+            <li><a href="http://multipleies.en.softonic.com/">MultipleIEs</a>: Makes it possible to test in multiple IE versions on one computer.</li>
+            <li><a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a>: Ditto.</li>
+          </ul>
+        </section>
 
-<pre>
-.transparent {
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  filter: alpha(opacity=50);
-  opacity: .5;
-}
-</pre>
+        <section>
+         <h2>Cross-Device CSS</h2>
+        </section>
 
-<p class="notes">
-http://css-tricks.com/rgba-browser-support/
-http://css-tricks.com/quickie-css3-tricks-with-fallbacks/
-http://www.xanthir.com/blog/b4JF0
-</p>
-     </section>
-    </div>
-
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Conditional CSS</h1></header>
-     <section class="content">
-     <p>In case you do need to specify CSS just for a particular browsers, there are a few ways.
-</p>
-<p>In IE, you can use conditional comments to specify IE stylesheets:</p>
-<pre>
-&lt;!--[if IE7]&gt;&lt;link rel="stylesheet" type="text/css" media="screen" href="css/ie7.css" /&gt;&lt;![endif]--&gt;
-</pre>
-<p>Or to conditionally add classes:</p>
-<pre>
-&lt;!--[if IE7]&gt; &lt;html class="ie7"&gt; &lt;![endif]--&gt;
-</pre>
-
-<p>You can also use a number of <a href="http://paulirish.com/2009/browser-specific-css-hacks/">CSS hacks</a> or detect browsers in JavaScript.
-</p>
-<p class="notes">
-http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-</p>
-     </section>
-    </div>
--->
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Browser Bugs</h1></header>
-     <section class="content">
-     <ul>
-     	<li>Not all browsers render CSS the same, with the most number of issues in IE.</li>
-		<li>The best defense is to be aware and to test.</li>
-</p>
-<ul>
-  <li><a href="http://coding.smashingmagazine.com/2010/06/07/the-principles-of-cross-browser-css-coding/">The Principles of Cross-Browser CSS Coding</a>
-  <li><a href="http://www.tutorialfeed.org/2010/01/10-common-css-browser-compatibility.html">10 Common CSS Browser Compatibility Issues</a>
-  <li><a href="http://archive.webstandards.org/css/winie/">IE's Top 10 CSS Problems</a>
-</ul>
-     </section>
-    </div>
-
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Browser Testing</h1></header>
-     <section class="content">
-     <p>Since not all browsers work on all operating systems (IE on Mac), you may need help from these tools for cross-browser testing:
-<p>
-<ul>
-  <li><a href="http://www.modern.ie/en-us/virtualization-tools">Modern.ie</a> Microsoft's free access to testing tools
-  <li><a href="http://www.saucelabs.com">SauceLabs</a>: Cloud-based automated and manual testing
-  <li><a href="http://www.browserstack.com/">BrowserStack</a>: Lets you debug in virtual browsers.
-  <li><a href="http://browsershots.org/">BrowserShots</a>: Takes screenshots of your sites in different browsers.
-  <li><a href="https://browserling.com/">BrowserLing</a>: Ditto.
-  <li><a href="http://multipleies.en.softonic.com/">MultipleIEs</a>: Makes it possible to test in multiple IE versions on one computer.
-  <li><a href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a>: Ditto.
-</ul>
-     </section>
-    </div>
-
-    <div class="slide section">
-     <header><h1>Cross-Device CSS</h1></header>
-    </div>
-
-    <div class="slide normal">
-     <header><h1>CSS Media Queries</h1></header>
-     <section class="content">
-     <p>A media query consists of a media type and an optional combination of media features. CSS rules inside the query will be applied
-only if the query is true.</p>
-<pre>
-@media &lt;media types&gt; and &lt;media features&gt; {
+        <section>
+          <h2>CSS Media Queries</h2>
+          <p>A media query consists of a media type and an optional combination of media features. CSS rules inside the query will be applied
+            only if the query is true.</p>
+          <pre><code>@media &lt;media types&gt; and &lt;media features&gt; {
   /* media-specific rules */
 }
-</pre>
+          </code></pre>
+          <p>They can also be specified for a linked stylesheet:</p>
+          <pre><code>&lt;link rel="stylesheet" media="&lt;media types&gt; and &lt;media features&gt;"
+      href="alternative.css" /&gt;
+          </code></pre>
+          <aside class="notes">
+            https://developer.mozilla.org/en/CSS/@media#Media_groups
+            https://developer.mozilla.org/en/CSS/Media_queries
+          </aside>
+        </section>
 
-<p>They can also be specified for a linked stylesheet:</p>
-<pre>
-&lt;link rel="stylesheet" media="&lt;media types&gt;
-   and &lt;media features&gt;" href="alternative.css" /&gt;
-</pre>
-
-<p class="notes">
-https://developer.mozilla.org/en/CSS/@media#Media_groups
-https://developer.mozilla.org/en/CSS/Media_queries
-</p>
-     </section>
-    </div>
-
-
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Print Styles</h1></header>
-     <section class="content">
-     <p>All modern browsers support the "print" media type for specifying print styles.
-</p>
-<pre>
-@media print {
+        <section>
+          <h2>Print Styles</h2>
+          <p>All modern browsers support the "print" media type for specifying print styles.</p>
+          <pre><code>@media print {
   body {
     background: white;
   }
+
   #header, #footer {
     display: none;
   }
+
   .section {
     page-break-inside: avoid;
     page-break-after: always;
   }
 }
-</pre>
-
-<p class="notes">
-http://reference.sitepoint.com/css/pagedmedia
-</p>
-     </section>
-    </div>
+          </code></pre>
+          <aside class="notes">
+            http://reference.sitepoint.com/css/pagedmedia
+          </aside>
+        </section>
 
 
-
-
-
-    <div class="slide normal">
-     <header><h1>Resolution Queries</h1></header>
-     <section class="content">
-     <p>Modern mobile browsers support media queries which depend on the <code>device-width</code> and/or
-<code>orientation</code>:
-</p>
-<p>Targeting iPads:</p>
-<pre>
-@media only screen
-  and (min-device-width : 768px)
-  and (max-device-width : 1024px) {
-    img {
-      width: 100%;
-    }
+        <section>
+          <h2>Resolution Queries</h2>
+          <p>Modern mobile browsers support media queries which depend on the <code>device-width</code> and/or
+          <code>orientation</code>:</p>
+          <p>Targeting iPads:</p>
+          <pre><code>@media only screen and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+  img {
+    width: 100%;
+  }
 }
-</pre>
-<p>Read more: <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media Queries for Standard Devices</a>
-<p class="notes">
-</p>
-     </section>
-    </div>
+          </code></pre>
+          <p>Read more: <a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media Queries for Standard Devices</a></p>
+        </section>
 
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Resolution Queries</h1></header>
-     <section class="content">
-     <p>A more general approach is just to query on <code>min-width</code> and <code>max-width</code>,
-which are calculated based on window size, not device size.
-</p>
-<pre>
-@media screen and (max-width: 640px) {
+        <section>
+          <h2>Resolution Queries</h2>
+          <p>A more general approach is just to query on <code>min-width</code> and <code>max-width</code>,
+          which are calculated based on window size, not device size.
+          </p>
+          <pre><code>@media screen and (max-width: 640px) {
   #sidebar {
     display: none;
   }
 }
-</pre>
-<pre>
-@media (min-width: 768px) and (max-width: 979px) {
+          </code></pre>
+          <pre><code>@media (min-width: 768px) and (max-width: 979px) {
   #sidebar {
     width: 200px;
   }
 }
-</pre>
+          </code></pre>
+          <aside class="notes">
+            http://css-tricks.com/css-media-queries/
+            http://css-tricks.com/resolution-specific-stylesheets/
+          </aside>
+        </section>
 
-<p class="notes">
-http://css-tricks.com/css-media-queries/
-http://css-tricks.com/resolution-specific-stylesheets/
-</p>
-     </section>
-    </div>
-
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Pixel Density Queries</h1></header>
-     <section class="content">
-     <p>The experimental <code>device-pixel-ratio</code> feature can be used to detect pixel density:</p>
-<pre>
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-    only screen and (-o-min-device-pixel-ratio: 3/2),
-    only screen and (min--moz-device-pixel-ratio: 1.5),
-    only screen and (min-device-pixel-ratio: 1.5) {
-        #logo {
-            background-image:url(images/icon@2x.png);
-        }
+        <section>
+          <h2>Pixel Density Queries</h2>
+          <p>The experimental <code>device-pixel-ratio</code> feature can be used to detect pixel density:</p>
+          <pre><code>@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  #logo {
+    background-image:url(images/icon@2x.png);
+  }
 }
-</pre>
+          </code></pre>
+          <aside class="notes">
+            https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
+          </aside>
+        </section>
 
-<p class="notes">
-https://developer.mozilla.org/en/CSS/Media_queries#-moz-device-pixel-ratio
-</p>
-     </section>
-    </div>
+        <section>
+          <h2>Resolution Testing</h2>
+          <p>Besides testing on the actual devices or resizing the browser, you can use these tools:</p>
+          <ul>
+            <li><a href="http://pamelafox.github.com/resolutionizer/">Resolutionizer</a></li>
+            <li><a href="http://screenqueri.es/">ScreenQueries</a></li>
+            <li><a href="http://labs.adobe.com/technologies/shadow/">Adobe Shadow</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_View">Firefox Responsive Design View</a></li>
+          </ul>
+        </section>
 
+        <section>
+          <br><br>
+          <h2><a href="exercises/exercise_media_descrip.html">Exercise Time!</a></h2>
+        </section>
 
+        <section>
+          <h2>Good Defaults</h2>
+        </section>
 
+        <section>
+          <h2>CSS Resets</h2>
+          <ul>
+            <li>Not the same blank slate - browsers define different default styles.</li>
+            <li>CSS reset stylesheets are used to normalize the default CSS across browsers.</li>
+          </ul>
+          <p><a href="http://meyerweb.com/eric/tools/css/reset/">Reset.css</a> removes every default style.
+          </p>
+          <p><a href="http://necolas.github.com/normalize.css/">Normalize.css</a> normalizes the default styles across browsers
+            (and is the preferred approach).
+          </p>
+        </section>
 
+        <section>
+          <h2>CSS Grids</h2>
+          <p>A grid system lets you layout pages according to fractions of a grid (usually 12, 16, or 24 columns).</p>
 
-    <div class="slide normal">
-     <header><h1>Resolution Testing</h1></header>
-     <section class="content">
-     <p>Besides testing on the actual devices or resizing the browser, you can use these tools:</p>
-<ul>
- <li><a href="http://pamelafox.github.com/resolutionizer/">Resolutionizer</a>
- <li><a href="http://screenqueri.es/">ScreenQueries</a>
- <li><a href="http://labs.adobe.com/technologies/shadow/">Adobe Shadow</a>
- <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_View">Firefox Responsive Design View</a>
-</ul>
-     </section>
-    </div>
+          <p>Example: Foundation Grid System</p>
+          <p><img src="img/foundation-grid.png" width="100%"></p>
+        </section>
 
+        <section>
+          <h2>CSS Grids</h2>
+          <p>A grid system lets you layout pages according to fractions of a grid (usually 12, 16, or 24 columns).</p>
 
-    <div class="slide normal">
-      <br><br>
-     <header><h1><a href="exercises/exercise_media_descrip.html">Exercise Time!</a></h1></header>
-    </div>
-
-
-    <div class="slide section">
-     <header><h1>Good Defaults</h1></header>
-    </div>
-
-
-
-
-
-    <div class="slide normal">
-     <header><h1>CSS Resets</h1></header>
-     <section class="content">
-     <ul>
-     <li>Not the same blank slate - browsers define different default styles.</li>
-     <li>CSS reset stylesheets are used to normalize the default CSS across browsers.</li>
-     </ul>
-</p>
-<p><a href="http://meyerweb.com/eric/tools/css/reset/">Reset.css</a> removes every default style.
-</p>
-<p><a href="http://necolas.github.com/normalize.css/">Normalize.css</a> normalizes the default styles across browsers
-(and is the preferred approach).
-</p>
-     </section>
-    </div>
-
-
-    <div class="slide normal">
-     <header><h1>CSS Grids</h1></header>
-     <section class="content">
-     	<p>A grid system lets you layout pages according to fractions of a grid (usually 12, 16, or 24 columns).</p>
-
-		<p>Example: Foundation Grid System</p>
-		<p><img src="img/foundation-grid.png" width="100%"></p>
-
-     </section>
-    </div>
+          <p>Example: Bootstrap Grid System</p>
+          <p><img src="img/bootstrap-grid-system.jpg" width="100%"></p>
+        </section>
 
 
-    <div class="slide normal">
-     <header><h1>CSS Grids</h1></header>
-     <section class="content">
-     	<p>A grid system lets you layout pages according to fractions of a grid (usually 12, 16, or 24 columns).</p>
+        <section>
+          <h2>CSS Grids</h2>
+          <p>Example: Foundation grid with mixed classes</p>
+          <p>Using <a href="http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html">Foundation CSS Grids</a>:</p>
+          <pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;
+href=&quot;https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.0.6/css/foundation.css&quot;&gt;
 
-		<p>Example: Bootstrap Grid System</p>
-		<p><img src="img/bootstrap-grid-system.jpg" width="100%"></p>
-		
-     </section>
-    </div>
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;small-2 large-4 columns&quot;&gt; ... &lt;/div&gt;
+  &lt;div class=&quot;small-4 large-4 columns&quot;&gt; ... &lt;/div&gt;
+  &lt;div class=&quot;small-6 large-4 columns&quot;&gt; ... &lt;/div&gt;
+&lt;/div&gt;
+          </code></pre>
+          <p><img src="img/foundation-example.png" width="100%"></p>
+          <p>Also see: <a href="http://960.gs/">960 Grids</a>, <a href="http://1kbgrid.com/">1KB Grid</a></p>
+        </section>
 
+        <section>
+          <h2>CSS Grids</h2>
+          <img src="img/devtools.png" style="width:100%">
+        </section>
 
+        <section>
+          <h2>CSS Frameworks</h2>
+          <ul>
+            <li>Why reinvent the wheel?</li>
+            <li>Responsiveness and cross browser consistency for free.</li>
+            <li>Modular and reusable components.</li>
+            <li>Usually include a reset, a grids system, styles for typography and forms. Some include support for mobile/print.</li>
+          </ul>
+        </section>
 
-    <div class="slide normal">
-     <header><h1>CSS Grids</h1></header>
-     <section class="content">
-     <p>Example: Foundation grid with mixed classes</p>
-<p>Using <a href="http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html">Foundation CSS Grids</a>:</p>
-<pre>
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.0.6/css/foundation.css&quot;&gt;
-    &lt;div class=&quot;row&quot;&gt;
-        &lt;div class=&quot;small-2 large-4 columns&quot;&gt; ... &lt;/div&gt;
-        &lt;div class=&quot;small-4 large-4 columns&quot;&gt; ... &lt;/div&gt;
-        &lt;div class=&quot;small-6 large-4 columns&quot;&gt; ... &lt;/div&gt;
-   &lt;/div&gt;
-</pre>
-		<p><img src="img/foundation-example.png" width="100%"></p>
-		<p>Also see: <a href="http://960.gs/">960 Grids</a>, <a href="http://1kbgrid.com/">1KB Grid</a></p>
-     </section>
-    </div>
-    
+        <section>
+          <h2>CSS Frameworks</h2>
+          <p>With <a href="http://v4-alpha.getbootstrap.com/">Twitter Bootstrap</a>:</p>
+          <pre><code>&lt;link href=&quot;https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css&quot;
+      rel=&quot;stylesheet&quot; integrity=&quot;sha384-XXXXXXXX&quot;
+      crossorigin=&quot;anonymous&quot; &gt;
 
-    <div class="slide normal">
-     <header><h1>CSS Grids</h1></header>
-     <img src="img/devtools.png" style="width:100%">
-    </div>
-
-
-    <div class="slide normal">
-     <header><h1>CSS Frameworks</h1></header>
-     <section class="content">
-		<ul>
-			<li>Why reinvent the wheel?</li>
-			<li>Responsiveness and cross browser consistency for free.</li>
-			<li>Modular and reusable components.</li>
-			<li>Usually include a reset, a grids system, styles for typography and forms. Some include support for mobile/print.</li>
-		</ul>
-     </section>
-    </div>
-
-
-
-    <div class="slide normal">
-     <header><h1>CSS Frameworks</h1></header>
-     <section class="content">
-<p>With <a href="http://v4-alpha.getbootstrap.com/">Twitter Bootstrap</a>:</p>
-<pre>
-&lt;link href=&quot;https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css&quot; rel=&quot;stylesheet&quot; integrity=&quot;sha384-XXXXXXXX&quot; crossorigin=&quot;anonymous&quot;&gt;
 &lt;div class=&quot;container-fluid&quot;&gt;
   &lt;div class=&quot;row&quot;&gt;
     &lt;div class=&quot;col-xs-12 col-sm-6 col-md-8&quot;&gt;First Column&lt;/div&gt;
-    &lt;div class=&quot;col-xs-6 col-md-4 &quot;&gt;Second Column&lt;/div&gt;
+    &lt;div class=&quot;col-xs-6 col-md-4&quot;&gt;Second Column&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</pre>
+          </code></pre>
+          <img src="img/bootstrap_example_grid.png" style="width: 60%"/>
+          <p>Also see: <a href="http://purecss.io">Pure CSS</a>, <a href="http://topcoat.io">Topcoat</a>
+          </p>
+        </section>
 
-<img src="img/bootstrap_example_grid.png" style="width: 100%"/>
+        <section>
+          <h2><a href="exercises/exercise_bootstrap_descrip.html">Exercise Time!</a></h2>
+        </section>
 
-<p>Also see: <a href="http://purecss.io">Pure CSS</a>, <a href="http://topcoat.io">Topcoat</a>
-</p>
-     </section>
+        <section>
+          <h2>Extras</h2>
+        </section>
+
+        <section>
+          <h2>CSS workflow in large apps</h2>
+          <ul>
+            <li>Linters (<a href="http://csslint.net/" target="_blank">CSSLint</a>)</li>
+            <li>Minifiers (<a href="http://yuilibrary.com/" target="_blank">YUI</a>, <a href="http://cssminifier.com/" target="_blank">CSS Minifier</a>)</li>
+            <li>Preprocessors (<a href="http://lesscss.org/" target="_blank">Less</a>, <a href="http://sass-lang.com/" target="_blank">Sass</a>)</li>
+            <li>Build tools (<a href="https://gist.github.com/pamelafox/1285624" target="_blank">Makefile</a>, <a href="http://gruntjs.com/" target="_blank">Grunt</a>, <a href="http://gulpjs.com/" target="_blank">Gulp</a>)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Improving rendering speed with CSS</h2>
+          <ul>
+            <li>Image sprites (<a href="http://css-tricks.com/css-sprites/" target="_blank">article</a>)</li>
+            <li>Data URIs (<a href="http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/" target="_blank">online converter</a>)</li>
+            <li>Icon fonts (<a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome</a>)</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer>
+        <div class="copyright">
+          CSS Tools &amp; Techniques
+          <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
     </div>
 
+    <script src="../common/lib/js/head.min.js"></script>
+    <script src="../common/js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
 
-    <div class="slide normal">
-     <br><br>
-     <header><h1><a href="exercises/exercise_bootstrap_descrip.html">Exercise Time!</a></h1></header>
-     <section class="content">
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
 
-     </section>
-    </div>
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
 
-
-    <div class="slide section">
-     <header><h1>Extras</h1></header>
-     <section class="content"></section>
-    </div>
-
-    <div class="slide normal">
-      <header><h1>CSS workflow in large apps</h1></header>
-      <section class="content">
-        <ul>
-          <li>Linters (<a href="http://csslint.net/" target="_blank">CSSLint</a>)
-          <li>Minifiers (<a href="http://yuilibrary.com/" target="_blank">YUI</a>, <a href="http://cssminifier.com/" target="_blank">CSS Minifier</a>)
-          <li>Preprocessors (<a href="http://lesscss.org/" target="_blank">Less</a>, <a href="http://sass-lang.com/" target="_blank">Sass</a>)
-          <li>Build tools (<a href="https://gist.github.com/pamelafox/1285624" target="_blank">Makefile</a>, <a href="http://gruntjs.com/" target="_blank">Grunt</a>, <a href="http://gulpjs.com/" target="_blank">Gulp</a>)
-        </ul>
-      </section>
-    </div>
-
-    <div class="slide normal">
-      <header><h1>Improving rendering speed with CSS</h1></header>
-      <section class="content">
-        <ul>
-          <li>Image sprites (<a href="http://css-tricks.com/css-sprites/" target="_blank">article</a>)
-          <li>Data URIs (<a href="http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/" target="_blank">online converter</a>)
-          <li>Icon fonts (<a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Font Awesome</a>)
-        </ul>
-      </section>
-    </div>
-
-<!--
-    <div class="slide section">
-     <header><h1>Performance</h1></header>
-     <section class="content">
-
-     </section>
-    </div>
-
-
-
-    <div class="slide normal">
-     <header><h1>CSS Performance</h1></header>
-     <section class="content">
-     <p>There are various ways that webpage performance can suffer because of CSS:</p>
-<ul>
-  <li>The CSS selectors are slow.
-  <li>The CSS file itself is large.
-  <li>The CSS loads lots of images.
-</ul>
-<p>Luckily, there are ways to avoid these issues...</p>
-     </section>
-    </div>
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Slow Selectors</h1></header>
-     <section class="content">
-     <p>Selector types, from fastest to slowest:</p>
-<ul>
- <li>ID Rules (<code>#header</code>)
- <li>Class Rules (<code>.avatar</code>)
- <li>Tag Rules (<code>img</code>)
- <li>Universal Rules (<code>*, [type="checkbox"]</code>)
-</ul>
-<p>CSS engines evaluate selectors from right to left.
-<pre>
-/* Starts with h3 */
-#footer h3 {}
-/* Starts with a */
-ul li a {}
-</pre>
-
-<p>You can <a href="https://developer.mozilla.org/en/Writing_Efficient_CSS">read more on MDN</a> or
-use a tool like <a href="http://csslint.net/">CSSLint</a> to warn you of inefficient selectors.
-</p>
-
-<p class="notes">
-http://csswizardry.com/2011/09/writing-efficient-css-selectors/
-http://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/
-http://css-tricks.com/efficiently-rendering-css/
-https://developers.google.com/speed/docs/best-practices/rendering#UseEfficientCSSSelectors
-https://developer.mozilla.org/en/Writing_Efficient_CSS
-</p>
-     </section>
-    </div>
-
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Big Files</h1></header>
-     <section class="content">
-     <p>CSS compression tools reduce the size of CSS files by:
-<ul>
-  <li>Stripping whitespace, comments, unneeded semi-colons.
-  <li>Shortening number and color values
-</ul>
-     </p>
-<p>For example, this:</p>
-<pre>
-.sidebar {  /* color it grey, no border */
-    border-color: rgb(123, 123, 123);
-    border-width: 0px;
-}
-</pre>
-<p>becomes:</p>
-<pre>
-.sidebar{border-color:#7b7b7b;border-width:0}
-</pre>
-<p><a href="http://developer.yahoo.com/yui/compressor/css.html">YUI CSS Compressor</a> is most popular. <a href="http://www.refresh-sf.com/yui/">Try it online</a>.
-</p>
-
-     </section>
-    </div>
-
-
-
-
-
-    <div class="slide normal">
-     <header><h1>Lots of Images: Spriting</h1></header>
-     <section class="content">
-     <p>When a pages uses many <code>IMG</code> tags or <code>background-url</code> properties,
-it slows down loading. For smaller images, "CSS spriting" can help.</p>
-<p>From <a href="http://css-tricks.com/css-sprites/">this article</a>, an image nav without spriting:</p>
-<pre>
-#nav li a.item1 {background-image:url('../img/image1.gif')}
-#nav li a:hover.item1 {background-image:url('../img/image1_over.gif')}
-</pre>
-<p>And with spriting:</p>
-<pre>
-#nav li a {background-image:url('../img/image_nav.gif')}
-#nav li a.item1 {background-position:0px 0px}
-#nav li a:hover.item1 {background-position:0px -72px}
-</pre>
-<p><a href="http://coding.smashingmagazine.com/2009/04/27/the-mystery-of-css-sprites-techniques-tools-and-tutorials/">Various tools</a> can help you create sprites.</p>
-<p class="notes">
-</p>
-     </section>
-    </div>
-
-    <div class="slide normal">
-     <header><h1>Lots of Images: Data URIs</h1></header>
-     <section class="content">
-     <p>You can convert small images to data URIs using an <a href="http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/">online converter</a> and inline them in your CSS.
-
-     <pre>
-.coursera-sharebuttons-gplus {
-    width 20px
-    height 18px
-    margin 0
-    padding 0
-    background-repeat no-repeat
-    background-position center center
-    display inline-block
-    margin-right 4px
-    background-image url('data:image/png;base64,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')
-}
-     </pre>
-
-<p class="notes">
-</p>
-     </section>
-    </div>
-
-    <div class="slide normal">
-     <header><h1>Lots of Images: Icon Fonts</h1></header>
-     <section class="content">
-
-      <p>An icon font is a custom font with icons instead of characters. You can make your own
-        or use the popular <a href="http://fortawesome.github.io/Font-Awesome/icons/">FontAwesome</a>
-      </p>
-
-      <p>With FontAwesome:</p>
-      <pre>
-&lt;link rel="stylesheet" href="fontawesome.css" type="text/css"&gt;
-&lt;span class="icon-twitter"&gt;&lt;/span&gt;
-&lt;span class="icon-thumbs-up"&gt;&lt;/span&gt;
-      </pre>
-      <p class="notes">
-      </p>
-     </section>
-    </div>
-
-    <div class="slide section">
-     <header><h1>Productivity</h1></header>
-     <section class="content">
-
-     </section>
-    </div>
-
-    <div class="slide normal">
-     <header><h1>CSS Pre-Processors</h1></header>
-     <section class="content">
-     <p>A pre-processor can make you more productive and your CSS better organized, by letting you write in a special language and outputting CSS. <br>
-Common features:
-      <ul>
-        <li>variables
-        <li>nesting
-        <li>mix-ins
-        <li>inheritance
-        <li>color functions
-        <li>vendor prefixes
-      </ul>
-     </p>
-     </section>
-    </div>
-
-
-     <div class="slide normal">
-     <header><h1>CSS Pre-Processors</h1></header>
-     <section class="content">
-<p>For example, this <a href="http://sass-lang.com/">SaSS</a>:
-<pre style="font-size:16px;">
-$mainColor: #99cc00;
-
-#header {
-  .logo {
-    color: lighten($mainColor, 20%);
-   @include border-radius (3px);
-  }
-}
-</pre>
-<p>is compiled to:</p>
-<pre style="font-size:16px;">
-#header .logo {
-  color: #F5D867;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-}
-</pre>
-<p>Other popular pre-processors: <a href="http://lesscss.org/">Less</a>, <a href="http://learnboost.github.com/stylus/">Stylus</a>
-</p>
-<p class="notes">
-http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/
-</p>
-     </section>
-    </div>
-
-    <div class="slide normal">
-     <header><h1>CSS Build Tools</h1></header>
-     <section class="content">
-      <p>Many web developers use build tools to help them automate all these tasks.</p>
-      <ul>
-        <li><a href="http://incident57.com/codekit/">CodeKit</a>: A mac app for compiling CSS, linting JS, etc.</li>
-        <li><a href="http://gruntjs.com/">GruntJS</a>: A command-line JS tool for automating tasks like compiling CSS</li>
-        <li><a href="https://gist.github.com/pamelafox/1285624">CSS/JS Makefile</a>
-     </section>
-    </div>
--->
-
-   </div>
-
-  </div>
-
-  <!--[if lt IE 9]>
-  <script
-  src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-  <script>CFInstall.check({ mode: "overlay" });</script>
-  <![endif]-->
+    </script>
   </body>
 </html>

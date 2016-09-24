@@ -1,0 +1,56 @@
+
+/* Include in your HTML file along with accessibility-helper.js
+  or copy contents to your theme css */
+
+/*********************************************
+ * AccessibilityHelper Plugin
+ *
+ * MIT licensed
+ *
+ * 2014 Marcy Sutton, http://marcysutton.com
+ *********************************************/
+.reveal .slides>section>.accessibilityWrapper,
+.reveal .slides>section>section>.accessibilityWrapper {
+  display: none;
+  visibility: hidden;
+}
+.reveal.overview .slides>section>.accessibilityWrapper,
+.reveal.overview .slides>section>section>.accessibilityWrapper {
+  display: block;
+  visibility: visible;
+}
+.reveal .slides section.present > .accessibilityWrapper {
+  display: block;
+  visibility: visible;
+  outline: none;
+}
+.reveal .slides.staticPage > section {
+  display: block !important;
+}
+.reveal #global-skip-link {
+  display: block;
+  font-size: 0.6em;
+  left: -50000px;
+  padding: 5px 10px;
+  position: fixed;
+  white-space: nowrap;
+}
+.reveal ul#table-of-contents {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+}
+.reveal ul#table-of-contents li {
+  margin: 0;
+  padding: 0;
+}
+.reveal ul#table-of-contents li a {
+  display: block;
+  font-size: 0.6em;
+  left: -50000px;
+  padding: 5px 10px;
+  position: absolute;
+  white-space: nowrap;
+}
