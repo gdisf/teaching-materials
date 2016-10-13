@@ -1,46 +1,55 @@
 <!doctype html>
-<html>
-<head>
-  <title>JS: DOM</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-  <link rel="stylesheet" type="text/css" href="css/presentation.css" />
-  <link rel="stylesheet" type="text/css" href="css/prettify.css" />
-  <link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  <script src="js/jquery.js" type="text/javascript"></script>
-  <script src="js/fathom.js"></script>
-  <script src="js/prettify.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('pre').addClass('prettyprint').attr('tabIndex', 0);
-      prettyPrint();
-      var fathom = $('#presentation').fathom({
-        onActivateSlide: function() {
-          var $slide = $(this);
-          $slide.find('pre:first').focus();
-        }
-      });
-    });
-  </script>
-</head>
-<body>
-<div id="presentation">
-  <div id="presentation-counter"></div>
-  <div id="slides">
-    <div class="slide normal">
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JS: DOM</title>
+
+		<meta name="description" content="The Document Object Model - What is it? What can we do to it?">
+		<meta name="author" content="Girl Develop It San Francisco">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../../common/css/reveal.css">
+		<link rel="stylesheet" href="../../common/css/theme/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor --><link rel="stylesheet" href="../../common/lib/css/light.css">
+		 <!-- dark editor<link rel="stylesheet" href="../../common/lib/css/dark.css"> -->
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="../../common/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+		        <!-- Opening -->
+				<section>
       <h1 class="center">JS: The DOM (Document-Object Model)</h1>
-    </div>
-    <div class="slide normal">
-      <header><h1>Review: HTML &amp; CSS</h1></header>
+    </section>
+    <section>
+      <h2>Review: HTML &amp; CSS</h2>
       <br/>
-      <section class="content">
+      
         <a class="jsbin-embed" href="http://jsbin.com/mupemodeqa/embed?html,css,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.36.16"></script>
         <p>To open this JS Bin in a new window, click <a href="http://jsbin.com/mupemodeqa/1/edit?html,css,output">here</a>.</p>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Text Editors</h1></header>
-      <section class="content">
+      
+    </section>
+    <section>
+      <h2>Text Editors</h2>
+      
         <br/>
         <p>Many text editors provide special assistance for writing HTML and CSS, like syntax-highlighting and autocompletion.</p>
         <ul>
@@ -59,12 +68,12 @@
     &lt;/li&gt;
   &lt;/ul&gt;
         </pre>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Including JavaScript in your HTML</h1></header>
+      
+    </section>
+    <section>
+      <h2>Including JavaScript in your HTML</h2>
       <br/>
-      <section class="content">
+      
         <p>You can write your JS inside a <code>script</code> tag in your HTML file:</p>
           <pre class="prettyprint lang-html">
   &lt;html&gt;
@@ -84,23 +93,23 @@
     &lt;/body&gt;
   &lt;/html&gt;
         </pre>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>What is the DOM?</h1></header>
+      
+    </section>
+    <section>
+      <h2>What is the DOM?</h2>
       <br/>
-      <section class="content">
+      
         <ul>
           <li><span style="font-weight: bold">Document Object Model</span> - i.e. a map of our HTML document</li>
           <li>Defines the logical structure of an HTML document and how it is accessed and manipulated</li>
           <li>Anything found in an HTML or XML document can be accessed, changed, deleted, or added by a programmer using the DOM</li>
         </ul>
-        <center><img src="domtree.png"></center>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Inspecting the DOM</h1></header>
-      <section class="content">
+        <center><img src="../images/domtree.png"></center>
+      
+    </section>
+    <section>
+      <h2>Inspecting the DOM</h2>
+      
         <ul>
           <li><a href="https://developers.google.com/chrome-developer-tools/docs/elements">Google Chrome</a> or <a href="https://developer.mozilla.org/en/Tools/Inspector">Mozilla Firefox</a>
             <ul>
@@ -115,13 +124,13 @@
           </li>
           </li>
         </ul>
-        <img src="http://dl.dropbox.com/u/10998095/htmlcss-1day/lesson2/screenshot_chromedevtools.png" style="display: block; margin: auto; width: 535px; border:1px solid black;">
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Accessing the DOM</h1></header>
+        <img src="../images/screenshot_chromedevtools.png" style="display: block; margin: auto; width: 535px; border:1px solid black;">
+      
+    </section>
+    <section>
+      <h2>Accessing the DOM</h2>
       <br/>
-      <section class="content">
+      
         <p>The <code><a href="https://developer.mozilla.org/en/DOM/document">document</code></a> object is globally available in your browser.</p>
         <p>It allows you to access and manipulate the DOM of the current web page:</p>
         <ol>
@@ -136,11 +145,11 @@
             </ul>
           </li>
         </ol>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>DOM Access Methods</h1></header>
-      <section class="content">
+      
+    </section>
+    <section>
+      <h2>DOM Access Methods</h2>
+      
         <br>
         <p>Finding DOM nodes by id:</p>
         <pre  style="border:3px dotted black;" class="prettyprint">
@@ -159,11 +168,11 @@
           document.querySelector(cssQuery);
           document.querySelectorAll(cssQuery);
         </pre>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Selecting Nodes From the DOM</h1></header>
-      <section class="content">
+      
+    </section>
+    <section>
+      <h2>Selecting Nodes From the DOM</h2>
+      
         <p>HTML:</p>
         <pre class="prettyprint">
   &lt;ul id="hobby-list"&gt;
@@ -186,12 +195,12 @@
   var firstHobby = document.querySelector('ul li.hobby');
   var againAlsoHobbies = document.querySelectorAll('ul li.hobby');
         </pre>
-     </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Returning Element vs. Array of Elements</h1></header>
+     
+    </section>
+    <section>
+      <h2>Returning Element vs. Array of Elements</h2>
       <br>
-      <section class="content">
+      
         <p><code>getElementById()</code> and <code>querySelector() </code>return a single element:</p>
         <pre class="prettyprint">
           var hobbiesList = document.getElementById('hobby-list');
@@ -203,18 +212,18 @@
           var catNames = document.querySelectorAll('ul li.catname');
           var firstCatName = catNames[0];
         </pre>
-      </section>
-    </div>
-    <div class="slide normal">
+      
+    </section>
+    <section>
       <br>
-      <section class="content">
-        <h1 class="center"><a href="../exercises/dom_detective.html" target="_blank">The DOM Detective Exercise</a></h1>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Manipulating a DOM Node's Attributes</h1></header>
+      
+        <h1 class="center"><a href="../exercises/dom_detective.html" target="_blank">The DOM Detective Exercise</a></h2>
+      
+    </section>
+    <section>
+      <h2>Manipulating a DOM Node's Attributes</h2>
       <br/>
-      <section class="content">
+      
         <p>You can access and change the attributes of a DOM node using dot notation.</p>
         <pre class="prettyprint">
   &lt;img id="lizzie-the-cat" src="http://placekitten.com/200/300"&gt;
@@ -233,12 +242,12 @@
   catImage.className = "portrait";
         </pre>
         <br>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Manipulating a DOM Node's Styles</h1></header>
+      
+    </section>
+    <section>
+      <h2>Manipulating a DOM Node's Styles</h2>
       <br/>
-      <section class="content">
+      
         <p>You can access and change the styles of a DOM nodes via the <code>style</code> property. CSS property names with a "-" must be camelCased and number properties must have a unit.</p>
         <p>CSS:</p>
         <pre>
@@ -255,12 +264,12 @@
   pageNode.style.backgroundColor = 'pink';
   pageNode.style.paddingTop = '10px';
         </pre>
-      </section>
-    </div>
-    <div class="slide normal">
-      <header><h1>Manipulating a DOM Node's Inner HTML</h1></header>
+      
+    </section>
+    <section>
+      <h2>Manipulating a DOM Node's Inner HTML</h2>
       <br/>
-      <section class="content">
+      
         <p>Each DOM node has an <code>innerHTML</code> attribute that contains the HTML of all its children:</p>
         <pre>
   var pageNode = document.getElementsByTagName('body')[0];
@@ -277,22 +286,22 @@
   pageNode.innerHTML += "P.S. Please do write back.";
         </pre>
       </section>
-    </div>
-    <div class="slide normal">
-      <h1 class="center">
+    
+    <section>
+      <h2>
         <a target="_blank" href="../exercises/dom_manipulation.html">The Logo Hijack</a>
-      </h1>
-    </div>
-    <div class="slide normal">
-      <header><h1>Creating DOM Nodes</h1></header>
-      <section class="content">
+      </h2>
+    </section>
+    <section>
+      <h2>Creating DOM Nodes</h2>
+      
         <p>The <code>document</code> object also allows us to create new nodes from scratch:</p>
         <pre style="border:3px dotted black;" >
   document.createElement(tagName);
   document.createTextNode(text);
   document.appendChild(childToAppend);
         </pre>
-        <img src="dommodify_imgtobody.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
+        <img src="../images/dommodify_imgtobody.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
         <pre class="prettyprint">
   var body = document.getElementsByTagName('body')[0];
   var newImg = document.createElement('img');
@@ -300,22 +309,60 @@
   newImg.style.border = '1px solid black';
   body.appendChild(newImg);
         </pre>
-        <img src="dommodify.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
+        <img src="../images/dommodify.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
         <pre class="prettyprint">
   var newParagraph = document.createElement('p');
   var newText = document.createTextNode('Squee!');
   newParagraph.appendChild(newText);
   body.appendChild(newParagraph);
         </pre>
-      </section>
-    </div>
-    <div class="slide normal">
+      
+    </section>
+    <section>
      <h1 class="center">
       <a target="_blank" href="../exercises/dom_manipulation_advanced.html">
         Master of (DOM) Manipulation Exercise
       </a>
-    </h1>
-    </div>
-   </div>
- </body>
+    </h2>
+    </section>
+
+			</div>
+  		<footer>
+        <div class="copyright">
+          CLASS TITLE -- San Francisco --
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+		</div>
+
+
+		<script src="../../common/lib/js/head.min.js"></script>
+		<script src="../../common/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
 </html>

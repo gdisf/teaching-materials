@@ -1,165 +1,210 @@
 <!doctype html>
-<html>
-<head>
-<title>JS: Review</title>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/presentation.css" />
-<link rel="stylesheet" type="text/css" href="css/prettify.css" />
-<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<script src="js/jquery.js" type="text/javascript"></script>
-<script src="js/fathom.js"></script>
-<script src="js/prettify.js"></script>
-<script>
-$(document).ready(function(){
-    $('pre').addClass('prettyprint').attr('tabIndex', 0);
-    prettyPrint();
-    
-    var fathom = $('#presentation').fathom({
-        onActivateSlide: function() {
-            var $slide = $(this);
-            $slide.find('pre:first').focus();
-        }
-    });
-});
-</script>
-</head>
-<body>
+<html lang="en">
 
-<div id="presentation">
-  
-   <div id="presentation-counter"></div>
-      
-   <div id="slides">
-    <div class="slide normal"> 
-     <h1 class="center">JS Review</h1>
-    </div>
+	<head>
+		<meta charset="utf-8">
 
-    <div class="slide normal">
-      <h1>JS: Core concepts</h1>
-      <ul>
-        <li><strong>Variables</strong>: how to declare variables, assign, re-assign, and local vs. global scope.</li>
-        <li><strong>Data types</strong>: numbers, booleans, strings, arrays, and objects.</li>
-        <li><strong>Functions</strong>: how to group code into functions, pass arguments to them, and return values from them.</li>
-        <li><strong>Conditionals</strong>: how to use if/else statements and logical expressions.</li>
-        <li><strong>Loops</strong>: how to use while and for loops to repeat code.</li>
-      </ul>
-    </div>
+		<title>JS: Review</title>
 
-    <div class="slide normal">
-      <h1>JS: Variables and Data Types</h1>
+		<meta name="description" content="JSWeb review material">
+		<meta name="author" content="Girl Develop It San Francisco">
 
-      <pre class="prettyprint">
-var myAge = 29;
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-var myName = "Pamela";
+		<link rel="stylesheet" href="../../common/css/reveal.css">
+		<link rel="stylesheet" href="../../common/css/theme/gdilight.css" id="theme">
 
-var isSheCool = true;
-      </pre>
+		<!-- For syntax highlighting -->
+		<!-- light editor --><link rel="stylesheet" href="../../common/lib/css/light.css">
+		 <!-- dark editor<link rel="stylesheet" href="../../common/lib/css/dark.css"> -->
 
-      <p>...what other data types are there?</p>
-   </div>
+		<!-- If use the PDF print sheet so students can print slides-->
 
-   <div class="slide normal">
-    <h1>JS: Functions</h1>
+		<link rel="stylesheet" href="../../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="../../common/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
 
-    <pre class="prettyprint">
-var calculateFoodNeeded = function(numDays) {
-  return numDays * 3;
-};
+	<body>
 
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+		        <!-- Opening -->
+                <section>
+                    <h1 class="center">JS Review</h2>
+                </section>
+
+                <section>
+                    <h2>JS: Core concepts</h2>
+                    <ul>
+                        <li><strong>Variables</strong>: how to declare variables, assign, re-assign, and local vs. global scope.</li>
+                        <li><strong>Data types</strong>: numbers, booleans, strings, arrays, and objects.</li>
+                        <li><strong>Functions</strong>: how to group code into functions, pass arguments to them, and return values from them.</li>
+                        <li><strong>Conditionals</strong>: how to use if/else statements and logical expressions.</li>
+                        <li><strong>Loops</strong>: how to use while and for loops to repeat code.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>JS: Variables and Data Types</h2>
+
+                    <pre class="prettyprint">
+                        var myAge = 29; var myName = "Pamela"; var isSheCool = true;
+                    </pre>
+
+                    <p>...what other data types are there?</p>
+                </section>
+
+                <section>
+                    <h2>JS: Functions</h2>
+
+                    <pre class="prettyprint">
+var calculateFoodNeeded = function(numDays) { 
+        return numDays * 3; 
+    }; 
 var makeFunnyName = function(firstName, lastName) {
-  return "Mister " + firstName + "Mc" + lastName + "Pants";
-};</pre>
+    return "Mister " + firstName + "Mc" + lastName + "Pants"; 
+    };
+                    </pre>
 
-  </div>
+                </section>
 
-  <div class="slide normal">
-    <h1>JS: Conditionals</h1>
-    <pre class="prettyprint">
-var movieIsActionFlick = true;
-var movieCost = 0;
+                <section>
+                    <h2>JS: Conditionals</h2>
+                    <pre class="prettyprint">
+var movieIsActionFlick = true; 
+var movieCost = 0; 
+if (movieIsActionFlick === true && movieCost < 1) 
+    { 
+        console.log('Okay fine Ill watch it'); 
+    } 
+var movieHasBradPitt=true; 
+var movieHasJohnnyDepp=false; 
+if (movieHasBradPitt===true || movieHasJohnnyDepp===true) 
+    { 
+        console.log( 'Ill DEFINITELY watch it');
+    } 
+if (movieHasBradPitt) 
+    { 
+        console.log( 'Def watch it');
+    } 
+else if(movieCost===0) 
+    { 
+        console.log( 'Free, might as well'); 
+    } 
+else if (movieIsActionFlick) 
+    { 
+        console.log('Nah I dont like action flicks'); 
+    } 
+else 
+    { 
+        console.log( 'I cant decide!'); 
+    } </pre>
+                </section>
 
-if (movieIsActionFlick === true && movieCost < 1) {
-    console.log('Okay fine Ill watch it');
+                <section>
+                    <h2>JS: Loops</h2>
+
+                    <pre class="prettyprint">
+var countdown = 10; 
+while (countdown > 0) 
+{ 
+    console.log(countdown); 
+    countdown--; 
+} 
+var countdown = 10; 
+while (countdown > 0) 
+{ 
+    if (countdown > 1) 
+    { 
+        console.log(countdown + '...'); 
+    } 
+    else { 
+        console.log(countdown + '!'); 
+    } 
+    countdown--; 
 }
-
-var movieHasBradPitt = true;
-var movieHasJohnnyDepp = false;
-
-if (movieHasBradPitt === true || movieHasJohnnyDepp === true) {
-    console.log('Ill DEFINITELY watch it');
+for (var i = 10; i > 0; i--) 
+{ 
+    console.log(i); 
 }
+                    </pre>
 
-if (movieHasBradPitt) {
-    console.log('Def watch it');
-} else if (movieCost === 0) {
-    console.log('Free, might as well');
-} else if (movieIsActionFlick) {
-    console.log('Nah I dont like action flicks');
-} else {
-    console.log('I cant decide!');
-}
-    </pre>
-  </div>
+                </section>
 
-  <div class="slide normal">
-    <h1>JS: Loops</h1>
+                <section>
+                    <h2>JS: Arrays</h2>
 
-    <pre class="prettyprint">
-var countdown = 10;
-while (countdown > 0) {
-    console.log(countdown);
-    countdown--;
-}
-
-var countdown = 10;
-while (countdown > 0) {
-    if (countdown > 1) {
-        console.log(countdown + '...');
-    } else {
-        console.log(countdown + '!');
-    }
-    countdown--;
-}
-
-for (var i = 10; i > 0; i--) {
-    console.log(i);
-}
-    </pre>
-
-  </div>
-
-  <div class="slide normal">
-    <h1>JS: Arrays</h1>
-
-    <pre class="prettyprint">
-var children = ['Oliver', 'Pamela', 'Hunter'];
-
-console.log('My dad has ' + children.length + ' children');
-console.log('His first kid was ' + children[0]);
-
-children.push('Alexis');
-console.log('His fourth kid was ' + children[3]);
-
-for (var i = 0; i < children.length; i++) {
-    console.log('Kid #' + (i+ 1) + ' : ' + children[i]);
+                    <pre class="prettyprint">
+var children = ['Oliver', 'Pamela', 'Hunter']; 
+console.log('My dad has ' + children.length + ' children'); 
+console.log('His first kid was ' + children[0]); 
+children.push('Alexis'); 
+console.log('His fourth kid was ' + children[3]); 
+for (vari = 0; i < children.length; i++) 
+{ 
+    console.log( 'Kid #' + (i+ 1) + ' : ' + children[i]); 
 }</pre>
-  </div>
+                </section>
 
-  <div class="slide normal">
-    <h1>JS: Objects</h1>
+                <section>
+                    <h2>JS: Objects</h2>
 
-    <pre class="prettyprint">
-var myCrazyCat = {
-  name: "Angel",
-  age: 3,
-  likes: ["rubber bands", "boxes", "4am petting sessions"],
-  fur: {colors: ["orange", "white"], pattern: "striped"}
-};</pre>
-  </div>
+                    <pre class="prettyprint">
+var myCrazyCat = { 
+    name: "Angel", 
+    age: 3, 
+    likes: ["rubber bands", "boxes", "4am petting sessions"], 
+    fur: {
+        colors: ["orange", "white"], 
+        pattern: "striped"
+        } 
+    };
+                    </pre>
+                </section>
+			</div>
+  		<footer>
+            <div class="copyright">
+            JS: Review -- San Francisco --
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+            </div>
+        </footer>
+		</div>
 
-  </div>
 
- </body>
+		<script src="../../common/lib/js/head.min.js"></script>
+		<script src="../../common/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
 </html>
