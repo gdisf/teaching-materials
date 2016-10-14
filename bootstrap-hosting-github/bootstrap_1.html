@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bootstrap Workshop at Girl Develop It</title>
+
+	    <title>Bootstrap ~ Girl Develop It</title>
+
+        <meta name="description" content="Girl Develop It SF Bootstrap curriculum. The course is meant to be taught in one day.">
+        <meta name="author" content="Girl Develop It - Truc Nguyen & Mary Ann Jawili">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Bootstrap 4 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+        <script   src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="lib/css/dark.css">
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Bootstrap</h1>
+					<h5>HTML & CSS Review, Frameworks, Content Classes</h5>
+				</section>
+
+				<!-- HTML & CSS Review -->
+<section>
+				<section data-background="#f05b62">
+					<h2>HTML & CSS Review</h2>
+				</section>
+
+				<section>
+					<h2>Anatomy of a website</h2>
+					Your Content<br/>
+					+ HTML: Structure<br/>
+					+ CSS: Presentation<br/>
+					= Your Website
+				</section>
+
+				<section>
+					<h2>Anatomy of an HTML element</h2>
+					<ul>
+						<li>Element: An individual component of HTML</li>
+						<li>Tag: Marks the beginning &amp; end of an element with
+opening and closing tags</li>
+						<li>Attribute: Provides additional information about the HTML element</li>
+						<li>Value: What's assigned to a given attribute</li>
+					</ul>
+					<p>What are some elements you learned?</p>
+				</section>
+
+                <section>
+                    <h2>Element Anatomy Quiz</h2>
+                    <code style="display: block; margin: 2rem 0; color: blue;">&lt;<span style="color: red;">img</span> <span style="color: green;">src</span>="<span style="color: orange;">selfie.jpg</span>" <span style="color: green;">alt</span>="<span style="color: orange;">yours truly</span>"&gt;</code>
+                    <p>What is the element? Tag? Attribute? Value?</p>
+                </section>
+
+				<section>
+					<h2>Nesting</h2>
+					<p>Nesting is what happens when you put other containing tags inside other containing tags.</p>
+					<pre><code data-trim contenteditable>
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;A paragraph inside a list item&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+					</code></pre>
+                    <p>Incorrect:</p>
+                    <pre><code data-trim contenteditable>
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;A paragraph inside a list item&lt;/p&gt;
+  &lt;/ul&gt;
+&lt;/li&gt;
+                    </code></pre>
+				</section>
+
+				<section>
+					<h2>Elements We Learned</h2>
+					<ul>
+						<li>Paragraph <code>&lt;p&gt;</code></li>
+						<li>Heading <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, ...</li>
+						<li>Emphasis <code>&lt;em&gt;</code> &amp; strong <code>&lt;strong&gt;</code></li>
+						<li>Anchor (link) <code>&lt;a&gt;</code></li>
+						<li>Image <code>&lt;img&gt;</code></li>
+						<li>Line break <code>&lt;br&gt;</code></li>
+						<li>List <code>&lt;ol&gt;</code>, <code>&lt;ul&gt;</code> &amp; list item <code>&lt;li&gt;</code></li>
+						<li>Tables <code>&lt;table&gt;</code>, etc.</li>
+						<li>Division <code>&lt;div&gt;</code>, span <code>&lt;span&gt;</code></li>
+						<li>Comments <code>&lt;!-- --&gt;</code></li>
+					</ul>
+				</section>
+
+                <section>
+                    <h2>Anatomy of a CSS Rule</h2>
+                    <ul>
+                        <li>Selector: Indicates which elements are affected</li>
+                        <li>Attribute: The element's feature that is affected</li>
+                        <li>Value: What's assigned to a given attribute</li>
+                    </ul>
+                    <p>What are some attributes you learned?</p>
+                </section>
+
+                <section>
+                    <h2>CSS Rule Anatomy Quiz</h2>
+                    <code style="display: block; margin: 2rem 0; text-align: left; color: blue;"><span style="color: orange;">.main img.polaroid</span> {<br>
+                        &nbsp;&nbsp;<span style="color: red;">border</span>: <span style="color: green;">1px solid black</span>;<br>
+                        &nbsp;&nbsp;<span style="color: red;">padding</span>: <span style="color: green;">0.5rem 0.5rem 2rem</span>;<br>
+                    }</code>
+                    <p>What is the selector? What is it selecting? What are the attributes? What are their values?</p>
+                </section>
+
+				<section>
+					<h2>Add CSS to your HTML</h2>
+                    <p>Inline</p>
+					<pre><code data-trim contenteditable>
+<p style="color:red">Some text.</p>
+					</code></pre>
+
+                    <p>Embedded</p>
+                    <pre><code data-trim contenteditable>
+&lt;head&gt;
+  <style type="text/css">
+    p {
+      color: blue;
+    }
+  </style>
+&lt;/head&gt;
+                    </code></pre>
+
+                    <p>Linked</p>
+                    <pre><code data-trim contenteditable>
+&lt;head&gt;
+  &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+&lt;/head&gt;
+                    </code></pre>
+				</section>
+
+				<section>
+					<h2>Properties We Learned</h2>
+					<ul style="white-space: nowrap;">
+						<li><code>color</code></li>
+						<li><code>background-color</code></li>
+						<li><code>font</code> (and related)</li>
+						<li><code>position</code></li>
+				</section>
+
+				<section>
+					<h2>Specificity (in descending order)</h2>
+					<ol>
+						<li><code>style</code>&nbsp;attribute</li>
+						<li>ID</li>
+						<li>Class</li>
+						<li>Element</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Block vs. Inline</h2>
+					<img src="image/example-blockinline.png">
+					<p>What are some block elements?</p>
+					<p>What are some inline elements?</p>
+				</section>
+
+				<section>
+					<h2>The Box Model</h2>
+					<img src="image/box-model.png">
+				</section>
+</section>
+
+				<!-- FRAMEWORKS & WHAT BOOTSTRAP IS-->
+
+<section>
+            <section data-background="#f05b62">
+                <h2 style="color: #fafafa;">Frameworks</h2>
+            </section>
+            <section>
+                <h2>What is a front-end framework?</h2>
+                <p>A collection of production-ready HTML, CSS, JavaScript components that we can use in our designs.</p>
+				<p><strong>CSS Frameworks</strong> - Usually include a reset, a grid system, styles for typography and forms. Some include support for mobile/print.</p>
+				<p><strong>Javascript Frameworks</strong> - Gives structure to your JavaScript code and keeps it organized.</p>
+            </section>
+            <section>
+                <h2>What is a front-end framework?</h2> 
+				<p>Responsiveness and cross-browser consistency for free.</p>
+				<p>Modular and reusable components.</p>
+            </section>
+            <section>
+                <h2>What is Bootstrap?</h2>
+                <p>Bootstrap is a front-end UI (user interface) framework originally created by Twitter</p>
+                <p>Speeds up the development of new websites and web applications.</p>
+                <img src="image/devices.png" />
+            </section>
+            <section>
+                <p>#1 Project on github with over 100k stars and 45k forks</p>
+                <p>Bootstrap is an open source project on GitHub, meaning anyone can contribute to its progress.</p>
+                <img src="image/github.png" />
+            </section>
+            <section>
+                <h2>Why use Bootstrap?</h2> 
+                <p>Why reinvent the wheel? - Out of the box styles and components?</p>
+                <p>Designed to be responsive - HTML elements <strong>respond</strong> to changes in screen size.</p>
+                <p>Mobile-first - certain mobile-friendly styles (like the ability to zoom in) are included in the core files</p>
+                <img src="image/bootstrap_all.jpg">
+            </section>
+            <section>
+                <p>So this desktop design:</p>
+                <img src="image/desktop.png">
+            </section>
+            <section>
+                <p>Also looks great on a tablet:</p>
+                <img src="image/iPad.png">
+            </section>
+            <section>
+                <p>And rad on a smartphone!</p>
+                <img src="image/iPhone.png">
+            </section>
+            <section>
+                <h2>Why would I want to use Bootstrap?</h2>
+                <p>Bootstrap stylishly fast-tracks your web development. It's an excellent tool to get your project up and running in no time!</p>
+            </section>
+
+            <section>
+	                <h2>How do I use Bootstrap?</h2>
+	                <p>You can download all the necessary Bootstrap files from <a href="https://github.com/twbs/bootstrap/archive/v4.0.0-alpha.2.zip" target="blank"> getbootstrap.com</a> or from the <a href="https://github.com/twbs/bootstrap" target="blank">Bootstrap repo</a> on GitHub.</p>
+                    <p>Embed the files on your .html page using a <code>link</code> element</p>
+                    <p>You can also link to it from a content delivery network (CDN)</p>
+            </section>
+            <section>
+	               	<h2>What Comes with Bootstrap? File Structure</h2>
+	                <img src="image/bootstrap-files.png">
+            </section>
+            <section>
+	                <h2>Layout:</h2>
+	                <p>Options for structuring your pages with Bootstrap, including global styles, required scaffolding, grid system, and more.</p>
+            </section>
+            <section>
+	                <h2>Content:</h2>
+	                <p>Styles for displaying content with some of the most commonly used HTML elements, including normalization, typography, images, tables, and more.</p>
+            </section>
+            <section>
+                    <h2>Components:</h2>
+                    <p>Over a dozen reusable components built to provide buttons, dropdowns, input groups, navigation, alerts, and much more.</p>
+            </section>
+            <section>
+                    <h2>See it in action!</h2>
+                <p>Check out some of the components by opening the <a href="examples/example.html"><code>example.html</code></a> file in your browser window.</p>
+            </section>
+
+
+            <section>
+                    <h2>How do I give it my own style?</h2>
+                    <p>Check Bootstrap documentation if there's an existing CSS class or style</p>
+                    <p>Create your own separate CSS file (e.g. overrides.css)</p>
+                    <p>Inspect the bootstrap element you want to customize and copy the selector into your overrides CSS file</p>
+                    <p>Make sure to include your file <strong>after</strong> Bootstrap base CSS</p>
+            </section>
+</section>
+
+<!-- GRID SYSTEM -->
+		<section>
+            <section data-background="#f05b62">
+                <h2 style="color: #fafafa;">Bootstrap Grid System</h2>
+            </section>
+            <section>
+                <p>Bootstrap is based on a 12-column grid, and uses CSS classes to decide the width of each element.</p>
+                <img src="image/12-grid.png" alt="12 columns" />
+            </section>
+                <section>
+                <p>Each element can take up between 1-12 columns worth of space...<!-- <br> and each element within that element can take up between 1-12 columns worth of space...<br>and each element within that element can take up between 1-12 columns worth of space... </p> -->
+                <img src="image/12-grid-overlay.png" alt="12 columns" />
+            </section>
+            <section>
+            <h2>Some Rules:</h2>
+                <ul>
+				    <li>Rows must be placed within a <code>.container</code> (fixed-width) or <code>.container-fluid</code> (full-width) for proper alignment and padding.</li>
+				    <li>Use rows (<code>.row</code>) to create horizontal groups of columns.</li>
+				    <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
+				 </ul>
+
+            </section>
+            <section>
+                <h2>Code Example</h2>
+<pre><code class="xml"  data-trim>
+<div class="container">
+    <div class="row">
+        [CONTENT FOR ROW]
+    </div>
+</div></code></pre>
+</section>
+                <section>
+                <h2>See it in action!</h2>
+                <p>Open up <a href="examples/columns.html" target="blank"><code>columns.html</code></a> in your browser window.</p>
+                <p>Resize your browser to see where the columns break to fit 100% of the width.</p>
+            </section>
+            <section>
+                <h2>See it in action!</h2>
+                <p>Open up <a href="examples/columns-fluid.html" target="blank"><code>columns-fluid.html</code></a> in your browser window.</p>
+                <p>Resize your browser to see where the columns break to fit 100% of the width.</p>
+            </section>
+            <section>
+            <h2>Column Classes</h2>
+				<img src="image/col-classes.png">
+            </section>
+            <section>
+                <h2>In other words...</h2>
+                <p>If you want to have two 50% columns on a mobile phone, you would use <code>.col-xs-6</code> nested in a <code>.row</code>, and the rows would be consistent on every device...</p>
+                <img src="image/12-grid-2-col.png" />
+            </section>
+            <section>
+            <h2>Two 50% width columns</h2>
+<pre><code class="xml" data-trim>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            [COLUMN 1 CONTENT]
+        </div>
+        <div class="col-xs-6">
+            [COLUMN 2 CONTENT]
+        </div>
+    </div>
+</div></code></pre>
+<p><small>Two 50% columns on a mobile phone</small></p>
+</section>
+
+            <section>
+                <p>If you want to have four 25% columns on a desktop, and would like them to break to 100% on a tablet, you would use <code>.col-md-3</code> nested in a <code>.row</code>.</p>
+                <img src="image/12-grid-4-col.png" />
+            </section>
+            <section>
+            <h2>Four 25% width columns</h2>
+<pre><code class="xml" data-trim>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            [COLUMN 1 CONTENT]
+        </div>
+        <div class="col-md-4">
+            [COLUMN 2 CONTENT]
+        </div>
+        <div class="col-md-4">
+            [COLUMN 3 CONTENT]
+        </div>
+        <div class="col-md-4">
+            [COLUMN 4 CONTENT]
+        </div>
+    </div>
+</div></code></pre>
+<p><small>Four 25% columns on desktop that break to 100% width on a tablet.</small></p>
+
+            </section>
+            <section>
+                <h2>Multiple Grid Classes</h2>
+<pre><code class="xml" data-trim>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            [COLUMN 1 CONTENT]
+        </div>
+        <div class="col-xs-6 col-md-4">
+            [COLUMN 2 CONTENT]
+        </div>
+    </div>
+</div></code></pre>
+                <img src="image/bootstrap_example_grid.png">
+            </section>
+</section>
+
+            <section data-background="#f05b62">
+                <h2><a style="color: #ffffff;" href="exercises/grid_instructions.html">Exercise: Grid</a></h2>
+            </section>
+
+        <section>
+            <section data-background="#f05b62">
+                <h2 style="color: #fafafa;">Content</h2>
+            </section>
+            <section>
+                <h2>Typography</h2>
+                <p>Bootstrap's base <a href="http://v4-alpha.getbootstrap.com/content/typography/" target="_blank">typography classes</a> normalize headings, paragraph fonts, list styles and more.</p>
+                <p><a href="http://v4-alpha.getbootstrap.com/components/utilities/" target="_blank">Textual utility</a> classes are also included for layout</p>
+
+                <iframe height='265' scrolling='no' src='//codepen.io/trucnguyen/embed/PzGNGj/?height=265&theme-id=0&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/trucnguyen/pen/PzGNGj/'>Bootstrap - Typography</a> by Truc (<a href='http://codepen.io/trucnguyen'>@trucnguyen</a>) on <a href='http://codepen.io'>CodePen</a>.
+                </iframe>
+                </section>
+
+            <section>
+                <h2><a href="http://v4-alpha.getbootstrap.com/content/images/">Responsive Images</a></h2>
+                <p><a href="http://v4-alpha.getbootstrap.com/content/images/">Images in Bootstrap 4</a> can be made responsive by adding the <code>.img-fluid</code> class.
+                <p>Applies <code>max-width: 100%;</code> and <code>height: auto;</code> so it scales to fit the parent element.</p>
+            </section>
+             <section>
+                <h2>Other Image Styles</h2>
+            <ul>
+                <li><code>.img-rounded</code> applies rounded edges</li>
+                <li><code>.img-circle</code> takes a square image and applies the style <code>border-radius: 50%;</code></li>
+                <li><code>.img-thumbnail</code> applies a border with rounded edges to the image</li>
+
+                <iframe height='265' scrolling='no' src='//codepen.io/trucnguyen/embed/KMzYGe/?height=265&theme-id=0&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/trucnguyen/pen/KMzYGe/'>Bootstrap - Image Styles</a> by Truc (<a href='http://codepen.io/trucnguyen'>@trucnguyen</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+            </ul>
+            
+            </section>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
+
