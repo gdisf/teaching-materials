@@ -17,7 +17,14 @@
 
 		<!-- For syntax highlighting -->
 		<!-- light editor --><link rel="stylesheet" href="../../common/lib/css/light.css">
-		 <!-- dark editor<link rel="stylesheet" href="../../common/lib/css/dark.css"> -->
+		<!-- dark editor<link rel="stylesheet" href="../../common/lib/css/dark.css"> -->
+		<!--Different style for code syntax blocks-->
+		<style>
+		 	code.syntax {
+				box-shadow: none;
+				border: 2px dashed #01a9b4;
+			}
+		</style>
 
 		<!-- If use the PDF print sheet so students can print slides-->
 
@@ -37,70 +44,56 @@
 
 		        <!-- Opening -->
 				<section>
-      <h1 class="center">JS: The DOM (Document-Object Model)</h1>
+      <h1 class="center">JavaScript & the DOM <br><small>(Document-Object Model)</small></h1>
     </section>
     <section>
       <h2>Review: HTML &amp; CSS</h2>
-      <br/>
-      
         <a class="jsbin-embed" href="http://jsbin.com/mupemodeqa/embed?html,css,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.36.16"></script>
         <p>To open this JS Bin in a new window, click <a href="http://jsbin.com/mupemodeqa/1/edit?html,css,output">here</a>.</p>
       
     </section>
     <section>
       <h2>Text Editors</h2>
-      
-        <br/>
         <p>Many text editors provide special assistance for writing HTML and CSS, like syntax-highlighting and autocompletion.</p>
         <ul>
           <li>Sublime Text, TextMate (Mac)</li>
           <li>Notepad++ (Windows)</li>
           <li>JSBin, JSFiddle (Online)</li>
         </ul>
-        <pre>
-  &lt;h1&gt;My JavaScript questions&lt;/h1&gt;
-  &lt;ul&gt;
-    &lt;li&gt;
-      How do HTML/CSS and Javascript work together?
-    &lt;/li&gt;
-    &lt;li&gt;
-      How can I animate elements on the screen?
-    &lt;/li&gt;
-  &lt;/ul&gt;
-        </pre>
-      
-    </section>
+<pre><code class="html xml">&lt;h1&gt;My JavaScript questions&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;How do HTML/CSS and Javascript work together?&lt;/li&gt;
+  &lt;li&gt;How can I animate elements on the screen?&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>    
+    </section>	
     <section>
       <h2>Including JavaScript in your HTML</h2>
-      <br/>
-      
         <p>You can write your JS inside a <code>script</code> tag in your HTML file:</p>
-          <pre class="prettyprint lang-html">
-  &lt;html&gt;
-    &lt;body&gt;
-      &lt;script&gt;
-        console.log("I am Javascript running on a web page!");
-      &lt;/script&gt;
-    &lt;/body&gt;
-  &lt;/html&gt;
-          </pre>
-        <br/>
-        <p>You can also write your JS in a separate file and reference it from your HTML file via a <code>script</code> tag:</p>
-        <pre class="prettyprint lang-html">
-  &lt;html&gt;
-    &lt;body&gt;
-      &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
-    &lt;/body&gt;
-  &lt;/html&gt;
-        </pre>
-      
+<pre><code class="html xml">&lt;html&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+      console.log("I am Javascript running on a web page!");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
     </section>
+
+    <section>
+      <h2>Including JavaScript in your HTML</h2>      
+        <p>You can also write your JS in a separate file and reference it from your HTML file via a <code>script</code> tag:</p>
+<pre><code class="html xml">&lt;html&gt;
+  &lt;body&gt;
+    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>      
+    </section>		
     <section>
       <h2>What is the DOM?</h2>
-      <br/>
-      
         <ul>
-          <li><span style="font-weight: bold">Document Object Model</span> - i.e. a map of our HTML document</li>
+          <li><strong>Document Object Model</strong> - i.e. a map of our HTML document</li>
           <li>Defines the logical structure of an HTML document and how it is accessed and manipulated</li>
           <li>Anything found in an HTML or XML document can be accessed, changed, deleted, or added by a programmer using the DOM</li>
         </ul>
@@ -152,66 +145,58 @@
       
         <br>
         <p>Finding DOM nodes by id:</p>
-        <pre  style="border:3px dotted black;" class="prettyprint">
-        document.getElementById(id);
-        </pre>
+<pre><code class="javascript syntax">document.getElementById(id);
+</code></pre>
         <p>Finding DOM nodes by tag name:</p>
-        <pre  style="border:3px dotted black;" class="prettyprint">
-        document.getElementsByTagName(tagName);
-        </pre>
+<pre><code class="javascript syntax">document.getElementsByTagName(tagName);
+</code></pre>
         <p>Finding DOM nodes by class name:</p>
-        <pre style="border:3px dotted black;" class="prettyprint">
-          document.getElementsByClassName(className);
-        </pre>
+<pre><code class="javascript syntax">document.getElementsByClassName(className);
+</code></pre>
         <p>Finding DOM nodes by query selector:</p>
-        <pre style="border:3px dotted black;" class="prettyprint">
-          document.querySelector(cssQuery);
-          document.querySelectorAll(cssQuery);
-        </pre>
+<pre><code class="javascript syntax">document.querySelector(cssQuery);
+document.querySelectorAll(cssQuery);
+</code></pre>
       
     </section>
     <section>
       <h2>Selecting Nodes From the DOM</h2>
       
         <p>HTML:</p>
-        <pre class="prettyprint">
-  &lt;ul id="hobby-list"&gt;
-    &lt;li class=&quot;hobby&quot;&gt;Playing the banjo&lt;/li&gt;
-    &lt;li class=&quot;hobby&quot;&gt;Paddleboarding&lt;/li&gt;
-  &lt;/ul&gt;
-        </pre>
+<pre><code class="html xml">&lt;ul id="hobby-list"&gt;
+  &lt;li class=&quot;hobby&quot;&gt;Playing the banjo&lt;/li&gt;
+  &lt;li class=&quot;hobby&quot;&gt;Paddleboarding&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
         <p>JavaScript:</p>
-        <pre class="prettyprint">
-  // By Id
-  var hobbiesList = document.getElementById('hobby-list');
+<pre><code class="javascript">// By Id
+var hobbiesList = document.getElementById('hobby-list');
 
-  // By Tag Name
-  var hobbies = document.getElementsByTagName('li');
+// By Tag Name
+var hobbies = document.getElementsByTagName('li');
 
-  // By Class Name
-  var alsoHobbies = document.getElementsByClassName('hobby');
+// By Class Name
+var alsoHobbies = document.getElementsByClassName('hobby');
 
-  // By CSS Query
-  var firstHobby = document.querySelector('ul li.hobby');
-  var againAlsoHobbies = document.querySelectorAll('ul li.hobby');
-        </pre>
+// By CSS Query
+var firstHobby = document.querySelector('ul li.hobby');
+var againAlsoHobbies = document.querySelectorAll('ul li.hobby');
+</code></pre>
      
     </section>
     <section>
       <h2>Returning Element vs. Array of Elements</h2>
       <br>
       
-        <p><code>getElementById()</code> and <code>querySelector() </code>return a single element:</p>
-        <pre class="prettyprint">
-          var hobbiesList = document.getElementById('hobby-list');
-          var firstHobby = document.querySelector('ul li.hobby');
-        </pre>
+        <p><code>getElementById()</code> and <code>querySelector()</code>return a single element:</p>
+<pre><code class="javascript">var hobbiesList = document.getElementById('hobby-list');
+var firstHobby = document.querySelector('ul li.hobby');
+</code></pre>
         <br>
         <p><code>getElementsByClassName()</code>, <code>getElementsByTagName()</code>, and <code>querySelectorAll()</code> return a collection of elements in an array:</p>
-        <pre class="prettyprint">
-          var catNames = document.querySelectorAll('ul li.catname');
-          var firstCatName = catNames[0];
-        </pre>
+<pre><code class="javascript">var catNames = document.querySelectorAll('ul li.catname');
+var firstCatName = catNames[0];
+</code></pre>
       
     </section>
     <section>
@@ -222,69 +207,49 @@
     </section>
     <section>
       <h2>Manipulating a DOM Node's Attributes</h2>
-      <br/>
-      
         <p>You can access and change the attributes of a DOM node using dot notation.</p>
-        <pre class="prettyprint">
-  &lt;img id="lizzie-the-cat" src="http://placekitten.com/200/300"&gt;
-        </pre>
-        <br/>
+<pre><code class="html xml">&lt;img id="lizzie-the-cat" src="http://placekitten.com/200/300"&gt;
+</code></pre>
         <p>Changing the <code>src</code> of an image:</p>
-        <pre class="prettyprint">
-  var catImage = document.getElementById('lizzie-the-cat');
-  var oldImageSource = catImage.src;
-  oldImageSource.src = 'http://placekitten.com/100/500';
-        </pre>
-        <br/>
+<pre><code class="javascript">var catImage = document.getElementById('lizzie-the-cat');
+var oldImageSource = catImage.src;
+oldImageSource.src = 'http://placekitten.com/100/500';
+</code></pre>
         <p>Changing the <code>className</code> of a DOM node:</p>
-        <pre class="prettyprint">
-  var catImage = document.getElementById('lizzie-the-cat');
-  catImage.className = "portrait";
-        </pre>
-        <br>
+<pre><code class="javascript">var catImage = document.getElementById('lizzie-the-cat');
+catImage.className = "portrait";
+</code></pre>
       
     </section>
     <section>
       <h2>Manipulating a DOM Node's Styles</h2>
-      <br/>
-      
         <p>You can access and change the styles of a DOM nodes via the <code>style</code> property. CSS property names with a "-" must be camelCased and number properties must have a unit.</p>
         <p>CSS:</p>
-        <pre>
-  body {
-    color: red;
-    background-color: pink;
-    padding-top: 10px;
-  }
-        </pre>
+<pre><code class="css">body {
+  color: red;
+  background-color: pink;
+  padding-top: 10px;
+}
+</code></pre>
         <p>Applying the Same Styles via JavaScript:</p>
-        <pre>
-  var pageNode = document.getElementsByTagName('body')[0];
-  pageNode.style.color = 'red';
-  pageNode.style.backgroundColor = 'pink';
-  pageNode.style.paddingTop = '10px';
-        </pre>
-      
+<pre><code class="javascript">var pageNode = document.getElementsByTagName('body')[0];
+pageNode.style.color = 'red';
+pageNode.style.backgroundColor = 'pink';
+pageNode.style.paddingTop = '10px';
+</code></pre>      
     </section>
     <section>
       <h2>Manipulating a DOM Node's Inner HTML</h2>
-      <br/>
-      
         <p>Each DOM node has an <code>innerHTML</code> attribute that contains the HTML of all its children:</p>
-        <pre>
-  var pageNode = document.getElementsByTagName('body')[0];
-  console.log(pageNode.innerHTML);
-        </pre>
-        <br/>
+<pre><code class="javascript">var pageNode = document.getElementsByTagName('body')[0];
+console.log(pageNode.innerHTML);
+</code></pre>
         <p>You can set <code>innerHTML</code> yourself to replace the contents of the node:</p>
-        <pre>
-  pageNode.innerHTML = "&lt;h1&gt;Oh, no! Everything is gone!&lt;/h1&gt;"
-        </pre>
-        <br/>
+<pre><code class="javascript">pageNode.innerHTML = "&lt;h1&gt;Oh, no! Everything is gone!&lt;/h1&gt;"
+</code></pre>
         <p>You can also just add to the <code>innerHTML</code>, instead of replacing it altogether:</p>
-        <pre>
-  pageNode.innerHTML += "P.S. Please do write back.";
-        </pre>
+<pre><code class="javascript">pageNode.innerHTML += "P.S. Please do write back.";
+</code></pre>
       </section>
     
     <section>
@@ -296,26 +261,23 @@
       <h2>Creating DOM Nodes</h2>
       
         <p>The <code>document</code> object also allows us to create new nodes from scratch:</p>
-        <pre style="border:3px dotted black;" >
-  document.createElement(tagName);
-  document.createTextNode(text);
-  document.appendChild(childToAppend);
-        </pre>
+<pre><code class="javascript syntax">document.createElement(tagName);
+document.createTextNode(text);
+document.appendChild(childToAppend);
+</code></pre>
         <img src="../images/dommodify_imgtobody.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
-        <pre class="prettyprint">
-  var body = document.getElementsByTagName('body')[0];
-  var newImg = document.createElement('img');
-  newImg.src = 'http://placekitten.com/400/300';
-  newImg.style.border = '1px solid black';
-  body.appendChild(newImg);
-        </pre>
+<pre><code class="javascript">var body = document.getElementsByTagName('body')[0];
+var newImg = document.createElement('img');
+newImg.src = 'http://placekitten.com/400/300';
+newImg.style.border = '1px solid black';
+body.appendChild(newImg);
+</code></pre>
         <img src="../images/dommodify.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
-        <pre class="prettyprint">
-  var newParagraph = document.createElement('p');
-  var newText = document.createTextNode('Squee!');
-  newParagraph.appendChild(newText);
-  body.appendChild(newParagraph);
-        </pre>
+<pre><code class="javascript">var newParagraph = document.createElement('p');
+var newText = document.createTextNode('Squee!');
+newParagraph.appendChild(newText);
+body.appendChild(newParagraph);
+</code></pre>
       
     </section>
     <section>
@@ -329,7 +291,7 @@
 			</div>
   		<footer>
         <div class="copyright">
-          CLASS TITLE -- San Francisco --
+          JavaScript and the Web -- San Francisco --
           <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
         </div>
       </footer>

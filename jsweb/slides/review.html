@@ -54,9 +54,10 @@
                 <section>
                     <h2>JS: Variables and Data Types</h2>
 
-                    <pre class="prettyprint">
-                        var myAge = 29; var myName = "Pamela"; var isSheCool = true;
-                    </pre>
+<pre><code class ="javascript">var myAge = 29;
+var myName = "Pamela";
+var isSheCool = true;
+</code></pre>
 
                     <p>...what other data types are there?</p>
                 </section>
@@ -64,109 +65,94 @@
                 <section>
                     <h2>JS: Functions</h2>
 
-                    <pre class="prettyprint">
-var calculateFoodNeeded = function(numDays) { 
-        return numDays * 3; 
-    }; 
+<pre><code class ="javascript">var calculateFoodNeeded = function(numDays) {
+  return numDays * 3; 
+}; 
+
 var makeFunnyName = function(firstName, lastName) {
-    return "Mister " + firstName + "Mc" + lastName + "Pants"; 
-    };
-                    </pre>
+  return "Miss " + firstName + " Mc" + lastName + "Pants"; 
+};</code></pre>
 
                 </section>
 
                 <section>
                     <h2>JS: Conditionals</h2>
-                    <pre class="prettyprint">
-var movieIsActionFlick = true; 
+<pre><code class ="javascript" style="max-height: initial">var movieIsActionFlick = true; 
 var movieCost = 0; 
-if (movieIsActionFlick === true && movieCost < 1) 
-    { 
-        console.log('Okay fine Ill watch it'); 
-    } 
-var movieHasBradPitt=true; 
-var movieHasJohnnyDepp=false; 
-if (movieHasBradPitt===true || movieHasJohnnyDepp===true) 
-    { 
-        console.log( 'Ill DEFINITELY watch it');
-    } 
-if (movieHasBradPitt) 
-    { 
-        console.log( 'Def watch it');
-    } 
-else if(movieCost===0) 
-    { 
-        console.log( 'Free, might as well'); 
-    } 
-else if (movieIsActionFlick) 
-    { 
-        console.log('Nah I dont like action flicks'); 
-    } 
-else 
-    { 
-        console.log( 'I cant decide!'); 
-    } </pre>
+if (movieIsActionFlick === true && movieCost < 1) { 
+  console.log("Okay fine I'll watch it"); 
+} 
+
+var movieHasBradPitt = true; 
+var movieHasJohnnyDepp = false; 
+if (movieHasBradPitt === true || movieHasJohnnyDepp === true) { 
+  console.log( "I'll DEFINITELY watch it");
+}
+
+if (movieHasBradPitt) { 
+  console.log( "Def watch it" );
+} else if (movieCost === 0) { 
+  console.log( "Free, might as well"); 
+} else if (movieIsActionFlick) {
+  console.log("Nah I don't like action flicks"); 
+} else { 
+  console.log( "I cant decide!"); 
+}</code></pre>
                 </section>
 
                 <section>
                     <h2>JS: Loops</h2>
 
-                    <pre class="prettyprint">
-var countdown = 10; 
-while (countdown > 0) 
-{ 
-    console.log(countdown); 
-    countdown--; 
+<pre><code class ="javascript" style="max-height: initial">var countdown = 10; 
+while (countdown > 0) { 
+  console.log(countdown); 
+  countdown--; 
 } 
+
 var countdown = 10; 
-while (countdown > 0) 
-{ 
-    if (countdown > 1) 
-    { 
-        console.log(countdown + '...'); 
-    } 
-    else { 
-        console.log(countdown + '!'); 
-    } 
-    countdown--; 
+while (countdown > 0) { 
+  if (countdown > 1) { 
+    console.log(countdown + '...'); 
+  } else { 
+    console.log(countdown + '!'); 
+  } 
+  countdown--; 
 }
-for (var i = 10; i > 0; i--) 
-{ 
-    console.log(i); 
+
+for (var i = 10; i > 0; i--) { 
+  console.log(i); 
 }
-                    </pre>
+                    </code></pre>
 
                 </section>
 
                 <section>
                     <h2>JS: Arrays</h2>
 
-                    <pre class="prettyprint">
-var children = ['Oliver', 'Pamela', 'Hunter']; 
+<pre><code class ="javascript">var children = ['Oliver', 'Pamela', 'Hunter']; 
+
 console.log('My dad has ' + children.length + ' children'); 
 console.log('His first kid was ' + children[0]); 
 children.push('Alexis'); 
 console.log('His fourth kid was ' + children[3]); 
-for (vari = 0; i < children.length; i++) 
-{ 
-    console.log( 'Kid #' + (i+ 1) + ' : ' + children[i]); 
-}</pre>
+
+for (var i = 0; i < children.length; i++) { 
+  console.log('Kid #' + (i + 1) + ': ' + children[i]); 
+}</code></pre>
                 </section>
 
                 <section>
                     <h2>JS: Objects</h2>
 
-                    <pre class="prettyprint">
-var myCrazyCat = { 
+<pre><code class ="javascript">var myCrazyCat = { 
     name: "Angel", 
     age: 3, 
     likes: ["rubber bands", "boxes", "4am petting sessions"], 
     fur: {
         colors: ["orange", "white"], 
         pattern: "striped"
-        } 
-    };
-                    </pre>
+    } 
+};</code></pre>
                 </section>
 			</div>
   		<footer>

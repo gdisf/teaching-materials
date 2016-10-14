@@ -18,6 +18,13 @@
 		<!-- For syntax highlighting -->
 		<!-- light editor --><link rel="stylesheet" href="../../common/lib/css/light.css">
 		 <!-- dark editor<link rel="stylesheet" href="../common/lib/css/dark.css"> -->
+		<!--Different style for code syntax blocks-->
+		<style>
+		 	code.syntax {
+				box-shadow: none;
+				border: 2px dashed #01a9b4;
+			}
+		</style>
 
 		<!-- If use the PDF print sheet so students can print slides-->
 
@@ -55,13 +62,10 @@
      <section> 
      <h2>Adding Event Listeners</h2> 
      <p>In IE 9+ (and all other browsers):</p>
-<pre><code>
-domNode.addEventListener(eventType, eventListener, useCapture);
+<pre><code class="javascript syntax">domNode.addEventListener(eventType, eventListener, useCapture);
 </code></pre>
 
-<pre>
-  <code>
-&lt;button id=&quot;counter&quot;&gt;0&lt;/button&gt;
+<pre><code class="html xml">&lt;button id=&quot;counter&quot;&gt;0&lt;/button&gt;
   
 &lt;script&gt;
 var counterButton = document.getElementById('counter');
@@ -72,13 +76,13 @@ counterButton.addEventListener('click', onButtonClick, false);
 &lt;/script&gt;
 </code></pre>
 
-<pre style="display:none;">
+<aside class="notes">
 Last lesson we learned about the Document Object Model, and how it allows us to manipulate elements on a web page. 
 Most of the time we want to do that manipulation as a result of a user's interaction with the page. That's where 'events' come in.
 An 'event' is a type of object that is created when the user interacts with a web page. 
 Events are related to the element the user interacted with, for example when a user clicks a link, a 'click' event is created for that link a element.
 To trigger some code to run when a particular event happens, we need to create an 'event listener'.
-</code></pre>
+</aside>
      </section>
     
    
@@ -89,9 +93,7 @@ To trigger some code to run when a particular event happens, we need to create a
      <h2>Event Types</h2> 
      <p>The browser triggers many <a href="https://developer.mozilla.org/en/DOM/DOM_event_reference">events</a>. A short list:</p>
 <ul>
- <li>mouse events (<a href="https://developer.mozilla.org/en/DOM/MouseEvent">MouseEvent</a>):  <code>mousedown</code>, <code>mouseup</code>
-    , <code>click</code>, <code>dblclick</code>, <code>mousemove</code>, <code>mouseover</code>, <code>mousewheel</code>
-    , <code>mouseout</code>, <code>contextmenu</code>
+ <li>mouse events (<a href="https://developer.mozilla.org/en/DOM/MouseEvent">MouseEvent</a>):  <code>mousedown</code>, <code>mouseup</code>, <code>click</code>, <code>dblclick</code>, <code>mousemove</code>, <code>mouseover</code>, <code>mousewheel</code>, <code>mouseout</code>, <code>contextmenu</code>
  <li>touch events (<a href="https://developer.mozilla.org/en/DOM/TouchEvent">TouchEvent</a>): <code>touchstart</code>, <code>touchmove</code>, <code>touchend</code>, <code>touchcancel</code>
  <li>keyboard events (<a href="https://developer.mozilla.org/en/DOM/KeyboardEvent">KeyboardEvent</a>): <code>keydown</code>, <code>keypress</code>, <code>keyup</code>
  <li>form events: <code>focus</code>, <code>blur</code>, <code>change</code>, <code>submit</code>
@@ -111,8 +113,7 @@ into the function.</p>
 
 <p>Each event type has different properties. For example, <a href="https://developer.mozilla.org/en/DOM/MouseEvent">MouseEvent</a> reports the clicked coordinates:</p>
 
-<pre>
-  &lt;img id=&quot;kitten&quot; src=&quot;http://placekitten.com/200/300&quot;&gt;
+<pre><code class="html xml">  &lt;img id=&quot;kitten&quot; src=&quot;http://placekitten.com/200/300&quot;&gt;
   &lt;div id=&quot;info&quot;&gt;&lt;/div&gt;
   &lt;script&gt;
 var kittenImg = document.getElementById('kitten');
@@ -135,18 +136,17 @@ kittenImg.addEventListener('click', onClick, false);
      <p>A common use of events is to process form input, either by responding to button click events
 or input click/change events.</p>
 
-<pre><code>
-  &lt;input id=&quot;myname&quot; type=&quot;text&quot;&gt;
-  &lt;button id=&quot;button&quot;&gt;Say My Name&lt;/button&gt;
+<pre><code class="html xml">&lt;input id=&quot;myname&quot; type=&quot;text&quot;&gt;
+&lt;button id=&quot;button&quot;&gt;Say My Name&lt;/button&gt;
   
-  &lt;script&gt;
-var button = document.getElementById('button');
-var onClick = function(event) {
-    var myName = document.getElementById(&quot;myname&quot;).value;
+&lt;script&gt;
+  var button = document.getElementById('button');
+  var onClick = function(event) {
+  var myName = document.getElementById(&quot;myname&quot;).value;
     alert(&quot;Hi, &quot; + myName);
-};
-button.addEventListener('click', onClick);
-  &lt;/script&gt;
+  };
+  button.addEventListener('click', onClick);
+&lt;/script&gt;
 </code></pre>
 
      </section>
@@ -163,7 +163,7 @@ the DOM exists.</p>
 
 <p>You can either put JS at bottom of page, or listen to the "load" event:
 </p>
-<pre>
+<pre><code class="html xml">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
@@ -193,8 +193,7 @@ window.addEventListener(&quot;load&quot;, onLoad);
      <h2>The window object</h2> 
      <p>When you run JS in the browser, it gives you the <code><a target="_blank" href="https://developer.mozilla.org/en/DOM/window">window</a></code> object with many useful properties and methods:</p>
 
-<pre><code>
-window.location.href;
+<pre><code class="javascript">window.location.href;
 
 window.navigator.userAgent;
 
@@ -205,12 +204,10 @@ window.alert("Hello world!");
 
 <p>The <code>window</code> object is the assumed global object on a page, so:
 </p>
-<pre><code>
-window.alert("Hi!");
+<pre><code class="javascript">window.alert("Hi!");
 </code></pre>
 <p>...is the same as:</p>
-<pre><code>
-alert("Hi");
+<pre><code class="javascript">alert("Hi");
 </code></pre>
      </section>
   
@@ -223,17 +220,14 @@ alert("Hi");
      <p>The standard way to animate in JS is to use these 2 <code>window</code> methods.</p>
 
 <p>To call a function once after a delay:</p>
-<pre><code>
-window.setTimeout(callbackFunction, delayMilliseconds);
+<pre><code class="javascript syntax">window.setTimeout(callbackFunction, delayMilliseconds);
 </code></pre>
 <p>To call a function repeatedly, with specified interval between each call:</p>
-<pre>
-window.setInterval(callbackFunction, delayMilliseconds);
+<pre><code class="javascript syntax">window.setInterval(callbackFunction, delayMilliseconds);
 </code></pre>
 
 <p>Commonly used to animate DOM node attributes:</p>
-<pre><code>
-var makeImageBigger = function() {
+<pre><code class="javascript">var makeImageBigger = function() {
   var img = document.getElementsByTagName('img')[0];
   img.setAttribute('width', img.width+10);
 };
@@ -250,8 +244,7 @@ window.setInterval(makeImageBigger, 1000);
      <h2>Animating Styles</h2> 
      <p>It's also common to animate CSS styles for size, transparency, position, and color:</p>
 
-<pre><code>
-var img = document.getElementsByTagName('img')[0];
+<pre><code class="javascript">var img = document.getElementsByTagName('img')[0];
 img.style.opacity = 1.0;
 window.setInterval(fadeAway, 1000);
 var fadeAway = function() {
@@ -260,8 +253,7 @@ var fadeAway = function() {
 </code></pre>
 <p style="font-size:small;">Note: opacity is 1E9+ only (plus all other browsers).</p>
 
-<pre><code>
-var img = document.getElementsByTagName('img')[0];
+<pre><code class="javascript">var img = document.getElementsByTagName('img')[0];
 img.style.position = 'absolute';
 img.style.top = '0px';
 var watchKittyFall = function() {
@@ -282,13 +274,11 @@ window.setInterval(watchKittyFall, 1000);
      <h2>Stopping an Animation</h2> 
      <p>To stop at an animation at a certain point, store the timer into a variable and clear with one of these methods:</p>
 
-<pre><code>
-window.clearTimeout(timer);
+<pre><code class="javascript syntax">window.clearTimeout(timer);
 window.clearInterval(timer);
 </code></pre>
 
-<pre><code>
-var img = document.getElementsByTagName('img')[0];
+<pre><code class="javascript">var img = document.getElementsByTagName('img')[0];
 img.style.opacity = 1.0;
 
 var fadeAway = function() {  
@@ -367,12 +357,10 @@ var fadeTimer = window.setInterval(fadeAway, 100);
      <p>To use a library, you can use the <code>script</code> tag and point it at the .js file.</p>
 
 <p>It could be stored locally:</p>
-<pre><code>
-&lt;script src="jquery.js"&gt;&lt;/script&gt;
+<pre><code class="html xml">&lt;script src="jquery.js"&gt;&lt;/script&gt;
 </code></pre>
 <p>Or on another server ("CDN"):</p>
-<pre><code>
-&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"&gt;&lt;/script&gt;
+<pre><code class="html xml">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"&gt;&lt;/script&gt;
 </code></pre>
 <p>Then you can reference the library functions in your code:</p>
 <pre>
