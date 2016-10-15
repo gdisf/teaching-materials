@@ -25,6 +25,8 @@
 				border: 2px dashed #01a9b4;
 			}
 		</style>
+		
+		<base target="_blank">
 
 		<!-- If use the PDF print sheet so students can print slides-->
 
@@ -56,9 +58,10 @@
       <h2>Text Editors</h2>
         <p>Many text editors provide special assistance for writing HTML and CSS, like syntax-highlighting and autocompletion.</p>
         <ul>
-          <li>Sublime Text, TextMate (Mac)</li>
-          <li>Notepad++ (Windows)</li>
-          <li>JSBin, JSFiddle (Online)</li>
+          <li>Sublime Text, Atom (Mac, Windows, Linux)</li>
+					<li>TextMate (Mac only)</li>
+          <li>Notepad++ (Windows only)</li>
+          <li>JSBin, JSFiddle, Codepen, Cloud9 (Online)</li>
         </ul>
 <pre><code class="html xml">&lt;h1&gt;My JavaScript questions&lt;/h1&gt;
 &lt;ul&gt;
@@ -112,12 +115,15 @@
           </li>
           <li><a href="http://msdn.microsoft.com/en-us/library/dd565628%28VS.85%29.aspx#html_elementinfo">Internet Explorer</a>
             <ul>
-              <li>Open Tools, "Developer Tools"</li>
+              <li>Open Tools > "Developer Tools"</li>
             </ul>
           </li>
+					<li><a href="https://developer.apple.com/library/content/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html">Safari</a>
+						<ul>
+							<li>Unlock the Develop Menu by opening Safari > Preferences > Advanced, and checking the box, "Show Develop menu in menu bar."</li>
+							<li>Access by same methods as Chrome (above)</li>
           </li>
         </ul>
-        <img src="../images/screenshot_chromedevtools.png" style="display: block; margin: auto; width: 535px; border:1px solid black;">
       
     </section>
     <section>
@@ -193,7 +199,7 @@ var againAlsoHobbies = document.querySelectorAll('ul li.hobby');
 var firstHobby = document.querySelector('ul li.hobby');
 </code></pre>
         <br>
-        <p><code>getElementsByClassName()</code>, <code>getElementsByTagName()</code>, and <code>querySelectorAll()</code> return a collection of elements in an array:</p>
+        <p><code>getElementsByClassName()</code>, <code>getElementsByTagName()</code>, and <code>querySelectorAll()</code> return a collection of elements (which acts like an array):</p>
 <pre><code class="javascript">var catNames = document.querySelectorAll('ul li.catname');
 var firstCatName = catNames[0];
 </code></pre>
@@ -211,12 +217,12 @@ var firstCatName = catNames[0];
 <pre><code class="html xml">&lt;img id="lizzie-the-cat" src="http://placekitten.com/200/300"&gt;
 </code></pre>
         <p>Changing the <code>src</code> of an image:</p>
-<pre><code class="javascript">var catImage = document.getElementById('lizzie-the-cat');
+<pre><code class="javascript">var catImage = document.getElementById('lizzie');
 var oldImageSource = catImage.src;
-oldImageSource.src = 'http://placekitten.com/100/500';
+catImage.src = 'http://placekitten.com/300/200';
 </code></pre>
         <p>Changing the <code>className</code> of a DOM node:</p>
-<pre><code class="javascript">var catImage = document.getElementById('lizzie-the-cat');
+<pre><code class="javascript">var catImage = document.getElementById('lizzie');
 catImage.className = "portrait";
 </code></pre>
       
@@ -232,7 +238,7 @@ catImage.className = "portrait";
 }
 </code></pre>
         <p>Applying the Same Styles via JavaScript:</p>
-<pre><code class="javascript">var pageNode = document.getElementsByTagName('body')[0];
+<pre><code class="javascript">var pageNode = document.body;
 pageNode.style.color = 'red';
 pageNode.style.backgroundColor = 'pink';
 pageNode.style.paddingTop = '10px';
@@ -241,7 +247,7 @@ pageNode.style.paddingTop = '10px';
     <section>
       <h2>Manipulating a DOM Node's Inner HTML</h2>
         <p>Each DOM node has an <code>innerHTML</code> attribute that contains the HTML of all its children:</p>
-<pre><code class="javascript">var pageNode = document.getElementsByTagName('body')[0];
+<pre><code class="javascript">var pageNode = document.body;
 console.log(pageNode.innerHTML);
 </code></pre>
         <p>You can set <code>innerHTML</code> yourself to replace the contents of the node:</p>
@@ -250,6 +256,28 @@ console.log(pageNode.innerHTML);
         <p>You can also just add to the <code>innerHTML</code>, instead of replacing it altogether:</p>
 <pre><code class="javascript">pageNode.innerHTML += "P.S. Please do write back.";
 </code></pre>
+      </section>
+
+    <section>
+      <h2><code>innerHTML</code> vs. <code>textContent</code></h2>
+        <p>If you're only changing the actual text of a node, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent" target="_blank"><code>textContent</code></a> may be a better choice.</p>
+				<ul>
+					<li><code>innerHTML</code>
+						<ul>
+							<li>Works in older browsers</li>
+							<li>More powerful: can change code</li>
+							<li>Less secure: allows cross-site scripting (XSS)</li>
+						</ul>
+					</li>
+					<li><code>textContent</code>
+						<ul>
+							<li>Doesn't work in IE8 and below</li>
+							<li>Faster: the browser doesn't have to parse HTML</li>
+							<li>More secure: won't execute code</li>
+						</ul>
+					</li>
+				</ul>
+
       </section>
     
     <section>
@@ -266,7 +294,7 @@ document.createTextNode(text);
 document.appendChild(childToAppend);
 </code></pre>
         <img src="../images/dommodify_imgtobody.png" style="float:right; width: 130px; margin-left: 6px; margin-top: 6px;">
-<pre><code class="javascript">var body = document.getElementsByTagName('body')[0];
+<pre><code class="javascript">var body = document.body;
 var newImg = document.createElement('img');
 newImg.src = 'http://placekitten.com/400/300';
 newImg.style.border = '1px solid black';
@@ -281,7 +309,7 @@ body.appendChild(newParagraph);
       
     </section>
     <section>
-     <h1 class="center">
+     <h2 class="center">
       <a target="_blank" href="../exercises/dom_manipulation_advanced.html">
         Master of (DOM) Manipulation Exercise
       </a>

@@ -12,34 +12,37 @@
   <body>
     <div class="container">
     <h2>Exercise: DOM Detective</h2>
-    <h3 class="page-header">CASE #1: Can She Develop It?</h3>
+    <!-- <h3 class="page-header">CASE #1: Can She Develop It?</h3> -->
     <ul>
-      <li>Navigate to the<a href="http://www.girldevelopit.com">Girl Develop It</a> site,
+      <li>Navigate to the <a href="http://www.girldevelopit.com">Girl Develop It</a> site,
      and open up the Dev Tools console – <code>Cmd</code>-<code>Opt</code>-<code>I</code> (Mac), <code>Ctrl</code>-<code>Shift</code>-<code>I</code> (Windows)
       </li>
       <li>Use the <a href="https://www.khanacademy.org/computing/computer-programming/html-css-js/html-js-dom-access/a/summary-dom-access-methods">DOM access methods</a> we learned to find the following parts of the page. There may be multiple ways to select the same DOM node.</li>
         <ol>
           <li>Every image on the page (as a collection)</li>
-          <li>The navigation area in the upper right</li>
           <li>The MailChimp form at the bottom</li>
+          <li>The three <code>div</code>s with GDI stats (as a collection)</li>
+          <li>The image header with the headline, "DON'T BE SHY DEVELOP IT"</li>
+          <li>The navigation menu at the top</li>
           <li>The GDI logo in the upper-left</li>
-          <li>The media logos (TED, lifehacker, etc.), at the bottom</li>
-          <li>The "DON'T BE SHY DEVELOP IT" headline</li>
+          <li>The media logos (TED, lifehacker, etc.) at the bottom (as a collection)</li>
           <li>All the red dots on the US map (as a collection)</li>
        </ol>
     </ul>
+    <p><strong>Bonus:</strong> Find another element (or collection of elements), and challenge a classmate to find it in the DOM.</p>
     <button onclick="showSolution(1)" class="btn">See Solution</button>
     <br><br>
-    <pre id="solution1" style="display:none;">
-      document.getElementsByTagName("img");
-      document.getElementsByClassName("nav");
-      document.getElementById("mc_embed_signup");
-      document.querySelector(".logo img");
-      document.querySelectorAll(".press-logos img");
-      document.querySelector(".opener h1");
-      document.querySelectorAll("circle");
-    </pre>
-    <h3 class="page-header">CASE #2: Picking Brain Pickings</h3>
+<pre id="solution1" style="display:none;">
+  document.getElementsByTagName("img");
+  document.getElementById("mc_embed_signup");
+  document.getElementsByClassName("stats");
+  document.getElementsByClassName("opener")[0];
+  document.querySelector(".navigation");
+  document.querySelector(".logo img");
+  document.querySelectorAll(".press-logos img");
+  document.querySelectorAll("circle");
+</pre>
+    <!-- <h3 class="page-header">CASE #2: Picking Brain Pickings</h3>
     <ul>
       <li>Open up <a href="http://www.brainpickings.org">brainpickings.com</a> in Chrome or Firefox,
       and open up the console.
@@ -52,7 +55,7 @@
           <li>The "Name" input box for email subscription in the left nav bar</li>
           <li>Every quote insode a blog post</li>
         </ol>
-    </ul>
+    </ul> -->
     <script>
       function showSolution(num) {
         if (confirm('Are you sure?')) {
