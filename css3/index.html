@@ -35,8 +35,7 @@
  <br><br>
  <p style="font-size:smaller">With slides from:<br>
   Estelle Weyl's <a href="http://estelle.github.com/selectors/#slide1">Selectors: Select This!</a>
-  and 
-  <a href="http://slides.html5rocks.com/#landing-slide">HTML5 Rocks</a>
+  and HTML5 Rocks.
  </p>
 </div> 
     
@@ -45,7 +44,7 @@
 <section class="content"> 
   <ul>
     <li>CSS Recap</li>
-    <li>CSS History</li>
+    <!-- <li>CSS History</li> -->
     <li>Selectors</li>
     <li>Properties</li>
     <li>Pre-processors</li>
@@ -86,7 +85,7 @@
  
 
 
-<div class="slide normal"> 
+<!-- <div class="slide normal"> 
 <header><h1>CSS History</h1></header> 
 <section class="content"> 
   <ul>
@@ -96,7 +95,7 @@
   </ul>
   <p><a href="http://www.w3.org/Style/CSS/current-work.en.html">All CSS Specs</a></p>
 </section>
-</div>
+</div> -->
 
 
 <div class="slide intro"> 
@@ -166,7 +165,7 @@
     
     <a href="http://docs.webplatform.org/wiki/css/selectors" class="objectlink">Webplatform: Selectors</a>
     <p>
-    <a href="http://www.standardista.com/css3/css3-selector-browser-support/">CSS3 Selector Browser Support</a>
+    <a href="https://www.w3schools.com/cssref/css3_browsersupport.asp">CSS3 Selector Browser Support</a>
   </p>
   
      </section>
@@ -226,12 +225,12 @@
 <strong>form [type] {}</strong> 
      &lt;input <strong>type</strong>=date&gt;  
      <span style="opacity:0.3">&lt;select&gt;</span></pre>
-<p><small>IE6 sucks <br />
-  IE7 support basic non-empty attribute</small></p>
+<!-- <p><small>IE6 sucks <br />
+  IE7 support basic non-empty attribute</small></p> -->
      </section>
     </div>
       
-<!-- Older attribute selectors -->
+<!-- Older attribute selectors 1 -->
 <div class="slide normal"> 
      <header style="position:absolute; top: 20px; right: 20px;"><h1>Older attribute selectors</h1></header> 
      <section class="content"> 
@@ -240,6 +239,15 @@
   <dd>Element E that has the attribute attr with any value.</dd>
   <dt>E[attr=&quot;val&quot;]</dt>
   <dd>Element E that has the attribute attr with the exact, case-sensitive if attribute is case sensitive, value <em>val</em>.</dd>
+</dl>
+     </section>
+    </div>
+
+<!-- Older attribute selectors 2 -->
+<div class="slide normal"> 
+     <header style="position:absolute; top: 20px; right: 20px;"><h1>Older attribute selectors</h1></header> 
+     <section class="content"> 
+  <dl>
   <dt>E[attr|=val]</dt>
   <dd>Element E whose attribute <em>attr</em> has a value <em>val</em> or begins with val- (&quot;val&quot; plus &quot;-&quot;).<br />
     <pre contenteditable>p[lang|=&quot;en&quot;]{/*    &lt;p lang=&quot;en-us&quot;&gt;  &lt;p lang=&quot;en-uk&quot;&gt; */ }</pre>
@@ -250,6 +258,7 @@
   </dd></dl>
      </section>
     </div>
+
        
 <!-- CSS3 Attribute Selectors -->
 <div class="slide normal"> 
@@ -307,15 +316,8 @@ E:[att$=val]  <b class="notes"><br/>/* ends with val */</b>
 
 E:[att*=val]  <b class="notes"><br/>/* val is anywhere as a substring */</b>
 .</pre>
-<pre contenteditable style="clear:both">
-@media print{
-  abbr[title]:after { 
-    content: "(" attr(title) ")";
-  }
-  a[href^=http]:after { 
-    content: "(" attr(href) ")";
-  }
-}</pre>
+
+<div>Try It Out</div>
      </section>
  </div>  
   
@@ -323,7 +325,7 @@ E:[att*=val]  <b class="notes"><br/>/* val is anywhere as a substring */</b>
 <div class="slide object"> 
 <object data="files/01_attr.html"></object>
      <header><h1>Using attribute selectors</h1></header> 
-    
+<div style="height: 100px; width: 100%"></div>
   <a href="files/01_attr.html" target="play" class="objectlink">➚ Pop out</a>
   <p><strong>Note:</strong> The top line of the example is editable. The CSS will impact the contents on the rest of the page.</p>
 
@@ -389,6 +391,7 @@ input:in-range { background-color:lightgreen;}</pre>
 <object data="files/02_uiselectors.html"></object>
   <header><h1>UI selectors</h1></header> 
    </h1>
+   <div style="height: 100px; width: 100%"></div>
    <a href="files/02_uiselectors.html" target="play">➚ Pop out</a>
   <p>Test them out for yourselves</p>
     </div>     
@@ -637,7 +640,7 @@ already exist.<br>
      <header><h1>::first-letter</h1></header>
      <object data="files/08_dropcap.html"> 
      <section class="content">
-        
+  <div style="height: 100px; width: 100%"></div>
    <p class="firstletter">You can even pretty drop-caps with :first-letter, but make sure to apply it to p:first-of-type so your site not too ugly. <a href="files/08_dropcap.html" target="play" class="objectlink">➚ Pop out</a></p>  <pre contenteditable>p:first-of-type::first-letter {
 	position: relative;
 	top: 8px;
@@ -659,7 +662,7 @@ already exist.<br>
 
   <object data="files/009_bubble.html"> 
   </object>
-
+<div style="height: 100px; width: 100%"></div>
   <p><a href="http://nicolasgallagher.com/pure-css-speech-bubbles/demo/">More bubbles</a></p>
 
 </div>
