@@ -191,3 +191,6 @@ body {
 .yellow{color:#EDAB23}
 .pink{color:#F05B62}
 .red{color:#8B0036}
+.reveal strong, .reveal b {
+  font-family: "Gotham-Book";
+}
