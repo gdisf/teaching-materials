@@ -378,32 +378,51 @@
 </code></pre>
         </section>
 
+        <!-- Pseudo class-->
+        <section>
+          <h3>Pseudo-classess</h3>
+          <p>Pseudo-classes can style elements based on their current state.</p>
+          <div class="flex-container">
+            <div class="flex-item">
+              <p>Syntax:</p>
+<pre><code class="css">selector:pseudo-class {
+  property: value;
+}
+</code></pre>
+            </div>
+            <div class="flex-item">
+              <p>Example:</p>
+<pre><code class="css">a:hover {
+  text-decoration: none;
+}
+</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pseudo class-->
         <section>
           <h3>Pseudo-classes</h3>
-          <p>These "pseudo classes" can style anchor elements depending on their state:</p>
-          <pre><code class="css">a:link { /* unvisited link */
-  color: red;
-}
-a:visited { /* visited link */
-  color: blue;
-} 
-a:hover { /* moused over link */
-  color: green;
-}  
-a:active { /* current link */
-  color: purple;
-} 
-a:focus {  /* focused link */
-  color: purple;
-} 
+<pre><code class="css">a:link  { color:#FF0000; } /* unvisited link */
+
+a:visited { color: green; } /* visited link */
+
+a:hover { color: purple; } /* moused over */
+
+a:focus { color: purple; } /* selected with keyboard*/
+
+a:active { color: blue; } /* activated link */
 </code></pre>
+          <p><small>
+          Note: <code>a:hover</code> <strong>MUST</strong> come after <code>a:link</code> and <code>a:visited</code> in the CSS to be effective
+          </small></p>
         </section>
-  
+
         <section>
          <h3>Grouping Selectors</h3>
          <p>You can group selectors to apply the same style to all of the selectors by separating them with commas:</p>
-         <pre><code class="css">a:hover, a:active, a:focus {
-  background-color: yellow;
+         <pre><code class="css">a:hover, a:focus {
+  color: purple;
 }</code></pre>
         </section>
 

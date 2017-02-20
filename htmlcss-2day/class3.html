@@ -107,23 +107,55 @@
           </ul>
         </section>
 
+        <!-- Span -->
+        <section>
+          <h3>Element: <code>span</code></h3>
+          <ul>
+          <li>Inline element.</li>
+          <li>Each new <code>span</code> is rendered next to surrounding content, and only wraps when it reaches the edge of the containing element.</li>
+          <li>Can be used to apply styles to text inline so as not to break the flow of content.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3><code>span</code></h3>
+          <p><code>span</code> is used to apply a specific style inline</p>
+
+<pre><code class="css">.highlight {
+  color: teal;
+}
+</code></pre>
+<pre><code class="html xml">&lt;p&gt;Paragraph with &lt;span class="highlight"&gt;teal&lt;/span&gt; text.&lt;/p&gt;
+</code></pre>
+          <p>Paragraph with <span style="color:teal;">teal</span> text.</p>
+        </section>
+        <!-- Exercise-->
+         <section>
+          <h3>Let's Develop It</h3>
+          <ul>
+           <li>Wrap several words or phrases with <code>span</code> tags.</li>
+           <li>Give them a <code>class</code> or <code>id</code>.</li>
+           <li>Add CSS rules to change their colors.</li>
+          </ul>
+        </section>
+
+
         <!-- Divs -->
         <section>
           <h3>Element: <code>div</code></h3>
           <ul>
             <li>Block level element. Each new <code>div</code> is rendered on a new line.</li>
             <li>A "division," or section, of content within an HTML page.</li>
-            <li>Used to group elements to format them with CSS.</li>
-            <li>Apply IDs and Classes to <code>div</code>s to control their styles with CSS.</li>
+            <li>Used to group elements to style with CSS or manipulate with JS.</li>
           </ul>
-        </section>
-        <section>
-          <h3>Div Examples</h3>
 <pre><code class="html">&lt;div&gt;
    &lt;p&gt;Content&lt;/p&gt;
    &lt;p&gt;Content&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
+        </section>
+        <section>
+          <h3>Styling <code>div</code>s with CSS</h3>
+          <p>Assign <code>id</code> or <code>class</code> to change their with CSS:</p>
 <pre><code class="html">&lt;div id="header"&gt;
    &lt;h1&gt;Main Heading&lt;/h1&gt;
 &lt;/div&gt;
@@ -135,29 +167,21 @@
         </section>
 
         <section>
-          <h3>Grouping elements with <code>div</code></h3>
-          <ul>
-            <li>The <code>div</code> tag is used everywhere to group elements together into sections.</li>
-            <li>You can wrap groups of elements in a <code>div</code> to style them differently.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Grouping elements with <code>div</code>, contined</h3>
-<pre><code class="css">.align-right{
-  text-align:right;
+          <h3>Styling <code>div</code>s: Example</h3>
+<pre><code class="css">.special-quote {
+  text-align: right;
   color: purple;
-  font-weight: bold;
+  text-decoration:underline;
 }
 </code></pre>
-<pre><code class="html xml">&lt;div class="align-right"&gt;
+<pre><code class="html xml">&lt;div class="special-quote"&gt;
   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit&lt;/p&gt;
   &lt;p&gt;Sed do eiusmod tempor incididunt ut labore et dolore.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Magna aliqua. Ut enim ad minim veniam.&lt;/p&gt;
 &lt;p&gt;Quis nostrud exercitation ullamco.&lt;/p&gt;
 </code></pre>
-          <div style="text-align:right; font-weight:bold; font-size:70%; color:purple;">
+          <div style="text-align:right; text-decoration:underline; font-size:70%; color:purple;">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
             <p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
           </div>
@@ -165,12 +189,6 @@
             <p>Magna aliqua. Ut enim ad minim veniam.</p>
             <p>Quis nostrud exercitation ullamco.</p>
           </div>
-        </section>
-
-        <section>
-          <h3>Let's Develop It</h3>
-           <p>Use <code>div</code>s to separate content into different sections on your page.</p>
-           <p>Create a header, content area, sidebar, and a footer.</p>
         </section>
 
         <section>
@@ -200,6 +218,16 @@
         </section>
 
         <section>
+          <h3>Let's Develop It</h3>
+           <ul>
+            <li>Use <code>div</code>s to separate content into different sections on your page - create a header, content area, sidebar, and a footer.</li>
+            <li>Give them a <code>class</code> or <code>id</code>.</li>
+            <li>Add CSS rules to change their color.</li>
+           </ul> 
+            
+        </section>
+
+        <section>
           <h3>HTML5</h3>
           <p>HTML5 offers new elements for better document structure and semantics.</p>
           <p>Some of the most commonly used new tags include:</p>
@@ -218,7 +246,9 @@
 </code></pre>
             </div>
           </div>
-          <p><a href="https://developer.mozilla.org/en-US/docs/web/html/element">Full list on Mozilla Developer Network (MDN)</a>.</p>
+          <p><small>
+          <a href="https://developer.mozilla.org/en-US/docs/web/html/element" target="_blank">Full list on Mozilla Developer Network (MDN)</a>.
+          </small></p>
         </section>
 
         <section>
@@ -249,77 +279,7 @@
         
         <section>
           <h3>Let's Develop It</h3>
-           <p>Try replacing some your <code>div</code> elements with semantic HTML5 elements.</p>
-           <p>(Note: all <code>div</code>s have semantic equivalents!)</p>
-        </section>
-
-        <!-- Span -->
-        <section>
-          <h3>Element: <code>span</code></h3>
-          <ul>
-          <li>Inline element. Each new <code>span</code> is rendered next to surrounding content, and only wraps when it reaches the edge of the containing element.</li>
-          <li>Can be used to apply styles to text inline so as not to break the flow of content.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3><code>span</code></h3>
-          <p><code>span</code> is used to apply a specific style inline</p>
-
-<pre><code class="css">.highlight{
-  color:teal;
-}
-</code></pre>
-<pre><code class="html xml">&lt;p&gt;Paragraph with &lt;span class="highlight"&gt;teal&lt;/span&gt; text.&lt;/p&gt;
-</code></pre>
-          <p>Paragraph with <span style="color:teal;">teal</span> text.</p>
-        </section>
-        <!-- Exercise-->
-         <section>
-          <h3>Let's Develop It</h3>
-         <p>Let's add some <code>span</code> elements to our content to help highlight some text. </p>
-        </section>
-
-        <!-- Pseudo class-->
-        <section>
-          <h3>Pseudo-classess</h3>
-          <p>Changing the format of a link when you hover over it is accomplished by using pseudo-classes.</p>
-          <p>CSS pseudo-classes are used to add special effects to some selectors.</p>
-          <div class="flex-container">
-            <div class="flex-item">
-              <p>Syntax:</p>
-<pre><code class="css">selector:pseudo-class{
-  property:value;
-}
-</code></pre>
-            </div>
-            <div class="flex-item">
-              <p>Example:</p>
-<pre><code class="css">a:link{
-  text-decoration: none;
-}
-</code></pre>
-            </div>
-          </div>
-        </section>
-
-        <!-- Pseudo class-->
-        <section>
-          <h3>Pseudo-classes</h3>
-<pre><code class="css">a:link  {color:#FF0000;} /* unvisited link */
-a:visited {color:#00FF00;} /* visited link */
-a:hover, a:focus {color:#FF00FF;} /* mouse over or select with keyboard*/
-a:active {color:#0000FF;} /* selected link */
-</code></pre>
-          <p><code>a:hover</code> <strong>MUST</strong> come after <code>a:link</code> and <code>a:visited</code> in the CSS definition to be effective!</p>
-          <p><code>a:active</code> <strong>MUST</strong> come after <code>a:hover</code> in the CSS definition to be effective!</p>
-          <p>Pseudo-classes cannot be used with inline styles.</p>
-        </section>
-
-        <!-- Exercise-->
-        <section>
-          <h3>Let's Develop It</h3>
-          <p>Add pseudo classes to your links</p>
+           <p>Replace some of your <code>div</code> elements with semantic HTML5 elements.</p>
         </section>
 
         <!-- Sizing -->
@@ -381,29 +341,24 @@ a:active {color:#0000FF;} /* selected link */
         <!-- Exercise -->
         <section>
           <h3>Let's develop it!</h3>
-          <div>
-            <p>Add a width &amp; height to some <code>img</code> &amp; <code>div</code> elements.</p>
-            <p>Use <code>id</code>s or <code>class</code>es to target specific elements with CSS.</p>
-            <p>Set a rule for all <code>img</code> tags so they can never outsize their parents.</p>
-          </div>
+          <ul>
+            <li>Add a width &amp; height to some <code>img</code> &amp; <code>div</code> elements.</li>
+            <li>Use <code>id</code>s or <code>class</code>es to target specific elements with CSS.</li>
+            <li>Set a rule for all <code>img</code> tags so they can never outsize their parents.</li>
+          </ul>
         </section>
         
         <!-- Box model-->
         <section>
-          <h3>The Box Model</h3>
-          <img src="img/boxpadding.jpg" alt="Small box surrounded by packing peanuts in a larger box"/>
-          <p class="credit">Photo credit:  <a href="http://www.flickr.com/photos/dchallender/76537016/">dchallender</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
-        </section>
-        <section>
           <h3>Box Model</h3>
-          <img src="img/box-model.png" alt="Graphic illustrating box model"/>
+          <img src="img/box-model.png" alt="Graphic illustrating box model" height="500"/>
         </section>
 
         <!-- Padding -->
         <section>
           <h3>Padding</h3>
           <p>Space between the border and the content</p>
-          <img src="img/box-model-padding.png" alt="Graphic illustrating box model, padding highlighted"/>
+          <img src="img/box-model-padding.png" alt="Graphic illustrating box model, padding highlighted" height="500"/>
         </section>
 
         <section>
@@ -431,14 +386,14 @@ a:active {color:#0000FF;} /* selected link */
         <section>
           <h3>Example: Padding</h3>
 <pre><code class="css">padding: 10px 20px 30px 40px;</code></pre>
-          <img src="img/box-model-padding2.png" alt="Graphic illustrating box model, with uneven padding"/>
+          <img src="img/box-model-padding2.png" alt="Graphic illustrating box model, with uneven padding" height="500"/>
         </section>
 
         <!-- Border-->
         <section>
           <h3>Border</h3>
           <p>The edge around the box.</p>
-          <img src="img/box-model-border.png" alt="Graphic illustrating box model, border highlighted">
+          <img src="img/box-model-border.png" alt="Graphic illustrating box model, border highlighted" height="500">
         </section>
 
         <section>
@@ -470,7 +425,7 @@ border-color: #666666;
         <section>
           <h3>Margin</h3>
           <p>The transparent area around the box that separates it from other elements.</p>
-          <img src="img/box-model-margin.png" alt="Graphic illustrating box model, margin highlighted"/>
+          <img src="img/box-model-margin.png" alt="Graphic illustrating box model, margin highlighted" height="500"/>
         </section>
 
         <section>
@@ -486,33 +441,24 @@ border-color: #666666;
         <section>
           <h3>Auto Margin</h3>
           <p>If a margin is set to auto on a box that has width, it will take up as much space as possible.</p>
-          <p>CENTERED</p>
+          <p>Centered:</p>
 <pre><code class="css">margin: auto;
 width: 300px;
 </code></pre>
-          <p>FLUSH-RIGHT</p>
+          <p>Flush right:</p>
 <pre><code class="css">margin-left: auto;
 margin-right: 5px;
 width: 300px;
 </code></pre>
         </section>
 
-        <section>
-          <h3>Wrappers</h3>
-          <p>Wrappers are a good way to center content if the screen width is wider than your content.</p>
-<pre><code class="css">div.wrapper{
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-</code></pre>
-        </section>
-
         <!-- Exercise -->
         <section>
           <h3>Let's Develop it!</h3>
-          <p>Let's add some padding, borders, and margins to our divs.</p>
-          <p>Let's center our entire document in the browser.</p>
+          <ul>
+            <li>Add some padding, borders, and margins to your divs.</li>
+            <li>Center your entire document in the browser.</li>
+          </ul>
         </section>
 
         <section>
