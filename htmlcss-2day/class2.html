@@ -487,26 +487,28 @@ a:active { color: blue; } /* activated link */
 
           <!-- Cascading-->
         <section>
-          <h3>Cascading</h3>
-          <p>Styles "cascade" down until changed</p>
+          <h3>The CSS Cascade</h3>
+          <p>What styles will each paragraph receive?</p>
 <pre><code class = "css">p {
-  color:blue;
-  font-family: 'Helvetica';
+  color: orange;
+  font-family: sans-serif;
 }
-.red {
-  color: red;
+.info-paragraph {
+  color: blue;
+  background-color: orange;
 }
-#special {
-  font-family: Arial;
+#main-paragraph {
+  font-weight: bold;
+  color: green;
 }
 </code></pre>
 <pre><code class="html xml">&lt;p&gt;Paragraph&lt;/p&gt;
-&lt;p class="red"&gt;Paragraph&lt;/p&gt;
-&lt;p class="red" id="special"&gt;Paragraph&lt;/p&gt;
+&lt;p class="info-paragraph"&gt;Paragraph&lt;/p&gt;
+&lt;p class="info-paragraph" id="main-paragraph"&gt;Paragraph&lt;/p&gt;
 </code></pre>
         </section>
         <section>
-          <h3>Cascading priority</h3>
+          <h3>Cascading priority: Importance</h3>
           <p>Your browser assigns different priorities to CSS depending on the type of selector.</p>
           <ol>
             <li>Inline CSS - <strong>Most Important</strong></li>
@@ -516,7 +518,7 @@ a:active { color: blue; } /* activated link */
           </ol>
         </section>
         <section>
-          <h3>Cascading priority</h3>
+          <h3>Cascading priority: Specificity</h3>
           <p>Your browser also assigns priority based on the specificity of the selection. More specific selectors have higher priority.</p>
 <pre><code class = "css">.main .sale .clearance p { /* Most specific */
   color: red;
@@ -530,7 +532,7 @@ a:active { color: blue; } /* activated link */
 </code></pre>
         </section>
         <section>
-          <h3>Cascading priority</h3>
+          <h3>Cascading priority: Source order</h3>
           <p>The tie-breaker is rule order. Rules lower in the file overwrite rules higher in the file</p>
 <pre><code class = "css">a {
   background-color: yellow;
