@@ -27,40 +27,47 @@ a:hover {
 	color: red;
 	text-decoration: underline;
 
-} /* mouse over link */
-a:active	{color: orange;} /* selected link */
+}
+a:active { 
+	color: orange;
+}
 
-div#header, div#footer{
+#header, #footer {
 	background-color: #2B5500;
 	color: #fff;
 
 	padding: 10px 30px;
 	border: 8px solid red;
-
 }
-div#content{
+
+#content {
 	background-color: #fff;
 	padding: 10px;
 	width: 60%;
 }
-div#sidebar{
+
+#sidebar {
 	width: 35%;
 	background-color: yellow;
 	float: right;
 }
 
-.center{
+.center {
 	margin: auto;
 }
 
-.purple{
+.special {
 	color: purple;
 	font-size: 110%;
 }
 
-div#wrapper{
+#content img {
+	width: 100%;
+	max-width: 640px;
+}
+
+#wrapper {
 	border: 10px solid black;
 	width: 1000px;
 	margin: auto;
-
 }

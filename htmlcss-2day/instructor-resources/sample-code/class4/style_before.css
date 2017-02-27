@@ -20,14 +20,12 @@ body {
 	background-color: #fff;
 	padding: 1em;
 	width: 74%;
-	float: left;
 }
 
 #sidebar {
 	background-color: #D68051;
 	padding: 1em;
 	width: 20%;
-	float: right;
 }
 
 #footer {
@@ -35,19 +33,9 @@ body {
 	margin: 0;
 	padding: 1em;
 	color: #fff;
-	clear: both;
 }
 
-#picbox {
-	border: 1px solid black;
-	position: relative;
-}
 
-.caption {
-	position: absolute;
-	top: 100px;	
-	background-color: white;
-}
 
 /*Sidebar links*/
 
@@ -67,7 +55,6 @@ body {
 	margin-bottom: 5px;
 	background: #3B597D;
 	border: 1px solid #1d2c3e;
-	border-radius: 2px;
 	font-weight: bold;
 }
 
@@ -83,14 +70,11 @@ p {
 /*Alignment classes*/
 
 .alignright {
-	float: right;
 	padding: 1em 0 1em 1em;
 }
 .alignleft {
-	float: left;
 	padding: .5em .5em .5em 0;
 }
 .aligncenter {
-	display: block;
 	margin: 0 auto;
 }
