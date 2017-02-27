@@ -72,6 +72,11 @@
             <li>What's one of your favorite websites?</li>
           </ul>
           </div>
+          <aside class="notes">You can encourage students to post fav website in Slack channel during break, explore others.
+           You can also do a show of hands of who has ever seen HTML before, emphasize all levels welcome.
+           If you have time, ask them to meet their neighbor, ask them the last place they traveled. 
+           This early bonding makes it easier for them to help each other with questions later.
+          </aside>
         </section>
 
         <section>
@@ -94,10 +99,8 @@
           <img src = "img/homepage-html.png" alt="Screenshot of the Girl Develop It page source code">
         </section>
 
+        <!-- Hiding for now, seemed confusing, did not have time to follow-up on it later.
         <section>
-          <!-- have students explore at least 5 different websites by reading the SOURCE code -->
-          <!-- this provides the chance to notice, wonder and ask questions and guide learning throughout the 
-          whole workshop; ditching this means losing a big learning opportunity -->
           <h3>Let's Explore!</h3>
           <p>Open the source code in a few different websites.</p>
           <ul>
@@ -113,7 +116,7 @@
             <li><a href="http://sf.funcheap.com/">Fun and Cheap SF</a></li>
             <li><a href="http://www.meetup.com/">Meetup.com</a></li>
           </ul>
-        </section>
+        </section>-->
 
         <!-- Terms-->
         <!-- Hiding for now, does not flow well
@@ -173,15 +176,14 @@
             <li><strong>Browser</strong><br />
             Chrome<br />
             Firefox</li>
-            <li><strong>Development Toolkit</strong><br />
-            Chrome - Inspector<br />
-            Firefox - Firebug</li>
             <li><strong>Text Editor</strong><br />
             <a href="https://atom.io/" target="_blank">Atom</a> - Windows, Mac<br />
             <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> - Windows<br />
             <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a> - Windows, Mac, Linux<br />
             <a href="http://www.barebones.com/products/textwrangler/TextWrangler" target="_blank">TextWrangler</a> - Mac</li>
           </ul>
+          <aside class="notes">Consider giving them a minute here to start downloading editor zips.</aside>
+           
         </section>
 
         <!-- Folder Structure -->
@@ -218,6 +220,7 @@
         <section>
           <h3>Let's Get Started!</h3>
           <ol>
+            <li>If you don't have an editor yet, download one.</li>
             <li>Create the folder for your website project.</li>
             <li>Open your text editor and create a new file. Save it inside your project folder as <code>index.html</code>
           </ol>
@@ -320,16 +323,9 @@
         </small></p>
         </section>
 
-        <!-- Develop it -->
-        <section>
-          <h3>Let's develop it!</h3>
-          <p>Modify <code>index.html</code> to have all the tags that you just learned.</p>
-          <p>(You'll add content later!)</p>
-        </section>
-
         <!-- Nesting-->
         <section>
-          <h3>Nesting</h3>
+          <h3>Nesting &amp; Indentation</h3>
           <p>Elements "nest" inside the tag that contains them.</p>
           <p>What elements are nested here?</p>
 <pre><code class="html">&lt;html&gt;
@@ -346,9 +342,16 @@
           <p>Notice: whichever element opens first, closes last.</p>
         </section>
 
+
+        <!-- Develop it -->
+        <section>
+          <h3>Let's develop it!</h3>
+          <p>Modify <code>index.html</code> to have all the tags that you just learned.</p>
+          <p>(You'll add content later!)</p>
+        </section>
+
         <!-- Elements -->
         <!-- Paragraphs-->
-        <!-- examples of paragraphs -->
         <section>
           <h3>Paragraphs</h3>
           <p>Paragraphs allow you to format your content in a readable fashion.</p>
@@ -463,10 +466,10 @@ and &lt;strong&gt;important&lt;/strong&gt; text.
             <li><code>href</code> attribute: web address where the link points</li>
             <li><strong>content</strong>: text or images between the tags that become the clickable link.</li>
           </ul>
-<pre><code class="html" style="min-width: 44em;">&lt;a href="http://www.girldevelopit.com" title="GDI Website"&gt;Girl Develop It&lt;/a&gt;
+<pre><code class="html" style="min-width: 44em;">&lt;a href="http://www.girldevelopit.com"&gt;Girl Develop It&lt;/a&gt;
 </code></pre>
           <p>produces: <br>
-            <a href="http://www.girldevelopit.com" title="Girl Develop It">Girl Develop It</a>
+            <a href="http://www.girldevelopit.com">Girl Develop It</a>
           </p>
         </section>
 
@@ -583,7 +586,7 @@ alt=""/&gt;
           <h3>Let's Develop It!</h3>
           <ul>
             <li>Write a haiku about your webpage's topic and add line breaks to it.</li>
-            <li>Add an image about your webpage's topic.</li>
+            <li>Add an image about your webpage's topic. Try using an absolute path (to an image online) and a relative path (to a downloaded image).</li>
             <li>Bonus: Try linking the image to an external page.</li>
           </ul>
         </section>
@@ -637,14 +640,16 @@ alt=""/&gt;
 
         <section>
           <h3>Element: Table</h3>
-          <p>Tables are made up of rows and columns.</p>
           <div class="flex-container">
             <div class="flex-item">
 <pre><code class="html">&lt;table&gt;
+ &lt;thead&gt;
   &lt;tr&gt;
     &lt;th&gt;First Name&lt;/th&gt;
     &lt;th&gt;Last Name&lt;/th&gt;
   &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
   &lt;tr&gt;
     &lt;td&gt;Steph&lt;/td&gt;
     &lt;td&gt;Curry&lt;/td&gt;
@@ -653,15 +658,20 @@ alt=""/&gt;
     &lt;td&gt;Tina&lt;/td&gt;
     &lt;td&gt;Fey&lt;/td&gt;
   &lt;/tr&gt;
+ &lt;/tbody&gt;
 &lt;/table&gt;
 </code></pre>
             </div>
             <div class="flex-item">
+              <p>Tables are made up of header row(s) with the column names, and body rows with the data:</p>
               <table style="border: 1px solid">
+                <thead>
                 <tr>
-                  <th style="border: 1px solid">First Name</th>
-                  <th style="border: 1px solid">Last Name</th>
+                  <th style="border: 1px solid"><strong>First Name</strong></th>
+                  <th style="border: 1px solid"><strong>Last Name</strong></th>
                 </tr>
+                </thead>
+                <tbody> 
                 <tr>
                   <td style="border: 1px solid">Steph</td>
                   <td style="border: 1px solid">Curry</td>
@@ -670,6 +680,7 @@ alt=""/&gt;
                   <td style="border: 1px solid">Tina</td>
                   <td style="border: 1px solid">Fey</td>
                 </tr>
+                </tbody>
               </table>
             </div>
           </div>
@@ -681,7 +692,8 @@ alt=""/&gt;
           <h3>Let's Develop it!</h3>
           <ul>
             <li>Add one ordered list and one unordered list to your page.</li>
-            <li>Bonus: Try making a list inside a table.</li>
+            <li>Add one table to your page.</li>
+            <li>Bonus: Try putting other elements inside your table, like images and lists.</li>
           </ul>
         </section>
 
