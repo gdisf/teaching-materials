@@ -418,25 +418,67 @@
 
 <div class="slide normal" id="filter">
   <style>
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      width: 600px;
-    }
-    .galleryimg { 
-      flex-grow: 1;
-      display: block;
-      object-fit: cover;
-      min-width: 100%;
-    }
   </style>
   <header><h1>filter</h1></header>
+  <pre style="width:45%; float:left;">
+filter: <strong>grayscale</strong>(<span id="filter-grayscale-value">10</span>%); <input id="filter-grayscale-slider" type="range" min="0" max="100" value="10" onchange="changeFilter()">
+filter: <strong>sepia</strong>(<span id="filter-sepia-value">20</span>%); <input id="filter-sepia-slider" type="range" min="0" max="100" value="20" onchange="changeFilter()">
+filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%); <input id="filter-saturate-slider" type="range" min="0" max="200" value="110" onchange="changeFilter()">
+filter: <strong>hue-rotate</strong>(<span id="filter-huerotate-value">60</span>deg); <input id="filter-huerotate-slider" type="range" min="0" max="360" value="60" onchange="changeFilter()">
+filter: <strong>invert</strong>(<span id="filter-invert-value">0</span>%); <input id="filter-invert-slider" type="range" min="0" max="100" value="0" onchange="changeFilter()"></pre>
+  <pre style="width:45%; float: left;">
+filter: <strong>brightness</strong>(<span id="filter-brightness-value">120</span>%); <input id="filter-brightness-slider" type="range" min="0" max="200" value="120" onchange="changeFilter()">
+filter: <strong>contrast</strong>(<span id="filter-contrast-value">80</span>%); <input id="filter-contrast-slider" type="range" min="0" max="200" value="80" onchange="changeFilter()">
+filter: <strong>blur</strong>(<span id="filter-blur-value">5</span>px); <input id="filter-blur-slider" type="range" min="0" max="20" value="5" onchange="changeFilter()">
+filter: <strong>drop-shadow</strong>(<span id="filter-dropshadow-value">5</span>px 5px black); <input id="filter-dropshadow-slider" type="range" min="0" max="20" value="5" onchange="changeFilter()">
+filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <input id="filter-opacity-slider" type="range" min="0" max="100" value="50" onchange="changeFilter()">
+</pre>
 
-  <div class="gallery">
-    <div class="galleryimg"><img src="images/sky_heart.jpg"></div>
-    <div class="galleryimg"><img src="images/sky_heart.jpg"></div>
-    <div class="galleryimg"><img src="images/sky_heart.jpg"></div>
-  </div>
+  <img src="images/sky_heart.jpg" id="filter-example">
+
+  <script>
+  function changeFilter() {
+    var grayscaleAmount = (document.getElementById('filter-grayscale-slider').value);
+    var sepiaAmount = (document.getElementById('filter-sepia-slider').value);
+    var saturateAmount = (document.getElementById('filter-saturate-slider').value);
+    var huerotateAmount = (document.getElementById('filter-huerotate-slider').value);
+    var invertAmount = (document.getElementById('filter-invert-slider').value);
+    var brightnessAmount = (document.getElementById('filter-brightness-slider').value);
+    var contrastAmount = (document.getElementById('filter-contrast-slider').value);
+    var blurAmount = (document.getElementById('filter-blur-slider').value);
+    var dropshadowAmount = (document.getElementById('filter-dropshadow-slider').value);
+    var opacityAmount = (document.getElementById('filter-opacity-slider').value);
+    
+
+    var el = document.getElementById('filter-example');
+    el.style.filter = 'grayscale(' + grayscaleAmount + '%)' + 
+                      'sepia(' + sepiaAmount + '%)' +
+                      'saturate(' + saturateAmount + '%)' +
+                      'hue-rotate(' + huerotateAmount + 'deg)' +
+                      'invert(' + invertAmount + '%)' +
+                      'brightness(' + brightnessAmount + '%)' +
+                      'contrast(' + contrastAmount + '%)' +
+                      'blur(' + blurAmount + 'px)' +
+                      'drop-shadow(' + dropshadowAmount + 'px 5px black)' +
+                      'opacity(' + opacityAmount + '%)'
+                      ;
+
+    
+    document.getElementById('filter-grayscale-value').textContent = blurAmount;
+    document.getElementById('filter-sepia-value').textContent = sepiaAmount;
+    document.getElementById('filter-saturate-value').textContent = saturateAmount;
+    document.getElementById('filter-huerotate-value').textContent = huerotateAmount;
+    document.getElementById('filter-invert-value').textContent = invertAmount;
+
+    document.getElementById('filter-brightness-value').textContent = brightnessAmount;
+    document.getElementById('filter-contrast-value').textContent = contrastAmount;
+    document.getElementById('filter-blur-value').textContent = blurAmount;
+    document.getElementById('filter-dropshadow-value').textContent = dropshadowAmount;
+    document.getElementById('filter-opacity-value').textContent = opacityAmount;
+  }
+
+  changeFilter();
+  </script>
 </div>
   
 <div class="slide normal" id="web-fonts">
