@@ -32,7 +32,7 @@
    
 <div class="slide intro">
  <header><hgroup><h1>CSS3 Properties</h1>
-    <h3>Effects, Animation, and Flex Box!</h3> </hgroup></header>
+    <h3>Effects, Animation, and Layout</h3> </hgroup></header>
  </p>
 </div> 
     
@@ -925,6 +925,57 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
           <p><a target="_blank" href="http://caniuse.com/#feat=multicolumn" class="objectlink">caniuse.com: multicolumn layout</a></p>
         </div>
 
+<div class="slide normal">
+  <style>
+    .flex-container {
+      width: 95%;
+      height: 200px;
+      display: flex;
+      flex-direction: row;
+    }
+    .flex-sidebar {
+      background: hotpink;
+      flex-basis: 20%;
+      flex-grow: 0; /* See good explanation at https://css-tricks.com/almanac/properties/f/flex/ */
+      padding: 10px;
+    }
+    .flex-main {
+      background: lightgreen;
+      flex-grow: 1;
+      padding: 10px;
+    }
+
+  </style>
+  <header><h1>Flex Box</h1></header>
+  <pre>
+.flex-container {
+  height: 200px;
+  <strong>display: flex;
+  flex-direction: row;</strong>
+}
+.flex-sidebar {
+  width: 20%;
+  <strong>flex-basis: 20%;</strong>
+  <strong>flex: 0;</strong>
+}
+.flex-main {
+  <strong>flex-grow: 1;</strong>
+}</pre>
+  <div class="flex-container">
+    <aside class="flex-sidebar">
+     <p>Remember when sidebars were hard to make?</p>
+    </aside>
+    <div class="flex-main">
+      <p>But now it's easy to do 100% height in CSS!
+      <br/>
+      ...and to make <a target="_blank" href="https://hefox.github.io/patApp/">kitties wrap</a>!
+      </p>
+    </div>
+  </div>
+  <p>Learn more in <a target="_blank" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> and
+  <a target="_blank" href="https://philipwalton.github.io/solved-by-flexbox/">Solved by Flexbox</a></p>
+
+</div>
 
 <div class="slide intro">
   <header><h1>Pre-Processors</h1></header>
@@ -1014,6 +1065,8 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
   <p>
     <a target="_blank" href="http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/">Pre-processors comparison</a>
   </p>
+  <p>Another option: <a target="_blank" href="https://css-tricks.com/autoprefixer/">The Autoprefixer Post-Processor</a></p>
+
 </div>
 
 <div class="slide intro">
