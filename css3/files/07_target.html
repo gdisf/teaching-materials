@@ -1,0 +1,80 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+head, style {display: block;}
+[contenteditable] {-webkit-user-modify: read-write-plaintext-only;}
+html, body {margin: 0;}
+style:first-of-type {visibility:hidden;}
+style:last-of-type {padding: 5px 20px; font-size: 1.25em; white-space: pre; font-family: monospace; background-color: #eee;}
+
+
+
+.block { 
+	width: 300px; 
+ 	min-height: 250px; 
+	position: relative;
+	margin: 20px auto;
+	}
+        section { display: inline; }
+         a { 
+			text-decoration: none; 
+			color: black; 
+			float: left; 
+			padding: 5px 10px; 
+			border: 1px solid #ccc; 
+			border-bottom: none; 
+			margin-right: 10px;
+			}
+        div:not(:target) > a { 
+			background-color: #eee;
+			}   
+        div:target > a { 
+			background-color: white; 
+			}    
+        section > div { 
+			background: white; 
+			z-index: -2; 
+			left: 0; 
+			top: 30px; 
+			bottom: 0; 
+			right: 0; 
+			padding: 20px; 
+			border: 1px solid #ccc; }    
+        section:not(:target) > div { position: absolute }
+        section:target > div { position: absolute; z-index: -1; }
+</style>
+
+<style contenteditable>section:not(:target) > a { 
+	border-bottom: 0; 
+	background-color: #eee;
+}   
+section:target > a { 
+	background-color: white; 
+}
+section:not(:target) > div { z-index: -2; }
+section:target > div { z-index: -1; }
+</style>
+<title>CSS Selector Test</title>
+</head>
+
+<body>
+<div class="block">
+        <section id="tab1">
+            <a href="#tab1">Tab 1</a>
+            <div>Bacon ipsum dolor sit amet flank shank filet mignon prosciutto, frankfurter pork shankle tail short ribs pork belly short loin sirloin. Pig shank prosciutto tail short ribs, boudin spare ribs t-bone capicola bresaola.</div>
+        </section>
+        <section id="tab2">
+            <a href="#tab2">Tab 2</a>
+            <div>Beef chuck cow beef ribs kielbasa, venison hamburger ribeye biltong t-bone prosciutto strip steak boudin turducken flank.</div>
+        </section>
+        <section id="tab3">
+            <a href="#tab3">Tab 3</a>
+            <div>Jerky swine meatloaf, venison spare ribs boudin hamburger leberkase short ribs ball tip shoulder.</div>
+        </section>
+    </div>
+</body>
+
+</html>
+

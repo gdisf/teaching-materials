@@ -1,0 +1,43 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+head, style {display: block;}
+[contenteditable] {-webkit-user-modify: read-write-plaintext-only;}
+style:first-of-type {visibility:hidden;}
+style:last-of-type {padding: 20px; font-size: 1.5em; white-space: pre; font-family: monospace; white-space:pre; border-radius: 10px; border: 3px solid #aaa; background-color:#dedede; margin: 20px auto; width: 80%; font-family:"Courier New", Courier, monospace;}
+ol {font-family:Verdana, Geneva, sans-serif; font-size:1.2em}
+li {color: black;}
+:root {background-color:#ccc; 
+  background-image:url(../css/page-bg.jpg);}
+</style>
+
+<style contenteditable>
+:root {background-color:#ccc; 
+  background-image:url(../css/page-bg.jpg);}
+input[type=checkbox]:checked + label {color: red;}
+input:valid { border: 1px solid green;}
+input:invalid { border: 1px solid red;}
+input:required {border-width: 5px;}
+input:optional {border-width: 10px;}
+input:out-of-range { background-color: pink;}
+input:in-range { background-color:lightgreen;}
+</style>
+<title>CSS UI Selector</title>
+</head>
+
+<body><ol>
+<li><input type="checkbox" id="test1ck"/> <label  for="test1ck">Check and Uncheck Me</label></li>
+<li>
+  <input type="checkbox" id="test2ck"/> <label  for="test2ck">Check and uncheck me too!</label>
+  </li>
+<li>
+  <input type="number" min="5" max="7" id="test3ck" required/> 
+  <label  for="test3ck">Number between 5 an 7</label>
+</li>
+<li><input type="color" pattern="#[a-fA-F0-9]{6}" id="test4ck" /> <label  for="test4ck">Hexidecimal color</label></li>
+</ol>
+</body>
+</html>
+
