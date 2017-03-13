@@ -2,37 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CSS: Less</title>
+    <title>CSS3: Less Exercise</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <style>
-    ol li {
-      line-height: 2em;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/css/bootstrap.min.css">
+    <link type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js">
   </head>
   <body>
    <div class="container">
-   <h1>CSS: Less Exercise</h1>
+   <h1>CSS3: Less Exercise</h1>
 
-   <p>Note: You will have to use Firefox for this exercise, as Chrome does not work with Less when you're developing on the file system.
-   </p>
-
+   <h3>The Setup</h3>
+      <p>You can skip this section if you are using Firefox.</p>
+      <p>If you are not yet running your code from a local server, do that now by following <a href="http://www.teaching-materials.org/resources/testinglocally.html" target="_blank">these instructions</a>. We need to do this because of security restrictions on file:// protocol with XMLHttpRequests.</p>
+      
+   <h3>Coding</h3>
    <ol>
     <li>Download <a href="exercise_less_before.html">this webpage</a> into a folder. You'll be turning the CSS in that file into Less instead.</li>
     <li>Open the webpage and see what it looks like.
-    <li>Download less.js from <a href="http://lesscss.org/">lesscss.org</a> and put it in the same folder
-      as your exercise.
-    </li>
     <li>Move the styles from the webpage into a separate file and save it as "styles.less".
     </li>
     <li>Add links to the LESS and JS file in the HEAD of your page:
       <pre>&lt;link rel="stylesheet/less" type="text/css" href="styles.less">
-&lt;script src="http://cloud.github.com/downloads/cloudhead/less.js/less-1.3.1.min.js" type="text/javascript">&lt;/script></pre>
-    <li>Open the page in Firefox and check that it loads and is styled.</li>
+&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min." type="text/javascript">&lt;/script></pre>
+    <li>Open the page and check that it loads and is styled.</li>
     <li>Find all the colors used in the styles and turn them into variables.
     <a href="http://lesscss.org/#-variables">Less docs: variables</a></li>
     <li>Create a mix-in for rounded-corners and use that wherever border-radius is used.
