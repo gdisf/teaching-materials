@@ -90,7 +90,8 @@ Just like objects in the real world, Javascript objects have attributes - called
 <pre class="prettyprint">
 var aboutMe = {
   hometown: "Pasadena, CA",
-  hair: "brown"
+  hair: "brown",
+  name: "Jenny"
 }; 
 
 var myHometown = aboutMe.hometown;
@@ -103,6 +104,11 @@ var myHair = aboutMe["hair"];
 <p>Non-existent properties will return undefined:</p>
 <pre class="prettyprint">
 var myGender = aboutMe["gender"];
+</pre>
+<p>Bracket notation should be used when referencing variables:</p>
+<pre class="prettyprint">
+var feature = "name";
+var myName = aboutMe[feature];
 </pre>
 
 
