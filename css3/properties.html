@@ -104,7 +104,7 @@
 }
 </pre>
    <p>More reading: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix">MDN Vendor Prefix</a>,
-     <a href="http://shouldiprefix.com/">shouldiprefix.com</a></p>
+     <a target="_blank" href="http://shouldiprefix.com/">shouldiprefix.com</a></p>
   </section>
 
 </div>
@@ -234,10 +234,10 @@
         <div class="slide styling" id="css-color">
           <style>
             #hsl-example {
-              font-size: 75px;
-              padding-top: 20px;
+              font-size: 55px;
+              padding-top: 10px;
               padding-right: 0px;
-              padding-bottom: 20px;
+              padding-bottom: 10px;
               padding-left: 0px;
               text-align: center;
               color: rgb(21, 147, 38);
@@ -261,6 +261,19 @@
             </div>
 
             <a href="http://caniuse.com/#search=rgba" target="_blank" class="objectlink">caniuse.com: rgba colors</a>
+
+            <figure style="margin-left: 0px">
+             <figcaption>Changing just saturation:</figcaption>
+             <img src="files/hsl_saturation.png" alt="Screenshot of HSL color picker, low saturation and high saturation">
+            </figure>
+
+            <figure style="margin-left: 0px;">
+             <figcaption>Changing just brightness:</figcaption>
+             <img src="files/hsl_brightness.png" alt="Screenshot of HSL color picker, low brightness and high brightness">
+            </figure>
+
+            <p><a target="_blank" href="http://hslpicker.com/">☞ Experiment more: HSL Color Picker</a></p>
+
             <script defer>
               function changeHSL() {
                 var h = document.getElementById('hsl-h').value * 1.0;
@@ -524,7 +537,7 @@ filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <i
   src: url('fonts/leaguegothic/leaguegothic-webfont.eot');
 }
 .special-header {
-  font-family: 'LeagueGothic';
+  font-family: 'LeagueGothicRegular', sans-serif;
 }</pre>
 
     <div class="special-header">
@@ -569,6 +582,20 @@ filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <i
     <header><h1>Animations</h1></header> 
 </div>
 
+<div class="slide styling" id="animation-examples">
+  <header><h1>Animation Examples: Teasers!</h1></header>
+  <section>
+    <ul style="column-count: 2;">
+      <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
+      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
+      <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
+      <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
+    </ul>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="http://codepen.io/ajerez/pen/EaEEOW/">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+  </section>
+</div>
+
  <div class="slide styling" id="css-animation">
         <style>
           /* put the keyframes rule here cuz ExCss currently doesn't support '@-webkit-keyframes' */
@@ -587,7 +614,7 @@ filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <i
             -webkit-animation-name: pulse;
             -webkit-animation-duration: 2s;
             -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-timing-function: ease-in;
             -webkit-animation-direction: alternate;
           }
         </style>
@@ -608,7 +635,7 @@ div {
 -webkit-<b>animation-name</b>: <em>pulse</em>;
 -webkit-<b>animation-duration</b>: 2s;
 -webkit-<b>animation-iteration-count</b>: infinite;
--webkit-<b>animation-timing-function</b>: ease-in-out;
+-webkit-<b>animation-timing-function</b>: ease-in;
 -webkit-<b>animation-direction</b>: alternate;
 }
 </pre>
@@ -678,16 +705,7 @@ div {
   </section>
 </div>
 
-<div class="slide styling" id="animation-examples">
-  <header><h1>Animation Examples</h1></header>
-  <section>
-    <ul>
-      <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
-      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
-      <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</li>
-      <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
-    </ul>
-</div>
+
   
 <div class="slide styling" id="css-transitions">
   <style>
@@ -804,6 +822,19 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
 </div>
 
 
+<div class="slide styling" id="animation-examples">
+  <header><h1>Animation Examples: Revisited!</h1></header>
+  <section>
+    <ul style="column-count: 2;">
+      <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
+      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
+      <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
+      <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
+    </ul>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="http://codepen.io/ajerez/pen/EaEEOW/">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+  </section>
+</div>
 
 <div class="slide styling"> 
      <header><h1>Exercise: Animated Logo</h1></header> 
