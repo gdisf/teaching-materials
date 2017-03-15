@@ -1,4 +1,4 @@
-# CSS3
+# CSS3 Effects & Animation
 
 ## Course description
 
