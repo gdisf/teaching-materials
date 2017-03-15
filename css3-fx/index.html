@@ -1,0 +1,961 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+  <!--[if gte IE 9]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]--> 
+  <!--[if lt IE 9]><meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" /><![endif]--> 
+  <meta charset="utf-8" />
+  <title>CSS3 Effects & Animation</title>    
+  <link rel="stylesheet" href="slides.css"/>
+<style>
+</style>
+</head> 
+
+<body> 
+<header>
+    <nav>
+        <ul>
+            <li class="button cancel" id="back">Back</li>
+            <li class="button done" id="next">Next</li>
+        </ul>
+    </nav>
+</header>
+<!-- Top instructions -->
+<div id="topinfo"></div>
+<!-- footer instructions -->  
+<div id="info">
+    <p>Press <span class="key">&rarr;</span> key to advance.</p>
+</div>
+
+  <div id="presentation">
+   <div id="presentation-counter"></div>
+   <div id="slides">
+   
+<div class="slide intro">
+ <header><hgroup><h1>CSS3 Effects & Animation</h1>
+    </hgroup></header>
+ </p>
+</div> 
+    
+<div class="slide normal"> 
+<header><h1>CSS Recap</h1></header> 
+<section class="content"> 
+<pre> 
+<span style="color:blue">selector</span> {
+  <span style="color:red">property</span>: <span style="color:green">value</span>;
+  <span style="color:red">property</span>: <span style="color:green">value</span>;
+}
+</pre>
+
+<pre>body {
+  color: yellow;
+  background-color: black;
+  font: 10px sans-serif;
+}
+</pre>
+
+<pre>#container {
+  width: 70%;
+  padding: 10px;
+  margin: auto;
+  border-bottom: 1px solid #ccc;
+}
+</pre>
+     
+</section>
+</div> 
+ 
+
+
+<div class="slide normal"> 
+<header><h1>CSS History</h1></header> 
+<section class="content"> 
+  <ul>
+    <li>1996: CSS1
+    <li>1998-2011: CSS2
+    <li>1999-Now: <a href="http://www.w3.org/Style/CSS/specs">"CSS3"</a>
+  </ul>
+  <p><a href="http://www.w3.org/Style/CSS/current-work.en.html" target="_blank">All CSS Specs</a></p>
+</section>
+</div>
+
+
+<div class="slide normal">
+    <header><h1>Prefixes</h1></header> 
+
+  <section class="content">
+
+<pre>
+<span style="color:blue">selector</span> {
+  <span style="color:red">property</span>: <span style="color:green">value</span>;
+  -webkit-<span style="color:red">property</span>: <span style="color:green">value</span>;
+  -moz-<span style="color:red">property</span>: <span style="color:green">value</span>;
+  -ms-<span style="color:red">property</span>: <span style="color:green">value</span>;
+  -o-<span style="color:red">property</span>: <span style="color:green">value</span>;
+}
+</pre>
+
+<pre>
+<span style="color:blue">div</span> {
+  <span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
+  -webkit-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
+  -moz-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
+  -ms-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
+  -o-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
+}
+</pre>
+   <p>More reading: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix">MDN Vendor Prefix</a>,
+     <a target="_blank" href="http://shouldiprefix.com/">shouldiprefix.com</a></p>
+  </section>
+
+</div>
+
+
+<div class="slide intro">
+    <header><h1>Effects</h1></header> 
+</div>
+
+        <div class="slide styling" id="rounded-corners">
+          <style>
+          #doraemon {
+            height: 320px;
+          }
+          #doraemon iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+          }
+          </style>
+          <header><h1>Rounded corners</h1></header>
+          <section>
+            <pre>
+              face: <b>border-radius</b>: <span id="face-rounded-border-value">0</span>px; <input id="face-rounded-border" type="range" min="0" max="146" value="0" onchange="handleCorner(event)">
+              left eye: <b>border-radius</b>: <span id="lefteye-rounded-border-value">0</span>px; <input id="lefteye-rounded-border" type="range" min="0" max="35" value="0" onchange="handleCorner(event)">
+              right eye: <b>border-radius</b>: <span id="righteye-rounded-border-value">0</span>px; <input id="righteye-rounded-border" type="range" min="0" max="35" value="0" onchange="handleCorner(event)">
+              base white: <b>border-radius</b>: <span id="base_white-rounded-border-value">0</span>px; <input id="base_white-rounded-border" type="range" min="0" max="150" value="0" onchange="handleCorner(event)">
+              mouth: <b>border-radius</b>: <span id="mouth-rounded-border-value">0</span>px; <input id="mouth-rounded-border" type="range" min="0" max="120" value="0" onchange="handleCorner(event)">
+              nose: <b>border-radius</b>: <span id="nose-rounded-border-value">0</span>px; <input id="nose-rounded-border" type="range" min="0" max="50" value="0" onchange="handleCorner(event)">
+              left black eye: <b>border-radius</b>: <span id="leftblackeye-rounded-border-value">0</span>px; <input id="leftblackeye-rounded-border" type="range" min="0" max="35" value="0" onchange="handleCorner(event)">
+              right black eye: <b>border-radius</b>: <span id="rightblackeye-rounded-border-value">0</span>px; <input id="rightblackeye-rounded-border" type="range" min="0" max="35" value="0" onchange="handleCorner(event)">
+            </pre>
+            <div id="doraemon" class="example">
+              <iframe src="files/rounded/write_doraemon.html"></iframe>
+            </div>
+            <a href="http://caniuse.com/#feat=border-radius" target="_blank" class="objectlink">
+              caniuse.com: border-radius
+            </a>
+            <script>
+              function handleCorner() {
+                var doraemon = document.querySelector('#doraemon iframe').contentWindow.document;
+                 var elements = ["face", "lefteye", "righteye", "base_white", "mouth", "nose", "leftblackeye", "rightblackeye"];
+                 for (var i = 0; i < elements.length; i++) {
+                   var element = elements[i] + '-rounded-border';
+                   var borderVal = document.getElementById(element).value;
+                   document.getElementById(element + '-value').textContent = borderVal;
+                   var faceEl = doraemon.getElementById(elements[i]);
+                   faceEl.style.borderRadius = borderVal + 'px';
+                   faceEl.style.mozBorderRadius = borderVal + 'px';
+                 }
+               }
+            </script>
+          </section> 
+        </div>
+
+
+        <div class="slide styling" id="css-opacity">
+          <style>
+              #opacity-body {
+                font-size: 84%;
+                max-width: 800px;
+                background: url(http://placekitten.com/800/400) top center no-repeat;
+                margin: 0 auto;
+                padding: 20px;
+                -webkit-border-radius: 8px;
+                -khtml-border-radius: 8px;
+                -moz-border-radius: 8px;
+                border-radius: 8px;
+              }
+              #opacity-example {
+                margin: 100px auto;
+                font-size: 80px;
+                line-height: 200px;
+                text-align: center;
+                font-weight: bold;
+                letter-spacing: -4px;
+                -webkit-border-radius: 5px;
+                -khtml-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                text-shadow: none;
+                color: rgba(255, 0, 0, 0.746094);
+                background-image: initial;
+                background-attachment: initial;
+                background-origin: initial;
+                background-clip: initial;
+                background-color: rgba(0, 0, 255, 0.746094);
+                background-position: initial initial;
+                background-repeat: initial initial;
+              }
+            </style>
+          <header><h1>Opacity</h1></header>
+          <section>
+
+<pre>  color: <b>rgba</b>(255, 0, 0, <span id="opacity-color-value">0.75</span>); <input id="opacity-color" type="range" min="0" max="100" value="75" onchange="changeOpacity()">
+  background: <b>rgba</b>(0, 0, 255, <span id="opacity-background-value">0.75</span>); <input id="opacity-background" type="range" min="0" max="100" value="75" onchange="changeOpacity()">
+</pre>
+
+            <div id="opacity-body">
+              <div id="opacity-example">
+                Independent opacity
+              </div>
+            </div>
+
+            <script defer>
+              function changeOpacity() {
+                var textOpacity = (document.getElementById('opacity-color').value / 100).toFixed(2);
+                var backgroundOpacity = (document.getElementById('opacity-background').value / 100).toFixed(2);
+
+                var el = document.getElementById('opacity-example');
+
+                el.style.color = 'rgba(255, 0, 0, ' + textOpacity + ')';
+                el.style.background = 'rgba(0, 0, 255, ' + backgroundOpacity + ')';
+
+                document.getElementById('opacity-color-value').textContent = textOpacity;
+                document.getElementById('opacity-background-value').textContent = backgroundOpacity;
+              }
+
+              changeOpacity();
+            </script>
+
+            <a href="http://caniuse.com/#search=rgba" target="_blank" class="objectlink">caniuse.com: rgba colors</a>
+          </section>
+
+        </div>
+
+        <div class="slide styling" id="css-color">
+          <style>
+            #hsl-example {
+              font-size: 55px;
+              padding-top: 10px;
+              padding-right: 0px;
+              padding-bottom: 10px;
+              padding-left: 0px;
+              text-align: center;
+              color: rgb(21, 147, 38);
+            }
+            .hsl-value {
+              display: inline-block;
+              width: 50px;
+            }
+          </style>
+          <header><h1>Hue/saturation/luminance color</h1></header>
+          <section>
+        <pre>color: <b>hsla</b>(
+  <span class="hsl-value" id="hsl-h-value">128,</span> <input id="hsl-h" type="range" min="0" max="360" value="128" onchange="changeHSL()">
+  <span class="hsl-value" id="hsl-s-value">74%,</span> <input id="hsl-s" type="range" min="0" max="100" value="75" onchange="changeHSL()">
+  <span class="hsl-value" id="hsl-l-value">33%,</span> <input id="hsl-l" type="range" min="0" max="100" value="33" onchange="changeHSL()">
+  <span class="hsl-value" id="hsl-a-value">1.00</span> <input id="hsl-a" type="range" min="0" max="100" value="100" onchange="changeHSL()">
+        </pre>
+
+            <div id="hsl-example" class="example">
+              HSL example
+            </div>
+
+            <a href="http://caniuse.com/#search=rgba" target="_blank" class="objectlink">caniuse.com: rgba colors</a>
+
+            <figure style="margin-left: 0px">
+             <figcaption>Changing just saturation:</figcaption>
+             <img src="files/hsl_saturation.png" alt="Screenshot of HSL color picker, low saturation and high saturation">
+            </figure>
+
+            <figure style="margin-left: 0px;">
+             <figcaption>Changing just brightness:</figcaption>
+             <img src="files/hsl_brightness.png" alt="Screenshot of HSL color picker, low brightness and high brightness">
+            </figure>
+
+            <p><a target="_blank" href="http://hslpicker.com/">☞ Experiment more: HSL Color Picker</a></p>
+
+            <script defer>
+              function changeHSL() {
+                var h = document.getElementById('hsl-h').value * 1.0;
+                var s = document.getElementById('hsl-s').value * 1.0;
+                var l = document.getElementById('hsl-l').value * 1.0;
+                var a = (document.getElementById('hsl-a').value / 100).toFixed(2);
+                var el = document.getElementById('hsl-example');
+
+                el.style.color = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
+
+                document.getElementById('hsl-h-value').textContent = h + ',';
+                document.getElementById('hsl-s-value').textContent = s + '%,';
+                document.getElementById('hsl-l-value').textContent = l + '%,';
+                document.getElementById('hsl-a-value').textContent = a + ');';
+              }
+
+              changeHSL();
+            </script>
+          </section>
+        </div>
+
+
+         
+
+        <div class="slide styling" id="css-gradients">
+          <style>
+            #gradients-linear-example {
+              border: 0;
+              height: 100px;
+              background: -moz-linear-gradient(90deg, #00abeb, #fff, #66cc00, #fff);
+              background: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00));
+            }
+            #gradients-radial-example {
+              border: 0;
+              height: 100px;
+              background: -moz-radial-gradient(430px 50px, circle cover, red 0, #000 200px);
+              background: -webkit-gradient(radial, 430 50, 0, 430 50, 200, from(red), to(#000));
+            }
+          </style>
+          <header><h1>Gradients</h1></header>
+
+          <section>
+            <pre>background-image: <b>linear-gradient</b>(to bottom, <span style="text-shadow: #00abeb 0 0 1px; color: #00abeb">#00abeb</span> 0%, #fff 50%,
+                            <span style="text-shadow: #00abeb 0 0 1px; color: #66cc00">#66cc00</span> 50%, #fff 100%);
+</pre>
+            <div id="gradients-linear-example" class="example"></div>
+<br />
+<pre>background-image: <b>radial-gradient</b>(center, circle cover, red, #000 <span id="gradients-radial-value">40</span>%);
+                                                        <input id="gradients-radial" type="range" min="1" max="100" value="40" onchange="changeGradients(event)">
+</pre>
+            <div id="gradients-radial-example" class="example"></div>
+            <p><a target="_blank" class="objectlink" href="http://caniuse.com/#search=gradients">caniuse.com: gradients</a></p>
+            <script defer>
+              function changeGradients() {
+                var size = document.getElementById('gradients-radial').value;
+
+                document.getElementById('gradients-radial-example').style.backgroundImage = 
+                    '-webkit-radial-gradient(center, circle cover, red, #000 ' + size + '%)';
+
+                document.getElementById('gradients-radial-value').textContent = size;
+              }
+            </script>
+           <p>More reading: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient">MDN: linear-gradient</a></p>
+          </section>
+        </div>
+
+<div class="slide styling" id="css-shadow">
+          <style>
+            #shadow-example {
+              font-size: 75px;
+              margin: 10px 10px 30px 10px;
+              padding: 20px;
+              text-align: center;
+            }
+          </style>
+          <header><h1>Shadows</h1></header>
+          <section>
+<pre class="two-column"><b>text-shadow</b>: 
+  rgba(64, 64, 64, 0.5) 
+  <span id="shadows-text-x-value">0</span>px <input id="shadows-text-x" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
+  <span id="shadows-text-y-value">0</span>px <input id="shadows-text-y" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
+  <span id="shadows-text-size-value">0</span>px; <input id="shadows-text-size" type="range" min="0" max="9" value="0" onchange="changeShadow(event)">
+<br><b>box-shadow</b>: 
+  rgba(0, 0, 128, 0.25) 
+  <span id="shadows-box-x-value">0</span>px <input id="shadows-box-x" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
+  <span id="shadows-box-y-value">0</span>px <input id="shadows-box-y" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
+  <span id="shadows-box-size-value">0</span>px; <input id="shadows-box-size" type="range" min="0" max="9" value="0" onchange="changeShadow(event)">
+            </pre>
+
+            <div id="shadow-example" class="example">
+              Such a shady div.
+            </div>
+            <a target="_blank" class="objectlink" href="http://caniuse.com/#search=shadow">caniuse.com: shadows</a>
+          </section>
+
+          <script defer>
+            function changeShadow() {
+              var el = document.getElementById('shadow-example');
+
+              var textXVal = document.getElementById('shadows-text-x').value;
+              var textYVal = document.getElementById('shadows-text-y').value;
+              var textSizeVal = document.getElementById('shadows-text-size').value;
+
+              document.getElementById('shadows-text-x-value').textContent = textXVal;
+              document.getElementById('shadows-text-y-value').textContent = textYVal;
+              document.getElementById('shadows-text-size-value').textContent = textSizeVal;
+
+              var boxXVal = document.getElementById('shadows-box-x').value;
+              var boxYVal = document.getElementById('shadows-box-y').value;
+              var boxSizeVal = document.getElementById('shadows-box-size').value;
+
+              document.getElementById('shadows-box-x-value').textContent = boxXVal;
+              document.getElementById('shadows-box-y-value').textContent = boxYVal;
+              document.getElementById('shadows-box-size-value').textContent = boxSizeVal;
+
+              el.style.textShadow = 'rgba(64, 64, 64, 0.5) ' + textXVal + 'px ' + textYVal + 'px ' + textSizeVal + 'px';
+              el.style.webkitBoxShadow = 'rgba(0, 0, 128, 0.25) ' + boxXVal + 'px ' + boxYVal + 'px ' + boxSizeVal + 'px';
+              el.style.MozBoxShadow = 'rgba(0, 0, 128, 0.25) ' + boxXVal + 'px ' + boxYVal + 'px ' + boxSizeVal + 'px';
+            }
+          </script>
+</div>
+
+<div class="slide styling" id="css-stroke">
+          <style>
+            #text-stroke-example {
+              font-size: 85px;
+              padding: 20px 0;
+              text-align: center;
+              -webkit-text-stroke-color: turquoise;
+              -webkit-text-fill-color: black;
+            }
+          </style>
+          <header><h1>Text stroke</h1></header>
+          <section>
+        <pre>div {
+  -webkit-<b>text-fill-color</b>: black;
+  -webkit-<b>text-stroke-color</b>: turquoise;
+  -webkit-<b>text-stroke-width</b>: <span id="text-stroke-value">0.00</span>px; <input id="text-stroke" type="range" min="0" max="50" value="0" onchange="changeTextStroke()">
+}</pre>
+
+    <div id="text-stroke-example" class="example">
+    Stroke Ain't A Joke!
+  </div>
+
+    <script defer>
+      function changeTextStroke() {
+        var width = (document.getElementById('text-stroke').value * 0.25).toFixed(2);
+        document.getElementById('text-stroke-example').style.webkitTextStrokeWidth = width + 'px';
+        document.getElementById('text-stroke-value').textContent = width;
+      }
+    </script>
+    <a href="http://caniuse.com/#feat=text-stroke" target="_blank" class="objectlink">caniuse.com: text-stroke</a>
+  </section>
+</div>
+
+
+
+<div class="slide styling"> 
+     <header><h1>Exercise: Make Your Logo</h1></header> 
+     <section style="font-size:24px; text-align:left;">
+       <ol>
+        <li>Start with <a target="_blank" href="files/mylogo.html">this HTML</a>. You can view page source and copy it into a local file or a new page on <a href="http://www.jsbin.com" target="_blank">jsbin.com</a>.</li>
+        <li>Change the font size and alignment of the text to be bigger and centered.</li>
+        <li>Add a stroke to your logo text, using HSLA to specify the fill and stroke colors.</li>
+        <li>Use RGBA to specify the background color of the container and add some padding.</li>
+        <li>Round the corners of the container.</li>
+         <li>Generate a gradient for the container. You can use <A href="http://www.colorzilla.com/gradient-editor/">this tool</a> if you'd like.</li>
+        <li>Add a shadow to your text.
+        <li>Add a shadow on the box.</li>
+       </ol>
+     </section>
+</div>
+
+
+<div class="slide normal" id="filter">
+  <style>
+  </style>
+  <header><h1>filter</h1></header>
+  <pre style="width:45%; float:left;">
+filter: <strong>grayscale</strong>(<span id="filter-grayscale-value">10</span>%); <input id="filter-grayscale-slider" type="range" min="0" max="100" value="10" onchange="changeFilter()">
+filter: <strong>sepia</strong>(<span id="filter-sepia-value">20</span>%); <input id="filter-sepia-slider" type="range" min="0" max="100" value="20" onchange="changeFilter()">
+filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%); <input id="filter-saturate-slider" type="range" min="0" max="200" value="110" onchange="changeFilter()">
+filter: <strong>hue-rotate</strong>(<span id="filter-huerotate-value">60</span>deg); <input id="filter-huerotate-slider" type="range" min="0" max="360" value="60" onchange="changeFilter()">
+filter: <strong>invert</strong>(<span id="filter-invert-value">0</span>%); <input id="filter-invert-slider" type="range" min="0" max="100" value="0" onchange="changeFilter()"></pre>
+  <pre style="width:45%; float: left;">
+filter: <strong>brightness</strong>(<span id="filter-brightness-value">120</span>%); <input id="filter-brightness-slider" type="range" min="0" max="200" value="120" onchange="changeFilter()">
+filter: <strong>contrast</strong>(<span id="filter-contrast-value">80</span>%); <input id="filter-contrast-slider" type="range" min="0" max="200" value="80" onchange="changeFilter()">
+filter: <strong>blur</strong>(<span id="filter-blur-value">5</span>px); <input id="filter-blur-slider" type="range" min="0" max="20" value="5" onchange="changeFilter()">
+filter: <strong>drop-shadow</strong>(<span id="filter-dropshadow-value">5</span>px 5px black); <input id="filter-dropshadow-slider" type="range" min="0" max="20" value="5" onchange="changeFilter()">
+filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <input id="filter-opacity-slider" type="range" min="0" max="100" value="50" onchange="changeFilter()">
+</pre>
+
+  <img src="images/sky_heart.jpg" id="filter-example">
+
+  <script>
+  function changeFilter() {
+    var grayscaleAmount = (document.getElementById('filter-grayscale-slider').value);
+    var sepiaAmount = (document.getElementById('filter-sepia-slider').value);
+    var saturateAmount = (document.getElementById('filter-saturate-slider').value);
+    var huerotateAmount = (document.getElementById('filter-huerotate-slider').value);
+    var invertAmount = (document.getElementById('filter-invert-slider').value);
+    var brightnessAmount = (document.getElementById('filter-brightness-slider').value);
+    var contrastAmount = (document.getElementById('filter-contrast-slider').value);
+    var blurAmount = (document.getElementById('filter-blur-slider').value);
+    var dropshadowAmount = (document.getElementById('filter-dropshadow-slider').value);
+    var opacityAmount = (document.getElementById('filter-opacity-slider').value);
+    
+
+    var el = document.getElementById('filter-example');
+    el.style.filter = 'grayscale(' + grayscaleAmount + '%)' + 
+                      'sepia(' + sepiaAmount + '%)' +
+                      'saturate(' + saturateAmount + '%)' +
+                      'hue-rotate(' + huerotateAmount + 'deg)' +
+                      'invert(' + invertAmount + '%)' +
+                      'brightness(' + brightnessAmount + '%)' +
+                      'contrast(' + contrastAmount + '%)' +
+                      'blur(' + blurAmount + 'px)' +
+                      'drop-shadow(' + dropshadowAmount + 'px 5px black)' +
+                      'opacity(' + opacityAmount + '%)'
+                      ;
+
+    
+    document.getElementById('filter-grayscale-value').textContent = blurAmount;
+    document.getElementById('filter-sepia-value').textContent = sepiaAmount;
+    document.getElementById('filter-saturate-value').textContent = saturateAmount;
+    document.getElementById('filter-huerotate-value').textContent = huerotateAmount;
+    document.getElementById('filter-invert-value').textContent = invertAmount;
+
+    document.getElementById('filter-brightness-value').textContent = brightnessAmount;
+    document.getElementById('filter-contrast-value').textContent = contrastAmount;
+    document.getElementById('filter-blur-value').textContent = blurAmount;
+    document.getElementById('filter-dropshadow-value').textContent = dropshadowAmount;
+    document.getElementById('filter-opacity-value').textContent = opacityAmount;
+  }
+
+  changeFilter();
+  </script>
+</div>
+  
+<div class="slide normal" id="web-fonts">
+  <style>
+  @font-face {
+  font-family: 'LeagueGothicRegular';
+  src: url('fonts/leaguegothic/leaguegothic-webfont.eot');
+  src: local('?'), url('fonts/leaguegothic/leaguegothic-webfont.woff') format('woff'), url('fonts/leaguegothic/leaguegothic-webfont.ttf') format('truetype'), url('/src/fonts/leaguegothic/leaguegothic-webfont.svg#webfontWgfhmMGx') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.special-header {
+  font-family: 'LeagueGothicRegular';
+  font-size: 60px;
+}
+  </style>
+
+  <header><h1>Webfonts</h1></header>
+  <section>
+
+  <pre>
+@font-face {
+  font-family: 'LeagueGothicRegular';
+  src: url('fonts/leaguegothic/leaguegothic-webfont.eot');
+}
+.special-header {
+  font-family: 'LeagueGothicRegular', sans-serif;
+}</pre>
+
+    <div class="special-header">
+      <span>Look, I'm in League Gothic font!</span>
+    </div>
+
+    <a class="objectlink" target="_blank" href="http://hacks.mozilla.org/2009/06/beautiful-fonts-with-font-face/">How font-face works</a>
+    <br>
+    <p>Finding fonts:</p>
+    <ul style="-webkit-column-count:2;">
+     <li><a target="_blank" href="http://www.google.com/webfonts/">Google Web Fonts</a>
+     <li><a target="_blank" href="https://chrome.google.com/webstore/detail/google-font-previewer-for/engndlnldodigdjamndkplafgmkkencc?hl=en">Font Previewer Chrome Extension</a>
+     <li><a target="_blank" href="http://www.typetester.org/">TypeTester</a>
+     <li><a target="_blank" href="http://typekit.com/">TypeKit</a>
+     <li><a target="_blank" href="http://fontfonter.com/">FontFonter</a>
+     <li><a target="_blank" href="http://openfontlibrary.org/">OpenFont Library</a></li>
+     <li><a target="_blank" href="http://www.goodwebfonts.com/">Good Web Fonts</a>
+     <li><a target="_blank" href="http://www.typotheque.com/fonts/">Typotheque</a>
+     <li><a target="_blank" href="http://daneden.me/type/">Pairing fonts</a>
+     <li><a target="_blank" href="http://www.fontsquirrel.com/fontface/generator">Font-face generator</a></li>
+    </ul>
+  </section>
+</div>
+
+
+
+<div class="slide styling"> 
+     <header><h1>Exercise: Motivational Quote</h1></header> 
+     <section style="font-size:24px; text-align:left;">
+       <ol>
+        <li>Start with <a target="_blank" href="files/myquote.html">this HTML</a>. You can view page source and copy it into a local file or a new page on <a href="http://www.jsbin.com" target="_blank">jsbin.com</a>.</li>
+        <li>Replace the text with a quote that motivates you.</li>
+        <li>Use a custom font for the quote text.</li>
+        <li>Find a new image. You can use <a target="_blank" href="http://www.pixabay.com">pixabay.com</a> to find Public Domain licensed images.</li>
+        <li>Use <code>filter</code> to change how the image looks.</li>
+        <li>If you have time left, try using properties you learned earlier as well.</p>
+       </ol>
+     </section>
+</div>
+
+<div class="slide intro">
+    <header><h1>Animations</h1></header> 
+</div>
+
+<div class="slide styling" id="animation-examples">
+  <header><h1>Animation Examples: Teasers!</h1></header>
+  <section>
+    <ul style="column-count: 2;">
+      <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
+      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
+      <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
+      <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
+    </ul>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="http://codepen.io/ajerez/pen/EaEEOW/">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+  </section>
+</div>
+
+ <div class="slide styling" id="css-animation">
+        <style>
+          /* put the keyframes rule here cuz ExCss currently doesn't support '@-webkit-keyframes' */
+          @-webkit-keyframes pulse {
+           from {
+             opacity: 0.0;
+             font-size: 50px;
+           }
+           to {
+             opacity: 1.0;
+             font-size: 100px;
+           }
+          }
+
+          #animation-example {
+            -webkit-animation-name: pulse;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-in;
+            -webkit-animation-direction: alternate;
+          }
+        </style>
+        <header><h1>Animations</h1></header>
+        <section>
+<pre>@-webkit-<b>keyframes</b> <em>pulse</em> {
+<b>from</b> {
+ opacity: 0.0;
+ font-size: 100%;
+}
+<b>to</b> {
+ opacity: 1.0;
+ font-size: 200%;
+}
+}
+
+div {
+-webkit-<b>animation-name</b>: <em>pulse</em>;
+-webkit-<b>animation-duration</b>: 2s;
+-webkit-<b>animation-iteration-count</b>: infinite;
+-webkit-<b>animation-timing-function</b>: ease-in;
+-webkit-<b>animation-direction</b>: alternate;
+}
+</pre>
+
+          <div id="animation-example" class="example">
+            Pulse!
+          </div>
+          <a href="http://caniuse.com/#feat=css-animation" class="objectlink" target="_blank">
+            caniuse.com: animations
+          </a>
+  </section>
+</div>
+
+
+ <div class="slide styling" id="css-animation">
+        <style>
+          @keyframes rainbow {
+              0%   {background-color: red; width: 500px;}
+              25%  {background-color: yellow; width: 200px;}
+              50%  {background-color: blue; width: 300px;}
+              100% {background-color: green; width: 200px;}
+          }
+
+          #rainbow-animation-example {
+            -webkit-animation-name: rainbow;
+            -webkit-animation-duration: 6s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: alternate;
+          }
+        </style>
+        <header><h1>Multi-Step Animations</h1></header>
+        <section>
+<pre>@keyframes rainbow {
+    0%   {
+      background-color: red;
+      width:500px;
+    }
+    25%  {
+      background-color: yellow;
+      width: 200px;
+    }
+    50%  {
+      background-color: blue;
+      width: 300px
+    }
+    100% {
+      background-color: green;
+      width: 200px;
+    }
+}
+
+
+div {
+  -webkit-animation-name: rainbow;
+  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: alternate;
+}
+</pre>
+
+          <div id="rainbow-animation-example" class="example">
+            Taste the rainbow!
+          </div>
+          <a href="http://caniuse.com/#feat=css-animation" class="objectlink" target="_blank">
+            caniuse.com: animations
+          </a>
+  </section>
+</div>
+
+
+  
+<div class="slide styling" id="css-transitions">
+  <style>
+            #transitions-box-2 {
+              -webkit-transition: margin-left 1s ease-in-out;
+              -moz-transition: margin-left 1s ease-in-out;
+              -o-transition: margin-left 1s ease-in-out;
+              transition: margin-left 1s ease-in-out;
+            }
+            .transitions .left {
+              margin-left: 0;
+            }
+            .transitions .right {
+              margin-left: 780px;
+            }
+            .transitions div {
+              width: 20px;
+              height: 20px;
+              background: red;
+            }
+          </style>
+  <header><h1>Transitions</h1></header>
+  <section>
+
+  <div class="transitions example">
+    <div id="transitions-box-1"></div>
+  </div>
+
+<pre>#box.left {
+  margin-left: 0;
+}
+#box.right {
+  margin-left: 1000px;
+}
+
+document.getElementById('box').className = 'left'; <button onclick="transitionLeft(1)">Left</button>
+document.getElementById('box').className = 'right'; <button onclick="transitionRight(1)">Right</button>
+</pre>
+
+  <div class="transitions example">
+    <div id="transitions-box-2"></div>
+  </div>
+
+<pre>#box {
+  -webkit-<b>transition</b>: margin-left 1s ease-in-out;
+}
+
+document.getElementById('box').className = 'left'; <button onclick="transitionLeft(2)">Left</button>
+document.getElementById('box').className = 'right'; <button onclick="transitionRight(2)">Right</button>
+</pre>
+  
+  <a href="http://caniuse.com/#feat=css-transitions" class="objectlink" target="_blank">
+    caniuse.com: css-transitions
+  </a>
+
+  <script defer>
+    function transitionLeft(no) {
+      document.getElementById('transitions-box-' + no).className = 'left';
+    }
+    function transitionRight(no) {
+      document.getElementById('transitions-box-' + no).className = 'right';
+    }
+  </script>
+</section>
+</div>
+
+
+<div class="slide styling" id="css-transforms">
+  <style>
+            #threed-example {
+              margin: 50px 20px;
+              -webkit-transform: rotateZ(5deg);
+              -moz-transform: rotateZ(5deg);
+              -o-transform: rotateZ(5deg);
+              transform: rotateZ(5deg);
+              -webkit-transition: -webkit-transform 2s ease-in-out;
+              -moz-transition: -moz-transform 2s ease-in-out;
+              -o-transition: -o-transform 2s ease-in-out;
+              transition: transform 2s ease-in-out;
+            }
+
+            #threed-example:hover {
+              -webkit-transform: rotateZ(-5deg);
+              -moz-transform: rotateZ(-5deg);
+              -o-transform: rotateZ(-5deg);
+              transform: rotateZ(-5deg);
+            }
+          </style>
+  <header><h1>Transforms</h1></header>
+  <section>
+    <p class="center">
+      Hover over me:
+    </p>
+    <pre id="threed-example">-webkit-<b>transform</b>: <b>rotateY</b>(45deg);
+-webkit-transform: <b>scaleX</b>(25deg);
+-webkit-transform: <b>translate3d</b>(0, 0, 90deg);
+-webkit-transform: <b>perspective</b>(500px)
+</pre>
+
+<pre>#threed-example {
+  -webkit-transform: rotateZ(5deg);
+
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+}
+
+#threed-example:hover {
+  -webkit-transform: rotateZ(-5deg);
+}
+</pre>
+  <a href="http://caniuse.com/#feat=transforms2d" class="objectlink" target="_blank">
+    caniuse.com: transforms
+  </a>
+  </section>
+</div>
+
+
+<div class="slide styling" id="animation-examples">
+  <header><h1>Animation Examples: Revisited!</h1></header>
+  <section>
+    <ul style="column-count: 2;">
+      <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
+      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
+      <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
+      <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
+    </ul>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="http://codepen.io/ajerez/pen/EaEEOW/">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+  </section>
+</div>
+
+<div class="slide styling"> 
+     <header><h1>Exercise: Animated Logo</h1></header> 
+     <section style="font-size:24px; text-align:left;">
+       <ol>
+        <li>Start with your logo page.</li>
+        <li>Animate your logo in some way. You can start with the pulse from the slides and then experiment.</li>
+        <li>Transform your logo when you hover over it.</li>
+       </ol>
+     </section>
+</div>
+
+<div class="slide intro">
+  <header><h1>Pre-Processors</h1></header>
+</div>
+
+<div class="slide normal">
+  <header><h1>Without a Pre-processor</h1></header>
+
+  <pre>
+#header {
+  width: 500px;
+}
+
+#header .logo {
+  color: #F5D867;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+
+#header .logo a {
+  color: #FFD980;
+}
+
+#header .logo a span {
+  background-color: #F5D867;
+}
+   </pre>
+    <p>...Not the optimal syntax.</p>
+</div>
+
+<div class="slide normal"> 
+     <header><h1>With a Pre-processor</h1></header> 
+     <section class="content"> 
+
+  <p>styles.sass:</p>
+  <pre>@mainColor: #99cc00;
+
+#header {
+  .logo {
+    color: lighten(@mainColor, 20%);
+   @include border-radius (3px);
+  }
+}
+</pre>
+<p>➜ styles.css:</p>
+<pre>#header .logo {
+  color: #F5D867;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+</pre>
+
+</section>
+</div>
+
+<div class="slide normal"> 
+     <header><h1>Common features</h1></header> 
+     <section class="content"> 
+      <ul>
+        <li>variables
+        </li><li>nesting
+        </li><li>mix-ins
+        </li><li>inheritance
+        </li><li>color functions
+        </li><li>vendor prefixes.
+      </li></ul>
+     </section>
+</div>
+
+
+
+<div class="slide normal">
+  <header><h1>Popular Pre-processors</h1></header>
+  <section class="content">
+  <ul>
+    <li><a target="_blank" href="http://sass-lang.com/">SaSS</a> with <a href="http://compass-style.org/">Compass</a>
+      <br>Biggest community of users
+    <li><a target="_blank" href="http://lesscss.org/">Less</a>
+      <br>Basis for Twitter Bootstrap
+      <br>Can be run in the browser
+    <li><a target="_blank" href="http://learnboost.github.com/stylus/">Stylus</a>
+      <br>Punctuation free
+  </ul>
+  <p>
+    <a target="_blank" href="http://net.tutsplus.com/tutorials/html-css-techniques/sass-vs-less-vs-stylus-a-preprocessor-shootout/">Pre-processors comparison</a>
+  </p>
+  <p>Another option: <a target="_blank" href="https://css-tricks.com/autoprefixer/">The Autoprefixer Post-Processor</a></p>
+
+</div>
+
+<div class="slide intro">
+  <header><h1><a target="_blank" href="exercise_less.html">Exercise!</a></h1></header>
+</div>
+
+ </div> <!-- end -->   
+
+</div>
+
+
+<script src="slides.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({ mode: "overlay" });</script>
+  <![endif]--> 
+
+  </body> 
+
+</html>
+
