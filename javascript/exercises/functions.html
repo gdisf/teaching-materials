@@ -39,30 +39,30 @@ tellFortune('bball player', 'spain', 'Shaq', 3);
 tellFortune('stunt double', 'Japan', 'Ryan Gosling', 3000);
 tellFortune('Elvis impersonator', 'Russia', 'The Oatmeal', 0);</pre>
 
- <h3 class="page-header">The Age Calculator</h3>
+ <h3 class="page-header">The Puppy Age Calculator</h3>
 
- <p>Forgot how old you are? Calculate it!</p>
+ <p>You know how old your dog is in human years, but what about dog years? Calculate it!</p>
  <ul>
-  <li>Write a function named <code>calculateAge</code> that:
+  <li>Write a function named <code>calculateDogAge</code> that:
     <ul>
-     <li>takes 2 arguments: birth year, current year.
-     <li>calculates the 2 possible ages based on those years.
-     <li>outputs the result to the screen like so: "You are either NN or NN"
+     <li>takes 1 argument: your puppy's age.
+     <li>calculates your dog's age based on the conversion rate of 1 human year to 7 dog years.
+     <li>outputs the result to the screen like so: "Your doggie is NN years old in dog years!"
     </ul>
   <li>Call the function three times with different sets of values.
-  <li><b>Bonus</b>: Figure out how to get the current year in JavaScript instead of passing it in.
+  <li><b>Bonus</b>: Add an additional argument to the function that takes the conversion rate of human to dog years.
  </ul>
  <button  onclick="showSolution(2)" class="btn">See Solution</button>
  <br><br>
  <pre id="solution2" style="display:none;">
-function calculateAge(birthYear, currentYear) {
-    var age = currentYear - birthYear;
-    console.log('You are either ' + age + ' or ' + (age - 1));
+function calculateDogAge(age) {
+    var dogYears = 7*age;
+    console.log("Your doggie is " + dogYears + " years old in dog years!");
 }
 
-calculateAge(1984, 2012);
-calculateAge(1988, 2012);
-calculateAge(1982, 2012);</pre>
+calculateAge(1);
+calculateAge(0.5);
+calculateAge(12);</pre>
 
 <h3 class="page-header">The Lifetime Supply Calculator</h3>
 
