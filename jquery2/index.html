@@ -234,10 +234,13 @@ banner.show();</code></pre>
 &lt;/head&gt;
 </code></pre>
 					</p>
+				</section>
 
+				<section>
+					<header><h2>DOM Readiness</h2></header>
 <p><strong>Pattern: </strong>If you <em>need</em> to load a script in the <code>&lt;head&gt;</code>, wait for the rest of the DOM to be ready before executing
 <pre><code class="html">&lt;body&gt;
-  ...
+  //all your other HTML code
   &lt;script&gt;
     $(document).ready(function() {
       // do something when the DOM is fully loaded
