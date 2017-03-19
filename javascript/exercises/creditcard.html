@@ -17,33 +17,35 @@
 
 <p>Here are the rules for a valid number:
 <ul>
+  <li>The final digit must be even</li>
+  <li>The sum of all the digits must be greater than 16</li>
+  <li>You must have at least two different digits represented (all of the digits cannot be the same)</li>
 	<li>Number must be 16 digits, all of them must be numbers</li>
-	<li>You must have at least two different digits represented (all of the digits cannot be the same)</li>
-	<li>The final digit must be even</li>
-	<li>The sum of all the digits must be greater than 16</li>
 </ul>
 </p>
 
 <p>The following credit card numbers are valid:</p>
 <ul>
-  <li><code>9999-9999-8888-0000</code></li>
-  <li><code>6666-6666-6666-1666</code></li>
+  <li><code>9999999988880000</code></li>
+  <li><code>6666666666661666</code></li>
 </ul>
 
 <p>The following credit card numbers are invalid:
   <ul>
-    <li><code>a923-3211-9c01-1112</code> <em>invalid characters</em></li>
-    <li><code>4444-4444-4444-4444</code> <em>only one type of number</em></li>
-    <li><code>1111-1111-1111-1110</code> <em>sum less than 16</em></li>
-    <li><code>6666-6666-6666-6661</code> <em>odd final number</em></li>
+    <li><code>a92332119c011112</code> <em>invalid characters</em></li>
+    <li><code>4444444444444444</code> <em>only one type of number</em></li>
+    <li><code>1111111111111110</code> <em>sum less than 16</em></li>
+    <li><code>6666666666666661</code> <em>odd final number</em></li>
   </ul>
 </p>
 
 <p>In order to run the function, you'll need to load javascript on an HTML page. <a href="loadJavascriptTemplate.html" target="_blank">Click here for instructions on how to do that.</a> From there, you will open your developer console to call the function.</p>
 <img src="../images/console.png"/ width=400>
-<p>Hint: Remove the dashed from the input string before checking if the input credit card number is valid.</p>
 <br>
 <br>
+<p>
+  <strong>Bonus:</strong> Make sure your function works when it is called with <code>9999-9999-8888-0000</code> instead of <code>9999999988880000?</code>
+</p>
 <p>
   <strong>Bonus:</strong> Return an object indicating whether the credit card is valid, and if not, what the error is
   <br>
