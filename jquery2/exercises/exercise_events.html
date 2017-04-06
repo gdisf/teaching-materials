@@ -31,7 +31,7 @@
         <li>Call <code>thumbnailify()</code> from inside your <code>for</code> loop.</li>
         <li>Make sure your player first works like it did before. <strong>Hint: </strong>you should only reference an array index from inside of the <code>for</code> loop.</code></li>
         <li>Now, in the <code>thumbnailify()</code> function, add a click listener
-        to the link. We recommend using an anonymous function for the callback (not a named function). Put a <code>console.log</code> inside the callback to make sure it works.</li>
+        to the link. We recommend using a named function for the callback (not an anonymous function). Put a <code>console.log</code> inside the callback to make sure it works.</li>
         <li>In the click listener callback, you will be using the "create and store, manipulate, inject" pattern to display an embedded video in the DIV you created.</li>
         <li>To find out what the code for an embedded Youtube video looks like, go to Youtube.com and find any embed code
         for a video.</li>
@@ -85,6 +85,18 @@
  &lt;script type="text/javascript" src="http://www.teaching-materials.org/common/jquery.js"&gt;&lt;/script&gt;
  &lt;script&gt;
 
+var thumbnailCallback = function(e) {
+  e.preventDefault();
+  var videoEmbed = $('&lt;iframe&gt;&lt;/iframe&gt;');
+  videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl));
+  videoEmbed.attr('width', 560);
+  videoEmbed.attr('height', 315);
+  var videoWatcher = $('#video-watcher');
+  videoWatcher.hide();
+  videoWatcher.html(videoEmbed);
+  videoWatcher.fadeIn();
+}
+
 var thumbnailify = function(videoLink) {
   var linkUrl = videoLink.attr('href');
   var thumbnailUrl = youtube.generateThumbnailUrl(linkUrl);
@@ -92,17 +104,7 @@ var thumbnailify = function(videoLink) {
   thumbnailImg.attr('src', thumbnailUrl);
   videoLink.append(thumbnailImg);
 
-  videoLink.on('click', function(e) {
-      e.preventDefault();
-      var videoEmbed = $('&lt;iframe&gt;&lt;/iframe&gt;');
-      videoEmbed.attr('src', youtube.generateEmbedUrl(linkUrl));
-      videoEmbed.attr('width', 560);
-      videoEmbed.attr('height', 315);
-      var videoWatcher = $('#video-watcher');
-      videoWatcher.hide();
-      videoWatcher.html(videoEmbed);
-      videoWatcher.fadeIn();
-  });
+  videoLink.on('click', thumbnailCallback);
 };
 
 var videoLinks = $('a');
