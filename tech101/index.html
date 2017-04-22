@@ -265,7 +265,7 @@
 						<li>Change the text of 'All About Dogs'</li>
 						<li><a target="_blank" href="https://www.w3schools.com/tags/tag_hn.asp">Change the HTML tag</a> to make your new heading smaller</li>
 						<li><a target="_blank" href="https://www.w3schools.com/tags/tag_img.asp">Change the image of the paw prints</a> to another icon</li>
-						<li>You'll probably need to change the size of the image.  How do you do that?</li>
+						<li>You might need to resize the image.  How do you do that?</li>
 					</ol>
 					<aside class="notes">
 					</aside>
@@ -292,7 +292,6 @@
 					<h2>CSS</h2>
 					<ul>
 						<li class="fragment">Cascading Style Sheets</li>
-						<li class="fragment">Makes static webpages</li>
 						<li class="fragment">Use to specify the styling of your webpage (color, layout, etc)</li>
 						<li class="fragment">You can use the same style across multiple webpages with one stylesheet</li>
 						<li class="fragment">Saves work since avoids having to use HTML tags or inline attributes</li>
@@ -361,13 +360,14 @@ addDog(name, breed);
 					<li>Try to submit your favorite dog using the form.  What happens?</li>
 					<li>Open the inspector</li>
 					<li>Find the <b style="color:#f05b62">addDog</b> function in the script tag.  What do you think it's doing?</li>
-					<li>Paste the function <b style="color:#f05b62">addDog(name, breed);</b> into the console, replacing name and breed with your own parameters.
+					<li>Paste the function <b style="color:#f05b62">addDog(name, breed);</b> into the console, replacing name and breed with your own parameters, and press Enter.
 					 What happens?
 					</li>
 					<li>Refresh the page.  Does the data persist?</li>
 				</ol>
 				<aside class="notes">
-					When they refresh the page they should notice that the data does not persist
+					When they refresh the page they should notice that the data does not persist.  Explain to them that this is because we are not
+					actually storing any data or looking data up.  This is all entirely on the client so anything we add to the webpage will disappear.
 				</aside>
 			</section>
 
@@ -417,7 +417,7 @@ addDog(name, breed);
 					<li>Find the data that you see in the table.  What format is it in? (hint: check a few slides back)</li>
 					<li>Enter your name and favorite breed into the form and submit</li>
 					<li>Refresh the page.  Does the data persist?</li>
-					<li>Look at the data again in the inspector.  Is your entry in there?</li>
+					<li>In the inspector, check if your entry is now in the data</li>
 					<li>Look over at your neighbor's screen.  Do you see your entries on their page?  What does this tell you?</li>
 				</ol>
 				<aside class="notes">
@@ -494,7 +494,7 @@ Dog.new(dog_params).save
 					<img width="500" alt="backend diagram" src="images/backend.png"/>
 					<h3>Write <b>server-side</b> code to...</h3>
 					<ul>
-						<li class="fragment">receive requests from clients and send back requests</li>
+						<li class="fragment">receive requests from clients and send back responses</li>
 						<li class="fragment">connect to a database to look up requested data using Postgres or other databases</li>
 						<li class="fragment">handle other logic and run algorithms using Python or other back-end languages</li>
 					</ul>
