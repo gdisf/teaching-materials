@@ -28,7 +28,7 @@
 
 	</head>
 	<body>
-		<div class="reveal">
+		<div class="reveal" id="presentation">
 			<div class="slides">
 				<section>
 					<h1>Intro to jQuery</h1>
@@ -42,14 +42,14 @@
 					<h3>DOM &amp; Data!</h2>
 					<p>Our favorite Data Types</p>
 					<pre>
-						<code contenteditable class ="javascript">var myString = "This is a string!";
+						<code contenteditable class ="javascript">var myString = 'This is a string!';
 var myInteger = 1;
 var myBoolean = true;
-var myArray = ["string", 1, myVar, true];
+var myArray = ['string', 1, myString, true];
 var myObject = {
-  name: "Pamela",
-  adjective: "Cool",
-  roles: ["hacker", "teacher", "coder"]
+  name: 'Pamela',
+  adjective: 'Cool',
+  roles: ['hacker', 'teacher', 'coder']
 }</code>
 					</pre>
 				</section>
@@ -59,7 +59,7 @@ var myObject = {
 					<p>Traversing the DOM with JavaScript</p>
 					<pre>
 						<code contenteditable class ="javascript">document.getElementById('presentation');
-document.getElementsByClassName('slide');
+document.getElementsByClassName('future');
 document.getElementsByTagName('body');
 document.querySelectorAll('a');
 document.querySelector('img');</code>
@@ -83,7 +83,7 @@ math.factorial(num);</code>
 					<p>Call functions from that library</p>
 					<pre>
 						<code contenteditable>&lt;body&gt;
-  &#60;script src="http://imagine-it.org/math.js"&#62;&#60;&#47;script&#62;
+  &#60;script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.11.4/math.js"&#62;&#60;&#47;script&#62;
   &#60;script&#62;
     var answer = math.sum(2, 2);
     alert(answer);
@@ -110,9 +110,9 @@ math.factorial(num);</code>
 					<h2>jQuery: Why?</h2>
 					<p>No library:</p>
 					<pre>
-						<code contenteditable class ="javascript">var elems = document.getElementsByTagName("img");
+						<code contenteditable class ="javascript">var elems = document.getElementsByTagName('img');
 for (var i = 0; i&lt; elems.length; i++) {
-	elems[i].style.display = "none";
+	elems[i].style.display = 'none';
 }</code>
 					</pre>
 					<p>jQuery:</p>
@@ -154,7 +154,7 @@ $('div.header').append(newP);</code>
 					</pre>
 					<div style="padding:0px; margin:0px;"><img src="images/arrow.png" style="box-shadow:0px 0px 0px rgba(0,0,0,0); border:0px"></div>
 					<pre>
-						<code contenteditable>&lt;p class="special">Welcome to jQuery!&lt;/p&gt;</code>
+						<code contenteditable>&lt;p class="special"&gt;Welcome to jQuery!&lt;/p&gt;</code>
 					</pre>
 
 					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
@@ -329,7 +329,7 @@ $('a').css({'color': 'purple'});</code></pre>
 				<section>
 					<h2>jQuery:</h2>
 					<h3>Create and Store</h3>
-					<p>Pass in any HTML string and jQuery will create it and return it as a array.</p>
+					<p>Pass in any HTML string and jQuery will create it and return it as a jQuery object.</p>
 					<table style="width:100%;">
 						<thead>
 							<tr>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercises: Objects as Arguments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../../common/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Objects as Arguments</h2>
+
+
+<h3 class="page-header">The Movie Database</h3>
+<p><em>It's like IMDB, but much much smaller!</em></p>
+<ul>
+ <li>Create an object to store the following information about your favorite movie: <code>title</code> (a string),
+ <code>duration</code> (a number), and <code>stars</code> (an array of strings).
+ <li>Create a function to print out the movie information like so: "Puff the Magic Dragon lasts for 30 minutes. Stars: Puff, Jackie, Living Sneezes."
+</ul>
+<button class="btn" onclick="showSolution(1)">See Solution</button>
+<br><br>
+<pre id="solution1" style="display:none;">
+var myFavMovie = {
+    title: 'Puff the Magic Dragon',
+    duration: 30,
+    stars: ['Puff', 'Jackie', 'Living Sneezes']
+};
+
+function printMovie(movie) {
+    console.log(movie.title + ' lasts for ' + movie.duration + ' minutes');
+    var starsString = 'Stars: ';
+    for (var i = 0; i &lt; movie.stars.length; i++) {
+        starsString += movie.stars[i];
+        if (i != movie.stars.length -1) {
+            starsString += ', ';
+        }
+    }
+    console.log(starsString);
+}
+
+// Or...
+function printMovie(movie) {
+    console.log(movie.title + ' lasts for ' + movie.duration + ' minutes');
+    console.log('It stars ' + movie.stars.join(', '));
+}
+printMovie(myFavMovie);
+</pre>
+
+ </div>
+
+  <br><br><br><br><br>
+
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>
