@@ -47,7 +47,6 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-
         <!-- Opening -->
 				<section>
 					<h1>Tech101: What is the Web?</h1>
@@ -55,178 +54,123 @@
 
 				<section>
 					<h3>Jen's story</h3>
-				</section>
-				<section>
 					<p>Jen would like to get some information about dogs.</p>
 				</section>
 				<section>
 					<img width="700px" alt="client" src="images/clientbrowser.jpg"/>
-					<aside class="notes">
-						She opens up her browser on her laptop
-					</aside>
+					<p>She opens up her browser on her laptop</p>
 				</section>
 				<section>
 					<img width="700px" alt="browser bar" src="images/allaboutdogs2.png"/>
-					<aside class="notes">
-						Types allaboutdogs.com in her browser bar
-					</aside>
+					<p>Types https://www.allaboutdogs.com in her browser</p>
 				</section>
 				<section>
 					<img width="700px" alt="webpage screenshot" src="images/allaboutdogsdata.png"/>
-					<aside class="notes">
-						And is now able to find out all about dogs!
-					</aside>
+					<p>And is now able to find out all about dogs!</p>
 				</section>
 
 				<section>
-					<h2>What's happening?</h2>
-					<img width="100px" alt="client" src="images/clientbrowser.jpg"/>       <img width="300px" alt="browser bar" src="images/allaboutdogs2.png"/>       <img width="100px" alt="screenshot of webpage" src="images/allaboutdogsdata.png"/>
-					<aside class="notes">
-						Today we're going to go into what's happening behind the scenes that enables Jen to go to allaboutdogs.
-					</aside>
+					<h2>What is this magic?</h2>
+					<ol>
+						<li class="fragment">How does Jen's computer fetch the content of the webpage?</li>
+						<li class="fragment">What makes up the content of the webpage?</li>
+						<li class="fragment">What types of developers work on the webpage?</li>
+					</ol>
+
 				</section>
+
 				<section>
-					<img src="images/webconvoblank.png" alt="web conversation"/>
-					<aside class="notes">
-						First, we'll talk about how her computer sends a request to another computer, and gets a response back.
-					</aside>
-				</section>
-				<section>
-					<img width="700" src="images/allaboutdogsdata.png" alt="allaboutdogs data screenshot"/>
-					<aside class="notes">
-						Jen's computer gets back a response that contains everything she needs to display allaboutdogs in her browser.
-						Today we're also going to talk about what exactly is in that response, and how it makes the webpage allaboutdogs work in Jen's browser.
-					</aside>
-				</section>
-				<section>
-					<img src="https://diversity.com/blog/wp-content/uploads/2017/02/3043082-poster-1280-fogcreek-women-hire.jpg" alt="female developer at work"/>
-					<aside class="notes">
-						Finally, we'll talk about how web developers fit in, and what their role is in enabling Jen to look at allaboutdogs.
-						We'll also touch on other positions in a tech company that help a web page come alive.
-					</aside>
+					<h3>How does Jen's computer fetch the content of the webpage?</h3>
+					<p>The content is fetched over <span style="color:#f05b62">the web</span></p>
 				</section>
 
 				<section>
 					<h2>What is the web?</h2>
 					<img src="images/webconvoblank.png" alt="web conversation"/>
-					<aside class="notes">
-						What is the web?  A network that allows computers to connect and exchange information.  That is, it's basically computers talking to each other.
-						Some computers send requests for information over the web, and are called CLIENTS,
-						Other computers receive these requests and send responses back over the web with the requested information, and are called SERVERs.
-
-						How does Jen's scenario fit into this?
-					</aside>
+					<ul>
+						<li class="fragment">Computers communicating with each other with <strong>REQUESTS</strong> and <strong>RESPONSES</strong></li>
+						<li class="fragment">Computers can be <strong>CLIENTS</strong> or <strong>SERVERS</strong></strong></li>
+					</ul>
 				</section>
 
 				<section>
-					<h2>The client side</h2>
-				</section>
-				<section>
+					<h2>The client</h2>
 					<img src="images/client.png" alt="client"/>
-					<aside class="notes">
-						Jen's computer is the client.  It sends a request for the webpage at allaboutdogs.com over the web.  It does this with an HTTP transfer protocol.
-					</aside>
+					<ul>
+						<li class="fragment">Jen's computer is the <strong>CLIENT</strong></li>
+						<li class="fragment">It sends a <strong>REQUEST</strong> over the web for the content of the webpage.</li>
+					</ul>
 				</section>
 
 				<section>
-					<h2>HTTP</h2>
-					<h3>(Hypertext Transfer Protocol)</h3>
+					<h2>The request</h2>
+					<h4>contains instructions detailing</h4>
 					<ul>
-						<li class="fragment">How computers communicate over the web</li>
-						<li class="fragment">Made of <strong>requests</strong> (from the client) and <strong>responses</strong> (from the server)</li>
-						<!-- ZOOM IN TO DIAGRAM -->
+						<li class="fragment"><strong>The domain</strong>: The web address of the server to send the request to</li>
+						<p class="fragment" style="color:#f05b62; margin:25px">www.allaboutdogs.com</p>
+						<li class="fragment"><strong>The action</strong>: What it wants the server to do</li>
+						<p class="fragment" style="color:#f05b62; margin:25px">GET</p>
+						<li class="fragment"><strong>The path/file</strong>: What it wants from the server</li>
+						<p class="fragment" style="color:#f05b62; margin:25px">labradoodles.html</p>
 					</ul>
-					<aside class="notes">
-					</aside>
 				</section>
 
 				<section>
-					<h2>HTTP Requests</h2>
-					<ul>
-						<li class="fragment">Contain a verb like <strong>GET</strong>, <strong>POST</strong>, <strong>DELETE</strong></li>
-						<li class="fragment">A host, like: <strong>www.allaboutdogs.com</strong></li>
-						<li class="fragment">A path on the server, like: <strong>/labradoodles.html</strong></li>
-					</ul>
-					<div  class="fragment">
+					<h2>The request</h2>
+					<img width="600px" src="images/clientrequest.png" alt="client request"/>
+					<div>
 						<pre><code>GET /labradoodles.html HTTP/1.1
 	Host: www.allaboutdogs.com
 						</code></pre>
-						<p>"Tell www.allaboutdogs.com to GET the information at the path /labradoodles.html and return it"</p>
+						<p>"Tell www.allaboutdogs.com to GET the information at the path /labradoodles.html"</p>
 					</div>
-					<aside class="notes">
-						GET is specified by your browser - a GET request means "get the information at this host, at this path"
-					</aside>
 				</section>
 
 				<section>
-					<img src="images/clientrequest.png" alt="client request"/>
-					<aside class="notes">
-						Jen's computer sends a GET request to the server to www.allaboutdogs.com telling it to get the information at /labradoodles.html
-					</aside>
-				</section>
-
-				<section>
-					<h2>The server side</h2>
-				</section>
-				<section>
+					<h2>The server</h2>
 					<img src="images/reqonly.png" alt="client request only"/>
-					<aside class="notes">
-						The request is received by a remote computer at the www.allaboutdogs.com domain.  This remote computer is called the server.
-						The server then fetches some information and packages it up in a response.
-					</aside>
-				</section>
-				<section>
-					<h2>HTTP Responses</h2>
-					<h3 class="fragment">contain...</h3>
 					<ul>
-						<li class="fragment">Response code like
-							<ul>
-								<li><strong>200</strong> (everything's OK)</li>
-								<li><strong>404</strong> (can't find requested information)</li>
-							</ul>
-						</li>
-						<li class="fragment"><strong>headers</strong> with extra information about the response</li>
-						<li class="fragment">Content like <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JSON</strong></li>
+						<li class="fragment">The computer at allaboutdogs.com is the <strong>SERVER</strong></li>
+						<li class="fragment">It receives the <strong>REQUEST</strong> for the content of the webpage.</li>
 					</ul>
-					<aside class="notes">
-						We'll get back into what makes up the content of the response later
-					</aside>
 				</section>
+
 				<section>
+					<h2>The server</h2>
 					<img src="images/webconvo.png" alt="web conversation"/>
-					<aside class="notes">
-						The server sends back the response to Jen's computer.
-					</aside>
-				</section>
-
-					<section>
-						<h2>Back to the client side</h2>
-					</section>
-					<section>
-						<img src="images/webconvowebpage.png" alt="web conversation"/>
-						<aside class="notes">
-							Jen's browser knows what to do with the content in the response in order to display the allaboutdogs.com webpage.
-						</aside>
+					<ul>
+						<li>The <strong>SERVER</strong> sends the content back to Jen's computer in a <strong>RESPONSE</strong></li>
+					</ul>
 				</section>
 
 				<section>
-					<h2>What is in the content of the response?</h2>
-					<p>How does it turn into the webpage Jen sees?</p>
-					<table>
-						<tr>
-							<td><img width="500" src="images/allaboutdogsdata.png"/></td>
-							<td>
-								<ul>
-									<li class="fragment"><strong>HTML</strong> (content)</li>
-									<li class="fragment"><strong>CSS</strong> (styling)</li>
-									<li class="fragment"><strong>Javascript</strong> (functionality)</li>
-									<li class="fragment"><strong>JSON</strong> (data)</li>
-								</ul>
-							</td>
-						</tr>
-					</table>
-					<aside class="notes">
-					</aside>
+					<h2>The response</h2>
+					<h4 class="fragment">contains the status of the request</h4>
+					<p class="fragment">"OK" (successful request!)</p>
+					<h4 class="fragment">and the content of the webpage</h4>
+					<ul>
+						<li class="fragment"><strong>HTML</strong> (text and images)</li>
+						<li class="fragment"><strong>CSS</strong> (styling)</li>
+						<li class="fragment"><strong>Javascript</strong> (functionality)</li>
+						<li class="fragment"><strong>JSON</strong> (data)</li>
+					</ul>
+					<h4 class="fragment">More on these later...</h4>
+				</section>
+
+					<section>
+						<h2>Back to the client</h2>
+						<img src="images/webconvowebpage.png" alt="web conversation"/>
+						<p>Jen's computer receives the response and displays the content in her browser.</p>
+				</section>
+
+				<section>
+					<h3>What makes up the content of the webpage?</h3>
+					<ul>
+						<li><strong>HTML</strong> (text and images)</li>
+						<li><strong>CSS</strong> (styling)</li>
+						<li><strong>Javascript</strong> (functionality)</li>
+						<li><strong>JSON</strong> (data)</li>
+					</ul>
 				</section>
 
 				<section>
@@ -245,15 +189,16 @@
 				<section>
 					<h2>HTML</h2>
 					<ul>
-						<li class="fragment">Hypertext Markup Language</li>
-						<li class="fragment">Makes static webpages</li>
-						<li class="fragment">Use HTML to specify the content of your webpage (text, images)</li>
-						<li class="fragment">HTML elements are the building blocks of the static page you see</li>
-						<li class="fragment">These elements are represented by <b>&lttags/&gt</b>
-						<li class="fragment">These tags are read by a browser and translated to a visible page</li>
-						<li class="fragment">HTML elements can be modified with attributes</li>
+						<li class="fragment">Use to add content to your webpage (text, images) using HTML elements</li>
+						<li class="fragment">HTML elements are represented by tags and have content inside them.</li>
 					</ul>
+
+					<div style="margin-top:50px" class="fragment"><h3>This is the content of a header</h3>
+					<pre><code class="html">
+<h3>This is the content of a header</h3>
+					</code></pre></div>
 					<aside class="notes">
+						These tags are read by a browser and translated to a visible page
 					</aside>
 				</section>
 
@@ -263,9 +208,7 @@
 						<li>Go to <a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/static_html_only">All About Dogs</a></li>
 						<li>Open the inspector</li>
 						<li>Change the text of 'All About Dogs'</li>
-						<li><a target="_blank" href="https://www.w3schools.com/tags/tag_hn.asp">Change the HTML tag</a> to make your new heading smaller</li>
-						<li><a target="_blank" href="https://www.w3schools.com/tags/tag_img.asp">Change the image of the paw prints</a> to another icon</li>
-						<li>You might need to resize the image.  How do you do that?</li>
+						<li><a target="_blank" href="https://www.w3schools.com/tags/tag_hn.asp">Change the header tag</a> to make your new heading smaller</li>
 					</ol>
 					<aside class="notes">
 					</aside>
@@ -275,12 +218,9 @@
 					<h2>CSS</h2>
 					<a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/static_styled">
 						<img width="500px" src="images/htmlcss.png"/>
-						<pre><code class="css">header, footer {
-  padding: 1em;
+						<pre><code class="css">header {
   color: white;
   background-color: powderblue;
-  clear: left;
-  text-align: left;
 }
 						</code></pre>
 					</a>
@@ -291,10 +231,10 @@
 				<section>
 					<h2>CSS</h2>
 					<ul>
-						<li class="fragment">Cascading Style Sheets</li>
-						<li class="fragment">Use to specify the styling of your webpage (color, layout, etc)</li>
-						<li class="fragment">You can use the same style across multiple webpages with one stylesheet</li>
-						<li class="fragment">Saves work since avoids having to use HTML tags or inline attributes</li>
+						<ul>
+							<li class="fragment">Use to add styling to your webpage (color, layout)</li>
+							<li class="fragment">Is separate from HTML and can add the same styling to multiple webpages</li>
+						</ul>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -305,14 +245,10 @@
 					<ol>
 						<li>Go to <a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/static_styled">All About Dogs</a></li>
 						<li>Open the inspector</li>
-						<li>Change the header background color</li>
-						<li>Change the header text color</li>
-						<li>Try to submit your favorite dog using the form.  What happens?</li>
+						<li>Change the header background color to green</li>
+						<li>Change the header text color to red</li>
 					</ol>
 					<aside class="notes">
-						Before they go to the Javascript portion, have them try to submit something in the form. When
-						they notice that it doesn't show up on the page, tell them it's because they don't have
-						Javascript in there.
 					</aside>
 				</section>
 
@@ -325,16 +261,28 @@
 			</section>
 
 			<section>
+				<h2>Bonus Exercise</h2>
+				<ol>
+					<li>Go back to <a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/static_styled">All About Dogs</a></li>
+					<li>Try to submit your favorite dog using the form.  What happens?</li>
+				</ol>
+				<div style="margin-top:50px">
+					<p class="fragment" style="color:#f05b62">The form doesn't work! It's missing <b>functionality</b></p>
+					<p class="fragment" style="color:#f05b62">To give the form functionality, we need <b>Javascript</b></p>
+				</div>
+				<aside class="notes">
+					Before they go to the Javascript portion, have them try to submit something in the form. When
+					they notice that it doesn't show up on the page, tell them it's because they don't have
+					Javascript in there.
+				</aside>
+			</section>
+
+			<section>
 				<h2>Javascript</h2>
 				<a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/no_data">
 					<img width="500px" src="images/dogsjs.gif"/>
-					<pre><code class="javascript">document.getElementById("dog-form").addEventListener("submit", function(event){
-event.preventDefault();
-var name = document.getElementById("name-input").value;
-var breed = document.getElementById("breed-input").value;
-
+					<pre><code class="javascript">
 addDog(name, breed);
-});
 					</code></pre>
 				</a>
 				<aside class="notes">
@@ -344,10 +292,10 @@ addDog(name, breed);
 			<section>
 				<h2>Javascript</h2>
 				<ul>
-					<li class="fragment">Invented specifically to be used on webpages</li>
-					<li class="fragment">Makes webpages dynamic and interactive</li>
-					<li class="fragment">*Not* the same as Java, which is a backend language</li>
-					<li class="fragment">Often used with other libraries and frameworks like jQuery and React</li>
+					<ul>
+						<li class="fragment">Use to add functionality to your webpage</li>
+						<li class="fragment">Makes webpages dynamic and interactive</li>
+					</ul>
 				</ul>
 				<aside class="notes">
 				</aside>
@@ -358,16 +306,20 @@ addDog(name, breed);
 				<ol>
 					<li>Go to <a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/no_data">All About Dogs</a></li>
 					<li>Try to submit your favorite dog using the form.  What happens?</li>
-					<li>Open the inspector</li>
-					<li>Find the <b style="color:#f05b62">addDog</b> function in the script tag.  What do you think it's doing?</li>
-					<li>Paste the function <b style="color:#f05b62">addDog(name, breed);</b> into the console, replacing name and breed with your own parameters, and press Enter.
-					 What happens?
-					</li>
-					<li>Refresh the page.  Does the data persist?</li>
+					<p class="fragment" style="color:#f05b62; margin:25px">The form works! Javascript gives it <b>functionality</b></p>
+					<li class="fragment">Refresh the page.  Does the data persist?</li>
+					<p class="fragment" style="color:#f05b62; margin:25px">The data disappears!  It is not being stored or retrieved.</p>
+					<p class="fragment" style="color:#f05b62; margin:25px">To store and retrieve data we use <b>JSON</b></p>
 				</ol>
+
 				<aside class="notes">
 					When they refresh the page they should notice that the data does not persist.  Explain to them that this is because we are not
 					actually storing any data or looking data up.  This is all entirely on the client so anything we add to the webpage will disappear.
+
+					Bonus demo if you have time:
+					Open the inspector
+					Find the addDog function in the script tag and show the class, tell them this is Javascript that is running to add dog info to the page when you submit the form.
+					Paste the function addDog(name, breed); into the console, replacing name and breed with your own parameters, and press Enter.  Show them that it adds the dog info to the page.
 				</aside>
 			</section>
 
@@ -381,6 +333,7 @@ addDog(name, breed);
 
 			<section>
 				<h2>JSON</h2>
+				<p>A popular way to format data</p>
 				<a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/with_data">
 					<img width="500" alt="data on webpage" src="images/dataonpage.png"/>
 								<pre><code class="json">
@@ -400,11 +353,36 @@ addDog(name, breed);
 			<section>
 				<h2>JSON</h2>
 				<ul>
-					<li class="fragment">JavaScript Object Notation</li>
-					<li class="fragment">A syntax for storing data, written in a Javascript Object format</li>
-					<li class="fragment">Can be used to store and exchange data with any language, not just Javascript</li>
-					<li class="fragment">Not the only way to bring data into the browser (ex. <a href="https://www.w3schools.com/xml/">XML</a> and pre-rendered HTML)</li>
+
+					<li>The CLIENT can send new data as JSON in a REQUEST to the SERVER to be stored</li>
 				</ul>
+				<img width="700px" class="fragment" alt="dog post request" src="images/postdog.png"/>
+				<p class="fragment" style="color:#f05b62; margin:25px">"Tell the SERVER at allaboutdogs.com to store this new dog information"</p>
+				<aside class="notes">
+				</aside>
+			</section>
+
+			<section>
+				<h2>JSON</h2>
+				<ul>
+					<li class="fragment">The SERVER can lookup data and send it back to the CLIENT as JSON in a RESPONSE</li>
+				</ul>
+				<img width="700px" class="fragment" alt="dog post request" src="images/getdogs.png"/>
+				<p class="fragment" style="color:#f05b62; margin:25px">"Here is the dog information that I have stored"</p>
+				<aside class="notes">
+				</aside>
+			</section>
+
+			<section>
+				<h2>The Database</h2>
+				<img src="images/dogstable.png" alt="Screenshot of the datastore rows of dogs">
+				<ul>
+					<li class="fragment">The SERVER stores and looks up data in a DATABASE</li>
+					<li class="fragment">Code is written in a server-side programming language to do this</li>
+				</ul>
+				<pre class="fragment"><code class="ruby">
+Dog.new(name, breed).save
+				</code></pre>
 				<aside class="notes">
 				</aside>
 			</section>
@@ -413,69 +391,31 @@ addDog(name, breed);
 				<h2>Exercise</h2>
 				<ol>
 					<li>Go to <a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/with_data">All About Dogs</a></li>
-					<li>Open the inspector</li>
-					<li>Find the data that you see in the table.  What format is it in? (hint: check a few slides back)</li>
 					<li>Enter your name and favorite breed into the form and submit</li>
 					<li>Refresh the page.  Does the data persist?</li>
-					<li>In the inspector, check if your entry is now in the data</li>
-					<li>Look over at your neighbor's screen.  Do you see your entries on their page?  What does this tell you?</li>
+
+					<p class="fragment" style="color:#f05b62; margin:25px">The data persists!  It is being stored in a DATABASE.</p>
+
+					<li class="fragment" >Look over at your neighbor's screen.  Do you see your entries on their page?  What does this tell you?</li>
+
+					<p class="fragment" style="color:#f05b62; margin:25px">Our clients all send requests to the same server and store in the same database</p>
+
 				</ol>
 				<aside class="notes">
 					Have students submit several favorite dogs.
 					Then have them refresh the page and point out that now the data persists.
 					This is because we are now sending the data to be stored in a database,
 					and getting back existing data from the database.
+
+					Bonus demo if you have time:
+
+					Open the inspector
+					Find the data that you see in the table.  What format is it in? JSON!
 				</aside>
 			</section>
 
-			<section>
-				<h3>How do we store and get the data back?</h3>
-
-				<img src="images/webconvo.png" alt="web conversation"/>
-
-				<p class="fragment">The server gets a request for data, looks it up in the database, and sends it back in the response</p>
-			</section>
-
-			<section>
-				<h2>The database</h2>
-
-				<img src="images/dogstable.png" alt="Screenshot of the datastore rows of dogs">
-
-				<p class="fragment">Many databases can be used on a server:
-					MySQL, PostgreSQL, Oracle, MongoDB, Redis, etc.
-				</p>
-			</section>
-
-			<section>
-				<h2>The server side</h2>
-
-				<p>Use any server-side programming language to respond to requests and store data.</p>
-
-				<pre><code class="ruby">
-dog_params = params.require(:dog).permit(:name, :breed)
-Dog.new(dog_params).save
-		    </code></pre>
-
-				<p class="fragment">Many other languages can be used on the server:
-				Ruby, Java, Scala, C++, Go, PHP, JavaScript, etc.
-				</p>
-			</section>
-
-			<section>
-				<h2>Learn more!</h2>
-				<a target="_blank" href="https://www.meetup.com/Girl-Develop-It-San-Francisco/">
-					<p>Come to our API workshop</p>
-					<img src="images/api_workshop.jpeg" alt="students at api workshop">
-				</a>
-			</section>
-
-	<!-- Careers -->
-			<section>
-				<h1>Careers</h1>
-			</section>
-
 				<section>
-					<h2>Who codes these web pages?</h2>
+					<h2>What types of developers work on these webpages?</h2>
 				</section>
 
 				<section>
@@ -484,7 +424,7 @@ Dog.new(dog_params).save
 					<h3>Write <b>client-side</b> code to...</h3>
 					<ul>
 						<li class="fragment">create and design webpages using HTML and CSS</li>
-						<li class="fragment">give websites functionality using Javascript and front-end frameworks</li>
+						<li class="fragment">give websites functionality using Javascript</li>
 						<li class="fragment">send requests to servers and handle their responses</li>
 					</ul>
 				</section>
@@ -495,8 +435,8 @@ Dog.new(dog_params).save
 					<h3>Write <b>server-side</b> code to...</h3>
 					<ul>
 						<li class="fragment">receive requests from clients and send back responses</li>
-						<li class="fragment">connect to a database to look up requested data using Postgres or other databases</li>
-						<li class="fragment">handle other logic and run algorithms using Python or other back-end languages</li>
+						<li class="fragment">connect to a database to store and look up data sent as JSON</li>
+						<li class="fragment">handle other logic such as transforming data or performing calculations</li>
 					</ul>
 				</section>
 
@@ -513,39 +453,10 @@ Dog.new(dog_params).save
 				</section>
 
 				<section>
-					<h2>How do you become a web developer?</h2>
-					<ul>
-						<li>Earn (optional) – Certification, Bootcamp, Degree</li>
-						<li>Learn</li>
-						<li>Build</li>
-						<li>Be curious</li>
-						<li>Network</li>
-					</ul>
-				</section>
-
-				<section>
 					<h2>Learn more!</h2>
 					<a target="_blank" href="https://www.meetup.com/Girl-Develop-It-San-Francisco/">
 						<p>Come to our event on Nontraditional Paths to Tech</p>
 						<img src="images/eventpanel.jpeg" alt="panel talking at event">
-					</a>
-				</section>
-
-				<section>
-					<h2>Meet the web team</h2>
-					<ul>
-						<li class="fragment"><strong>Content & Marketing</strong> – Copywriters, SEO Strategists, Content Strategists</li>
-						<li class="fragment"><strong>Design</strong> – UX Designers, Web Designers, Graphics Designers</li>
-						<li class="fragment"><strong>Management & QA</strong> – Project Manager, Product Manager, Producer, QA Engineers</li>
-						<li class="fragment"><strong>Development</strong> – Front End Developers, Back End Developers, Server Admins, Database Admins</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Learn more!</h2>
-					<a target="_blank" href="https://www.meetup.com/Girl-Develop-It-San-Francisco/">
-						<p>Come to our event on Hybrid Roles in Tech</p>
-						<img src="images/eventpanel2.jpeg" alt="panel talking at event">
 					</a>
 				</section>
 
