@@ -1,73 +1,49 @@
-/* Default Print Stylesheet Template
-   by Rob Glazebrook of CSSnewbie.com
-   Last Updated: June 4, 2008
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
 
-   Feel free (nay, compelled) to edit, append, and 
-   manipulate this file as you see fit. */
-
-
-/* SECTION 1: Set default width, margin, float, and
-   background. This prevents elements from extending 
-   beyond the edge of the printed page, and prevents
-   unnecessary background images from printing */
 * {
-	-webkit-print-color-adjust: exact; 
+	-webkit-print-color-adjust: exact;
 }
 
 body {
-	font-size: 22pt;
-	width: auto;
-	height: auto;
+	margin: 0 auto !important;
 	border: 0;
-	margin: 0 5%;
 	padding: 0;
 	float: none !important;
 	overflow: visible;
-	background: #333;
 }
 
 html {
-	width: auto;
-	height: auto;
+	width: 100%;
+	height: 100%;
 	overflow: visible;
 }
 
-/* SECTION 2: Remove any elements not needed in print. 
-   This would include navigation, ads, sidebars, etc. */
-.nestedarrow, 
-.controls a, 
-.reveal .progress, 
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
 .reveal.overview,
 .fork-reveal,
 .share-reveal,
 .state-background {
-	display:none;
+	display: none !important;
 }
 
-/* SECTION 3: Set body font face, size, and color.
-   Consider using a serif font for readability. */
-body, p, td, li, div, a {
-	font-size: 22pt;
-}
-
-/* SECTION 4: Set heading font face, sizes, and color.
-   Diffrentiate your headings from your body text.
-   Perhaps use a large sans-serif for distinction. */
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
 	text-shadow: 0 0 0 #000 !important;
 }
 
-/* SECTION 5: Make hyperlinks more usable.
-   Ensure links are underlined, and consider appending
-   the URL to the end of the link for usability. */
-a:link, 
-a:visited {
-	font-weight: bold;
-	text-decoration: underline;
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
 }
 
-
-/* SECTION 6: more reveal.js specific additions by @skypanther */
 ul, ol, div, p {
 	visibility: visible;
 	position: static;
@@ -77,6 +53,11 @@ ul, ol, div, p {
 	overflow: visible;
 	margin: auto;
 }
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
 .reveal .slides {
 	position: static;
 	width: 100%;
@@ -84,14 +65,12 @@ ul, ol, div, p {
 
 	left: auto;
 	top: auto;
-	margin-left: auto;
-	margin-top: auto;
-	padding: auto;
+	margin: 0 !important;
+	padding: 0 !important;
 
 	overflow: visible;
 	display: block;
 
-	text-align: center;
 	-webkit-perspective: none;
 	   -moz-perspective: none;
 	    -ms-perspective: none;
@@ -102,57 +81,80 @@ ul, ol, div, p {
 	    -ms-perspective-origin: 50% 50%;
 	        perspective-origin: 50% 50%;
 }
-.reveal .slides>section, .reveal .slides>section>section, 
-.reveal .slides>section.past, .reveal .slides>section.future,
-.reveal.linear .slides>section, .reveal.linear .slides>section>section,
-.reveal.linear .slides>section.past, .reveal.linear .slides>section.future {
-	
-	visibility: visible;
-	position: static;
-	width: 100%;
-	height: auto;
-	min-height: initial;
-	display: block;
-	overflow: visible;
 
-	left: 0%;
-	top: 0%;
-	margin-left: 0px;
-	margin-top: 50px;
-	padding: 20px 0px;
+.reveal .slides section {
+	page-break-after: always !important;
 
-	opacity: 1;
-
-	-webkit-transform-style: flat;
-	   -moz-transform-style: flat;
-	    -ms-transform-style: flat;
-	        transform-style: flat;
-
-	-webkit-transform: none;
-	   -moz-transform: none;
-	    -ms-transform: none;
-	        transform: none;
-}
-.reveal section {
-	page-break-after: always !important; 
+	visibility: visible !important;
+	position: relative !important;
 	display: block !important;
-}
-.reveal section.stack {
-	margin: 0px !important;
-	padding: 0px !important;
-	page-break-after: avoid !important; 
-}
-.reveal section .fragment {
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
 	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
 }
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
 .reveal img {
 	box-shadow: none;
 }
+
 .reveal .roll {
 	overflow: visible;
 	line-height: 1em;
 }
 
-.reveal small a {
-	font-size: 16pt !important;
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
 }
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
