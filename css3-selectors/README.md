@@ -4,9 +4,9 @@ Slides and materials are hosted [here](http://teaching-materials.org/css3).
 
 ## Course description
 
-In this workshop, you will learn CSS3 selectors and properties. With your new skills, you'll be able to write more powerful CSS selectors and use CSS properties to slickly style and animate your page.
+In this workshop, you will learn modern CSS3 selectors that will let you write more powerful, specific CSS rules. You'll strengthen your CSS rule writing muscles, helping you be more comfortable in the <style> tag.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio]. This is a great follow-up workshop for those who have attended our HTML/CSS workshop.
+The workshop will be a mix of lectures and hands-on exercises, and will be taught by [teacher X, tiny bio]. This is a great follow-up workshop for those who have attended our HTML/CSS workshop.
 
 ### Prerequisites:
 
@@ -26,5 +26,4 @@ You can review them online at a few places:
 * CSS attribute selectors
 * CSS3 form pseudo-classes
 * CSS3 Structural selectors
-* CSS3 colors, borders, shadows
-* CSS3 animations, transitions
+* CSS3 Pseudo-elements
