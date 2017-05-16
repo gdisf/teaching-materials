@@ -210,8 +210,8 @@ a[target="play"]:after {
   </dd>
 </dl>
 <pre style="font-size:95%">
-<strong>[type=date] {}</strong> 
-     &lt;input <strong>type=date</strong>&gt;  
+<strong>[type="date"] {}</strong> 
+     &lt;input <strong>type="date"</strong>&gt;  
      <span style="opacity:0.3">&lt;input type="text"&gt;</span></pre>
 <p style="font-size:smaller">Note: Multiple attributes work! a[title][href]</p> 
      </section>
@@ -222,11 +222,11 @@ a[target="play"]:after {
      <section class="content"> 
 <br/><br/>
   <dl>
-  <dt>E[attr|=val]</dt>
+  <dt>E[attr|="val"]</dt>
   <dd>Element E whose attribute <em>attr</em> has a value <em>val</em> or begins with val- (&quot;val&quot; plus &quot;-&quot;).<br />
     <pre contenteditable>p[lang|=&quot;en&quot;]{/*    &lt;p lang=&quot;en-us&quot;&gt;  &lt;p lang=&quot;en-uk&quot;&gt; */ }</pre>
   </dd>
-  <dt>E[attr~=val]</dt>
+  <dt>E[attr~="val"]</dt>
   <dd>Element E whose attribute <em>attr</em> has within its value the space-separated full word <em>val</em>.<br />
     <pre contenteditable>a[title~=more] {/* &lt;a title=&quot;want more info about this?&quot;&gt;}</pre>
   </dd></dl>
@@ -238,18 +238,18 @@ a[target="play"]:after {
      <section class="content">
 <br/>
      <dl>
-  <dt>E[attr^=val]</dt>
+  <dt>E[attr^="val"]</dt>
   <dd>Element E whose attribute <em>attr</em> starts with the value <em>val</em>.<br />
-    <pre contenteditable>a[href^=mailto] {background-image: url(emailicon.gif);}  
-a[href^=http]:after {content: &quot; (&quot; attr(href) &quot;)&quot;;}</pre>
+    <pre contenteditable>a[href^="mailto"] {background-image: url(emailicon.gif);}  
+a[href^="http"]:after {content: &quot; (&quot; attr(href) &quot;)&quot;;}</pre>
   </dd>
-  <dt>E[attr$=val]</dt>
+  <dt>E[attr$="val"]</dt>
   <dd>Element E whose attribute <em>attr</em> ends in <em>val</em> . <br />
-    <pre contenteditable>a[href$=pdf] {background-image: url(pdficon.gif);}
-a[href$=pdf]:after {content: &quot; (PDF)&quot;;}</pre>
+    <pre contenteditable>a[href$="pdf"] {background-image: url(pdficon.gif);}
+a[href$="pdf"]:after {content: &quot; (PDF)&quot;;}</pre>
   </dd>
-  <dt>E[attr*=val]</dt>
-  <dd>Element E whose attribute <em>attr </em>matches <em>val</em> anywhere within the attribute. Similar to E[attr~=val] above, except the <em>val</em> can be part of a word.</dd>
+  <dt>E[attr*="val"]</dt>
+  <dd>Element E whose attribute <em>attr </em>matches <em>val</em> anywhere within the attribute. Similar to E[attr~="val"] above, except the <em>val</em> can be part of a word.</dd>
 </dl>
      </section>
  </div>    
@@ -261,32 +261,32 @@ a[href$=pdf]:after {content: &quot; (PDF)&quot;;}</pre>
      <pre contenteditable style="float:left; width: 45%; margin: 0 20px 0 0;">
 input[placeholder] { 
 <b class="notes">/* matches any input with a placeholder */</b>}
-input[type=email] {
+input[type="email"] {
 <b class="notes">/* exact match */</b>}
-abbr[title~=unicorn] { 
+abbr[title~="unicorn"] { 
 <b class="notes">/* matches unicorn but not unicorns */</b>}
-abbr[title|=en] { 
+abbr[title|="en"] { 
 <b class="notes">/* matches en-us and en-uk */</b>}
-a[href^=mailto] { 
+a[href^="mailto"] { 
 <b class="notes">/* starts with */</b>}
-a[href$=pdf]{ 
+a[href$="pdf"]{ 
 <b class="notes">/* ends in */</b>}
-abbr[title*=unicorn] { 
+abbr[title*="unicorn"] { 
 <b class="notes">/* matches unicorn and unicorns */</b>}
 </pre>
 <pre contenteditable style="float:left; width: 40%; margin-top:0;">E:[att] <b class="notes"><br/>/* have the attribute at all */</b>
 
-E:[att=val] <b class="notes"><br/>/* exact */</b>
+E:[att="val"] <b class="notes"><br/>/* exact */</b>
 
-E:[att~=val] <b class="notes"><br/>/* val is a space separated word */</b>
+E:[att~="val"] <b class="notes"><br/>/* val is a space separated word */</b>
 
-E:[att|=val] <b class="notes"><br/>/* with a dash */</b>
+E:[att|="val"] <b class="notes"><br/>/* with a dash */</b>
 
-E:[att^=val] <b class="notes"><br/>/* begins with val */</b>
+E:[att^="val"] <b class="notes"><br/>/* begins with val */</b>
 
-E:[att$=val]  <b class="notes"><br/>/* ends with val */</b>
+E:[att$="val"]  <b class="notes"><br/>/* ends with val */</b>
 
-E:[att*=val]  <b class="notes"><br/>/* val is anywhere as a substring */</b>
+E:[att*="val"]  <b class="notes"><br/>/* val is anywhere as a substring */</b>
 .</pre>
 
 <p><a href="files/01_attr.html" target="play">Try it out </a></div>
@@ -310,30 +310,30 @@ a:active { color: blue; } /* activated link */
 
 <!-- UI pseudo-classes -->
 <div class="slide normal"> 
-     <header><h1>UI Pseudo-Classes</h1></header> 
+     <header><h1>Form Pseudo-Classes</h1></header> 
      <section class="content"> 
      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" class="objectlink" target="_blank">MDN: Pseudo-classes</a>
   <p>Based on current state of UI</p>
-  <pre contenteditable>
-  :enabled
-  
-  :disabled
-  
-  :checked
-  </pre>
-<p>Example:</p>
+  <pre contenteditable>:enabled
+:disabled
+:checked</pre>
 <pre>input:checked {
   outline: 2px solid red;
 }
 </pre>
-<div style="clear:both;">
 <input type="checkbox" id="test1ck"/> <label  for="test1ck">Check and Uncheck Me</label><br/>
-<input type="checkbox" id="test2ck"/> <label  for="test2ck">Check and uncheck me too!</label></div>   </section>
+
+<pre>input:checked + label {
+  color: red;
+}
+</pre>
+<input type="checkbox" id="test2ck"/> <label  for="test2ck">Check and uncheck me too!</label>
+</section>
 </div>
     
 <!--Form related UI pseudo-classes -->
 <div class="slide normal"> 
-     <header><h1>Form UI Pseudo-Classes</h1></header> 
+     <header><h1>Form Validation Pseudo-Classes</h1></header> 
      <section class="content"> 
   <pre contenteditable class="columns2">:valid
 :invalid
@@ -429,7 +429,10 @@ input:in-range { background-color:lightgreen;}</pre>
 <div class="slide normal"> 
      <header><h1>nth Pseudo-Classes</h1></header> 
      <section class="content"> 
-<pre contenteditable>:nth-child(<b>3n</b>) 
+<pre contenteditable>
+:nth-child(<b>3</b>) 
+
+:nth-child(<b>3n</b>) 
 
 :nth-last-child(<b>odd</b>) 
 
@@ -438,11 +441,6 @@ input:in-range { background-color:lightgreen;}</pre>
 :nth-last-of-type(<b>3n+1</b>) </pre>
 
 <p>Target element or elements based on argument passed to the selector</p> 
-<ul class="pre">
-	<li>:nth-of-type(<b>even</b>)</li>
-    <li>:nth-of-type(<b>odd</b>)</li>
-    <li>:nth-of-type(<b>an+b</b>) </li>
-</ul>
      </section>
     </div>
        
