@@ -1,0 +1,44 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+head, style {display: block;}
+[contenteditable] {-webkit-user-modify: read-write-plaintext-only;}
+style:first-of-type {visibility:hidden;}
+style:last-of-type {padding: 20px; font-size: 1.5em; white-space: pre; font-family: monospace; white-space:pre; border-radius: 10px; border: 3px solid #aaa; background-color:#dedede; margin: 20px auto; width: 80%; font-family:"Courier New", Courier, monospace;}
+:root {background-color:#ccc; 
+  background-image:url(../css/page-bg.jpg);}
+ol {font-family:Verdana, Geneva, sans-serif; font-size:1.2em}
+</style>
+
+<style contenteditable>
+li                {color: yellow;}
+/*ol li           {color: green;}*/
+/*ol > li         {color: purple;}*/
+/*li.myclass      {color: red;}*/
+/*li.myclass + li {color:orange;}*/
+/*li.myclass ~ li {color: blue;} */
+</style>
+<title>CSS Selector Test</title>
+</head>
+
+<body>
+	<ol>
+     	<li>item 1</li>
+     	<li>item 2</li>
+     	<li>item 3
+        	<ul>
+     		<li>item a</li>
+     		<li>item b</li>
+     		<li>item c</li>
+            </ul>
+        </li>
+     	<li class="myclass">item 4 (myclass)</li>
+     	<li>item 5</li>
+     	<li>item 6</li>
+     	<li>item 7</li>
+        </ol>
+</body>
+</html>
+

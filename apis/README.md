@@ -1,6 +1,6 @@
 # Working with APIs in JS
 
-Slides and materials are hosted [here](http://gdisf-js-apis.appspot.com/).
+Slides and materials are hosted [here](http://www.teaching-materials.org/).
 
 ## Course description
 
