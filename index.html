@@ -132,26 +132,14 @@ $ git config --list
             </div>
           </section>
           <section>
-          <h3>What should I use version control for?</h3>
-          <h4>Anything. But not everything.</h4>
-          <img src="images/allthethings.jpg"/ alt="version control ALL THE THINGS!" style="margin-top: 50px;">
-          </section>
-          <section>
-          <h3>To track or not to track</h3>
-            <p>You decide what goes into version control.</p>
-            <p class="fragment">You can, and should, leave some things out.</p>
-            <p class="fragment green">libraries, .dotfiles, api keys...</p>
-            <p class="fragment">Git shows you an easy way to do this: <a href="https://help.github.com/articles/ignoring-files/">.gitignore</a></p>
-          </section>
-          <section>
           <h3>You already manage versions of your work!</h3>
           <p> Do you have files somewhere that look like this?</p>
           <pre><code>
-Resume-September2013.docx
-Resume-for-Duke-job.docx
-ResumeOLD.docx
-ResumeNEW.docx
-ResumeREALLYREALLYNEW.docx
+            Resume-September2013.docx
+            Resume-for-Duke-job.docx
+            ResumeOLD.docx
+            ResumeNEW.docx
+            ResumeREALLYREALLYNEW.docx
           </code></pre>
           <div class="fragment">You invented your own version control!</div>
           </section>
@@ -168,10 +156,10 @@ ResumeREALLYREALLYNEW.docx
             <p>The first commit, April 2005</p>
               <pre>
                 <code>
-commit e83c5163316f89bfbde7d9ab23ca2e25604af29
-Author: Linus Torvalds &lt;torvalds@ppc970.osdl.org&gt;
-Date: Thu Apr 7 15:13:13 2005 -0700
-Initial revision of "git", the information manager from hell
+                  commit e83c5163316f89bfbde7d9ab23ca2e25604af29
+                  Author: Linus Torvalds &lt;torvalds@ppc970.osdl.org&gt;
+                  Date: Thu Apr 7 15:13:13 2005 -0700
+                  Initial revision of "git", the information manager from hell
                 </code>
               </pre>
         </section>
@@ -203,18 +191,35 @@ Initial revision of "git", the information manager from hell
         </section>
         <!-- Git-->
         <section>
-          <h3>Why Use Git?</h3>
+          <section>
+            <h3>Why Use Git?</h3>
 
-          <ul>
-            <li><span class="green">Fast!</span> Access information quickly and efficiently.</li>
-            <li><span class="green">Distributed!</span> Everyone has her own local copy.</li>
-            <li><span class="green">Mind-bogglingly scalable!</span> Enables potentially thousands (millions!) of developers to work on single project.
-            <li><span class="green">Local!</span> You don't need a network connection to use it. You only need a remote server if you want to share your code with others (e.g., using GitHub).</li>
-            <li><span class="green">Branches!</span> Keep your coding experiments separate from code that is already working.</li>
-            <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history.</span></li>
-          </ul>
-        </section>
-
+            <ul>
+              <li><span class="green">Fast!</span> Access information quickly and efficiently.</li>
+              <li><span class="green">Distributed!</span> Everyone has her own local copy.</li>
+              <li><span class="green">Mind-bogglingly scalable!</span> Enables potentially thousands (millions!) of developers to work on single project.
+              <li><span class="green">Local!</span> You don't need a network connection to use it. You only need a remote server if you want to share your code with others (e.g., using GitHub).</li>
+              <li><span class="green">Branches!</span> Keep your coding experiments separate from code that is already working.</li>
+              <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history.</span></li>
+            </ul>
+          </section>
+          <section>
+            <h3>What should I use version control for?</h3>
+            <h4>Anything. But not everything.</h4>
+            <img src="images/allthethings.jpg"/ alt="version control ALL THE THINGS!" style="margin-top: 50px;">
+            </section>
+            <section>
+            <h3>To track or not to track</h3>
+              <p>You decide what goes into version control.</p>
+              <p>You can, and should, leave some things out.</p>
+              <p class="green">libraries, .dotfiles, api keys...</p>
+              <div class="fragment">
+                <p>Git shows you an easy way to do this:</p>
+                  <a href="https://help.github.com/articles/ignoring-files/">.gitignore</a>
+                  <p>Check out <a href="https://www.gitignore.io/">gitignore.io</a> for some suggestions.</p>
+              </div>
+            </section>
+          </section>
         <!-- Git Structure -->
         <section>
           <section>
