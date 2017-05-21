@@ -142,7 +142,7 @@ $ git config --list
           <h3>You already manage versions of your work!</h3>
           <p> Do you have files somewhere that look like this?</p>
           <pre><code>
-            Resume-September2013.docx
+            Resume-September2016.docx
             Resume-for-Duke-job.docx
             ResumeOLD.docx
             ResumeNEW.docx
@@ -171,29 +171,19 @@ $ git config --list
               </pre>
         </section>
           <section>
-            <h3>Version Control Types</h3>
-            </br>
-              <div class="fragment">
-                <h4>Centralized Version Control</h4>
-                <p>Examples: CVS, Subversion (SVN)</p>
-              </div>
-              </br>
-              <div class="fragment">
-                <h4>Distributed Version Control</h4>
-                <p>Examples: Git, Mercurial</p>
-              </div>
+            <h2>Types of Version Control Systems</h3>
           </section>
           <section>
               <h3>Centralized Version Control</h3>
               <img src="images/centralized-vc.png" alt = "one central server with each person pushing changes to the main server"/>
               <p>One central server, each client (person) checks out and merges changes to main server</p>
-               <p class="fragment">...NOT how Git works!</p>
+              <p class="pink">Examples: CVS, Subversion (SVN)</p>
           </section>
           <section>
               <h3>Distributed Version Control</h3>
               <img src="images/distributed-vc.png" alt="each person works on her own local copy; each copy is reconciled with the main copy on the server" />
               <p>Each client (person) has a local repository, which they can then reconcile with the main server.</p>
-               <p class="fragment">...this is how Git does it!</p>
+              <p class="pink">Examples: Git, Mercurial</p>
           </section>
         </section>
         <!-- Git-->
@@ -204,7 +194,7 @@ $ git config --list
             <ul>
               <li><span class="green">Fast!</span> Access information quickly and efficiently.</li>
               <li><span class="green">Distributed!</span> Everyone has her own local copy.</li>
-              <li><span class="green">Mind-bogglingly scalable!</span> Enables potentially thousands (millions!) of developers to work on single project.
+              <li><span class="green">Scalable!</span> Enables potentially thousands (millions!) of developers to work on single project.
               <li><span class="green">Local!</span> You don't need a network connection to use it. You only need a remote server if you want to share your code with others (e.g., using GitHub).</li>
               <li><span class="green">Branches!</span> Keep your coding experiments separate from code that is already working.</li>
               <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history.</span></li>
@@ -227,17 +217,6 @@ $ git config --list
               </div>
             </section>
           </section>
-        <!-- Git Structure -->
-        <section>
-          <section>
-          <h3>Git Structure &amp; Workflow</h3>
-          <img src="images/basic-remote-workflow.png" style="height:550px;"/>
-          </section>
-          <section>
-          <h5>Or, put another way...</h5>
-          <img src="images/git_index_structure.png" style="height:550px;"/>
-          </section>
-        </section>
         <!-- Git terms and commands-->
         <section>
           <section>
@@ -253,16 +232,13 @@ $ git config --list
           </section>
           <section>
           <h3>Some Basic Git Commands</h3>
-            <ul>
+            <ul style="font-family: monospace;">
               <li>init</li>
               <li>clone</li>
-              <br>
               <li>add</li>
               <li>commit</li>
-              <br>
               <li>status</li>
               <li>log</li>
-              <br>
               <li>branch</li>
               <li>checkout</li>
               <li>fetch</li>
@@ -275,11 +251,11 @@ $ git config --list
             <h3>Create a Local Repository</h3>
             <p>1. Go to your home directory</p>
             <pre><code class ="command-line">
-  $ cd ~/
+  $ cd
   OR
   $ cd Users/username
             </code></pre>
-            <p>2. Create a new "working directory" and cd into it</p>
+            <p>2. Create a new "working directory" and <span class="green">cd</span> into it</p>
             <pre><code class ="command-line">
   $ mkdir my-repo
   $ cd my-repo
@@ -294,24 +270,24 @@ $ git config --list
           </section>
           <section>
             <h3>Add files</h3>
-            <p>1. Create a new file in your new folder named "kitten.txt"</p>
+            <p>1. Create a new file in your new folder named <span class="green">kitten.txt</span></p>
   <pre><code class ="command-line">
   $ touch kitten.txt
             </code></pre>
-            <p>2. Check the status of your repo with "git status"</p>
+            <p>2. Check the status of your repo with <span class="green">git status</span></p>
             <pre><code class ="command-line">
   $ git status
             </code></pre>
-            <p>3. Tell Git to track our new file with the "git add" command</p>
+            <p>3. Tell Git to track our new file with <span class="green">git add</span></p>
             <pre><code class ="command-line">
   $ git add kitten.txt
   $ git status
             </code></pre>
-            <p><span class="green">Success!</span> The file you just added is now tracked by Git</p>
+            <p><span class="blue">Success!</span> The file you just added is now tracked by Git</p>
           </section>
           <section>
             <h3>Changes and commits</h3>
-            <p>1. Open kitten.txt, add some text, and save it</p>
+            <p>1. Open <span class="green ">kitten.txt</span>, add some text, and save it</p>
             <pre><code class ="command-line">
   $ git status
             </code></pre>
@@ -346,7 +322,7 @@ $ git config --list
             <pre><code class ="command-line">
   commit 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b
   Author: Your name &lt;you@your-email.com&gt;
-  Date:   Thu Feb 05 16:01:22 2015 -0700
+  Date:   Tues May 23 16:01:22 2017 -0700
 
       First commit. Added kitten.txt to repository.
               </code></pre>
@@ -358,11 +334,22 @@ $ git config --list
           <section>
             <h2>Now try...</h2>
               <ul>
-                <li>Make changes to kitten.txt and make some more commits.</li>
+                <li>Make changes to <span class="green">kitten.txt</span> and make some more commits.</li>
                 <li>Add another file (or image!) to your project and commit that.</li>
                 <li>Change more than one file at a time, and practice making commits where you stage only one file, or both files together.</li>
               </ul>
               <h4 style="margin-top: 30px;"> Don't forget to run <span class="green">git status</span> regularly so that you can see what is happening at each stage!</h4>
+          </section>
+        </section>
+      <!-- Git Structure -->
+        <section>
+          <section>
+          <h3>Git Structure &amp; Workflow</h3>
+          <img src="images/git_index_structure.png" style="height:550px;"/>
+          </section>
+          <section>
+          <h5>In the big picture...</h5>
+          <img src="images/basic-remote-workflow.png" style="height:550px;"/>
           </section>
         </section>
         <!-- Undoing changes -->
