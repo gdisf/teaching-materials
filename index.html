@@ -521,6 +521,20 @@ $ git log --oneline
             <img src="images/merge-conflict.png"/>
           </section>
           <section>
+            <h3>what a merge conflict looks like</h3>
+            <p>You will see this in the affected file your text editor</p>
+            <pre><code>
+Here are lines that are either unchanged from the common ancestor,
+or cleanly resolved because only one side changed.
+<<<<<<< yours:sample.txt
+Your changes are reflected here in this section.
+=======
+Their changes are here in this section, in conflict with yours.
+>>>>>>> theirs:sample.txt
+And here is another line that is cleanly resolved or unmodified.
+          </code></pre>
+          </section>
+          <section>
             <h3>Merging</h3>
             <h4>Merge conflicts</h4>
             <p>Change the first line in <span class="green">kitten.txt</span> in <span class="pink">master</span> branch</p>
