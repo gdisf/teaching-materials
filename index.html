@@ -117,7 +117,7 @@ $ git config --list
               <img src="images/letsdothis.gif" alt="Let's do this thing!"/>
               <div>
               <a href="https://help.github.com/articles/set-up-git/">Instructions on GitHub for reference</a>
-              <p>BONUS LEVEL: Set up your GitHub account and authenticating from Git.</p>
+              <p>BONUS LEVEL: Set up your GitHub account and authentication from Git.</p>
               </div>
           </section>
         </section>
@@ -218,8 +218,7 @@ Initial revision of "git", the information manager from hell
         <!-- Git terms and commands-->
         <section>
           <section>
-            <h3> Git has its own peculiar Vocabulary </h3>
-            <p> Here are some of the most basic ones. </p>
+            <h3> Git has its own Vocabulary </h3>
              <ul>
              <li> A <span class="green">repository</span> is where you keep all the files you want to track.</li>
              <li> A <span class="green">branch</span> is the name for a separate line of development, with its own history.</li>
@@ -232,7 +231,6 @@ Initial revision of "git", the information manager from hell
           <h3>Some Basic Git Commands</h3>
             <ul style="font-family: monospace;">
               <li>init</li>
-              <li>clone</li>
               <li>add</li>
               <li>commit</li>
               <li>status</li>
@@ -243,43 +241,44 @@ Initial revision of "git", the information manager from hell
               <li>merge</li>
               <li>pull</li>
               <li>push</li>
+              <li>clone</li>
             </ul>
           </section>
           <section>
             <h3>Create a Local Repository</h3>
             <p>1. Go to your home directory</p>
             <pre><code class ="command-line">
-  $ cd
-  OR
-  $ cd Users/username
+$ cd
+OR
+$ cd Users/username
             </code></pre>
             <p>2. Create a new "working directory" and <span class="green">cd</span> into it</p>
             <pre><code class ="command-line">
-  $ mkdir my-repo
-  $ cd my-repo
+$ mkdir my-repo
+$ cd my-repo
             </code></pre>
             <p>3. Initialize it as a local Git repository</p>
             <pre><code class ="bash">
-  # make sure you are in the right directory!
-  $ pwd
-  $ git init
-  $ git status
+# make sure you are in the right directory!
+$ pwd
+$ git init
+$ git status
             </code></pre>
           </section>
           <section>
             <h3>Add files</h3>
             <p>1. Create a new file in your new folder named <span class="green">kitten.txt</span></p>
   <pre><code class ="command-line">
-  $ touch kitten.txt
+$ touch kitten.txt
             </code></pre>
             <p>2. Check the status of your repo with <span class="green">git status</span></p>
             <pre><code class ="command-line">
-  $ git status
+$ git status
             </code></pre>
             <p>3. Tell Git to track our new file with <span class="green">git add</span></p>
             <pre><code class ="command-line">
-  $ git add kitten.txt
-  $ git status
+$ git add kitten.txt
+$ git status
             </code></pre>
             <p><span class="blue">Success!</span> The file you just added is now tracked by Git</p>
           </section>
@@ -287,16 +286,16 @@ Initial revision of "git", the information manager from hell
             <h3>Changes and commits</h3>
             <p>1. Open <span class="green ">kitten.txt</span>, add some text, and save it</p>
             <pre><code class ="command-line">
-  $ git status
+$ git status
             </code></pre>
             <p>2. Stage the change and check the status</p>
             <pre><code class ="command-line">
-  $ git add kitten.txt
-  $ git status
+$ git add kitten.txt
+$ git status
             </code></pre>
             <p>3. Commit the change with a good commit message that explains and describes what you did </p>
             <pre><code class ="command-line">
-  $ git commit -m "First commit. Added kitten.txt to repository."
+$ git commit -m "First commit. Added kitten.txt to repository."
             </code></pre>
           </section>
         </section>
@@ -315,7 +314,7 @@ Initial revision of "git", the information manager from hell
           <section>
             <h3>Look at your progress</h3>
             <pre><code class ="command-line">
-  $ git log
+$ git log
             </code></pre>
             <pre><code class ="command-line">
 commit 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b
@@ -359,17 +358,17 @@ Date:   Tues May 23 16:01:22 2017 -0700
             <h3>Undoing changes in your working copy</h3>
             <p class="blue">If you haven't added/committed yet</p>
             <div class = "fragment">
-              <p>Open kitten.txt and make some changes or add something new. Then:</p>
+              <p>Open <span class="green">kitten.txt</span> and make some changes or add something new. Then:</p>
               <pre><code  class ="command-line">
-  $ git checkout kitten.txt
+$ git checkout kitten.txt
               </code></pre>
             </div>
-            <p class="fragment">Look at kitten.txt in your editor: your changes are gone (you've gone back to the previous commit state).</p>
+            <p class="fragment">Look at <span class="green">kitten.txt</span> in your editor: your changes are gone (you've gone back to the previous commit state).</p>
           </section>
           <section>
             <h3>Un-staging a file</h3>
               <ol>
-                <li>In your text editor, create a new file, and name it "possum.txt"</li>
+                <li>In your text editor, create a new file, and name it <span class="green">possum.txt</span></li>
                 <li>Switch back to your terminal.</li>
               </ol>
               <pre><code class ="command-line">
@@ -383,7 +382,7 @@ $ git status
           <section>
             <h3>Undoing changes you've already staged</h3>
             <div class = "fragment">
-              <p>Open kitten.txt in your editor and add some new text.</p>
+              <p>Open <span class="green">kitten.txt</span> in your editor and add some new text.</p>
               <pre><code class ="command-line">
 $ git add kitten.txt
 $ git reset HEAD kitten.txt
@@ -392,14 +391,14 @@ $ git checkout kitten.txt
 # resets the working copy to its state at the last commit
               </code></pre>
             </div>
-            <p class="fragment">Now look at kitten.txt in your editor again: your changes are gone, and the file is removed from staging. </p>
+            <p class="fragment">Now look at the same file in your editor again: your changes are gone, and the file is removed from staging. </p>
           </section>
           <section>
             <h3>Er, what if I already committed it?</h3>
             <h4>Undoing committed changes</h4>
             <p>Git lets you go back to any previous commit.</p>
             <div class = "fragment">
-              <p>Open kitten.txt and add some new text</p>
+              <p>Open <span class="green">kitten.txt</span> and add some new text</p>
               <pre><code class ="command-line">
 $ git add kitten.txt
 $ git status
@@ -433,20 +432,19 @@ $ git log --oneline
           <section>
           <h3>Branching</h3>
           <ul>
-              <li>Develop different code on the same base</li>
-              <li>Conduct experimental work without affecting the work on master branch</li>
-              <li>Incorporate changes to your master branch only if and when you are ready...or discard them easily</li>
+              <li>Develop different code on the <span class="pink">same base</span></li>
+              <li>Conduct <span class="pink">experimental work</span> without affecting the work on master branch</li>
+              <li>Incorporate changes to your master branch <span class="pink">only if and when you are ready</span>...or discard them easily</li>
             </ul>
-
             <p class= "fragment green"> Branches are cheap!</p>
           </section>
           <section>
             <h3>Branching</h3>
-            <p>Create a new branch called "feature"</p>
+            <p>Create a new branch called <span class="green">feature</span></p>
             <pre><code class ="command-line">
 $ git checkout -b feature
             </code></pre>
-            <p>Add new lines to kitten.txt</p>
+            <p>Add new lines to <span class="green">kitten.txt</span></p>
             <pre><code class ="command-line">
 $ git add kitten.txt
 $ git commit -m "Adding changes to feature"
@@ -495,12 +493,12 @@ $ git log --oneline
           <section>
             <h3>Merging</h3>
             <h4>Merge conflicts</h4>
-            <p>Change the first line in kitten.txt in master branch</p>
+            <p>Change the first line in <span class="green">kitten.txt</span> in <span class="pink">master</span> branch</p>
             <pre><code class ="command-line">
 $ git add kitten.txt
 $ git commit -m "Changing kitten in master"
             </code></pre>
-            <p>Now change first line in kitten.txt in feature branch</p>
+            <p>Now change the first line in <span class="green">kitten.txt</span> in <span class="pink">feature</span> branch</p>
             <pre><code class ="command-line">
 $ git checkout feature
    # open kitten.txt and change the first line
@@ -511,7 +509,7 @@ $ git commit -m "Changing kitten in feature"
           <section>
             <h3>Merging</h3>
             <h4>Merge conflicts, cont.</h4>
-            <p>Merge the changes from master into the feature branch</p>
+            <p>Merge the changes from <span class="pink">master</span> into the <span class="pink">feature</span> branch</p>
             <pre><code class ="command-line">
 $ git merge master #remember, you are on the feature branch here
             </code></pre>
@@ -578,7 +576,7 @@ $ git push -u origin master
         <!-- Fork a repository-->
         <section>
           <section>
-            <h3>What can I do with a GitHub Account</h3>
+            <h3>What can I do with a GitHub Account?</h3>
             <p>
             <p> <a href="https://help.github.com/articles/fork-a-repo/">FORK</a> a repo: Find some code you want to use and grab a copy of it. </p>
             <p> (Then you'll also need to <a href="http://git-scm.com/docs/git-clone">CLONE</a> the repo &mdash; that is, make your own local copy of it)</p>
@@ -587,13 +585,14 @@ $ git push -u origin master
           </section>
           <section>
             <h3>Forking</h3>
-            <p>Think</p>  <img src="images/fork-in-the-road.jpg" style="border: 0;" />
-            <p>not</p>
+            <p>This</p>  <img src="images/fork-in-the-road.jpg" style="border: 0;" />
+            <p>not this</p>
             <img src="images/fork.jpg" style="height:200px; border: 0;" />
           </section>
           <section>
             <h3><a href="https://help.github.com/articles/fork-a-repo/">Forking</a></h3>
-             <p>If you want to <span class = "green">use</span> or <span class = "green">contribute</span> to a repository, you can fork it. A fork is just a copy of a repository, saved to GitHub.</p>
+             <p>If you want to <span class = "green">use</span> or <span class = "green">contribute</span> to a repository, you can fork it. </p>
+             <p>A fork is just a copy of a repository, saved to GitHub.</p>
               <a href="https://github.com/amygori/tiny-repo"> Let's practice forking! </a>
             <img src = "images/fork_button.jpg" alt ="How to fork a repository. Image from https://help.github.com/articles/fork-a-repo/"/>
           </section>
