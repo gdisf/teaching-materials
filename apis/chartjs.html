@@ -1,0 +1,35 @@
+&lt;!DOCTYPE html&gt;
+&lt;head&gt;
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"&gt;&lt;/script&gt;
+
+&lt;body&gt;
+  &lt;canvas id="favorite-pets" width="800" height="450"&gt;&lt;/canvas&gt;
+&lt;/body&gt;
+
+&lt;script&gt;
+  new Chart(document.getElementById("favorite-pets"), {
+    type: 'bar',
+    data: {
+      labels: ["dogs", "cats", "birds", "rodents", "fish", "reptiles"],
+      datasets: [
+        {
+          label: "Families",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#245204"],
+          data: [6478,6267,734,784,433,234]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Favorite pets'
+      }
+    }
+  });
+&lt;/script&gt;
+
+&lt;/head&gt;
+
+
+&lt;/html&gt;
