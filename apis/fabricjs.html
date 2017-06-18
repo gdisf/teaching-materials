@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.1.0/fabric.all.min.js" ></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<body>
+		<!-- A canvas tag is required or
+			 Fabric.js doesn't know where to draw. -->
+		<canvas id="c" style="border:1px solid black;" ></canvas>
+</body>
+
+<script>
+	$(function () {
+
+		var canvas = new fabric.Canvas('c');
+
+		var hi = new fabric.Text('hello, world.', {
+			left: canvas.getWidth() / 2,
+			top: canvas.getHeight() / 2
+		});
+
+		canvas.add(hi);
+
+	});
+</script>
+
+</head>
+
+
+</html>
