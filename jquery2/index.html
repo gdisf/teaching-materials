@@ -29,22 +29,79 @@
         </section><!--/jquery title slide-->
 
 
+        <section>
+        	<header><h2>Review: JS Functions</h2></header>
+        	<div class="content">
+        		<pre><code class="javascript">//define a function
+var sayHello = function (name) {
+  console.log("Hello, " + name + "!");
+}
+
+//call a function 
+sayHello("Girl Develop It");
+        		</code></pre>
+        	</div>
+        </section>
 
 
-				<section>
+        <section>
+			<header><h2>Remember: Callbacks</h2></header>
+				<img src="img/ryan-gosling-callback.jpg" style="width:100%;"/>
+
+		</section><!--/hey girl meme-->
+
+		<section>
+        	<header><h2>Review: JS Callbacks</h2></header>
+        	<div class="content">
+<pre><code class="javascript">var sayHello = function (name) {
+  console.log("Hello, " + name + "!");
+}
+
+var textAFriend = function (name, callback) {
+  callback(name);
+}
+
+//call the function with a named callback function
+textAFriend("Girl Develop It", sayHello);
+        		</code></pre>
+        	</div>
+        </section>
+
+        <section>
+        	<header><h2>Review: JS Callbacks</h2></header>
+        	<div class="content">
+<pre><code class="javascript">var sayAwesome = function (name, callback) {
+  callback(name);
+}
+
+//call the function with an anonymous callback function
+sayAwesome("Girl Develop It", function() {
+  console.log("You are awesome " + name + "!");
+});
+        		</code></pre>
+        	</div>
+        </section>
+
+        		<section>
 					<header><h2>Events</h2></header>
 					<div class="content">
-<pre><code class="javascript">var onButtonClick = function() {
+<pre><code class="javascript">// First Example, with named callback & .on
+var onButtonClick = function() {
   console.log('clicked!');
 };
 
 $('button').on('click', onButtonClick);
 
+
+// Second Example, with anonymous callback & .on
 $('button').on('click', function () {
   console.log('clicked!');
 });
 
-$('button').click(onButtonClick)</code></pre>
+
+// Third Example, with .click (& a named callback)
+$('button').click(onButtonClick)
+</code></pre>
 <small><ul>
 						<li><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a>
 							<code>'keydown'</code>
@@ -63,36 +120,26 @@ $('button').click(onButtonClick)</code></pre>
 							<code>'blur'</code>
 						</li>
         </ul></small>
-            <p>Follow along: <a href="http://jsbin.com/dosewola/7/edit">http://jsbin.com/dosewola/7/edit</a></p>
+            <p>Follow along: <a href="http://jsbin.com/jiwoxef/edit">http://jsbin.com/jiwoxef/edit</a></p>
 					</div>
 				</section><!--/events1-->
 
-
-				<section>
-					<header><h2>Remember: Callbacks</h2></header>
-						<img src="img/ryan-gosling-callback.jpg" style="width:100%;"/>
-
-				</section><!--/hey girl meme-->
 
 
 				<section>
 					<header><h2>Events</h2></header>
 					<p>
 						<br>
-						<p>Arguments get applied in callbacks<p>
-<pre><code class="javascript">var myCallback = function(event) {
-	console.log(event);
-};
-
-$('p').on('mouseenter', myCallback);</code></pre>
 						<p>Preventing Default Events</p>
-<pre><code class="javascript">$('a').on('click', function (event) {
-	event.preventDefault();
-	console.log('Not going there!');
+<pre><code class="javascript">//default event for clicking on link is to go to new page
+$('a').on('click', function (event) {
+  event.preventDefault();
+  console.log('Not going there!');
 });</code></pre>
-<pre><code class="javascript">$('form').on('submit', function (event) {
-	event.preventDefault();
-	console.log('Not submitting, time to validate!');
+<pre><code class="javascript">//default event is to submit form and reload page
+$('form').on('submit', function (event) {
+  event.preventDefault(); 
+  console.log('Not submitting, time to validate!');
 });</code></pre>
 
 					</p>
@@ -105,12 +152,18 @@ $('p').on('mouseenter', myCallback);</code></pre>
 					<header><h2>Effects &amp; Animation</h2></header>
 					<p>
 						<br>
-<pre><code class="javascript">$('#error').toggle(1000);
+<pre><code class="javascript">//on page load
+$('.kitty-image').show(3000);
 
-$('#error').fadeIn();
+$('.kitty-image').fadeIn(3000);
 
-$('#error').show(1000, function(){
-	$(this).addClass('redText')
+//with an event handler, as a callback
+$('button').click(function() {
+  $('.kitty-image').show();
+});
+
+$('button').mouseover(function(){
+  $(this).css('color', 'red');
 });</code></pre>
 
 					<p>
@@ -166,10 +219,10 @@ $('#error').show(1000, function(){
 						<p><strong>Pattern: </strong>name variables with $
 <pre><code class="javascript">var $myVar = $('#myNode');</code></pre>
 						</p>
-						<br>
+						<!--<br>
 						<p><strong>Pattern: </strong>bind events to the document
 						<pre><code class="javascript">$(document).on('click', 'a', myCallback);</code></pre>
-						</p>
+						</p>--> 
 
 					</p>
 				</section><!--/jquery patterns and anti-patterns-->

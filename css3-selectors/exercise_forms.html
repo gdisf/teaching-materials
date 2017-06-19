@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Form Selectors Exercose</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+      ol li {
+        line-height: 2em;
+      }
+    </style>
+  </head>
+  <body>
+   <div class="container">
+   <h1>Form Selectors Exercise</h1>
+
+   <p>In this exercise, you'll use CSS to style a form and let the user known when they've entered something wrong.</p>
+   <ol>
+    <li>Download <a href="exercise_forms_before.html">this webpage</a> into a folder, or copy into JSbin.com.</li>
+    <li>Look through the HTML so that you get an idea for the structure of the HTML elements.</li>
+    <li>Add a CSS rule to style the <code>span</code> elements inside each <code>label</code>. Add a <code>width</code> and <code>float</code> property so that the spans all form a left column.</li>
+    <li>Add a CSS rule to style the <code>input</code> element with <code>type="button"</code>. Give it a <code>width</code> that makes it take up the whole width of the page.</li>
+    <li>Add a CSS rule to style the <code>hover</code> state of the button. Give it a <code>background-color</code> on hover.</li>
+    <li>Add a CSS rule to style the <code>input</code> elements that are <code>required</code>. Give them a <code>border</code>.</li>
+    <li>Add a CSS rule to style the <code>input</code> elements that are invalid. Give them a <code>background-color</code> of red.</li>
+    <li>Add a CSS rule to style the <code>span</code> elements that come <em>after</em> the labels (the form hints). Change their <code>font</code> properties.</li>
+    <li>Now you'll make it so that the form hints only appear when you hover over the labels. First add a <code>display:none;</code> property to the previous rule so they start off hidden. Then add a CSS rule to style the <code>span</code> elements that come after the labels, but only when the label is being hovered over. Give that state a <code>display:block;</code> property.</li>
+    <li>Add a CSS rule to style the <code>span</code> that appears after the newsletter <code>input</code>, but only when that <code>input</code> is <code>checked</code>. Give it a <code>border</code or <code>color</code> property.</li>
+   </ol>
+
+   <p>In the end, your form should look something like this screenshot:</p>
+   <img src="images/exercise_forms.png" style="border:1px solid #ccc; max-height: 400px;" alt="screenshot of CSS form selectors exercise">
+   <br><br>
+   <button class="btn" onclick="showSolution();">Show Solution</button>
+
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_forms_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+
+    <script>
+      function showSolution() {
+        if (confirm('You surrrrre?')) {
+          document.getElementById('solution').style.display = 'block';
+          window.scrollTo(0, document.body.scrollHeight);
+        }
+      }
+    </script>
+
+
+
+   </div>
+  </body>
+</html>
