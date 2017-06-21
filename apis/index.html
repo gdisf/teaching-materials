@@ -143,7 +143,6 @@ and why you should use them.
 	<h2><strong>HTML APIs</strong>:  HTML elements as APIs using their attributes</h2>
 		<h3>IMG tags</h3>
 		<h3>IFRAME tags</h3>
-		<h3>OBJECT/EMBED tags</h3>
 		<br>
 	<h2><strong>JS Widget/Snippet API</strong>: Pull in a Javascript library as an API</h2>
 
@@ -327,21 +326,21 @@ window.apiNamespace.apiFunction = function() {
 
 &lt;script type="text/javascript"&gt;
 new Chart(document.getElementById("favorite-pets"), {
-	type: 'bar',
-	data: {
-		labels: ["dogs", "cats", "birds", "rodents", "fish", "reptiles"],
-		datasets: [
-			{
-				label: "Families",
-				backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#245204"],
-				data: [6478,6267,734,784,433,234]
-			}
-		]
-	},
-	options: {
-		legend: { display: false },
-		title: { display: true, text: 'Favorite pets' }
-	}
+  type: 'bar',
+  data: {
+    labels: ["dogs", "cats", "birds"],
+    datasets: [
+      {
+        label: "Families",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+        data: [6478,6267,4734]
+      }
+    ]
+  },
+  options: {
+    legend: { display: false },
+    title: { display: true, text: 'Favorite pets' }
+  }
 });
 &lt;/script&gt;
   </textarea>
@@ -353,30 +352,33 @@ new Chart(document.getElementById("favorite-pets"), {
 </div>
 
 <div class="slide">
-  <h1>Example: Fabric.js</h1>
+  <h1>Example: Twitter List</h1>
 
   <textarea class="runnable html">
-&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.1.0/fabric.all.min.js" &gt;&lt;/script&gt;
+&lt;a class="twitter-timeline" href="https://twitter.com/amc123123/lists/women-in-tech"&gt;
+  A Twitter List by EngineerSue
+&lt;/a&gt;
 
-&lt;canvas id="c" style="border:1px solid black;" &gt;&lt;/canvas&gt;
+&lt;script&gt;window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+  t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
 
-&lt;script type="text/jquery"&gt;
-$(function () {
-	var canvas = new fabric.Canvas('c');
+  t._e = [];
+  t.ready = function(f) {
+  t._e.push(f);
+};
 
-	var hi = new fabric.Text('hello, world.', {
-		left: canvas.getWidth() / 2,
-		top: canvas.getHeight() / 2
-	});
-
-	canvas.add(hi);
-});
-&lt;/script&gt;
+return t;
+}(document, "script", "twitter-wjs"));&lt;/script&gt;
   </textarea>
 
   <p class="footer">
-    More reading: <a href="http://fabricjs.com/docs/">Fabric.js docs</a>
+    More reading: <a target="_blank" href="https://dev.twitter.com/web/javascript/loading">Twitter Widget docs</a>
   </p>
 
 </div>
