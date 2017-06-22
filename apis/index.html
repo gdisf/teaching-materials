@@ -234,28 +234,26 @@ template=simple"&gt;
 
   <textarea class="runnable html">
 &lt;img src="
-http://maps.google.com/maps/api/staticmap?
-center=45.123664,-123.113775&
-zoom=18&
-maptype=satellite&
-size=250x300&
-sensor=false"&gt;
+https://maps.googleapis.com/maps/api/staticmap?
+center=Alamo Square Playground+San+Francisco,+CA+94117&
+zoom=16&
+size=500x400&
+markers=color:red%7Clabel:%7CPainted Ladies"&gt;
   </textarea>
 
   <textarea class="runnable html">
 &lt;img src="
-http://maps.googleapis.com/maps/api/streetview?
-size=300x250&
-location=-33.86627,151.195827&
-fov=20&
-heading=350&
-pitch=-20&
-sensor=false"&gt;
+https://maps.googleapis.com/maps/api/streetview?
+size=400x400&
+location=37.7762139,-122.4329534&
+fov=100&
+heading=70&
+pitch=10"&gt;
   </textarea>
 
   <p class="footer">Read more:
-   <a href="http://code.google.com/apis/maps/documentation/staticmaps/">Google Static Maps API</a> |
-   <a href="http://code.google.com/apis/maps/documentation/streetview/index.html">Google Street View Image API</a>
+   <a href="https://developers.google.com/maps/documentation/static-maps/" target="_blank">Google Static Maps API</a> |
+   <a href="https://developers.google.com/maps/documentation/streetview/" target="_blank">Google Street View Image API</a>
   </p>
 </div>
 
@@ -278,6 +276,7 @@ chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
   </p>
 </div>
 
+<!-- commented out because who uses flash these days? 
 <div class="slide">
   <h1>EMBED/OBJECT as API</h1>
 
@@ -304,6 +303,8 @@ chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
 
 </div>
 
+end flash slide -->
+
 <div class="slide">
   <h1>IFRAME as API: Simple</h1>
 
@@ -313,12 +314,12 @@ chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
 
   <h3>YouTube Embed:</h3>
   <textarea class="runnable html">
-&lt;iframe width="420" height="315"
- src="http://www.youtube.com/embed/epUk3T2Kfno?rel=0&autoplay=1"
- frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width="560" height="315" 
+src="https://www.youtube.com/embed/epUk3T2Kfno?autoplay=1" 
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
   </textarea>
 
-  <p><a href="https://developers.google.com/youtube/player_parameters#autohide">Youtube Player Embed Reference</a></p>
+  <p><a href="https://developers.google.com/youtube/player_parameters" target="_blank">Youtube IFrame Player API</a></p>
 
 </div>
 
@@ -456,11 +457,11 @@ xhr.send();
 
   <h3>Your page:</h3>
   <textarea class="runnable script">
-&lt;script src="http://imagine-it.org/api.php?callback=onLoadData"&gt;
+&lt;script src="https://api.ipify.org?format=jsonp&callback=getip"&gt;
 &lt;/script&gt;
 &lt;script&gt;
-function onLoadData(json) {
-  $('#demo').html('<h1> YO YO YO ' + json.name + '</h1>');
+function getip(json) {
+  $('#demo').html('<h2> Your IP address is ' + json.ip + '.</h2>');
 }
 &lt;/script&gt;
   </textarea>
@@ -470,7 +471,7 @@ function onLoadData(json) {
 &lt;?php
 $callback = $_GET['callback'];
 
-echo $callback . "({'name': 'Girl Develop It'});";
+echo $callback . "({'ip': getIP()});";
 ?&gt;
   </textarea>
 
@@ -479,8 +480,9 @@ echo $callback . "({'name': 'Girl Develop It'});";
 <div class="slide">
   <h1>reddit JSONP API</h1>
 
-   <p>Example URL:
-     <a href="http://www.reddit.com/r/all/search.json?q=girldevelopit">
+   <p>Example URL: 
+     <a href="http://www.reddit.com/r/all/search.json?q=girldevelopit" target="_blank">
+
      http://www.reddit.com/r/all/search.json?q=girldevelopit
      </a>
    </p>
@@ -490,7 +492,10 @@ echo $callback . "({'name': 'Girl Develop It'});";
    <textarea class="runnable js" mode="javascript" style="display: none;" runnable="true">
 function onLoad(json) {
   var posts = json.data.children;
-  document.getElementById('demo').innerHTML = posts[0].data.title;
+  for (var i = 0; i < 5 && i < posts.length; i++) {
+    document.getElementById('demo').innerHTML += 
+      '<p>' + posts[i].data.title + '</p>';
+  }
 }
 
 function fetchJSON(query) {
@@ -503,24 +508,25 @@ function fetchJSON(query) {
 fetchJSON('girldevelopit');
    </textarea>
 
-   <p class="footer"><a href="http://www.reddit.com/dev/api#GET_search">Reddit API docs</a></p>
+   <p class="footer"><a href="http://www.reddit.com/dev/api#GET_search" target="_blank">Reddit API docs</a></p>
 </div>
 
 <div class="slide">
   <h1>Youtube JSONP API</h1>
-  <p><a href="http://www.nonobtrusive.com/2010/05/20/lightweight-jsonp-without-any-3rd-party-libraries/">Lightweight JSONP JS Library</a></p>
   <!-- For those of you who don't actually use jQuery... -->
 
   <textarea class="runnable js" mode="javascript" style="display: none;" runnable="true">
 function fetchJSON(query) {
-  var searchUrl = 'http://gdata.youtube.com/feeds/api/videos';
+  var searchUrl = 'https://www.googleapis.com/youtube/v3/search';
   var params = {
-    'v': '2', 'alt': 'jsonc', 'q': encodeURIComponent(query)
+    'part' : 'snippet',
+    'key' : 'AIzaSyCRXTR0G_Slvgyjj_Vgfry6KLiw8pIMlHs',
+    'q': encodeURIComponent(query)
   }
   JSONP.get(searchUrl, params, null, function(json) {
-    var youtubeId = json.data.items[0].id;
-    document.getElementById('demo').innerHTML =
-  '<iframe width="560" height="365" ' +
+    var youtubeId = json.items[0].id.videoId;
+    document.getElementById('demo').innerHTML = 
+  '<iframe width="560" height="365" ' + 
   'src="http://www.youtube.com/embed/' + youtubeId +
   '" frameborder="0" allowfullscreen></iframe>';
   });
@@ -530,7 +536,7 @@ fetchJSON('otters');
   </textarea>
 
   <p class="footer">
-  See also: <a href="http://www.nonobtrusive.com/2010/05/20/lightweight-jsonp-without-any-3rd-party-libraries/">Lightweight JSONP JS Library</a></p>
+  See also: <a href="http://www.nonobtrusive.com/2010/05/20/lightweight-jsonp-without-any-3rd-party-libraries/" target="_blank">Lightweight JSONP JS Library</a></p>
   </p>
 
 </div>
@@ -565,13 +571,13 @@ fetchPhotos('rabbits');
   </textarea>
 
   <p class="footer">
-  See also: <a href="http://api.jquery.com/jQuery.ajax/">jQuery .ajax()</a> |
-  <a href="http://www.flickr.com/services/api/">Flickr API</a>
+  See also: <a href="http://api.jquery.com/jQuery.ajax/" target="_blank">jQuery .ajax()</a> |
+  <a href="http://www.flickr.com/services/api/" target="_blank">Flickr API</a>
   </p>
 
 </div>
 
-
+<!-- commenting out because this isn't necessary, and we're short on time 
 <div class="slide">
   <h1>Combo APIs</h1>
 
@@ -610,7 +616,7 @@ window.fbAsyncInit = function() {
   </p>
 
 </div>
-
+end comment -->
 
 
 <div class="slide">
