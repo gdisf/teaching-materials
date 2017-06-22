@@ -16,8 +16,12 @@ li {color: black;}
 li li {color: green;}
 </style>
 
-<style contenteditable>li[title] {color: purple; font-weight: bold;} 
-a[href] {text-decoration: overline;}
+<style contenteditable>li[title] { color: purple; font-weight: bold;} 
+/* a[href] { text-decoration: underline;} */
+/* a[target="_blank"] {background-color:yellow;} */
+/* a[href$=pdf] { text-transform: uppercase;} */
+/* a[href^=http] { background: #ccc; border: 1px solid black;} */
+/* [title*=unicorn] { border: 2px solid hotpink; } */
 </style>
 <title>CSS Selector Test</title>
 </head>
@@ -29,7 +33,7 @@ a[href] {text-decoration: overline;}
 <li>Fourth List Item</li>
 <li>Fifth List Item
 	<ul>
-    	<li>Child 1 external  <a href="http://site.com/file.pdf" title="external pdf file">pdf</a> - &lt;a href=&quot;http://site.com/file.pdf&quot; title=&quot;external pdf file&quot;&gt;</li>
+    	<li>Child 1 external  <a target="_blank" href="http://site.com/file.pdf" title="external pdf file">pdf</a> - &lt;a target="_blank" href=&quot;http://site.com/file.pdf&quot; title=&quot;external pdf file&quot;&gt;</li>
     	<li>Child 2</li>
     	<li>Child 3</li>
     </ul>

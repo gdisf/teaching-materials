@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS-Validating Form</title>
+    <style>
+input {
+  margin: 10px 0px;
+}
+      
+label span {
+  width: 150px;
+  float: left;
+}
+      
+input[type="button"] {
+  width:100%;
+  font-size: 20px;
+}
+      
+input[type="button"]:hover, input[type="button"]:active {
+  background: hotpink;
+}
+
+input:required {
+  border: 2px solid black;
+}
+      
+input:invalid {
+  background-color: red;
+}
+
+label + span {
+  font-style: italic;
+  font-size: smaller;
+  display: none;
+}
+
+label:hover + span {
+  display: block;
+}
+      
+input[name="spam"]:checked + span {
+  border: 1px solid green;
+}
+    </style>
+  </head>
+  <body>
+
+    <h2>Sign up for an account!</h2>
+
+    <form action="" method="get">
+
+    <div>
+      <label>
+        <span>Username:</span>
+        <input type="text" name="uname" size="20" required>
+      </label>
+      <span>Please pick a funny one!</span>
+    </div>
+    <div>
+      <label>
+        <span>Email:</span>
+        <input type="email" name="email" size="20">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Website: </span>
+        <input type="url" name="website" size="20" pattern="(http|https)://.+">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Password: </span>
+        <input type="password" name="pass" size="20" required>
+      </label>
+      <span>It must be super duper secure!</span>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" name="spam">
+        <span>Sign me up for the newsletter</span>
+      </label>
+    </div>
+    <input type="button" value="Sign up">
+
+    </form>
+
+  </body>
+</html>

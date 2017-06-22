@@ -491,9 +491,10 @@ p.firstletter {width: 400px;
 .count li:nth-of-type(4):nth-last-of-type(1){width: 25%;}
 
 
-input[type=checkbox]:checked + label {
-  color: red;
-}
+input#test1ck:checked { outline: 2px solid red; }
+
+input#test2ck:checked + label { color: red; }
+
 input:valid { border: 1px solid green;}
 input:invalid { border: 1px solid red;}
 input:required {border-width: 5px;}
