@@ -1,0 +1,440 @@
+@font-face {
+  font-family: 'Gotham-Round';
+  src: local("Gotham-Round"), url("../fonts/gothamrnd-light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Gotham-Round';
+  src: local("Gotham-Round"), url("../fonts/gothamrnd-light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #fff;
+  font-family: "Gotham-Round", sans-serif;
+  line-height: 1.35;
+  font-size: 30px;
+  color: #333; }
+
+.reveal {
+  font-family: "Gotham-Round", sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: -0.02em; }
+
+::selection {
+  color: #fff;
+  background: #FF5E99;
+  text-shadow: none; }
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #f05b62;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: none; }
+
+.reveal h1 {
+  font-size: 2.33331em; }
+.reveal h2 {
+  font-size: 1.83332em; }
+.reveal h3 {
+  font-size: 1.33332em; }
+.reveal h4 {
+  font-size: 0.99999em; }
+.reveal h5 {
+  font-size: 0.66666em; }
+.reveal h6 {
+  font-size: 0.33333em; }
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a:not(.image) {
+  color: #13DAEC;
+  text-decoration: none;
+  transition: color .15s ease; }
+
+.reveal a:not(.image):hover {
+  color: #71e9f4;
+  text-shadow: none;
+  border: none; }
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #0d99a5; }
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.12);
+  border: 4px solid #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: all .2s linear; }
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #13DAEC;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls div.navigate-left,
+.reveal .controls div.navigate-left.enabled {
+  border-right-color: #f05b62; }
+
+.reveal .controls div.navigate-right,
+.reveal .controls div.navigate-right.enabled {
+  border-left-color: #f05b62; }
+
+.reveal .controls div.navigate-up,
+.reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #f05b62; }
+
+.reveal .controls div.navigate-down,
+.reveal .controls div.navigate-down.enabled {
+  border-top-color: #f05b62; }
+
+.reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: #53555C; }
+
+.reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: #53555C; }
+
+.reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: #53555C; }
+
+.reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: #53555C; }
+
+/*********************************************
+ * FOOTER
+ *********************************************/
+.reveal footer {
+  position: fixed;
+  height: 26px;
+  width: 100%;
+  bottom: 3px;
+  left: 0;
+  z-index: 10;
+  font-size: 45%;
+  text-align: left;
+  background-image: url(../img/wordmark-tagline.png);
+  background-repeat: no-repeat;
+  background-size: auto 74%;
+  background-position: 7px 0; }
+
+.reveal footer .copyright {
+  margin: 7px 9px 0 110px; }
+
+.reveal footer .copyright a img {
+  vertical-align: middle; }
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2); }
+
+.reveal .progress span {
+  background: #13DAEC;
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/*********************************************
+ * SLIDE NUMBER
+ *********************************************/
+.reveal .slide-number {
+  color: #13DAEC; }
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+.reveal {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #53555C; }
+
+::selection {
+  color: white;
+  background: rgba(11, 79, 81, 0.99);
+  text-shadow: none; }
+
+.reveal section div.halfblock {
+  float: left;
+  width: 45%;
+  text-align: left;
+  margin-right: 5%; }
+  .reveal section div.halfblock + img {
+    max-width: 45%;
+    max-height: none; }
+
+div.left-align {
+  text-align: left; }
+
+.reveal strong {
+  font-weight: bold; }
+
+.reveal em {
+  font-style: italic; }
+
+.clear {
+  clear: both; }
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a:not(.image) {
+  color: #f05b62;
+  text-decoration: none;
+  transition: color .15s ease; }
+
+.reveal a:not(.image):hover {
+  color: #f9b8bb;
+  border: none; }
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #01a9b4; }
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 15px 0;
+  transition: all .2s linear;
+  max-height: 375px;
+  max-width: 80%; }
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #01a9b4;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+
+.reveal section img.noborder {
+  border-width: 0;
+  box-shadow: none; }
+
+.reveal section img.fullwidth {
+  max-width: 100%;
+  max-height: none; }
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #f05b62; }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #f05b62; }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #f05b62; }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #f05b62; }
+
+.reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #53555C; }
+
+.reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #53555C; }
+
+.reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #53555C; }
+
+.reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #53555C; }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2); }
+
+.reveal .progress span {
+  background: #f05b62;
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/*********************************************
+* GDI ADDITIONS
+**********************************************/
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+.flex .cta {
+  width: 40%;
+  margin: 10px 0; }
+
+.reveal .cta {
+  display: inline-block;
+  padding: 20px;
+  color: #d8ae64;
+  border-radius: 6px;
+  background-color: #01a9b4;
+  text-transform: uppercase;
+  font-size: .6em;
+  letter-spacing: 1px;
+  font-weight: bold; }
+
+.reveal .cta.inactive {
+  background: #333; }
+
+.reveal .inactive {
+  pointer-events: none; }
+
+.reveal .cta:not(.image) {
+  color: white;
+  transition: 1s ease background-color; }
+
+.reveal .cta:not(.image):hover {
+  background-color: #2a4758;
+  color: white; }
+
+.blue {
+  color: #00A9B4; }
+
+.green {
+  color: #92BB44; }
+
+.orange {
+  color: #EDAB23; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.reveal section img.left {
+  margin-right: 1em; }
+
+.reveal section img.right {
+  margin-left: 1em; }
+
+.reveal .activity {
+  color: #f05b62; }
+  .reveal .activity:after {
+    content: ' \1F4BB'; }
+
+.reveal code {
+  font-family: "Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: left; }
+
+.reveal ul, .reveal ol {
+  text-align: left;
+  display: inline-block;
+  margin: 0 0 0 1em; }
+
+.reveal section[data-background] h1,
+.reveal section[data-background] h2,
+.reveal section[data-background] h3 {
+  color: white; }
+
+/*********************************************
+ * Accessibility
+ *********************************************/
+/*
+* Hide only visually, but have it available for screenreaders: h5bp.com/v
+*/
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/*
+* Extends the .visuallyhidden class to allow the element to be focusable
+* when navigated to via the keyboard: h5bp.com/p
+*/
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/*********************************************
+ * Class-Specific Styles
+ *********************************************/
+.reveal .instructor {
+  padding: 2em; }
+
+.reveal .teachingassistants {
+  box-sizing: border-box;
+  text-align: center; }
+  .reveal .teachingassistants li {
+    list-style: none;
+    display: inline-block;
+    padding: 1em;
+    max-width: 128px; }
+  .reveal .teachingassistants img {
+    display: block;
+    max-width: 100%; }
+
+table.zebra thead th, table.zebra thead td {
+  border-bottom: 2px solid #666; }
+
+table.zebra tbody tr:nth-child(even) {
+  background-color: #dfdfdf; }
+
+.corner {
+  position: absolute;
+  top: 0;
+  right: 0; }
+
+.reveal section .columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: no-wrap; }
+  .reveal section .columns.columns-aligned .column {
+    flex: 3 0 75%;
+    text-align: left; }
+  .reveal section .columns.columns-aligned .column:first-child {
+    flex: 0 0 25%; }
+  .reveal section .columns .column {
+    padding: 0 1em; }
+  .reveal section .columns img {
+    height: 200px;
+    width: auto;
+    max-height: 200px;
+    max-width: 100%; }
+
+.reveal section .time {
+  clear: both;
+  font-size: 3em; }
+  .reveal section .time img {
+    max-height: 200px;
+    vertical-align: -.5em; }
+
+.reveal section .small {
+  font-size: .8em;
+  line-height: 1.2; }
+
+/*# sourceMappingURL=default.css.map */
