@@ -1,0 +1,23 @@
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainColor: #333;
+$headingLetterSpacing: -0.08em;
+$headingTextShadow: none;
+$backgroundColor: #f7fbfc;
+$linkColor: #92BB44;
+$selectionBackgroundColor: #134674;
+
+// Background generator
+@mixin bodyBackground() {
+	@include radial-gradient( lighten(#EDAB23, 40% ), #f7fbfc );
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

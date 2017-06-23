@@ -1,52 +1,192 @@
 <!doctype html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
-    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
-    <link type="text/javascript" href="../common/bootstrap.js">
-    <title>Exercise: Youtube JS API</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Exercise: Youtube JS API</h1>
-      <br><br>
+<head>
+  <title>Exercise: Youtube JS API</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Exercise: Youtube JS API</h1>
+  <p>In this exercise, you'll try to bring in Youtube video information using their JSON API. Go through these steps,
+    and do as many as you can in the time we have:
+  </p>
 
-      <p>In this exercise, you'll try to bring in Youtube video information using their JSON API. Go through these steps, and do as many as you can in the time we have:
-</p>
+  <ol>
+    <li>Start with <a href="jsapis_solution.html" download>this file</a> or start with your own solution from the last
+      exercise. Open it up and make sure it's working as expected.
+    </li>
+    <!--<li>You need a Google Account to use the YouTube API. If you don't have one, <a-->
+      <!--href="https://www.google.com/accounts/NewAccount" target="_blank">create one</a> or pair up with someone who does.-->
+    <!--</li>-->
+    <!--<li>Follow the steps on <a href="https://developers.google.com/youtube/registering_an_application" target="_blank">this-->
+      <!--page</a> to create a Browser API key. (You won't need OAuth for this project.) Copy and save the API key as a-->
+      <!--variable in your project to use with your API query later.-->
+    <!--</li>-->
+    <li>Go to <a href="https://developers.google.com/youtube/v3/docs/search/list" target="_blank">the Search:list
+      reference</a> in the Youtube API docs and read through it. Use the <a
+      href="https://developers.google.com/youtube/v3/docs/search/list#try-it" target="_blank">Try it!</a> function at
+      the bottom of the page to build your own query and see the response. Search for whatever you fancy, but limit the
+      search to 5 results. Copy the address from the Request box, add your API key, and test it in the browser.
+    </li>
+    <li>The webpage currently brings in video information using the jQuery $.ajax function to bring in a local
+      videos.json file into the page. Change that function so that it instead brings in the results of a Youtube API
+      search from the Youtube servers and displays those results instead.
+      <br>Tips: Remember that the JSON returned by the Youtube API will differ from the JSON format of videos.json. You
+      should console.log inside your callback to see what the data looks like and make sure you're using it correctly.
+      In particular, note that the video objects are stored in a container object called "items", and check how they
+      store the ID, title, and author. (Rating is not available.)
+    </li>
+    <li>Bonus: Create your own playlist on Youtube of your favorite videos, and bring that into the page instead.
+    </li>
+    <li>Bonus: Add a search button to the page so that people can search for any query.</li>
+  </ol>
 
-      <ol>
-        <li>Start with <a href="jsapis_solution.html">this file</a> or start with your own solution from the last exercise. Open it up and make sure it's working as expected.
-        </li>
-        <li>You need a Google Account to use the YouTube API. If you don't have one, <a href="https://www.google.com/accounts/NewAccount">create one</a> or pair up with someone who does.
-        </li>
-        <li>Follow the steps on <a href="https://developers.google.com/youtube/registering_an_application">this page</a> to create a Browser API key. (You won't need OAuth for this project.) Copy and save the API key as a variable in your project to use with your API query later.
-        </li>
-        <li>Go to <a href="https://developers.google.com/youtube/v3/docs/search/list">the Search:list reference</a> in the Youtube API docs and read through it. Use the <a href="https://developers.google.com/youtube/v3/docs/searcah/list#try-it">Try it!</a> function at the bottom of the page to build your own query and see the response. Search for whatever you fancy, but limit the search to 5 results. Copy the address from the Request box, add your API key, and test it in the browser.
-        </li>
-        <li>The webpage currently brings in video information using the jQuery $.ajax function to bring in a local videos.json file into the page. Change that function so that it instead brings in the results of a Youtube API search from the Youtube servers and displays those results instead. 
-          <br>Tips: Remember that the JSON returned by the Youtube API will differ from the JSON format of videos.json. You should console.log inside your callback to see what the data looks like and make sure you're using it correctly. In particular, note that the video objects are stored in a container object called "items", and check how they store the ID, title, and author. (Rating is not available.)
-        </li>
-        <li>Bonus: Create your own playlist on Youtube of your favorite videos, and bring that into the page instead.
-        </li>
-        <li>Bonus: Add a search button to the page so that people can search for any query.</li>
-      </ol>
+  <p>Make sure that you use your browser developer tools to make debugging easier
+    while working on this. Check for errors, and use console.log() to figure out
+    how far your code makes it, and what the values of your variables are along the way.</p>
 
-      <p>Make sure that you use your browser developer tools to make debugging easier
-while working on this. Check for errors, and use console.log() to figure out
-how far your code makes it, and what the values of your variables are along the way.</p>
-      
-      <button class="btn" onclick="showSolution(1)">See Solution</button>
-      <br><br>
-      <a id="solution1" style="display:none;" href="youtubeapi_solution.html" target="_blank">View Solution</a>
+  <button class="btn" onclick="showSolution(1)">See Solution</button>
+  <br><br>
+  <a id="solution1" style="display:none;" href="youtubeapi_solution.html" target="_blank">View Solution</a>
+  <pre id="displaySolution" style="display: none">
+      <xmp>
+        <!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Video Watcher</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style type="text/css">
+  /* This puts titles always on a separate line from thumbnails */
+  #videos-list img {
+    display : block;
+  }
+  </style>
+ </head>
+ <body>
 
-  <script>
-        function showSolution(num) {
-          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
-            document.getElementById('solution' + num).style.display = 'block';
-          }
+<div class="container">
+
+ <div class="row">
+   <div class="col-md-12">
+    <h2 class="page-header">Best Videos Ever ❤
+
+    <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+    <script type="text/javascript">
+      (function(){
+        var po   = document.createElement('script');
+        po.type  = 'text/javascript';
+        po.async = true;
+        po.src   = 'https://apis.google.com/js/plusone.js';
+        var s    = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+
+      <a href="https://twitter.com/share?count=none&hashtags=youtube" class="twitter-share-button"
+         data-lang="en">Tweet</a>
+      <script>!function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js     = d.createElement(s);
+          js.id  = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
         }
-  </script>
-  </body>
+      }(document, "script", "twitter-wjs");</script>
+
+    </h2>
+   </div>
+ </div>
+
+ <div class="row">
+   <div class="col-md-3">
+     <ul id="videos-list">
+    </ul>
+   </div>
+   <div class="cold-md-9" id="video-watcher">
+   </div>
+ </div>
+
+ <div style="text-align:center; margin-top: 30px; clear:both;">
+  <a href="https://info.flagcounter.com/nEFy"><img
+    src="https://s04.flagcounter.com/count/nEFy/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/"
+    alt="Flag Counter" border="0"></a>
+
+</div>
+
+</div>
+
+
+<script type="text/javascript" src="https://jtcoders.github.io/apis/lib/youtube.js"></script>
+<script type="text/javascript" src="https://jtcoders.github.io/apis/lib/jquery.min.js"></script>
+ <script>
+
+ function addVideoToList(video){
+   var videoLink = $('<a>');
+   videoLink.append(video.snippet.title);
+   videoLink.append('<br>');
+   var linkUrl      = videoLink.attr('href');
+   var thumbnailImg = $('<img>');
+   thumbnailImg.attr('src', video.snippet.thumbnails.default.url);
+   videoLink.append(thumbnailImg);
+
+   videoLink.on('click', function(e){
+     e.preventDefault();
+     var videoTitle = $('<h2>');
+     videoTitle.html(video.snippet.title + ' <small>' + video.snippet.channelTitle + '</small>');
+     var videoEmbed = $('<iframe></iframe>');
+     videoEmbed.attr('src', youtube.generateEmbedUrl(video.id.videoId) + '?autoplay=1');
+     videoEmbed.attr('width', 560);
+     videoEmbed.attr('height', 315);
+
+     var videoRating = $('<img></img>');
+     videoRating.attr('src', 'https://chart.googleapis.com/chart?chs=225x125&cht=gom&chd=t:' + (video.rating * 20));
+
+     var videoWatcher = $('#video-watcher');
+     videoWatcher.hide();
+     videoWatcher.empty();
+     videoWatcher.append(videoTitle);
+     videoWatcher.append(videoEmbed);
+     videoWatcher.append(videoRating);
+     videoWatcher.fadeIn();
+   });
+
+   var videoItem = $('<li>');
+   videoItem.append(videoLink);
+   $('#videos-list').append(videoItem);
+ }
+
+ var apiKey = "AIzaSyCRXTR0G_Slvgyjj_Vgfry6KLiw8pIMlHs";
+
+ $.ajax({
+   url      : "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=otters&safeSearch=moderate&type=video&videoEmbeddable=true&fields=items(id%2Csnippet)&key=" + apiKey,
+   dataType : "json",
+   success  : function(json){
+     var videos = json.items;
+     for(var i = 0; i < videos.length; i++){
+       addVideoToList(videos[i]);
+     }
+   }
+ });
+
+
+ </script>
+ </body>
 </html>
 
+      </xmp>
+      </pre>
+</div>
+<script>
+  function showSolution(num){
+    if(confirm('You surrrrre? You can ask for help first, if you want!')){
+      //            document.getElementById('solution' + num).style.display = 'block';
+      document.getElementById('displaySolution').style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>

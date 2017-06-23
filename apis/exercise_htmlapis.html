@@ -1,51 +1,182 @@
 <!doctype html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="../common/bootstrap-responsive.css">
-    <link rel="stylesheet" type="text/css" href="../common/bootstrap.css">
-    <link type="text/javascript" href="../common/bootstrap.js">
-    <title>Exercise: HTML APIs</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Exercise: HTML APIs</h1>
-      <br><br>
+<head>
+  <title>Exercise: HTML APIs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Exercise: HTML APIs</h1>
+  <p>In this exercise, you'll try out using several HTML APIs to add more dynamic content to the starter webpage.
+  </p>
 
-      <p>In this exercise, you'll try out using several HTML APIs to add more dynamic content to the starter webpage.
-      </p>
-        
-      <ol>
-        <li>Download <a href="htmlapis_starter.html">the starter file</a> and save them into a project folder. Open the webpage up in the browser and make sure it works. It should pull in video information from inline JSON data and display linked video thumbnails in a list.</li>
-        <li><strong>Add a counter</strong>: Go to <a href="http://www.flagcounter.com/">flagcounter.com</a> and set up a hit counter for your website. Put the counter somewhere near the bottom of the page.</li>
-        <li><strong>Add a rating chart</strong>:
-         <ul>
-           <li>Add a "rating" field to each video in the inline JSON data, a number of 100.
-           <li>Go to <A href="https://developers.google.com/chart/image/docs/gallery/googleometer_chart">the Google Charts API Docs</a> and read about the Google-o-meter image chart API parameters.
-           <li>Find an example chart that looks the most like how you want to visualize the rating, and check out what URL parameters it uses.
-           <li>Figure out what part of the URL you would need to change to make it show a chart for a particular rating (like 50 or 100).
-           <li>Using just HTML, insert an image into the page with a chart URL.
-           <li>Now, using JavaScript, insert an image for each video that has a dynamically generated chart URL. Either display them in the sidebar or display the charts when the video is played.
-         </ul>
-        <li>Bonus: Modify the generated Youtube iframe players so that they auto-play when clicked. <a href="https://developers.google.com/youtube/player_parameters#autohide">Read the docs here.</a></li>
-        <li>Bonus: Create a bar chart that compares the ratings across all the videos, using the <a href="https://developers.google.com/chart/image/docs/gallery/bar_charts">Google Bar Charts Image API</a>.</li>
-      </ol>
-        
-      <p>Make sure that you use your browser developer tools to make debugging easier
-while working on this. Check for errors, and use console.log() to figure out
-how far your code makes it, and what the values of your variables are along the way.</p>
-      
-      <button class="btn" onclick="showSolution(1)">See Solution</button>
-      <br><br>
-      <a id="solution1" style="display:none;" href="htmlapis_solution.html" target="_blank">View Solution</a>
+  <ol>
+    <li>Download <a href="htmlapis_starter.html" download>the starter file</a> and save them into a project folder. Open
+      the webpage up in the browser and make sure it works. It should pull in video information from inline JSON data
+      and display linked video thumbnails in a list.
+    </li>
+    <li><strong>Add a counter</strong>: Go to <a href="https://www.flagcounter.com/" target="_blank">flagcounter.com</a>
+      and set up a hit counter for your website. Put the counter somewhere near the bottom of the page.
+    </li>
+    <li><strong>Add a rating chart</strong>:
+      <ul>
+        <li>Add a "rating" field to each video in the inline JSON data, a number of 100.
+        <li>Go to <A href="https://developers.google.com/chart/image/docs/gallery/googleometer_chart" target="_blank">the
+          Google Charts API Docs</a> and read about the Google-o-meter image chart API parameters.
+        <li>Find an example chart that looks the most like how you want to visualize the rating, and check out what URL
+          parameters it uses.
+        <li>Figure out what part of the URL you would need to change to make it show a chart for a particular rating
+          (like 50 or 100).
+        <li>Using just HTML, insert an image into the page with a chart URL.
+        <li>Now, using JavaScript, insert an image for each video that has a dynamically generated chart URL. Either
+          display them in the sidebar or display the charts when the video is played.
+      </ul>
+    <li>Bonus: Modify the generated Youtube iframe players so that they auto-play when clicked. <a
+      href="https://developers.google.com/youtube/player_parameters#autohide" target="_blank">Read the docs here.</a>
+    </li>
+    <li>Bonus: Create a bar chart that compares the ratings across all the videos, using the <a
+      href="https://developers.google.com/chart/image/docs/gallery/bar_charts" target="_blank">Google Bar Charts Image
+      API</a>.
+    </li>
+  </ol>
 
-  <script>
-        function showSolution(num) {
-          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
-            document.getElementById('solution' + num).style.display = 'block';
+  <p>Make sure that you use your browser developer tools to make debugging easier
+    while working on this. Check for errors, and use console.log() to figure out
+    how far your code makes it, and what the values of your variables are along the way.</p>
+
+  <button class="btn" onclick="showSolution(1)">See Solution</button>
+  <br><br>
+  <a id="solution1" style="display:none;" href="htmlapis_solution.html" target="_blank">View Solution</a>
+  <pre id="displaySolution" style="display: none">
+      <xmp>
+        <!doctype html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Video Watcher</title>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+          <style type="text/css">
+            /* This puts titles always on a separate line from thumbnails */
+            #videos-list img {
+              display : block;
+            }
+          </style>
+        </head>
+        <body>
+
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="page-header">Best Videos Ever ❤</h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <ul id="videos-list">
+              </ul>
+            </div>
+            <div class="col-md-9" id="video-watcher">
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top: 30px; clear:both;">
+            <a href="https://info.flagcounter.com/nEFy"><img
+              src="https://s04.flagcounter.com/count/nEFy/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/"
+              alt="Flag Counter" border="0"></a>
+          </div>
+
+        </div>
+
+
+
+        <script type="text/javascript" src="https://jtcoders.github.io/apis/lib/youtube.js"></script>
+        <script type="text/javascript" src="https://jtcoders.github.io/apis/lib/jquery.min.js"></script>
+        <script>
+
+          function addVideoToList(video){
+            var videoLink = $('<a>');
+            videoLink.append(video.title);
+            var linkUrl      = videoLink.attr('href');
+            var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
+            var thumbnailImg = $('<img>');
+            thumbnailImg.attr('src', thumbnailUrl);
+            videoLink.append(thumbnailImg);
+
+            videoLink.on('click', function(e){
+              e.preventDefault();
+              var videoTitle = $('<h2>');
+              videoTitle.html(video.title + ' <small>' + video.author + '</small>');
+              var videoEmbed = $('<iframe></iframe>');
+              videoEmbed.attr('src', youtube.generateEmbedUrl(video.youtubeId) + '?autoplay=1');
+              videoEmbed.attr('width', 560);
+              videoEmbed.attr('height', 315);
+
+              var videoRating = $('<img></img>');
+              videoRating.attr('src', 'https://chart.googleapis.com/chart?chs=225x125&cht=gom&chd=t:' + video.rating);
+
+              var videoWatcher = $('#video-watcher');
+              videoWatcher.hide();
+              videoWatcher.empty();
+              videoWatcher.append(videoTitle);
+              videoWatcher.append(videoEmbed);
+              videoWatcher.append(videoRating);
+              videoWatcher.fadeIn();
+            });
+
+            var videoItem = $('<li>');
+            videoItem.append(videoLink);
+            $('#videos-list').append(videoItem);
           }
-        }
-  </script>
-  </body>
-</html>
 
+          var videos = [
+            {
+              "youtubeId" : "TddFnTB_7IM",
+              "title"     : "Trip through the 80s",
+              "author"    : "meliberty",
+              "rating"    : 90
+            },
+            {
+              "youtubeId" : "HwSKkKrUzUk",
+              "title"     : "Circle of Life",
+              "author"    : "parkerjademerce",
+              "rating"    : 70
+            },
+            {
+              "youtubeId" : "il2IrgFHfsg",
+              "title"     : "The Ooooh Cat",
+              "author"    : "RnBTree",
+              "rating"    : 60
+            },
+            {
+              "youtubeId" : "epUk3T2Kfno",
+              "title"     : "Otters Holding Hands",
+              "author"    : "cynthiaholmes",
+              "rating"    : 100
+            }
+          ]
+
+          for(var i = 0; i < videos.length; i++){
+            addVideoToList(videos[i]);
+          }
+
+        </script>
+        </body>
+        </html>
+        </xmp>
+        </pre>
+</div>
+<script>
+  function showSolution(num){
+    if(confirm('You surrrrre? You can ask for help first, if you want!')){
+      //            document.getElementById('solution' + num).style.display = 'block';
+      document.getElementById('displaySolution').style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
