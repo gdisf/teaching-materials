@@ -1,81 +1,61 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>JS302: AJAX/JSON</title>
-    <meta name="description" content="This workshop will provide an introduction to AJAX.">
-    <meta name="author" content="Girl Develop It San Francisco">
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>AJAX (Girl Develop It)</title>
+    
+    <link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/gdilight.css" id="theme">
 
-    <link rel="stylesheet" href="../common/css/reveal.css">
-    <link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
+		<!-- For syntax highlighting -->
+		<!-- light editor --><link rel="stylesheet" href="lib/css/light.css">
+		 <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
 
-    <!-- For syntax highlighting -->
-    <!-- light editor --><link rel="stylesheet" href="../common/lib/css/light.css">
-     <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
+		<!-- If use the PDF print sheet so students can print slides-->
 
-    <!-- If use the PDF print sheet so students can print slides-->
-
-    <link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <!--[if lt IE 9]>
-    <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
-    <style>
-      .reveal {
-        font-size: 32px;
-      }
-    </style>
+		<link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
   </head>
+  
   <body>
+  
     <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1>Asynchronous Technologies: AJAX/JSON</h1>
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+		        <!-- Opening -->
+				<section>
+        <h2>Asynchronous Technologies: AJAX/JSON</h2>
+        <br>
           <p>
-            <small>Slides: <a href="http://www.teaching-materials.org/ajax/">http://www.teaching-materials.org/ajax/</a></small>
+            Slides: <a href="https://wwww.teaching-materials.org/ajax/">https://wwww.teaching-materials.org/ajax/</a>
           </p>
-          <pre class="speaker-notes" style="display:none">Note: We're not using an API in this class, we're just going over the concept of AJAX.</pre>
         </section>
 
         <section>
-          <h2>Review: HTML + JS, together!</h1></h2>
-          <pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
-displays a webpage
-waits for user interaction
-queries the server for data
-reloads the webpage
-This has the effect that the user has "down time" - there is a period of time where they can't interact with the webpage at all.</pre>
+        <h2>Review: HTML + JS, together!</h2>
         </section>
 
-        <section>
-          <h2>Static Content + Progressive Enhancement</h2>
-          <img src="images/static_content_prog_enhance.png" alt="progressive enhancement" />
+      <section>
+        <h2>Static Content + Progressive Enhancement</h2>
+          <img src="img/static_content_prog_enhance.png" width="">
           <br>
           <a href="http://www.teaching-materials.org/jquery2/exercises/exercise_events_solution.html">Example</a>
-          <pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
-displays a webpage
-waits for user interaction
-queries the server for data
-reloads the webpage
-This has the effect that the user has "down time" - there is a period of time where they can't interact with the webpage at all.</pre>
-        </section>
+      </section>
 
-        <section>
-          <h2>Dynamic Content</h1></h2>
-          <img src="images/dynamic_content.png" alt="dynamic content" />
-          <pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
-displays a webpage
-waits for user interaction
-queries the server for data
-reloads the webpage
-This has the effect that the user has "down time" - there is a period of time where they can't interact with the webpage at all.</pre>
-        </section>
+      <section>
+        <h2>Dynamic Content</h2>
+          <img src="img/dynamic_content.png">
+      </section>
 
-        <section>
-        <h2>Storing data in JSON</h2>
+      <section>
+        <h2>Storing Data in JSON</h2>
+        <h3>(Javascript Object Notation)</h3>
           <ul>
             <li>Key/value pairs</li>
             <li>Key must be stored with quotes (unlike JS Objects)</li>
@@ -83,8 +63,12 @@ This has the effect that the user has "down time" - there is a period of time wh
             <li>Resembles objects/hash tables/structs of programming languages</li>
             <li>Validate @ <a href="http://jsonlint.com">JSONLint.com</a></li>
           </ul>
-          <pre>
-            <code contenteditable class ="javascript">{
+      </section>
+
+      <section>
+        <h2>Storing data in JSON</h2>
+        <p>Sample JSON:</p>
+        <pre><code>{
  "firstName": "Jane", 
  "lastName": "Smith", 
  "address": { 
@@ -96,84 +80,63 @@ This has the effect that the user has "down time" - there is a period of time wh
  "phoneNumbers": [ 
    "212 732-1234", 
    "646 123-4567" ] 
-}</code>
-          </pre>
-        </section>
+}</code></pre>
+      </section>
 
-        <section>
-          <h2>Using JS to turn JSON into DOM</h2>
-          <pre style="width:100%;">
-            <code contenteditable class ="javascript">var myProfile = {
-  "firstName": "Liz", 
+      <section>
+        <h2>Using JS to turn JSON into DOM</h2>
+<pre><code class>var myProfile = 
+ {"firstName": "Liz", 
   "lastName": "Howard",
-  "cats": ["Tribbles", "Jean Claws"]
-};
+  "cats": ["Tribbles", "Jean Claws"]};
 
 var p = document.createElement('p');
 p.innerHTML = 'My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ';
 p.innerHTML += 'My cats are ' + myProfile.cats.join(', ') + '.';
 
+
 var p = $('&lt;p&gt;');
 p.html('My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ');
-p.append('My cats are ' + myProfile.cats.join(', ') + '.');</code>
-          </pre>
-        </section>
+p.append('My cats are ' + myProfile.cats.join(', ') + '.');
+</code></pre>
+      </section>
 
-        <section>
-          <h2><a href="exercise_json.html">Exercise Time!</a></h2>
+      <section>
+        <h2><a href="exercise_json.html" target="_blank">Exercise Time!</a></h2>
           <p>Pair with the person(s) next to you to work through it together.</p>
-          <p><img src="images/kitties.png" alt="pair programming, kitty style"></p>
-        </section>
+      </section>
 
-        <section>
-          <h2>AJAX</h2>
+      <section>
+        <h2>AJAX</h2>
           <p>= Asynchronous JavaScript and "XML"<p>
-          <p><img src="images/ajax.png" alt="AJAX interaction with XMLHttpRequest object"style="width:600px;" /></p>
-          <pre class="speaker-notes" style="display:none">Allows for asynchronous data transfer between a webpage &amp; web server.
+          <p><img src="img/ajax.png"></p>
+      </section>
 
-Javascript tells the browser to retrieve a particular URL and send the data back to the webpage.</pre>
-        </section>
-
-        <section>
-          <h2>AJAX in the Wild</h2>
-          <p><a href="https://www.airbnb.com/wishlists/popular" target="_blank"><img src="images/airbnb.png" alt="airbnb as example"></a></p>
+      <section>
+        <h2>AJAX in the Wild</h2>
+          <p><a href="https://www.airbnb.com/wishlists/popular" target="_blank"><img src="img/airbnb.png"></a></p>
           <p>What else?</p>
-          <pre class="speaker-notes" style="display:none">Allows for asynchronous data transfer between a webpage &amp; web server.
+      </section>
 
-Javascript tells the browser to retrieve a particular URL and send the data back to the webpage.</pre>
-        </section>
+      <section>
+        <h2>Web 1.0 &amp; User Interaction</h2>
+          <br>
+          <p><img src="img/web_user_int1.png"></p>
+      </section>
 
-        <section>
-          <h2>Web 1.0 &amp; User Interaction</h2>
-          <p><img src="images/web_user_int1.png" alt="client-server interaction in web 1.0" /></p>
-          <pre class="speaker-notes" style="display:none">The classic data-driven web app is written so that it:
-displays a webpage
-waits for user interaction
-queries the server for data
-reloads the webpage
-This has the effect that the user has "down time" - there is a period of time where they can't interact with the webpage at all.</pre>
-        </section>
+      <section>
+        <h2>Web 2.0 &amp; User Interaction</h2>
+          <br>
+          <p><img src="img/web_user_int2.png"></p>
+      </section>
 
-        <section>
-          <h2>Web 2.0 &amp; User Interaction</h2>
-          <p><img src="images/web_user_int2.png"alt="client-server interaction in web 2.0"></p>
-<pre class="speaker-notes" style="display:none">The new data-driven web app is written so that it:
-displays a webpage
-waits for user interaction
-queries the server for data
-reloads part of the webpage
-
-The user can still interact with other parts of the page while one part is loading and they can selectively load the content they're interested in.
-
-This may seem like a subtle difference, but it's arguably the most important part of Web2.0 programming.</pre>
-        </section>
-
-        <section>
-          <h2>Web 1.0 vs.Web 2.0</h1></h2>
-          <table style="width:100%;">
+      <section>
+        <h2>Web 1.0 vs.Web 2.0</h2>
+          <br>
+          <table>
             <tr>
-              <td style="vertical-align:top; margin:8px;"><img src="images/web_user_int1.png" width="90%" alt="client-server interaction in web 1.0" /></td>
-              <td style="vertical-align:top; margin: 8px;"><img src="images/web_user_int2.png" width="90%" alt="client-server interaction in web 2.0" /></td>
+              <td><img src="img/web_user_int1.png" width="75%"></td>
+              <td><img src="img/web_user_int2.png" width="75%"></td>
             </tr>
             <tr>
               <td>Technologies Used:</td>
@@ -199,22 +162,39 @@ This may seem like a subtle difference, but it's arguably the most important par
           </table>
         </section>
 
-        <section>
-          <h2>Requests &amp; Responses</h2>
-          <p><img src="images/requests_and_responses.jpg" alt="client-server-database interactions"/></p>
-          <ul>
-            <li><strong>Front-End: </strong>Hey, Back-End! Here's my credentials. Can I get some data? How about books on AJAX?</li>
-            <li><strong>Back-End </strong><em>thinks about it, decides how to handle request...</em></li>
-            <li><strong>Back-End </strong><em>looks in database, searches...</em></li>
-            <li><strong>Back-End: </strong>200 OK, here are some books on AJAX!</li>
-            <li><strong>Front-End: </strong>Thanks! I'm going to make an online bookshelf with the data!</li>
-          </ul>
+        <section data-transition="fade-out">
+          <h2>Requests and Responses</h2>
+            <p><img src="img/http_request.jpg"/></p>
+            <strong>Front-End: </strong>Hey, Back-End! Here's my credentials. Can I get some data? How about books on AJAX?
+        </section>
+
+        <section data-transition="fade-in fade-out">
+          <h2>Requests and Responses</h2>
+            <p><img src="img/http_request.jpg"/></p>
+            <strong>Back-End </strong><em>thinks about it, decides how to handle request...</em>
         </section>
 
         <section>
-          <h2>Anatomy of an XMLHttpRequest</h2>
-          <pre>
-            <code contenteditable class="javascript">// instantiate a new request
+          <h2>Requests and Responses</h2>
+            <p><img src="img/http_request.jpg"/></p>
+            <strong>Back-End </strong><em>looks in database, searches...</em>
+        </section>
+
+        <section>
+          <h2>Requests and Responses</h2>
+            <p><img src="img/http_request.jpg"/></p>
+            <strong>Back-End: </strong>200 OK, here are some books on AJAX!
+        </section>
+
+        <section>
+          <h2>Requests and Responses</h2>
+            <p><img src="img/http_request.jpg"/></p>
+            <strong>Front-End: </strong>Thanks! I'm going to make an online bookshelf with the data!
+        </section>
+
+      <section>
+        <h2>Anatomy of an XMLHttpRequest</h2>
+<pre><code>// instantiate a new request
 var request = new XMLHttpRequest(); 
 
 // add event listeners
@@ -226,44 +206,42 @@ request.addEventListener('load', function () {
 
 request.open('get', '/path/to/api', true);
 request.setRequestHeader('Content-type', 'application/json');
-request.send();</code>
-          </pre>
-        </section>
+request.send();
+</code></pre>
+      </section>
 
-        <section>
+      <section>
         <h2>XMLHttpRequest: Diving Deeper</h2>
           <ul>
             <li>IE implemented XMLHR differently than the other browsers, so you must use the ActiveXObject if XMLHttpRequest is not available.</li>
-            <li>Different CRUD methods may be used</li>
             <li>Sometimes you will need to send additional data</li>
             <li>Errors and responses need to be handled</li>
           </ul>
-        </section>
+      </section>
 
-        <section>
-          <h2>But we don't usually write all that code...</h2>
-        </section>
+      <section>
+        <h2>But we don't usually write all that code...</h2>
+      </section>
 
-        <section>
-          <h2>jQuery + AJAX</h2>
+      <section>
+        <h2>jQuery + AJAX</h2>
           <p>Use the jQuery $.<a href="http://api.jquery.com/jQuery.ajax/">ajax</a> function.</p>
-          <pre>
-            <code contenteditable class="javascript">$.ajax({type: "GET",
+<pre><code>$.ajax({type: "GET",
   url: "filename.json",
   dataType: "json",
   success: function(data) { },
   error: function(xhr, status, e) { }
-});</code>
-          </pre>
-        </section>
+});
+</code></pre>
+      </section>
 
-        <section>
-          <h2>Using jQuery for everything</h2>
-          <pre>
-            <code contenteditable class="javascript">$.ajax({type: "GET",
-  url: "books.json",
+      <section>
+        <h2>Using jQuery for everything</h2>
+<pre><code>$.ajax({type: "GET",
+  url: "https://api.myjson.com/bins/wgonb",
   dataType: "json",
-  success: function(books) { 
+  success: function(response) { 
+    var books = response.books;
     for (var i = 0; i < books.length; i++) { 
       var book = books[i];
       var p = $('&lt;p&gt;');
@@ -274,57 +252,48 @@ request.send();</code>
   error: function(xhr, status, e) {
     console.log(status, e);
   }
-});</code>
-          </pre>
-<pre class="speaker-notes" style="display:none">Don't forget that jQuery is just a library, written by human beings. Use it because it saves you time, but don't rely too hard on it!</pre>
-        </section>
+});
+</code></pre>
+<a href="http://jsbin.com/sozutuw/edit?html,output">JSBin</a>
+      </section>
 
-        <section>
-          <h2>Debugging AJAX Requests</h2>
+      <section>
+        <h2>Debugging AJAX Requests</h2>
           <ul>
             <li>Click the NET/Network tab in Chrome Dev Tools or Firebug, select "XHR" filter to see all XMLHttpRequests made.</li>
             <li>See what the request responded with by clicking its "Response" tab.</li>
           </ul>
-          <p><img src="images/debug_ajax.png" alt="debugging AJAX using dev tools in the console" /></p>
-        </section>
+          <p><img src="img/debug_ajax.png"></p>
+      </section>
 
-        <section>
+      <section>
         <h2>Exploring this will keep you busy for hours.</h2>
-          <p><a href="https://www.airbnb.com/wishlists/popular" target="_blank"><img src="images/airbnb.png" alt="airbnb example" /></a></p>
-<pre class="speaker-notes" style="display:none">Oh my god, explore this tab. It will teach you so much about what's in requests and responses. Google everything you don't understand. </pre>
-        </section>
+          <p><a href="https://twitter.com/" target="_blank">Try it on Twitter</a></p>
+          <p>It will teach you so much about what's in requests and responses. Google everything you don't understand.</p>
+      </section>
 
-        <section>
-          <h2><a href="exercise_ajax.html">Exercise Time!</a></h2>
+      <section>
+        <h2><a href="exercise_ajax.html" target="_blank">Exercise Time!</a></h2>
           <p>Pair with the person(s) next to you to work through it together.</p>
-          <p><img src="images/kitties2.png" alt="pair programming, kitty style again"></p>
-        </section>
+      </section>
 
-        <section>
-          <h2>AJAX + Servers</h2>
-          <pre>
-            <code contenteditable class="javascript">$.ajax({type: "GET",
+      <section>
+        <h2>AJAX + Servers</h2>
+<pre><code>$.ajax({type: "GET",
   url: "/api/books",
   dataType: "json",
   data: {'sortBy': 'author'},
   success: processBooks
-});</code>
-          </pre>
-          <pre>
-            <code contenteditable class="javascript">$.ajax({type: "POST",
+});
+</code></pre>
+<pre><code>$.ajax({type: "POST",
   url: "/api/book/new",
   dataType: "json",
   data: {'title': 'I, Robot', 'author': 'I. Asimov'}
   success: processBoooks
-});</code>
-          </pre>
-        </section>
-
-        <section>
-          <h2>Cross Domain Policy</h2>
-          <p>For http://store.company.com/dir/page.html:</p>
-          <p><img src="images/cross_domain_policy.png" alt="cross-domain policy" /></p>
-        </section>
+});
+</code></pre>
+      </section>
 
         <section>
           <h2>AJAX Gotchas</h2>
@@ -332,22 +301,29 @@ request.send();</code>
             <li>Cross domain requests have restrictions</li>
             <li>Multiple AJAX requests don't return in order</li>
             <li>Hard to transfer files</li>
-            <li>Can't transfer binary content</li>
+            <li>Can't transfer binary content (like images)</li>
             <li>Browsers can over-cache/under-cache requests</li>
           </ul>
           <p>
             UI No-Nos:
-            <ul>
-              <li>Not having linkable state</li>
-              <li>Not letting users know that something is loading</li>
-              <li>Breaking the back button</li>
-              <li><a href="http://ajaxpatterns.org/Ajax_Gotchas">More here.</a></li>
-            </ul>
+          <ul>
+            <li>Not having linkable state</li>
+            <li>Not letting users know that something is loading</li>
+            <li>Breaking the back button</li>
+          </ul>
           </p>
         </section>
 
-        <section>
-          <h2>List of additional key concepts</h2>
+      <section>
+        <h2>Cross Domain Policy</h2>
+          <br>
+          <p>For http://store.company.com/dir/page.html:</p>
+          <br>
+          <p><img src="img/cross_domain_policy.png"></p>
+      </section>
+
+      <section>
+        <h2>List of additional key concepts</h2>
           <ul>
             <li>What are the parts of an HTTP request?</li>
             <li>What does CRUD stand for?</li>
@@ -355,39 +331,44 @@ request.send();</code>
             <li>What are the 4 basic CRUD operations and methods?</li>
             <li>What is the difference between JSONP and JSON?</li>
           </ul>
+      </section>
 
-        </section>
+    </div><!--.slides-->
+    <footer>
+      <div class="copyright">
+        AJAX -- Adapted from GDISF --
+        <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+      </div>
+    </footer>
+  </div><!--.reveal-->
+  
 
-      </div><!--end of div slides-->
-      <footer>
-        <div class="copyright">
-          JS302: AJAX/JSON --  <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
-        </div>
-      </footer>
-    </div>
+  		<script src="lib/js/head.min.js"></script>
+  		<script src="js/reveal.min.js"></script>
 
-    <script src="../common/lib/js/head.min.js"></script>
-    <script src="../common/js/reveal.min.js"></script>
-    <script>
-      // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
-        // Optional libraries used to extend on reveal.js
-        dependencies: [
-          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-        ]
-      });
-    </script>
-    </div><!--end of div reveal-->
-  </body>
-</html>
+  		<script>
+
+  			// Full list of configuration options available here:
+  			// https://github.com/hakimel/reveal.js#configuration
+  			Reveal.initialize({
+  				controls: true,
+  				progress: true,
+  				history: true,
+
+  				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+  				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/none
+
+  				// Optional libraries used to extend on reveal.js
+  				dependencies: [
+  					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+  					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+  					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+  					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+  				]
+  			});
+
+  		</script>
+
+</body>
