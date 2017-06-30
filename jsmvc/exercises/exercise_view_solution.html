@@ -3,7 +3,9 @@
  <head>
   <meta charset="utf-8">
   <title>Video Watcher</title>
-  <link rel="stylesheet" type="text/css" href="http://teaching-materials.org/ajax/lib/bootstrap.css">
+
+  <link rel="stylesheet" type="text/css" href="../../common/css/bootstrap.min.css">
+
   <style type="text/css">
   .video-modal {
     position: absolute;
@@ -31,17 +33,17 @@
  
  <div class="row">
    <div class="span3">
-     <ul id="videos-list">
     </ul>
    </div>
  </div>
 </div>
 
+ <script type="text/javascript" href="../../common/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="../../common/js/jquery.min.js"></script>
  
- <script type="text/javascript" src="http://teaching-materials.org/ajax/lib/jquery.min.js"></script>
  <script>
-/* We could also load this data in using AJAX from the server.*/
-var videosJSON = [
+  /* We could also load this data from a server using an AJAX request.*/
+  var videosJSON = [
     {"youtubeId": "TddFnTB_7IM",
       "title": "Trip through the 80s",
       "author": "meliberty"
@@ -58,7 +60,7 @@ var videosJSON = [
       "title": "Otters Holding Hands",
       "author": "cynthiaholmes"
     }
-];
+  ];
 
 var VideoModel = function(videoJSON) {
   this.youtubeId = videoJSON.youtubeId;
@@ -80,9 +82,9 @@ VideoCollection.prototype.sort = function() {
     return videoA.title.localeCompare(videoB.title);
   });
 };
-
+  
 /* Adds a video to the list */
-var addVideoToList = function(video) {
+var VideoItemView = function(video) {
   var videoLink = $('<a>');
   videoLink.append(video.title);
   var linkUrl = videoLink.attr('href');
@@ -110,20 +112,28 @@ var addVideoToList = function(video) {
 
   var videoItem = $('<li>');
   videoItem.append(videoLink);
-  $('#videos-list').append(videoItem);
+  return videoItem;
+};
+
+var VideoCollectionView = function(videos) {
+  var videoList = $('<ul>');
+
+  for (var i = 0; i < videos.items.length; i++) {
+    var videoItem = new VideoItemView(videos.items[i]);
+    videoList.append(videoItem);
+  }
+
+  return videoList;
 };
 
 
 $(document).ready(function() {
-
   var videos = new VideoCollection(videosJSON);
   videos.sort();
 
-  for (var i = 0; i < videos.items.length; i++) {
-    addVideoToList(videos.items[i]);
-  }
+  var videosCollection = new VideoCollectionView(videos);
+  $('body .span3').append(videosCollection);
 });
-
 
  </script>
  </body>
