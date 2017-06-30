@@ -1,34 +1,48 @@
-<!doctype html>  
+<!doctype html>
 <html lang="en">
-	
-	<head>
-		<meta charset="utf-8">
-		
-		<title>JS  MVC</title>
 
-    <base target="_blank">
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+<head>
+  <meta charset="utf-8">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+  <title>JS MVC</title>
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/solarized_light.css">
+  <meta name="description" content="JS MVC">
+  <meta name="author" content="Girl Develop It">
 
-		<script>
-			// If the query includes 'print-pdf' we'll use the PDF print sheet
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
-	
+  <link rel="stylesheet" href="../common/css/reveal.css">
+  <link rel="stylesheet" href="../common/css/default.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <!-- light editor -->
+  <link rel="stylesheet" href="../common/css/theme/light.css">
+  <!-- dark editor <link rel="stylesheet" href="dist/css/dark.css">-->
+  <!-- <link rel="stylesheet" href="dist/css/zenburn.css"> -->
+
+  <link rel="stylesheet" href="../common/plugin/accessibility-helper/css/accessibility-helper.css">
+
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = '../common/css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  </script>
+
+  <!-- If use the PDF print sheet so students can print slides-->
+  <link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <!--[if lt IE 9]>
+    <script src="dist/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
 	<body>
 		
 		<div class="reveal">
@@ -36,10 +50,9 @@
 			<div class="slides">
 
 <section>
+  <img src="../common/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder">
 	<h1 class="upper">JavaScript MVC</h1>
-  <br>
-  <br>
-  <h2>teaching-materials.org/jsmvc/</h2>
+  <h4>teaching-materials.org/jsmvc/</h4>
 </section>
 
 
@@ -118,7 +131,7 @@
       <circle cx="600" cy="200" r="200" fill="cyan" style="opacity:.5"/>
     </svg>
       
-      <div style="position:absolute;top: 70px; left: 145px; text-align:center;">
+      <div style="position:absolute;top: 70px; left: 190px; text-align:center;">
         <h3>"Model"</h3>
         <h4>(Data)</h4>
         <p>Fetch data</p>
@@ -126,7 +139,7 @@
         
       </div>
       
-      <div style="position:absolute;top: 70px; left: 480px; text-align:center;">
+      <div style="position:absolute;top: 70px; left: 540px; text-align:center;">
         <h3>"View"</h3>
         <h4>(Presentation)</h4>
         <p>Create DOM</p>
@@ -165,7 +178,7 @@ margin: 30px 0 0 0;" border="1">
   <h1>The Book Model</h1>
 
   <p>Simple version: stores properties passed in</p>
-  <pre><code class="javascript">var BookModel = function(bookJSON) {
+  <pre><code class="javascript hljs">var BookModel = function(bookJSON) {
   this.title     = bookJSON.title;
   this.author    = bookJSON.author;
   this.asin      = bookJSON.asin;
@@ -218,7 +231,7 @@ margin: 30px 0 0 0;" border="1">
       + this.asin + '?tag=amazonsimilar-20'</strong>;
 };</pre></code>
 
-  <pre><code class="javascript">var book = new BookModel({
+  <pre><code class="javascript hljs">var book = new BookModel({
     title: "1984",
     author: "George Orwell",
     asin: "0451524934",
@@ -260,7 +273,7 @@ var books = new BookCollection(booksJSON);</pre></code>
 </section>
 
 <section>
-  <h1><a href="exercise_model.html">Exercise Time!</a></h1>
+  <h1><a href="exercises/exercise_model.html">Exercise Time!</a></h1>
 </section>
 
 
@@ -339,7 +352,7 @@ var BookShelfView = function(books) {
 </section>
 
 <section>
-  <h1><a href="exercise_view.html">Exercise Time!</a></h1>
+  <h1><a href="exercises/exercise_view.html">Exercise Time!</a></h1>
 </section>
 
 <section>
@@ -363,50 +376,66 @@ var BookShelfView = function(books) {
   <br><br>
   <p><a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">
     Journey through the JS MVC Jungle</a>, 
-    <a href="http://addyosmani.github.com/todomvc/">TodoMVC</a>
+    <a href="http://todomvc.com/" target="_blank">TodoMVC</a>
   </p>
 </section>
 
 
-			</div>
-
-			<!-- The navigational controls UI -->
-			<aside class="controls">
-				<a class="left" href="#">&#x25C4;</a>
-				<a class="right" href="#">&#x25BA;</a>
-				<a class="up" href="#">&#x25B2;</a>
-				<a class="down" href="#">&#x25BC;</a>
-			</aside>
-
-			<!-- Presentation progress bar -->
-			<div class="progress"><span></span></div>
-			
+			</div>			
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="../common/js/head.min.js"></script>
+		<script src="../common/js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-		<script>
-			
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-        rollingLinks: false,
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
-					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
-				]
-			});
-			
-		</script>
-  
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [{
+          src: 'dist/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        }, {
+          src: '../common/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        }, {
+          src: '../common/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        }, {
+          src: '../common/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        }, {
+          src: '../common/plugin/zoom-js/zoom.js',
+          async: true
+        }, {
+          src: '../common/plugin/notes/notes.js',
+          async: true
+        }, {
+          src: '../common/plugin/accessibility-helper/js/accessibility-helper.js',
+          async: true,
+          condition: function() {
+            return !!document.body.classList;
+          }
+        }]
+      });
+    </script>
   </body>
 </html>

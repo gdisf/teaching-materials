@@ -3,7 +3,9 @@
  <head>
   <meta charset="utf-8">
   <title>Video Watcher</title>
-  <link rel="stylesheet" type="text/css" href="http://teaching-materials.org/ajax/lib/bootstrap.css">
+
+  <link rel="stylesheet" type="text/css" href="../../common/css/bootstrap.min.css">
+
   <style type="text/css">
   .video-modal {
     position: absolute;
@@ -37,8 +39,9 @@
  </div>
 </div>
 
- 
- <script type="text/javascript" src="http://teaching-materials.org/ajax/lib/jquery.min.js"></script>
+ <script type="text/javascript" href="../../common/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="../../common/js/jquery.min.js"></script>
+
  <script>
 /* We could also load this data in using AJAX from the server.*/
 var videosJSON = [
@@ -60,16 +63,25 @@ var videosJSON = [
     }
 ];
 
-
-/* Convenience function to generate an image URL */
-var generateThumbnailUrl = function(youtubeId) {
-  return 'http://i3.ytimg.com/vi/' + youtubeId + '/default.jpg';
+var VideoModel = function(videoJSON) {
+  this.youtubeId = videoJSON.youtubeId;
+  this.title     = videoJSON.title || 'Untitled';
+  this.author    = videoJSON.author || 'No author';
+  this.thumbURL  = 'http://i3.ytimg.com/vi/' + this.youtubeId + '/default.jpg';
+  this.embedURL  = 'http://www.youtube.com/embed/' + this.youtubeId;
 };
 
-/* Convenience function to generate the embed URL
-   that we can put in an iframe. */
-var generateEmbedUrl = function(youtubeId) {
-  return 'http://www.youtube.com/embed/' + youtubeId;
+var VideoCollection = function(videosJSON) {
+  this.items = [];
+  for (var i = 0; i < videosJSON.length; i++) {
+    this.items.push(new VideoModel(videosJSON[i]));
+  }
+};
+
+VideoCollection.prototype.sort = function() {
+  this.items.sort(function(videoA, videoB){
+    return videoA.title.localeCompare(videoB.title);
+  });
 };
 
 /* Adds a video to the list */
@@ -77,9 +89,8 @@ var addVideoToList = function(video) {
   var videoLink = $('<a>');
   videoLink.append(video.title);
   var linkUrl = videoLink.attr('href');
-  var thumbnailUrl = generateThumbnailUrl(video.youtubeId);
   var thumbnailImg = $('<img>');
-  thumbnailImg.attr('src', thumbnailUrl);
+  thumbnailImg.attr('src', video.thumbURL);
   videoLink.append(thumbnailImg);
     
   /* On click, we'll make a modal with the title and video iframe */
@@ -89,7 +100,7 @@ var addVideoToList = function(video) {
     var videoTitle = $('<h2>');
     videoTitle.html(video.title + ' <small>' + video.author + '</small>');
     var videoEmbed = $('<iframe></iframe>');
-    videoEmbed.attr('src', generateEmbedUrl(video.youtubeId));
+    videoEmbed.attr('src', video.embedURL);
     videoEmbed.attr('width', 560);
     videoEmbed.attr('height', 315);
 
@@ -107,10 +118,15 @@ var addVideoToList = function(video) {
 
 
 $(document).ready(function() {
-  for (var i = 0; i < videosJSON.length; i++) {
-    addVideoToList(videosJSON[i]);
+
+  var videos = new VideoCollection(videosJSON);
+  videos.sort();
+
+  for (var i = 0; i < videos.items.length; i++) {
+    addVideoToList(videos.items[i]);
   }
 });
+
 
  </script>
  </body>

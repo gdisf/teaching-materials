@@ -61,7 +61,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #13DAEC;
+  color: #01A9B4;
   text-decoration: none;
   transition: color .15s ease; }
 
@@ -194,7 +194,7 @@ div.left-align {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #f05b62;
+  color: #01A9B4;
   text-decoration: none;
   transition: color .15s ease; }
 
