@@ -1,9 +1,9 @@
-<!doctype html>  
+<!doctype html>
 <html lang="en">
-	
+
 	<head>
 		<meta charset="utf-8">
-		
+
 		<title>JS  MVC</title>
 
     <base target="_blank">
@@ -12,7 +12,7 @@
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		
+
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
@@ -28,11 +28,11 @@
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
-	
+
 	<body>
-		
+
 		<div class="reveal">
-			
+
 			<div class="slides">
 
 <section>
@@ -44,7 +44,7 @@
 
 
 <section>
-  
+
   <h1>JavaScript and Websites</h1>
   <h2>A brief history</h2>
 
@@ -88,7 +88,7 @@
 
 <section>
   <h1>...that's a lot of JS.</h1>
-  
+
   <br><br>
   <h2>
     Coursera: <strong>28,848 lines of JS code.</strong>.
@@ -117,21 +117,21 @@
       <circle cx="200" cy="200" r="200" fill="yellow" style="opacity:.5"/>
       <circle cx="600" cy="200" r="200" fill="cyan" style="opacity:.5"/>
     </svg>
-      
+
       <div style="position:absolute;top: 70px; left: 145px; text-align:center;">
         <h3>"Model"</h3>
         <h4>(Data)</h4>
         <p>Fetch data</p>
         <p>Process data</p>
-        
+
       </div>
-      
+
       <div style="position:absolute;top: 70px; left: 480px; text-align:center;">
         <h3>"View"</h3>
         <h4>(Presentation)</h4>
         <p>Create DOM</p>
         <p>Handle DOM Events</p>
-        
+
       </div>
   </div>
 
@@ -151,7 +151,7 @@ text-align: center;
 margin: 30px 0 0 0;" border="1">
     <thead>
      <tr><th>&nbsp; Model:</th><th>&nbsp; View:</th></tr>
-    <tbody> 
+    <tbody>
       <tr>
         <td contenteditable></td>
         <td contenteditable style="border-left:1px solid #ccc;"></td>
@@ -232,7 +232,7 @@ margin: 30px 0 0 0;" border="1">
   <h1>The BookCollection</h1>
 
   <p>Creates an array of Models and provides sorts.</p>
-  
+
   <pre><code class="javascript">var BookCollection = function(booksJSON) {
   this.items = [];
   for (var i = 0; i &lt; booksJSON.length; i++) {
@@ -260,6 +260,96 @@ var books = new BookCollection(booksJSON);</pre></code>
 </section>
 
 <section>
+  <h2>Convert spaghetti code to MVC!</h2>
+  <p>Spaghetti Example</p>
+  <ul>
+    <li>hard to maintain & debug</li>
+    <li>hard to work on the same code with the designers and developers</li>
+  </ul>
+  <pre><code class="javascript">
+  var colors = [];
+
+  ['brenda', 'sam', 'seniha'].forEach(function() {
+    var color = prompt('hi ' + person +  '. what is your favorite color?');
+    colors.push(color);
+  });
+
+  document.querySelector('#colors-container').innerHTML = colors.join(', ');
+  </pre></code>
+</section>
+<section>
+  <h2>Convert spaghetti code to MVC!</h2>
+  <p>MVC Example - Model</p>
+  <ul>
+    <li>models holds state of the app</li>
+  </ul>
+  <pre><code class="javascript">
+var model = {
+  names: ['brenda', 'sam', 'seniha'],
+  colors: []
+};
+  </pre></code>
+</section>
+
+<section>
+  <h2>Convert spaghetti code to MVC!</h2>
+  <p>MVC Example - View</p>
+  <ul>
+    <li> view presents data to the user</li>
+    <li> designer can work on this part since it is separated from the model and controller</li>
+    <li> easy to add different views without effecting other part of the code</li>
+  </ul>
+  <pre><code class="javascript">
+   var view = {
+      id: '#colors-container',
+      updateColors: function (colors) {
+          document.querySelector(this.id).innerHTML = colors.join(', ');
+      }
+    };
+</pre></code>
+</section>
+
+<section>
+<h2>Convert spaghetti code to MVC!</h2>
+<p>MVC Example - Controller</p>
+<ul>
+  <li> controller provides interaction with user</li>
+  <li> communicate between model and view</li>
+</ul>
+<pre><code class="javascript">
+var controller = {
+    model: model,
+    view: view,
+    promptEveryPersonForTheirFavoriteColor: function() {
+        var colors = [];
+
+        this.model.names.forEach(function (name) {
+            var color = prompt('hi ' + name +  '. what is your favorite color?')
+            colors.push(color);
+        });
+
+        return colors;
+    },
+    updateColors: function(colors) {
+        this.model.colors = colors;
+        this.view.updateColors(colors);
+    }
+};
+</pre></code>
+</section>
+<section>
+  <h2>Convert spaghetti code to MVC!</h2>
+  <p>MVC Example - Main Logic</p>
+  <ul>
+    <li> code much easier to read</li>
+    <li> easier to understand what the app does</li>
+  </ul>
+  <pre><code class="javascript">
+var colors = controller.promptEveryPersonForTheirFavoriteColor();
+controller.updateColors(colors);
+</pre></code>
+</section>
+<section>
   <h1><a href="exercise_model.html">Exercise Time!</a></h1>
 </section>
 
@@ -270,7 +360,7 @@ var books = new BookCollection(booksJSON);</pre></code>
   var shelfDiv = $('&lt;div>');
   for (var i = 0; i &lt; books.items.length; i++) {
     var book = books.items[i];
-    // Create a div with a linked image inside it, 
+    // Create a div with a linked image inside it,
     // and add that to the shelf div
     var bookDiv = $('&lt;div class="book">');
     var bookLink = $('&lt;a>');
@@ -344,7 +434,7 @@ var BookShelfView = function(books) {
 
 <section>
   <h1>MV* Frameworks</h1>
-  
+
   <img src="http://dl.dropbox.com/u/10998095/Screenshots/j6-bm8vdetj2.png">
   <!--
 - Many JS developers have done this, so they’ve made generic libraries to make it easier.
@@ -362,7 +452,7 @@ var BookShelfView = function(books) {
   </ul>
   <br><br>
   <p><a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">
-    Journey through the JS MVC Jungle</a>, 
+    Journey through the JS MVC Jungle</a>,
     <a href="http://addyosmani.github.com/todomvc/">TodoMVC</a>
   </p>
 </section>
@@ -380,14 +470,14 @@ var BookShelfView = function(books) {
 
 			<!-- Presentation progress bar -->
 			<div class="progress"><span></span></div>
-			
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 
 		<script>
-			
+
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -405,8 +495,8 @@ var BookShelfView = function(books) {
 					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
 				]
 			});
-			
+
 		</script>
-  
+
   </body>
 </html>
