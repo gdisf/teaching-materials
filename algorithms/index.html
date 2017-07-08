@@ -328,6 +328,16 @@ myObject = { key : value,
             </section>
 
             <section>
+                <h2>Big O Notation</h2>
+                <br>
+                <ul>
+                    <li class="fragment">Language we use to describe the complexity of an algorithm</li>
+                    <li class="fragment"><span class="red">Approximation</span> of how quickly space or time complexity grows <span class="red">relative to input size</span></li>
+                    <li class="fragment">Usually talking about worst case scenario</li>
+                </ul>
+            </section>
+
+            <section>
               <h2>Hanging up Laundry v1</h2>
               <br>
               <ol>
@@ -373,8 +383,18 @@ laundry.drop()
               </table>
               <hr>
               </div>
-                <p class="fragment">If N = items of clothing,<br> it takes (N*0 + 2) => O(2) => O(1).<br>
+                <p class="fragment">If N = items of clothing,<br> time it takes: (N*0 + 2)<br>
                </p>
+            </section>
+
+            <section>
+                <h3>Laundry v1 Big O Notation</h3>
+                <br>
+                (N*0 + 2)
+                <p class="fragment">&#x2192; O(2)</p>
+                <p class="fragment">&#x2192; O(1)</p>
+                <br>
+                <p class="red fragment">Constant time</p>
             </section>
 
             <section>
@@ -436,8 +456,17 @@ for pile in piles:
                   </table>
                   <hr>
               </div>
-                <p class="fragment">If N = items of clothing,<br> it takes (N*10 + N*30) => O(N).<br>
+                <p class="fragment">If N = items of clothing,<br> time it takes: (N*10 + N*30)<br>
                </p>
+            </section>
+            <section>
+                <h3>Laundry v2 Big O Notation</h3>
+                <br>
+                (N*10 + N*30)
+                <p class="fragment"> &#x2192; O(40N)</p>
+                <p class="fragment"> &#x2192; O(N)</p>
+                <br>
+                <p class="red fragment">Linear time</p>
             </section>
 
             <section>
@@ -508,8 +537,19 @@ for pile in piles:
               <br>
                <p class="fragment">
                 If N = # items of clothing and # items in section,
-                <br>it takes (N*10 + N*30 + N*N*2) => O(N^2)
+                <br>time it takes: (N*10 + N*30 + N*N*2)
                </p>
+            </section>
+
+            <section>
+                <h3>Laundry v3 Big O Notation</h3>
+                <br>
+                (N*10 + N*30 + N*N*2)
+                <p class="fragment">&#x2192; O(40N + 2N<sup>2</sup>)</p>
+                <p class="fragment">&#x2192; O(2N<sup>2</sup>)</p>
+                <p class="fragment">&#x2192; O(N<sup>2</sup>)</p>
+                <br>
+                <p class="red fragment">Quadratic time</p>
             </section>
 
             <section>
@@ -584,7 +624,7 @@ for pile in piles:
                 <br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -594,7 +634,7 @@ for pile in piles:
                 <br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -604,7 +644,7 @@ for pile in piles:
                 <br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -614,7 +654,7 @@ for pile in piles:
                 <br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -628,7 +668,7 @@ things[2]
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -643,7 +683,7 @@ for (var i = 0; i &lt; things.length; i++) {
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
 
             </section>
 
@@ -668,7 +708,7 @@ for (var i = 0; i &lt; things.length; i++) {
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
 
@@ -1173,13 +1213,14 @@ for (var i = 0; i &lt; things.length; i++) {
                 <img src='images/bad-facial-recognition.jpg'>
             </section>
 
+<!--             Commenting out because it's unclear what these slides mean
             <section>
                 <img src='images/google-image-hair.png'>
-            </section>
+            </section> -->
 
-            <section>
+<!--             <section>
                 <img src='images/google-image-people.png'>
-            </section>
+            </section> -->
 
             <section>
                 <ul>
@@ -1192,9 +1233,10 @@ for (var i = 0; i &lt; things.length; i++) {
 
             </section>
 
+<!--             Commenting out because it's unclear what this slide means
             <section>
                 <img src='images/apple-stairs.jpg'>
-            </section>
+            </section> -->
 
             <section>
                 <h1>Try an algorithm!</h1>
