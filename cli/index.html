@@ -83,7 +83,7 @@
           <h2>Agenda</h2>
           <h6>This class will be a combo of lecture + exercises</h6>
           <ul>
-            <li class="fragment">Real world examples</li>
+            <li class="fragment">Why use the command line?</li>
             <li class="fragment">Command line "lingo"</li>
             <li class="fragment">Working with folder directories</li>
             <li class="fragment">Working with files</li>
@@ -93,50 +93,17 @@
         </section>
 
         <section>
-          <h2>Real-World Examples</h2>
+          <h2>When will I use this?</h2>
           <br>
-          <p>Here are some examples of using the command line to accomplish tasks relating to development.</p>
-        </section>
-
-        <section>
-          <h2>Serve up a Directory</h2>
-          <br>
-          <p><code>python -m simpleHTTPServer</code></p>
-          <br>
-          <p>Don't forget: you can <code>Ctrl + C</code> to exit.</p>
-        </section>
-
-        <section>
-          <h2>Version Control</h2>
-          <br>
-          <p>Check out <a href="https://try.github.io" target="_blank">Try Git</a> for an easy intro, or watch for our next GDI Git workshop.</p>
-        </section>
-
-        <section>
-          <h2>Run Open Source Projects</h2>
-          <br>
-          <p><code>brew install hugo</code></p>
-          <br>
-          <p><code>npm run start</code></p>
-        </section>
-
-        <section>
-          <h2>Control other computers</h2>
-          <br>
-          <p><code>ssh gdi@192.168.0.23</code></p>
-          <br>
-          <p>These "other" computers might be:</p>
+          <p>You might use the command line to...</p>
           <ul>
-            <li>A cloud environment like Cloud9</li>
-            <li>A virtual machine or container on your own computer</li>
-            <li>A very simple computer like a raspberry pi</li>
-          </ul>          
-        </section>        
-
-        <section>
-          <h2>Watching a Log File</h2>
-          <br>
-          <p><code>tail -f /var/log/wifi.log</code></p>
+            <li class="fragment">Automate file actions with a script</li>
+            <li class="fragment">Serve a local directory for testing</li>
+            <li class="fragment">Use version control (like Git)</li>
+            <li class="fragment">Run open source projects</li>
+            <li class="fragment">Use automated build tools</li>
+            <li class="fragment">Control other computers</li>
+          </ul>
         </section>
 
         <section>
@@ -147,6 +114,7 @@
             <li class="fragment">"Command prompt"</li>
             <li class="fragment">"Shell"</li>
             <li class="fragment">"Console"</li>
+            <li class="fragment">"CLI"</li>
           </ul>
           <br><br>
           <p class="fragment">These are all pretty much the same thing.</p>
@@ -796,7 +764,54 @@
         </section>
 
         <section>
-          <h2>Where's the prompt?!</h2>
+          <h2>Real World Examples</h2>
+          <br>
+          <p>Let's revisit the use cases from the beginning of class and go into more detail.</p>
+        </section>
+
+        <section>
+          <h2>Serve up a Directory</h2>
+          <br>
+          <p><code>python -m simpleHTTPServer</code></p>
+          <br>
+          <p>Run this from the directory you want to serve.<br>
+             Press <code>Ctrl + C</code> to exit.</p>
+        </section>
+
+        <section>
+          <h2>Version Control</h2>
+          <br>
+          <p>Check out <a href="https://try.github.io" target="_blank">Try Git</a> for an intro, or watch for our next GDI Git workshop.</p>
+        </section>
+
+        <section>
+          <h2>Run Open Source Projects</h2>
+          <br>
+          <p>Installation instructions from an actual open source project:</p>
+          <img src="img/os-install-cli.png" alt="Instructions from an open source project with terminal commands">
+        </section>
+
+        <section>
+          <h2>Control other computers</h2>
+          <br>
+          <p>These "other" computers might be:</p>
+          <ul>
+            <li>A cloud environment like Cloud9</li>
+            <li>A virtual machine or container on your own computer</li>
+            <li>A very simple computer like a raspberry pi</li>
+          </ul>          
+          <br>
+          <p><code>ssh gdi@192.168.0.23</code></p>
+        </section>        
+
+        <section>
+          <h2>Watching a Log File</h2>
+          <br>
+          <p><code>tail -f /var/log/wifi.log</code></p>
+        </section>
+        
+        <section>
+          <h2>Troubleshooting: Where's the prompt?!</h2>
           <br>
           <p>Different processes have different ways of exiting back to the prompt. If you're stuck, try one of these:</p>
           <br>
@@ -807,6 +822,15 @@
             <li><code>:q</code></li>
             <li><b>esc</b> key, then <code>:q</code></li>
           </ul>
+        </section>
+
+        <section>
+          <h2>Troubleshooting: <br>`command not found`</h2>
+          <br>
+          <p>You may need to install the software that uses the command.</p>
+          <br>
+          <p>Try searching online for:</p>
+          <code>how to install [command-name-here] on [Mac/Windows/Linux]</code>
         </section>
 
         <section>
