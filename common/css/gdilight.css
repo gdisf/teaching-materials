@@ -76,7 +76,8 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #01a9b4;
+  color: #0098a3;
+  border-bottom: 0.05em solid #f05b62;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -85,13 +86,13 @@ body {
   transition: color .15s ease; }
 
 .reveal a:not(.image):hover {
-  color: #f9b8bb;
+  background-color: #fce8e9;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #01a9b4; }
+  background: #0098a3; }
 
 /*********************************************
  * IMAGES
@@ -108,7 +109,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #01a9b4;
+  border-color: #0098a3;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -116,19 +117,19 @@ body {
  *********************************************/
 .reveal .controls div.left,
 .reveal .controls div.left.enabled {
-  border-right-color: #01a9b4; }
+  border-right-color: #0098a3; }
 
 .reveal .controls div.right,
 .reveal .controls div.right.enabled {
-  border-left-color: #01a9b4; }
+  border-left-color: #0098a3; }
 
 .reveal .controls div.up,
 .reveal .controls div.up.enabled {
-  border-bottom-color: #01a9b4; }
+  border-bottom-color: #0098a3; }
 
 .reveal .controls div.down,
 .reveal .controls div.down.enabled {
-  border-top-color: #01a9b4; }
+  border-top-color: #0098a3; }
 
 .reveal .controls div.left.enabled:hover {
   border-right-color: #f9b8bb; }
@@ -149,7 +150,7 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #01a9b4;
+  background: #0098a3;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -185,8 +186,80 @@ body {
 .left{float:left}
 .right{float:right}
 .clear{clear:both}
-.blue{color:#01A9B4 }
+.blue{color:#0098a3 }
 .green{color:#92BB44}
 .yellow{color:#EDAB23}
 .pink{color:#F05B62}
 .red{color:#8B0036}
+
+/*********************************************
+* CUSTOM
+**********************************************/
+
+section ul, section ol {
+  text-align: left;
+}
+
+.reveal section img.noborder{
+  border-width: 0;
+  box-shadow: none;
+}
+
+.reveal section img {
+  max-height: 500px;
+  max-width: 80%;
+}
+
+div.halfblock{
+  float: left;
+  width: 45%;
+  text-align: left;
+  margin-right: 5%;
+}
+
+div.left-align{
+  text-align: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.reveal h1 {
+  font-size: 2em;
+}
+
+.reveal h2{
+  font-size: 1.8em;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
