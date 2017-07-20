@@ -82,17 +82,28 @@
           <h2>Agenda</h2>
           <h6>This class will be a combo of lecture + exercises</h6>
           <ul>
+            <li class="fragment">Why use the command line?</li>
             <li class="fragment">Command line "lingo"</li>
             <li class="fragment">Working with folder directories</li>
             <li class="fragment">Working with files</li>
             <li class="fragment">Standard input/output</li>
             <li class="fragment">Working with commands</li>
-            <li class="fragment">File permissions</li>
-            <li class="fragment">Running and stopping processes</li>
-            <li class="fragment">Real world examples</li>
           </ul>
         </section>
 
+        <section>
+          <h2>When will I use this?</h2>
+          <br>
+          <p>You might use the command line to...</p>
+          <ul>
+            <li class="fragment">Automate file actions with a script</li>
+            <li class="fragment">Serve a local directory for testing</li>
+            <li class="fragment">Use version control (like Git)</li>
+            <li class="fragment">Run open source projects</li>
+            <li class="fragment">Use automated build tools</li>
+            <li class="fragment">Control other computers</li>
+          </ul>
+        </section>
 
         <section>
           <h2>The "lingo"</h2>
@@ -102,6 +113,7 @@
             <li class="fragment">"Command prompt"</li>
             <li class="fragment">"Shell"</li>
             <li class="fragment">"Console"</li>
+            <li class="fragment">"CLI"</li>
           </ul>
           <br><br>
           <p class="fragment">These are all pretty much the same thing.</p>
@@ -197,7 +209,7 @@
         </section>
 
         <section>
-          <h2>Directory Tress</h2>
+          <h2>Directory Trees</h2>
           <p>At the very top of the tree is the root folder.</p>
           <br>
           <img src="img/unix-filesystem.png" alt="Unix file directory system">
@@ -751,193 +763,9 @@
         </section>
 
         <section>
-          <h2>Mac/Linux-Only Zone</h2>
-          <br>
-          <p>The following sections rely on the Unix system and will not work in a bash emulator on a Windows PC.</p>
-          <br>
-          <p>You can work with a partner, or try the commands on <a href="https://c9.io/" target="_blank">Cloud9</a>, and online workspace.</p>
-        </section>
-
-        <section>
-          <h2>Permissions</h2>
-          <br>
-          <div class="left-align">
-            <p>The unix security model breaks up file permissions into three groups:</p>
-            <br>
-            <ol>
-              <li>Owner</li>
-              <li>Group</li>
-              <li>Others</li>
-            </ol>
-            <br><br>
-            <table>
-              <thead>
-                <tr>
-                  <td>
-                    <h3><code>rwx</code></h3>
-                  </td>
-                  <td>
-                    <h3><code>r-x</code></h3>
-                  </td>
-                  <td>
-                    <h3><code>r-x</code></h3>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    owner
-                  </td>
-                  <td>
-                    group
-                  </td>
-                  <td>
-                    others
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section>
-          <h2>Remember <code>ls -l</code>?</h2>
-          <img src="img/command-line-ls-flags.png" alt="Command line ls with flags">
-        </section>
-
-        <section>
-          <h2>Changing Permissions</h2>
-          <br>
-          <p>Use <code>chmod</code> to change permissions on a file/directory</p>
-          <br>
-          <h4>The argument has three sections:</h4>
-          <ol>
-            <li class="fragment"><code>u</code>, <code>g</code>, <code>o</code> to signify which level to target.</li>
-            <li class="fragment"><code>+</code> or <code>-</code> to indicate whether adding or removing.</li>
-            <li class="fragment"><code>r</code>, <code>w</code>, <code>x</code> to indicate what type of permission to change.</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Changing Permissions</h2>
-          <br>
-          <p>Use <code>chmod</code> to change permissions on a file/directory</p>
-          <br>
-          <h4 class="fragment">Examples:</h4>
-          <p class="fragment"><code>chmod u+w</code> to add write permissions for the file's owner.</p>
-          <p class="fragment"><code>chmod go-rwx</code> to remove all permissions for the file's group and everyone else.</p>
-           <br>
-          <small><em>Windows permissions work differently. You can view them with <code>ls -l</code>, but you can't change them with <code>chmod</code></em></small>
-       </section>
-
-        <section>
-          <h2>Let's Develop It!</h2>
-          <br>
-          <ol>
-            <li>Create a new file named <code>testfile</code> in your home directory.</li>
-            <li>Grant yourself execute permission on the file.</li>
-            <li>Remove read permission on <code>testfile</code> from your group and everyone else.</li>
-            <li>Delete <code>testfile</code>.</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Let's Develop It!</h2>
-          <img src="img/exercise3-answer.png" alt="Exercise 3 Example">
-        </section>
-
-        <section>
-          <h2>Processes</h2>
-          <br>
-          <p>Whenever a command is executed, a new process is created.</p>
-        </section>
-
-        <section>
-          <h2>top</h2>
-          <br>
-          <p>The <code>top</code> command provides an up-to-date feed of information on the most active processes across the machine.</p>
-          <br>
-          <p>Useful for finding processes that are hogging the CPU.</p>
-        </section>
-
-        <section>
-          <h2>ps</h2>
-          <br>
-          <p>The <code>ps</code> utility displays all of your processes that have controlling terminals.</p>
-        </section>
-
-        <section>
-          <h2>ps</h2>
-          <img src="img/command-line-ps.png" alt="Command Line ps Processes">
-        </section>
-
-        <section>
-          <h2>Key Sequences</h2>
-          <br>
-          <p><code>Ctrl + Z</code>: Suspend the current process</p>
-          <br>
-          <p><code>Ctrl + C</code>: Terminate the current process</p>
-        </section>
-
-        <section>
-          <h2>Suspending a Process</h2>
-          <img src="img/command-line-suspend-process.png" alt="Command Line suspending a process">
-        </section>
-
-        <section>
-          <h2>bg & fg</h2>
-          <br>
-          <p>The <code>bg</code> and <code>fg</code> commands bring a suspended process back into a running state.</p>
-          <br>
-          <p><code>bg</code> runs it in a background process.</p>
-          <p><code>fg</code> runs it in the foreground of the current terminal.</p>
-          <br>
-          <p class="fragment">By default they target the most recently suspended process.</p>
-          <p class="fragment">The job number can be provided as an argument. (The number we saw when we suspended the process)</p>
-        </section>
-
-        <section>
-          <h2>Let's Develop It!</h2>
-          <br>
-          <ol>
-            <li>Run the <code>top</code> command.</li>
-            <li>Suspend the process.</li>
-            <li>Bring the process back into the foreground.</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Let's Develop It!</h2>
-          <img src="img/exercise5-answer.png" alt="Exercise 5 Example">
-        </section>
-
-        <section>
-          <h2>kill</h2>
-          <br>
-          <p>The <code>kill</code> command terminates or sends a signal to a process.</p>
-          <br>
-          <p>It takes the process id (PID) as an argument.</p>
-          <br>
-          <p>You can find the PID using <code>top</code> or <code>ps</code>.</p>
-        </section>
-
-        <section>
-          <h2>Let's Develop It!</h2>
-          <br>
-          <ol>
-            <li>Clear your terminal and run the <code>yes</code> command.</li>
-            <li>Use the <code>Ctrl+Z</code> key sequence to suspend the process.</li>
-            <li>Use the <code>bg</code> command to send the process to the background.</li>
-            <li>Notice the output is still happening even though the process is running in the background.</li>
-            <li>Open a new terminal window, locate the PID for the "yes" process and use it to kill the process.</li>
-          </ol>
-        </section>
-
-        <section>
           <h2>Real World Examples</h2>
           <br>
-          <p>Here are some examples of using the command line to accomplish tasks relating to development.</p>
+          <p>Let's revisit the use cases from the beginning of class and go into more detail.</p>
         </section>
 
         <section>
@@ -945,23 +773,44 @@
           <br>
           <p><code>python -m simpleHTTPServer</code></p>
           <br>
-          <p>Don't forget: you can <code>Ctrl + C</code> to exit.</p>
+          <p>Run this from the directory you want to serve.<br>
+             Press <code>Ctrl + C</code> to exit.</p>
         </section>
 
         <section>
           <h2>Version Control</h2>
           <br>
-          <p>Check out <a href="https://try.github.io" target="_blank">Try Git</a> for an easy intro, or watch for our next GDI Git workshop.</p>
+          <p>Check out <a href="https://try.github.io" target="_blank">Try Git</a> for an intro, or watch for our next GDI Git workshop.</p>
         </section>
+
+        <section>
+          <h2>Run Open Source Projects</h2>
+          <br>
+          <p>Installation instructions from an actual open source project:</p>
+          <img src="img/os-install-cli.png" alt="Instructions from an open source project with terminal commands">
+        </section>
+
+        <section>
+          <h2>Control other computers</h2>
+          <br>
+          <p>These "other" computers might be:</p>
+          <ul>
+            <li>A cloud environment like Cloud9</li>
+            <li>A virtual machine or container on your own computer</li>
+            <li>A very simple computer like a raspberry pi</li>
+          </ul>          
+          <br>
+          <p><code>ssh gdi@192.168.0.23</code></p>
+        </section>        
 
         <section>
           <h2>Watching a Log File</h2>
           <br>
           <p><code>tail -f /var/log/wifi.log</code></p>
         </section>
-
+        
         <section>
-          <h2>Where's the prompt?!</h2>
+          <h2>Troubleshooting: Where's the prompt?!</h2>
           <br>
           <p>Different processes have different ways of exiting back to the prompt. If you're stuck, try one of these:</p>
           <br>
@@ -972,6 +821,15 @@
             <li><code>:q</code></li>
             <li><b>esc</b> key, then <code>:q</code></li>
           </ul>
+        </section>
+
+        <section>
+          <h2>Troubleshooting: <br>`command not found`</h2>
+          <br>
+          <p>You may need to install the software that uses the command.</p>
+          <br>
+          <p>Try searching online for:</p>
+          <code>how to install [command-name-here] on [Mac/Windows/Linux]</code>
         </section>
 
         <section>
