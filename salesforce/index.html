@@ -12,16 +12,13 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-	<link rel="stylesheet" href="../common/css/reveal.css">
-	<link rel="stylesheet" href="../common/css/default.css" id="theme">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../common/css/reveal.min.css">
+	<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
 
 	<!-- For syntax highlighting -->
-	<!-- light editor -->
-	<link rel="stylesheet" href="../common/css/theme/light.css">
-	<!-- dark editor <link rel="stylesheet" href="dist/css/dark.css">-->
-	<!-- <link rel="stylesheet" href="dist/css/zenburn.css"> -->
-
-	<link rel="stylesheet" href="../common/plugin/accessibility-helper/css/accessibility-helper.css">
+	<link rel="stylesheet" href="../common/css/editor/dark.css">
 
 	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 	<script>
@@ -36,12 +33,12 @@
 
 	<!-- If use the PDF print sheet so students can print slides-->
 	<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
-	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
 	<!--[if lt IE 9]>
 		<script src="dist/js/html5shiv.js"></script>
 	<![endif]-->
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 
 <body>
@@ -1280,7 +1277,7 @@ The Success Community is the place to go to find answers and to connect with oth
 	</div>
 
 
-	<script src="../common/js/head.min.js"></script>
+	<script src="../common/lib/js/head.min.js"></script>
 	<script src="../common/js/reveal.min.js"></script>
 
 	<script>
@@ -1296,22 +1293,22 @@ The Success Community is the place to go to find answers and to connect with oth
 
 			// Optional reveal.js plugins
 			dependencies: [{
-				src: 'dist/js/classList.js',
+				src: '../common/lib/js/classList.js',
 				condition: function() {
 					return !document.body.classList;
 				}
 			}, {
-				src: 'plugin/markdown/marked.js',
+				src: '../common/;lplugin/markdown/marked.js',
 				condition: function() {
 					return !!document.querySelector('[data-markdown]');
 				}
 			}, {
-				src: 'plugin/markdown/markdown.js',
+				src: '../common/plugin/markdown/markdown.js',
 				condition: function() {
 					return !!document.querySelector('[data-markdown]');
 				}
 			}, {
-				src: 'plugin/highlight/highlight.js',
+				src: '../common/plugin/highlight/highlight.js',
 				async: true,
 				condition: function() {
 					return !!document.querySelector('pre code');

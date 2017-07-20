@@ -4,25 +4,25 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>JS401 Intro to Unit Testing with Jasmine</title>
+		<title>GDI Slides Theme</title>
 
-		<meta name="description" content="This workshop will provide an introduction to Test Driven Development, specifically in the Behavior Driven Development style, using Jasmine.">
+		<meta name="description" content="This is the example format for GDI Slides">
 		<meta name="author" content="Girl Develop It San Francisco">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<link rel="stylesheet" href="../common/css/reveal.css">
-		<link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
+		<link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<!-- light editor --><link rel="stylesheet" href="../common/lib/css/light.css">
-		 <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
 
 		<!-- If use the PDF print sheet so students can print slides-->
 
 		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
-		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -36,12 +36,9 @@
 			<div class="slides">
         <!-- Opening -->
 				<section>
-					<h1>GDI Reveal.js</h1>
-                    <!-- <img src="img/circle-gdi-logo.png" alt="GDI Logo"/> -->
-					<h3>Girl Develop It's Framework for HTML Presentations</h3>
-					<p>
-						<small>Modified from <a href ="http://github.com/girldevelopit/reveal.js">Girl Develop It reveal.js fork</a>.</small>
-					</p>
+					<img src="../common/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder" />
+					<h1>Name of GDI CLASS</h1>
+					<p>teaching-materials.org/url-to-slides</p>
 				</section>
         <!-- Compatibility-->
 				<section>
@@ -97,13 +94,13 @@
 					  <h2>But wait! We teach code</h2>
 					  <p>For HTML -- Surround your code with a div class "xml", then pre, then code.</p>
            <pre>
-            <code>
-              &lt;ul>
-                &lt;li>No order here&lt;/li>
-                &lt;li>Or here&lt;/li>
-                &lt;li>Or here&lt;/li>
-                &lt;li>Or here&lt;/li>
-              &lt;/ul&gt;
+            <code contenteditable class="xml">
+&lt;ul>
+	&lt;li>No order here&lt;/li>
+	&lt;li>Or here&lt;/li>
+	&lt;li>Or here&lt;/li>
+	&lt;li>Or here&lt;/li>
+&lt;/ul&gt;
             </code>
           </pre>
 				</section>
@@ -112,14 +109,13 @@
 					  <h2>But wait! We teach code</h2>
 					  <p>We can also make code editable</p>
 					  <pre>
-					    <code contenteditable>
-                &lt;ul>
-                  &lt;li>No order here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                  &lt;li>Or here&lt;/li>
-                &lt;/ul&gt;
-              </code>
+<code contenteditable class="xml">&lt;ul>
+    &lt;li>No order here&lt;/li>
+    &lt;li>Or here&lt;/li>
+    &lt;li>Or here&lt;/li>
+    &lt;li>Or here&lt;/li>
+&lt;/ul&gt;
+</code>
 
             </pre>
 				</section>
@@ -129,11 +125,9 @@
 					  <h2>But wait! We teach code</h2>
 					  <p>CSS</p>
 					  <pre>
-              <code contenteditable class ="css">
-                body{
-                  background-color: #ffffff;
-                }
-              </code>
+              <code contenteditable class ="css">body{
+    background-color: #ffffff;
+}</code>
             </pre>
 				</section>
 				
@@ -141,12 +135,10 @@
 					  <h2>But wait! We teach code</h2>
 					  <p>Javascript</p>
 					  <pre>
-              <code contenteditable class ="javascript">
-                function helloWorld(){
-                  var name = 'GDI';
-                  alert("Hi, " + name)
-                }
-              </code>
+              <code contenteditable class ="javascript">function helloWorld(){
+	var name = 'GDI';
+	alert("Hi, " + name)
+}</code>
             </pre>
 				</section>
 				
@@ -154,12 +146,10 @@
 					  <h2>But wait! We teach code</h2>
 					  <p>PHP</p>
 					  <pre>
-              <code contenteditable class ="php">
-                function helloWorld(){
-                  $name = 'GDI';
-                  echo "Hi, " . $name;
-                }
-              </code>
+              <code contenteditable class ="php">function helloWorld(){
+	$name = 'GDI';
+	echo "Hi, " . $name;
+}</code>
             </pre>
 				</section>
 				
@@ -167,12 +157,10 @@
 					  <h2>But wait! We teach code</h2>
 					  <p>Ruby</p>
 					  <pre>
-              <code contenteditable class ="ruby">
-                def hello_world
-                  @name = 'GDI'
-                  puts "Hi, #{@name}"
-                end
-              </code>
+              <code contenteditable class ="ruby">def hello_world
+    @name = 'GDI'
+    puts "Hi, #{@name}"
+end</code>
             </pre>
 				</section>
                
@@ -180,12 +168,10 @@
  					  <h2>But wait! We teach code</h2>
  					  <p>Python</p>
  					  <pre>
-               <code contenteditable class ="python">
-                 def hello_world():
-                   name = "GDI"
-                   print 'Hi, ' + name
-                   return
-               </code>
+               <code contenteditable class ="python">def hello_world():
+    name = "GDI"
+    print 'Hi, ' + name
+    return</code>
              </pre>
  				</section>
  				
@@ -193,12 +179,10 @@
  					  <h2>But wait! We teach code</h2>
  					  <p>Java</p>
  					  <pre>
-               <code contenteditable class ="java">
-                public void helloWorld(){
-                  String name = "GDI";
-                  System.out.println("Hi," + name)
-                }
-               </code>
+               <code contenteditable class ="java">public void helloWorld(){
+    String name = "GDI";
+    System.out.println("Hi," + name)
+}</code>
              </pre>
  				</section>
         
@@ -362,7 +346,7 @@
 			</div>
   		<footer>
         <div class="copyright">
-          Official class name here -- Chapter name here (if content modified from original) --
+          Official class name here &middot; <a href="http://www.meetup.com/Girl-Develop-It-San-Francisco/">GDI SF</a> &middot; teaching-materials.org/url-to-this-class
           <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
         </div>
       </footer>
