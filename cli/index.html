@@ -1,0 +1,907 @@
+<!doctype html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Intro to the Command Line ~ Girl Develop It</title>
+
+    <meta name="description" content="An introduction to the Unix Shell Command Line Interface">
+    <meta name="author" content="Girl Develop It San Francisco">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
+
+    <!--Adapting the 2-column style from national slides-->
+    <style>
+      .flex-container {
+        display: flex;
+      }
+      .flex-item {
+        flex-basis: 50%;
+      }
+      .reveal section img {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+      }
+    </style>
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Intro to the Command Line</h1>
+          <p>teaching-materials.org/cli</p>
+        </section>
+        
+        <!-- Welcome-->
+        <section class="hide-pdf">
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <p class ="green">Some "rules"</p>
+          <ul>
+            <li>We are here for you!</li>
+            <li>Every question is important</li>
+            <li>Help each other</li>
+            <li>Have fun</li>
+          </ul>
+          </div>
+        </section>
+
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p>Tell us about yourself.</p>
+          <ul>
+            <li>Who are you?</li>
+            <li>What do you hope to get out of the class?</li>
+            <li>What's your favorite ice cream flavor?</li>
+          </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Agenda</h2>
+          <h6>This class will be a combo of lecture + exercises</h6>
+          <ul>
+            <li class="fragment">Why use the command line?</li>
+            <li class="fragment">Command line "lingo"</li>
+            <li class="fragment">Working with folder directories</li>
+            <li class="fragment">Working with files</li>
+            <li class="fragment">Standard input/output</li>
+            <li class="fragment">Working with commands</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>When will I use this?</h2>
+          <br>
+          <p>You might use the command line to...</p>
+          <ul>
+            <li class="fragment">Automate file actions with a script</li>
+            <li class="fragment">Serve a local directory for testing</li>
+            <li class="fragment">Use version control (like Git)</li>
+            <li class="fragment">Run open source projects</li>
+            <li class="fragment">Use automated build tools</li>
+            <li class="fragment">Control other computers</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>The "lingo"</h2>
+          <ul>
+            <li class="fragment">"Terminal"</li>
+            <li class="fragment">"Command-line"</li>
+            <li class="fragment">"Command prompt"</li>
+            <li class="fragment">"Shell"</li>
+            <li class="fragment">"Console"</li>
+            <li class="fragment">"CLI"</li>
+          </ul>
+          <br><br>
+          <p class="fragment">These are all pretty much the same thing.</p>
+        </section>
+
+        <section>
+          <h2>What is a Terminal?</h2>
+          <br>
+          <p>A text-based command interpreter.</p>
+          <br>
+          <p>The most common shell is "bash".</p>
+          <br>
+          <p>For Mac OS or Linux, use the "Terminal" application.</p>
+          <br>
+          <p>For Windows, use Git Bash.<br>(<a href="https://git-scm.com/downloads" target="_blank">Download here</a> if you haven't installed yet.)</p>
+        </section>
+
+        <section>
+          <h2>Prompt</h2>
+          <img src="img/command-line-prompt.png" alt="Command Line prompt">
+        </section>
+
+        <section>
+          <h2>Prompt</h2>
+          <br>
+          <p>Usually shows your username and computer name.</p>
+          <br>
+          <p>Indicates that the terminal is ready for a command.</p>
+        </section>
+
+        <section>
+          <h2>Cursor</h2>
+          <img src="img/command-line-cursor.png" alt="Command Line cursor">
+        </section>
+
+        <section>
+          <h2>Cursor</h2>
+          <br>
+          <p>Indicates your current spot in the terminal.</p>
+          <br>
+          <p>Shows you where the stuff you type will go.</p>
+        </section>
+
+        <section>
+          <h2>Your First Command</h2>
+          <br>
+          <ol>
+            <li>Type <code>echo hello</code> into your terminal.</li>
+            <li>Press the enter key.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>The Current Directory</h2>
+          <h3><code>pwd</code></h3>
+          <h4>(Print Working Directory)</h4>
+
+          <br><p>Type it whenever you want to see what directory (folder) you’re in.</p>
+        </section>
+
+        <section>
+          <h2><code>pwd</code></h2>
+          <p>(Print Working Directory)</p>
+          <img src="img/command-line-pwd.png" alt="Your first command, pwd">
+        </section>
+
+        <section>
+          <h2>clear</h2>
+          <br>
+          <p>The <code>clear</code> command clears the contents of the terminal and issues a prompt.</p>
+          <br>
+          <p>This is good for removing previous output that is unnecessary to the task at hand.</p>
+          <br>
+          <p>Feel free to use this whenever things get too cluttered.</p>
+        </section>
+
+        <section>
+          <h2>Directories</h2>
+          <br>
+          <p>Also referred to as "folders".</p>
+          <br>
+          <p>A container for files or other directories.</p>
+          <br>
+          <p>Nested files and directories can be referenced using <code>paths</code>.</p>
+        </section>
+
+        <section>
+          <h2>Directory Trees</h2>
+          <br>
+          <p>The set of all folders, taken together, makes up your entire file system.</p>
+          <br>
+          <p>This system is organized into a kind of upside down tree.</p>
+        </section>
+
+        <section>
+          <h2>Directory Trees</h2>
+          <p>At the very top of the tree is the root folder.</p>
+          <br>
+          <img src="img/unix-filesystem.png" alt="Unix file directory system">
+        </section>
+
+        <section>
+          <h2>Paths</h2>
+          <br>
+          <p>Each directory or file is separated by a forward slash "/"</p>
+          <br>
+          <p>There are two kinds of paths:</p>
+          <br>
+          <ul>
+            <li>Relative: <code>Desktop/the_project/overview.txt</code></li>
+            <li>Absolute: <code>/Users/jane/Desktop/logo.png</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>cd</h2>
+          <br>
+          <p>The <code>cd</code> command changes the current working directory.</p>
+          <br>
+          <p>It expects a file path as an "argument".</p>
+          <br>
+          <p>If no file path is given, it assumes your home directory by default.</p>
+        </section>
+
+        <section>
+          <h2>cd</h2>
+          <img src="img/command-line-cd.png" alt="Command line cd">
+        </section>
+
+        <section>
+          <h2>Shortcuts</h2>
+          <br>
+          <ul>
+            <li>Current Directory: <code>.</code></li>
+            <li>Parent Directory: <code>..</code></li>
+            <li>Home Directory: <code>~</code></li>
+            <li>Previous Directory: <code>-</code></li>
+          </ul>
+          <br>
+          <br>
+          <p>Bonus: Drag a folder into the terminal to show its path.</p>
+          <p><small>(Doesn't quite work in Windows.)</small></p>
+        </section>
+
+        <section>
+          <h2>ls</h2>
+          <br>
+          <p>The <code>ls</code> command lists the contents of a directory.</p>
+          <br>
+          <p>It expects a file path as an "argument".</p>
+          <br>
+          <p>If no file path is given, it assumes the current directory by default.</p>
+        </section>
+
+        <section>
+          <h2>ls</h2>
+          <img src="img/command-line-ls.png" alt="Command line ls">
+        </section>
+
+        <section>
+          <h2>Flags</h2>
+          <br>
+          <p>The <code>ls</code> command accepts several option flags.</p>
+          <br>
+          <p>A flag is a special argument that is used to set an option for the command.</p>
+          <br>
+          <p>These are commonly a hyphen followed by a single character (e.g. <code>-g</code>)</p>
+          <br>
+          <p>Setting the <code>-l</code> flag on the <code>ls</code> command causes it to provide more verbose (long) output.</p>
+        </section>
+
+        <section>
+          <h2>ls -l</h2>
+          <img src="img/command-line-ls-flags.png" alt="Command line ls with flags">
+        </section>
+
+        <section>
+          <h2>Hidden Files</h2>
+          <br>
+          <p>Filenames that begin with a period are hidden from normal output.</p>
+          <br>
+          <p>e.g. ".bashrc"</p>
+          <br>
+          <p>Use the <code>ls</code> command with the <code>-a</code> flag to see hidden files in addition to the usual output.</p>
+          <br>
+          <p>Type <code>ls -la</code> into your terminal.</p>
+          <br>
+          <p>Use the <code>-h</code> flag to get human readable file sizes.</p>
+        </section>
+
+        <section>
+          <h2>ls -la</h2>
+          <img src="img/command-line-hidden-files.png" alt="Command line hidden files using flag -la">
+        </section>
+
+        <section>
+          <h2>Man Pages</h2>
+          <h3><code>man</code></h3>
+          <p>The <b><code>man</code></b> command brings up the manual for the specified command. Use &lt;space&gt; or the arrow keys to page through and press <b> q </b> to exit.</p>
+          <pre><code class="html ruby" contenteditable="">$ man ls</code></pre>
+        </section>
+
+        <section>
+          <h2>Love the Tab</h2>
+          <p>Tab completion autocompletes commands and filenames.</p>
+          <ul>
+            <li>Pressing &lt;tab&gt; once autocompletes a unique instance.</li>
+            <li>Pressing &lt;tab&gt; twice gives you all the options available.</li>
+          </ul>
+          <pre><code class="html" contenteditable="">$ cd P</code></pre>
+        </section>
+        <section>
+          <h2>cd & ls</h2>
+          <br>
+          <p>Play with the <code>cd</code> and <code>ls</code> commands.</p>
+          <br>
+          <h4>Be sure to incorporate:</h4>
+          <ul>
+            <li>relative file path</li>
+            <li>absolute file path</li>
+            <li>the <code>.</code> shortcut</li>
+            <li>the <code>..</code> shortcut</li>
+            <li>the <code>~</code> shortcut</li>
+            <li><code>cd</code> without an argument</li>
+          </ul>
+          <br><br>
+          <p>Use <code>pwd</code> to check your location periodically.</p>
+        </section>
+
+        <section>
+          <h2>Open</h2>
+          <br>
+          <p>Use the <code>open</code> command to open a file or directory in its default app.</p>
+          <br>
+          <p>Pass the path of the file or directory name as the argument.</p>
+          <br>
+          <p class="fragment">It does the equivalent of double-clicking the item.</p>
+          <br>
+          <p class="fragment"><small><em>(Sadly, this does not work in Windows. 😞)</small></em></p>
+        </section>
+
+        <section>
+          <h2>Making a Directory</h2>
+          <br>
+          <p>Use the <code>mkdir</code> command to create a new empty directory.</p>
+          <br>
+          <p>Pass the path of the directory name as the first argument.</p>
+          <br>
+          <p class="fragment">If the base of the path doesn't already exist, the command will fail.</p>
+          <br>
+          <p class="fragment">Use the <code>-p</code> flag to create the full path if non-existent.</p>
+        </section>
+
+        <section>
+          <h2>mkdir</h2>
+          <img src="img/command-line-mkdir.png" alt="Command line make directory">
+        </section>
+
+        <section>
+          <h2>Removing Directories</h2>
+          <br>
+          <p>Use the <code>rmdir</code> command to remove an empty directory.</p>
+          <br>
+          <p>Use <code>rm -r</code> to remove a non-empty directory.</p>
+        </section>
+
+        <section>
+          <h2>rmdir</h2>
+          <img src="img/command-line-rmdir.png" alt="Command line remove directory">
+        </section>
+
+        <section>
+          <h2>Let's Develop It!</h2>
+          <br>
+          <ol>
+            <li><code>cd</code> to your home directory.</li>
+            <li>Create the <code>girl/develop</code> directory path.</li>
+            <li>Navigate into the <code>girl/develop</code> directory.</li>
+            <li>Create the <code>it</code> directory.</li>
+            <li>Navigate up two directories.</li>
+            <li>Use the <code>pwd</code> command to verify you are home.</li>
+            <li>Remove the <code>girl/develop/it</code> path.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Let's Develop It</h2>
+          <img src="img/exercise1-answer.png" alt="Exercise 1 answer">
+        </section>
+
+        <section>
+          <h2>Files</h2>
+          <br>
+          <p>Use <code>cat</code> to output the contents of a file to the console.</p>
+          <br>
+          <p>Use <code>more</code> to step through the contents of a file one screen at a time.</p>
+          <br>
+          <p>Use <code>less</code> to step backwards or forwards.</p>
+        </section>
+
+        <section>
+          <h2>Let's Develop It!</h2>
+          <br>
+          <p>Explore the <code>/usr/share/misc</code> files using <code>cat</code>, <code>more</code>, and <code>less</code></p>
+          <br>
+          <p>Can you find your birth month's stone and flower in the <code>birthtoken</code> file?</p>
+          <br>
+          <small><em>Sorry, Windows users - I haven't found a good file sample for this yet!<br> Try looking over the shoulder of a neighbor.</em></small>
+        </section>
+
+        <section>
+          <h2>Let's Develop It!</h2>
+          <img src="img/exercise2-answer.png" alt="Exercise 2 answer">
+        </section>
+
+        <section>
+          <h2>Create a File</h2>
+          <h3><code>touch</code></h3>
+          <p>Use the <b>touch</b> command to create a new file.</p><br>
+          <p><em>The touch command expects the name of your new file as an argument.</em></p>
+        </section>
+
+        <section>
+          <h2>touch</h2>
+          <h4>(create a file)</h4>
+
+          <img src="img/touch.png" alt="touch">
+        </section>
+
+        <section>
+          <h2>Copy a File</h2>
+          <h3><code>cp</code></h3>
+
+          <p>Use the <b>cp</b> command to copy a file.</p><br>
+          <p>The <b>cp</b> command takes two arguments:</p>
+          <p>1st argument = the "origin" file</p>
+          <p>2nd argument = the "destination" file</p>
+          <pre><code class="html" contenteditable>$ cp resume.txt resume-copy.txt</code></pre>
+        </section>
+
+        <section>
+          <h2>cp</h2>
+          <h4>(copy a file)</h4>
+          <h5><code class="html" contenteditable>$ cp origin destination</code></h5>
+          <img src="img/cp.png" alt="cp">
+        </section>
+
+        <section>
+          <h2>Copy a Directory</h2>
+          <h3><code>cp -R</code></h3>
+
+          <p>Use the <b>cp -R</b> command to copy a directory.</p><br>
+          <p>The <b>cp -R</b> command takes two arguments:</p>
+          <p>1st argument = the "origin" directory</p>
+          <p>2nd argument = the "destination" directory</p>
+          <pre><code class="html" contenteditable>$ cp -R homework old-homework</code></pre>
+        </section>
+
+        <section>
+          <h2>cp -R</h2>
+          <h4>(copy a directory)</h4>
+          <h5><code class="html" contenteditable>$ cp -R origin destination</code></h5>
+          <img src="img/cp-R.png" alt="cp-R">
+        </section>
+
+        <section>
+          <h2>Moving (or renaming) a File/Directory</h2>
+
+          <p>Use the <b>mv</b> command to move a file or directory.</p><br>
+          <p>The <b>mv</b> command takes two arguments:</p>
+          <p>1st argument = the "origin"</p>
+          <p>2nd argument = the "destination"</p>
+        </section>
+
+        <section>
+          <h2>Move a File/Directory</h2>
+          <h3><code>mv origin destination</code></h3>
+
+          <img src="img/mvfile.png" alt="move file/directory">
+        </section>
+
+        <section>
+          <h2>Rename a File/Directory</h2>
+          <h3><code>mv orig dest</code></h3>
+
+          <img src="img/renamefile.png" alt="rename file/directory">
+        </section>
+
+        <section>
+          <h2>Remove a File</h2>
+          <h3><code>rm</code></h3>
+
+          <p>Use the <b>rm</b> command to remove a file.</p><br>
+          <p><em>Expects the name of the file you are removing as an argument.</em></p>
+        </section>
+
+        <section>
+          <h2>rm</h2>
+          <h4>(remove a file)</h4>
+
+          <img src="img/rmfile.png" alt="remove a file">
+        </section>
+
+        <section>
+          <h3>Let's Develop It!</h3>
+
+          <ol>
+            <li>Create a folder called <b>cli</b></li>
+            <li>Make that folder your current working directory</li>
+            <li>Create two files: <b>file1.txt</b>, <b>file2.txt</b></li>
+            <li>Copy <b>file1.txt</b> and call the copy <b>file3.txt</b></li>
+            <li>Create a directory called <b>folder1</b></li>
+            <li>Move <b>file1.txt</b> into <b>folder1</b></li>
+            <li>List the contents of <b>folder1</b> without going into it</li>
+            <li>Rename <b>file1.txt</b> to <b>myfile.txt</b></li>
+            <li>Remove the directory <b>folder1</b>, without deleting <b>myfile.txt</b> first</li>
+            <li>Clear your terminal</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Edit a File</h2>
+
+          <p>You can use various editors built into bash:</p>
+          <p><code>$ vi myfile.txt</code></p>
+          <p><code>$ emacs myfile.txt</code></p>
+          <p><code>$ pico myfile.txt</code></p><br>
+
+          <p>Or on a Mac, you can open with any desktop app:</p>
+          <pre><code class="html" contenteditable>$ open -a TextEdit myfile.txt</code></pre>
+          <p>Or with the default editor:</p>
+          <pre><code class="html" contenteditable>$ open -t myfile.txt</code></pre>
+        </section>
+
+        <section>
+          <h2>Search within a File</h2>
+          <h3><code>grep</code></h3>
+
+          <p>Use the <b>grep</b> command to search in files.</p><br>
+          <p>The grep command outputs only the lines in a file that match a given pattern.</p><br>
+          <p>The 1st argument is the pattern to match, and the 2nd, 3rd, and so on are the files to search within.</p>
+          <pre><code class="html" contenteditable>$ grep pattern file</code></pre>
+        </section>
+
+        <section>
+          <h2>grep</h2>
+          <h4>(search within a file for text that matches a pattern)</h4>
+          <img src="img/grep.png" alt="grep">
+        </section>
+
+        <section>
+          <h2>Wildcard Matching</h2>
+
+          <p>Use the <b>*</b> (asterisk) symbol to match <em>anything</em>.</p><br>
+          <p>You can use this to search through all of a particular file type.</p>
+          <pre><code class="html" contenteditable>$ grep hello *.txt</code></pre><br>
+          <p>The shell will build a list of all the files that match the non-asterisk part.</p>
+        </section>
+
+        <section>
+          <h2>Finding Files</h2>
+          <h3><code>find</code></h3>
+
+          <p>Use the <b>find</b> command to find files according to name/metadata.</p><br>
+
+          <p>Find all txt files under the current directory:</p>
+          <pre><code class="html" contenteditable>find . -name '*.txt' -print</code></pre>
+        </section>
+
+        <section>
+          <h2>find</h2>
+          <h4>(finding files)</h4>
+
+          <img src="img/find.png" alt="find">
+        </section>
+
+        <section>
+          <h2>Standard Output</h2>
+          <br>
+          <p>Most commands display their results to a mechanism called the standard output.</p>
+          <br>
+          <p>By default, this directs its content to the display.</p>
+          <br>
+          <p class="fragment">The standard output can be redirected to a file using the <code>></code> operator.</p>
+          <br>
+          <p class="fragment"><code>ls > file_list.txt</code></p>
+        </section>
+
+        <section>
+          <h2>Standard Output</h2>
+          <br>
+          <p>In order to append to the file instead of overwriting it, use the <code>>></code> operator instead.</p>
+          <br>
+          <p><code>ls >> file_list.txt</code></p>
+          <br>
+          <p class="fragment">Both the <code>></code> and <code>>></code> operator will create the file if it doesn't exist.</p>
+        </section>
+
+        <section>
+          <h2>Standard Input</h2>
+          <br>
+          <p>Whenever commands accept keyboard input, it's likely they are really just drawing input from a mechanism called standard input.</p>
+          <br>
+          <p>By default, this is set to keyboard input.</p>
+        </section>
+
+        <section>
+          <h2>Standard Input</h2>
+          <br>
+          <p>The input to a command can be redirected to  a file by using the <code><</code> operator.</p>
+          <br>
+          <p><code>sort < file_list.txt</code></p>
+          <br>
+          <p class="fragment">Both input and output can be redirected at the same time.</p>
+          <br>
+          <p class="fragment"><code>sort < file_list.txt > sorted_file_list.txt</code></p>
+        </section>
+
+        <section>
+          <h3>Let's develop it!</h3>
+
+          <ol>
+            <li>In the <b>cli</b> directory, output the contents of <b>file2.txt</b> to the terminal</li>
+            <li>Add <a href="http://www.deloreanipsum.com/" target="_blank">a sentence</a> to <b>file2.txt</b></li>
+            <li>Add a few more sentences to <b>file2.txt</b></li>
+            <li>Search the file for the word of your choice and add the results to <b>file3.txt</b></li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Filters</h2>
+          <br>
+          <h4>Filters are commands whose behavior follows the following pattern:</h4>
+          <ol>
+            <li>Accept input from standard input.</li>
+            <li>Perform some operation on it.</li>
+            <li>Send the results to standard output.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Filters</h2>
+          <p>Check out the man pages for the following:</p>
+          <br>
+          <div class="flex-container">
+            <div class="flex-item">
+              <p><code>sort</code></p>
+              <p><code>uniq</code></p>
+              <p><code>grep</code></p>
+              <p><code>head</code></p>
+              <p><code>tail</code></p>
+            </div>
+            <div class="flex-item">
+              <p><code>fmt</code></p>
+              <p><code>pr</code></p>
+              <p><code>tr</code></p>
+              <p><code>sed</code></p>
+              <p><code>awk</code></p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Pipes</h2>
+          <br>
+          <p>The "|" character can be used to allow  commands to communicate during execution.</p>
+          <br>
+          <p>Pipes are placed between commands.</p>
+          <br>
+          <p>A pipe will cause the output of the left command to be used as the input of the right command.</p>
+          <br>
+          <p><code>ls -l | grep "myfile.txt" du | sort -nr</code></p>
+        </section>
+
+        <section>
+          <h2>Let's Develop It!</h2>
+          <br>
+          <p>Use the <code>ls</code> and <code>grep</code> commands to print out only the files in your home directory that contain the word "bash".</p>
+        </section>
+
+        <section>
+          <h2>Let's Develop It!</h2>
+          <br>
+          <p><code>ls -a | grep bash</code></p>
+          <img src="img/exercise4-answer.png" alt="Exercise 4 Example">
+        </section>
+
+        <section>
+          <h2>Command Line Movement</h2>
+
+          <ul>
+            <li><b>ctrl-a</b>: jump to beginning of line</li>
+            <li><b>ctrl-e</b>: jump to end of line</li>
+            <li><b>alt-f</b>: jump forward a word</li>
+            <li><b>alt-b</b>: jump back a word</li>
+
+            <li><b>alt-d</b>: delete word</li>
+            <li><b>alt-t</b>: transpose two words</li>
+
+            <li><b>ctrl-xx</b>: jump back to your last edit, again to get back to original position</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>More Command Line Movement</h2>
+
+          <ul>
+            <li>The <b>left/right arrow keys</b> let you edit within a command</li>
+            <li>The <b>up/down arrow keys</b> let you select previous commands</li>
+            <li><b>tab</b> auto-completes filenames</li>
+          </ul><br><br>
+          <p>Bonus for Macs: Hold the <code>option</code> key and click to move the cursor.</p>
+        </section>
+
+        <section>
+          <h2>Command Line History</h2>
+
+          <p>Use the <b>history</b> command to see a list of all your previous commands.</p><br>
+          <p>Each command will be listed next to a line number.</p><br>
+
+          <p>A few history-related commands:</p>
+          <ul>
+            <li><b>!!</b>: Latest command</li>
+            <li><b>!568</b>: Command by line #</li>
+            <li><b>!open</b>: Command matching string</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>history</h2>
+
+          <img src="img/command-line-history.png" alt="history">
+        </section>
+
+        <section>
+          <h2>Let's Develop It!</h2>
+          <br>
+          <ol>
+            <li>Use your <code>up</code> and <code>down</code> arrows to locate a past command with one or more arguments.</li>
+            <li>Move your cursor to the beginning of the line.</li>
+            <li>Move your cursor to the end of the line.</li>
+            <li>Change one of the arguments and run it.</li>
+            <li>Run the <code>date</code> command.</li>
+            <li>Re-run the command from step 4 using <code>!</code>.</li>
+            <li>Time the execution of your original command by running <code>time !!</code>.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Real World Examples</h2>
+          <br>
+          <p>Let's revisit the use cases from the beginning of class and go into more detail.</p>
+        </section>
+
+        <section>
+          <h2>Serve up a Directory</h2>
+          <br>
+          <p><code>python -m simpleHTTPServer</code></p>
+          <br>
+          <p>Run this from the directory you want to serve.<br>
+             Press <code>Ctrl + C</code> to exit.</p>
+        </section>
+
+        <section>
+          <h2>Version Control</h2>
+          <br>
+          <p>Check out <a href="https://try.github.io" target="_blank">Try Git</a> for an intro, or watch for our next GDI Git workshop.</p>
+        </section>
+
+        <section>
+          <h2>Run Open Source Projects</h2>
+          <br>
+          <p>Installation instructions from an actual open source project:</p>
+          <img src="img/os-install-cli.png" alt="Instructions from an open source project with terminal commands">
+        </section>
+
+        <section>
+          <h2>Control other computers</h2>
+          <br>
+          <p>These "other" computers might be:</p>
+          <ul>
+            <li>A cloud environment like Cloud9</li>
+            <li>A virtual machine or container on your own computer</li>
+            <li>A very simple computer like a raspberry pi</li>
+          </ul>          
+          <br>
+          <p><code>ssh gdi@192.168.0.23</code></p>
+        </section>        
+
+        <section>
+          <h2>Watching a Log File</h2>
+          <br>
+          <p><code>tail -f /var/log/wifi.log</code></p>
+        </section>
+        
+        <section>
+          <h2>Troubleshooting: Where's the prompt?!</h2>
+          <br>
+          <p>Different processes have different ways of exiting back to the prompt. If you're stuck, try one of these:</p>
+          <br>
+          <ul>
+            <li><b>ctrl + c</b></li>
+            <li><b>ctrl + x</b></li>
+            <li><code>q</code></li>
+            <li><code>:q</code></li>
+            <li><b>esc</b> key, then <code>:q</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Troubleshooting: <br>`command not found`</h2>
+          <br>
+          <p>You may need to install the software that uses the command.</p>
+          <br>
+          <p>Try searching online for:</p>
+          <code>how to install [command-name-here] on [Mac/Windows/Linux]</code>
+        </section>
+
+        <section>
+          <h2>Just for Fun!</h2>
+          <br>
+          <p><code>cal</code></p>
+          <br>
+          <p><code>say hello</code></p>
+        </section>
+
+
+        <section>
+          <h2>More Resources</h2>
+          <br>
+          <ul>
+            <li>
+              <a href="https://www.git-tower.com/blog/command-line-cheat-sheet/" target="_blank">Command Line Cheat Sheet</a>
+            </li>
+            <li>
+              <a href="https://conemu.github.io/" target="_blank">ConEmu: a cool customizable terminal emulator for Windows</a>
+            </li>
+            <li>
+              <a href="https://natelandau.com/my-mac-osx-bash_profile/" target="_blank">Nathaniel Landau: My Mac OSX Bash Profile</a>
+            </li>
+            <li>
+              <a href="http://code.tutsplus.com/tutorials/how-to-customize-the-command-prompt--net-20586" target="_blank">tuts+: How to Customize the Command Prompt</a>
+            </li>
+            <li>
+              <a href="http://apple.stackexchange.com/questions/5435/got-any-tips-or-tricks-for-terminal-in-mac-os-x" target="_blank">Terminal tricks on Stack Exchange</a>
+            </li>
+          </ul>
+        </section>
+
+      </div><!-- Close slides -->
+
+      <footer>
+        <div class="copyright">
+          Intro to the Command Line -- Girl Develop It San Francisco --
+          <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div><!-- Close reveal -->
+
+    <script src="../common/lib/js/head.min.js"></script>
+    <script src="../common/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+  
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/plugin/zoom-js/zoom.js', async: true },
+          { src: '../common/plugin/notes/notes.js', async: true },
+          //{ src: '../common/plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

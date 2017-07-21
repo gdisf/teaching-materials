@@ -1,0 +1,73 @@
+/*Overall Design*/
+
+body {
+	background-color: #D4FFAA;
+	font-family: 'Helvetica','Arial', sans-serif;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0;
+	padding: 0;
+}
+
+h2, h3 {
+	color: #1212BC;
+}
+
+a:link {
+	color: blue;
+	text-decoration: none;
+}
+a:visited	{
+	color: blue;
+	text-decoration: none;
+}
+a:hover {
+	color: red;
+	text-decoration: underline;
+
+}
+a:active { 
+	color: orange;
+}
+
+#header, #footer {
+	background-color: #2B5500;
+	color: #fff;
+
+	padding: 10px 30px;
+	border: 8px solid red;
+}
+
+#content {
+	background-color: #fff;
+	padding: 10px;
+	width: 60%;
+}
+
+#sidebar {
+	width: 35%;
+	background-color: yellow;
+	float: right;
+}
+
+.center {
+	margin: auto;
+}
+
+.special {
+	color: purple;
+	font-size: 110%;
+}
+
+#content img {
+	width: 100%;
+	max-width: 640px;
+}
+
+#wrapper {
+	border: 10px solid black;
+	width: 1000px;
+	margin: auto;
+}

@@ -1,16 +1,17 @@
-<!doctype html> 
-<html> 
-<head> 
-<title></title> 
-<link rel="stylesheet" type="text/css" href="css/presentation.css" /> 
-<link rel="stylesheet" type="text/css" href="css/codemirror.css" /> 
+<!doctype html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/presentation.css" />
+<link rel="stylesheet" type="text/css" href="css/codemirror.css" />
+
 <link href="http://fonts.googleapis.com/css?family=Coming Soon&subset=latin" rel="stylesheet" type="text/css"/>
-<script src="js/jquery-1.6.2.min.js"></script> 
-<script src="js/jquery.overlay.js"></script> 
-<script src="js/fathom.js"></script> 
-<script src="js/codemirror.js"></script> 
-<script src="js/jsonp.js"></script> 
-<script> 
+<script src="js/jquery-1.6.2.min.js"></script>
+<script src="js/jquery.overlay.js"></script>
+<script src="js/fathom.js"></script>
+<script src="js/codemirror.js"></script>
+<script src="js/jsonp.js"></script>
+<script>
 $(document).ready(function(){
 
 	$('textarea').each(function(elem) {
@@ -28,7 +29,7 @@ $(document).ready(function(){
 	  }
 
 	  var editor = CodeMirror.fromTextArea(textArea, codeMirrorOpts);
-      
+
     $(editor.getWrapperElement()).keydown(function(e) {
       e.stopPropagation();
     });
@@ -53,39 +54,38 @@ $(document).ready(function(){
 	var fathom = new Fathom('#presentation');
 
 });
-</script> 
-</head> 
-<body> 
- 
+</script>
+</head>
+<body>
+
 <div id="demo" style="display:none"></div>
 
-<div id="presentation"> 
-	
-<div class="slide" id="title-slide">
-  <br><br><br>
-  <h1>Client-side APIs</h1>
-  <h2>How, What, &amp; Why</h2>
+<div id="presentation">
 
-  <br><br><br><br>
-  <p style="font-size:34px;">
-    <a href="http://gdisf-js-apis.appspot.com/">
-      http://gdisf-js-apis.appspot.com/
+<div class="slide">
+  <h1>Client-side APIs</h1>
+
+  <img src="img/wordle_categories.png">
+
+	<p class= "footer" style="font-size:34px;">
+    <a href="http://www.teaching-materials.org/apis/">
+      http://www.teaching-materials.org/apis/
     </a>
   </p>
-
 </div>
 
 <div class="slide">
-  <h1>What's a (web) API?</h1>
+  <h1>What's an API?</h1>
 
   <h2><code>"Application Programming Interface"</code></h2>
-  
+
   <img src="img/diagram_apis.png">
-  
+
+	<h3>Rules and Instructions to access outside tools and information to program your application</h3>
   <p class="notes">
 We use APIs to enhance our sites, in a few different ways.
 Functionality: We use APIs to outsource part of our application’s functionality to someone else, so we can focus on the unique bits.
-Public Data: There is a huge amount of data available, and APIs make that data available to use in a structured way. (Google Maps API) For example, I don’t particularly want to install a database of the world’s addresses and algorithms for searching them on my server -- I’d much rather just use the Google Maps API to geocode an address. 
+Public Data: There is a huge amount of data available, and APIs make that data available to use in a structured way. (Google Maps API) For example, I don’t particularly want to install a database of the world’s addresses and algorithms for searching them on my server -- I’d much rather just use the Google Maps API to geocode an address.
 User Data: We also use APIs to access data from other products and integrate them with our own. Users use multiple products and expect for them to work together - synergy.
 APIs can be quite useful, so we need to understand how to best use APIs, and this is a talk about how client-side APIs work, what APIs are out there,
 and why you should use them.
@@ -94,7 +94,45 @@ and why you should use them.
 </div>
 
 <div class="slide">
-  <h1>Client-side APIs</h1>
+  <h1>What's an API?</h1>
+
+  <img src="img/clientserver.png" width="600px">
+
+	<h3>Use an API to get information and tools from a server</h3>
+
+  <p class="notes">
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>What's an API?</h1>
+
+  <img src="img/clientserverserver.png" width="800px">
+
+	<h3>Some APIs are used to pull in information from one server to another</h3>
+
+  <p class="notes">
+  </p>
+
+</div>
+
+<div class="slide">
+  <h1>What's an API?</h1>
+
+  <img src="img/clientbypassserver.png" width="800px">
+
+	<h3>Some APIs are used to pull in information directly from a server into the client</h3>
+
+  <p class="notes">
+  </p>
+
+</div>
+
+
+
+<div class="slide">
+  <h1>What's a Client-side API?</h1>
 
   <img src="img/diagram_clientside.png">
 
@@ -104,27 +142,67 @@ and why you should use them.
 </div>
 
 <div class="slide">
-  <h1>Client-side APIs: How?</h1>
-  <br>
-  <table>
-   <tr> <td><code>IMG</code>             <td>1993  <td>Mosaic
-   <tr> <td><code>SCRIPT</code>          <td>1995  <td>Netscape & Sun (RIP)
-   <tr> <td><code>IFRAME</code>          <td>1996  <td>Microsoft
-   <tr> <td><code>OBJECT/EMBED</code>    <td>1996  <td>Netscape/W3C
-   <tr> <td><code>XMLHttpRequest</code>  <td>1999  <td>Microsoft/W3C
-  </table>
+  <h1>Client-side APIs: Functionality</h1>
+	<h2>So you don't have to re-invent the wheel</h2>
+
+  <ul>
+   <li>Analytics (Graphs)</li>
+   <li>Site Search</li>
+   <li>Mapping capabilities</li>
+   <li>Video Players</li>
+   <li>Payment</li>
+   <li>Communication (Messaging/Chat/Email)</li>
+  </ul>
+
+  <p class="notes">Stuff you could write yourself, but find it easier to let the API do for you.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Client-side APIs: Data</h1>
+	<h2>Make your site content-rich without producing content</h2>
+
+  <ul class="multicolumn">
+	 <li>Social Networks
+	 <li>Multimedia
+	 <li>Documents
+   <li>Mapping
+   <li>Weather
+   <li>Movies
+   <li>Science
+   <li>Books
+   <li>Government
+  </ul>
+
+	<h2>Anything you can think of!!!</h2>
+</div>
+
+<div class="slide">
+  <h1>How do we use Client-side APIs?</h1>
+	<h2><strong>HTML APIs</strong>:  HTML elements as APIs using their attributes</h2>
+		<h3>IMG tags</h3>
+		<h3>IFRAME tags</h3>
+		<br>
+	<h2><strong>JS Widget/Snippet API</strong>: Pull in a Javascript library as an API</h2>
+
+	<h3>SCRIPT tags</h3>
+	<br>
+
+	<h2><strong>JS Data APIs</strong>: Use your own Javascript as an API</h2>
+
+	<h3>XMLHttpRequest objects</h3>
+	<h3>JSONP</h3>
 
   <p class="notes">
 By definition (or atleast by my definition), an API to bring in stuff from another server,
 and there's only so many ways that you can do that in the client.
 HTML was designed for webpages to connect together via links,
 not all on one page, so many of the ways they work (like much of the web)
-are hacks. 
+are hacks.
 
 These technologies are old, but their uses as APIs is more recent.
 It's taken a while to figure out the hacks and for client-side APIs to take off.
   </p>
-
 </div>
 
 <div class="slide">
@@ -156,28 +234,26 @@ template=simple"&gt;
 
   <textarea class="runnable html">
 &lt;img src="
-http://maps.google.com/maps/api/staticmap?
-center=45.123664,-123.113775&
-zoom=18&
-maptype=satellite&
-size=250x300&
-sensor=false"&gt;
+https://maps.googleapis.com/maps/api/staticmap?
+center=Alamo Square Playground+San+Francisco,+CA+94117&
+zoom=16&
+size=500x400&
+markers=color:red%7Clabel:%7CPainted Ladies"&gt;
   </textarea>
 
   <textarea class="runnable html">
 &lt;img src="
-http://maps.googleapis.com/maps/api/streetview?
-size=300x250&
-location=-33.86627,151.195827&
-fov=20&
-heading=350&
-pitch=-20&
-sensor=false"&gt;
+https://maps.googleapis.com/maps/api/streetview?
+size=400x400&
+location=37.7762139,-122.4329534&
+fov=100&
+heading=70&
+pitch=10"&gt;
   </textarea>
 
   <p class="footer">Read more:
-   <a href="http://code.google.com/apis/maps/documentation/staticmaps/">Google Static Maps API</a> |
-   <a href="http://code.google.com/apis/maps/documentation/streetview/index.html">Google Street View Image API</a>
+   <a href="https://developers.google.com/maps/documentation/static-maps/" target="_blank">Google Static Maps API</a> |
+   <a href="https://developers.google.com/maps/documentation/streetview/" target="_blank">Google Street View Image API</a>
   </p>
 </div>
 
@@ -194,15 +270,16 @@ chd=t:10,80,10&
 chco=FAFAFA,FFFF00,FAFAFA&
 chl=Does%20not%20resemble%20Pac-man|Resembles%20Pac-man&
 chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
-  </textarea> 
+  </textarea>
   <p class="footer">Read more: <a href="https://developers.google.com/chart/image/">Google Charts API Docs</a>
    <br>Note the deprecation notice!
   </p>
 </div>
 
+<!-- commented out because who uses flash these days? 
 <div class="slide">
   <h1>EMBED/OBJECT as API</h1>
-   
+
   <textarea class="html">
 &lt;object&gt;
   &lt;param name="movie" value="http://apidomain.com/widget.swf"&gt;&lt;/param&gt;
@@ -216,7 +293,7 @@ chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
    &lt;param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=107931"&gt;&lt;/param&gt;
    &lt;param name="flashvars" value="api_text=jowling&api_sort=interestingness-desc&offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Djowling%26s%3Dint&page_show_back_url=%2Fsearch%2F%3Fq%3Djowling%26s%3Dint&method=flickr.photos.search&api_params_str=&api_tag_mode=bool&api_media=all&jump_to=&start_index=0"&gt;&lt;/param&gt;
    &lt;embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=107931"
-     flashvars="offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Djowling%26s%3Dint&page_show_back_url=%2Fsearch%2F%3Fq%3Djowling%26s%3Dint&method=flickr.photos.search&api_params_str=&api_text=jowling&api_tag_mode=bool&api_media=all&api_sort=interestingness-desc&jump_to=&start_index=0" 
+     flashvars="offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Djowling%26s%3Dint&page_show_back_url=%2Fsearch%2F%3Fq%3Djowling%26s%3Dint&method=flickr.photos.search&api_params_str=&api_text=jowling&api_tag_mode=bool&api_media=all&api_sort=interestingness-desc&jump_to=&start_index=0"
      width="400" height="300"&gt;
    &lt;/embed&gt;
 &lt;/object&gt;
@@ -225,6 +302,8 @@ chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
   <p class="footer">Friends don't let friends use Flash APIs</p>
 
 </div>
+
+end flash slide -->
 
 <div class="slide">
   <h1>IFRAME as API: Simple</h1>
@@ -235,12 +314,12 @@ chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
 
   <h3>YouTube Embed:</h3>
   <textarea class="runnable html">
-&lt;iframe width="420" height="315"
- src="http://www.youtube.com/embed/epUk3T2Kfno?rel=0&autoplay=1"
- frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width="560" height="315" 
+src="https://www.youtube.com/embed/epUk3T2Kfno?autoplay=1" 
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
   </textarea>
 
-  <p><a href="https://developers.google.com/youtube/player_parameters#autohide">Youtube Player Embed Reference</a></p>
+  <p><a href="https://developers.google.com/youtube/player_parameters" target="_blank">Youtube IFrame Player API</a></p>
 
 </div>
 
@@ -257,7 +336,7 @@ chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
 </div>
 
 <div class="slide">
-  <h1>SCRIPT as API: Libraries</h1>
+  <h1>SCRIPT as API: Javascript Libraries</h1>
 
 <h3>Your code:</h3>
   <textarea class="script">
@@ -278,85 +357,71 @@ window.apiNamespace.apiFunction = function() {
 </div>
 
 <div class="slide">
-  <h1>Google Analytics</h1>
+  <h1>Example: Chart.js</h1>
 
   <textarea class="runnable html">
-&lt;button type="button"&gt;Click Me!&lt;/button&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"&gt;&lt;/script&gt;
+
+&lt;canvas id="favorite-pets" width="800" height="450"&gt;&lt;/canvas&gt;
 
 &lt;script type="text/javascript"&gt;
- 
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-964209-11']);
-_gaq.push(['_trackPageview']);
-
-$('#demo button').bind('click', function() {
-    _gaq.push(['_trackEvent', 'UserInteraction', 'Click']);
+new Chart(document.getElementById("favorite-pets"), {
+  type: 'bar',
+  data: {
+    labels: ["dogs", "cats", "birds"],
+    datasets: [
+      {
+        label: "Families",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+        data: [6478,6267,4734]
+      }
+    ]
+  },
+  options: {
+    legend: { display: false },
+    title: { display: true, text: 'Favorite pets' }
+  }
 });
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-
-  
 &lt;/script&gt;
   </textarea>
 
   <p class="footer">
-    More reading: <a href="https://developers.google.com/analytics/devguides/collection/gajs/">Google Analytics JS Docs</a>
-  </p>
-</div>
-
-<div class="slide">
-  <h1>Disqus</h1>
-
-  <textarea class="runnable html">
-&lt;div id="disqus_thread"&gt;&lt;/div&gt;
-&lt;script type="text/javascript"&gt;
-var disqus_shortname = 'otherfancystuff';
-var disqus_developer = 1;
-    
-(function() {
-  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-&lt;/script&gt;
-  </textarea>
-
-  <p class="footer">
-    More reading: <a href="http://help.disqus.com/customer/portal/articles/472097-universal-code">Disqus Universal Code Docs</a>
+    More reading: <a href="http://www.chartjs.org/docs/latest/">Chart.js docs</a>
   </p>
 
 </div>
 
 <div class="slide">
-  <h1>Facebook Like button</h1>
+  <h1>Example: Twitter List</h1>
 
   <textarea class="runnable html">
-&lt;div class="fb-like" data-href="http://gdisf-js-apis.appspot.com/" 
-  data-send="true" data-width="450" data-show-faces="true"&gt;
-&lt;/div&gt;
+&lt;a class="twitter-timeline" href="https://twitter.com/amc123123/lists/women-in-tech"&gt;
+  A Twitter List by EngineerSue
+&lt;/a&gt;
 
-&lt;div id="fb-root"&gt;&lt;/div&gt;
-
-&lt;script&gt;(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=152345878188549";
+&lt;script&gt;window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+  t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-&lt;/script&gt;
+
+  t._e = [];
+  t.ready = function(f) {
+  t._e.push(f);
+};
+
+return t;
+}(document, "script", "twitter-wjs"));&lt;/script&gt;
   </textarea>
 
- <p class="footer">
-  More reading: <a href="http://developers.facebook.com/docs/reference/plugins/like/">Facebook Like Button</a>
- </p>
+  <p class="footer">
+    More reading: <a target="_blank" href="https://dev.twitter.com/web/javascript/loading">Twitter Widget docs</a>
+  </p>
 
 </div>
-
 
 <div class="slide">
   <br><br><br>
@@ -376,7 +441,7 @@ var disqus_developer = 1;
   <textarea class="js">
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://apidomain.com/method?param=bla');
-xhr.onreadystatechange = function() { 
+xhr.onreadystatechange = function() {
   if(xhr.readyState == 4 &amp;&amp; xhr.status==200) {
     var data = xhr.responseText;
   }
@@ -385,18 +450,18 @@ xhr.send();
   </textarea>
   <marquee>Error: Same origin policy!</marquee>
 
-</div> 
+</div>
 
 <div class="slide">
   <h1>SCRIPT as API: JSONP</h1>
 
   <h3>Your page:</h3>
   <textarea class="runnable script">
-&lt;script src="http://imagine-it.org/api.php?callback=onLoadData"&gt;
+&lt;script src="https://api.ipify.org?format=jsonp&callback=getip"&gt;
 &lt;/script&gt;
 &lt;script&gt;
-function onLoadData(json) {
-  $('#demo').html('<h1> YO YO YO ' + json.name + '</h1>');
+function getip(json) {
+  $('#demo').html('<h2> Your IP address is ' + json.ip + '.</h2>');
 }
 &lt;/script&gt;
   </textarea>
@@ -406,7 +471,7 @@ function onLoadData(json) {
 &lt;?php
 $callback = $_GET['callback'];
 
-echo $callback . "({'name': 'Girl Develop It'});";
+echo $callback . "({'ip': getIP()});";
 ?&gt;
   </textarea>
 
@@ -416,7 +481,8 @@ echo $callback . "({'name': 'Girl Develop It'});";
   <h1>reddit JSONP API</h1>
 
    <p>Example URL: 
-     <a href="http://www.reddit.com/r/all/search.json?q=girldevelopit">
+     <a href="http://www.reddit.com/r/all/search.json?q=girldevelopit" target="_blank">
+
      http://www.reddit.com/r/all/search.json?q=girldevelopit
      </a>
    </p>
@@ -426,7 +492,10 @@ echo $callback . "({'name': 'Girl Develop It'});";
    <textarea class="runnable js" mode="javascript" style="display: none;" runnable="true">
 function onLoad(json) {
   var posts = json.data.children;
-  document.getElementById('demo').innerHTML = posts[0].data.title;
+  for (var i = 0; i < 5 && i < posts.length; i++) {
+    document.getElementById('demo').innerHTML += 
+      '<p>' + posts[i].data.title + '</p>';
+  }
 }
 
 function fetchJSON(query) {
@@ -439,34 +508,35 @@ function fetchJSON(query) {
 fetchJSON('girldevelopit');
    </textarea>
 
-   <p class="footer"><a href="http://www.reddit.com/dev/api#GET_search">Reddit API docs</a></p>
+   <p class="footer"><a href="http://www.reddit.com/dev/api#GET_search" target="_blank">Reddit API docs</a></p>
 </div>
 
 <div class="slide">
   <h1>Youtube JSONP API</h1>
-  <p><a href="http://www.nonobtrusive.com/2010/05/20/lightweight-jsonp-without-any-3rd-party-libraries/">Lightweight JSONP JS Library</a></p>
   <!-- For those of you who don't actually use jQuery... -->
 
   <textarea class="runnable js" mode="javascript" style="display: none;" runnable="true">
 function fetchJSON(query) {
-  var searchUrl = 'http://gdata.youtube.com/feeds/api/videos';
+  var searchUrl = 'https://www.googleapis.com/youtube/v3/search';
   var params = {
-    'v': '2', 'alt': 'jsonc', 'q': encodeURIComponent(query)
+    'part' : 'snippet',
+    'key' : 'AIzaSyCRXTR0G_Slvgyjj_Vgfry6KLiw8pIMlHs',
+    'q': encodeURIComponent(query)
   }
   JSONP.get(searchUrl, params, null, function(json) {
-    var youtubeId = json.data.items[0].id;
+    var youtubeId = json.items[0].id.videoId;
     document.getElementById('demo').innerHTML = 
   '<iframe width="560" height="365" ' + 
   'src="http://www.youtube.com/embed/' + youtubeId +
   '" frameborder="0" allowfullscreen></iframe>';
   });
-} 
+}
 
 fetchJSON('otters');
   </textarea>
 
   <p class="footer">
-  See also: <a href="http://www.nonobtrusive.com/2010/05/20/lightweight-jsonp-without-any-3rd-party-libraries/">Lightweight JSONP JS Library</a></p>
+  See also: <a href="http://www.nonobtrusive.com/2010/05/20/lightweight-jsonp-without-any-3rd-party-libraries/" target="_blank">Lightweight JSONP JS Library</a></p>
   </p>
 
 </div>
@@ -501,13 +571,13 @@ fetchPhotos('rabbits');
   </textarea>
 
   <p class="footer">
-  See also: <a href="http://api.jquery.com/jQuery.ajax/">jQuery .ajax()</a> |
-  <a href="http://www.flickr.com/services/api/">Flickr API</a>
+  See also: <a href="http://api.jquery.com/jQuery.ajax/" target="_blank">jQuery .ajax()</a> |
+  <a href="http://www.flickr.com/services/api/" target="_blank">Flickr API</a>
   </p>
 
 </div>
 
-
+<!-- commenting out because this isn't necessary, and we're short on time 
 <div class="slide">
   <h1>Combo APIs</h1>
 
@@ -522,7 +592,7 @@ fetchPhotos('rabbits');
   <textarea class="js">
 window.fbAsyncInit = function() {
   FB.init({appId: '174062109319467', status: true});
-  
+
   FB.api('/me/friends', function(response) {
     for (var i = 0; i &lt; response.data.length; i++) {
       var friendName = response.data[i].name;
@@ -537,7 +607,7 @@ window.fbAsyncInit = function() {
    '//connect.facebook.net/en_US/all.js';
   e.async = true;
   document.getElementById('fb-root').appendChild(e);
-}()); 
+}());
   </textarea>
 
   <p class="notes">
@@ -546,191 +616,13 @@ window.fbAsyncInit = function() {
   </p>
 
 </div>
+end comment -->
 
 
- 
 <div class="slide">
   <br><br><br>
   <h1><a target="_blank" href="http://www.teaching-materials.org/apis/exercise_youtubeapi.html">Exercise Time!</a></h1>
 </div>
 
-
-<div class="slide">
-  <h1>Client-side APIs: What?</h1>
-
-  <img src="img/wordle_categories.png">
-
-  <p class="footer">
-  See also: <a href="http://www.programmableweb.com/apis/directory">ProgrammableWeb.com API Directory</a>
-  </p>
-</div>
-
-<div class="slide">
-  <h1>Client-side APIs: What?</h1>
-  <img src="img/diagram_apis.png">
-</div>
-
-<div class="slide">
-  <h1>Client-side APIs: Functionality</h1>
-
-  <ul>
-   <li>Analytics
-   <li>Site Search
-   <li>Text Processing (Translation/Analysis/TTS/Conversion)
-   <li>Image Processing (Editing/Filter)
-   <li>Payment
-   <li>Communication (Telephony/Messaging/Chat/Email)
-  </ul>
-
-  <p class="notes">Stuff you could write yourself, but find it easier to let the API do for you.
-  </p>
-</div>
-
-<div class="slide">
-  <h1>Text Processing: WebPurify</h1>
-
-  <textarea class="runnable js">
-function purify(text) {
-  var url = 'http://api1.webpurify.com/services/rest/';
-  var params = {
-    'api_key': '07efa9710a009bce7e2dbf01aa2cb12d',
-    'method': 'webpurify.live.replace',
-    'format': 'json',
-    'text': encodeURIComponent(text),
-    'replacesymbol': '*'
-  }
-
-  JSONP.get(url, params, null, function(json) {
-    $('#demo').html(json.rsp.text);
-  }); 
-}
-
-purify('Girl Develop It is the shit!');
-  </textarea>
-
-  <p class="footer">
-  See also: <a href="http://www.webpurify.com/documentation/response/json.php">WebPurify JSON Docs</a> |
-  <a href="http://imagine-it.org/google/profanegame.htm">Profane Game</a>
-  </p>
-
-  <p class="notes">Chris asked to be respectful, but since I'm not capable of doing that myself,
-  I'll simply ask an API to censor me - the WebPurify API.
-  </p>
-
-</div>
-
-<div class="slide">
-  <h1>Image Processing: Aviary</h1>
-
-  <textarea class="runnable html">
-&lt;script type="text/javascript"&gt;
-var _featherLoaded = false; 
-Feather_APIKey = '871670f82'; 
-Feather_Theme = 'bluesky'; 
-Feather_EditOptions = 'all'; 
-Feather_OpenType = 'float'; 
-Feather_CropSizes = '320x240,640x480,800x600,1280x1024'; 
-Feather_OnSave = function(id, url) { 
-  var e = document.getElementById(id); 
-  e.src = url; 
-  aviaryeditor_close(); 
-} 
-Feather_OnLoad = function() {
-  aviaryeditor('image', $('#image').attr('src'));
-  window.setTimeout(function() {$('#avpw_controls').css({position: 'fixed', 'z-index': '100000', 'left': '20px'});}, 20);
-} 
-&lt;/script&gt;
-&lt;script src="http://feather.aviary.com/js/feather.js"&gt;&lt;/script&gt;
-&lt;img id="image" src="http://media.tumblr.com/tumblr_m6lz8rsqov1rqbtdh.jpg"&gt;
-</textarea>
-
-<p class="footer">
-  See also: <a href="http://developers.aviary.com/feather-builder">Aviary Feather API</a>
-</p>
-
-</div>
-
-
-
-<div class="slide">
-  <h1>Client-side APIs: Data</h1>
-
-  <ul class="multicolumn">
-   <li>Mapping
-   <li>Real Estate
-   <li>Shopping
-   <li>Weather
-   <li>Movies
-   <li>Science
-   <li>Books
-   <li>Words
-   <li>Government
-   <li>Food
-   <li>Sports
-   <li>Travel
-   <li>Wikipedia (Everything)
-  </ul>
-</div>
-
-<div class="slide">
-  <h1>APIs: User Data</h1>
-  <ul>
-    <li>Social Networks
-   <li>Multimedia: Music, Video, Photos
-   <li>Documents
-  </ul>
-
-  <p class="notes">
-- Multimedia: Music (SoundCloud?), Video, Photos (Instagram, WebPurify)
-- Document storage: DropBox
-- Social Networks: Social networks (mostly FB/Twitter)
-  </p>
-
-</div>
-<!-- G+ ? -->
-
-<div class="slide">
-  <h1>So you want to use an API...</h1>
-
-  <ul>
-    <li>Will you save time/money?
-    <li>What are the terms?
-    <li>What is the pricing?
-    <li>How stable is it?
-    <li>How will it affect performance?
-    <li>What's your plan B?
-  </ul>
-</div>
-
-<div class="slide">
-  <h1>APIs are...</h1>
-
-  <textarea class="runnable js">
-function synonymify(word) {
-  var url = 'https://api.wordnik.com/v4/word.json/' + word + '/related';
-  var params = {
-    'api_key': '98479a51ec674585e400609183c0e5d78bd7b4eba8a8810b4',
-    'type': 'synonym',
-    'partOfSpeech': 'adjective'
-  }
-
-  JSONP.get(url, params, null, function(json) {
-    var synonyms = json[0].words;
-    for (var i = 0; i &lt; synonyms.length; i++) {
-      $('#demo').append(synonyms[i] + '<br>');
-    }
-  }); 
-}
-synonymify('awesome');
-  </textarea>
-  
-  <p class="footer">
-  See also:
-  <a href="http://developer.wordnik.com/docs#!/word/get_related_words">Wordnik API</a> |
-  <a href="http://programmableweb.com">ProgrammableWeb</a>
-  </p>
-
-</div>
-
-</body> 
-</html> 
+</body>
+</html>

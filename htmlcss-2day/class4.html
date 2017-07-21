@@ -13,7 +13,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     <link rel="stylesheet" href="../common/css/reveal.css">
-		<link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
 
     <!--Adapting the 2-column style from national slides-->
     <style>
@@ -26,13 +26,12 @@
     </style>
 
 		<!-- For syntax highlighting -->
-		<!-- light editor --><link rel="stylesheet" href="../common/lib/css/light.css">
-		<!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
+    <link rel="stylesheet" href="../common/css/editor/dark.css">
 
 		<!-- If use the PDF print sheet so students can print slides-->
 
 		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
-		<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -49,6 +48,12 @@
 
         <!-- Float-->
         <section>
+          <h3>Float: Example</h3>
+          <p>Below, a <code>&lt;blockquote&gt;</code> is floated to the left, allowing text to wrap around it on the right</p>
+          <img src="img/example-floatbq.png" alt="example float" />
+        </section>
+
+        <section>
           <h3>Property: Float</h3>
           <ul>
             <li>"Floating" an element moves it as far to the left or right of its <em>containing element</em> as possible.</li>
@@ -58,16 +63,9 @@
           </ul>
         </section>
 
-        <!--example float-->
-        <section>
-          <h3>Float: Example</h3>
-          <p>Below, a <code>&lt;blockquote&gt;</code> is floated to the left, allowing text to wrap around it on the right</p>
-          <img src="img/example-floatbq.png" alt="example float" />
-        </section>
-
         <section>
           <h3>Float</h3>
-<pre><code class="css">.float{
+<pre><code class="css">.float {
   float:left;
   width:200px;
   background:yellow;
@@ -113,13 +111,13 @@ clear: both;
 
         <section>
           <h3>Clear</h3>
-<pre><code class ="css">.float{
-  float:left;
-  width:150px;
-  background:yellow;
+<pre><code class ="css">.float {
+  float: left;
+  width: 150px;
+  background: yellow;
 }
-.clear-left{
-  clear:left
+.clear-left {
+  clear: left;
 }
 </code></pre>
           <div style ="float:left;width:150px;background:yellow; color:black; ">
@@ -132,10 +130,12 @@ clear: both;
         <!-- Exercise-->
         <section>
           <h3>Let's Develop It</h3>
-          <p>Let's float our sidebar and content areas.</p>
-          <p>Experiment with floating other elements.</p>
-          <p>What happens when multiple elements are floated to the right?</p>
-          <p>When would you want to clear a float?</p>          
+          <ul>
+           <li>Use <code>float</code> on your sidebar and content areas.</li>
+           <li>Experiment with floating other elements, like images.</li>
+           <li>What happens when multiple elements are floated to the right?</li>
+           <li>When would you want to clear a float?</li>          
+          </ul>
         </section>
 
         <section>
@@ -148,30 +148,34 @@ clear: both;
         </section>
 
         <section>
-          <h3>Static Positioning: Inline Elements</h3>
+          <h3>Static Positioning: <br>Inline Elements</h3>
             <p>In normal flow, <code>inline</code> elements flow from left to right, wrapping to next line when needed.</p>
-<pre><code class="html">&lt;img src="http://placekitten.com/100/100"/&gt;
-&lt;img src="http://placekitten.com/100/100"/&gt;
-&lt;img src="http://placekitten.com/100/100"/&gt;
+<pre><code class="html">&lt;img src="img/otter.jpg"/&gt;
+&lt;img src="img/otter.jpg"/&gt;
+&lt;img src="img/otter.jpg"/&gt;
 ...
-&lt;img src="http://placekitten.com/100/100"/&gt;
-&lt;img src="http://placekitten.com/100/100"/&gt;
+&lt;img src="img/otter.jpg"/&gt;
+&lt;img src="img/otter.jpg"/&gt;
 </code></pre>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
-          <img src="http://placekitten.com/100/100" alt="random kitten"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
+          <img src="img/otter.jpg" alt="Photo of Otter" style="margin:0; border:0; box-shadow:none;"/>
         </section>
         
         <section>
-          <h3>Static Positioning: Block</h3>
+          <h3>Static Positioning: <br>Block Elements</h3>
           <p>In normal flow, <code>block</code> elements flow from top to bottom, making a new line after every element.</p>
 <pre><code class ="html">&lt;p&gt;Greetings&lt;/p&gt;
 &lt;p&gt;Hello&lt;/p&gt;
@@ -185,17 +189,8 @@ clear: both;
         <!-- Relative Positioning-->
         <section>
           <h3>Relative Positioning</h3>
-          <ul>
-            <li>Takes the element out of the normal flow, allowing it to be moved in relation to the <code>top</code>, <code>bottom</code>, <code>right</code>, or <code>left</code>. </li>
-            <li>Does not affect the elements surrounding it.</li>
-            <li>Makes an element a "positioning context" in which to position other elements relative to it.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Relative Positioning</h3>
           <p>The "relative" value will still put the element in the normal flow, but then offset it according to <code>top</code>/<code>bottom</code>/<code>right</code>/<code>left</code> properties.</p>
-<pre><code class="css">.relative{
+<pre><code class="css">.relative {
   position: relative;
   left: 80px;
   top: 20px;
@@ -210,27 +205,26 @@ clear: both;
           </div>
         </section>
 
-        <!-- Absolute positioning-->
-        <section >
-          <h3>Absolute Positioning</h3>
+        <section>
+          <h3>Relative Positioning</h3>
           <ul>
-            <li>Positions element outside of the normal flow&mdash;other elements act as if it's not there.</li>
-            <li>An absolutely positioned element is offset from its <em>container block</em>, set with the properties <code>top</code>, <code>bottom</code>, <code>right</code>, and <code>left</code>.</li>
-            <li>Its <em>container block</em> is the first surrounding element that has <em>any position other than static</em>.</li>
-            <li>If no such element is found, the container block is <code>&lt;html&gt;</code>.</li>
+            <li>Takes the element out of the normal flow, allowing it to be moved in relation to the <code>top</code>, <code>bottom</code>, <code>right</code>, or <code>left</code>. </li>
+            <li>Does not affect the elements surrounding it.</li>
+            <li>Makes an element a "positioning context" in which to position other elements relative to it.</li>
           </ul>
         </section>
 
+        <!-- Absolute positioning-->
         <section  style="border: 1px solid black">
           <h3>Absolute Positioning</h3>
-          <p>The "absolute" value will take the element out of the normal flow and position it in relation to the window (or the closest non-static element).</p>
-<pre><code class="css">.top{
+          <p>The "absolute" value will take the element out of the normal flow and position it in relation to the window (or the closest non-static ancestor).</p>
+<pre><code class="css">.top {
   position: absolute;
   top: -40px;
   right: 10px;
   background-color: yellow
 }
-.bottom{
+.bottom {
   position: absolute;
   bottom: -40px;
   left:60px;
@@ -247,6 +241,17 @@ clear: both;
           </div>
         </section>
 
+        <section >
+          <h3>Absolute Positioning</h3>
+          <ul>
+            <li>Positions element outside of the normal flow&mdash;other elements act as if it's not there.</li>
+            <li>An absolutely positioned element is offset from its <em>container block</em>, set with the properties <code>top</code>, <code>bottom</code>, <code>right</code>, and <code>left</code>.</li>
+            <li>Its <em>container block</em> is the first surrounding element that has <em>any position other than static</em>.</li>
+            <li>If no such element is found, the container block is <code>&lt;html&gt;</code>.</li>
+          </ul>
+        </section>
+
+
         <section>
           <h3>Example: Absolute Positioning</h3>
           <div class="flex-container">
@@ -259,22 +264,36 @@ clear: both;
             </div>
           </div>
           <hr>
-          <p>Bonus: Look up <code>fixed</code> positioning. What's the difference between <code>fixed</code> and <code>absolute</code>?</p>
+        </section>
+
+        <!-- Fixed positioning-->
+        <section>
+          <h3>Fixed Positioning</h3>
+          <p>The "fixed" value will take the element out of the normal flow and position it relative to the viewport.</p>
+<pre><code class="css">footer {
+  position: fixed;
+  bottom: 3px;
+  left: 0;
+  height: 40px;
+  width: 100%;
+}
+</code></pre>
+          <p>Do you see the fixed footer in these slides?</p>
         </section>
 
         <section>
           <h3>Z-index</h3>
           <p>Sometimes elements overlap. You can change the order of overlapping with z-index. The element with highest z-index goes on top.</p>
-<pre><code class ="css">.bottom{
+<pre><code class ="css">.bottom {
   position: absolute;
   bottom: 10px;
-  left:60px;
+  left: 60px;
   background-color: yellow;
 }
-.top{
+.top {
   position: absolute;
   bottom: 15px;
-  left:60px;
+  left: 60px;
   background-color: green;
   z-index: 2;
 }
@@ -285,14 +304,16 @@ clear: both;
 
         <section>
           <h3>Let's Develop it!</h3>
-          <p>Let's add some positioning.</p>
-          <p>Let's create a <code>div</code> that contains an image and a caption, and position the caption absolutely in front of the image.</p>
-          <hr>
-          <p>Bonus: Use semantic HTML5 elements for your image and caption.</p>
+          <ul>
+           <li>Create a <code>div</code> that contains an image and a caption.</li>
+           <li>Position the caption absolutely in front of the image.</li>
+           <li>Bonus: Use semantic HTML5 elements for your image and caption.</li>
+           <li>Bonus: Use fixed positioning for your header or footer.</li>
+          </ul>
         </section>
 
         <section>
-          <h2>Close Out</h2>
+          <h2>Closing Out</h2>
           <ul>
             <li>What is HTML5? What do we gain by using it?</li>
             <li>What can we use to position elements with CSS?</li>

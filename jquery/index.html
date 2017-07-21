@@ -7,28 +7,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="This workshop will provide an introduction to jQuery.">
 		<meta name="author" content="Girl Develop It San Francisco">
-
+		
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<link rel="stylesheet" href="../common/css/reveal.css">
-		<link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
+		<link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<!-- light editor --><link rel="stylesheet" href="../common/lib/css/light.css">
-		 <!-- dark editor<link rel="stylesheet" href="lib/css/dark.css"> -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
 
 		<!-- If use the PDF print sheet so students can print slides-->
 
 		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
-		<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 
 	</head>
 	<body>
-		<div class="reveal">
+		<div class="reveal" id="presentation">
 			<div class="slides">
 				<section>
 					<h1>Intro to jQuery</h1>
@@ -42,20 +42,24 @@
 					<h3>DOM &amp; Data!</h2>
 					<p>Our favorite Data Types</p>
 					<pre>
-						<code contenteditable class ="javascript">var myString = "This is a string!";
+						<code contenteditable class ="javascript">var myString = 'This is a string!';
 var myInteger = 1;
 var myBoolean = true;
-var myArray = ["string", 1, myVar, true];
+var myArray = ['string', 1, myString, true];
 var myObject = {
-  name: "Pamela",
-  adjective: "Cool",
-  roles: ["hacker", "teacher", "coder"]
+  name: 'Pamela',
+  adjective: 'Cool',
+  roles: ['hacker', 'teacher', 'coder']
 }</code>
 					</pre>
+				</section>
+				<section>
+					<h2>Review:</h2>
+					<h3>DOM &amp; Data!</h2>
 					<p>Traversing the DOM with JavaScript</p>
 					<pre>
 						<code contenteditable class ="javascript">document.getElementById('presentation');
-document.getElementsByClassName('slide');
+document.getElementsByClassName('future');
 document.getElementsByTagName('body');
 document.querySelectorAll('a');
 document.querySelector('img');</code>
@@ -79,7 +83,7 @@ math.factorial(num);</code>
 					<p>Call functions from that library</p>
 					<pre>
 						<code contenteditable>&lt;body&gt;
-  &#60;script src="http://imagine-it.org/math.js"&#62;&#60;&#47;script&#62;
+  &#60;script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.11.4/math.js"&#62;&#60;&#47;script&#62;
   &#60;script&#62;
     var answer = math.sum(2, 2);
     alert(answer);
@@ -106,9 +110,9 @@ math.factorial(num);</code>
 					<h2>jQuery: Why?</h2>
 					<p>No library:</p>
 					<pre>
-						<code contenteditable class ="javascript">var elems = document.getElementsByTagName("img");
+						<code contenteditable class ="javascript">var elems = document.getElementsByTagName('img');
 for (var i = 0; i&lt; elems.length; i++) {
-	elems[i].style.display = "none";
+	elems[i].style.display = 'none';
 }</code>
 					</pre>
 					<p>jQuery:</p>
@@ -144,13 +148,13 @@ $('div.header').append(newP);</code>
 					<pre>
 						<code contenteditable>&lt;p&gt;Welcome to jQuery!&lt;/p&gt;</code>
 					</pre>
-					<p style="padding:0px; margin:0px;"><img src="images/arrow.png" style="box-shadow:0px 0px 0px rgba(0,0,0,0); border:0px"></p>
+					<div style="padding:0px; margin:0px;"><img src="images/arrow.png" style="box-shadow:0px 0px 0px rgba(0,0,0,0); border:0px"></div>
 					<pre>
 						<code contenteditable class="javascript">$('p').addClass('special');</code>
 					</pre>
-					<p style="padding:0px; margin:0px;"><img src="images/arrow.png" style="box-shadow:0px 0px 0px rgba(0,0,0,0); border:0px"></p>
+					<div style="padding:0px; margin:0px;"><img src="images/arrow.png" style="box-shadow:0px 0px 0px rgba(0,0,0,0); border:0px"></div>
 					<pre>
-						<code contenteditable>&lt;p class="special">Welcome to jQuery!&lt;/p&gt;</code>
+						<code contenteditable>&lt;p class="special"&gt;Welcome to jQuery!&lt;/p&gt;</code>
 					</pre>
 
 					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
@@ -269,6 +273,11 @@ $('div.header').append(newP);</code>
 					<pre style="width:100%;"><code contenteditable class="javascript">$('a#yahoo');</code></pre>
 					<p>We can store it...</p>
 					<pre style="width:100%;"><code contenteditable class="javascript">var myLink = $('a#yahoo');</code></pre>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2>
+					<h3>Reading Elements</h3>
 					<p>
 					...And we can find out lots of things about it:
 					</p>
@@ -320,7 +329,7 @@ $('a').css({'color': 'purple'});</code></pre>
 				<section>
 					<h2>jQuery:</h2>
 					<h3>Create and Store</h3>
-					<p>Pass in any HTML string and jQuery will create it and return it as a collection.</p>
+					<p>Pass in any HTML string and jQuery will create it and return it as a jQuery object.</p>
 					<table style="width:100%;">
 						<thead>
 							<tr>

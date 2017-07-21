@@ -1,8 +1,9 @@
 # Intro to Bootstrap and Web Hosting 
 
 Slides and materials are hosted:
-* [Bootstrap Part 1] (http://teaching-materials.org/bootstrap-hosting-github/gdi-bootstrap-1.html)
-* [Bootstrap Part 2] (http://teaching-materials.org/bootstrap-hosting-github/gdi-bootstrap-2.html)
+* [Bootstrap, Part 1 + 2 + exercises] (http://www.teaching-materials.org/bootstrap-hosting-github/#/1)
+* [Bootstrap Part 1] (http://teaching-materials.org/bootstrap-hosting-github/bootstrap_1.html#/)
+* [Bootstrap Part 2] (http://teaching-materials.org/bootstrap-hosting-github/bootstrap_2.html#/)
 * [Web Hosting] (http://teaching-materials.org/bootstrap-hosting-github/hosting.html)
 * [Github] (http://teaching-materials.org/bootstrap-hosting-github/github.html)
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Intro to Algorithms&amp; Intro to Responsive Design &hearts; Girl Develop It Chicago</title>
+    <title>Intro to Algorithms</title>
 
     <meta name="description" content="">
     <meta name="author" content="Pamela Fox">
@@ -12,11 +12,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link rel="stylesheet" href="../common/css/reveal.css">
+    <link rel="stylesheet" href="../common/css/reveal.min.css">
 
     <!-- FOR LIGHT -->
-    <link rel="stylesheet" href="../common/css/theme/gdilight.css" id="theme">
-    <link rel="stylesheet" href="../common/lib/css/light.css">
+    <link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
     <style>
         .highlight { color: #2a4758 !important; }
     </style>
@@ -46,7 +45,7 @@
         document.getElementsByTagName('head')[0].appendChild(link);
     }
     </script>
-    <link rel="icon" type="image/x-icon" href="reveal/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
@@ -199,18 +198,33 @@
                 <img src="images/list.png">
             </section>
             <section>
-                <h2>Example: Sets</h2>
-                <img src="images/sets.png">
-                <p> Like a list but: 
-                    <ul>
-                        <li> Not ordered </li>
-                        <li> Unique Items</li>
-                </p>
+                <h2>Example: Dictionaries/ Objects/ Hash Maps/ Maps</h2>
+                <div style="float: left; width: 50%">
+                    <img src="images/hash-table.png">
+                </div>
+                <div style="float: left; width: 50%">
+                <pre class="fragment"><code>
+myObject = { key : value,
+  key : value,
+  key : value }
+                </code>
+                </pre>
+                </div>
             </section>
             <section>
-                <h2>Example: Dictionaries/ Objects/ Hash Maps/ Maps</h2>
-                <img src="images/hash-table.png">
-                <p> key : value </p>
+                <h2>Abstract Data Structures</h2>
+                <div style="float: left; width: 50%">
+                    <p>Linked List</p>
+                    <img style="width: 80%" src="images/linked_list.png">
+                    <p>Tree</p>
+                    <img style="width: 70%" src="images/tree.png">
+                </div>
+                <div style="float: left; width: 50%">
+                    <p>Graph</p>
+                    <img style="width: 60%" src="images/graph.png">
+                    <p>Queue</p>
+                    <img style="width: 60%" src="images/queue.png">
+                </div>
             </section>
 
             <!-- START  OF GOAL OF ALGORITHMS -->
@@ -313,6 +327,16 @@
             </section>
 
             <section>
+                <h2>Big O Notation</h2>
+                <br>
+                <ul>
+                    <li class="fragment">Language we use to describe the complexity of an algorithm</li>
+                    <li class="fragment"><span class="red">Approximation</span> of how quickly space or time complexity grows <span class="red">relative to input size</span></li>
+                    <li class="fragment">Usually talking about worst case scenario</li>
+                </ul>
+            </section>
+
+            <section>
               <h2>Hanging up Laundry v1</h2>
               <br>
               <ol>
@@ -358,8 +382,18 @@ laundry.drop()
               </table>
               <hr>
               </div>
-                <p class="fragment">If N = items of clothing,<br> it takes (N*0 + 2) => O(2) => O(1).<br>
+                <p class="fragment">If N = items of clothing,<br> time it takes: (N*0 + 2)<br>
                </p>
+            </section>
+
+            <section>
+                <h3>Laundry v1 Big O Notation</h3>
+                <br>
+                (N*0 + 2)
+                <p class="fragment">&#x2192; O(2)</p>
+                <p class="fragment">&#x2192; O(1)</p>
+                <br>
+                <p class="red fragment">Constant time</p>
             </section>
 
             <section>
@@ -421,8 +455,17 @@ for pile in piles:
                   </table>
                   <hr>
               </div>
-                <p class="fragment">If N = items of clothing,<br> it takes (N*10 + N*30) => O(N).<br>
+                <p class="fragment">If N = items of clothing,<br> time it takes: (N*10 + N*30)<br>
                </p>
+            </section>
+            <section>
+                <h3>Laundry v2 Big O Notation</h3>
+                <br>
+                (N*10 + N*30)
+                <p class="fragment"> &#x2192; O(40N)</p>
+                <p class="fragment"> &#x2192; O(N)</p>
+                <br>
+                <p class="red fragment">Linear time</p>
             </section>
 
             <section>
@@ -493,8 +536,19 @@ for pile in piles:
               <br>
                <p class="fragment">
                 If N = # items of clothing and # items in section,
-                <br>it takes (N*10 + N*30 + N*N*2) => O(N^2)
+                <br>time it takes: (N*10 + N*30 + N*N*2)
                </p>
+            </section>
+
+            <section>
+                <h3>Laundry v3 Big O Notation</h3>
+                <br>
+                (N*10 + N*30 + N*N*2)
+                <p class="fragment">&#x2192; O(40N + 2N<sup>2</sup>)</p>
+                <p class="fragment">&#x2192; O(2N<sup>2</sup>)</p>
+                <p class="fragment">&#x2192; O(N<sup>2</sup>)</p>
+                <br>
+                <p class="red fragment">Quadratic time</p>
             </section>
 
             <section>
@@ -569,7 +623,7 @@ for pile in piles:
                 <br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -579,7 +633,7 @@ for pile in piles:
                 <br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -589,7 +643,7 @@ for pile in piles:
                 <br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -599,7 +653,7 @@ for pile in piles:
                 <br>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -613,7 +667,7 @@ things[2]
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
             <section>
@@ -628,7 +682,7 @@ for (var i = 0; i &lt; things.length; i++) {
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
 
             </section>
 
@@ -653,7 +707,7 @@ for (var i = 0; i &lt; things.length; i++) {
                 </code></pre>
                 <p>O(1) - Constant</p>
                 <p>O(n) - Linear</p>
-                <p>O(n^2) - Quadratic</p>
+                <p>O(n<sup>2</sup>) - Quadratic</p>
             </section>
 
 
@@ -770,8 +824,15 @@ for (var i = 0; i &lt; things.length; i++) {
             <section>
               <h2>Binary Search</h2><br>
               <p>Find an item by repeatedly halving the search space.</p><br>
-              <iframe width="420" height="315" src="http://www.youtube.com/embed/ube5EYFlFR0" frameborder="0" allowfullscreen></iframe>
+              <iframe width="500" height="350" src="https://www.youtube.com/embed/P3YID7liBug?start=78" frameborder="0" allowfullscreen></iframe>
             </section>
+
+            <section>
+                <h2>Binary Search:</h2>
+                <h3>Visualized</h3>
+                <img src="images/binary-search.jpg">
+            </section>
+
             <section>
               <h2>Binary Search: Steps</h2><br>
               <!-- todo wikipedia animation? -->
@@ -799,24 +860,10 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
             <section>
-              <h2>Binary Search:</h2>
-              <h3>Pseudocode</h3>
-              <br>
-              <pre style="padding:10px;"><code>
-            def BinarySearch(array, value):
-                """returns bool if value is in array"""
-                low = 0
-                high = len(array) - 1
-                while low &lt; high:
-                    mid = (low + high) / 2
-                    if array[mid] > value:
-                        high = mid - 1
-                    elif array[mid] &lt; value:
-                        low = mid + 1
-                    else:
-                        return True
-            </code></pre>
-            python code
+              <h2>Exercise:</h2>
+              <h3>Writing Binary Search</h3>
+              <br>  
+              <a href="binary_search_exercise.html">Click here!</a>
             </section>
 
             <section>
@@ -833,12 +880,6 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
             <section>
-                <h2>Binary Search:</h2>
-                <h3>Visualized</h3>
-                <img src="images/binary-search.jpg">
-            </section>
-
-            <section>
               <h2>Other Searching Algorithms</h2>
               <br>
               <p>Performance varies depending on sequence characteristics (distribution)
@@ -847,19 +888,6 @@ for (var i = 0; i &lt; things.length; i++) {
               <ul>
                 <li><a href="http://en.wikipedia.org/wiki/Linear_search">Linear</a>
                 <li><a href="http://en.wikipedia.org/wiki/Interpolation_search">Interpolation search</a>
-              </ul>
-            </section>
-
-            <section>
-              <h2>Exercise Time!</h2>
-              <br>
-              <ul>
-                <li>Pick a search algorithm.</li>
-                <li>Play the number guessing game (higher/lower).</li>
-                <li>Try and guess the number in the smallest number of tries using 
-                  the principles of binary search.</li>
-                <li>Keep track of the number of guesses it takes you.</li>
-                <li>If you have time, repeat for different ranges (0-500, 0-1000, etc).</li>
               </ul>
             </section>
             <!-- END OF SEARCHING -->
@@ -1028,6 +1056,12 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
             <section>
+                <h2 class='highlight'> Which sort is best?</h2>
+                <p>A great resource to help visualize the different sorting algorithms:</p>
+                <a href="https://visualgo.net/en/sorting">Visualgo.net</a>
+            </section>
+        <!-- Commented out due to lack of a need for these slides
+            <section>
               <h2 class='highlight'> Which sort is best?</h2>
               <br>
               <ul>
@@ -1045,6 +1079,7 @@ for (var i = 0; i &lt; things.length; i++) {
                 <li>Two companies are merging and they each have seniority lists based on hire dates. They need to combine these lists into one sorted list.</li>
               </ul>
             </section>
+        -->
 
             <section>
                 <h3>Insertion Sort</h3>
@@ -1087,6 +1122,7 @@ for (var i = 0; i &lt; things.length; i++) {
                 </ul>
             </section>
 
+        <!--
             <section>
                 <h3>What if...</h3>
                 <p class='highlight' class="left">You have 6 stacks of mostly sorted papers. How would you sort them all together?</p><br>
@@ -1095,6 +1131,7 @@ for (var i = 0; i &lt; things.length; i++) {
                     <li>Use merge sort to combine the sorted piles</li>
                 </ol>
             </section>
+        -->
 
             <section>
                 <h3>Explore more!</h3>
@@ -1175,13 +1212,14 @@ for (var i = 0; i &lt; things.length; i++) {
                 <img src='images/bad-facial-recognition.jpg'>
             </section>
 
+<!--             Commenting out because it's unclear what these slides mean
             <section>
                 <img src='images/google-image-hair.png'>
-            </section>
+            </section> -->
 
-            <section>
+<!--             <section>
                 <img src='images/google-image-people.png'>
-            </section>
+            </section> -->
 
             <section>
                 <ul>
@@ -1194,9 +1232,10 @@ for (var i = 0; i &lt; things.length; i++) {
 
             </section>
 
+<!--             Commenting out because it's unclear what this slide means
             <section>
                 <img src='images/apple-stairs.jpg'>
-            </section>
+            </section> -->
 
             <section>
                 <h1>Try an algorithm!</h1>

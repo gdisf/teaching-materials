@@ -17,3 +17,8 @@
 .container {
 	margin-bottom: 100px;
 }
+
+img.gdilogo-small {
+	width: 100px;
+	max-width: 100px;
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+
+    <link rel="stylesheet" type="text/css" href="../../common/css/bootstrap.min.css">
+    <script type="text/javascript" href="../../common/js/bootstrap.min.js"></script>
+
+    <title>Exercise: Views in MVC</title>
+    <meta charset="utf-8">
+    <style>
+    ol li {
+      margin-bottom: 1.6em;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exercise: Views in MVC</h1>
+      <br><br>
+
+      <p>In this exercise, you will take an app and add a Model View and a Collection View.</p>
+
+      <p>Go through these steps, and do as many as you can in the time we have:</p>
+      <ol>
+        <li>Start with the solution from the last exercise (or <a href="exercise_model_solution.html" download>download from here</a>).
+        
+        <li>Create a <code>VideoItemView</code>. It should take a video model argument and return a <code>&lt;li&gt;</code>.
+        <li>Create a <code>VideoCollectionView</code>. It should do the following:
+          <ol>
+            <li>It should take a video collection argument</li>
+            <li>It sould create a <code>&lt;ul&gt;</code> element</li>
+            <li>It should iterate through the collection and create a new VideoItemView for each element of the collection</li>
+            <li>It should append each VideoItemView to the <code>&lt;ul&gt;</code></li>
+            <li>It should return the <code>&lt;ul&gt;</code> from the constructor</li>
+          </ol>
+        </li>
+        <li>Change <code>document.ready</code>. After you create your collection, instantiate a new <code>VideoCollectionView</code> that's constructed from an instance of the <code>VideoCollection</code>. Append that collection view to the <code>body</code> of the document.</li>
+        </li>
+        <li>Try loading the page and see if your code works!</li>
+      </ol>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+  
+      <br><br><br>
+      <button class="btn" onclick="showSolution(1)">See Solution</button>
+      <br><br>
+      <a id="solution1" style="display:none;" href="exercise_view_solution.html" target="_blank">View Solution</a>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+  </script>
+      
+  </body>
+</html>
+

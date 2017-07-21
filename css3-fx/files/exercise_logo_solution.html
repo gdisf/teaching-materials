@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+ <head>
+ 	<link href='http://fonts.googleapis.com/css?family=Lemon' rel='stylesheet' type='text/css'>
+  <style>
+#logo-container {
+  background-color: rgba(178, 77, 255, .5);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+
+	background-image: linear-gradient(bottom, rgb(212,194,237) 25%, rgb(189,116,255) 76%);
+	background-image: -o-linear-gradient(bottom, rgb(212,194,237) 25%, rgb(189,116,255) 76%);
+	background-image: -moz-linear-gradient(bottom, rgb(212,194,237) 25%, rgb(189,116,255) 76%);
+	background-image: -webkit-linear-gradient(bottom, rgb(212,194,237) 25%, rgb(189,116,255) 76%);
+	background-image: -ms-linear-gradient(bottom, rgb(212,194,237) 25%, rgb(189,116,255) 76%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.25, rgb(212,194,237)),
+		color-stop(0.76, rgb(189,116,255))
+	);
+
+	box-shadow: 
+	  rgba(0, 0, 128, 0.25) 
+	  3px 
+	  3px 
+	  3px;
+	-webkit-animation-name: pulse;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-direction: alternate;
+}
+
+#logo-text {
+	font-family: 'Lemon', cursive;
+  font-size: 36px;
+  font-weight: bold;
+  -webkit-text-fill-color: hsla(314, 75%, 33%, 1.00); 
+  -webkit-text-stroke-color: hsla(251, 36%, 79%, .3);
+  -webkit-text-stroke-width: 3px; 
+  text-shadow: 
+  rgba(255, 255, 255, 0.5) 
+  1px 
+  1px 
+  3px;
+}
+
+@-webkit-keyframes pulse {
+	from {
+	 opacity: 0.0;
+	 font-size: 100%;
+	}
+	to {
+	 opacity: 1.0;
+	 font-size: 200%;
+	}
+}
+  </style>
+ </head>
+ <body>
+ <div id="logo-container">
+   <div id="logo-text">My Awesome Logo</div>
+ </div>
+ </body>
+</html>

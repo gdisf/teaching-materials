@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Intro to App Building with Salesforce</title>
+
+	<meta name="description" content="Salesforce Trailhead and Girl Develop It team up to provide this introduction to building Salesforce applications.">
+	<meta name="author" content="Girl Develop It">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../common/css/reveal.min.css">
+	<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="../common/css/editor/dark.css">
+
+	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	<script>
+		if (window.location.search.match(/print-pdf/gi)) {
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = '../common/css/print/pdf.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		}
+	</script>
+
+	<!-- If use the PDF print sheet so students can print slides-->
+	<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+	<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
+	<!--[if lt IE 9]>
+		<script src="dist/js/html5shiv.js"></script>
+	<![endif]-->
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<!-- Opening -->
+			<section>
+				<img src="../common/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder" />
+				<img src="images/trailhead-logo.png" alt="Trailhead Logo" class="noborder" />
+				<h1>Intro to App Building with Salesforce</h1>
+
+				<aside class="notes">
+					[instructor notes: GDI leader usually kicks off the class; fill in your info & the TA info (slides 6 & 8)]
+				</aside>
+			</section>
+
+			<!-- Welcome-->
+			<section>
+				<h3>Welcome!</h3>
+				<div class="left-align">
+					<p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+					<p class="green">Some "rules"</p>
+					<ul>
+						<li>We are here for you!</li>
+						<li>Every question is important</li>
+						<li>Help each other</li>
+						<li>Have fun</li>
+					</ul>
+				</div>
+				<aside class="notes">
+					Welcome! How many people have been to a GDI class before? Here are rules we live by. [GDI leader usually does this part]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Agenda</h3>
+				<table class="zebra">
+					<thead>
+						<tr>
+							<th>Start Time</th>
+							<th>End Time</th>
+							<th>Topic</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>10:00</td>
+							<td>10:30</td>
+							<td>Intros</td>
+						</tr>
+						<tr>
+							<td>10:30</td>
+							<td>11:00</td>
+							<td>Salesforce Overview</td>
+						</tr>
+						<tr>
+							<td>11:00</td>
+							<td>12:45</td>
+							<td>Hands On – App Framework & Data Modeling</td>
+						</tr>
+						<tr>
+							<td>12:45</td>
+							<td>1:30</td>
+							<td>LUNCH</td>
+						</tr>
+						<tr>
+							<td>1:30</td>
+							<td>3:10</td>
+							<td>Hands On – User Interface & Business Rules</td>
+						</tr>
+						<tr>
+							<td>3:10</td>
+							<td>3:25</td>
+							<td>BREAK</td>
+						</tr>
+						<tr>
+							<td>3:25</td>
+							<td>4:35</td>
+							<td>Hands On – Analytics & Mobile</td>
+						</tr>
+						<tr>
+							<td>4:35</td>
+							<td>5:00</td>
+							<td>Wrap Up</td>
+						</tr>
+					</tbody>
+				</table>
+				<aside class="notes">
+					This is the plan for the day. The bulk of the time is you building a sample app. For this hands on project, you will be signing up for a Trailhead account and getting your very own, free, Developer Edition login for Salesforce. We’ll walk through that when we get to the first step of the project.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Welcome!</h3>
+				<h4>About Your Instructor</h4>
+				<!-- EDIT THIS with Instructor info -->
+				<img src="images/people/CarolynGrabill.jpg" alt="Carolyn Grabill" class="left">
+				<div class="left-align instructor">
+					<p>Carolyn Grabill</p>
+					<p>Lead Software Development Engineer at Salesforce</p>
+					<p><a href="https://twitter.com/carolyncodes?lang=en" target="_blank">@CarolynCodes</a></p>
+					<p>cgrabill [at] salesforce [dot] com</p>
+				</div>
+				<!-- end EDIT section -->
+				<aside class="notes">
+					[instructor intro: give a quick background & why you are teaching the class]<br>
+					Who is familiar with Salesforce?<br>
+					As [GDI leader] said, you’re going to build a simple app today and the bulk of the time is hands on. The project has 6 steps, covering 6 key areas of app development in Salesforce and in any platform. I will introduce the concept for each step, demo the tools, and then you’ll get hands on in Salesforce’s online training platform, Trailhead.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Welcome!</h3>
+				<div class="left-align">
+					<p class="blue">Tell us about yourself.</p>
+					<ul>
+						<li>What's your name?</li>
+						<li>What do you hope to get out of the class?</li>
+						<li>What your current favorite song/artist?</li>
+					</ul>
+				</div>
+				<aside class="notes">
+					Now we want to know a little about you. <br>
+					[This takes some time, depending on class size, but it worth it because them people get to know each other a little and get more comfortable. Students connecting with each other is just as important as learning the material. Pick your favorite icebreaker: favorite breakfast food, favorite candy, favorite Girl Scout Cookie, favorite ice cream, would you rather be invisible or be able to fly, do you prefer Star Wars or Star Trek or neither, favorite mobile app?] <br>
+					[Note: In one class we made a Spotify playlist out of everyone’s favorite music and played it during the hands on time. The students enjoyed that and we all heard some new music.]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Welcome!</h3>
+				<h4>Teaching Assistants</h4>
+				<ul class="teachingassistants">
+					<!-- EDIT THIS with TA info -->
+					<li>
+						<img src="images/people/Anjali.jpg" alt="Anjali">
+						Anjali Ashok<br />
+					</li>
+					<li>
+						<img src="images/people/Katherine.jpg" alt="No image available">
+						Katherine Cass<br />
+					</li>
+					<li>
+						<img src="images/people/Roojuta.jpg" alt="No image available">
+						Roojuta Lalani<br />
+					</li>					
+					<!-- end EDIT section -->
+					<li><img src="images/user-groups-logo.png" alt="Salesforce User Groups" class="noborder"></li>
+				</ul>
+
+				<ul class="teachingassistants">
+					<!-- EDIT THIS with TA info -->
+					<li>
+						<img src="images/people/Donna.jpg" alt="DonnaGao">
+						Donna Gao<br />
+					</li>
+					<li>
+						<img src="images/avatar.png" alt="No image available">
+						Yelizaveta Burakova	<br />
+					</li>
+					<li>
+						<img src="images/people/Munira.jpg" alt="No image available">
+						Munira Majmundar<br />
+					</li>					
+					<!-- end EDIT section -->
+					<li><img src="../common/img/circle-gdi-logo.png" alt="Salesforce User Groups" class="noborder">
+						Lijie Zhou
+					</li>
+				</ul>
+				<aside class="notes">
+					We have wondering volunteers from the local Salesforce Women in Technology user group. Salesforce has many user groups, some are focused on developers, some on end users and admins, and the WIT groups are focused on women supporting each other’s success. We have WIT groups in 30 cities around the world. I’d like to give the volunteers a minute to introduce themselves and give a little background as to how they got into Salesforce and what their current role is. And I highly encourage everyone to ask tons of questions and get to know them during the day. One of the biggest strengths of the Salesforce platform is the strength of the community.<br>
+					[have TAs intro themselves, including their role and how they first got into Salesforce – keep it short, 1 min each]
+				</aside>
+			</section>
+
+			<!-- Salesforce Overview-->
+			<section data-background="#f05b62">
+				<h2>Salesforce Overview</h2>
+				<aside class="notes">
+					Before we start building, I’ll give a quick overview of Salesforce.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Salesforce is...</h3>
+				<p style="font-size:4em;">Trailblazers</p>
+				<p style="font-size:3em;">Platform</p>
+				<p style="font-size:2em;">Apps</p>
+				<p>.com</p>
+
+				<aside class="notes">
+					Salesforce is <br>
+					A Company ...<br>
+					That sells business to business (B2B) apps, including Sales, Service, and Marketing ...<br>
+					Which run on the Salesforce platform, along with 100s of partner apps, and countless customer-built custom apps ...<br>
+					Built and implemented by our community members, which we call Trailblazers because they are the ones leading their companies to success.<br>
+					All of these volunteers in the room are Trailblazers, and so are you – you’re taking the time to learn something new, to blaze a new path for your career.
+				</aside>
+			</section>
+
+			<section>
+				<h3>End User View</h3>
+				<img src="images/end-user-1.png" alt="End User View Screenshot" class="noborder fullwidth">
+				<img src="images/end-user-2.png" alt="End User View Screenshot mobile menu" class="noborder fragment" style="position:absolute; right:0; bottom:0; max-height:80%;">
+				<img src="images/end-user-3.png" alt="End User View Screenshot mobile" class="noborder fragment" style="position:absolute; right:0; bottom:0; max-height:80%;">
+				<aside class="notes">
+					That’s all good, but what do these business apps look like? <br>
+					Here’s what Salesforce users see. This is a sample Contact record for Ms. Rose Gonzalez. The most common thing Salesforce customers do is track their customers or clients using this Contacts tab. Employees - they could be Sales Reps or Customer Service Reps or Field Service Technicians - can view the contact in a browser on their desktop or [click to show phone] view that same information in the Salesforce1 Mobile app on their phone or tablet [click to show Rose’s record]..
+				</aside>
+			</section>
+
+			<section>
+				<h3>Setup Home</h3>
+				<img src="images/setup-home.png" alt="Setup screenshot" class="noborder fullwidth">
+				<aside class="notes">
+					Here’s what developers and admins see. This is the front door to the back end of your Salesforce database. This is where you will add fields and so much more to customize and create business applications. You’ll be spending a lot of time here today.
+				</aside>
+			</section>
+
+			<section>
+				<h3>What Will We Build?</h3>
+				<h4>Business Requirements</h4>
+				<ul>
+					<li>Your battle station was destroyed. You need to build another.</li>
+					<li>As the construction project manager, your primary goals are to:
+						<ul>
+							<li>manage the construction of the Battle Station</li>
+							<li>live longer than your predecessor</li>
+						</ul>
+					</li>
+					<li>You decide to manage your project with Salesforce. This way everyone on your team can collaborate, be successful, and stay alive.</li>
+				</ul>
+				<img src="images/battle-station-logo.png" alt="Battle Station App Logo" class="noborder">
+				<aside class="notes">
+					We’re going to use the Salesforce platform to build a simple, employee-facing project management app.<br><br>
+					Why does the business need this app? Before you build any app for your business, you should gather the business requirements. We’ve done that for you.<br><br>
+					It looks like this app is important because your life depends on it. As you’ll see in the opening paragraphs in the Build a Battle Station App Trailhead Project, the first Battle Station project didn’t go that well…<br><br>
+					So we’re going to build this app using the Salesforce Platform.<br><br>
+					Project Management is one type of app you can build with the Salesforce Platform – You can add new apps to track anything you want – like volunteers for a non-profit org, or job positions and applicants for recruiting, or employee performance goals, or dogs in shelters. [poll the TAs for other types of apps they’ve built]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Why No Code?</h3>
+				<h4>Metadata!</h4>
+				<img src="images/metadata.png" alt="Metadata screenshot" class="noborder fullwidth">
+				<aside class="notes">
+					Today you will build a complete, working enterprise application accessible through a browser or mobile device. Yup, you will! This class will walk you through how to build each part of this application: first the data model, which will generate a default user interface, then configuring the user interface, then adding business logic and analytics. And finally, viewing your app on a mobile device.<br><br>
+					How is it possible to build this all without code? Because the Salesforce Platform runs with a layer of Metadata that defines the shape and behavior of the applications. Metadata is data that describes other data. On the Salesforce Platform, most of what you build is done with metadata, where you describe what you want via point & click and the system creates the database, pages, logic, and reports for you.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Demo: Battle Station Construction App</h3>
+				<img src="images/battle-station-app-desktop.png" alt="Battle Station App (desktop)" class="noborder">
+				<img src="images/battle-station-app.png" alt="Battle Station App (mobile)" class="noborder" style="position:absolute; right:0;">
+				<p>Project Management app to track <strong>Battle Stations</strong> we’re building, <strong>Supplies</strong> we need to build them, and <strong>Resources</strong> (aka People Working on the Project)</p>
+				<aside class="notes">
+					Let’s take a look at what you’ll have at the end of class…<br>
+					[Take a minute to demo the completed app. People want to see where they are going. <br>
+					Demo steps:<br>
+					open a Battlestation record, show the details & related lists (supplies & resources), and point out the custom fields for each. <br>
+					show the dashboards - this is how all of this data will be viewed by your chief executive <br>
+					show it on the mobile simulator (using the Salesforce1 Chrome extension) - all of the metadata that controls the browser app is also controlling the mobile app]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Demo: Setup</h3>
+				<img src="images/setup-home.png" alt="Setup screenshot" class="noborder fullwidth">
+				<aside class="notes">
+					We will create all of this metadata in Setup. We do not need to download any software to develop this app – all the tools we need are in the cloud.<br>
+					Let’s look around Setup a little before we start building.<br>
+					[Demo setup. Explain the user view vs the developer view in the browser app.<br>
+					Include Quick Find in Setup. Step 1 has them searching for Object Manager in Quick Find.<br>
+					Open the Battle Station object - explain that every app tracks SOMETHING and the app they are building tracks Battle Station projects, so they will be creating the shell of that object in Step 1, and then adding fields to it in Step 2]<br><br>
+					Setup is where you can control the internet!
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Get Started!</h3>
+				<div class="columns">
+					<div class="column">
+						<img src="images/trailhead-logo.png" alt="Trailhead logo" class="noborder">
+						<p>We’re using Salesforce’s free learning platform, <strong>Trailhead</strong>, for all our hands-on exercises</p>
+					</div>
+					<div class="column">
+						<img src="images/trailhead-playground.png" alt="Trailhead playground" class="noborder">
+						<p>We’re using Salesforce’s free offering, <strong>Trailhead Playground</strong>, as our database</p>
+					</div>
+				</div>
+				<aside class="notes">
+					Trailhead is the fun free way for Admins, Developers & Anyone to learn Salesforce.<br>
+					We’ll follow steps in one of the Tralihead Projects for our hands-on exercises and that’s also where you can track progress as you continue learning more about Salesforce. <br>
+					To develop our app, we need a Trailhead Playground. That’s a database that’s connected to your Trailhead account where you can get hands on and complete challenges.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Sign Up for Trailhead (Part 1)</h3>
+				<img src="images/trailhead-signup.png" alt="Signup screenshot" class="noborder">
+				<ol>
+					<li>Open your web browser and go to <a href="http://trailhead.salesforce.com" target="_blank">trailhead.salesforce.com</a>. Chrome or Firefox is best.</li>
+					<li>Click <strong>Sign Up</strong></li>
+					<li>Choose a social media account  (Facebook, Google, or LinkedIn). Log in.</li>
+				</ol>
+				<aside class="notes">
+					talk through the flow on this slide and the next slide. Encourage using a social account. if they don’t have a social account, they can go the Create a Salesforce Account path, but it is longer so they should have a TA standing next to them
+				</aside>
+			</section>
+
+			<section>
+				<h3>Sign Up for Trailhead (Part 2)</h3>
+				<img src="images/trailhead-signup-allow.png" alt="Signup screenshot" class="noborder">
+				<img src="images/trailhead-signup-complete.png" alt="Signup screenshot" class="noborder">
+				<ol start="4">
+					<li>Click <strong>Allow</strong></li>
+					<li>Complete the “Just a few more questions” form (choose any role) and click <strong>Continue</strong></li>
+				</ol>
+
+				<p class="green" style="font-size:larger; margin-top:1em;">IMPORTANT: Enter <strong>ILOVEGDI</strong> as your Company Name!</p>
+
+				<aside class="notes">
+					Now you are logged into Trailhead! Also, in the background, Salesforce is spinning up a Trailhead Playground database for you. We’ll see that in a minute, but first, let’s take a look around in Trailhead...
+				</aside>
+			</section>
+
+			<section>
+				<h3>Demo: Trailhead</h3>
+				<img src="images/trailhead-demo.png" alt="Trailhead demo" class="noborder fullwidth">
+
+				<aside class="notes">
+					[Once everyone is in, DEMO Trailhead. Talk about the difference between Trails, Module, Projects, and Superbadges<br>
+					Spend time in here, navigating and orienting. Show them their Profile pages.<br>
+					End by navigating to the Build a Battle Station App project…this is the project we’ll use for class.]<br><br>
+
+					Today we’ll be learning with the Build a Battle Station App project. Let’s get started!
+				</aside>
+			</section>
+
+
+			<!-- Step 1: App Building-->
+			<section data-background="#f05b62">
+				<h2>Step 1: App Building</h2>
+				<aside class="notes">
+					OK, is everyone ready? Before we start I want to recognize that everyone works at a different pace. We’ll be doing a lot of hands-on work today. If you finish early, you can take a break OR if you want to keep learning, click on the Resources links at the end of each Step and challenge yourself to learn more and even to earn more points and badges!
+				</aside>
+			</section>
+
+			<section>
+				<h3>Open your Trailhead Playground</h3>
+				<ul>
+					<li><a href="http://trailhead.salesforce.com" target="_blank">trailhead.salesforce.com</a></li>
+					<li>Build a Battle Station App project</li>
+					<li>Step 1: Create the Battle Station App</li>
+					<li>Scroll down and click <strong>Launch your hands-on org</strong></li>
+				</ul>
+				<img src="images/trailhead-playground.png" alt="Trailhead Playground" class="noborder">
+				<aside class="notes">
+					You are in Trailhead and behind the scenes, Salesforce has spun up a Trailhead Playground database for you. [under the covers this is a Developer Edition org]<br>
+					To open your Trailhead Playground,  Navigate to the Build a Battle Station App project in Trailhead.<br>
+					In this first Step of the project, before you start, scroll to the bottom and click Launch your hands-on org. <br>
+					Now you have one tab with Trailhead open and one with your Trailhead Playground. <br>
+					You’ll be navigating between these two tabs...so first some pro tips..
+				</aside>
+			</section>
+
+			<section>
+				<h3>#ProTip 1: Trailhead & Setup Side-by-Side</h3>
+				<img src="images/pro-tip-trailhead.png" alt="Trailhead screenshot" class="noborder">
+				<img src="images/pro-tip-setup.png" alt="Setup screenshot" class="noborder">
+				<aside class="notes">
+					In previous classes, students have had as easier time reading the trailhead instructions, and copying from them, and working in Setup when they open them in two separate windows and arrange them side by side.
+				</aside>
+			</section>
+
+			<section>
+				<h3>#ProTip 2: Open Trailhead and your Salesforce Org in Separate Browser Windows</h3>
+				<p>(in Chrome: use Command + ~ to swap windows)</p>
+				<aside class="notes">
+					Sometimes it’s tough to see the Salesforce side of things side-by-side, so another trick is, if you have Chrome, use Command + ~ to switch between two browser windows, one with Trailhead and one with your Salesforce screen.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Develop It!</h3>
+				<div class="columns">
+					<div class="column">
+				<ul>
+					<li>Build a Battle Station App project</li>
+					<li>Step 1: Create the Battle Station App</li>
+				</ul>
+				</div>
+				<div class="column">
+				<img src="images/battle-station-logo.png" alt="Battle Station App Logo" class="noborder">
+</div></div>
+				<p class="time blue"><img src="images/stopwatch.png" alt="" class="noborder"> 20 Minutes</p>
+				<aside class="notes">
+					Now it’s time to get hands on. Start at the top of the project, read the introduction and follow the hands on instructions to start building your project management app. Stop at the end of Step 1. <br>
+					[Trailhead Project: https://developer.salesforce.com/trailhead/project/workshop-battle-station]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Verify It!</h3>
+				<img src="images/verify-setup.png" alt="Verification screenshot" class="noborder fullwidth">
+				<p class="green">+ 50 Points</p>
+				<aside class="notes">
+					[after the 15 min timer is up] Let’s make sure you get credit for your work. Did everyone click Verify Step?
+				</aside>
+			</section>
+
+			<section>
+				<h3>You Made (the bones of) an App!</h3>
+				<img src="images/app-bones.png" alt="Basic application screenshot" class="noborder fullwidth">
+				<aside class="notes">
+					App Launcher — Displays available apps.<br>
+					App Name — Displays the current selected app.<br>
+					Navigation menu — Displays the tabs available inside the app.<br><br>
+
+					[DEMO:<br>
+					Click on the New button in your org that has the Battle Station app complete. Have students click on their New button. “See how yours only has a few fields? They are added by default when you create a new object. BUT What’s An Object? We’ll get to that. Next step is we need to add all of the fields you need to track this very important project.”]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Salesforce Terminology</h3>
+				<ul>
+					<li><strong>App</strong>: collection of tabs</li>
+					<li><strong>Tab</strong>: how users navigates to data (aka records)</li>
+					<li><strong>Records</strong>: anything you can make a list of (e.g., battle stations)</li>
+					<li><strong>Object</strong>: a place to store records + metadata</li>
+				</ul>
+				<aside class="notes">
+					Here are some terms you will hear a lot when building with Salesforce. In this first Step, you created the scaffolding for a new app by just providing a few details, then the platform will generate the metadata you need to get started, including an app, a tab, and an object that will store your records.<br><br>
+					Remember metadata…? [pop quiz! “What is metadata?” A: data that describes other data]
+				</aside>
+			</section>
+
+			<section>
+				<h3>The <strong>Battle Station Construction</strong> App</h3>
+				<p>We need to define more metadata for our app.</p>
+				<img src="images/metadata-data-model.png" alt="Data Models" class="noborder fullwidth">
+				<aside class="notes">
+					Metadata is data that describes other data. <br>
+					We’ve created some metadata: the object definition for Battle Stations and the tab definition for that object and the app definition that included the tab (and by association, the object).<br><br>
+
+					What we’ll do in the next 5 steps:<br>
+					Create the data storage for the app by adding more fields to the Battle Station object and adding 2 more objects.<br>
+					Modify the user interface for the app for both the browser and the Salesforce1 Mobile view.<br>
+					Implement business logic using formulas, validation rules and a process builder.<br>
+					Build reports and dashboards to track the status of supplies and analyze how well the company manages resources.<br>
+					Customize the mobile interface to make it more efficient for your battle station users.
+				</aside>
+			</section>
+
+
+			<!-- Step 2: Data Model-->
+			<section data-background="#f05b62">
+				<h2>Step 2: Data Model</h2>
+				<aside class="notes">
+					In this next step, you’ll create the data storage for the app.
+				</aside>
+			</section>
+
+			<section>
+				<h3>A Database is Like a Spreadsheet</h3>
+				<img src="images/spreadsheet-1.png" alt="Spreadsheet screenshot 1" class="noborder" style="position:relative; left:-25%;">
+				<img src="images/spreadsheet-2.png" alt="Spreadsheet screenshot 2" class="noborder fragment" style="position:absolute; top:30%; left:25%;">
+				<img src="images/spreadsheet-3.png" alt="Spreadsheet screenshot 3" class="noborder fragment" style="position:absolute; top:40%; left:50%;">
+				<aside class="notes">
+					Who is familiar with Excel? When you create an excel spreadsheet to track information, you are doing a form of data modeling – you decide what each column is named, based on the pieces of data you need to track, like the Date of an Event or a person’s Name. Each row of data is about a specific event or person or whatever you are tracking. You may also create multiple “sheets” to logically separate the things you are tracking.<br><br>
+
+					For our Battle Station Construction app, we need to track the items related to our projects. You’ve already created the Battle Station object, but you need to track more information about each station. In a spreadsheet you would track that by adding columns for Project Status and Weapons Status.<br><br>
+
+					We also need to track the Resources (people) and Supplies for each battle station. In a spreadsheet that could be captured in 2 new sheets. <br><br>
+					The Resources sheet would include columns for the Resource Name, Quantity and Utilization. It would also include a column for the Battle Station Name so that you know which station these resources belong to. <br><br>
+					The Supplies sheet would include columns for the Supply Name, Quantity, Unit Cost, and Total Cost. Again, you would need to include a column for the Battle Station Name so that you know which station these supplies belong to<br><br>
+
+					Who is familiar with relational databases? In a relational database, data is stored in tables. Each table comprises a number of columns of a particular data type, such as text, number, or date. Information is stored in rows of the table. Tables can be related to other tables, using primary and foreign keys. Apps manage information by creating, reading, updating, and deleting rows in a table.<br><br>
+
+					In Salesforce, the database terminology is a little different.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Relational Databases have Relationships</h3>
+				<img src="images/database.png" alt="Database diagram" class="noborder fullwidth">
+				<img src="images/database-tables.png" alt="Tables diagram" class="noborder fragment" style="position:absolute; left:40%;">
+				<p><small>Images based on Twitter data model from <br>https://code.tutsplus.com/tutorials/relational-databases-for-dummies--net-30244</small></p>
+				<aside class="notes">
+					Who is familiar with relational databases? Each relational database table comprises a number of columns of a particular data type, such as text, number, or date. Information is stored in rows of the table. Again, it’s helpful to visualize these tables as spreadsheets.<br><br>
+
+					In a relational database, data is stored in tables and is linked to other data based on defined relationships. That’s what was missing in the spreadsheet - we had to keep repeating the Battle Station Name but the relationship between the Battle Station sheet and the other 2 sheets is not defined. Tables can be related to other tables, using primary and foreign keys. [click] For example, tweets and followers are related to users. <br><br>
+
+					Apps manage information by creating, reading, updating, and deleting rows in a table. This is called CRUD. In Salesforce, your data is stored based on your Object metadata and you can relate Objects to each other via multiple types of Relationships. You users will be creating, reading, updating, and deleting records in the objects you create.<br><br>
+
+					The Salesforce database terminology is a little different, so let’s cover that...<br><br>
+
+					[screen shot from https://code.tutsplus.com/tutorials/relational-databases-for-dummies--net-30244]<br><br>
+				</aside>
+			</section>
+
+			<section>
+				<h3>Data Modeling Terminology</h3>
+				<ul>
+					<li><strong>Standard Objects</strong>: objects included with Salesforce to store data (records) about things like Accounts, Contacts, Opportunities</li>
+					<li><strong>Custom Objects</strong>: new objects you create to store data (records) – custom objects are unique to your company</li>
+					<li><strong>Fields</strong>: place to store an individual piece of data for a record – similar to a column in Excel or in a relational database</li>
+					<li><strong>Relationships</strong>: special type of field that connects objects</li>
+				</ul>
+
+				<aside class="notes">
+					Salesforce provides a powerful database, with many features that make it faster and easier to create applications. <br><br>
+
+					Salesforce uses objects to store data. Objects contain all the functionality you expect in a table, with additional metadata for user interface and business logic that make them more powerful and versatile. Each object comprises a number of fields, which correspond to columns in a database. Data is stored in records of the object, which correspond to rows in a database.<br><br>
+
+					Some terms you’ll be hearing a lot:<br>
+					There are two types of objects.<br>
+					Standard Objects—These are objects included with Salesforce, by default, for example the objects used to store data in standard tabs such as accounts, contacts, or opportunities.<br>
+					Custom Objects—These are new objects you create to store information unique to your organization. <br>
+					Fields are where the data is stored in your objects.<br>
+					Relationships connect the objects. This is important for how your users navigate in the user interface and also for how you access data for reports.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Data Model for Managing your Battle Station Construction Projects</h3>
+				<img src="images/data-model.png" alt="Data model for your project" class="noborder">
+
+				<aside class="notes">
+					Here is a sneak peek at the data model for the Battle Station Construction app. You will build three custom objects and define two relationships. <br><br>
+
+					Battle Station - This will be our main object that tracks each battle station project. You created this object in Step 1, but you need to add some fields to track the project and weapons status of each battle station.<br>
+					Resource - Projects are about doing "stuff" and you need resources (i.e., people) to do "stuff". You’ll create a resources custom object to track the number of people working on the construction project and how much time they are committed to it. Examples of people you might need: Dark Lord, Welder, Exhaust Port Inspector.<br>
+					Supply - You also need supplies and equipment to build a Battle Station. We'll use this object to track our supplies and their costs. Examples of supplies you might need: Hammers, Nails, Light Bulbs.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Data Model for Managing your Battle Station Construction Projects</h3>
+				<h4>Custom Field Wizard</h4>
+				<div class="halfblock">
+					<ol>
+						<li>From Setup, enter <strong>Object Manager</strong> in the Quick Find and select Object Manager.</li>
+						<li>Select <strong>Battle Station</strong>.</li>
+						<li>Scroll down to Fields & Relationships, and click <strong>New</strong>.</li>
+					</ol>
+				</div>
+				<img src="images/custom-field-wizard.png" alt="Custom Field Wizard" class="noborder">
+
+				<aside class="notes">
+					This next Step has you adding a bunch of fields. You do that with what we call the Custom Field Wizard. Wizards are a common way to guide someone through multiple steps to create new metadata in Salesforce, or any platform. The Custom Field Wizard steps you through defining all of the details you need to specify for your field, including the field type, name, length, security, and whether or not to add the field to the user interface.<br><br>
+
+					DEMO<br>
+					[Navigate to the Battle Station object and walk through the custom field wizard, slowly.<br>
+					Show formulas]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Develop It!</h3>
+				<div class="columns">
+					<div class="column">
+				<ul>
+					<li>Build a Battle Station App project</li>
+					<li>Step 2: Build the Object Model</li>
+				</ul>
+				</div>
+				<div class="column">
+				<img src="images/battle-station-logo.png" alt="Battle Station App Logo" class="noborder">
+</div></div>
+				<p class="time blue"><img src="images/stopwatch.png" alt="" class="noborder"> 40 Minutes</p>
+				<aside class="notes">
+					Let’s Develop It! In this next step you’ll define the metadata for your data model so that you can store information about your battle station projects. Reminder: If you finish early, you can take a break OR if you want to keep learning, click on the Resources links at the end of the Step to learn more about Objects and Formulas.<br><br>
+					Trailhead Project: https://developer.salesforce.com/trailhead/project/workshop-battle-station
+				</aside>
+			</section>
+
+			<section>
+				<h3>You Made a Place to Store Data in the Database, AND a way to enter that data in the User Interface</h3>
+
+				<img src="images/create-battle-station.png" alt="Create Battle Station screen" class="noborder">
+
+				<aside class="notes">
+					YOU CONTROL THE INTERNET!
+				</aside>
+			</section>
+
+			<!-- LUNCH BREAK -->
+			<section>
+				<h2>LUNCH BREAK</h2>
+
+				<p>Take a walk around</p>
+				<p>Think about what you've all learned<p>
+				<p>Get to know a fellow classmate</p>
+
+				<aside class="notes">
+					Lunch break! [Encourage folks to get to know each other - community is what it’s all about!]
+				</aside>
+			</section>
+
+			<!-- SALESFORCE COMMUNITY -->
+			<section>
+				<h2>Join the Salesforce Community!</h2>
+
+				<p><a href="http://success.salesforce.com" target=
+				"_blank">success.salesforce.com</a></p>
+				<a href="http://success.salesforce.com" target=
+				"_blank"><img src="images/salesforce-community.png" /></a>
+
+				<aside class="notes">
+					[Ease back into the content by introducing students to the Success Community.]
+The Success Community is the place to go to find answers and to connect with other Salesforce professionals. In the Collaboration area you’ll find a ton of interest groups. In [cityname] we have a Salesforce Women in Tech User Group and ____________. Take a minute to update your Profile and join a group. 
+
+				</aside>
+			</section>
+
+			<!-- Step 3: User Interface-->
+			<section data-background="#f05b62">
+				<h2>Step 3: User Interface</h2>
+				<aside class="notes">
+					You can’t have a database without a objects and fields, but no one will put data in your database if the user interface is hard to use.<br><br>
+					Pop quiz – what is the secret sauce of the salesforce platform called? …[click to next slide]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Keep Developing!</h3>
+
+				<img src="images/metadata-ui.png" alt="Metadata User Interface" class="noborder fullwidth">
+
+				<aside class="notes">
+					Metadata! In this step, you’ll modify the user interface for the app to make it more intuitive.
+				</aside>
+			</section>
+
+			<section>
+				<h3>UI & UX</h3>
+
+				<ul>
+					<li>A <strong>user interface</strong> (UI) is how people interact with the apps you create.</li>
+					<li><strong>User Experience</strong> (UX) is how a person feels about your product</li>
+				</ul>
+
+				<aside class="notes">
+					The more intuitive you make your user interface, the more your users will enjoy and use your app.<br><br>
+
+					[audience interaction time!]<br>
+					What’s your favorite app? Why? How do you interact with it? What feels intuitive?<br><br>
+
+					User Experience is especially important for mobile apps, because if you are trying to move a set of employees from a desktop app to a mobile app, they need to LOVE that mobile app, or they won’t use it. In this step we’ll improve the user interface for the desktop version, and in the final step, we’ll see that those same fields are in the mobile version, but that there are additional things we can do to make the mobile experience even better.<br><br>
+
+					In this step we’ll use Page Layouts and Rollup Summary fields.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Page Layout Editor</h3>
+
+				<img src="images/page-layout-editor.png" alt="Page Layout Editor screenshot" class="noborder">
+
+				<aside class="notes">
+					Page layouts allow you to customize the design and organization of detail and edit pages in Salesforce.<br>
+					Control both the browser pages and the mobile pages<br>
+					Control which fields, related lists, buttons, links users see.<br>
+					Determine whether fields are visible, read only, or required on detail and edit pages.<br><br>
+
+					The Page Layout Editor is what’s called a WYSIWYG (what you see is what you get) editor. You can drag & drop all of the elements that are on the page where you users will view the data in a record. <br>
+
+					DEMO: [show how there are different categories in the “palette” and how to drag & drop things. Show how to create a new section. Show how to change the fields shown in a related list.]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Page Layout Editor</h3>
+
+				<p><strong>Rollup Summary Fields</strong> (RSFs) allow you to aggregate data from multiple child records and store it on the parent record.</p>
+				<ul>
+					<li>Only available in Master-Detail relationships</li>
+					<li>SUM, MAX, MIN, COUNT</li>
+					<li>Improves the Usability and User Experience by having the system do the work for your users, making their life easier!</li>
+				</ul>
+
+				<aside class="notes">
+					In Step 2 you created multiple fields of different types. You use the Custom Field Wizard to create Rollup Summary Fields, too. [don’t need to demo this]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Develop It!</h3>
+				<div class="columns">
+					<div class="column">
+				<ul>
+					<li>Build a Battle Station App project</li>
+					<li>Step 3: Modify the User Experience</li>
+				</ul>
+				</div>
+				<div class="column">
+				<img src="images/battle-station-logo.png" alt="Battle Station App Logo" class="noborder">
+</div></div>
+				<p class="time blue"><img src="images/stopwatch.png" alt="" class="noborder"> 20 Minutes</p>
+				<aside class="notes">
+					Let’s Develop It! In this next step you’ll use the Page Layout Editor and Rollup Summary Fields to improve the user interface and experience.<br>
+
+					Trailhead Project: https://developer.salesforce.com/trailhead/project/workshop-battle-station
+				</aside>
+			</section>
+
+			<!-- Step 4: Business Logic -->
+			<section data-background="#f05b62">
+				<h2>Step 4: Business Logic</h2>
+				<aside class="notes">
+					Now you can get data in and out of your database, but let’s make our app do more.
+				</aside>
+			</section>
+
+			<section>
+				<h3>The Battle Station App</h3>
+
+				<img src="images/metadata-business-logic.png" alt="Metadata Business Logic" class="noborder fullwidth">
+
+				<aside class="notes">
+					In this step you’ll implement business logic by creating metadata to enforce the rules for your company.
+				</aside>
+			</section>
+
+			<section>
+				<h3>What is Business Logic?</h3>
+
+				<ul>
+					<li>All organizations have processes. Some are well documented. Others, not. Business logic in your app is a way to <strong>enforce</strong> and <strong>automate</strong> those processes.</li>
+					<li><strong>Validation Rules</strong>: Enforcing business processes improves data quality. If it’s not valid to have an invoice without a dollar amount, then don’t let people save one.</li>
+					<li><strong>Process Builder</strong>: Automating business processes increases productivity in your organization. If the next step is always to send the customer an email, then let the system do that.</li>
+				</ul>
+
+				<aside class="notes">
+					We’re going to add business logic to our app with two different tools: Validation Rules and Process Builder.
+				</aside>
+			</section>
+
+			<section>
+				<h3>What is Business Logic?</h3>
+
+				<ul>
+					<li>Enforce data quality</li>
+					<li>Are associated with an object</li>
+					<li>Are run when a record for that object is created or updated</li>
+					<li>Use formulas to express when data is <em>invalid</em></li>
+				</ul>
+
+				<aside class="notes">
+					Validation rules verify that data entered by users in records meet the standards you specify before they can save it. <br>
+
+					Using validation rules effectively contributes to quality data. For example, you can ensure that all Order Numbers or Social Security Numbers are the right format.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Formulas</h3>
+
+				<ul>
+					<li>A <strong>formula</strong> is an algorithm, similar to a macro in a typical spreadsheet program, that derives a value from other fields, expressions, or values. </li>
+					<li>You can use formulas in many contexts in Salesforce, including <strong>Validation Rules</strong> and <strong>Process Builder processes</strong>.</li>
+				</ul>
+
+				<aside class="notes">
+					You created a formula field in step 2<br>
+					A formula is an algorithm, similar to a macro in a typical spreadsheet program, that derives a value from other fields, expressions, or values. Formulas have many uses — for example, for an object, use can create a custom formula field that automatically calculates the value of the field based the value in other fields of the same record. But that's just a simple example — you can use formulas in many contexts, including:<br>
+					custom fields<br>
+					default field values<br>
+					data validations<br>
+					reports<br>
+					workflow field updates<br>
+					workflow rules<br>
+					approval processes<br>
+					approval steps<br>
+					escalation rules<br>
+					assignment rules<br>
+					custom buttons and links<br>
+					Visualforce pages
+				</aside>
+			</section>
+
+			<section>
+				<h3>Demo: Validation Rules</h3>
+
+				<img src="images/validation-rules.png" alt="Validation rules flow" class="noborder fullwidth">
+
+				<aside class="notes">
+					This is how the system sees the flow of a validation rule.  Note that we are going to define a statement which if TRUE means the data Is bad.<br>
+
+					Demo in Setup<br>
+					[Have this “don’t add supplies to a complete project” rule (details in the slide) already set up. Show it in the Validation Rule formula editor. Show entering bad data and getting the error message. Show entering good data successfully.]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Process Builder</h3>
+
+				<ul>
+					<li><strong>Process Builder</strong> allows you to automate business processes using a graphical representation of your process. </li>
+					<li>Processes are associated with an <strong>object</strong>. Processes are run <strong>when a record is created or updated</strong> for that object. </li>
+					<li>Processes consist of <strong>criteria</strong> that determine whether or not to execute <strong>actions</strong>.</li>
+				</ul>
+
+				<aside class="notes">
+					The other tool we’ll use is Process Builder.  Process Builder is a workflow tool that helps you easily automate your business processes by providing a powerful and user-friendly graphical representation of your process as you build it. You simply point-and-click to build your processes which run "behind the scenes" in response to actions.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Demo: Process Builder</h3>
+
+				<img src="images/process-builder.png" alt="Process builder flow" class="noborder">
+
+				<aside class="notes">
+					Demo process builder and testing a process<br>
+					[Goal is to orient students to how to use the tool. Select an existing process (e.g., the Fully Operational Battle Station process from the project . Click slowly through each block in the diagram, showing how the values are defined.<br>
+					Also show them how to TEST their process. In the project, the instructions say “Simply edit a Battle Station record” (full text below) which is confusing to first-timers. Demoing this and explaining that they will be building in Setup and then switching back to the end user view to the Battle Stations tab and selecting a record (what’s a record???) to edit, make the change to the Weapons Status field and Save and they should see the process actions in action.]<br>
+					<br>
+					“Test Your Process<br>
+					Time to see your process in action! Simply edit a Battle Station record, set the Weapons Status to Fully Operational and click Save. When the page refreshes the Project Status should display Complete and there should be a Chatter post at the right of the page announcing how awesome you are.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Develop It!</h3>
+				<div class="columns">
+					<div class="column">
+				<ul>
+					<li>Build a Battle Station App project</li>
+					<li>Step 4: Add Business Logic</li>
+				</ul>
+				</div>
+				<div class="column">
+				<img src="images/battle-station-logo.png" alt="Battle Station App Logo" class="noborder">
+</div></div>
+				<p class="time blue"><img src="images/stopwatch.png" alt="" class="noborder"> 40 Minutes</p>
+				<aside class="notes">
+					Let’s Develop It! In this next step you’ll use Validation Rules and Process Builder to enforce business rules and automate business processes.<br>
+
+					Trailhead Project: https://developer.salesforce.com/trailhead/project/workshop-battle-station
+				</aside>
+			</section>
+
+			<section>
+				<h3>Now you’re making the app do the work, not the project manager!</h3>
+
+				<img src="images/process-results.png" alt="Process builder results" class="noborder fullwidth">
+
+				<aside class="notes">
+					[Check in that everyone gets how this step works. Did they test their validation rule? Run their processes?]
+				</aside>
+			</section>
+
+			<!-- Step 5: Analytics -->
+			<section data-background="#f05b62">
+				<h2>Step 5: Analytics</h2>
+				<aside class="notes">
+					This app is looking pretty good – We have a place to store data, a way to get that data into the system, and a way to ensure the quality of that data. We’re on the home stretch now!
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Keep Developing!</h3>
+
+				<img src="images/metadata-analytics.png" alt="Metadata Analytics" class="noborder fullwidth">
+
+				<aside class="notes">
+					Now we want to create metadata to analyze the data so we can see how our project is going and can make business decisions. We’ll do that with Reports and Dashboards.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Why Reports & Dashboards?</h3>
+
+				<div class="halfblock">
+					<p class="blue"><br><strong><em>“If you can’t report on it, the app doesn’t matter.”</em></strong></p>
+					<p> – Mike Gerholdt, Salesforce Admins Podcast co-host</p>
+				</div>
+				<img src="images/admins-podcast.png" alt="Metadata Analytics" class="noborder">
+
+				<p>Getting quality data into the database is important, but getting it <strong>out</strong> is even more important. </p>
+
+				<aside class="notes">
+					Reports and dashboards come as part of the platform and are available for all standard and custom apps. Reports & Dashboards are how you see the health of your business. And, according to Mike Gerholdt, founder of the ButtonClick Admin blog and podcast (which is now the Salesforce Admins podcast) who was a Salesforce Admin for 7 years before joining Salesforce as an Admin Evangelist, If you can’t report on it, the app doesn’t matter.”
+				</aside>
+			</section>
+
+			<section>
+				<h3>Reports</h3>
+
+				<p>A <strong>report</strong> is a list of records that meet the criteria you define. It’s displayed in Salesforce in rows and columns, and can be filtered, grouped, and can include a graphical chart.</p>
+
+				<aside class="notes">
+					[Demo the end user view FIRST. Use the Sales by Account report that comes with the DE org. Reports tab | Sales Reports folder | Sales by Account report. Change the Time Frame range to Custom and set From date to 2000. This is a tabular report, looks like what you’d see in an Excel spreadsheet – a list of the report. You can sort the list and the sales are summed at the bottom.]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Report Builder</h3>
+
+				<img src="images/report-builder.png" alt="Report Builder screencap" class="noborder">
+
+				<aside class="notes">
+					The drag-and-drop report builder allows you to create reports by dragging and dropping fields from the fields pane [1] onto the preview pane [3]. The filters pane [2] is where you can enter additional criteria to limit your results. In the example above, we’re filtering by a specific Account Owner, Type, and Billing State/Province.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Dashboards</h3>
+
+				<ul>
+					<li>A <strong>Dashboard</strong> is a visual display of key metrics and trends for your business.</li>
+					<li>The data for each <strong>Dashboard Component</strong> comes from a Report.</li>
+				</ul>
+
+				<img src="images/dashboards.png" alt="Dashboards screencap" class="noborder fullwidth">
+
+				<aside class="notes">
+					The drag-and-drop report builder allows you to create reports by dragging and dropping fields from the fields pane [1] onto the preview pane [3]. The filters pane [2] is where you can enter additional criteria to limit your results. In the example above, we’re filtering by a specific Account Owner, Type, and Billing State/Province.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Demo: Reports and Dashboards</h3>
+
+				<ul>
+					<li>End user view</li>
+					<li>Report Builder</li>
+					<li>Dashboards</li>
+				</ul>
+
+				<aside class="notes">
+					Demo the end user view<br>
+					[Use the Sales by Account report that comes with the DE org. Reports tab | Sales Reports folder | Sales by Account report. Change the Time Frame range to Custom and set From date to 2000. This is a tabular report, looks like what you’d see in an Excel spreadsheet – a list of the report. You can sort the list and the sales are summed at the bottom.]<br><br>
+
+					Demo Report Builder<br>
+					[Goal is to orient people to how it works. Walk them through the first few steps they will be taking in the project:<br>
+					Click the Reports tab.<br>
+					Click New Report... button.<br>
+					Expand the Other Reports folder, select Battle Station with Supplies and click Create.<br>
+					In the Preview section, select Summary Format. Say “In this step we’ll build a Summary report, because that’s what you need to create a Dashboard.“<br><br>
+
+					Say “Fields are on the left, Drag and drop them into the preview pane on the right.” Drag the Quantity, Unit Cost and Total Cost fields, one at a time, from the left and add them as columns in the preview area on the right.<br>
+					Drag the Battle Station: Battle Station Name field and drop it in the Preview section that says, Drop a field here to create a grouping. This will separate the report by individual Battle Station records.]<br><br>
+
+					If asked, these are the report formats.<br>
+					Tabular: a simple list of records<br>
+					Summary: a list of records, can also group rows of data, view subtotals, and create charts<br>
+					Matrix: Able to group and summarize data by both rows and columns<br><br>
+
+					Demo Dashboards<br>
+					[PREP: make sure you have the Battle Station report and dashboard in your org. <br>
+					Demo: Show the dashboards. Click into a Dashboard Component to show the report behind it. Then click Customize to show the Report Builder.]<br><br>
+
+					Joined: Able to create multiple report blocks that provide different views of your data
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Develop It!</h3>
+				<div class="columns">
+					<div class="column">
+				<ul>
+					<li>Build a Battle Station App project</li>
+					<li>Step 5: Create Reports and Dashboards</li>
+				</ul>
+				</div>
+				<div class="column">
+				<img src="images/battle-station-logo.png" alt="Battle Station App Logo" class="noborder">
+</div></div>
+				<p class="time blue"><img src="images/stopwatch.png" alt="" class="noborder"> 15 Minutes</p>
+				<aside class="notes">
+					Let’s Develop It! In this next step you’ll create reports and dashboards to make your app matter to the business owners.<br>
+
+					Trailhead Project: https://developer.salesforce.com/trailhead/project/workshop-battle-station
+				</aside>
+			</section>
+
+			<section>
+				<h3>Now you can see the costs for all Battle Stations – do you need a bigger budget to control the galaxy?</h3>
+
+				<img src="images/budget-report.png" alt="Budget report screencap" class="noborder">
+
+				<aside class="notes">
+					The drag-and-drop report builder allows you to create reports by dragging and dropping fields from the fields pane [1] onto the preview pane [3]. The filters pane [2] is where you can enter additional criteria to limit your results. In the example above, we’re filtering by a specific Account Owner, Type, and Billing State/Province.
+				</aside>
+			</section>
+
+			<!-- Step 6: Mobile -->
+			<section data-background="#f05b62">
+				<h2>Step 6: Mobile</h2>
+				<aside class="notes">
+					Last step!
+				</aside>
+			</section>
+
+			<section>
+				<h3>#1 Job Skill for Salesforce Admins</h3>
+
+				<p>“I can’t log in! Can you please reset my password?”</p>
+
+				<aside class="notes">
+					For this last step, you need to do something that every Salesforce Admin is familiar with: reset a password. The password you need to reset is YOURS. <br><br>
+
+					[Slowly navigate everyone to Setup, to Users, and have them check the box next to their name and click the Reset Password button.]<br><br>
+
+					Now go to your email and follow the steps to reset your password. Remember that username and password because you will need it to log into your mobile device.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Reset Password</h3>
+
+				<p>If you forget what I said...look here:</p>
+				<img src="images/reset-password.png" alt="Reset Password screen" class="noborder">
+
+				<aside class="notes">
+					If you need to do this for another Trailhead Playground, you’ll find the instructions on the landing page when you open your Trailhead Playground from Trailhead (via the Launch your hands-on org button)
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Keep Developing!</h3>
+
+				<img src="images/metadata-mobile.png" alt="Metadata Mobile" class="noborder fullwidth">
+
+				<aside class="notes">
+					Our project managers and workers are mobile. Let’s add metadata to make sure the user experience on mobile is amazing.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Every App is a Mobile App</h3>
+
+				<img src="images/mobile-3-up.png" alt="Mobile screens" class="noborder fullwidth">
+
+				<aside class="notes">
+					As we talked about at the start of class, every app you build with the Salesforce Platform is a mobile app, running inside the Salesforce1 Mobile App on iOS and Android phones.<br>
+					The Salesforce1 Mobile App reads the data model and user interface metadata and generates a mobile-friendly user interface. That’s pretty cool, but if you just hand that to your end users, you are missing an important opportunity to optimize the usability and user experience for a mobile experience. There are a few ways to customize the mobile experience, and in this class we’re going to add what’s called a Global Action, which is a type of Quick Action.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Quick Actions</h3>
+
+				<div class="halfblock">
+					<ul>
+						<li><strong>Actions</strong> let users perform tasks on the go from the Chatter feed, and from the detail and edit pages.</li>
+						<li><strong>Global Actions</strong> can be put anywhere actions are supported. </li>
+						<li><strong>Object Specific Actions</strong> can only be put on the object, and they know about the context of that object.</li>
+					</ul>
+				</div>
+				<img src="images/mobile-actions.png" alt="Quick Actions screen" class="noborder">
+
+				<aside class="notes">
+					There are two types of quick actions…we’re using Global Actions for the Battle Station Construction app because we want the action to be available from anywhere.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Demo: Global Actions</h3>
+
+				<p>Add/remove Global Actions via the <strong>Global Publisher Layout</strong>.</p>
+				<img src="images/global-actions.png" alt="Global Actions screen" class="noborder">
+
+				<aside class="notes">
+					[Demo quick actions and the editor. These layouts are hard to find and it looks like the page layout but it’s not…]
+				</aside>
+			</section>
+
+			<section>
+				<h3>Let's Develop It!</h3>
+				<div class="columns">
+					<div class="column">
+				<ul>
+					<li>Build a Battle Station App project</li>
+					<li>Step 6: Make the App Mobile</li>
+				</ul>
+				</div>
+				<div class="column">
+				<img src="images/battle-station-logo.png" alt="Battle Station App Logo" class="noborder">
+</div></div>
+				<p class="time blue"><img src="images/stopwatch.png" alt="" class="noborder"> 20 Minutes</p>
+				<aside class="notes">
+					Let’s Develop It! In this final step you’ll are global action to make it easy for your boss to request a new battle station at any time, anywhere, from his or her mobile device.<br>
+
+					Trailhead Project: https://developer.salesforce.com/trailhead/project/workshop-battle-station
+				</aside>
+			</section>
+
+			<section>
+				<h3>Now your boss can enter new Battle Station records from anywhere!</h3>
+
+				<img src="images/mobile-results.png" alt="Mobile results screen" class="noborder">
+			</section>
+
+			<section>
+				<h3>Let's Verify It!</h3>
+				<img src="images/battle-station-logo.png" alt="Battle Station App Logo" class="noborder">
+				<p class="green">+ 50 Points</p>
+			</section>
+
+			<section>
+				<h3>Your Trailhead Profile</h3>
+				<img src="images/trailhead-profile.png" alt="Trailhead Profile" class="noborder fullwidth">
+				<aside class="notes">
+					If you haven’t yet, check out your Trailhead profile – this is where you can keep track of your progress, return to badges you’ve started ( Dashboard)  and share what your done with your employer or potential employers (Profile, hover over the badge and you can add it to your Certifications in LinkedIn).<br>
+					[poke around in Trailhead profile dashboard, profile and settings, demo adding to LinkedIn]
+				</aside>
+			</section>
+
+			<section>
+				<h3>What's Next?</h3>
+				<div class="columns">
+					<div class="column">
+						<p>Interested in Admin?</p>
+						<img src="images/admin-trail.png" alt="Admin trail" class="noborder">
+					</div>
+					<div class="column">
+						<p>Interested in Dev?</p>
+						<img src="images/developer-trail.png" alt="Dev trail" class="noborder">
+					</div>
+				</div>
+
+				<p>
+					<img src="images/trailhead-logo.png" alt="Trailhead logo" class="noborder" style="max-height:100px;vertical-align:middle;">
+					Follow these trails on <a href="http://trailhead.salesforce.com">trailhead.salesforce.com</a>
+				</p>
+
+				<aside class="notes">
+					In today’s project you got hands on with many of the app building tools on the Salesforce Platform. To dig deeper into these tools, follow one of these trails.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Other Next Steps</h3>
+				<div class="columns columns-aligned align-left">
+					<div class="column">
+						<img src="images/user-groups-logo.png" alt="Salesforce User Groups" class="noborder" style="width:125px;height:auto;">
+					</div>
+					<div class="column">
+						<p><strong>Get Connected</strong></p>
+						<ul class="small">
+							<li>Developer Groups & User Groups</li>
+							<li>Success Community (success.salesforce.com)</li>
+							<li>Twitter #askforce</li>
+						</ul>
+					</div>
+				</div>
+				<div class="columns columns-aligned align-left">
+					<div class="column">
+						<img src="images/trailhead-logo.png" alt="Trailhead logo" class="noborder" style="width:125px;height:auto;">
+					</div>
+					<div class="column">
+						<p><strong>Keep Learning</strong></p>
+						<ul class="small">
+							<li>trailhead.com</li>
+							<li>developer.salesforce.com: Articles, Toolkits, Events, Forums</li>
+							<li>admin.salesforce.com: Webinars, Blogs, Podcasts</li>
+						</ul>
+					</div>
+				</div>
+				<div class="columns columns-aligned align-left">
+					<div class="column">
+						<img src="images/salesforce-certified.png" alt="Salesforce Certified logo" class="noborder" style="width:125px;height:auto;">
+					</div>
+					<div class="column">
+						<p><strong>Get Certified</strong></p>
+						<ul class="small">
+							<li>Study Groups (in Success Community)</li>
+							<li>Salesforce U classes</li>
+						</ul>
+					</div>
+				</div>
+
+				<aside class="notes">
+					[we want to make sure students know where the community is - if there’s time, demo the Success Community, invite people to join a local user group chatter group, and explain that even if they aren’t currently using Twitter, a lot of Salesforce people are out there so they might want to try it out]
+				</aside>
+			</section>
+
+			<!-- Survey -->
+			<section>
+				<h3>Tell Us What You Think!</h3>
+				<img src="../common/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder" style="max-height:300px;" />
+				<img src="images/trailhead-logo.png" alt="Trailhead Logo" class="noborder" style="max-height:300px;" />
+				<!-- EDIT LINK -->
+				<p>Please complete this short survey: <br><a href="#">link</a></p>
+
+				<aside class="notes">
+					[Encourage students to complete the survey before they leave class.]<br>
+					[GDI leader will create the survey. Sample survey: bit.ly/GDI-Atlanta-Dec-6-Survey]
+				</aside>
+			</section>
+
+			<!-- Class Photo -->
+			<section data-background="#f05b62">
+				<h2>Class Photo</h2>
+				<aside class="notes">
+					[Do this after the survey, hoping to get a lot a survey responses. Post photo on social media with #GDISalesforce.]<br>
+					Thank you all for spending your day/evening with us! Let’s take a class photo.
+				</aside>
+			</section>
+
+			<!-- Wrap-up -->
+			<section>
+				<h1>Thank you!</h1>
+				<img src="../common/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder" style="max-height:300px;" />
+				<img src="images/trailhead-logo.png" alt="Trailhead Logo" class="noborder" style="max-height:300px;" />
+			</section>
+
+			<!-- Careers Landscape -->
+			<section>
+				<h3>APPENDIX:<br>Salesforce Careers Landscape</h3>
+				<img src="images/careers-landscape.png" alt="Careers landscape" class="noborder fullwidth">
+				<aside class="notes">
+					[use this if people are interested in hearing more about careers]<br>
+					In the intros, many of you said that you are interested in a career change, or that your company has Salesforce and you want to be able to do more with it. There are many job opportunities in the Salesforce ecosystem. Three most common ones are Salesforce rep/manager, Developer, and Admin. [point out TAs who are in these roles]<br><br>
+
+					To learn more about these roles, check out the Careers area of the Resources page at admin.salesforce.com
+				</aside>
+			</section>
+
+		</div>
+		<footer>
+			<div class="copyright">
+				Intro to App Building with Salesforce -- Girl Develop It --
+				<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+			</div>
+		</footer>
+	</div>
+
+
+	<script src="../common/lib/js/head.min.js"></script>
+	<script src="../common/js/reveal.min.js"></script>
+
+	<script>
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [{
+				src: '../common/lib/js/classList.js',
+				condition: function() {
+					return !document.body.classList;
+				}
+			}, {
+				src: '../common/;lplugin/markdown/marked.js',
+				condition: function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src: '../common/plugin/markdown/markdown.js',
+				condition: function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src: '../common/plugin/highlight/highlight.js',
+				async: true,
+				condition: function() {
+					return !!document.querySelector('pre code');
+				},
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}, {
+				src: '../common/plugin/zoom-js/zoom.js',
+				async: true
+			}, {
+				src: '../common/plugin/notes/notes.js',
+				async: true
+			}, {
+				src: '../common/plugin/accessibility-helper/js/accessibility-helper.js',
+				async: true,
+				condition: function() {
+					return !!document.body.classList;
+				}
+			}]
+		});
+	</script>
+
+</body>
+
+</html>

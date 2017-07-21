@@ -1,0 +1,32 @@
+/*Overall Design*/
+body {
+	background-color: white;
+	font-family: 'Helvetica','Arial', sans-serif;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0;
+	padding: 0;
+	color: red;
+}
+
+h2, h3 {
+	color: #1212BC;
+}
+
+a:link {
+	color: blue;
+	text-decoration: none;
+}
+a:visited	{
+	color: blue;
+	text-decoration: none;
+}
+a:hover {
+	color: red;
+	text-decoration: underline;
+} 
+a:active {
+	color: orange;
+}

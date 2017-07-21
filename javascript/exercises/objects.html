@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="../../common/css/bootstrap.css" rel="stylesheet">
-  </head>
+    <link href="../../common/css/bootstrap.min.css" rel="stylesheet">  </head>
  <body>
 <div class="container">
 <h2>Exercises: Objects</h2>
@@ -77,42 +76,6 @@ for (var i = 0; i &lt; books.length; i++) {
     console.log('You still need to read "' + bookInfo);
   }
 }</pre>
-
-<h3 class="page-header">The Movie Database</h3>
-<p><em>It's like IMDB, but much much smaller!</em></p>
-<ul>
- <li>Create an object to store the following information about your favorite movie: <code>title</code> (a string),
- <code>duration</code> (a number), and <code>stars</code> (an array of strings).
- <li>Create a function to print out the movie information like so: "Puff the Magic Dragon lasts for 30 minutes. Stars: Puff, Jackie, Living Sneezes."
-</ul>
-<button class="btn" onclick="showSolution(3)">See Solution</button>
-<br><br>
-<pre id="solution3" style="display:none;">
-var myFavMovie = {
-    title: 'Puff the Magic Dragon',
-    duration: 30,
-    stars: ['Puff', 'Jackie', 'Living Sneezes']
-};
-
-function printMovie(movie) {
-    console.log(movie.title + ' lasts for ' + movie.duration + ' minutes');
-    var starsString = 'Stars: ';
-    for (var i = 0; i &lt; movie.stars.length; i++) {
-        starsString += movie.stars[i];
-        if (i != movie.stars.length -1) {
-            starsString += ', ';
-        }
-    }
-    console.log(starsString);
-}
-
-// Or...
-function printMovie(movie) {
-    console.log(movie.title + ' lasts for ' + movie.duration + ' minutes');
-    console.log('It stars ' + movie.stars.join(', '));
-}
-printMovie(myFavMovie);
-</pre>
 
  </div>
 

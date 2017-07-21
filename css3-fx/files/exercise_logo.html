@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS: Logo Creator Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+    ol li {
+      line-height: 2em;
+    }
+    </style>
+  </head>
+  <body>
+   <div class="container">
+   <h1>CSS: Logo Creator Exercise</h1>
+   <p>Use your creativity and your newfound knowledge of nifty CSS3 properties to create a shiny logo for your
+    company or yourself.
+   </p>
+   <ol>
+    <li>Start with this HTML:
+    <pre>&lt;!doctype html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;style&gt;
+#logo-container {
+}
+
+#logo-text {
+  
+}
+  &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;div id=&quot;logo-container&quot;&gt;
+   &lt;div id=&quot;logo-text&quot;&gt;My Logo&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</pre>
+     <li>Change the font size and alignment of the text to be bigger and centered.</li>
+     <li>Add a stroke to your logo text, using HSLA to specify the fill and stroke colors.</li>
+     <li>Use RGBA to specify the background color of the container and add some padding.</li>
+     <li>Round the corners of the container.</li>
+     <li>Generate a gradient for the container using <A href="http://www.colorzilla.com/gradient-editor/">this tool</a>
+      or <a href="http://gradients.glrzad.com/">this tool</a>.</li>
+     <li>Add a shadow to your text, and a shadow on the box.</li>
+     <li>Use a custom font for the logo text.</li>
+     <li>Check what it looks like in atleast 2 browsers.</li>
+    </ul>
+
+   <!--<button class="btn" onclick="showSolution();">Show Solution</button>-->
+
+   <div id="solution" style="display:none; margin-top: 20px;">
+   <a href="exercise_logo_solution.html" target="_blank">View Solution in New Window</a>
+   </p>
+
+    <script>
+      function showSolution() {
+        if (confirm('You surrrrre?')) {
+          document.getElementById('solution').style.display = 'block';
+          window.scrollTo(0, document.body.scrollHeight);
+        }
+      }
+    </script>
+
+
+
+   </div>
+  </body>
+</html>

@@ -16,19 +16,17 @@
 </p>
 
       <ol>
-        <li>Start with <a href="jsapis_solution.html">this file</a> or start with your own solution from the last exercise. Open it up and make sure it's working as expected.
+        <li>Start with <a href="jsapis_solution.html" download="jsapis_solution.html">this file</a> or start with your own solution from the last exercise. Open it up and make sure it's working as expected.
         </li>
-        <li>You need a Google Account to use the YouTube API. If you don't have one, <a href="https://www.google.com/accounts/NewAccount">create one</a> or pair up with someone who does.
-        </li>
-        <li>Follow the steps on <a href="https://developers.google.com/youtube/registering_an_application">this page</a> to create a Browser API key. (You won't need OAuth for this project.) Copy and save the API key as a variable in your project to use with your API query later.
-        </li>
-        <li>Go to <a href="https://developers.google.com/youtube/v3/docs/search/list">the Search:list reference</a> in the Youtube API docs and read through it. Use the <a href="https://developers.google.com/youtube/v3/docs/searcah/list#try-it">Try it!</a> function at the bottom of the page to build your own query and see the response. Search for whatever you fancy, but limit the search to 5 results. Copy the address from the Request box, add your API key, and test it in the browser.
+        <li>Go to <a href="https://developers.google.com/youtube/v3/docs/search/list" target="_blank">the Search:list reference</a> in the Youtube API docs and read through it, especially the Request/Parameters section. Search for whatever videos you fancy, but limit the search to 5 results. Copy the address from the "HTTP request" box, use the API key <code>AIzaSyCRXTR0G_Slvgyjj_Vgfry6KLiw8pIMlHs</code>, and test it in the browser.
         </li>
         <li>The webpage currently brings in video information using the jQuery $.ajax function to bring in a local videos.json file into the page. Change that function so that it instead brings in the results of a Youtube API search from the Youtube servers and displays those results instead. 
           <br>Tips: Remember that the JSON returned by the Youtube API will differ from the JSON format of videos.json. You should console.log inside your callback to see what the data looks like and make sure you're using it correctly. In particular, note that the video objects are stored in a container object called "items", and check how they store the ID, title, and author. (Rating is not available.)
         </li>
+        <!-- removed because not as interesting as it is tedious 
         <li>Bonus: Create your own playlist on Youtube of your favorite videos, and bring that into the page instead.
         </li>
+        -->
         <li>Bonus: Add a search button to the page so that people can search for any query.</li>
       </ol>
 
