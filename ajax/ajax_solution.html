@@ -1,74 +1,84 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Video Watcher</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/css/bootstrap.min.css">
-    <style type="text/css">
-      /* This puts titles always on a separate line from thumbnails */
-      #videos-list img {
-        display: block;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="span12">
-          <h2 class="page-header">Best Videos Ever ❤</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span3">
-          <ul id="videos-list"></ul>
-        </div>
-        <div class="span9" id="video-watcher"></div>
-      </div>
-    </div>
-    <script src="http://teaching-materials.org/common/youtube.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script>
-      function addVideoToList(video) {
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Video Watcher</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style type="text/css">
+  /* This puts titles always on a separate line from thumbnails */
+  #videos-list img {
+    display: block;
+  }
+  </style>
+ </head>
+ <body>
 
-        var videoLink = $('<a>');
-        videoLink.append(video.title);
-        var linkUrl = videoLink.attr('href');
-        var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
-        var thumbnailImg = $('<img>');
-        thumbnailImg.attr('src', thumbnailUrl);
-        videoLink.append(thumbnailImg);
-        
-        videoLink.on('click', function(e) {
-            e.preventDefault();
-            var videoTitle = $('<h2>');
-            videoTitle.html(video.title + ' <small>' + video.author + '</small>');
-            var videoEmbed = $('<iframe></iframe>');
-            videoEmbed.attr('src', youtube.generateEmbedUrl(video.youtubeId));
-            videoEmbed.attr('width', 560);
-            videoEmbed.attr('height', 315);
+<div class="container">
 
-            var videoWatcher = $('#video-watcher');
-            videoWatcher.hide();
-            videoWatcher.empty();
-            videoWatcher.append(videoTitle);
-            videoWatcher.append(videoEmbed);
-            videoWatcher.fadeIn();
-        });
+ <div class="row">
+   <div class="col-md-12">
+    <h2 class="page-header">Best Videos Ever ❤</h2>
+   </div>
+ </div>
 
-        var videoItem = $('<li>');
-        videoItem.append(videoLink);
-        $('#videos-list').append(videoItem);
-      }
+ <div class="row">
+   <div class="col-md-3">
+     <ul id="videos-list">
+    </ul>
+   </div>
+   <div class="col-md-9" id="video-watcher">
+   </div>
+ </div>
+</div>
 
-      $.ajax({type: "GET",
-        url: "videos.json",
-        dataType: "json",
-        success: function(videos) { 
-          for (var i = 0; i < videos.length; i++) {
-            addVideoToList(videos[i]);
-          }
-        }
-      });
-    </script>
-  </body>
+<script type="text/javascript" src="https://jtcoders.github.io/ajax/lib/youtube.js"></script>
+<script type="text/javascript" src="https://jtcoders.github.io/ajax/lib/jquery.min.js"></script>
+
+ <script>
+ function addVideoToList(video) {
+
+    var videoLink = $('<a>');
+    videoLink.append(video.title);
+    var linkUrl = videoLink.attr('href');
+    var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
+    var thumbnailImg = $('<img>');
+    thumbnailImg.attr('src', thumbnailUrl);
+    videoLink.append(thumbnailImg);
+
+    videoLink.on('click', function(e) {
+        e.preventDefault();
+        var videoTitle = $('<h2>');
+        videoTitle.html(video.title + ' <small>' + video.author + '</small>');
+        var videoEmbed = $('<iframe></iframe>');
+        videoEmbed.attr('src', youtube.generateEmbedUrl(video.youtubeId));
+        videoEmbed.attr('width', 560);
+        videoEmbed.attr('height', 315);
+
+        var videoWatcher = $('#video-watcher');
+        videoWatcher.hide();
+        videoWatcher.empty();
+        videoWatcher.append(videoTitle);
+        videoWatcher.append(videoEmbed);
+        videoWatcher.fadeIn();
+    });
+
+    var videoItem = $('<li>');
+    videoItem.append(videoLink);
+    $('#videos-list').append(videoItem);
+ }
+
+$.ajax({type: "GET",
+  url: "https://api.myjson.com/bins/k4o2v",
+  dataType: "json",
+  success: function(response) {
+    var videos = response.videos
+    for (var i = 0; i < videos.length; i++) {
+      addVideoToList(videos[i]);
+    }
+ }
+});
+
+
+ </script>
+ </body>
 </html>
