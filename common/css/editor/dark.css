@@ -42,6 +42,7 @@ pre code {
   padding: 0.5em !important;
   font-family: 'Monaco', 'Menlo', 'Lucida Console', Courier, monospace !important;
   font-size: 24px !important;
+  word-wrap: break-word;
 }
 
 pre .coffeescript .javascript,
