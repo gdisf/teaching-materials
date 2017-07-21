@@ -157,7 +157,7 @@ body {
   -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
-  .reveal footer{
+  .reveal footer {
     position: fixed;
     height: 40px;
     width: 100%;
@@ -166,7 +166,7 @@ body {
     z-index: 10; 
     font-size: 35%;
     text-align:right;
-    background-image: url(../images/pink-logo.png);
+    background-image: url(../img/pink-logo.png);
     background-repeat: no-repeat;
     background-size: auto 100%;
 }
@@ -210,14 +210,14 @@ section ul, section ol {
   max-width: 80%;
 }
 
-div.halfblock{
+div.halfblock {
   float: left;
   width: 45%;
   text-align: left;
   margin-right: 5%;
 }
 
-div.left-align{
+div.left-align {
   text-align: left;
 }
 
