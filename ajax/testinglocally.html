@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Testing Locally</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Testing locally</h1>
+
+      <p>Chrome has a permissions policy for local file:// testing that disallows AJAX requests,
+        and some APIs do not work on file:// URLs in all browsers, so if possible, we recommend trying to run a simple server
+        on your machine. If the steps below do not work for you, then we recommend using Firefox or pairing with someone who can run a local server.
+      </p>
+      
+      <h2>On Mac or Linux</h2>
+      <p>Macs and most Linux distros come with Python preinstalled.  The following steps should work without additional setup:</p>
+      <ol>
+        <li>Open Terminal</li>
+        <li>Navigate to your project directory (wherever you will save the files) by using the <code>cd</code> command.</li>
+        <li>Run this command:  <code>python -m SimpleHTTPServer</code>
+          <ul>
+            <li>If you are running Python 3, run this command instead: <code>python -m http.server 8000</code></li>
+          </ul>
+        </li>
+        <li>If successful, you should then be able to access your project folder by pointing your browser to <a href="http://localhost:8000" target="_blank">http://localhost:8000</a>.</li>
+      </ol>
+      
+      <h2>On Windows</h2>
+      <p>If you are running Windows, you will need to make sure you have Python installed. To check, open a command prompt and enter <code>python</code>. If you see a response including the version number, Python is ready to go. Note whether the version starts with 2 or 3, press ctrl+c to return to the regular command prompt, and follow steps 2-4 of the Mac instructions above.
+      </p>
+      
+      <p>If the <code>python</code> command produces an error message, follow the steps below to install Python:
+      </p>
+      
+      <ol>
+        <li>Go to the <a href="https://www.python.org/downloads/">Python Downloads</a> page, and click one of the yellow buttons to download Python 2 or 3.  Most of your classmates and teachers will be using Python 2, but 3 will work as well. (More info on version selection <a href="https://wiki.python.org/moin/Python2orPython3">here</a>.)
+        </li>
+        <li>Double-click the downloaded file to install Python.
+        </li>
+        <li>When the installation is complete, open PowerShell (NOT command line), and run this command:<br><code>[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python27\;C:\Python27\Scripts\", "User")</code><br>
+          <em>(Note: This code assumes that you have installed Python 2.7.  If you installed a different version, look in your C:\ drive and check the name of the "PythonXX" directory. Replace both instances of</em> <code>Python27</code> <em>in the code above with the directory name on your computer.)</em>
+        </li>
+        <li>Run the <code>python</code> command again. You should now see a response with the Python version number. Using PowerShell or command line, follow steps 2-4 of the Mac instructions above.
+        </li>
+      </ol>
+      
+      <h2>On a Chromebook</h2>
+      <p>If you are using a Chromebook for web development, you will probably want to install Linux. More info can be found <a href="http://www.howtogeek.com/162120/how-to-install-ubuntu-linux-on-your-chromebook-with-crouton/" title="How to install Linux on  a Chromebook" target="_blank">here</a>.
+      </p>
+      
+  </body>
+</html>

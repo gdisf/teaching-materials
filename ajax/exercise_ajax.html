@@ -1,43 +1,131 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
     <title>Exercise: AJAX</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/css/bootstrap.min.css">
-    <link type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
   <body>
     <div class="container">
       <h1>Exercise: AJAX</h1>
-      <br>
-      <br>
-      <p>In this exercise, you'll use jQuery's $.ajax function to pull in a JSON file and turn it into DOM, using the same functions as we did for the in-page JSON.</p>
-      <h3>The Setup</h3>
-      <p>You can skip this section if you are using Firefox.</p>
-      <p>If you are not yet running your code from a local server, do that now by following <a href="http://www.teaching-materials.org/resources/testinglocally.html" target="_blank">these instructions</a>. We need to do this because of security restrictions on file:// protocol with XMLHttpRequests.</p>
+      <p>In this exercise, you'll use jQuery's $.ajax function to pull in a JSON data hosted elsewhere on the internet and turn it into DOM, using the same functions as we did for the in-page JSON.</p>
+
       <h3>Coding</h3>
+
       <p>Go through these steps, and do as many as you can in the time we have:</p>
       <ul>
         <li>Start with your solution from the last exercise, or download <a href="json_solution.html" download>json_solution.html</a>
           into your project folder and start from there.</li>
-        <li>The webpage currently has an in-page JSON describing the videos, and we want to put that into a separate file. Make a file in your project folder called videos.json, and copy the value of the videos variable into that file. Delete the variable from the page.</li>
-        <li>Use the jQuery $.ajax function to bring in the data from videos.json. In the success callback,iterate through the videos and render each one into the page, using the addVideoToList function that we already have.Look at the slides and the jQuery documentation to remember how to use the $.ajax function.</li>
-        <li>Bonus: Create another JSON file with another set of videos, and bring that into the page as well. Try to generalize your code so that you could bring any number of JSON files in.</li>
+        <li>The webpage currently has an in-page JSON describing the videos - delete the variable from the page and all the json.</li>
+        <li>Use the jQuery $.ajax function to bring in the data from the url <a href='https://api.myjson.com/bins/k4o2v'>https://api.myjson.com/bins/k4o2v</a>. If you click on the link, you will be able to see the JSON itself! Notice that the four videos are nested inside a 'videos' key, which you will have to account for. You will need to access the array of videos so that you can iterate through the videos and render each one into the page, using the addVideoToList function that we already have. Look at the slides and the jQuery documentation to remember how to use the $.ajax function.</li>
+        <li>Bonus: Create another JSON file with another set of videos, and bring that into the page as well.
+Try to generalize your code so that you could bring any number of JSON files in.</li>
       </ul>
-      <p>Make sure that you use your browser developer tools to make debugging easier while working on this. Check for errors, and use console.log() to figure out how far your code makes it, and what the values of your variables are along the way.</p>
+
+      <p>Make sure that you use your browser developer tools to make debugging easier
+while working on this. Check for errors, and use console.log() to figure out
+how far your code makes it, and what the values of your variables are along the way.</p>
+  
+
       <button class="btn" onclick="showSolution(1)">See Solution</button>
-      <br>
-      <br>
-      <a id="solution1" style="display:none;" href="ajax_solution.html" target="_blank">View Solution</a>
-    </diiv>
-    <script>
-      function showSolution(num) {
-        if (confirm('You surrrrre? You can ask for help first, if you want!')) {
-          document.getElementById('solution' + num).style.display = 'block';
+      <br><br>
+      <div id="solution1" style="display:none;">
+        <a href="ajax_solution.html">View live solution</a>
+        <pre>
+&lt!doctype html&gt
+&lthtml&gt
+ &lthead&gt
+  &ltmeta charset="utf-8"&gt
+  &lttitle&gtVideo Watcher&lt/title&gt
+  &ltlink rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"&gt
+  &ltstyle type="text/css"&gt
+  /* This puts titles always on a separate line from thumbnails */
+  #videos-list img {
+    display: block;
+  }
+  &lt/style&gt
+ &lt/head&gt
+ &ltbody&gt
+
+&ltdiv class="container"&gt
+
+ &ltdiv class="row"&gt
+   &ltdiv class="col-md-12"&gt
+    &lth2 class="page-header"&gtBest Videos Ever ❤&lt/h2&gt
+   &lt/div&gt
+ &lt/div&gt
+
+ &ltdiv class="row"&gt
+   &ltdiv class="col-md-3"&gt
+     &ltul id="videos-list"&gt
+    &lt/ul&gt
+   &lt/div&gt
+   &ltdiv class="col-md-9" id="video-watcher"&gt
+   &lt/div&gt
+ &lt/div&gt
+&lt/div&gt
+
+&ltscript type="text/javascript" src="https://jtcoders.github.io/ajax/lib/youtube.js"&gt&lt/script&gt
+&ltscript type="text/javascript" src="https://jtcoders.github.io/ajax/lib/jquery.min.js"&gt&lt/script&gt
+
+ &ltscript&gt
+ function addVideoToList(video) {
+
+    var videoLink = $('&lta&gt');
+    videoLink.append(video.title);
+    var linkUrl = videoLink.attr('href');
+    var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
+    var thumbnailImg = $('&ltimg&gt');
+    thumbnailImg.attr('src', thumbnailUrl);
+    videoLink.append(thumbnailImg);
+
+    videoLink.on('click', function(e) {
+        e.preventDefault();
+        var videoTitle = $('&lth2&gt');
+        videoTitle.html(video.title + ' &ltsmall&gt' + video.author + '&lt/small&gt');
+        var videoEmbed = $('&ltiframe&gt&lt/iframe&gt');
+        videoEmbed.attr('src', youtube.generateEmbedUrl(video.youtubeId));
+        videoEmbed.attr('width', 560);
+        videoEmbed.attr('height', 315);
+
+        var videoWatcher = $('#video-watcher');
+        videoWatcher.hide();
+        videoWatcher.empty();
+        videoWatcher.append(videoTitle);
+        videoWatcher.append(videoEmbed);
+        videoWatcher.fadeIn();
+    });
+
+    var videoItem = $('&ltli&gt');
+    videoItem.append(videoLink);
+    $('#videos-list').append(videoItem);
+ }
+
+$.ajax({type: "GET",
+  url: "https://api.myjson.com/bins/k4o2v",
+  dataType: "json",
+  success: function(response) {
+    var videos = response.videos
+    for (var i = 0; i < videos.length; i++) {
+      addVideoToList(videos[i]);
+    }
+ }
+});
+
+
+ &lt/script&gt
+ &lt/body&gt
+&lt/html&gt
+      </pre>
+    </div>
+
+  <script>
+        function showSolution(num) {
+          if (confirm('You surrrrre? You can ask for help first, if you want!')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
         }
-      }
-    </script>
+  </script>
   </body>
 </html>
-
