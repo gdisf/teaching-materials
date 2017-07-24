@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-	<head>
+  
+  <head>
 		<meta charset="utf-8">
 
 		<title>Intro to Git and Github ~ Girl Develop It</title>
 
-		<meta name="description" content="This is the official Girl Develop It Core Intro to Git and GitHub course. Material based on original material by Kim Moir, Daniel Fischer, Aurelia Moser, Carina C. Zona and Izzy Johnston.
+		<meta name="description" content="This is the official Girl Develop It San Francisco Intro to Git and GitHub course. Material based on original material by Pamela Fox, Kim Moir, Daniel Fischer, Aurelia Moser, Carina C. Zona, Izzy Johnston, and Amy Gori.
 
-    The course is meant to be taught in a two-hour workshop. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
-		<meta name="author" content="Girl Develop It">
+    The course is meant to be taught in a two- to three-hour workshop. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+		<meta name="author" content="Girl Develop It San Francisco">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -18,17 +18,16 @@
 		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<!-- light editor--><link rel="stylesheet" href="../common/css/editor/dark.css">
-		<!-- dark editor<link rel="stylesheet" href="reveal/lib/css/dark.css">-->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
 
 		<!-- If use the PDF print sheet so students can print slides-->
 
 		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
-
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
-
 	</head>
 
 	<body>
@@ -756,11 +755,10 @@ $ git push origin master
         </section>
 			</div>
 
-
   		<footer>
         <div class="copyright">
-          Intro to Git and Github ~ Girl Develop It ~
-          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+          Intro to Git and Github &middot; <a href="http://www.meetup.com/Girl-Develop-It-San-Francisco/">GDI SF</a> &middot; teaching-materials.org/git
+          <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
         </div>
       </footer>
 		</div>
@@ -783,12 +781,12 @@ $ git push origin master
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
 
