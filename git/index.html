@@ -55,6 +55,13 @@
             <li class ="fragment">GitHub (or, a little Git between friends)</li>
           </ul>
         </section>
+        <section>
+          <h3>If it seems hard, it's because it is</h3>
+          <a href="https://xkcd.com/1597/" class="image"><img src = "https://imgs.xkcd.com/comics/git.png" alt = "Git comic on XKCD"/></a>
+          <blockquote>"The version control system that was ... designed to make you feel less intelligent" 
+            (<a href="https://youtu.be/4XpnKHJAok8">source</a>)
+          </blockquote>
+        </section>
          <!-- Installation and Setup-->
         <section>
           <h3>Installation and Setup</h3>
@@ -123,31 +130,13 @@ $ git config --list
         <div class="fragment">You invented your own version control!</div>
         </section>
         <section>
-          <h3>Brief history of Version Control</h3>
-          <p><span class ="green">1990s</span> &mdash; CVS (Concurrent Version Systems)</p>
-          <p><span class ="green">2000s</span> &mdash; SVN (Apache Subversion)</p>
-          <p><span class ="green">2005</span> &mdash; Git </p>
-        </section>
-        <section>
-          <h3>Chapter 1: Git is Born</h3>
-            <p>The first commit, April 2005</p>
-              <pre>
-                <code>
-commit e83c5163316f89bfbde7d9ab23ca2e25604af29
-Author: Linus Torvalds &lt;torvalds@ppc970.osdl.org&gt;
-Date: Thu Apr 7 15:13:13 2005 -0700
-Initial revision of "git", the information manager from hell
-              </code>
-            </pre>
-        </section>
-        <section>
           <h2>Types of Version Control Systems</h3>
         </section>
         <section>
             <h3>Centralized Version Control</h3>
             <img src="images/centralized-vc.png" alt = "one central server with each person pushing changes to the main server"/>
             <p>One central server, each client (person) checks out and merges changes to main server</p>
-            <p class="pink">Examples: CVS, Subversion (SVN)</p>
+            <p class="pink">Examples: CVS, Subversion (SVN), Perforce</p>
         </section>
         <section>
             <h3>Distributed Version Control</h3>
@@ -167,20 +156,6 @@ Initial revision of "git", the information manager from hell
             <li><span class="green">Branches!</span> Keep your coding experiments separate from code that is already working.</li>
             <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history.</span></li>
           </ul>
-        </section>
-        <section>
-          <h3>What should I use version control for?</h3>
-          <h4>Anything. But not everything.</h4>
-          <img src="images/allthethings.jpg"/ alt="version control ALL THE THINGS!" style="margin-top: 50px;">
-
-        </section>
-        <section>
-          <h3>Gitignore</h3>
-          <p>You decide what goes into version control.You can, and should, leave some things out.</p>
-          <p class="green">libraries, .dotfiles, api keys...</p>
-          <img src="images/ronignore.gif"/>
-          <p>The<a href="https://help.github.com/articles/ignoring-files/">.gitignore</a> file at the root of your project directory</p>
-          <p>Check out <a href="https://www.gitignore.io/">gitignore.io</a> for some suggestions.</p>
         </section>
         <!-- Git terms and commands-->
         <section>
@@ -272,7 +247,7 @@ $ git commit -m "First commit. Added kitten.txt to repository."
           <ul>
             <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked. </li>
             <li class="fragment">This is also called  <span class ="green">staging</span> a file. A snapshot of our changes is now in the <span class ="green">staging area</span> (aka the <span class ="green">index</span>, aka the <span class ="green">cache</span>), ready to be saved.</li>
-            <li class="fragment">A <span class ="green">commit</span> saves the <span class="blue">changes</span> made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom.</li>
+            <li class="fragment">A <span class ="green">commit</span> saves the <span class="blue">changes</span> made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom. (<a href="https://alistapart.com/article/the-art-of-the-commit">Good commit messages</a> help, too.)</li>
           </ul>
         </section>
         <section>
@@ -337,6 +312,20 @@ Date:   Tues May 23 16:01:22 2017 -0700
         <section>
           <h3>It's all about the history</h3>
           <img src="images/history.png" style="height: 550px; border: none;"  />
+        </section>
+        <section>
+          <h3>What should I use version control for?</h3>
+          <h4>Anything. But not everything.</h4>
+          <img src="images/allthethings.jpg"/ alt="version control ALL THE THINGS!" style="margin-top: 50px;">
+
+        </section>
+        <section>
+          <h3>Gitignore</h3>
+          <p>You decide what goes into version control.You can, and should, leave some things out.</p>
+          <p class="green">libraries, .dotfiles, api keys...</p>
+          <img src="images/ronignore.gif"/>
+          <p>The<a href="https://help.github.com/articles/ignoring-files/">.gitignore</a> file at the root of your project directory</p>
+          <p>Check out <a href="https://www.gitignore.io/">gitignore.io</a> for some suggestions.</p>
         </section>
         <!-- Undoing changes -->
         <section>
