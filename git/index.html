@@ -51,18 +51,17 @@
           <h3>What we will cover in this workshop</h3>
           <ul>
             <li class ="fragment">What is version control and why should we care?</li>
-            <li class ="fragment">Basics of git: the essential commands</li>
-            <li class ="fragment">GitHub (or, a little git between friends)</li>
+            <li class ="fragment">Basics of Git: the essential commands</li>
+            <li class ="fragment">GitHub (or, a little Git between friends)</li>
           </ul>
         </section>
          <!-- Installation and Setup-->
         <section>
           <h3>Installation and Setup</h3>
-          <a href = "http://git-scm.com/downloads" alt ="Download latest version of Git" target ="_blank">
-            <p>Install git</p>
+          
+            <p><a href = "http://git-scm.com/downloads" alt ="Download latest version of Git" target ="_blank">Install Git</a></p>
             <img src = "images/install-git.png" alt = "Download latest version of Git"/>
-          </a>
-          <a href="https://help.github.com/articles/set-up-git/" style="display: block;">Setup steps on GitHub</a>
+          <p><a href="https://help.github.com/articles/set-up-git/">Setup steps on GitHub</a></p>
         </section>
 
         <section>
@@ -70,11 +69,11 @@
           <p>Setup name and email in gitconfig</p>
           <pre><code class ="command-line">
 $ git config --global user.name "Your Name Here"
-# Sets the default name for git to use when you commit
+# Sets the default name for Git to use when you commit
           </code></pre>
           <pre><code class ="command-line">
 $ git config --global user.email "your_email@example.com"
-# Sets the default email for git to use when you commit
+# Sets the default email for Git to use when you commit
           </code></pre>
           <pre><code class ="command-line">
 $ git config --list
@@ -82,7 +81,7 @@ $ git config --list
         </section>
         <section>
           <h3>Setup: Setting the default text editor</h3>
-          <p> By default git is set up to use Vim as the text editor.</p>
+          <p> By default Git is set up to use Vim as the text editor.</p>
           (<span class="green">esc</span> + <span class="green">:q</span> or <span class="green">:q!</span> to get out of Vim)
           <p>Follow <a href="https://help.github.com/articles/associating-text-editors-with-git/">these instructions</a> to change your default text editor to whatever you prefer. </p>
 
@@ -325,7 +324,7 @@ Date:   Tues May 23 16:01:22 2017 -0700
         <section>
           <h3>Your Local Repo</h3>
           <img src="images/git_index_structure.png" style="height:400px;"/>
-          <p>Your copy of a project, initialized as a git repository</p>
+          <p>Your copy of a project, initialized as a Git repository</p>
           <p>(i.e., it has a <span class="green">.git</span> directory)</p>
         </section>
         <section>
@@ -626,7 +625,7 @@ $ git remote -v
 $ git remote add upstream https://github.com/amygori/tiny-repo.git
 $ git fetch upstream
         </code></pre>
-Downloads git references not present in your local repository, but does not modify your files (think of it like getting a table of contents rather than the contents themselves)
+Downloads Git references not present in your local repository, but does not modify your files (think of it like getting a table of contents rather than the contents themselves)
 
         </section>
         <section>
@@ -686,11 +685,11 @@ $ git push origin master
           <ul>
               <li><a href="https://try.github.io">Try Git</a> from CodeSchool.com</li>
               <li><a href="http://git-scm.com/doc">The Official Docs</a></li>
-              <li><a href="http://ndpsoftware.com/git-cheatsheet.html">Git Cheatsheet</a>: There are lots of cheatsheets out there, but this one is a visual illustration of git structure and commands.</li>
+              <li><a href="http://ndpsoftware.com/git-cheatsheet.html">Git Cheatsheet</a>: There are lots of cheatsheets out there, but this one is a visual illustration of Git structure and commands.</li>
               <li><a href="http://gitimmersion.com/">Git Immersion</a>: a great in-depth tutorial with hands-on exercises.</li>
               <li><a href="http://git-scm.com/book/en/v2">Pro Git</a>: a very thorough reference. If Git can do it, you'll find it here.</li>
-              <li><a href="https://www.atlassian.com/git/tutorials">Atlassian's Git Tutorials</a>: from the creator of (among other things) <a href="https://www.atlassian.com/software/sourcetree/overview">SourceTree</a>, a free visual git tool for Mac &amp; Windows.</li>
-              <li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/#!workflow-gitflow">Git Workflows</a>: an overview of different ways that teams can use git.</li>
+              <li><a href="https://www.atlassian.com/git/tutorials">Atlassian's Git Tutorials</a>: from the creator of (among other things) <a href="https://www.atlassian.com/software/sourcetree/overview">SourceTree</a>, a free visual Git tool for Mac &amp; Windows.</li>
+              <li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/#!workflow-gitflow">Git Workflows</a>: an overview of different ways that teams can use Git.</li>
           </ul>
         </section>
         <!-- -->
