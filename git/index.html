@@ -677,6 +677,26 @@ $ git push origin master
             <p>You can learn more from the <br><a href = "https://help.github.com/categories/collaborating/" target ="_blank" alt = "Links to information on GitHub about pull requests and collaboration">Github Collaborating Tutorials.</a> </p>
         </section>
         <section>
+          <h3>Editing pull requests</h3>
+            <p>To make changes to an existing pull request, commit changes to the same branch, and push them to GitHub. They'll be added to the PR automatically.</p>
+            <pre><code class ="command-line">
+$ git pull origin my-pr-branch
+$ git commit -m "Fix typos"
+$ git push origin my-pr-branch
+            </code></pre>
+        </section>
+        <section>
+          <h3>Making multiple pull requests</h3>
+            <p>Because any new commits to a branch will be added to that branch's pull request, you need to make any new, unrelated changes to a <span class="green">new branch</span>.</p>
+            <pre><code class ="command-line">
+$ git checkout master
+$ git checkout -b new-feature-branch
+$ git commit -m "Add a fancy new feature"
+$ git push origin new-feature-branch
+            </code></pre>
+            <p>Be sure the new branch is based off of the master branch, and not your other working branch.</p>
+        </section>
+        <section>
           <h3>Git Learning Resources</h3>
           <ul>
               <li><a href="https://try.github.io">Try Git</a> from CodeSchool.com</li>
