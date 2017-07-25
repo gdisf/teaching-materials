@@ -17,3 +17,4 @@ Ever wondered how websites update and animate without refreshing? Have you heard
 - We are making web pages interactive with vanilla JavaScript on [date]! Join us! 🙌🏽 [link to meetup]
 - Make websites interactive with JavaScript! There's still room in our low-cost class for women this [date] with @gdisf!
 - Happy Monday! Take your #Javascript to the next level this [date]. Sign up now!
+- Let's get interactive with our websites! Sign up for Pt. 2 of Intro to #Javascript this [date]
