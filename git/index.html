@@ -389,15 +389,22 @@ $ git log --oneline
           </div>
         </section>
         <section>
-        <h3> Git Revert </h3>
-          <h4>Undoing committed changes</h4>
+          <h3> Soft reset </h3>
+          <h4>Undoing just the commit</h4>
           <pre><code class ="command-line">
-$ git revert 53d23c4
-# Your default editor will open here
-# you can just save it and close it as is.
+$ git reset --soft 53d23c4
 $ git log --oneline
           </code></pre>
-          <p >Notice that the original, regrettable commit is still there, but now you also have <span class="green">another commit that undoes the changes</span> introduced by the original one.</p>
+          <p >Notice that the commit is gone from your log, but your changes are still in your editor.</p>
+        </section>
+        <section>
+          <h3> Hard reset </h3>
+          <h4>Undoing the commit AND the changes</h4>
+          <pre><code class ="command-line">
+$ git reset --hard 53d23c4
+$ git log --oneline
+          </code></pre>
+          <p >Notice that the commit is gone from your log, AND your changes are removed in your editor.</p>
         </section>
         <!-- Branches-->
         <section>
