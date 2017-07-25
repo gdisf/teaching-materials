@@ -411,7 +411,11 @@ $ git log --oneline
           <h3>Branching</h3>
             <img src="images/branches.jpg" alt="blue birds on branhces" />
           <p >A branch is essentially another copy of your repo that will allow you to isolate changes and leave the original copy untouched. You can later choose to combine these changes in whole or part with the "master" copy, or not. </p>
-
+          <p class= "fragment green"> Branches are good for features!</p>
+        </section>
+        <section>
+          <h3>Branching</h3>
+          <img src="images/branching-octocats.png" />
         </section>
         <section>
         <h3>Branching</h3>
@@ -434,6 +438,11 @@ $ git add kitten.txt
 $ git commit -m "Adding changes to feature"
 $ git log --oneline
           </code></pre>
+        </section>
+        <section>
+          <h3>Branching</h3>
+          What we just did, in picture form:
+          <img src="images/branching.png" />
         </section>
         <section>
           <h3>Branching</h3>
@@ -463,6 +472,11 @@ $ git checkout master
 $ git merge feature
 $ git log --oneline
           </code></pre>
+        </section>
+        <section>
+          <h3>Merging Branches</h3>
+          <p>When you merge, you create a new commit on the branch you just merged into</p>
+          <img src="images/merging.png" />
         </section>
         <section>
           <h3>What could possibly go wrong?</h3>
@@ -511,6 +525,11 @@ $ git merge master #remember, you are on the feature branch here
           </code></pre>
           <p class ="fragment">You will be notified of a conflict. Go to the file in your editor and fix the problem. Then add and commit your edits.</p>
 
+        </section>
+        <section>
+         <h3>Merging</h3>
+         <img src="images/merge-conflict-branches.png" />
+         <p>The merge conflict occurred because the feature branch (which is based off of master) both had divergent histories for the same file.</p>
         </section>
         <section>
           <h3>The big picture</h3>
@@ -695,6 +714,28 @@ $ git commit -m "Add a fancy new feature"
 $ git push origin new-feature-branch
             </code></pre>
             <p>Be sure the new branch is based off of the master branch, and not your other working branch.</p>
+        </section>
+        <section>
+          <h3>Vocabulary Recap</h3>
+            <ul>
+              <li><span class="green">Git</span> is version control software.</li>
+              <li><span class="green">Github</span> is an online community where you can collaborate with others on projects using Git.</li>
+              <li> A <span class="green">repository</span> is a folder where you keep all the files you want to track (normally a fully encapsulated project).</li>
+              <li><span class="green">local</span> refers to the version of the repository on your computer/local development environment</li>
+              <li><span class="green">fork</span> is a copy of someone else's repository that you have</li>
+              <li><span class="green">cloning</span> a repo means taking it from github and putting it onto your local</li>
+              <li><span class="green">origin</span> refers to the version of the repository that it was cloned from (normally on github)</li>
+              <li><span class="green">upstream</span>: if you have forked a repo, this refers to the original parent repository</li>
+            </ul>
+        </section>
+        <section>
+          <h3>Vocabulary Recap, cont</h3>
+          <ul>
+            <li> A <span class="green">branch</span> is the name for a separate line of  development within a repo, with its own history.</li>
+            <li> A <span class="green">commit</span> is an object that holds information about a particular change. You make commits on branches</li>
+            <li> <span class="green">HEAD</span> refers to the most recent commit on the current branch.</li>
+            <li> A <span class="green">pull request</span> is a means to create an approval process for merging one branch into another on Github</li>
+          </ul>
         </section>
         <section>
           <h3>Git Learning Resources</h3>
