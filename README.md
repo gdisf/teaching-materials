@@ -8,7 +8,7 @@ Teaching materials for HTML, CSS, JS, and HTML5. We maintain our Open Source mat
 
 ## Curriculum Creation
 * Read [So You Want To Teach A Workshop](../../wiki/Teaching-a-Workshop)
-* Read our curriculum creation guide in the [GDISF Teacher Handbook](../../wiki/Curriculum-Creation)
+* Read our [Curriculum Creation](../../wiki/Curriculum-Creation) Guide in the wiki
 * Make sure that all curricula are in line with the GDI mission and an appropriate topic/level for our members. This may include:
 	* Topics that complement and expand our Front End Web Development curriculum
 	* Industry-relevant topics for advanced students (these students already work in the industry and range from Associate/Junior to Senior and above)
