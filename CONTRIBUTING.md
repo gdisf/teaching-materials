@@ -9,7 +9,7 @@ We're so glad you want to contribute! Here are a couple of tips for contributing
 
 ## Repository Structure
 
-Our materials are deployed as static pages using Github Pages. Links will be directly correlated with file paths. Github Pages will also automatically resolve `index.html` pages. 
+Our materials are deployed as static pages using Netlify. Links will be directly correlated with file paths, and will also automatically resolve `index.html` pages. 
 
 All of our core curricula are linked from the root [http://wwww.teaching-materials.org](www.teaching-materials.org) page.
 
