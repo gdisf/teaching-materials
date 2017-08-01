@@ -1,31 +1,29 @@
-# Intro to Bootstrap and Web Hosting 
+# Class: Learn Bootstrap: Make Your Website Responsive and Modern
+Directory: /bootstrap-hosting-github/
 
-Slides and materials are hosted:
-* [Bootstrap, Part 1 + 2 + exercises] (http://www.teaching-materials.org/bootstrap-hosting-github/#/1)
-* [Bootstrap Part 1] (http://teaching-materials.org/bootstrap-hosting-github/bootstrap_1.html#/)
-* [Bootstrap Part 2] (http://teaching-materials.org/bootstrap-hosting-github/bootstrap_2.html#/)
-* [Web Hosting] (http://teaching-materials.org/bootstrap-hosting-github/hosting.html)
-* [Github] (http://teaching-materials.org/bootstrap-hosting-github/github.html)
+In this project-based workshop, you'll learn how to go beyond with HTML and CSS: using the popular CSS Framework Bootstrap for responsive design and pre-built components.
 
+The comprehensive workshop will be a mix of lectures, pair programming, and hands-on exercises building your webpage. It will be taught by **{{ teacher_name }}**, {{ teacher_description }}.
 
-## Course description
-In this two-day project-based workshop, you'll learn how to go beyond with HTML and CSS: using the popular CSS Framework Bootstrap for responsive design and pre-built components, and getting your website to go live.
+By the end of this workshop, you will know how to make a responsive web page using a framework like Bootstrap (e.g making your web page look great on phones, tablets, and desktop computers).
 
-The comprehensive workshop will be a mix of lectures, pair programming, and hands-on exercises building your webpage, and will be taught by Mary Ann Jawili, Software Engineer at Salesforce, and Truc Nguyen, UX Designer at AdRoll.
+This is a great follow-up workshop for those who attended our Intro to HTML & CSS workshop. 
 
-By the end of this two-day workshop, you will know the following:
-* How to make a responsive web page using a framework like Bootstrap (e.g making your web page look great on phones, tablets, and desktop computers)
-* How to host it on Github Pages so everyone can check out your new website!
+*There will be an hour break for lunch.*
 
-### Prerequisites:
+Agenda
 
-Attendees should be comfortable with HTML/CSS fundamentals (HTML tags and attributes, CSS selectors)
-You can review them online at a few places:
-* [Girl Develop It SF HTML/CSS Part 1 +2 ] (http://tiny.cc/gdisf-html-css)
-* Other HTML & CSS Requirements: [Khan Academy's HTML/CSS course](https://khanacademy.org/html-css), [Codecademy's HTML/CSS course](https://www.codecademy.com/tracks/web), [GDI SF HTML/CSS slides](http://teaching-materials.org/htmlcss-1day)
+HTML & CSS review
+Tools and pro-tips for front-end development and debugging
+Good defaults and comparison of front-end frameworks
+Bootstrap grid system
+Exercise - Fluid layout with bootstrap system
+Bootstrap CSS, component classes, atomic design
+Building a website with UI components
+Exercise - Splash page for your portfolio
+Exercise - Contact me form
+Exercise - Personal website gallery
 
-### Tech requirements:
+Slides
 
-* Your laptop (Mac, PC, or Linux are all okay) and charger.
-* A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for Mac or PC) or Notepad++ (PC).
+https://www.teaching-materials.org/bootstrap-hosting-github/
