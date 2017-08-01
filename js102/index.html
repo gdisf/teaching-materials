@@ -6,7 +6,7 @@
 
 		<title>JS102: Objects, Arrays and Functions ~ Girl Develop It</title>
 
-		<meta name="description" content="Solidify your understanding of Objects, Arrays and Functions in JavaScript and learn the common mistakes made by beginners. This is a highly interactive course that uses exercises and projects to drive home these JS Fundamentals. You will finish with a strong foundation on one of the most important aspects of the language: objects, arrays and functions. 
+		<meta name="description" content="Solidify your understanding of Objects, Arrays and Functions in JavaScript and learn the common mistakes made by beginners. This is a highly interactive course that uses exercises and projects to drive home these JS Fundamentals. You will finish with a strong foundation on one of the most important aspects of the language: objects, arrays and functions.
 This workshop will be a traditional format, a combination of live lectures and exercise time, with TAs to help you through the exercises.">
 		<meta name="author" content="Aysegul Yonet, Bianca Gandolfo, Pamela Fox">
 
@@ -75,17 +75,6 @@ This workshop will be a traditional format, a combination of live lectures and e
 				</section>
 				<!-- Tone Setting -->
 
-				<!-- Introductions -->
-				<section>
-					<h3>Let's Get to Know Each Other</h3>
-					<ul>
-						<li>What's your name?</li>
-						<li>What do you want to get out today's workshop?</li>
-						<li>What's your spirit animal?</li>
-					</ul>
-				</section>
-				<!-- Introductions -->
-
 				<!-- Overview of learning objectives -->
 				<section>
 					<h2>What You'll Be Learning About</h2>
@@ -113,7 +102,7 @@ This workshop will be a traditional format, a combination of live lectures and e
 					</ul>
 				</section>
 				<!-- JS Fundamentals -->
-				
+
 				<!-- Arrays -->
 				<section>
 					<h3>Arrays</h3>
@@ -129,20 +118,20 @@ This workshop will be a traditional format, a combination of live lectures and e
 
 					</code></pre>
 					<aside class="notes">
-						What is at the 0th index? 
-						What is the index of "Brenda"? 
+						What is at the 0th index?
+						What is the index of "Brenda"?
 						How do we find out the length?
-						When would you use an array? 
+						When would you use an array?
 					</aside>
 				</section>
 				<section>
 					<h3>Access and Assignment</h3>
-					
+
 					<pre><code data-trim>
 
 		var classes = [];
 
-	classes[0] = 'HTML 101';						
+	classes[0] = 'HTML 101';
 	classes[1] = 'JS 101';
 
 	classes.push('JS 102');
@@ -178,9 +167,9 @@ classes.length;
 var classes = ['HTML 101', 'JS 101', 'JS 102'];
 //I took HTML 101...
 for(initial counter; condition to stop; counter++){
-						
+
 	console.log(counter); //??
-						
+
 }
 					</code></pre>
 
@@ -193,8 +182,8 @@ var classes = ['HTML 101', 'JS 101', 'JS 102'];
 <!-- initial counter; condition to stop; counter++ -->
 for(var i = 0; i &lt; classes.length; i++){
 
-	console.log('I took ' + classes[i]); 
-						
+	console.log('I took ' + classes[i]);
+
 }
 					</code></pre>
 
@@ -230,9 +219,9 @@ var angelTheCat = {"furColor" : "orange"};
 					</code></pre>
 					<aside class="notes">
 						What is angelTheCat?
-						What is the key name? 
+						What is the key name?
 						What is the value?
-						What data types are the values in this object? 
+						What data types are the values in this object?
 					</aside>
 
 				</section>
@@ -241,9 +230,9 @@ var angelTheCat = {"furColor" : "orange"};
 					<pre><code data-trim>
 
 var angelTheCat = {};
-						
+
 angelTheCat.furColor = "orange";
-						
+
 var furColorOfAngel = angelTheCat.furColor;
 
 furColorOfAngel; //what does this return?
@@ -252,7 +241,7 @@ angelTheCat.furColor = "grey";
 
 furColorOfAngel; //??
 					</code></pre>
-										
+
 					<aside class="notes">
 						q: What is stored in furColorOfAngel?
 					</aside>
@@ -273,12 +262,12 @@ facebookFriends[12323] = angelTheCat;
 					<h3>Variables</h3>
 					<pre><code data-trim>
 var angelTheCat = {};
-						
+
 angelTheCat["furColor"] = "orange";
-						
-						
+
+
 var keyVariable = "furColor";
-						
+
 angelTheCat[keyVariable]; //??
 
 					</code></pre>
@@ -287,10 +276,10 @@ angelTheCat[keyVariable]; //??
 					<h3>Object Literals</h3>
 					<pre><code data-trim>
 
-var angelTheCat = { 
-	age: 5, 
+var angelTheCat = {
+	age: 5,
 	furColor: "orange"
-}; 
+};
 
 					</code></pre>
 				</section>
@@ -298,13 +287,13 @@ var angelTheCat = {
 					<h3>Values</h3>
 					<pre><code data-trim>
 
-var angelTheCat = { 
-	age: 5, 
-	furColor: "orange", 
-	isAngelic: true, 
-	likes: ["catnip", "milk"], 
-	birthday: {"month": 7, "day": 17, "year": 2009} 
-}; 
+var angelTheCat = {
+	age: 5,
+	furColor: "orange",
+	isAngelic: true,
+	likes: ["catnip", "milk"],
+	birthday: {"month": 7, "day": 17, "year": 2009}
+};
 
 					</code></pre>
 				</section>
@@ -390,7 +379,7 @@ console.log(doll);
 					</code></pre>
 				</section>
 
-				
+
 				<section>
 					<h3><a href="http://repl.it/enn" target="_blank">Exercise Time</a></h3>
 				</section>
@@ -454,7 +443,7 @@ var makeMeADJ = function (name, adj) {
 
 	return 'DJ ' + adj + name + 'is spinning tonight!';
 
-};	
+};
 
 					</pre></code>
 				</section>
@@ -464,7 +453,7 @@ var makeMeADJ = function (name, adj) {
 
 var makeMeADJ = function (name, adj) {
 	return 'DJ ' + adj + name + 'will keep you on the dance floor';
-};	
+};
 
 makeMeADJ("Jaclyn", "zesty and zany");
 
@@ -476,7 +465,7 @@ makeMeADJ("Jaclyn", "zesty and zany");
 
 var makeMeADJ = function (name, adj) {
 	return 'DJ ' + name + 'says HANDS IN THE AIR!';
-};	
+};
 
 makeMeADJ("Steph Curry", "snazzy");
 makeMeADJ("Jaclyn", "zany");
@@ -489,12 +478,12 @@ makeMeADJ("Jaclyn", "zany");
 
 var makeMeADJ = function (name, adj) {
 	return 'DJ ' + adj + name + 'will keep you on the dance floor';
-};	
+};
 
 var sayMyName = function (name, adj) {
 	var convertMyName = 'What's my name?' + adj + " " + name;
 	console.log(newName);
-};	
+};
 
 					</pre></code>
 
@@ -505,10 +494,10 @@ var sayMyName = function (name, adj) {
 
 var addTwo = function(a, b) {
 	console.log(arguments); // logs [3,10]
-	return a + b; 
+	return a + b;
 };
 
-addTwo(3, 10); // 13	
+addTwo(3, 10); // 13
 addTwo(4,5,6); //WHOA - what's happening here?
 
 					</pre></code>
@@ -520,13 +509,13 @@ addTwo(4,5,6); //WHOA - what's happening here?
 
 var addMany = function() {
 	console.log(arguments);
-	
+
 	var sum = 0;
 
 	for (var i = 0; i &lt; arguments.length; i++) {
 		sum += arguments[i];
 	}
-	
+
 	return sum;
 };
 
@@ -542,7 +531,7 @@ addMany(3, 10, 57, 101, 9);
 var nameLogger = function(name, adj) {
 	if(adj === undefined) adj = "Fancy";
 	var newName = 'Col ' + name + ' Mc' + adj + ' pants';
-	console.log(newName); 
+	console.log(newName);
 };
 
 					</pre></code>
@@ -597,16 +586,16 @@ var shareMyCandies = function() {
 console.log(myCandies);
 
 					</code></pre>
-					
+
 				</section>
-				
+
 				<section>
 					<h3>Precedence</h3>
 					<pre><code data-trim>
 
 var g = "global";
 
-function go() { 
+function go() {
   var l = "local";
   var g = "in here!";
   alert(g + " inside go");
