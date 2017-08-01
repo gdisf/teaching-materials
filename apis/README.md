@@ -1,4 +1,4 @@
-Class: JS303: Intro to Client-side APIs with JavaScript
+# Class: JS303: Intro to Client-side APIs with JavaScript
 
 Directory: /apis/
 
@@ -8,18 +8,18 @@ The workshop will be a mix of lectures and hands-on exercises in pairs. It will 
 
 This workshop is highly recommended for anyone attending our frontend workshop series.
 
-Topics covered
+**Topics covered**
 
-Image/iframe APIs
-JS widget APIs
-JSONP APIs
-JS API libraries
+* Image/iframe APIs
+* JS widget APIs
+* JSONP APIs
+* JS API libraries
 
-Slides
+**Slides**
 
 http://teaching-materials.org/apis/ 
 
-Prerequisites
+**Prerequisites**
 
 Attendees should be comfortable with HTML and CSS fundamentals (HTML tags and attributes, CSS selectors) and JavaScript fundamentals (arrays, conditionals, loops, functions). Attendees should also be comfortable with jQuery. That means that you attended our Intro to HTML & CSS workshop, Intro to JavaScript workshop, and Intro to jQuery workshop, or you learned those concepts online.
 
@@ -28,14 +28,14 @@ HTML & CSS: Khan Academy's HTML & CSS course, Codecademy's HTML & CSS course, GD
 JS: Khan Academy's Intro to JS course, Codecademy's JS course, GDI SF's JS slides
 jQuery: Khan Academy's jQuery course, Codecademy's jQuery course, GDI SF's jQuery slides
 
-Tech requirements
+**Tech requirements**
 
-Your laptop (Mac, PC, Linux) and charger
-A modern web browser (Chrome, Firefox, Safari)
-A text editor - we recommend either Sublime Text 2 or Atom (both free)
+* Your laptop (Mac, PC, Linux) and charger
+* A modern web browser (Chrome, Firefox, Safari)
+* A text editor - we recommend either Sublime Text 2 or Atom (both free)
 
 If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.
 
-Payment
+**Payment**
 
 Payment is required to attend. If you'd like to attend but cannot afford the cost, click here to request a scholarship. Due to the number of applications, only the scholarship recipient will receive an email a few days before the workshop. Thank you for your understanding!
