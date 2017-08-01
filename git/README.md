@@ -1,39 +1,36 @@
-# Core Intro to Git and GitHub
-## for Girl Develop It Raleigh-Durham
-This is a fork of the official Girl Develop It Core Intro to Git and Github course. Material based on original material by Kim Moir, Daniel Fischer, Aurelia Moser, Carina C. Zona and Izzy Johnston.
+# Class: Intro to Git and Github
 
-The course is meant to be taught in a two-hour workshop.
+Git is a distributed version control system, it can be used as a server out of the box. Dedicated Git server software adds access control, display the contents of a Git repository via the web, and help to manage multiple repositories. 
 
-###Resources for Learning Git & GitHub
-* [Try Git](https://try.github.io) from CodeSchool.com
-* [The Official Docs](http://git-scm.com/doc) A bit intense, but the authoritative source
-* [Git Reference](http://gitref.org/) A basic reference, courtesy of your helpful friends at GitHub
-* [Git Cheatsheet](http://ndpsoftware.com/git-cheatsheet.html): There are lots of cheatsheets out there, but this one is a visual illustration of git structure and commands.
-* [Git Immersion](http://gitimmersion.com/): a great in-depth tutorial with hands-on exercises.
-* [Pro Git](http://git-scm.com/book/en/v2): a very thorough reference. If Git can do it, you'll find it here.
-* [Atlassian's Git Tutorials](https://www.atlassian.com/git/tutorials):from the creator of (among other things) [SourceTree](https://www.atlassian.com/software/sourcetree/overview), a free visual git tool for Mac & Windows.
-* [Git Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows/#!workflow-gitflow): an overview of different ways that teams can use git.
+GitHub is a Git repository hosting service, but it adds many of its own features. While Git is a command line tool, GitHub provides a Web-based graphical interface. It also provides access control and several collaboration features, such as wikis and basic task management tools for every project.
 
-### Slidedeck details
-[Reveal.js](https://github.com/hakimel/reveal.js) is a library that lets you create a slick slidedeck.
+The workshop will be a mix of lectures and hands-on exercises. It will be taught by **{{ teacher_name }}**, {{ teacher_description }}. 
 
-### Theme customization
+This workshop is highly recommended for anyone attending our frontend workshop series.
 
-You can change theme colors by changing the theme css to any of the following options:
-```html
-  <link rel="stylesheet" href="css/theme/gdidefault.css" id="theme">
-  <link rel="stylesheet" href="css/theme/gdilight.css" id="theme">
-  <link rel="stylesheet" href="css/theme/gdisunny.css" id="theme">
-  <link rel="stylesheet" href="css/theme/gdicool.css" id="theme">
-```
-You can change the text editor theme by changing the highlight.js css to the following options:
-```html
-  <link rel="stylesheet" href="lib/css/dark.css">
-  <link rel="stylesheet" href="lib/css/light.css">
-```
-You can change transitions by changing the reveal transition property in Reveal.initialize
-```javascript
-  Reveal.initialize({
-  				transition:  'default', // default/cube/page/concave/zoom/linear/none
-  			});
-```
+**Topics covered**
+
+* What are Version Control systems?
+* Git workflow
+* Setting up repos
+* Staging changes
+* Committing changes
+* Comparing versions
+* Using & merging branches
+* Using remote repos 
+
+**Slides**
+
+[https://www.teaching-materials.org/git/](https://www.teaching-materials.org/git/)
+
+**Tech requirements**
+
+* Your laptop (Mac, PC, Linux) and charger
+* A modern web browser (Chrome, Firefox, Safari)
+
+If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.
+
+**Payment**
+
+Payment is required to attend. If you'd like to attend but cannot afford the cost, [click here to request a scholarship](https://docs.google.com/forms/d/e/1FAIpQLSfiUBN4yve3L7iociXzcqNgEtrljsn_7mCgZ3eUtvAEr3bcQg/viewform). Due to the number of applications, only the scholarship recipient will receive an email a few days before the workshop. Thank you for your understanding!
+
