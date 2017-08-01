@@ -1,4 +1,5 @@
 Class: JS303: Intro to Client-side APIs with JavaScript
+
 Directory: /apis/
 
 An API is a service that lets one website use data or functionality from another website, and most modern webpages rely on at least one API - like the Facebook API for social interaction, the Google Analytics API for tracking, or the DoubleClick API for ads. In this workshop, you'll learn how JavaScript-based APIs actually work behind the scenes, plus be introduced to a wealth of APIs to enhance your websites.
