@@ -4,7 +4,7 @@ Directory: /apis/
 
 An API is a service that lets one website use data or functionality from another website, and most modern webpages rely on at least one API - like the Facebook API for social interaction, the Google Analytics API for tracking, or the DoubleClick API for ads. In this workshop, you'll learn how JavaScript-based APIs actually work behind the scenes, plus be introduced to a wealth of APIs to enhance your websites.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by {{ teacher_name }}, {{ teacher_description }}.
+The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by **{{ teacher_name }}**, {{ teacher_description }}.
 
 This workshop is highly recommended for anyone attending our frontend workshop series.
 
@@ -17,7 +17,7 @@ This workshop is highly recommended for anyone attending our frontend workshop s
 
 **Slides**
 
-http://teaching-materials.org/apis/ 
+[http://teaching-materials.org/apis/](http://teaching-materials.org/apis/)
 
 **Prerequisites**
 
