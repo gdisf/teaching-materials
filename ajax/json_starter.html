@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Video Watcher</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="http://www.teaching-materials.org/common/css/bootstrap.min.css">
+
     <style type="text/css">
       /* This puts titles always on a separate line from thumbnails */
       #videos-list img {
@@ -34,24 +36,32 @@
 
     </div>
 
-    <script type="text/javascript" src="https://jtcoders.github.io/ajax/lib/youtube.js"></script>
-    <script type="text/javascript" src="https://jtcoders.github.io/ajax/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"></script>
+    <script type="text/javascript" src="http://www.teaching-materials.org/common/js/jquery.min.js"></script>
 
     <script>
       var videos = [
         {
           "youtubeId": "TddFnTB_7IM",
-          "title": "Trip through the 80s"
+          "title": "Trip through the 80s",
+          "author": "meliberty"
         },
         {
           "youtubeId": "epUk3T2Kfno",
-          "title": "Otters Holding Hands"
+          "title": "Otters Holding Hands",
+          "author": "cynthiaholmes"
         },
         {
           "youtubeId": "il2IrgFHfsg",
-          "title": "The Ooooh Cat"
+          "title": "The Ooooh Cat",
+          "author": "RnBTree"
+        },
+        {
+          "youtubeId": "oOlDewpCfZQ",
+          "title": "Four Chords",
+          "author": "axisofawesome"
         }
-     ];
+      ];
 
      var addVideoToList = function(video) {
 
