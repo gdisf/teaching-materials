@@ -15,7 +15,7 @@ This is a great follow-up workshop for those who attended our Intro to HTML & CS
 
 **Slides**
 
-https://www.teaching-materials.org/css3-selectors/
+[https://www.teaching-materials.org/css3-selectors/](https://www.teaching-materials.org/css3-selectors/)
 
 **Prerequisites**
 
