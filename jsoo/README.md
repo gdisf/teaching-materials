@@ -1,31 +1,40 @@
 # Object-Oriented JavaScript
 
-Slides and materials are hosted [here](http://teaching-materials.org/jsoo).
+In this workshop, you'll learn the principles of Object-Oriented programming and how you can apply those principles in JavaScript to architect your code better. Understanding that will help your code as it gets larger, and is a crucial skill for using JS in a large codebase, like at a company.
 
-## Course description
+The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by {{ teacher_name }}, {{ teacher_description }}.
 
-In this workshop, you'll learn the principles of Object-Oriented programming
-and how you can apply those principles in JavaScript to architect your code better.
-Understanding that will help your code as it gets larger, and is a crucial skill
-for using JS in a large codebase, like at a company.
+This is a great follow-up workshop for those who attended our Intro to JavaScript workshop.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio]. This is a great follow-up workshop for those who have attended our JS intro workshop.
+## Topics covered
 
-### Prerequisites:
+Object instances, properties, methods
+Using .prototype for OO in JS
+Extending objects 
 
-Attendees should be comfortable with JavaScript fundamentals (arrays, conditionals, loops, functions). That means that you either attended our JS 101 workshop or you learned those concepts online.
+### Slides
+
+https://www.teaching-materials.org/jsoo/ 
+
+## Prerequisites
+
+Attendees should be comfortable with JavaScript fundamentals (syntax, data structures, conditionals, loops). That means that you attended our Intro to JavaScript workshop or you learned those concepts online.
 
 You can review them online at a few places:
-* [Codecademy's JS course](https://www.codecademy.com/tracks/javascript), [Khan Academy's Intro to JS course](https://khanacademy.org/programming),  [GDI SF JS slides](http://teaching-materials.org/javascript), [GDI JS Review slides](http://www.teaching-materials.org/jsreview/)
 
-### Tech requirements:
+* [Codecademy's JS course](https://www.codecademy.com/tracks/javascript), 
+* [Khan Academy's Intro to JS course](https://khanacademy.org/programming),  
+* [GDI SF JS slides](http://teaching-materials.org/javascript)
 
-* Your laptop (Mac, PC, or Linux are all okay) and charger.
-* A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC) or Notepad++ (PC).
 
-### Topics covered:
+## Tech requirements
 
-* Object instances, properties, methods
-* Using .prototype for OO in JS
-* Extending objects
+* Your laptop (Mac, PC, Linux) and charger.
+* A modern web browser (Chrome, Firefox, Safari)
+* A text editor - we recommend either Sublime Text 2 or Atom (both free)
+
+If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.
+
+### Payment
+
+Payment is required to attend. If you'd like to attend but cannot afford the cost, click here to request a scholarship. Due to the number of applications, only the scholarship recipient will receive an email a few days before the workshop. Thank you for your understanding!
