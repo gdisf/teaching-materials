@@ -1,29 +1,41 @@
-# CSS3
-
-Slides and materials are hosted [here](http://teaching-materials.org/css3).
-
-## Course description
+# Advanced CSS: CSS3 Selectors
 
 In this workshop, you will learn modern CSS3 selectors that will let you write more powerful, specific CSS rules. You'll strengthen your CSS rule writing muscles, helping you be more comfortable in the <style> tag.
 
-The workshop will be a mix of lectures and hands-on exercises, and will be taught by [teacher X, tiny bio]. This is a great follow-up workshop for those who have attended our HTML/CSS workshop.
+The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by {{ teacher_name }}, {{ teacher_description }}.
 
-### Prerequisites:
+This is a great follow-up workshop for those who attended our Intro to HTML & CSS workshop.
 
-Attendees should be comfortable with HTML/CSS fundamentals (HTML tags and attributes, CSS selectors). That means that you either attended our HTML 101 workshop or that you learned those concepts online. 
+**Topics covered**
+
+- CSS attribute selectors
+- CSS3 form pseudo-classes
+- CSS3 structural selectors
+- CSS3 pseudo-elements
+
+**Slides**
+
+https://www.teaching-materials.org/css3-selectors/
+
+**Prerequisites**
+
+Attendees should be comfortable with HTML and CSS fundamentals (HTML tags and attributes, CSS selectors). That means that you either attended our Intro to HTML & CSS workshop or you learned those concepts online.
 
 You can review them online at a few places:
-* HTML/CSS: [Khan Academy's HTML/CSS course](https://khanacademy.org/html-css), [Codecademy's HTML/CSS course](https://www.codecademy.com/tracks/web), [GDI SF HTML/CSS slides](http://teaching-materials.org/htmlcss-1day)
+- Khan Academy's HTML & CSS course
+- Codecademy's HTML & CSS course
+- GDI SF's HTML & CSS slides
 
-### Tech requirements:
+**Tech requirements**
 
-* Your laptop (Mac, PC, or Linux are all okay) and charger.
-* A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC) or Notepad++ (PC).
+- Your laptop (Mac, PC, Linux) and charger
+- A modern web browser (Chrome, Firefox, Safari)
+- A text editor - we recommend either Sublime Text 2 or Atom (both free)
 
-### Topics covered:
+*If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.*
 
-* CSS attribute selectors
-* CSS3 form pseudo-classes
-* CSS3 Structural selectors
-* CSS3 Pseudo-elements
+**Payment**
+
+Payment is required to attend. If you'd like to attend but cannot afford the cost, [click here to request a scholarship](https://docs.google.com/forms/d/e/1FAIpQLSfiUBN4yve3L7iociXzcqNgEtrljsn_7mCgZ3eUtvAEr3bcQg/viewform). Due to the number of applications, only the scholarship recipient will receive an email a few days before the workshop. Thank you for your understanding!
+
+
