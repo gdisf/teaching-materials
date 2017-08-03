@@ -13,7 +13,7 @@ The workshop will be a mix of lectures and hands-on exercises in pairs. It will 
 
 **Slides**
 
-https://www.teaching-materials.org/d3/ 
+[https://www.teaching-materials.org/d3/](https://www.teaching-materials.org/d3/)
 
 **Prerequisites**
 
