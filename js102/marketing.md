@@ -1,15 +1,14 @@
 ## One Paragraph Announcement
 
-:parrot_conga: *JS 201: JS and the DOM*
+:tada: *JS102: Objects, arrays, and functions* :tada:
 :calendar: Calendar Day, Month
 :clock6: XX AM - XX PM @ Venue
-How do you put HTML and JS together? In this workshop, you'll review how JavaScript interacts with the DOM (Document Object Model). We will talk about DOM traversal, as well as review events and callbacks.
 
-Prerequisites: HTML/CSS fundamentals and JavaScript fundamentals
+In this workshop, you will solidify your understanding of objects, arrays and functions in JS and learn the common mistakes made by beginners. You will finish with a strong foundation in the most important JS concepts. Come learn and practice how to work with objects, property access, arrays, looping, functions, arguments and more.
 
 *Sign up here:* [TODO: add link to meetup]
 
 ## Example Tweets
-Come learn how to put HTML and JS together? 🙌🏽  [LINK to meetup]
-Join @gdisf to learn more about DOM traversal, events and callbacks [LINK to meetup]
-JS and the DOM. Spots open! Sign up now! [LINK to meetup]
+- Not comfortable with objects, property access, arrays, looping? Join us for JS102 [LINK to meetup]
+- Time to master functions and arguments on JS! Join us for JS102 [LINK to meetup]
+- Open spots for our JS102. Time to master JavaScript! [LINK to meetup]
