@@ -1,6 +1,6 @@
 ## One Paragraph Announcement
 
-tada: *AJAX/JSON* :tada:
+:tada: *AJAX/JSON* :tada:
 
 :calendar: Tuesday, April 18th
 
