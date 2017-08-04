@@ -1,6 +1,6 @@
-Intro to the Command Line/Terminal
+# Intro to the Command Line/Terminal
 
-# The command line is a powerful yet often avoided tool for beginning developers.
+The command line is a powerful yet often avoided tool for beginning developers.
 
 We're here to show you that it's easier than you might think, and even fun! This course will cover basics of directory and file traversal, finding and searching for files and content, and using many of the powerful tools  that come along with most Unix Shells. It will be taught by {{ teacher_name }}, {{ teacher_description }}.
 
