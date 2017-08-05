@@ -20,8 +20,8 @@ After this workshop, the next time you encounter a terminal prompt, you'll be re
 
 ## Tech requirements
 
-* Your laptop (Mac, PC, Linux) and charger
-* A modern web browser (Chrome, Firefox, Safari)
+* Your laptop (Mac, PC, Linux) and charger.
+* A modern web browser (Chrome, Firefox, Safari).
 
 *If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.*
 
