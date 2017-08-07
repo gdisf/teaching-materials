@@ -1,4 +1,4 @@
-# Intro to the Command Line/Terminal
+# Intro to the Command Line/Terminal 
 
 The command line is a powerful yet often avoided tool for beginning developers.
 
