@@ -4,7 +4,7 @@
   <!--[if gte IE 9]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]--> 
   <!--[if lt IE 9]><meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" /><![endif]--> 
   <meta charset="utf-8" />
-  <title>CSS3 Effects & Animation</title>    
+  <title>CSS3 Effects &amp; Animation</title>    
   <link rel="stylesheet" href="slides.css"/>
 <style>
 </style>
@@ -23,7 +23,7 @@
 <div id="topinfo"></div>
 <!-- footer instructions -->  
 <div id="info">
-    <p>Press <span class="key">&rarr;</span> key to advance.</p>
+    <p>Press <span class="key" aria-label="right arrow">&rarr;</span> key to advance.</p>
 </div>
 
   <div id="presentation">
@@ -86,25 +86,23 @@
 
 <pre>
 <span style="color:blue">selector</span> {
-  <span style="color:red">property</span>: <span style="color:green">value</span>;
   -webkit-<span style="color:red">property</span>: <span style="color:green">value</span>;
   -moz-<span style="color:red">property</span>: <span style="color:green">value</span>;
   -ms-<span style="color:red">property</span>: <span style="color:green">value</span>;
-  -o-<span style="color:red">property</span>: <span style="color:green">value</span>;
+  <span style="color:red">property</span>: <span style="color:green">value</span>;
 }
 </pre>
 
 <pre>
 <span style="color:blue">div</span> {
-  <span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -webkit-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -moz-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -ms-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -o-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
+  -webkit-<span style="color:red">text-size-adjust</span>: <span style="color:green">80%</span>;
+  -moz-<span style="color:red">text-size-adjust</span>: <span style="color:green">80%</span>;
+  -ms-<span style="color:red">text-size-adjust</span>: <span style="color:green">80%</span>;
+  <span style="color:red">text-size-adjust</span>: <span style="color:green">80%</span>;
 }
 </pre>
    <p>More reading: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix">MDN Vendor Prefix</a>,
-     <a target="_blank" href="http://shouldiprefix.com/">shouldiprefix.com</a></p>
+     <a target="_blank" href="http://shouldiprefix.com/">shouldiprefix.com</a>, and <a href="https://peter.sh/experiments/vendor-prefixed-css-property-overview/" target="_blank">Peter Beverloo's list of prefixed properties</a>.</p>
   </section>
 
 </div>
@@ -169,9 +167,6 @@
                 background: url(http://placekitten.com/800/400) top center no-repeat;
                 margin: 0 auto;
                 padding: 20px;
-                -webkit-border-radius: 8px;
-                -khtml-border-radius: 8px;
-                -moz-border-radius: 8px;
                 border-radius: 8px;
               }
               #opacity-example {
@@ -181,9 +176,6 @@
                 text-align: center;
                 font-weight: bold;
                 letter-spacing: -4px;
-                -webkit-border-radius: 5px;
-                -khtml-border-radius: 5px;
-                -moz-border-radius: 5px;
                 border-radius: 5px;
                 text-shadow: none;
                 color: rgba(255, 0, 0, 0.746094);
