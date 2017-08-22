@@ -494,12 +494,12 @@ p.firstletter {width: 400px;
 input[type=checkbox]:checked + label {
   color: red;
 }
-input:valid { border: 1px solid green;}
+/*input:valid { border: 1px solid green;} */
 input:invalid { border: 1px solid red;}
 input:required {border-width: 5px;}
 input:optional {border-width: 10px;}
 input:out-of-range { background-color: pink;}
-input:in-range { background-color:lightgreen;}
+/* input:in-range { background-color:lightgreen;} */
 
 pre input[type="range"] {
 height: 6px;
