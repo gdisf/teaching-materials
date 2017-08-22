@@ -164,43 +164,26 @@
         <div class="slide styling" id="css-opacity">
           <style>
               #opacity-body {
-                font-size: 84%;
-                max-width: 800px;
-                background: url(http://placekitten.com/800/400) top center no-repeat;
                 margin: 0 auto;
-                padding: 20px;
-                -webkit-border-radius: 8px;
-                -khtml-border-radius: 8px;
-                -moz-border-radius: 8px;
+                width: 763px;
+                height: 429px;
+                background: url(images/hands.jpg);
                 border-radius: 8px;
               }
               #opacity-example {
-                margin: 100px auto;
-                font-size: 80px;
-                line-height: 200px;
+                font-size: 40px;
+                padding: 0.5rem;
                 text-align: center;
-                font-weight: bold;
-                letter-spacing: -4px;
-                -webkit-border-radius: 5px;
-                -khtml-border-radius: 5px;
-                -moz-border-radius: 5px;
-                border-radius: 5px;
                 text-shadow: none;
-                color: rgba(255, 0, 0, 0.746094);
-                background-image: initial;
-                background-attachment: initial;
-                background-origin: initial;
-                background-clip: initial;
-                background-color: rgba(0, 0, 255, 0.746094);
-                background-position: initial initial;
-                background-repeat: initial initial;
+                top: 50px;
+                position: relative;
               }
             </style>
           <header><h1>Opacity</h1></header>
           <section>
 
-<pre>  color: <b>rgba</b>(255, 0, 0, <span id="opacity-color-value">0.75</span>); <input id="opacity-color" type="range" min="0" max="100" value="75" onchange="changeOpacity()">
-  background: <b>rgba</b>(0, 0, 255, <span id="opacity-background-value">0.75</span>); <input id="opacity-background" type="range" min="0" max="100" value="75" onchange="changeOpacity()">
+<pre>  color: <b>rgba</b>(255, 255, 255, <span id="opacity-color-value">1</span>); <input id="opacity-color" type="range" min="0" max="100" value="100" onchange="changeOpacity()">
+  background: <b>rgba</b>(0, 0, 0, <span id="opacity-background-value">0.5</span>); <input id="opacity-background" type="range" min="0" max="100" value="50" onchange="changeOpacity()">
 </pre>
 
             <div id="opacity-body">
@@ -216,8 +199,8 @@
 
                 var el = document.getElementById('opacity-example');
 
-                el.style.color = 'rgba(255, 0, 0, ' + textOpacity + ')';
-                el.style.background = 'rgba(0, 0, 255, ' + backgroundOpacity + ')';
+                el.style.color = 'rgba(255, 255, 255, ' + textOpacity + ')';
+                el.style.background = 'rgba(0, 0, 0, ' + backgroundOpacity + ')';
 
                 document.getElementById('opacity-color-value').textContent = textOpacity;
                 document.getElementById('opacity-background-value').textContent = backgroundOpacity;
@@ -260,17 +243,7 @@
               HSL example
             </div>
 
-            <a href="http://caniuse.com/#search=rgba" target="_blank" class="objectlink">caniuse.com: rgba colors</a>
-
-            <figure style="margin-left: 0px">
-             <figcaption>Changing just saturation:</figcaption>
-             <img src="files/hsl_saturation.png" alt="Screenshot of HSL color picker, low saturation and high saturation">
-            </figure>
-
-            <figure style="margin-left: 0px;">
-             <figcaption>Changing just brightness:</figcaption>
-             <img src="files/hsl_brightness.png" alt="Screenshot of HSL color picker, low brightness and high brightness">
-            </figure>
+            <a href="http://caniuse.com/#search=hsla" target="_blank" class="objectlink">caniuse.com: hsla colors</a>
 
             <p><a target="_blank" href="http://hslpicker.com/">☞ Experiment more: HSL Color Picker</a></p>
 
@@ -303,8 +276,10 @@
             #gradients-linear-example {
               border: 0;
               height: 100px;
-              background: -moz-linear-gradient(90deg, #00abeb, #fff, #66cc00, #fff);
-              background: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00));
+              background: linear-gradient(to bottom, #f95a61, #ffffff 50%, #2a4758);
+            }
+            #css-gradients input[type=color]:valid {
+              border: 1px solid rgb(169, 169, 169);
             }
             #gradients-radial-example {
               border: 0;
@@ -316,11 +291,26 @@
           <header><h1>Gradients</h1></header>
 
           <section>
-            <pre>background-image: <b>linear-gradient</b>(to bottom, <span style="text-shadow: #00abeb 0 0 1px; color: #00abeb">#00abeb</span> 0%, #fff 50%,
-                            <span style="text-shadow: #00abeb 0 0 1px; color: #66cc00">#66cc00</span> 50%, #fff 100%);
+
+<pre>background-image: <b>linear-gradient</b>(to bottom, 
+  <span style="text-shadow: #000000 0 0 1px; color: #f95a61">#f95a61</span> 0%, <input id="linear-color1" type="color" value="#f95a61" onchange="changeLinear(event)">
+  <span style="text-shadow: #000000 0 0 1px; color: #ffffff">#ffffff</span> 50%, <input id="linear-percent" type="range" min="0" max="100" value="50" onchange="changeLinear(event)">
+  <span style="text-shadow: #000000 0 0 1px; color: #2a4758">#2a4758</span> 100%); <input id="linear-color2" type="color" value="#2a4758" onchange="changeLinear(event)">
 </pre>
+            
             <div id="gradients-linear-example" class="example"></div>
-<br />
+
+<script>
+  function changeLinear() {
+    var color1 = document.getElementById('linear-color1').value;
+    var percent = document.getElementById('linear-percent').value;
+    var color2 = document.getElementById('linear-color2').value;
+
+    document.getElementById('gradients-linear-example').style.background = 'linear-gradient(to bottom, ' + color1 + ', #ffffff ' + percent + '%, ' + color2 + ')';
+  }
+</script>
+
+            <br />
 <pre>background-image: <b>radial-gradient</b>(center, circle cover, red, #000 <span id="gradients-radial-value">40</span>%);
                                                         <input id="gradients-radial" type="range" min="1" max="100" value="40" onchange="changeGradients(event)">
 </pre>
@@ -450,20 +440,28 @@
 
 <div class="slide normal" id="filter">
   <style>
+    #filter input {
+      width: 80px;
+    }
+    #filter pre {
+      float: left;
+      padding: 10px 20px;
+      margin-right: 10px;
+    }
   </style>
   <header><h1>filter</h1></header>
-  <pre style="width:45%; float:left;">
-filter: <strong>grayscale</strong>(<span id="filter-grayscale-value">10</span>%); <input id="filter-grayscale-slider" type="range" min="0" max="100" value="10" onchange="changeFilter()">
-filter: <strong>sepia</strong>(<span id="filter-sepia-value">20</span>%); <input id="filter-sepia-slider" type="range" min="0" max="100" value="20" onchange="changeFilter()">
-filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%); <input id="filter-saturate-slider" type="range" min="0" max="200" value="110" onchange="changeFilter()">
-filter: <strong>hue-rotate</strong>(<span id="filter-huerotate-value">60</span>deg); <input id="filter-huerotate-slider" type="range" min="0" max="360" value="60" onchange="changeFilter()">
-filter: <strong>invert</strong>(<span id="filter-invert-value">0</span>%); <input id="filter-invert-slider" type="range" min="0" max="100" value="0" onchange="changeFilter()"></pre>
-  <pre style="width:45%; float: left;">
-filter: <strong>brightness</strong>(<span id="filter-brightness-value">120</span>%); <input id="filter-brightness-slider" type="range" min="0" max="200" value="120" onchange="changeFilter()">
+  <pre>
 filter: <strong>contrast</strong>(<span id="filter-contrast-value">80</span>%); <input id="filter-contrast-slider" type="range" min="0" max="200" value="80" onchange="changeFilter()">
 filter: <strong>blur</strong>(<span id="filter-blur-value">5</span>px); <input id="filter-blur-slider" type="range" min="0" max="20" value="5" onchange="changeFilter()">
+filter: <strong>sepia</strong>(<span id="filter-sepia-value">20</span>%); <input id="filter-sepia-slider" type="range" min="0" max="100" value="20" onchange="changeFilter()">
+filter: <strong>invert</strong>(<span id="filter-invert-value">0</span>%); <input id="filter-invert-slider" type="range" min="0" max="100" value="0" onchange="changeFilter()">
+filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <input id="filter-opacity-slider" type="range" min="0" max="100" value="50" onchange="changeFilter()"></pre>
+  <pre>
+filter: <strong>hue-rotate</strong>(<span id="filter-huerotate-value">60</span>deg); <input id="filter-huerotate-slider" type="range" min="0" max="360" value="60" onchange="changeFilter()">
+filter: <strong>grayscale</strong>(<span id="filter-grayscale-value">10</span>%); <input id="filter-grayscale-slider" type="range" min="0" max="100" value="10" onchange="changeFilter()">
+filter: <strong>brightness</strong>(<span id="filter-brightness-value">120</span>%); <input id="filter-brightness-slider" type="range" min="0" max="200" value="120" onchange="changeFilter()">
 filter: <strong>drop-shadow</strong>(<span id="filter-dropshadow-value">5</span>px 5px black); <input id="filter-dropshadow-slider" type="range" min="0" max="20" value="5" onchange="changeFilter()">
-filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <input id="filter-opacity-slider" type="range" min="0" max="100" value="50" onchange="changeFilter()">
+filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%); <input id="filter-saturate-slider" type="range" min="0" max="200" value="110" onchange="changeFilter()">
 </pre>
 
   <img src="images/sky_heart.jpg" id="filter-example">
@@ -496,7 +494,7 @@ filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <i
                       ;
 
     
-    document.getElementById('filter-grayscale-value').textContent = blurAmount;
+    document.getElementById('filter-grayscale-value').textContent = grayscaleAmount;
     document.getElementById('filter-sepia-value').textContent = sepiaAmount;
     document.getElementById('filter-saturate-value').textContent = saturateAmount;
     document.getElementById('filter-huerotate-value').textContent = huerotateAmount;
@@ -553,12 +551,12 @@ filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <i
      <li><a target="_blank" href="https://chrome.google.com/webstore/detail/google-font-previewer-for/engndlnldodigdjamndkplafgmkkencc?hl=en">Font Previewer Chrome Extension</a>
      <li><a target="_blank" href="http://www.typetester.org/">TypeTester</a>
      <li><a target="_blank" href="http://typekit.com/">TypeKit</a>
-     <li><a target="_blank" href="http://fontfonter.com/">FontFonter</a>
-     <li><a target="_blank" href="http://openfontlibrary.org/">OpenFont Library</a></li>
+     <li><a target="_blank" href="http://webfonter.fontshop.com/">WebFonter</a>
+     <li><a target="_blank" href="https://fontlibrary.org/">Font Library</a></li>
      <li><a target="_blank" href="http://www.goodwebfonts.com/">Good Web Fonts</a>
      <li><a target="_blank" href="http://www.typotheque.com/fonts/">Typotheque</a>
-     <li><a target="_blank" href="http://daneden.me/type/">Pairing fonts</a>
-     <li><a target="_blank" href="http://www.fontsquirrel.com/fontface/generator">Font-face generator</a></li>
+     <li><a target="_blank" href="https://justmytype.co/">Pairing fonts</a>
+     <li><a target="_blank" href="https://www.fontsquirrel.com/tools/webfont-generator">Webfont generator</a></li>
     </ul>
   </section>
 </div>
@@ -848,6 +846,7 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
      </section>
 </div>
 
+<!--
 <div class="slide intro">
   <header><h1>Pre-Processors</h1></header>
 </div>
@@ -943,6 +942,8 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
 <div class="slide intro">
   <header><h1><a target="_blank" href="exercise_less.html">Exercise!</a></h1></header>
 </div>
+
+-->
 
  </div> <!-- end -->   
 
