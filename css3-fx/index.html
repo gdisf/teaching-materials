@@ -72,7 +72,7 @@
   <ul>
     <li>1996: CSS1
     <li>1998-2011: CSS2
-    <li>1999-Now: <a href="http://www.w3.org/Style/CSS/specs">"CSS3"</a>
+    <li>1999-Now: <a href="http://www.w3.org/Style/CSS/specs" target="_blank">CSS3</a>
   </ul>
   <p><a href="http://www.w3.org/Style/CSS/current-work.en.html" target="_blank">All CSS Specs</a></p>
 </section>
@@ -96,15 +96,17 @@
 
 <pre>
 <span style="color:blue">div</span> {
-  <span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -webkit-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -moz-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -ms-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -o-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
+  <span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
+  -webkit-<span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
+  -moz-<span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
+  -ms-<span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
+  -o-<span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
 }
 </pre>
-   <p>More reading: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix">MDN Vendor Prefix</a>,
-     <a target="_blank" href="http://shouldiprefix.com/">shouldiprefix.com</a></p>
+  <p>More reading on vendor prefixes / browser integration: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix">MDN Vendor Prefix</a>,
+    <a target="_blank" href="http://shouldiprefix.com/">shouldiprefix.com</a>,
+    <a href="http://caniuse.com">caniuse.com</a>
+  </p>
   </section>
 
 </div>
@@ -391,21 +393,27 @@
             #text-stroke-example {
               font-size: 85px;
               padding: 20px 0;
-              text-align: center;
-              -webkit-text-stroke-color: turquoise;
-              -webkit-text-fill-color: black;
+              text-align: left;
+              text-decoration: overline pink wavy;
+              text-transform: uppercase;
+              text-indent: 100px;
             }
           </style>
-          <header><h1>Text stroke</h1></header>
+          <header><h1>Text styling</h1></header>
           <section>
         <pre>div {
   -webkit-<b>text-fill-color</b>: black;
   -webkit-<b>text-stroke-color</b>: turquoise;
   -webkit-<b>text-stroke-width</b>: <span id="text-stroke-value">0.00</span>px; <input id="text-stroke" type="range" min="0" max="50" value="0" onchange="changeTextStroke()">
+
+  <b>text-align</b>: left;
+  <b>text-decoration</b>: overline underline pink wavy;
+  <b>text-transform</b>: uppercase;
+  <b>text-indent</b>: 100px;
 }</pre>
 
     <div id="text-stroke-example" class="example">
-    Stroke Ain't A Joke!
+    Styling text!
   </div>
 
     <script defer>
@@ -430,7 +438,7 @@
         <li>Add a stroke to your logo text, using HSLA to specify the fill and stroke colors.</li>
         <li>Use RGBA to specify the background color of the container and add some padding.</li>
         <li>Round the corners of the container.</li>
-         <li>Generate a gradient for the container. You can use <A href="http://www.colorzilla.com/gradient-editor/">this tool</a> if you'd like.</li>
+         <li>Generate a gradient for the container. You can use <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">this tool</a> if you'd like.</li>
         <li>Add a shadow to your text.
         <li>Add a shadow on the box.</li>
        </ol>
@@ -586,11 +594,11 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
   <section>
     <ul style="column-count: 2;">
       <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
-      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
+      <li><a target="_blank" href="https://codepen.io/ajerez/pen/EaEEOW">CSS3 Submarine</a>
       <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
       <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
     </ul>
-    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="http://codepen.io/ajerez/pen/EaEEOW/">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="https://codepen.io/ajerez/pen/EaEEOW">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
   </section>
 </div>
@@ -826,11 +834,11 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
   <section>
     <ul style="column-count: 2;">
       <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
-      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
+      <li><a target="_blank" href="https://codepen.io/ajerez/pen/EaEEOW">CSS3 Submarine</a>
       <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
       <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
     </ul>
-    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="http://codepen.io/ajerez/pen/EaEEOW/">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="https://codepen.io/ajerez/pen/EaEEOW">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
   </section>
 </div>
