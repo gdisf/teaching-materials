@@ -69,12 +69,12 @@
 <div class="slide normal"> 
 <header><h1>CSS History</h1></header> 
 <section class="content"> 
+  <p>The <a href="https://www.w3.org/" target="_blank">World Wide Web Consortium (W3C)</a> is an international community that develops open standards to ensure the long-term growth of the Web. This includes releases of HTML and CSS.</p>
   <ul>
     <li>1996: CSS1
     <li>1998-2011: CSS2
-    <li>1999-Now: <a href="http://www.w3.org/Style/CSS/specs">"CSS3"</a>
+    <li>1999-Now: <a href="http://www.w3.org/Style/CSS/specs" target="_blank">CSS3</a> – <a href="https://www.thoughtco.com/css2-vs-css3-3466978" target="_blank">What's New?</a>
   </ul>
-  <p><a href="http://www.w3.org/Style/CSS/current-work.en.html" target="_blank">All CSS Specs</a></p>
 </section>
 </div>
 
@@ -96,15 +96,17 @@
 
 <pre>
 <span style="color:blue">div</span> {
-  <span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -webkit-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -moz-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -ms-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
-  -o-<span style="color:red">border-radius</span>: <span style="color:green">3px</span>;
+  <span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
+  -webkit-<span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
+  -moz-<span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
+  -ms-<span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
+  -o-<span style="color:red">transform</span>: <span style="color:green">rotateX(-30deg)</span>;
 }
 </pre>
-   <p>More reading: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix">MDN Vendor Prefix</a>,
-     <a target="_blank" href="http://shouldiprefix.com/">shouldiprefix.com</a></p>
+  <p>More reading on vendor prefixes / browser integration: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix">MDN Vendor Prefix</a>,
+    <a target="_blank" href="http://shouldiprefix.com/">shouldiprefix.com</a>,
+    <a href="http://caniuse.com">caniuse.com</a>
+  </p>
   </section>
 
 </div>
@@ -292,7 +294,7 @@
 
           <section>
 
-<pre>background-image: <b>linear-gradient</b>(to bottom, 
+<pre>background-image: <b>linear-gradient</b>(to bottom,
   <span id="linear-color1-value" style="text-shadow: #000000 0 0 1px; color: #f95a61">#f95a61</span> 0%, <input id="linear-color1" type="color" value="#f95a61" onchange="changeLinear(event)">
   <span style="text-shadow: #000000 0 0 1px; color: #ffffff">#ffffff</span> <span id="linear-percent-value">50</span>%, <input id="linear-percent" type="range" min="0" max="100" value="50" onchange="changeLinear(event)">
   <span id="linear-color2-value" style="text-shadow: #000000 0 0 1px; color: #2a4758">#2a4758</span> 100%); <input id="linear-color2" type="color" value="#2a4758" onchange="changeLinear(event)">
@@ -397,21 +399,29 @@
             #text-stroke-example {
               font-size: 85px;
               padding: 20px 0;
-              text-align: center;
-              -webkit-text-stroke-color: turquoise;
+              text-align: left;
+              text-decoration: overline pink wavy;
+              text-transform: uppercase;
+              text-indent: 100px;
               -webkit-text-fill-color: black;
+              -webkit-text-stroke-color: turquoise;
             }
           </style>
-          <header><h1>Text stroke</h1></header>
+          <header><h1>Text styling</h1></header>
           <section>
         <pre>div {
   -webkit-<b>text-fill-color</b>: black;
   -webkit-<b>text-stroke-color</b>: turquoise;
   -webkit-<b>text-stroke-width</b>: <span id="text-stroke-value">0.00</span>px; <input id="text-stroke" type="range" min="0" max="50" value="0" onchange="changeTextStroke()">
+
+  <b>text-align</b>: left;
+  <b>text-decoration</b>: overline pink wavy;
+  <b>text-transform</b>: uppercase;
+  <b>text-indent</b>: 100px;
 }</pre>
 
     <div id="text-stroke-example" class="example">
-    Stroke Ain't A Joke!
+    Styling text!
   </div>
 
     <script defer>
@@ -436,7 +446,7 @@
         <li>Add a stroke to your logo text, using HSLA to specify the fill and stroke colors.</li>
         <li>Use RGBA to specify the background color of the container and add some padding.</li>
         <li>Round the corners of the container.</li>
-         <li>Generate a gradient for the container. You can use <A href="http://www.colorzilla.com/gradient-editor/">this tool</a> if you'd like.</li>
+         <li>Generate a gradient for the container. You can use <a href="http://www.colorzilla.com/gradient-editor/" target="_blank">this tool</a> if you'd like.</li>
         <li>Add a shadow to your text.
         <li>Add a shadow on the box.</li>
        </ol>
@@ -592,72 +602,85 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
   <section>
     <ul style="column-count: 2;">
       <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
-      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
+      <li><a target="_blank" href="https://codepen.io/ajerez/pen/EaEEOW">CSS3 Submarine</a>
       <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
       <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
     </ul>
-    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="http://codepen.io/ajerez/pen/EaEEOW/">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="https://codepen.io/ajerez/pen/EaEEOW">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
   </section>
 </div>
 
+ <div class="slide styling">
+  <header><h1>Define a CSS Animation</h1></header>
+  <section>
+    <p>Define a custom CSS3 animation (in this case, named "pulse") using <a href="https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp" target="_blank">CSS3 @keyframes</a>:</p>
+    <pre>
+      @-webkit-<b>keyframes</b> <em>pulse</em> {
+
+        <b>from</b> {
+         opacity: 0.0;
+         font-size: 100%;
+        }
+
+        <b>to</b> {
+         opacity: 1.0;
+         font-size: 200%;
+        }
+
+      }</pre>
+  </section>
+</div>
+
  <div class="slide styling" id="css-animation">
-        <style>
-          /* put the keyframes rule here cuz ExCss currently doesn't support '@-webkit-keyframes' */
-          @-webkit-keyframes pulse {
-           from {
-             opacity: 0.0;
-             font-size: 50px;
-           }
-           to {
-             opacity: 1.0;
-             font-size: 100px;
-           }
-          }
+  <style>
+    /* put the keyframes rule here cuz ExCss currently doesn't support '@-webkit-keyframes' */
+    @-webkit-keyframes pulse {
+     from {
+       opacity: 0.0;
+       font-size: 50px;
+     }
+     to {
+       opacity: 1.0;
+       font-size: 100px;
+     }
+    }
 
-          #animation-example {
-            -webkit-animation-name: pulse;
-            -webkit-animation-duration: 2s;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: ease-in;
-            -webkit-animation-direction: alternate;
-          }
-        </style>
-        <header><h1>Animations</h1></header>
-        <section>
-<pre>@-webkit-<b>keyframes</b> <em>pulse</em> {
-<b>from</b> {
- opacity: 0.0;
- font-size: 100%;
-}
-<b>to</b> {
- opacity: 1.0;
- font-size: 200%;
-}
-}
+    #animation-example {
+      -webkit-animation-name: pulse;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: ease-in;
+      -webkit-animation-direction: alternate;
+    }
+  </style>
+  <header><h1>Apply a CSS Animation</h1></header>
+  <section>
+    <p>Apply the CSS animation you defined to a specific HTML element.</p>
+    <pre>&lt;div&gt;Pulse!&lt;/div&gt;</pre>
+    <pre>
+    div {
+      -webkit-<b>animation-name</b>: <em>pulse</em>;
+      -webkit-<b>animation-duration</b>: 2s;
+      -webkit-<b>animation-iteration-count</b>: infinite;
+      -webkit-<b>animation-timing-function</b>: ease-in;
+      -webkit-<b>animation-direction</b>: alternate;
+    }
+    </pre>
 
-div {
--webkit-<b>animation-name</b>: <em>pulse</em>;
--webkit-<b>animation-duration</b>: 2s;
--webkit-<b>animation-iteration-count</b>: infinite;
--webkit-<b>animation-timing-function</b>: ease-in;
--webkit-<b>animation-direction</b>: alternate;
-}
-</pre>
-
-          <div id="animation-example" class="example">
-            Pulse!
-          </div>
-          <a href="http://caniuse.com/#feat=css-animation" class="objectlink" target="_blank">
-            caniuse.com: animations
-          </a>
+    <div id="animation-example" class="example">
+      Pulse!
+    </div>
+    <a href="http://caniuse.com/#feat=css-animation" class="objectlink" target="_blank">
+      caniuse.com: animations
+    </a>
   </section>
 </div>
 
 
  <div class="slide styling" id="css-animation">
         <style>
-          @keyframes rainbow {
+           @-webkit-keyframes rainbow {
               0%   {background-color: red; width: 500px;}
               25%  {background-color: yellow; width: 200px;}
               50%  {background-color: blue; width: 300px;}
@@ -668,12 +691,13 @@ div {
             -webkit-animation-name: rainbow;
             -webkit-animation-duration: 6s;
             -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: alternate;
+            -webkit-animation-timing-function: ease-in;
+            -webkit-animation-direction: alternate;
           }
         </style>
         <header><h1>Multi-Step Animations</h1></header>
         <section>
-<pre>@keyframes rainbow {
+<pre>@-webkit-<b>keyframes</b> <em>rainbow</em> {
     0%   {
       background-color: red;
       width:500px;
@@ -694,10 +718,11 @@ div {
 
 
 div {
-  -webkit-animation-name: rainbow;
-  -webkit-animation-duration: 6s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: alternate;
+  -webkit-<b>animation-name</b>: <em>rainbow</em>;
+  -webkit-<b>animation-duration</b>: 6s;
+  -webkit-<b>animation-iteration-count</b>: infinite;
+  -webkit-<b>animation-timing-function</b>: ease-in;
+  -webkit-<b>animation-direction</b>: alternate;
 }
 </pre>
 
@@ -742,25 +767,29 @@ div {
 <pre>#box.left {
   margin-left: 0;
 }
+
 #box.right {
   margin-left: 1000px;
 }
-
-document.getElementById('box').className = 'left'; <button onclick="transitionLeft(1)">Left</button>
-document.getElementById('box').className = 'right'; <button onclick="transitionRight(1)">Right</button>
 </pre>
+<ul>
+  <li>Click <button onclick="transitionLeft(1)">Left</button> => document.getElementById('box').className = 'left';</li>
+  <li>Click <button onclick="transitionRight(1)">Right</button> => document.getElementById('box').className = 'right';</li>
+</ul>
 
-  <div class="transitions example">
-    <div id="transitions-box-2"></div>
-  </div>
+<div class="transitions example">
+  <div id="transitions-box-2"></div>
+</div>
 
 <pre>#box {
   -webkit-<b>transition</b>: margin-left 1s ease-in-out;
 }
-
-document.getElementById('box').className = 'left'; <button onclick="transitionLeft(2)">Left</button>
-document.getElementById('box').className = 'right'; <button onclick="transitionRight(2)">Right</button>
 </pre>
+
+<ul>
+  <li>Click <button onclick="transitionLeft(2)">Left</button> => document.getElementById('box').className = 'left';</li>
+  <li>Click <button onclick="transitionRight(2)">Right</button> => document.getElementById('box').className = 'right';</li>
+</ul>
   
   <a href="http://caniuse.com/#feat=css-transitions" class="objectlink" target="_blank">
     caniuse.com: css-transitions
@@ -780,19 +809,18 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
 
 <div class="slide styling" id="css-transforms">
   <style>
-            #threed-example {
+            #transform-example {
               margin: 50px 20px;
               -webkit-transform: rotateZ(5deg);
               -moz-transform: rotateZ(5deg);
               -o-transform: rotateZ(5deg);
               transform: rotateZ(5deg);
-              -webkit-transition: -webkit-transform 2s ease-in-out;
               -moz-transition: -moz-transform 2s ease-in-out;
               -o-transition: -o-transform 2s ease-in-out;
               transition: transform 2s ease-in-out;
             }
 
-            #threed-example:hover {
+            #transform-example:hover {
               -webkit-transform: rotateZ(-5deg);
               -moz-transform: rotateZ(-5deg);
               -o-transform: rotateZ(-5deg);
@@ -801,25 +829,28 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
           </style>
   <header><h1>Transforms</h1></header>
   <section>
-    <p class="center">
-      Hover over me:
-    </p>
-    <pre id="threed-example">-webkit-<b>transform</b>: <b>rotateY</b>(45deg);
--webkit-transform: <b>scaleX</b>(25deg);
--webkit-transform: <b>translate3d</b>(0, 0, 90deg);
--webkit-transform: <b>perspective</b>(500px)
+    <pre id="transform-example">
+      You can transform this div by hovering over it!
 </pre>
 
-<pre>#threed-example {
-  -webkit-transform: rotateZ(5deg);
-
-  -webkit-transition: -webkit-transform 2s ease-in-out;
+<pre>#transform-example {
+  -webkit-<b>transform</b>: rotateZ(5deg);
+  -webkit-<b>transition</b>: transform 2s ease-in-out;
 }
 
-#threed-example:hover {
-  -webkit-transform: rotateZ(-5deg);
+#transform-example:hover {
+  -webkit-<b>transform</b>: rotateZ(-5deg);
 }
 </pre>
+<p>Other Transform Values</p>
+<ul>
+  <li><em>translate</em> – translate element along X, Y, or Z axes (in deg, rad, turn, or %)</li>
+  <li><em>scale</em> – scale size of element along X or Y axes (in integers – e.g. 2.0 for 200% scale)</li>
+  <li><em>rotate</em> – rotate element along X, Y, or Z axes (in deg, rad, or turn)</li>
+  <li><em>skew</em> – skew element along X or Y axes (in deg or rad)</li>
+  <li><em>perspective</em> - set perspective from which element is viewed (in px)</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">Additional Properties</a></li>
+</ul>
   <a href="http://caniuse.com/#feat=transforms2d" class="objectlink" target="_blank">
     caniuse.com: transforms
   </a>
@@ -832,11 +863,11 @@ document.getElementById('box').className = 'right'; <button onclick="transitionR
   <section>
     <ul style="column-count: 2;">
       <li><a target="_blank" href="http://codepen.io/joshnetherton/full/maDxd">Doctor Who - Spinning Tardis</a>
-      <li><a target="_blank" href="http://codepen.io/ajerez/pen/EaEEOW/">CSS3 Submarine</a>
+      <li><a target="_blank" href="https://codepen.io/ajerez/pen/EaEEOW">CSS3 Submarine</a>
       <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
       <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
     </ul>
-    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="http://codepen.io/ajerez/pen/EaEEOW/">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="https://codepen.io/ajerez/pen/EaEEOW">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
   </section>
 </div>
