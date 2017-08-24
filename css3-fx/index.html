@@ -685,7 +685,8 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
             -webkit-animation-name: rainbow;
             -webkit-animation-duration: 6s;
             -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: alternate;
+            -webkit-animation-timing-function: ease-in;
+            -webkit-animation-direction: alternate;
           }
         </style>
         <header><h1>Multi-Step Animations</h1></header>
@@ -714,7 +715,8 @@ div {
   -webkit-<b>animation-name</b>: <em>rainbow</em>;
   -webkit-<b>animation-duration</b>: 6s;
   -webkit-<b>animation-iteration-count</b>: infinite;
-  -webkit-<b>animation-timing-function</b>: alternate;
+  -webkit-<b>animation-timing-function</b>: ease-in;
+  -webkit-<b>animation-direction</b>: alternate;
 }
 </pre>
 
@@ -801,19 +803,18 @@ div {
 
 <div class="slide styling" id="css-transforms">
   <style>
-            #threed-example {
+            #transform-example {
               margin: 50px 20px;
               -webkit-transform: rotateZ(5deg);
               -moz-transform: rotateZ(5deg);
               -o-transform: rotateZ(5deg);
               transform: rotateZ(5deg);
-              -webkit-transition: -webkit-transform 2s ease-in-out;
               -moz-transition: -moz-transform 2s ease-in-out;
               -o-transition: -o-transform 2s ease-in-out;
               transition: transform 2s ease-in-out;
             }
 
-            #threed-example:hover {
+            #transform-example:hover {
               -webkit-transform: rotateZ(-5deg);
               -moz-transform: rotateZ(-5deg);
               -o-transform: rotateZ(-5deg);
@@ -822,25 +823,28 @@ div {
           </style>
   <header><h1>Transforms</h1></header>
   <section>
-    <p class="center">
-      Hover over me:
-    </p>
-    <pre id="threed-example">-webkit-<b>transform</b>: <b>rotateY</b>(45deg);
--webkit-transform: <b>scaleX</b>(25deg);
--webkit-transform: <b>translate3d</b>(0, 0, 90deg);
--webkit-transform: <b>perspective</b>(500px)
+    <pre id="transform-example">
+      You can transform this div by hovering over it!
 </pre>
 
-<pre>#threed-example {
-  -webkit-transform: rotateZ(5deg);
-
-  -webkit-transition: -webkit-transform 2s ease-in-out;
+<pre>#transform-example {
+  -webkit-<b>transform</b>: rotateZ(5deg);
+  -webkit-<b>transition</b>: transform 2s ease-in-out;
 }
 
-#threed-example:hover {
-  -webkit-transform: rotateZ(-5deg);
+#transform-example:hover {
+  -webkit-<b>transform</b>: rotateZ(-5deg);
 }
 </pre>
+<p>Other Transform Values</p>
+<ul>
+  <li><em>translate</em> – translate element along X, Y, or Z axes (in deg, rad, turn, or %)</li>
+  <li><em>scale</em> – scale size of element along X or Y axes (in integers – e.g. 2.0 for 200% scale)</li>
+  <li><em>rotate</em> – rotate element along X, Y, or Z axes (in deg, rad, or turn)</li>
+  <li><em>skew</em> – skew element along X or Y axes (in deg or rad)</li>
+  <li><em>perspective</em> - set perspective from which element is viewed (in px)</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">Additional Properties</a></li>
+</ul>
   <a href="http://caniuse.com/#feat=transforms2d" class="objectlink" target="_blank">
     caniuse.com: transforms
   </a>
