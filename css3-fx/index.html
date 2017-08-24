@@ -603,63 +603,76 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
   </section>
 </div>
 
+ <div class="slide styling">
+  <header><h1>Define a CSS Animation</h1></header>
+  <section>
+    <p>Define a custom CSS3 animation (in this case, named "pulse") using <a href="https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp">CSS3 @keyframes</a>:</p>
+    <pre>
+      @-webkit-<b>keyframes</b> <em>pulse</em> {
+
+        <b>from</b> {
+         opacity: 0.0;
+         font-size: 100%;
+        }
+
+        <b>to</b> {
+         opacity: 1.0;
+         font-size: 200%;
+        }
+
+      }</pre>
+  </section>
+</div>
+
  <div class="slide styling" id="css-animation">
-        <style>
-          /* put the keyframes rule here cuz ExCss currently doesn't support '@-webkit-keyframes' */
-          @-webkit-keyframes pulse {
-           from {
-             opacity: 0.0;
-             font-size: 50px;
-           }
-           to {
-             opacity: 1.0;
-             font-size: 100px;
-           }
-          }
+  <style>
+    /* put the keyframes rule here cuz ExCss currently doesn't support '@-webkit-keyframes' */
+    @-webkit-keyframes pulse {
+     from {
+       opacity: 0.0;
+       font-size: 50px;
+     }
+     to {
+       opacity: 1.0;
+       font-size: 100px;
+     }
+    }
 
-          #animation-example {
-            -webkit-animation-name: pulse;
-            -webkit-animation-duration: 2s;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: ease-in;
-            -webkit-animation-direction: alternate;
-          }
-        </style>
-        <header><h1>Animations</h1></header>
-        <section>
-<pre>@-webkit-<b>keyframes</b> <em>pulse</em> {
-<b>from</b> {
- opacity: 0.0;
- font-size: 100%;
-}
-<b>to</b> {
- opacity: 1.0;
- font-size: 200%;
-}
-}
+    #animation-example {
+      -webkit-animation-name: pulse;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: ease-in;
+      -webkit-animation-direction: alternate;
+    }
+  </style>
+  <header><h1>Apply a CSS Animation</h1></header>
+  <section>
+    <p>Apply the CSS animation you defined to a specific HTML element.</p>
+    <pre>&lt;div&gt;Pulse!&lt;/div&gt;</pre>
+    <pre>
+    div {
+      -webkit-<b>animation-name</b>: <em>pulse</em>;
+      -webkit-<b>animation-duration</b>: 2s;
+      -webkit-<b>animation-iteration-count</b>: infinite;
+      -webkit-<b>animation-timing-function</b>: ease-in;
+      -webkit-<b>animation-direction</b>: alternate;
+    }
+    </pre>
 
-div {
--webkit-<b>animation-name</b>: <em>pulse</em>;
--webkit-<b>animation-duration</b>: 2s;
--webkit-<b>animation-iteration-count</b>: infinite;
--webkit-<b>animation-timing-function</b>: ease-in;
--webkit-<b>animation-direction</b>: alternate;
-}
-</pre>
-
-          <div id="animation-example" class="example">
-            Pulse!
-          </div>
-          <a href="http://caniuse.com/#feat=css-animation" class="objectlink" target="_blank">
-            caniuse.com: animations
-          </a>
+    <div id="animation-example" class="example">
+      Pulse!
+    </div>
+    <a href="http://caniuse.com/#feat=css-animation" class="objectlink" target="_blank">
+      caniuse.com: animations
+    </a>
   </section>
 </div>
 
 
  <div class="slide styling" id="css-animation">
         <style>
-          @keyframes rainbow {
+           @-webkit-keyframes rainbow {
               0%   {background-color: red; width: 500px;}
               25%  {background-color: yellow; width: 200px;}
               50%  {background-color: blue; width: 300px;}
@@ -675,7 +688,7 @@ div {
         </style>
         <header><h1>Multi-Step Animations</h1></header>
         <section>
-<pre>@keyframes rainbow {
+<pre>@-webkit-<b>keyframes</b> <em>rainbow</em> {
     0%   {
       background-color: red;
       width:500px;
@@ -696,10 +709,10 @@ div {
 
 
 div {
-  -webkit-animation-name: rainbow;
-  -webkit-animation-duration: 6s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: alternate;
+  -webkit-<b>animation-name</b>: <em>rainbow</em>;
+  -webkit-<b>animation-duration</b>: 6s;
+  -webkit-<b>animation-iteration-count</b>: infinite;
+  -webkit-<b>animation-timing-function</b>: alternate;
 }
 </pre>
 
@@ -744,25 +757,29 @@ div {
 <pre>#box.left {
   margin-left: 0;
 }
+
 #box.right {
   margin-left: 1000px;
 }
-
-document.getElementById('box').className = 'left'; <button onclick="transitionLeft(1)">Left</button>
-document.getElementById('box').className = 'right'; <button onclick="transitionRight(1)">Right</button>
 </pre>
+<ul>
+  <li>Click <button onclick="transitionLeft(1)">Left</button> => document.getElementById('box').className = 'left';</li>
+  <li>Click <button onclick="transitionRight(1)">Right</button> => document.getElementById('box').className = 'right';</li>
+</ul>
 
-  <div class="transitions example">
-    <div id="transitions-box-2"></div>
-  </div>
+<div class="transitions example">
+  <div id="transitions-box-2"></div>
+</div>
 
 <pre>#box {
   -webkit-<b>transition</b>: margin-left 1s ease-in-out;
 }
-
-document.getElementById('box').className = 'left'; <button onclick="transitionLeft(2)">Left</button>
-document.getElementById('box').className = 'right'; <button onclick="transitionRight(2)">Right</button>
 </pre>
+
+<ul>
+  <li>Click <button onclick="transitionLeft(2)">Left</button> => document.getElementById('box').className = 'left';</li>
+  <li>Click <button onclick="transitionRight(2)">Right</button> => document.getElementById('box').className = 'right';</li>
+</ul>
   
   <a href="http://caniuse.com/#feat=css-transitions" class="objectlink" target="_blank">
     caniuse.com: css-transitions
