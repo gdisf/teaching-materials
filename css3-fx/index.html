@@ -293,9 +293,9 @@
           <section>
 
 <pre>background-image: <b>linear-gradient</b>(to bottom, 
-  <span style="text-shadow: #000000 0 0 1px; color: #f95a61">#f95a61</span> 0%, <input id="linear-color1" type="color" value="#f95a61" onchange="changeLinear(event)">
-  <span style="text-shadow: #000000 0 0 1px; color: #ffffff">#ffffff</span> 50%, <input id="linear-percent" type="range" min="0" max="100" value="50" onchange="changeLinear(event)">
-  <span style="text-shadow: #000000 0 0 1px; color: #2a4758">#2a4758</span> 100%); <input id="linear-color2" type="color" value="#2a4758" onchange="changeLinear(event)">
+  <span id="linear-color1-value" style="text-shadow: #000000 0 0 1px; color: #f95a61">#f95a61</span> 0%, <input id="linear-color1" type="color" value="#f95a61" onchange="changeLinear(event)">
+  <span style="text-shadow: #000000 0 0 1px; color: #ffffff">#ffffff</span> <span id="linear-percent-value">50</span>%, <input id="linear-percent" type="range" min="0" max="100" value="50" onchange="changeLinear(event)">
+  <span id="linear-color2-value" style="text-shadow: #000000 0 0 1px; color: #2a4758">#2a4758</span> 100%); <input id="linear-color2" type="color" value="#2a4758" onchange="changeLinear(event)">
 </pre>
             
             <div id="gradients-linear-example" class="example"></div>
@@ -305,6 +305,12 @@
     var color1 = document.getElementById('linear-color1').value;
     var percent = document.getElementById('linear-percent').value;
     var color2 = document.getElementById('linear-color2').value;
+    
+    document.getElementById('linear-color1-value').style.color = color1;
+    document.getElementById('linear-color1-value').textContent = color1;
+    document.getElementById('linear-percent-value').textContent = percent;
+    document.getElementById('linear-color2-value').style.color = color2;
+    document.getElementById('linear-color2-value').textContent = color2;
 
     document.getElementById('gradients-linear-example').style.background = 'linear-gradient(to bottom, ' + color1 + ', #ffffff ' + percent + '%, ' + color2 + ')';
   }
