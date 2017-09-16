@@ -66,10 +66,10 @@
      <section> 
      <h2>Adding Event Listeners</h2> 
      <p><a href='https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener'>In IE 9+ (and all other browsers):</a></p>
-<pre><code class="javascript syntax">domNode.addEventListener(eventType, eventListener);
+<pre><code class="javascript">domNode.addEventListener(eventType, eventListener);
 </code></pre>
 
-<pre><code class="html xml">&lt;button id=&quot;counter&quot;&gt;0&lt;/button&gt;
+<pre><code class="js">&lt;button id=&quot;counter&quot;&gt;0&lt;/button&gt;
   
 &lt;script&gt;
 var counterButton = document.getElementById('counter');
@@ -117,7 +117,7 @@ into the function.</p>
 
 <p>Each event type has different properties. For example, <a href="https://developer.mozilla.org/en/DOM/MouseEvent">MouseEvent</a> reports the clicked coordinates:</p>
 
-<pre><code class="html xml">  &lt;img id=&quot;kitten&quot; src=&quot;http://placekitten.com/200/300&quot;&gt;
+<pre><code class="js">  &lt;img id=&quot;kitten&quot; src=&quot;http://placekitten.com/200/300&quot;&gt;
   &lt;div id=&quot;info&quot;&gt;&lt;/div&gt;
   &lt;script&gt;
 var kittenImg = document.getElementById('kitten');
@@ -140,7 +140,7 @@ kittenImg.addEventListener('click', onClick, false);
      <p>A common use of events is to process form input, either by responding to button click events
 or input click/change events.</p>
 
-<pre><code class="html xml">&lt;input id=&quot;myname&quot; type=&quot;text&quot;&gt;
+<pre><code class="js">&lt;input id=&quot;myname&quot; type=&quot;text&quot;&gt;
 &lt;button id=&quot;button&quot;&gt;Say My Name&lt;/button&gt;
   
 &lt;script&gt;
@@ -167,7 +167,7 @@ the DOM exists.</p>
 
 <p>You can either put JS at bottom of page, or listen to the "load" event:
 </p>
-<pre><code class="html xml">
+<pre><code class="js">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
  &lt;head&gt;
@@ -245,7 +245,7 @@ window.setInterval(makeImageBigger, 1000);
     
     
      <section> 
-     <h2>Animating Styles</h2> 
+     <h2>Animating Styles - Opacity</h2> 
      <p>It's also common to animate CSS styles for size, transparency, position, and color:</p>
 
 <pre><code class="javascript">var img = document.getElementsByTagName('img')[0];
@@ -256,6 +256,12 @@ var fadeAway = function() {
 };
 </code></pre>
 <p style="font-size:small;">Note: opacity is 1E9+ only (plus all other browsers).</p>
+
+</section>
+
+      <section>
+     <h2>Animating Styles - Position</h2> 
+          <p>It's also common to animate CSS styles for size, transparency, position, and color:</p>
 
 <pre><code class="javascript">var img = document.getElementsByTagName('img')[0];
 img.style.position = 'absolute';
@@ -361,10 +367,10 @@ var fadeTimer = window.setInterval(fadeAway, 100);
      <p>To use a library, you can use the <code>script</code> tag and point it at the .js file.</p>
 
 <p>It could be stored locally:</p>
-<pre><code class="html xml">&lt;script src="jquery.js"&gt;&lt;/script&gt;
+<pre><code class="js">&lt;script src="jquery.js"&gt;&lt;/script&gt;
 </code></pre>
 <p>Or on another server ("CDN"):</p>
-<pre><code class="html xml">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"&gt;&lt;/script&gt;
+<pre><code class="js">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"&gt;&lt;/script&gt;
 </code></pre>
 <p>Then you can reference the library functions in your code:</p>
 <pre>
