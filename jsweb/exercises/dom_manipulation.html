@@ -13,24 +13,24 @@
     <div class="container">
     <h2>Exercise: The Logo Hijack</h2>
     <ul>
-      <li>Navigate to the <a href="http://www.stanford.edu/">Stanford</a> website,
+      <li>Navigate to the <a href="https://ucsd.edu/">UCSD</a> website,
       and open up the Dev Tools console – Cmd-Opt-I (Mac), Ctrl-Shift-I (Windows)</li>
-      <li>Find the Stanford logo and store it in a variable.</li>
+      <li>Find the UCSD logo and store it in a variable.</li>
       <li>Modify the source of the logo's image so that the image now points to the UC Berkeley logo instead.</li>
       <li>Find the header and store it in a variable.</li>
       <li>Change the header background color to 'gold'.</li>
-      <li>Find the 'About Stanford' menu link and store it in a variable.</li>
+      <li>Find the 'About' menu link and store it in a variable.</li>
       <li>Modify the text of the link so that it says "About Cal" instead.</li>
       <li>Modify the link so that it points to <a href="http://www.berkeley.edu/about" target="_blank">Cal's About page</a> instead.</li>
     </ul>
     <button onclick="showSolution(1)" class="btn">See Solution</button>
     <br><br>
 <pre id="solution1" style="display:none;">
-  var logo = document.querySelector('#logo img');
+  var logo = document.querySelector(".navbar-brand img");
   img.src = 'http://www.berkeley.edu/images/uploads/logo-ucberkeley.png';
-  var header = document.getElementById('header');
+  var header = document.querySelector('div.header-wrap');
   header.style.backgroundColor = 'gold';
-  var link = document.querySelector('#nav-about a');
+  var link = document.querySelectorAll(".main-nav li a")[0];
   link.textContent = 'About Cal';
   link.href = 'http://www.berkeley.edu/about';
 </pre>
