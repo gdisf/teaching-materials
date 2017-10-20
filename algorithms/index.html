@@ -474,42 +474,33 @@ for pile in piles:
             </section>
 
             <section>
-              <h2>Laundry v3</h2>
-              <p><span class="red">Addition</span>: We sort our clothes as we hang them up in the closet.</p>
+              <h2>Making Outfits</h2>
+              <p>Making all possible outfit combinations.</p>
+              <p>For simplicity's sake, assume there are an equal amount of pants and shirts.</p>
 
               <pre><code>
-piles = {'shirts': [], 'socks': []}
-closet = {'sock_drawer': [], 'shirt_section': []}
+pants_pile = ['blue-jeans', 'black-jeans', 'dress-pants', ..., 'white-pants'] // (n items)
+shirts_pile = ['white-shirt', 'blue-blouse', ..., 'stripe-shirt'] // (n items)
+outfits = []
 
-for clothing_item in laundry: 
-  piles[clothing_item.type].append(clothing_item)
-
-for pile in piles:
-    for clothing_item in pile:
-        section = closet[clothing_item.closet_section]
-        for hung_clothing in section:
-            if clothing_item.color > hung_clothing.color:
-                clothing_item.hang_up()
+for shirt in shirts_pile:
+    for pants in pants_pile:
+        outfits.append([shirt, pants])
 
            </code></pre>
             </section>
 
             <section>
-                <img style="background-color:white;" src="images/clothing_sorting_example.svg">
-            </section>
-
-            <section>
-              <h2>Laundry v3</h2>
-              <p>Now we must loop through closet section items
-                <strong class="red">each time</strong> we hang up an item.<br>Each look at an item takes 2 seconds.
-              </p>
+              <h2>Making Outfits</h2>
+              <p>We must match <strong class="red">each shirt</strong> with <strong class="red">each pair of pants.</strong></p>
+              <p>Looking at each item takes 2 seconds.</p>
 
               <table class="fragment" style="margin:auto; background:white; padding: 5px; font-size:smaller;">
                 <thead>
                     <tr>
-                        <th>items</th>
-                        <th>section</th>
-                        <th>items</th>
+                        <th>pants</th>
+                        <th>shirts</th>
+                        <th>calculation</th>
                         <th>seconds</th>
                     </tr>
                 </thead>
@@ -517,36 +508,36 @@ for pile in piles:
                     <tr class="fragment">
                         <td>4</td>
                         <td>4</td>
-                        <td>(4*10 + 4*30 + 4*4*2)</td>
-                        <td>192</td>
+                        <td>(4*2*4*2)</td>
+                        <td>64</td>
                     </tr>
                     <tr class="fragment">
                         <td>8</td>
                         <td>8</td>
-                        <td>(8*10 + 8*30 + 8*8*2)</td>
-                        <td>448</td>
+                        <td>(8*2*8*2)</td>
+                        <td>256</td>
                     </tr>
                     <tr class="fragment">
                         <td>1024</td>
                         <td>1024</td>
-                        <td>(1024*10 + 1024*30 + 1024*1024*2)</td>
-                        <td>2138112</td>
+                        <td>(1024*2*1024*2)</td>
+                        <td>4194304</td>
                     </tr>
                 </tbody>
               </table>
               <br>
                <p class="fragment">
-                If N = # items of clothing and # items in section,
-                <br>time it takes: (N*10 + N*30 + N*N*2)
+                If N = # of pants and # of shirts,
+                <br>time it takes: (N*2*N*2)
                </p>
             </section>
 
             <section>
-                <h3>Laundry v3 Big O Notation</h3>
+                <h3>Making Outfits Big O Notation</h3>
                 <br>
-                (N*10 + N*30 + N*N*2)
-                <p class="fragment">&#x2192; O(40N + 2N<sup>2</sup>)</p>
-                <p class="fragment">&#x2192; O(2N<sup>2</sup>)</p>
+                (N*2*N*2)
+                <p class="fragment">&#x2192; O(N*2*N*2)</p>
+                <p class="fragment">&#x2192; O(4*N<sup>2</sup>)</p>
                 <p class="fragment">&#x2192; O(N<sup>2</sup>)</p>
                 <br>
                 <p class="red fragment">Quadratic time</p>
