@@ -17,7 +17,7 @@ var youtube = {
      * and returns back the URL of the thumbnail for that video.
      */
     generateThumbnailUrl: function(videoIdOrUrl) {
-        return 'http://i3.ytimg.com/vi/' + youtube.getIdFromUrl(videoIdOrUrl) + '/default.jpg';
+        return 'https://i3.ytimg.com/vi/' + youtube.getIdFromUrl(videoIdOrUrl) + '/default.jpg';
     },
 
     /**
@@ -33,8 +33,7 @@ var youtube = {
      * and returns back the embed URL for that video.
      */
     generateEmbedUrl: function(videoIdOrUrl) {
-        return 'http://www.youtube.com/embed/' + youtube.getIdFromUrl(videoIdOrUrl);
+        return 'https://www.youtube.com/embed/' + youtube.getIdFromUrl(videoIdOrUrl);
     }
 
 }
-

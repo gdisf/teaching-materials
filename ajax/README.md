@@ -1,6 +1,6 @@
 # JSON & AJAX
 
-Slides and materials are hosted [here](http://teaching-materials.org/ajax).
+Slides and materials are hosted [here](https://wwww.teaching-materials.org/ajax/).
 
 ## Course description
 

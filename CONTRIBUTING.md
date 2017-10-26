@@ -1,5 +1,3 @@
-# Contributing 
-
 We're so glad you want to contribute! Here are a couple of tips for contributing successfully:
 
 1. Please make sure your revision history is as easy to read as possible
@@ -11,9 +9,9 @@ We're so glad you want to contribute! Here are a couple of tips for contributing
 
 ## Repository Structure
 
-Our materials are deployed as static pages using Github Pages. Links will be directly correlated with file paths. Github Pages will also automatically resolve `index.html` pages. 
+Our materials are deployed as static pages using Netlify. Links will be directly correlated with file paths, and will also automatically resolve `index.html` pages. 
 
-All of our core curricula are linked from the root [index.html](www.teaching-materials.org) page.
+All of our core curricula are linked from the root [http://wwww.teaching-materials.org](www.teaching-materials.org) page.
 
 ## Pull Requests
 
@@ -26,4 +24,4 @@ Want to help us maintain our curricula? Here's how!
 
 ## Issues
 
-If you've identified an issue, please log it under our **Issues** section. Make sure you include the workshop name in the title, like "JSOO".
+If you've identified an issue, please log it under our **[Issues](https://github.com/gdisf/teaching-materials/issues)** section. Make sure you include the workshop name in the title. Example issue: "[JS 101] Broken link in exercise 2".

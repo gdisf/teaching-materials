@@ -12,16 +12,13 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-	<link rel="stylesheet" href="../common/css/reveal.css">
-	<link rel="stylesheet" href="../common/css/default.css" id="theme">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="../common/css/reveal.min.css">
+	<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
 
 	<!-- For syntax highlighting -->
-	<!-- light editor -->
-	<link rel="stylesheet" href="../common/css/theme/light.css">
-	<!-- dark editor <link rel="stylesheet" href="dist/css/dark.css">-->
-	<!-- <link rel="stylesheet" href="dist/css/zenburn.css"> -->
-
-	<link rel="stylesheet" href="../common/plugin/accessibility-helper/css/accessibility-helper.css">
+	<link rel="stylesheet" href="../common/css/editor/dark.css">
 
 	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 	<script>
@@ -36,12 +33,12 @@
 
 	<!-- If use the PDF print sheet so students can print slides-->
 	<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
-	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
 	<!--[if lt IE 9]>
 		<script src="dist/js/html5shiv.js"></script>
 	<![endif]-->
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 
 <body>
@@ -75,7 +72,7 @@
 					</ul>
 				</div>
 				<aside class="notes">
-					Welcome! How many people have been to a GDI class before? Here are rules we live by. [GDI leader usually does this part]
+					Welcome! Here are rules we live by. [GDI leader usually does this part]
 				</aside>
 			</section>
 
@@ -139,15 +136,6 @@
 
 			<section>
 				<h3>Welcome!</h3>
-				<h4>About Your Instructor</h4>
-				<!-- EDIT THIS with Instructor info -->
-				<img src="images/people/CarolynGrabill.jpg" alt="Carolyn Grabill" class="left">
-				<div class="left-align instructor">
-					<p>Carolyn Grabill</p>
-					<p>Lead Software Development Engineer at Salesforce</p>
-					<p><a href="https://twitter.com/carolyncodes?lang=en" target="_blank">@CarolynCodes</a></p>
-					<p>cgrabill [at] salesforce [dot] com</p>
-				</div>
 				<!-- end EDIT section -->
 				<aside class="notes">
 					[instructor intro: give a quick background & why you are teaching the class]<br>
@@ -157,65 +145,16 @@
 			</section>
 
 			<section>
-				<h3>Welcome!</h3>
-				<div class="left-align">
-					<p class="blue">Tell us about yourself.</p>
-					<ul>
-						<li>What's your name?</li>
-						<li>What do you hope to get out of the class?</li>
-						<li>What your current favorite song/artist?</li>
-					</ul>
-				</div>
-				<aside class="notes">
-					Now we want to know a little about you. <br>
-					[This takes some time, depending on class size, but it worth it because them people get to know each other a little and get more comfortable. Students connecting with each other is just as important as learning the material. Pick your favorite icebreaker: favorite breakfast food, favorite candy, favorite Girl Scout Cookie, favorite ice cream, would you rather be invisible or be able to fly, do you prefer Star Wars or Star Trek or neither, favorite mobile app?] <br>
-					[Note: In one class we made a Spotify playlist out of everyone’s favorite music and played it during the hands on time. The students enjoyed that and we all heard some new music.]
-				</aside>
-			</section>
+ 				<h3>Welcome!</h3>
+ 				<aside class="notes">
+					 	Now we want to know a little about you. <br>
+				 		[This takes some time, depending on class size, but it worth it because them people get to know each other a little and get more comfortable. Students connecting with each other is just as important as learning the material. Pick your favorite icebreaker: favorite breakfast food, favorite candy, favorite Girl Scout Cookie, favorite ice cream, would you rather be invisible or be able to fly, do you prefer Star Wars or Star Trek or neither, favorite mobile app?] <br>
+				 		[Note: In one class we made a Spotify playlist out of everyone’s favorite music and played it during the hands on time. The students enjoyed that and we all heard some new music.]
+ 				</aside>
 
-			<section>
-				<h3>Welcome!</h3>
-				<h4>Teaching Assistants</h4>
-				<ul class="teachingassistants">
-					<!-- EDIT THIS with TA info -->
-					<li>
-						<img src="images/people/Anjali.jpg" alt="Anjali">
-						Anjali Ashok<br />
-					</li>
-					<li>
-						<img src="images/people/Katherine.jpg" alt="No image available">
-						Katherine Cass<br />
-					</li>
-					<li>
-						<img src="images/people/Roojuta.jpg" alt="No image available">
-						Roojuta Lalani<br />
-					</li>					
-					<!-- end EDIT section -->
-					<li><img src="images/user-groups-logo.png" alt="Salesforce User Groups" class="noborder"></li>
-				</ul>
-
-				<ul class="teachingassistants">
-					<!-- EDIT THIS with TA info -->
-					<li>
-						<img src="images/people/Donna.jpg" alt="DonnaGao">
-						Donna Gao<br />
-					</li>
-					<li>
-						<img src="images/avatar.png" alt="No image available">
-						Yelizaveta Burakova	<br />
-					</li>
-					<li>
-						<img src="images/people/Munira.jpg" alt="No image available">
-						Munira Majmundar<br />
-					</li>					
-					<!-- end EDIT section -->
-					<li><img src="../common/img/circle-gdi-logo.png" alt="Salesforce User Groups" class="noborder">
-						Lijie Zhou
-					</li>
-				</ul>
 				<aside class="notes">
-					We have wondering volunteers from the local Salesforce Women in Technology user group. Salesforce has many user groups, some are focused on developers, some on end users and admins, and the WIT groups are focused on women supporting each other’s success. We have WIT groups in 30 cities around the world. I’d like to give the volunteers a minute to introduce themselves and give a little background as to how they got into Salesforce and what their current role is. And I highly encourage everyone to ask tons of questions and get to know them during the day. One of the biggest strengths of the Salesforce platform is the strength of the community.<br>
-					[have TAs intro themselves, including their role and how they first got into Salesforce – keep it short, 1 min each]
+	 					We have wondering volunteers from the local Salesforce Women in Technology user group. Salesforce has many user groups, some are focused on developers, some on end users and admins, and the WIT groups are focused on women supporting each other’s success. We have WIT groups in 30 cities around the world. I’d like to give the volunteers a minute to introduce themselves and give a little background as to how they got into Salesforce and what their current role is. And I highly encourage everyone to ask tons of questions and get to know them during the day. One of the biggest strengths of the Salesforce platform is the strength of the community.<br>
+	 					[have TAs intro themselves, including their role and how they first got into Salesforce – keep it short, 1 min each]
 				</aside>
 			</section>
 
@@ -658,7 +597,7 @@
 
 				<aside class="notes">
 					[Ease back into the content by introducing students to the Success Community.]
-The Success Community is the place to go to find answers and to connect with other Salesforce professionals. In the Collaboration area you’ll find a ton of interest groups. In [cityname] we have a Salesforce Women in Tech User Group and ____________. Take a minute to update your Profile and join a group. 
+The Success Community is the place to go to find answers and to connect with other Salesforce professionals. In the Collaboration area you’ll find a ton of interest groups. In [cityname] we have a Salesforce Women in Tech User Group and ____________. Take a minute to update your Profile and join a group.
 
 				</aside>
 			</section>
@@ -1280,7 +1219,7 @@ The Success Community is the place to go to find answers and to connect with oth
 	</div>
 
 
-	<script src="../common/js/head.min.js"></script>
+	<script src="../common/lib/js/head.min.js"></script>
 	<script src="../common/js/reveal.min.js"></script>
 
 	<script>
@@ -1296,22 +1235,22 @@ The Success Community is the place to go to find answers and to connect with oth
 
 			// Optional reveal.js plugins
 			dependencies: [{
-				src: 'dist/js/classList.js',
+				src: '../common/lib/js/classList.js',
 				condition: function() {
 					return !document.body.classList;
 				}
 			}, {
-				src: 'plugin/markdown/marked.js',
+				src: '../common/;lplugin/markdown/marked.js',
 				condition: function() {
 					return !!document.querySelector('[data-markdown]');
 				}
 			}, {
-				src: 'plugin/markdown/markdown.js',
+				src: '../common/plugin/markdown/markdown.js',
 				condition: function() {
 					return !!document.querySelector('[data-markdown]');
 				}
 			}, {
-				src: 'plugin/highlight/highlight.js',
+				src: '../common/plugin/highlight/highlight.js',
 				async: true,
 				condition: function() {
 					return !!document.querySelector('pre code');
