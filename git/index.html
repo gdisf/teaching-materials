@@ -50,6 +50,7 @@
           <h3>Welcome!</h3>
           <h3>What we will cover in this workshop</h3>
           <ul>
+            <li class ="fragment">Short recap of command line</li>
             <li class ="fragment">What is version control and why should we care?</li>
             <li class ="fragment">Basics of Git: the essential commands</li>
 <!--            <li class ="fragment">GitHub (or, a little Git between friends)</li>-->
@@ -100,6 +101,76 @@ $ git config --list
             <a href="https://help.github.com/articles/set-up-git/">Instructions on GitHub for reference</a>
             <p>BONUS LEVEL: Set up your GitHub account and authentication from Git.</p>
             </div>
+        </section>
+
+        <!--Command line review -->
+        <section>
+          <h2>Command Line Recap</h3>
+        </section>
+        <section>
+          <h3>Common commands</h3>
+          <ul>
+            <li><code class ="inline">cd</code>: change directory</li>
+            <li><code class ="inline">ls</code>: list all the files</li>
+            <li><code class ="inline">mkdir</code>: make directory</li>
+            <li><code class ="inline">rmdir</code>: remove/delete directory</li>
+            <li><code class ="inline">touch</code>: create a file</li>
+            <li><code class ="inline">rm</code>: remove a file</li>
+            <li><code class ="inline">pwd</code>: find out the file path of current directory you are in, from the root</li>
+          </ul>
+          <p>terminology note: directory === folder</p>
+        </section>
+
+        <section>
+          <h3>cd (changing directories)</h3>
+          <p>A little further explanation...</p>
+          <ul>
+            <li><code class ="inline">cd folder_name</code>: moves down into the folder</li>
+              example: cd my_kittens
+            <li><code class ="inline">cd path_name</code>: moves down into the last folder listed</li>
+              example: cd my_kittens/fuzzball/favorite_foods
+            <li><code class ="inline">cd ..</code>: moves up one folder</li>
+            <li><code class ="inline">cd ../../../</code>: moves up three folders</li>
+            <li><code class ="inline">cd ~</code>: moves to the root directory, no matter where you are</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Watch me!</h3>
+          <p><span class='green'>Goal: </span>Create a folder named <code class ="inline">kittens_example_project</code> on my desktop</p>
+
+        </section>
+
+        <section>
+          <h3>Exercise - Do it on your own!</h3>
+          <ol>
+            <li>Use the command line to navigate to your desktop folder</li>
+            <li>Create a folder called kittens_project</li>
+            <li>Move to inside of kittens_project folder</li>
+            <li>Check to see what is your current file path!</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>Potential solution</h3>
+          <ol>
+            <li>Use the command line to navigate to your desktop folder</li>
+            <pre><code class ="command-line">
+$ cd Desktop
+          </code></pre>
+            <li>Create a folder called kittens_project</li>
+            <pre><code class ="command-line">
+$ mkdir kittens_example_project
+          </code></pre>
+            <li>Move to inside of kittens_project folder</li>
+            <pre><code class ="command-line">
+$ cd kittens_example_project
+          </code></pre>
+          <li>Check to see what is your current file path!/li>
+            <pre><code class ="command-line">
+$ pwd
+          </code></pre>
+          </ol>
         </section>
 
         <!-- Version control-->
@@ -157,57 +228,44 @@ $ git config --list
             <li>Everyone has a local copy of the <span class="green">shared files</span> and the <span class="green">history.</span></li>
           </ul>
         </section>
-        <!-- Git terms and commands-->
-        <section>
-          <h3> Git has its own Vocabulary </h3>
-            <ul>
-            <li> A <span class="green">repository</span> is where you keep all the files you want to track.</li>
-            <li> A <span class="green">branch</span> is the name for a separate line of development, with its own history.</li>
-            <li> A <span class="green">commit</span> is an object that holds information about a particular change. </li>
-            <li> <span class="green">HEAD</span> refers to the most recent commit on the current branch.</li>
-            </ul>
 
+        <section>
+          <h3>What is a repository (repo)?</h3>
+          <p>Essentially, a Git version of project folder.</p>
+          <p>Git will track any changes inside of a repository.</p>
         </section>
         <section>
-        <h3>Some Basic Git Commands</h3>
-          <ul style="font-family: monospace;">
-            <li>init</li>
-            <li>add</li>
-            <li>commit</li>
-            <li>status</li>
-            <li>log</li>
-            <li>branch</li>
-            <li>checkout</li>
-            <li>fetch</li>
-            <li>merge</li>
-            <li>pull</li>
-            <li>push</li>
-            <li>clone</li>
-          </ul>
-        </section>
-        <section>
-          <h3>Create a Local Repository</h3>
-          <p>1. Go to your home directory</p>
+          <h3>Create a Local Repository - Do it with me!</h3>
+          <p>1. Make sure you are inside of your kittens_example_project</p>
           <pre><code class ="command-line">
-$ cd
-OR
-$ cd Users/username
-          </code></pre>
-          <p>2. Create a new "working directory" and <span class="green">cd</span> into it</p>
-          <pre><code class ="command-line">
-$ mkdir my-repo
-$ cd my-repo
-          </code></pre>
-          <p>3. Initialize it as a local Git repository</p>
-          <pre><code class ="bash">
-# make sure you are in the right directory!
 $ pwd
+          </code></pre>
+          <p>2. Initialize it as a local Git repository</p>
+          <pre><code class ="bash">
+$ git status
+# should say 'command git not found because we haven't made it a repository yet!
 $ git init
 $ git status
           </code></pre>
         </section>
+
         <section>
-          <h3>Add files</h3>
+          <h3>Woah, what did we just do?</h3>
+          <p>git init will transform any folder into a Git repostiory.</p>
+          </p>You can think of it as giving Git super powers to a folder so that Git starts tracking any changes in that folder.</p>
+          <p>If the command git status returns no errors, it means your folder has successfully been Git-ified!</p>
+        </section>
+
+        <section>
+          <h3>Good repository practices</h3>
+          <ul>
+            <li>repos are meant to be self encapsulating project folders.  'Project' can be how you define it - one html page or a whole app</li>
+            <li>It's a good idea to name folders with lowercase and with no spaces - use dashes or underscores instead</li>
+            <li><span class='pink'>WARNING NOTE</span>: Do not put a repo inside of a repo. Git will get confused and have no idea what changes to track</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Add files - Do it with me!</h3>
           <p>1. Create a new file in your new folder named <span class="green">kitten.txt</span></p>
 <pre><code class ="command-line">
 $ touch kitten.txt
@@ -246,9 +304,13 @@ $ git commit -m "First commit. Added kitten.txt to repository."
           <div class="fragment"><h5>How is all this different from just saving a file?</h5></div>
           <ul>
             <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked. </li>
-            <li class="fragment">This is also called  <span class ="green">staging</span> a file. A snapshot of our changes is now in the <span class ="green">staging area</span> (aka the <span class ="green">index</span>, aka the <span class ="green">cache</span>), ready to be saved.</li>
-            <li class="fragment">A <span class ="green">commit</span> saves the <span class="blue">changes</span> made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom. (<a href="https://alistapart.com/article/the-art-of-the-commit">Good commit messages</a> help, too.)</li>
+            <li class="fragment">This is also called  <span class ="green">staging</span> a file. We can see our changes in the <span class ="green">staging area</span> (aka the <span class ="green">index</span>, aka the <span class ="green">cache</span>), ready to be saved.</li>
+            <li class="fragment">A <span class ="green">commit</span> saves the <span class="blue">changes</span> made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom.</li>
           </ul>
+        </section>
+        <section>
+          <h3>In other words...</h3>
+          <p>...a commit is like a snapshot of your project at a current time</p>
         </section>
         <section>
           <h3>Look at your progress</h3>
@@ -263,21 +325,53 @@ Date:   Tues May 23 16:01:22 2017 -0700
   First commit. Added kitten.txt to repository.
             </code></pre>
         </section>
+
         <section>
-        <h3>Congratulations. <br>You are now using Git.</h3>
-        <img src="images/Liz-Lemon-giving-herself-high-five.gif" alt="Give yourself a high five, like Liz Lemon." />
+          <h3>Congratulations. <br>You are now using Git.</h3>
+          <img src="images/Liz-Lemon-giving-herself-high-five.gif" alt="Give yourself a high five, like Liz Lemon." />
         </section>
+
         <section>
-          <h2>Now try...</h2>
+          <h3>When to commit?</h3>
+          <ul>
+            <li>Commit early and often!</li>
+            <li>When you have completed a mini 'idea' or 'task':</li>
             <ul>
-              <li>Make changes to <span class="green">kitten.txt</span> and make some more commits.</li>
-              <li>Add another file (or image!) to your project and commit that.</li>
-              <li>Change more than one file at a time, and practice making commits where you stage only one file, or both files together.</li>
-              <li>Try the <a href="https://git-scm.com/docs/git-diff" style="font-family: monospace;">git diff</a> command when you have unstaged changed.</li>
-              <li>Look at your history with <span class="green"style="font-family: monospace;">git log</span> as you add more commits (and try adding the <span class="green"style="font-family: monospace;">--oneline</span> option) </li>
+              <li>You got a function to work!</li>
+              <li>You corrected a few misspellings</li>
+              <li>You added some images</li>
             </ul>
-            <h4 style="margin-top: 30px;"> Don't forget to run <span class="green">git status</span> regularly so that you can see what is happening at each stage!</h4>
+            <li><span class='pink'>IMPORTANT NOTE:</span> Commit when your code works!  Try not to commit broken code</li>
+          </ul>
+
         </section>
+
+        <section>
+          <h3>Good commit messages</h3>
+          <p>Include a descriptive but succinct message of the changes you have made, in the present tense</p>
+          <pre><code class ="command-line">
+$ git commit -m "Add capitalization function for header text"
+            </code></pre>
+          <p>Main point is: other people need to be able to read your commit history and understand what you were accomplishing at each step of the way</p>
+          <a href="https://alistapart.com/article/the-art-of-the-commit">Article: Art of the commit</a>
+        </section>
+
+        <section>
+          <h3>Quick review</h3>
+          <ul>
+            <li>git init: turns a folder into a Git repository</li>
+            <li>git status: checks the status of your files</li>
+            <li>git add <em>file_name</em>: adds file to the staging area</li>
+            <li>git commit -m "your commit message": commits your changes</li>
+            <li>git log: see your commits so far</li>
+        </section>
+
+
+        <section>
+          <h2>Exercise in Commitment - Do It Yourself!</h2>
+          <a href="/commit-exercise.html">Click here for the exercise!</a>
+        </section>
+
       <!-- Git Structure -->
         <section>
           <h3>The Magical Realms of Git</h3>
@@ -535,12 +629,37 @@ $ git merge master #remember, you are on the feature branch here
           <h3>The big picture</h3>
           <img src="images/basic-remote-workflow.png" style="height:550px;"/>
           </section>
+
+
+          <!-- Git terms and commands-->
+        <section>
+          <h3> Git has its own Vocabulary </h3>
+            <ul>
+            <li> A <span class="green">repository</span> is where you keep all the files you want to track.</li>
+            <li> A <span class="green">branch</span> is the name for a separate line of development, with its own history.</li>
+            <li> A <span class="green">commit</span> is an object that holds information about a particular change. </li>
+            <li> <span class="green">HEAD</span> refers to the most recent commit on the current branch.</li>
+            </ul>
+
+        </section>
+        <section>
+        <h3>Some Basic Git Commands</h3>
+          <ul style="font-family: monospace;">
+            <li>init</li>
+            <li>add</li>
+            <li>commit</li>
+            <li>status</li>
+            <li>log</li>
+            <li>branch</li>
+            <li>checkout</li>
+            <li>fetch</li>
+            <li>merge</li>
+            <li>pull</li>
+            <li>push</li>
+            <li>clone</li>
+          </ul>
+        </section>
           
-          
-          
-        <!-- GitHub-->
-      
-        <!-- -->
         <section>
           <h2>Questions?</h2>
           <img src = "images/git_hamster.jpg" alt ="Git Push Origin Hamster"/>
