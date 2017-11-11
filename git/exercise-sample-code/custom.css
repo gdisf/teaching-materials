@@ -1,1 +1,19 @@
-custom.css
+.btn-primary {
+    background-color: purple;
+    border-color: purple;
+}
+
+.btn-secondary {
+  background-color: lavender;  
+    border-color: lavender;
+    color: purple;
+}
+
+.jumbotron {
+    background-image: url(https://static.pexels.com/photos/59523/pexels-photo-59523.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 0% 25%;
+}
