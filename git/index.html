@@ -160,11 +160,11 @@ $ cd Desktop
           </code></pre>
             <li>Create a folder called kittens_project</li>
             <pre><code class ="command-line">
-$ mkdir kittens_example_project
+$ mkdir kittens_project
           </code></pre>
             <li>Move to inside of kittens_project folder</li>
             <pre><code class ="command-line">
-$ cd kittens_example_project
+$ cd kittens_project
           </code></pre>
           <li>Check to see what is your current file path!/li>
             <pre><code class ="command-line">
@@ -236,7 +236,7 @@ $ pwd
         </section>
         <section>
           <h3>Create a Local Repository - Do it with me!</h3>
-          <p>1. Make sure you are inside of your kittens_example_project</p>
+          <p>1. Make sure you are inside of your kittens_project</p>
           <pre><code class ="command-line">
 $ pwd
           </code></pre>
@@ -251,7 +251,7 @@ $ git status
 
         <section>
           <h3>Woah, what did we just do?</h3>
-          <p>git init will transform any folder into a Git repostiory.</p>
+          <p><code class ="inline">git init</code> will transform any folder into a Git repostiory.</p>
           </p>You can think of it as giving Git super powers to a folder so that Git starts tracking any changes in that folder.</p>
           <p>If the command git status returns no errors, it means your folder has successfully been Git-ified!</p>
         </section>
@@ -311,6 +311,7 @@ $ git commit -m "First commit. Added kitten.txt to repository."
         <section>
           <h3>In other words...</h3>
           <p>...a commit is like a snapshot of your project at a current time</p>
+          <img style="height: 200px; width: 200px" src="images/polaroid.png">
         </section>
         <section>
           <h3>Look at your progress</h3>
@@ -359,68 +360,50 @@ $ git commit -m "Add capitalization function for header text"
         <section>
           <h3>Quick review</h3>
           <ul>
-            <li>git init: turns a folder into a Git repository</li>
-            <li>git status: checks the status of your files</li>
-            <li>git add <em>file_name</em>: adds file to the staging area</li>
-            <li>git commit -m "your commit message": commits your changes</li>
-            <li>git log: see your commits so far</li>
+            <li><code class ="inline">git init</code>: turns a folder into a Git repository</li>
+            <li><code class ="inline">git status</code>: checks the status of your files</li>
+            <li><code class ="inline">git add <em>file_name</em></code>: adds file to the staging area</li>
+            <li><code class ="inline">git commit -m "your commit message"</code>: commits your changes</li>
+            <li><code class ="inline">git log</code>: see your commits so far</li>
         </section>
 
 
         <section>
-          <h2>Exercise in Commitment - Do It Yourself!</h2>
-          <a href="/commit-exercise.html">Click here for the exercise!</a>
+          <h2>Commit Exercise - Do It Yourself!</h2>
+          <a href="./commit_exercise.html">Click here for the exercise!</a>
         </section>
 
       <!-- Git Structure -->
         <section>
-          <h3>The Magical Realms of Git</h3>
-          <img src="images/git_index_structure.png" style="height:550px;"/>
+          <h3>The Magical Stages of Git</h3>
+          <img src="images/three_stages_commit.png" style="height:550px;"/>
         </section>
         <section>
-          <h3>The Workspace</h3>
-          <h4>Working Tree</h4>
-          <img src="images/git_index_structure.png" style="height:400px;"/>
-          <p>What you see in your editor and where you make your changes</p>
+          <h3>Modified/Untracked</h3>
+          <img src="images/modified.png" style="height:200px;"/>
+          <p>When you make changes to a file or add a new file but haven't added or committed yet</p>
         </section>
         <section>
-          <h3>The Staging Area </h3>
-          <h4>Index / Cache</h4>
-          <img src="images/git_index_structure.png" style="height:400px;"/>
-          <p>A snapshot of your working tree at a particular point in development</p>
-          <p>lets you gather changes for the next commit</p>
+          <h3>Staged</h3>
+          <img src="images/staged.png" style="height:400px;"/>
+          <p>When you use <code class="inline">git add</code> to let Git know that these are the files you want to track</p>
         </section>
         <section>
-          <h3>Your Local Repo</h3>
-          <img src="images/git_index_structure.png" style="height:400px;"/>
-          <p>Your copy of a project, initialized as a Git repository</p>
-          <p>(i.e., it has a <span class="green">.git</span> directory)</p>
-        </section>
-        <section>
-          <h3>The Remote Repo</h3>
-          <img src="images/git_index_structure.png" style="height:350px;"/>
-          <p>The shared copy of the repo that lives on a remote server</p>
-          <p>Very often this is GitHub, but it doesn't have to be.</p>
-          <p>Conventionally named <span class="green">origin</span> but doesn't have to be.</p>
-        </section>
-        <section>
-          <h3>It's all about the history</h3>
-          <img src="images/history.png" style="height: 550px; border: none;"  />
-        </section>
-        <section>
-          <h3>What should I use version control for?</h3>
-          <h4>Anything. But not everything.</h4>
-          <img src="images/allthethings.jpg"/ alt="version control ALL THE THINGS!" style="margin-top: 50px;">
+          <h3>Committed!</h3>
+          <p>Success
 
         </section>
         <section>
-          <h3>Gitignore</h3>
-          <p>You decide what goes into version control.You can, and should, leave some things out.</p>
-          <p class="green">libraries, .dotfiles, api keys...</p>
-          <img src="images/ronignore.gif"/>
-          <p>The<a href="https://help.github.com/articles/ignoring-files/">.gitignore</a> file at the root of your project directory</p>
-          <p>Check out <a href="https://www.gitignore.io/">gitignore.io</a> for some suggestions.</p>
+          <h3>The Staging Area - Track all the things!</h3>
+          <p>When you <code class="inline">git add</code>, that's asking Git to 'stage'/'track' a new file or a particular change you made to a file<p>
         </section>
+        <section>
+          <h3>Your Local Repo</h3>
+          <img src="images/git_staging.png" style="height:400px;"/>
+          <p>Your copy of a project, initialized as a Git repository</p>
+          <p>(i.e., it has a <span class="green">.git</span> directory)</p>
+        </section>
+       
         <!-- Undoing changes -->
         <section>
           <h3>We all make mistakes</h3>
