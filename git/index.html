@@ -375,33 +375,38 @@ $ git commit -m "Add capitalization function for header text"
 
       <!-- Git Structure -->
         <section>
-          <h3>The Magical Stages of Git</h3>
+          <h3>The Magical States of Git</h3>
           <img src="images/three_stages_commit.png" style="height:550px;"/>
         </section>
         <section>
           <h3>Modified/Untracked</h3>
-          <img src="images/modified.png" style="height:200px;"/>
+          <img src="images/modified.png"/>
           <p>When you make changes to a file or add a new file but haven't added or committed yet</p>
         </section>
         <section>
           <h3>Staged</h3>
-          <img src="images/staged.png" style="height:400px;"/>
-          <p>When you use <code class="inline">git add</code> to let Git know that these are the files you want to track</p>
+          <img src="images/staged.png" />
+          <p>When you use <code class="inline">git add</code> to let Git know that these are the files you want to 'stage'/track</p>
         </section>
         <section>
           <h3>Committed!</h3>
-          <p>Success
+          <img src="images/commit.png" />
+          <p><span class="green">Success!</span></p>
+        </section>
 
-        </section>
         <section>
-          <h3>The Staging Area - Track all the things!</h3>
-          <p>When you <code class="inline">git add</code>, that's asking Git to 'stage'/'track' a new file or a particular change you made to a file<p>
+          <h3>The Magical Realms of Git</h3>
+          <p>Each of the states of Git corresponds to an area of the Git repo, so here's some vocab:</p>
+          <img src="images/git_staging.png" />
         </section>
+
         <section>
-          <h3>Your Local Repo</h3>
-          <img src="images/git_staging.png" style="height:400px;"/>
-          <p>Your copy of a project, initialized as a Git repository</p>
-          <p>(i.e., it has a <span class="green">.git</span> directory)</p>
+          <h3>The Magical Realms of Git</h3>
+          <ul>
+            <li><span class="green">Working directory/tree</span>: The current version of your project where you are making changes (which is reflected in your code editor)</li>
+            <li><span class="green">Staging Area</span>: The place where you stage your files when you are readying them to commit</li>
+            <li><span class="green">Repository</span>: When you commit, Git permanently saves only the changes from your staging area to the repo's memory</li>
+          </ul>
         </section>
        
         <!-- Undoing changes -->
@@ -410,79 +415,79 @@ $ git commit -m "Add capitalization function for header text"
           <img src="images/mistakes-were-made.jpg" alt="Those WERE the Droids I was looking for!"/>
           <p class="fragment">Don't worry. Git is your friend.</p>
         </section>
+
         <section>
-          <h3>Undoing changes in your working copy</h3>
-          <p class="blue">If you haven't added/committed yet</p>
+          <h3>Set up</h3>
+          <ol>
+            <li>Move back to your kittens_project repository</li>
+            <li>Watch me do the next examples first, then try it yourself!</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>Scenario 1: Undoing modified changes</h3>
+          <p>You made some changes to some files (have not git added or committed yet), and realize you don't want those changes!</p>
           <div class = "fragment">
             <p>Open <span class="green">kitten.txt</span> and make some changes or add something new. Then:</p>
-            <pre><code  class ="command-line">
+            <pre><code class ="command-line">
 $ git checkout kitten.txt
             </code></pre>
           </div>
           <p class="fragment">Look at <span class="green">kitten.txt</span> in your editor: your changes are gone (you've gone back to the previous commit state).</p>
         </section>
+
         <section>
-          <h3>Un-staging a file</h3>
-            <ol>
-              <li>In your text editor, create a new file, and name it <span class="green">possum.txt</span></li>
-              <li>Switch back to your terminal.</li>
-            </ol>
-            <pre><code class ="command-line">
+          <h3>Scenario 2: Unstaging a file</h3>
+            <p class="fragment">You git add a modified or new file, but realized you don't want it your next commit!</p>
+            <p class="fragment">In your text editor, create a new file, and name it <span class="green">possum.txt</span>. Then: </p>
+            <pre><code class="command-line fragment">
 $ git add possum.txt
 $ git status
 $ git reset possum.txt
 $ git status
             </code></pre>
-            <p class-"fragment">The file is removed from staging, but your working copy will be unchanged.</p>
+            <p class="fragment">The file is removed from staging, but your working copy will be unchanged.</p>
         </section>
+
         <section>
-          <h3>Undoing changes you've already staged</h3>
-          <div class = "fragment">
-            <p>Open <span class="green">kitten.txt</span> in your editor and add some new text.</p>
-            <pre><code class ="command-line">
-$ git add kitten.txt
-$ git reset HEAD kitten.txt
-$ git status # the file has been unstaged.
-$ git checkout kitten.txt
-# resets the working copy to its state at the last commit
-            </code></pre>
-          </div>
-          <p class="fragment">Now look at the same file in your editor again: your changes are gone, and the file is removed from staging. </p>
-        </section>
-        <section>
-          <h3>Er, what if I already committed it?</h3>
-          <h4>Undoing committed changes</h4>
-          <p>Git lets you go back to any previous commit.</p>
-          <div class = "fragment">
-            <p>Open <span class="green">kitten.txt</span> and add some new text</p>
-            <pre><code class ="command-line">
+          <h3>Scenario 3a: Uncommitting, but want to keep all your changes</h3>
+          <p class="fragment">You made a commit, but then realize that a piece of code doesn't work, so you just want to uncommit!</p>
+          <p class="fragment">Open <span class="green">kitten.txt</span> and make some changes. Then:</p>
+          <pre><code class ="command-line fragment">
 $ git add kitten.txt
 $ git status
-$ git commit -m "Make a change I will soon regret making"
-$ git log --oneline
-# you should see (at least) two commits here at this point
-# copy the short form of the hash id
+$ git commit -m "Make changes to kitten text file"
+$ git reset --soft HEAD~1
+$ git status
             </code></pre>
-          </div>
         </section>
+
         <section>
-          <h3> Soft reset </h3>
-          <h4>Undoing just the commit</h4>
-          <pre><code class ="command-line">
-$ git reset --soft 53d23c4
-$ git log --oneline
-          </code></pre>
-          <p >Notice that the commit is gone from your log, but your changes are still in your editor.</p>
+          <h3>Explanation</h3>
+          <p class="fragment">Your most recent commit is called the <span class="green">HEAD</span></p>
+          <p class="fragment">passing <code class="inline">git reset</code> the options of <code class="inline">--soft HEAD~1</code> essentially asks to move the HEAD 1 commit back (essentially uncommitting your most recent commit) but keep all the work you have done, which you can see in the staging area</p>
         </section>
+
         <section>
-          <h3> Hard reset </h3>
-          <h4>Undoing the commit AND the changes</h4>
-          <pre><code class ="command-line">
-$ git reset --hard 53d23c4
-$ git log --oneline
-          </code></pre>
-          <p >Notice that the commit is gone from your log, AND your changes are removed in your editor.</p>
+          <h3>Scenario 3b: Uncommitting, but you don't want to keep any changes, period</h3>
+          <p class="fragment">You realize you don't want any of the code in your previous commit, so just getting rid of that commit completely</p>
+          <p class="fragment">You still have the change in the staging area for kitten.txt</p>
+          <pre><code class ="command-line fragment">
+$ git add kitten.txt
+$ git status
+$ git commit -m "Make changes to kitten text file"
+$ git reset --hard HEAD~1
+$ git status
+        </code></pre>
         </section>
+
+        <section>
+          <h3>Explanation</h3>
+          <p class="fragment">passing <code class="inline">git reset</code> the options of <code class="inline">--hard HEAD~1</code> will delete the last specified commit and all the work related to it.</p>
+          <br />
+          <p class="fragment">Heads up, there are many, many different ways to undo changes.  That's the powerful about Git. Learn more at <a href="https://www.atlassian.com/git/tutorials/undoing-changes">Atlassian tutorial</a></p>
+        </section>
+
         <!-- Branches-->
         <section>
           <h3>Branching</h3>
@@ -495,7 +500,7 @@ $ git log --oneline
           <img src="images/branching-octocats.png" />
         </section>
         <section>
-        <h3>Branching</h3>
+        <h3>Why Do We Need Branching?</h3>
         <ul>
             <li>Develop different code on the <span class="pink">same base</span></li>
             <li>Conduct <span class="pink">experimental work</span> without affecting the work on master branch</li>
@@ -503,12 +508,40 @@ $ git log --oneline
           </ul>
           <p class= "fragment green"> Branches are cheap!</p>
         </section>
+
         <section>
-          <h3>Branching</h3>
-          <p>Create a new branch called <span class="green">feature</span></p>
+          <h3>Branching cycle</h3>
+          <p>You want to develop a new feature</p>
+          <ol>
+            <li>Make sure you are on master</li>
+            <li>Create a new branch and jump over to it</li>
+            <li>Develop your code.  Commit commit commit!</li>
+            <li>When the feature is done, merge it into master</li>
+          </ol>
+        </section>
+
+        <section>
+          <h3>Branching - Do it with me!</h3>
+          <p>Create a new branch called feature</p>
           <pre><code class ="command-line">
+$ git branch 
+// you should see only * master
 $ git checkout -b feature
+$ git branch
+// you should see * feature and master
           </code></pre>
+        </section>
+
+        <section>
+          <h3>Okay, let's break that down</h3>
+          <ul>
+            <li><code class="inline">git branch</code>: tells you what branches you have, and <code class="inline">*</code> indicates which branch you are currently on</li>
+            <li><code class="inline">git checkout -b branch-name</code>: the <code class="inline">-b</code> creates a new branch, and <code class="inline">checkout</code> will hop you over to that branch</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Committing on a new branch - Do it with me!</h3>
           <p>Add new lines to <span class="green">kitten.txt</span></p>
           <pre><code class ="command-line">
 $ git add kitten.txt
@@ -516,15 +549,15 @@ $ git commit -m "Adding changes to feature"
 $ git log --oneline
           </code></pre>
         </section>
+
         <section>
           <h3>Branching</h3>
           What we just did, in picture form:
           <img src="images/branching.png" />
         </section>
+
         <section>
-          <h3>Branching</h3>
-          <h4>Switching branches</h4>
-          <p>See all your local branches. Your active branch, the one you're "on," is marked with an * </p>
+          <h3>Switching branches - Do it with me!</h3>
           <pre><code class ="command-line">
 $ git branch
           </code></pre>
@@ -539,9 +572,13 @@ $ git checkout feature
 $ git log --oneline
           </code></pre>
         </section>
+
+        <section>
+        </section>
+
     <!-- Merging-->
         <section>
-          <h3>Merging</h3>
+          <h3>Merging - Do it With Me!</h3>
           <h4>Merge to get changes from one branch into another</h4>
           <p>Switch to master and merge changes</p>
           <pre><code class ="command-line">
@@ -550,6 +587,13 @@ $ git merge feature
 $ git log --oneline
           </code></pre>
         </section>
+
+        <!-- branching and merging exercize -->
+        <section>
+          <h3>Branching & Merging Exercise</h3>
+          <a>Click here for the exercise!</a>
+        </section>
+
         <section>
           <h3>Merging Branches</h3>
           <p>When you merge, you create a new commit on the branch you just merged into</p>
@@ -559,10 +603,12 @@ $ git log --oneline
           <h3>What could possibly go wrong?</h3>
           <img src="images/merge_conflicts_are_coming.jpg"/>
         </section>
+
         <section>
           <h3>What is a merge conflict?</h3>
           <img src="images/merge-conflict.png"/>
         </section>
+
         <section>
           <h3>what a merge conflict looks like</h3>
           <p>You will see this in the affected file your text editor</p>
@@ -577,6 +623,7 @@ Their changes are here in this section, in conflict with yours.
 And here is another line that is cleanly resolved or unmodified.
         </code></pre>
         </section>
+
         <section>
           <h3>Merging</h3>
           <h4>Merge conflicts</h4>
