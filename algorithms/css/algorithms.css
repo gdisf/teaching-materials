@@ -16,11 +16,11 @@ td, th {
 }
 
 .reveal pre code {
-	padding: 5px;
-	overflow: auto;
-	max-height: 400px;
-	word-wrap: normal;
-  text-align: left;
+    padding: 5px;
+    overflow: auto;
+    max-height: 400px;
+    word-wrap: normal;
+    text-align: left;
 }
 
 .reveal code {
@@ -32,4 +32,14 @@ pre code {
     background: white;
     color: #4d4d4c;
     padding: 0.5em;
+}
+
+.reveal sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+.reveal sup {
+    vertical-align: super;
+    font-size: smaller;
 }
