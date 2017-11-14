@@ -527,17 +527,17 @@ for shirt in shirts_pile:
               </table>
               <br>
                <p class="fragment">
-                If N = # of pants and # of shirts,
-                <br>time it takes: (N*2*N*2)
+                If N = # items of clothing and # items in section,
+                <br>time it takes: (N*10 + N*30 + N*N*2)
                </p>
             </section>
 
             <section>
-                <h3>Making Outfits Big O Notation</h3>
+                <h3>Laundry v3 Big O Notation</h3>
                 <br>
-                (N*2*N*2)
-                <p class="fragment">&#x2192; O(N*2*N*2)</p>
-                <p class="fragment">&#x2192; O(4*N<sup>2</sup>)</p>
+                (N*10 + N*30 + N*N*2)
+                <p class="fragment">&#x2192; O(40N + 2N<sup>2</sup>)</p>
+                <p class="fragment">&#x2192; O(2N<sup>2</sup>)</p>
                 <p class="fragment">&#x2192; O(N<sup>2</sup>)</p>
                 <br>
                 <p class="red fragment">Quadratic time</p>
