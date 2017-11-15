@@ -50,57 +50,23 @@
           <h3>Welcome!</h3>
           <h3>What we will cover in this workshop</h3>
           <ul>
-            <li class ="fragment">Short recap of command line</li>
-            <li class ="fragment">What is version control and why should we care?</li>
-            <li class ="fragment">Basics of Git: the essential commands</li>
-<!--            <li class ="fragment">GitHub (or, a little Git between friends)</li>-->
+            <li class="fragment">Short recap of the command line</li>
+            <li class="fragment">What is version control and why should we care?</li>
+            <li class="fragment">Basics of Git: the essential commands</li>
+<!--            <li class="fragment">GitHub (or, a little Git between friends)</li>-->
           </ul>
         </section>
+
         <section>
           <h3>If it seems hard, it's because it is</h3>
-          <a href="https://xkcd.com/1597/" class="image"><img src = "https://imgs.xkcd.com/comics/git.png" alt = "Git comic on XKCD"/></a>
-          <blockquote>"The version control system that was ... designed to make you feel less intelligent" 
-            (<a href="https://youtu.be/4XpnKHJAok8">source</a>)
+          <p class="fragment">A Google engineer, speaking to an audience of Google engineers, once described the newly invented Git as:</p>
+          <br>
+          <blockquote  class="fragment">"a version control system which is expressly designed to make you feel less intelligent" 
+            (<a href="https://youtu.be/4XpnKHJAok8" target="_blank">source</a>)
           </blockquote>
-        </section>
-         <!-- Installation and Setup-->
-        <section>
-          <h3>Installation and Setup</h3>
-          
-            <p><a href = "http://git-scm.com/downloads" alt ="Download latest version of Git" target ="_blank">Install Git</a></p>
-            <img src = "images/install-git.png" alt = "Download latest version of Git"/>
-          <p><a href="https://help.github.com/articles/set-up-git/">Setup steps on GitHub</a></p>
-        </section>
-
-        <section>
-          <h3>Installation and Setup</h3>
-          <p>Setup name and email in gitconfig</p>
-          <pre><code class ="command-line">
-$ git config --global user.name "Your Name Here"
-# Sets the default name for Git to use when you commit
-          </code></pre>
-          <pre><code class ="command-line">
-$ git config --global user.email "your_email@example.com"
-# Sets the default email for Git to use when you commit
-          </code></pre>
-          <pre><code class ="command-line">
-$ git config --list
-          </code></pre>
-        </section>
-        <section>
-          <h3>Setup: Setting the default text editor</h3>
-          <p> By default Git is set up to use Vim as the text editor.</p>
-          (<span class="green">esc</span> + <span class="green">:q</span> or <span class="green">:q!</span> to get out of Vim)
-          <p>Follow <a href="https://help.github.com/articles/associating-text-editors-with-git/">these instructions</a> to change your default text editor to whatever you prefer. </p>
-
-        </section>
-        <section>
-          <h2>Setup!</h2>
-            <img src="images/letsdothis.gif" alt="Let's do this thing!"/>
-            <div>
-            <a href="https://help.github.com/articles/set-up-git/">Instructions on GitHub for reference</a>
-            <p>BONUS LEVEL: Set up your GitHub account and authentication from Git.</p>
-            </div>
+          <br>
+          <br>
+          <p class="fragment">... but it gets easier with practice!</p>
         </section>
 
         <!--Command line review -->
@@ -110,13 +76,13 @@ $ git config --list
         <section>
           <h3>Common commands</h3>
           <ul>
-            <li><code class ="inline">cd</code>: change directory</li>
-            <li><code class ="inline">ls</code>: list all the files</li>
-            <li><code class ="inline">mkdir</code>: make directory</li>
-            <li><code class ="inline">rmdir</code>: remove/delete directory</li>
-            <li><code class ="inline">touch</code>: create a file</li>
-            <li><code class ="inline">rm</code>: remove a file</li>
-            <li><code class ="inline">pwd</code>: find out the file path of current directory you are in, from the root</li>
+            <li><code class="inline">cd</code>: change directory</li>
+            <li><code class="inline">ls</code>: list all the files</li>
+            <li><code class="inline">mkdir</code>: make directory</li>
+            <li><code class="inline">rmdir</code>: remove/delete directory</li>
+            <li><code class="inline">touch</code>: create a file</li>
+            <li><code class="inline">rm</code>: remove a file</li>
+            <li><code class="inline">pwd</code>: find out the file path of current directory you are in, from the root</li>
           </ul>
           <p>terminology note: directory === folder</p>
         </section>
@@ -125,19 +91,19 @@ $ git config --list
           <h3>cd (changing directories)</h3>
           <p>A little further explanation...</p>
           <ul>
-            <li><code class ="inline">cd folder_name</code>: moves down into the folder</li>
+            <li><code class="inline">cd folder_name</code>: moves down into the folder</li>
               example: cd my_kittens
-            <li><code class ="inline">cd path_name</code>: moves down into the last folder listed</li>
+            <li><code class="inline">cd path_name</code>: moves down into the last folder listed</li>
               example: cd my_kittens/fuzzball/favorite_foods
-            <li><code class ="inline">cd ..</code>: moves up one folder</li>
-            <li><code class ="inline">cd ../../../</code>: moves up three folders</li>
-            <li><code class ="inline">cd ~</code>: moves to the root directory, no matter where you are</li>
+            <li><code class="inline">cd ..</code>: moves up one folder level</li>
+            <li><code class="inline">cd ../../../</code>: moves up three folderlevels</li>
+            <li><code class="inline">cd ~</code>: moves to your home directory, no matter where you are</li>
           </ul>
         </section>
 
         <section>
           <h3>Watch me!</h3>
-          <p><span class='green'>Goal: </span>Create a folder named <code class ="inline">kittens_example_project</code> on my desktop</p>
+          <p><span class='green'>Goal: </span>Create a folder named <code class="inline">kittens_example_project</code> on my desktop</p>
 
         </section>
 
@@ -146,8 +112,8 @@ $ git config --list
           <ol>
             <li>Use the command line to navigate to your desktop folder</li>
             <li>Create a folder called kittens_project</li>
-            <li>Move to inside of kittens_project folder</li>
-            <li>Check to see what is your current file path!</li>
+            <li>Move inside of your kittens_project folder</li>
+            <li>Check to see your current file path!</li>
           </ol>
         </section>
 
@@ -155,25 +121,20 @@ $ git config --list
           <h3>Potential solution</h3>
           <ol>
             <li>Use the command line to navigate to your desktop folder</li>
-            <pre><code class ="command-line">
-$ cd Desktop
-          </code></pre>
+            <pre><code class="command-line">$ cd Desktop</code></pre>
             <li>Create a folder called kittens_project</li>
-            <pre><code class ="command-line">
-$ mkdir kittens_project
-          </code></pre>
-            <li>Move to inside of kittens_project folder</li>
-            <pre><code class ="command-line">
-$ cd kittens_project
-          </code></pre>
-          <li>Check to see what is your current file path!/li>
-            <pre><code class ="command-line">
-$ pwd
-          </code></pre>
+            <pre><code class="command-line">$ mkdir kittens_project</code></pre>
+            <li>Move inside of your kittens_project folder</li>
+            <pre><code class="command-line">$ cd kittens_project</code></pre>
+          <li>Check to see your current file path!</li>
+            <pre><code class="command-line">$ pwd</code></pre>
           </ol>
         </section>
 
         <!-- Version control-->
+        <section>
+          <h2>Version Control</h3>
+        </section>
         <section>
           <h3>What is version control?</h3>
           <p>Version control is a tool that allows you to...</p>
@@ -191,13 +152,11 @@ $ pwd
         <section>
         <h3>You already manage versions of your work!</h3>
         <p> Do you have files somewhere that look like this?</p>
-        <pre><code>
-          Resume-September2016.docx
-          Resume-for-Duke-job.docx
-          ResumeOLD.docx
-          ResumeNEW.docx
-          ResumeREALLYREALLYNEW.docx
-        </code></pre>
+        <pre><code>Resume-September2016.docx
+Resume-for-Duke-job.docx
+ResumeOLD.docx
+ResumeNEW.docx
+ResumeREALLYREALLYNEW.docx</code></pre>
         <div class="fragment">You invented your own version control!</div>
         </section>
         <section>
@@ -229,6 +188,57 @@ $ pwd
           </ul>
         </section>
 
+         <!-- Installation and Setup-->
+         <section>
+          <h3>Installation and Setup</h3>
+          
+            <p><a href = "http://git-scm.com/downloads" alt ="Download latest version of Git" target ="_blank">Install Git</a></p>
+            <img src = "images/install-git.png" alt = "Download latest version of Git"/>
+          <p><a href="https://help.github.com/articles/set-up-git/">Setup steps on GitHub</a></p>
+        </section>
+
+        <section>
+          <h3>Installation and Setup</h3>
+          <p>Set up name and email in gitconfig</p>
+          <pre><code class="command-line">$ git config --global user.name "Your Name Here"
+# Sets the default name for Git to use when you commit</code></pre>
+          <pre><code class="command-line">$ git config --global user.email "your_email@example.com"
+# Sets the default email for Git to use when you commit</code></pre>
+          <pre><code class="command-line">$ git config --list</code></pre>
+        </section>
+        <section>
+          <h3>Setup: Setting the default text editor</h3>
+          <p> By default Git is set up to use Vim as the text editor.</p>
+          <p>(<span class="green">esc</span> + <span class="green">:q</span> or <span class="green">:q!</span> to get out of Vim)</p>
+          <br>
+          <pre><code class="command-line">$ git config --global core.editor "nano"
+# Sets the default text editor to Nano</code></pre>
+          <br>
+          <p>You can find commands for other text editors in <a href="https://help.github.com/articles/associating-text-editors-with-git/">these instructions</a>. </p>
+        </section>
+        <section>
+          <h2>Setup!</h2>
+            <img src="images/letsdothis.gif" alt="Let's do this thing!"/>
+            <div>
+              <p>Install Git and set your user name and email.</p>
+              <p>BONUS LEVEL: If you want to, change your default text editor.</p>
+            </div>
+        </section>
+
+        <section>
+          <h3> Git has its own Vocabulary </h3>
+            <ul>
+            <li> A <span class="green">repository</span> is where you keep all the files you want to track.</li>
+            <li> A <span class="green">branch</span> is the name for a separate line of development, with its own history.</li>
+            <li> A <span class="green">commit</span> is an object that holds information about a particular change. </li>
+            <li> <span class="green">HEAD</span> refers to the most recent commit on the current branch.</li>
+            </ul>
+        </section>
+
+        <!-- Basic Commands -->
+        <section>
+          <h2>Making a Repo</h3>
+        </section>
         <section>
           <h3>What is a repository (repo)?</h3>
           <p>Essentially, a Git version of project folder.</p>
@@ -236,76 +246,111 @@ $ pwd
         </section>
         <section>
           <h3>Create a Local Repository - Do it with me!</h3>
-          <p>1. Make sure you are inside of your kittens_project</p>
-          <pre><code class ="command-line">
-$ pwd
-          </code></pre>
-          <p>2. Initialize it as a local Git repository</p>
-          <pre><code class ="bash">
-$ git status
-# should say 'command git not found because we haven't made it a repository yet!
+          <ol>
+            <li>Make sure you are inside of your kittens_project
+              <pre><code class="command-line">$ pwd</code></pre>
+            </li>
+            <li>Initialize it as a local Git repository
+              <pre><code class="bash">$ git status
+# should show an error because
+# we haven't made it a repository yet!
 $ git init
-$ git status
-          </code></pre>
+$ git status</code></pre>
+            </li>
+          </ol>
         </section>
 
         <section>
-          <h3>Woah, what did we just do?</h3>
-          <p><code class ="inline">git init</code> will transform any folder into a Git repostiory.</p>
-          </p>You can think of it as giving Git super powers to a folder so that Git starts tracking any changes in that folder.</p>
-          <p>If the command git status returns no errors, it means your folder has successfully been Git-ified!</p>
+          <h3>What did we just do?</h3>
+          <ul>
+            <li><code class="inline">git init</code> will transform any folder into a Git repostiory.</li>
+            <li>You can think of it as giving Git super powers to a folder so that Git starts tracking any changes in that folder.</li>
+            <li>If the command <code class="inline">git status</code> returns no errors, it means your folder has successfully been Git-ified!</li>
+          </ul>
         </section>
 
         <section>
           <h3>Good repository practices</h3>
           <ul>
-            <li>repos are meant to be self encapsulating project folders.  'Project' can be how you define it - one html page or a whole app</li>
-            <li>It's a good idea to name folders with lowercase and with no spaces - use dashes or underscores instead</li>
-            <li><span class='pink'>WARNING NOTE</span>: Do not put a repo inside of a repo. Git will get confused and have no idea what changes to track</li>
+            <li>Repos are meant to be self-contained project folders.  'Project' can be how you define it - one html page or a whole app.</li>
+            <li>Name folders with all lowercase letters and with no spaces - use dashes or underscores instead.</li>
+            <li><span class='pink'>WARNING NOTE</span>: Do not put a repo inside of a repo. Git will get confused and have no idea what changes to track.</li>
           </ul>
         </section>
+
         <section>
-          <h3>Add files - Do it with me!</h3>
-          <p>1. Create a new file in your new folder named <span class="green">kitten.txt</span></p>
-<pre><code class ="command-line">
-$ touch kitten.txt
-          </code></pre>
-          <p>2. Check the status of your repo with <span class="green">git status</span></p>
-          <pre><code class ="command-line">
-$ git status
-          </code></pre>
-          <p>3. Tell Git to track our new file with <span class="green">git add</span></p>
-          <pre><code class ="command-line">
-$ git add kitten.txt
-$ git status
-          </code></pre>
-          <p><span class="blue">Success!</span> The file you just added is now tracked by Git</p>
+          <h2>Tracking Changes</h3>
         </section>
         <section>
-          <h3>Changes and commits</h3>
-          <p>1. Open <span class="green ">kitten.txt</span>, add some text, and save it</p>
-          <pre><code class ="command-line">
-$ git status
-          </code></pre>
-          <p>2. Stage the change and check the status</p>
-          <pre><code class ="command-line">
-$ git add kitten.txt
-$ git status
-          </code></pre>
-          <p>3. Commit the change with a good commit message that explains and describes what you did </p>
-          <pre><code class ="command-line">
-$ git commit -m "First commit. Added kitten.txt to repository."
-          </code></pre>
+          <h3>Tracking States in Git</h3>
+          <p>As you make changes in your repo, you can tell Git how to treat those changes.</p>
+          <img src="images/three_stages_commit.png" style="height:550px;"/>
         </section>
+        <section>
+          <h3>Modify a file - do it with me!</h3>
+          <ol>
+            <li>Create a new file in your new folder named <code class="inline">kitten.txt</code>
+              <pre><code class="command-line">$ touch kitten.txt</code></pre>
+            </li>
+            <li>Check the status of your repo with <code class="inline">git status</code>
+              <pre><code class="command-line">$ git status</code></pre>              
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h3>Modified/Untracked</h3>
+          <img src="images/modified.png"/>
+          <p>When you make changes to a file or add a new file but haven't added or committed yet</p>
+        </section>
+
+        <section>
+          <h3>Add a file to staging - do it with me!</h3>
+          <ol>
+            <li>Tell Git to track our new file with <span class="green">git add</span></code>
+              <pre><code class="command-line">$ git add kitten.txt</code></pre>
+            </li>
+            <li>Check the status of your repo with <code class="inline">git status</code>
+              <pre><code class="command-line">$ git status</code></pre>              
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h3>Staged</h3>
+          <img src="images/staged.png" />
+          <p>When you use <code class="inline">git add</code> to let Git know that these are the files you want to 'stage' or prepare for committing.</p>
+        </section>
+
+        <section>
+          <h3>Committing changes - do it with me!</h3>
+          <ol>
+            <li>Check the status of your repo with <code class="inline">git status</code>. Make sure that the changes listed represent exactly what you want to commit.</code>
+              <pre><code class="command-line">$ git status</code></pre>
+            </li>
+            <li>Commit the change with a cmessage that explains and describes what changes you made.</code>
+              <pre><code class="command-line">$ git commit -m "First commit. Added kitten.txt to repository."</code></pre>              
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h3>Committed!</h3>
+          <img src="images/commit.png" />
+          <p><span class="green">Success!</span></p>
+        </section>
+
+        <section>
+          <h3>Congratulations. <br>You are now using Git.</h3>
+          <img src="images/Liz-Lemon-giving-herself-high-five.gif" alt="Give yourself a high five, like Liz Lemon." />
+        </section>
+
         <!-- Explanation-->
         <section>
           <h3>Whoa.</h3>
           <h3>What did we just do??</h3>
-          <div class="fragment"><h5>How is all this different from just saving a file?</h5></div>
+          <div class="fragment"><h5>How is this different from just saving a file?</h5></div>
           <ul>
-            <li class="fragment">When we <span class ="green">add</span> a new file, we tell Git to add the file to the repository to be tracked. </li>
-            <li class="fragment">This is also called  <span class ="green">staging</span> a file. We can see our changes in the <span class ="green">staging area</span> (aka the <span class ="green">index</span>, aka the <span class ="green">cache</span>), ready to be saved.</li>
-            <li class="fragment">A <span class ="green">commit</span> saves the <span class="blue">changes</span> made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom.</li>
+            <li class="fragment">When we <span class="green">add</span> a new file, we tell Git to add the file to the repository to be tracked. </li>
+            <li class="fragment">This is also called  <span class="green">staging</span> a file. We can see our changes in the <span class="green">staging area</span> (aka the <span class="green">index</span>, aka the <span class="green">cache</span>), ready to be saved.</li>
+            <li class="fragment">A <span class="green">commit</span> saves the <span class="blue">changes</span> made to a file, not the file as a whole. The commit will have a unique ID so we can track which changes were committed when and by whom.</li>
           </ul>
         </section>
         <section>
@@ -315,42 +360,39 @@ $ git commit -m "First commit. Added kitten.txt to repository."
         </section>
         <section>
           <h3>Look at your progress</h3>
-          <pre><code class ="command-line">
-$ git log
-          </code></pre>
-          <pre><code class ="command-line">
-commit 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b
+          <pre><code class="command-line">$ git log</code></pre>
+          <br>
+          <pre><code class="command-line">commit 6853adc0b6bc35f1a8ca0a6aa5e59c978148819b
+
 Author: Your name &lt;you@your-email.com&gt;
 Date:   Tues May 23 16:01:22 2017 -0700
 
   First commit. Added kitten.txt to repository.
-            </code></pre>
+
+:            </code></pre>
+            <p>Type <code class="inline">q</code> to exit the log.</p>
         </section>
 
-        <section>
-          <h3>Congratulations. <br>You are now using Git.</h3>
-          <img src="images/Liz-Lemon-giving-herself-high-five.gif" alt="Give yourself a high five, like Liz Lemon." />
-        </section>
 
         <section>
           <h3>When to commit?</h3>
           <ul>
             <li>Commit early and often!</li>
-            <li>When you have completed a mini 'idea' or 'task':</li>
-            <ul>
-              <li>You got a function to work!</li>
-              <li>You corrected a few misspellings</li>
-              <li>You added some images</li>
-            </ul>
+            <li>When you have completed a mini 'idea' or 'task':
+              <ul style="padding-left: 1em">
+                <li>You got a function to work!</li>
+                <li>You corrected a few misspellings</li>
+                <li>You added some images</li>
+              </ul>
+            </li>
             <li><span class='pink'>IMPORTANT NOTE:</span> Commit when your code works!  Try not to commit broken code</li>
           </ul>
-
         </section>
 
         <section>
           <h3>Good commit messages</h3>
           <p>Include a descriptive but succinct message of the changes you have made, in the present tense</p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git commit -m "Add capitalization function for header text"
             </code></pre>
           <p>Main point is: other people need to be able to read your commit history and understand what you were accomplishing at each step of the way</p>
@@ -360,40 +402,20 @@ $ git commit -m "Add capitalization function for header text"
         <section>
           <h3>Quick review</h3>
           <ul>
-            <li><code class ="inline">git init</code>: turns a folder into a Git repository</li>
-            <li><code class ="inline">git status</code>: checks the status of your files</li>
-            <li><code class ="inline">git add <em>file_name</em></code>: adds file to the staging area</li>
-            <li><code class ="inline">git commit -m "your commit message"</code>: commits your changes</li>
-            <li><code class ="inline">git log</code>: see your commits so far</li>
+            <li><code class="inline">git init</code>: turns a folder into a Git repository</li>
+            <li><code class="inline">git status</code>: checks the status of your files</li>
+            <li><code class="inline">git add <em>file_name</em></code>: adds file to the staging area</li>
+            <li><code class="inline">git commit -m "your commit message"</code>: commits your changes</li>
+            <li><code class="inline">git log</code>: see your commits so far</li>
+          </ul>
         </section>
-
-
+    
         <section>
           <h2>Commit Exercise - Do It Yourself!</h2>
-          <a href="./commit_exercise.html">Click here for the exercise!</a>
+          <a href="./commit_exercise.html" target="_blank">Click here for the exercise!</a>
         </section>
 
-      <!-- Git Structure -->
-        <section>
-          <h3>The Magical States of Git</h3>
-          <img src="images/three_stages_commit.png" style="height:550px;"/>
-        </section>
-        <section>
-          <h3>Modified/Untracked</h3>
-          <img src="images/modified.png"/>
-          <p>When you make changes to a file or add a new file but haven't added or committed yet</p>
-        </section>
-        <section>
-          <h3>Staged</h3>
-          <img src="images/staged.png" />
-          <p>When you use <code class="inline">git add</code> to let Git know that these are the files you want to 'stage'/track</p>
-        </section>
-        <section>
-          <h3>Committed!</h3>
-          <img src="images/commit.png" />
-          <p><span class="green">Success!</span></p>
-        </section>
-
+        <!-- Git Structure -->
         <section>
           <h3>The Magical Realms of Git</h3>
           <p>Each of the states of Git corresponds to an area of the Git repo, so here's some vocab:</p>
@@ -411,6 +433,9 @@ $ git commit -m "Add capitalization function for header text"
        
         <!-- Undoing changes -->
         <section>
+          <h2>Reverting Changes</h3>
+        </section>
+        <section>
           <h3>We all make mistakes</h3>
           <img src="images/mistakes-were-made.jpg" alt="Those WERE the Droids I was looking for!"/>
           <p class="fragment">Don't worry. Git is your friend.</p>
@@ -425,27 +450,23 @@ $ git commit -m "Add capitalization function for header text"
         </section>
 
         <section>
-          <h3>Scenario 1: Undoing modified changes</h3>
+          <h3>Scenario 1: Undoing modified/untracked changes</h3>
           <p>You made some changes to some files (have not git added or committed yet), and realize you don't want those changes!</p>
-          <div class = "fragment">
+          <div class= "fragment">
             <p>Open <span class="green">kitten.txt</span> and make some changes or add something new. Then:</p>
-            <pre><code class ="command-line">
-$ git checkout kitten.txt
-            </code></pre>
+            <pre><code class="command-line">$ git checkout kitten.txt</code></pre>
           </div>
           <p class="fragment">Look at <span class="green">kitten.txt</span> in your editor: your changes are gone (you've gone back to the previous commit state).</p>
         </section>
 
         <section>
           <h3>Scenario 2: Unstaging a file</h3>
-            <p class="fragment">You git add a modified or new file, but realized you don't want it your next commit!</p>
+            <p class="fragment">You <code class="inline">git add</code> a modified or new file, but realized you don't want it your next commit!</p>
             <p class="fragment">In your text editor, create a new file, and name it <span class="green">possum.txt</span>. Then: </p>
-            <pre><code class="command-line fragment">
-$ git add possum.txt
+            <pre><code class="command-line fragment">$ git add possum.txt
 $ git status
 $ git reset possum.txt
-$ git status
-            </code></pre>
+$ git status</code></pre>
             <p class="fragment">The file is removed from staging, but your working copy will be unchanged.</p>
         </section>
 
@@ -453,39 +474,38 @@ $ git status
           <h3>Scenario 3a: Uncommitting, but want to keep all your changes</h3>
           <p class="fragment">You made a commit, but then realize that a piece of code doesn't work, so you just want to uncommit!</p>
           <p class="fragment">Open <span class="green">kitten.txt</span> and make some changes. Then:</p>
-          <pre><code class ="command-line fragment">
-$ git add kitten.txt
+          <pre><code class="command-line fragment">$ git add kitten.txt
 $ git status
 $ git commit -m "Make changes to kitten text file"
 $ git reset --soft HEAD~1
-$ git status
-            </code></pre>
+$ git status</code></pre>
         </section>
 
         <section>
           <h3>Explanation</h3>
-          <p class="fragment">Your most recent commit is called the <span class="green">HEAD</span></p>
-          <p class="fragment">passing <code class="inline">git reset</code> the options of <code class="inline">--soft HEAD~1</code> essentially asks to move the HEAD 1 commit back (essentially uncommitting your most recent commit) but keep all the work you have done, which you can see in the staging area</p>
+          <p class="fragment">Your most recent commit is called the <span class="green">HEAD</span>.</p>
+          <br>
+          <p class="fragment">Passing <code class="inline">git reset</code> the options of <code class="inline">--soft HEAD~1</code> essentially asks to move the HEAD back by one commit (essentially uncommitting your most recent commit).</p>
+          <br>
+          <p class="fragment"><code class="inline">--soft</code> means you won't lose your changes—they'll just move to staging.</p>
         </section>
 
         <section>
-          <h3>Scenario 3b: Uncommitting, but you don't want to keep any changes, period</h3>
+          <h3>Scenario 3b: Uncommitting, but you don't want to keep any changes, period 🔥</h3>
           <p class="fragment">You realize you don't want any of the code in your previous commit, so just getting rid of that commit completely</p>
           <p class="fragment">You still have the change in the staging area for kitten.txt</p>
-          <pre><code class ="command-line fragment">
-$ git add kitten.txt
+          <pre><code class="command-line fragment">$ git add kitten.txt
 $ git status
 $ git commit -m "Make changes to kitten text file"
 $ git reset --hard HEAD~1
-$ git status
-        </code></pre>
+$ git status</code></pre>
         </section>
 
         <section>
           <h3>Explanation</h3>
-          <p class="fragment">passing <code class="inline">git reset</code> the options of <code class="inline">--hard HEAD~1</code> will delete the last specified commit and all the work related to it.</p>
+          <p class="fragment">passing <code class="inline">git reset</code> the options of <code class="inline">--hard HEAD~1</code> will delete the last specified commit <strong>and</strong> all the work related to it.</p>
           <br />
-          <p class="fragment">Heads up, there are many, many different ways to undo changes.  That's the powerful about Git. Learn more at <a href="https://www.atlassian.com/git/tutorials/undoing-changes">Atlassian tutorial</a></p>
+          <p class="fragment">Heads up—there are many, many different ways to undo changes.  That's what's powerful about Git. Learn more at <a href="https://www.atlassian.com/git/tutorials/undoing-changes">Atlassian tutorial</a></p>
         </section>
 
         <!-- Branches-->
@@ -523,7 +543,7 @@ $ git status
         <section>
           <h3>Branching - Do it with me!</h3>
           <p>Create a new branch called feature</p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git branch 
 // you should see only * master
 $ git checkout -b feature
@@ -543,7 +563,7 @@ $ git branch
         <section>
           <h3>Committing on a new branch - Do it with me!</h3>
           <p>Add new lines to <span class="green">kitten.txt</span></p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git add kitten.txt
 $ git commit -m "Adding changes to feature"
 $ git log --oneline
@@ -558,22 +578,19 @@ $ git log --oneline
 
         <section>
           <h3>Switching branches - Do it with me!</h3>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git branch
           </code></pre>
           <p>Switch to master branch and look at the commit history</p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git checkout master
 $ git log --oneline
           </code></pre>
           <p>Switch to feature branch and look at the commit history</p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git checkout feature
 $ git log --oneline
           </code></pre>
-        </section>
-
-        <section>
         </section>
 
     <!-- Merging-->
@@ -581,7 +598,7 @@ $ git log --oneline
           <h3>Merging - Do it With Me!</h3>
           <h4>Merge to get changes from one branch into another</h4>
           <p>Switch to master and merge changes</p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git checkout master
 $ git merge feature
 $ git log --oneline
@@ -591,7 +608,7 @@ $ git log --oneline
         <!-- branching and merging exercize -->
         <section>
           <h3>Branching & Merging Exercise</h3>
-          <a>Click here for the exercise!</a>
+          <a href="./branch_exercise.html" target="_blank">Click here for the exercise!</a>
         </section>
 
         <section>
@@ -628,12 +645,12 @@ And here is another line that is cleanly resolved or unmodified.
           <h3>Merging</h3>
           <h4>Merge conflicts</h4>
           <p>Change the first line in <span class="green">kitten.txt</span> in <span class="pink">master</span> branch</p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git add kitten.txt
 $ git commit -m "Changing kitten in master"
           </code></pre>
           <p>Now change the first line in <span class="green">kitten.txt</span> in <span class="pink">feature</span> branch</p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git checkout feature
   # open kitten.txt and change the first line
 $ git add kitten.txt
@@ -644,10 +661,10 @@ $ git commit -m "Changing kitten in feature"
           <h3>Merging</h3>
           <h4>Merge conflicts, cont.</h4>
           <p>Merge the changes from <span class="pink">master</span> into the <span class="pink">feature</span> branch</p>
-          <pre><code class ="command-line">
+          <pre><code class="command-line">
 $ git merge master #remember, you are on the feature branch here
           </code></pre>
-          <p class ="fragment">You will be notified of a conflict. Go to the file in your editor and fix the problem. Then add and commit your edits.</p>
+          <p class="fragment">You will be notified of a conflict. Go to the file in your editor and fix the problem. Then add and commit your edits.</p>
 
         </section>
         <section>
@@ -663,36 +680,31 @@ $ git merge master #remember, you are on the feature branch here
 
           <!-- Git terms and commands-->
         <section>
-          <h3> Git has its own Vocabulary </h3>
+          <h3>Vocabulary Review</h3>
             <ul>
             <li> A <span class="green">repository</span> is where you keep all the files you want to track.</li>
             <li> A <span class="green">branch</span> is the name for a separate line of development, with its own history.</li>
             <li> A <span class="green">commit</span> is an object that holds information about a particular change. </li>
             <li> <span class="green">HEAD</span> refers to the most recent commit on the current branch.</li>
             </ul>
-
         </section>
         <section>
-        <h3>Some Basic Git Commands</h3>
+        <h3>Command Review</h3>
           <ul style="font-family: monospace;">
             <li>init</li>
+            <li>status</li>
             <li>add</li>
             <li>commit</li>
-            <li>status</li>
             <li>log</li>
             <li>branch</li>
             <li>checkout</li>
-            <li>fetch</li>
             <li>merge</li>
-            <li>pull</li>
-            <li>push</li>
-            <li>clone</li>
           </ul>
         </section>
           
         <section>
           <h2>Questions?</h2>
-          <img src = "images/git_hamster.jpg" alt ="Git Push Origin Hamster"/>
+          <a href="https://xkcd.com/1597/" class="image"><img src = "https://imgs.xkcd.com/comics/git.png" alt = "Git comic on XKCD"/></a>          
         </section>
 			</div>
 
