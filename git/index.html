@@ -103,7 +103,7 @@
 
         <section>
           <h3>Watch me!</h3>
-          <p><span class='green'>Goal: </span>Create a folder named <code class="inline">kittens_example_project</code> on my desktop</p>
+          <p><span class='green'>Goal: </span>Create a folder named <code class ="inline">kittens_project</code> on my desktop</p>
 
         </section>
 
@@ -281,6 +281,7 @@ $ git status</code></pre>
         <section>
           <h2>Tracking Changes</h3>
         </section>
+
         <section>
           <h3>Tracking States in Git</h3>
           <p>As you make changes in your repo, you can tell Git how to treat those changes.</p>
@@ -508,6 +509,10 @@ $ git status</code></pre>
           <p class="fragment">Heads up—there are many, many different ways to undo changes.  That's what's powerful about Git. Learn more at <a href="https://www.atlassian.com/git/tutorials/undoing-changes">Atlassian tutorial</a></p>
         </section>
 
+        <section>
+          <h2>Branching</h3>
+        </section>
+
         <!-- Branches-->
         <section>
           <h3>Branching</h3>
@@ -515,6 +520,12 @@ $ git status</code></pre>
           <p >A branch is essentially another copy of your repo that will allow you to isolate changes and leave the original copy untouched. You can later choose to combine these changes in whole or part with the "master" copy, or not. </p>
           <p class= "fragment green"> Branches are good for features!</p>
         </section>
+
+        <section>
+          <h3>Pssst...what's a feature?</h3>
+          <p>Can be something as big as adding a new section to a site or an app, to a small functionality (a carousel on the homepage)</p>
+        </section>
+
         <section>
           <h3>Branching</h3>
           <img src="images/branching-octocats.png" />
@@ -531,12 +542,13 @@ $ git status</code></pre>
 
         <section>
           <h3>Branching cycle</h3>
-          <p>You want to develop a new feature</p>
+          <p>So, you want to develop a new feature:</p>
           <ol>
             <li>Make sure you are on master</li>
             <li>Create a new branch and jump over to it</li>
             <li>Develop your code.  Commit commit commit!</li>
             <li>When the feature is done, merge it into master</li>
+            <li>Delete your feature branch!</li>
           </ol>
         </section>
 
@@ -605,17 +617,37 @@ $ git log --oneline
           </code></pre>
         </section>
 
-        <!-- branching and merging exercize -->
-        <section>
-          <h3>Branching & Merging Exercise</h3>
-          <a href="./branch_exercise.html" target="_blank">Click here for the exercise!</a>
-        </section>
-
         <section>
           <h3>Merging Branches</h3>
           <p>When you merge, you create a new commit on the branch you just merged into</p>
           <img src="images/merging.png" />
         </section>
+
+        <section>
+          <h3>Delete feature branch - Do it With Me!</h3>
+          <p>Since your code from your feature branch is merged into master, you don't need the branch anymore!</p>
+          <pre><code class ="command-line">
+$ git branch -d feature-branch
+          </code></pre>
+          <p>Hint: Make sure not to be on the branch you are deleting.</p>
+        </section>
+
+        <section>
+          <h3>Quick review</h3>
+          <ul>
+            <li><code class ="inline">git checkout -b <em>branch_name</em></code>: creates a new branch and hops over to it/li>
+            <li><code class ="inline">git checkout <em>branch_name</em></code>: switch to another branch</li>
+            <li><code class ="inline">git branch </code>: lists all your branches</li>
+            <li><code class ="inline">git merge <em>branch_name</em></code>: merges branch into the current branch</li>
+            <li><code class ="inline">git branch -d branch_name</code>: deletes branch</li>
+        </section>
+
+        <!-- branching and merging exercize -->
+        <section>
+          <h3>Branching & Merging Exercise</h3>
+          <a href="./branch_exercise.html">Click here for the exercise!</a>
+        </section>
+
         <section>
           <h3>What could possibly go wrong?</h3>
           <img src="images/merge_conflicts_are_coming.jpg"/>
@@ -642,8 +674,8 @@ And here is another line that is cleanly resolved or unmodified.
         </section>
 
         <section>
-          <h3>Merging</h3>
-          <h4>Merge conflicts</h4>
+          <h3>Merge Conflicts - Do it with me!</h3>
+          <p>Go back to your kittens_project on your desktop</p>
           <p>Change the first line in <span class="green">kitten.txt</span> in <span class="pink">master</span> branch</p>
           <pre><code class="command-line">
 $ git add kitten.txt
@@ -658,8 +690,7 @@ $ git commit -m "Changing kitten in feature"
           </code></pre>
         </section>
         <section>
-          <h3>Merging</h3>
-          <h4>Merge conflicts, cont.</h4>
+          <h3>Merge conflicts, cont.</h3>
           <p>Merge the changes from <span class="pink">master</span> into the <span class="pink">feature</span> branch</p>
           <pre><code class="command-line">
 $ git merge master #remember, you are on the feature branch here
@@ -672,11 +703,6 @@ $ git merge master #remember, you are on the feature branch here
          <img src="images/merge-conflict-branches.png" />
          <p>The merge conflict occurred because the feature branch (which is based off of master) both had divergent histories for the same file.</p>
         </section>
-        <section>
-          <h3>The big picture</h3>
-          <img src="images/basic-remote-workflow.png" style="height:550px;"/>
-          </section>
-
 
           <!-- Git terms and commands-->
         <section>
