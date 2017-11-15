@@ -580,9 +580,6 @@ $ git log --oneline
           </code></pre>
         </section>
 
-        <section>
-        </section>
-
     <!-- Merging-->
         <section>
           <h3>Merging - Do it With Me!</h3>
@@ -603,10 +600,21 @@ $ git log --oneline
 
         <section>
           <h3>Delete feature branch - Do it With Me!</h3>
-          <p>Switch to master and merge changes</p>
+          <p>Since your code from your feature branch is merged into master, you don't need the branch anymore!</p>
           <pre><code class ="command-line">
 $ git branch -d feature-branch
           </code></pre>
+          <p>Hint: Make sure not to be on the branch you are deleting.</p>
+        </section>
+
+        <section>
+          <h3>Quick review</h3>
+          <ul>
+            <li><code class ="inline">git checkout -b <em>branch_name</em></code>: creates a new branch and hops over to it/li>
+            <li><code class ="inline">git checkout <em>branch_name</em></code>: switch to another branch</li>
+            <li><code class ="inline">git branch </code>: lists all your branches</li>
+            <li><code class ="inline">git merge <em>branch_name</em></code>: merges branch into the current branch</li>
+            <li><code class ="inline">git branch -d branch_name</code>: deletes branch</li>
         </section>
 
         <!-- branching and merging exercize -->
