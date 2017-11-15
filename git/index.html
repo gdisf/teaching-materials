@@ -137,7 +137,7 @@ $ git config --list
 
         <section>
           <h3>Watch me!</h3>
-          <p><span class='green'>Goal: </span>Create a folder named <code class ="inline">kittens_example_project</code> on my desktop</p>
+          <p><span class='green'>Goal: </span>Create a folder named <code class ="inline">kittens_project</code> on my desktop</p>
 
         </section>
 
@@ -282,7 +282,7 @@ $ git status
           <p><span class="blue">Success!</span> The file you just added is now tracked by Git</p>
         </section>
         <section>
-          <h3>Changes and commits</h3>
+          <h3>Changes and commits - Do it with me!</h3>
           <p>1. Open <span class="green ">kitten.txt</span>, add some text, and save it</p>
           <pre><code class ="command-line">
 $ git status
@@ -495,6 +495,12 @@ $ git status
           <p >A branch is essentially another copy of your repo that will allow you to isolate changes and leave the original copy untouched. You can later choose to combine these changes in whole or part with the "master" copy, or not. </p>
           <p class= "fragment green"> Branches are good for features!</p>
         </section>
+
+        <section>
+          <h3>Pssst...what's a feature?</h3>
+          <p>Can be something as big as adding a new section to a site or an app, to a small functionality (a carousel on the homepage)</p>
+        </section>
+
         <section>
           <h3>Branching</h3>
           <img src="images/branching-octocats.png" />
@@ -511,12 +517,13 @@ $ git status
 
         <section>
           <h3>Branching cycle</h3>
-          <p>You want to develop a new feature</p>
+          <p>So, you want to develop a new feature:</p>
           <ol>
             <li>Make sure you are on master</li>
             <li>Create a new branch and jump over to it</li>
             <li>Develop your code.  Commit commit commit!</li>
             <li>When the feature is done, merge it into master</li>
+            <li>Delete your feature branch!</li>
           </ol>
         </section>
 
@@ -588,17 +595,26 @@ $ git log --oneline
           </code></pre>
         </section>
 
-        <!-- branching and merging exercize -->
-        <section>
-          <h3>Branching & Merging Exercise</h3>
-          <a>Click here for the exercise!</a>
-        </section>
-
         <section>
           <h3>Merging Branches</h3>
           <p>When you merge, you create a new commit on the branch you just merged into</p>
           <img src="images/merging.png" />
         </section>
+
+        <section>
+          <h3>Delete feature branch - Do it With Me!</h3>
+          <p>Switch to master and merge changes</p>
+          <pre><code class ="command-line">
+$ git branch -d feature-branch
+          </code></pre>
+        </section>
+
+        <!-- branching and merging exercize -->
+        <section>
+          <h3>Branching & Merging Exercise</h3>
+          <a href="./branch_exercise.html">Click here for the exercise!</a>
+        </section>
+
         <section>
           <h3>What could possibly go wrong?</h3>
           <img src="images/merge_conflicts_are_coming.jpg"/>
@@ -625,8 +641,8 @@ And here is another line that is cleanly resolved or unmodified.
         </section>
 
         <section>
-          <h3>Merging</h3>
-          <h4>Merge conflicts</h4>
+          <h3>Merge Conflicts - Do it with me!</h3>
+          <p>Go back to your kittens_project on your desktop</p>
           <p>Change the first line in <span class="green">kitten.txt</span> in <span class="pink">master</span> branch</p>
           <pre><code class ="command-line">
 $ git add kitten.txt
@@ -641,8 +657,7 @@ $ git commit -m "Changing kitten in feature"
           </code></pre>
         </section>
         <section>
-          <h3>Merging</h3>
-          <h4>Merge conflicts, cont.</h4>
+          <h3>Merge conflicts, cont.</h3>
           <p>Merge the changes from <span class="pink">master</span> into the <span class="pink">feature</span> branch</p>
           <pre><code class ="command-line">
 $ git merge master #remember, you are on the feature branch here
@@ -660,20 +675,9 @@ $ git merge master #remember, you are on the feature branch here
           <img src="images/basic-remote-workflow.png" style="height:550px;"/>
           </section>
 
-
-          <!-- Git terms and commands-->
-        <section>
-          <h3> Git has its own Vocabulary </h3>
-            <ul>
-            <li> A <span class="green">repository</span> is where you keep all the files you want to track.</li>
-            <li> A <span class="green">branch</span> is the name for a separate line of development, with its own history.</li>
-            <li> A <span class="green">commit</span> is an object that holds information about a particular change. </li>
-            <li> <span class="green">HEAD</span> refers to the most recent commit on the current branch.</li>
-            </ul>
-
         </section>
         <section>
-        <h3>Some Basic Git Commands</h3>
+        <h3>Recap: Some Basic Git Commands</h3>
           <ul style="font-family: monospace;">
             <li>init</li>
             <li>add</li>
@@ -682,11 +686,7 @@ $ git merge master #remember, you are on the feature branch here
             <li>log</li>
             <li>branch</li>
             <li>checkout</li>
-            <li>fetch</li>
             <li>merge</li>
-            <li>pull</li>
-            <li>push</li>
-            <li>clone</li>
           </ul>
         </section>
           
