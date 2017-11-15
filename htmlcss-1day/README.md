@@ -1,27 +1,36 @@
-# HTML/CSS: Making webpages
+# Intro to HTML & CSS (1 day)
 
-Slides and materials are hosted [here](http://teaching-materials.org/htmlcss-1day).
+In this workshop, you'll learn HTML and CSS, the languages used by the billions of webpages out there today to mark up and style content. HTML and CSS are incredibly useful skills for bloggers, content creators, email marketers, small business owners, designers, and are absolutely necessary skills front-end web developers. 
 
-## Course description
+The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by {{ teacher_name }}, {{ teacher_description }}.
 
-In this workshop, you'll learn HTML and CSS, the languages used by the billions of webpages out there today to mark up and style content. HTML and CSS are incredibly useful skills for bloggers, content creators, email marketers, small business owners, designers, and are absolutely necessary skills frontend web developers.
+This is a recommended workshop for students interested in our full front-end workshop series.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio]. This is a recommended workshop for students interested in our full frontend workshop series.
+### Topics Covered
 
-### Prerequisites:
-
-Attendees are not expected to have any previous HTML/CSS or programming experience.
-
-### Tech requirements:
-
-* Your laptop (Mac, PC, or Linux are all okay) and charger.
-* A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC) or Notepad++ (PC).
-
-### Topics covered:
-
-* HTML tags 
+* HTML tags
 * HTML links, lists, media, tables
 * CSS selectors
 * CSS text properties
 * CSS and page layout
+
+### Slides
+
+<https://www.teaching-materials.org/htmlcss-1day/>
+
+### Prerequisites
+
+Attendees are not expected to have any previous HTML/CSS or programming experience.
+
+### Tech Requirements
+
+* Your laptop (Mac, PC, Linux) and charger
+* A modern web browser (Chrome, Firefox, Safari)
+* A text editor - we recommend either Sublime Text 2 or Atom (both free)
+
+*If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.*
+
+### Payment
+
+Payment is required to attend. If you'd like to attend but cannot afford the cost, [click here to request a scholarship](https://docs.google.com/forms/d/e/1FAIpQLSfiUBN4yve3L7iociXzcqNgEtrljsn_7mCgZ3eUtvAEr3bcQg/viewform). Due to the number of applications, only the scholarship recipient will receive an email a few days before the workshop. Thank you for your understanding!
+

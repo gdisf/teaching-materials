@@ -1,598 +1,500 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="css/presentation.css" />
-<link rel="stylesheet" type="text/css" href="css/codemirror.css" />
+    <meta charset="utf-8">
 
-<link href="http://fonts.googleapis.com/css?family=Coming Soon&subset=latin" rel="stylesheet" type="text/css"/>
-<script src="js/jquery-1.6.2.min.js"></script>
-<script src="js/jquery.overlay.js"></script>
-<script src="js/fathom.js"></script>
-<script src="js/codemirror.js"></script>
-<script src="js/jsonp.js"></script>
-<script>
-$(document).ready(function(){
+    <title>Client-Side APIs</title>
+    <link href="../common/css/codemirror.css" rel="stylesheet" type="text/css">
+    <link href="../common/css/reveal.css" rel="stylesheet">
+    <link href="../common/css/gdilight.css" id="theme" rel="stylesheet"><!-- For syntax highlighting -->
+    <!-- dark editor -->
+    <link rel="stylesheet" href="../common/css/editor/dark.css">
 
-	$('textarea').each(function(elem) {
-	  var textArea = this;
-	  $(textArea).attr('tabIndex', 0);
-
-	  var codeMirrorOpts = {
-	  	lineNumbers: true
-	  }
-
-	  if ($(textArea).hasClass('html') || $(textArea).hasClass('script')) {
-        codeMirrorOpts.mode = {name: 'xml', htmlMode: true}
-      } else if ($(textArea).hasClass('js')) {
-	      codeMirrorOpts.matchBrackets = true;
-	  }
-
-	  var editor = CodeMirror.fromTextArea(textArea, codeMirrorOpts);
-
-    $(editor.getWrapperElement()).keydown(function(e) {
-      e.stopPropagation();
-    });
-
-    if ($(textArea).hasClass('runnable')) {
-	    var button = $('<button class="btn run-button">Run!</button>');
-	    button.click(function() {
-	      var code = editor.getValue();
-	      if ($(textArea).hasClass('html')) {
-	        $('#demo').html(code);
-	      } else if ($(textArea).hasClass('script')) {
-	        $('body').append(code);
-	      } else if ($(textArea).hasClass('js')) {
-	        window.eval(code);
-	      }
-	      $("#demo").leanModal();
-	    });
-	    $(this).after(button);
-    }
-	});
-
-	var fathom = new Fathom('#presentation');
-
-});
-</script>
+    <!-- If use the PDF print sheet so students can print slides-->
+    <link href="../common/css/print/pdf.css" media="print" rel="stylesheet" type="text/css">
+    <link href="../common/favicon.ico" rel="icon" type="image/x-icon"><!--[if lt IE 9]>
+        <script src="../comomon/lib/js/html5shiv.js"></script>
+        <![endif]-->
 </head>
+
 <body>
-
-<div id="demo" style="display:none"></div>
-
-<div id="presentation">
-
-<div class="slide">
-  <h1>Client-side APIs</h1>
-
-  <img src="img/wordle_categories.png">
-
-	<p class= "footer" style="font-size:34px;">
-    <a href="http://www.teaching-materials.org/apis/">
-      http://www.teaching-materials.org/apis/
-    </a>
-  </p>
-</div>
-
-<div class="slide">
-  <h1>What's an API?</h1>
-
-  <h2><code>"Application Programming Interface"</code></h2>
-
-  <img src="img/diagram_apis.png">
-
-	<h3>Rules and Instructions to access outside tools and information to program your application</h3>
-  <p class="notes">
-We use APIs to enhance our sites, in a few different ways.
-Functionality: We use APIs to outsource part of our application’s functionality to someone else, so we can focus on the unique bits.
-Public Data: There is a huge amount of data available, and APIs make that data available to use in a structured way. (Google Maps API) For example, I don’t particularly want to install a database of the world’s addresses and algorithms for searching them on my server -- I’d much rather just use the Google Maps API to geocode an address.
-User Data: We also use APIs to access data from other products and integrate them with our own. Users use multiple products and expect for them to work together - synergy.
-APIs can be quite useful, so we need to understand how to best use APIs, and this is a talk about how client-side APIs work, what APIs are out there,
-and why you should use them.
-  </p>
-
-</div>
-
-<div class="slide">
-  <h1>What's an API?</h1>
-
-  <img src="img/clientserver.png" width="600px">
-
-	<h3>Use an API to get information and tools from a server</h3>
-
-  <p class="notes">
-  </p>
-
-</div>
-
-<div class="slide">
-  <h1>What's an API?</h1>
-
-  <img src="img/clientserverserver.png" width="800px">
-
-	<h3>Some APIs are used to pull in information from one server to another</h3>
-
-  <p class="notes">
-  </p>
-
-</div>
-
-<div class="slide">
-  <h1>What's an API?</h1>
-
-  <img src="img/clientbypassserver.png" width="800px">
-
-	<h3>Some APIs are used to pull in information directly from a server into the client</h3>
-
-  <p class="notes">
-  </p>
-
-</div>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
 
 
+        <div class="slides">
+            <section>
+                <h1>Client-side APIs</h1>
 
-<div class="slide">
-  <h1>What's a Client-side API?</h1>
 
-  <img src="img/diagram_clientside.png">
+                <h3>How, What, &amp; Why</h3>
 
-  <p class="notes">
-  Many different ways to bring in content from other sites using HTML and JavaScript.
-  </p>
-</div>
 
-<div class="slide">
-  <h1>Client-side APIs: Functionality</h1>
-	<h2>So you don't have to re-invent the wheel</h2>
+                <p><a href="https://jtcoders.github.io/apis">https://teaching-materials.org/apis</a>
+                </p>
+            </section>
 
-  <ul>
-   <li>Analytics (Graphs)</li>
-   <li>Site Search</li>
-   <li>Mapping capabilities</li>
-   <li>Video Players</li>
-   <li>Payment</li>
-   <li>Communication (Messaging/Chat/Email)</li>
-  </ul>
 
-  <p class="notes">Stuff you could write yourself, but find it easier to let the API do for you.
-  </p>
-</div>
+            <section>
+                <h2>What's a (web) API?</h2>
 
-<div class="slide">
-  <h1>Client-side APIs: Data</h1>
-	<h2>Make your site content-rich without producing content</h2>
 
-  <ul class="multicolumn">
-	 <li>Social Networks
-	 <li>Multimedia
-	 <li>Documents
-   <li>Mapping
-   <li>Weather
-   <li>Movies
-   <li>Science
-   <li>Books
-   <li>Government
-  </ul>
+                <p><code>"Application Programming Interface"</code>
+                </p>
+                <img src="img/diagram_apis.png">
 
-	<h2>Anything you can think of!!!</h2>
-</div>
+                <aside class="notes">
+                    We use APIs to enhance our sites, in a few different ways. Functionality: We use APIs to outsource
+                    part of our application’s functionality to someone else, so we can focus on the unique bits. Public
+                    Data: There is a huge amount of data available, and APIs make that data available to use in a
+                    structured way. (Google Maps API) For example, I don’t particularly want to install a database of
+                    the world’s addresses and algorithms for searching them on my server -- I’d much rather just use
+                    the Google Maps API to geocode an address. User Data: We also use APIs to access data from other
+                    products and integrate them with our own. Users use multiple products and expect for them to work
+                    together - synergy. APIs can be quite useful, so we need to understand how to best use APIs, and
+                    this is a talk about how client-side APIs work, what APIs are out there, and why you should use
+                    them.
+                </aside>
+            </section>
 
-<div class="slide">
-  <h1>How do we use Client-side APIs?</h1>
-	<h2><strong>HTML APIs</strong>:  HTML elements as APIs using their attributes</h2>
-		<h3>IMG tags</h3>
-		<h3>IFRAME tags</h3>
-		<br>
-	<h2><strong>JS Widget/Snippet API</strong>: Pull in a Javascript library as an API</h2>
 
-	<h3>SCRIPT tags</h3>
-	<br>
+            <section>
+                <h2>Client-side APIs</h2>
+                <img src="img/diagram_clientside.png">
 
-	<h2><strong>JS Data APIs</strong>: Use your own Javascript as an API</h2>
+                <aside class="notes">
+                    Many different ways to bring in content from other sites using HTML and JavaScript.
+                </aside>
+            </section>
 
-	<h3>XMLHttpRequest objects</h3>
-	<h3>JSONP</h3>
 
-  <p class="notes">
-By definition (or atleast by my definition), an API to bring in stuff from another server,
-and there's only so many ways that you can do that in the client.
-HTML was designed for webpages to connect together via links,
-not all on one page, so many of the ways they work (like much of the web)
-are hacks.
+            <section>
+                <h2>Client-side APIs: How?</h2>
+                <br>
 
-These technologies are old, but their uses as APIs is more recent.
-It's taken a while to figure out the hacks and for client-side APIs to take off.
-  </p>
-</div>
 
-<div class="slide">
-  <br><br><br>
-  <h1>HTML APIs</h1>
-</div>
+                <table>
+                    <tr>
+                        <td><code>IMG</code>
+                        </td>
 
-<div class="slide">
-  <h1>IMG as API</h1>
+                        <td>1993</td>
 
-  <textarea>
-&lt;img src="http://otherdomain.com/service?param=x&amp;param=y"&gt;
-  </textarea>
+                        <td>Mosaic</td>
+                    </tr>
 
-  <br>
 
-  <h3>First image API?</h3>
-  <textarea class="runnable html">
+                    <tr>
+                        <td><code>SCRIPT</code>
+                        </td>
+
+                        <td>1995</td>
+
+                        <td>Netscape & Sun (RIP)</td>
+                    </tr>
+
+
+                    <tr>
+                        <td><code>IFRAME</code>
+                        </td>
+
+                        <td>1996</td>
+
+                        <td>Microsoft</td>
+                    </tr>
+
+
+                    <tr>
+                        <td><code>OBJECT/EMBED</code>
+                        </td>
+
+                        <td>1996</td>
+
+                        <td>Netscape/W3C</td>
+                    </tr>
+
+
+                    <tr>
+                        <td><code>XMLHttpRequest</code>
+                        </td>
+
+                        <td>1999</td>
+
+                        <td>Microsoft/W3C</td>
+                    </tr>
+                </table>
+
+
+                <aside class="notes">
+                    By definition (or at least by my definition), an API to bring in stuff from another server, and
+                    there's only so many ways that you can do that in the client. HTML was designed for webpages to
+                    connect together via links, not all on one page, so many of the ways they work (like much of the
+                    web) are hacks. These technologies are old, but their uses as APIs is more recent. It's taken a
+                    while to figure out the hacks and for client-side APIs to take off.
+                </aside>
+            </section>
+
+
+            <section>
+                <h2>HTML APIs</h2>
+            </section>
+
+
+            <section>
+                <h2>IMG as API</h2>
+
+                <pre><code class="xml">
+&lt;img src="http://otherdomain.com/service?param=x&amp;otherparam=y"&gt;
+  </code></pre><br>
+
+
+                <h3>First image API?</h3>
+
+                <pre><code>
 &lt;img src="http://counter.digits.net/?
 counter={d5ba6c4f-bd07-cb84-5583-0f90772b9dff}&
 template=simple"&gt;
-  </textarea>
+  </code></pre>
+            </section>
 
-</div>
+
+          <section>
+            <h2>What are query parameter?</h2>
+
+            <pre><code class="xml">
+&lt;img src="http://otherdomain.com/service?param=x&amp;otherparam=y"&gt;
+  </code></pre><br>
 
 
-<div class="slide">
-  <h1>IMG as API: Google Maps Image APIs</h1>
+            <h3>key - value pairs</h3>
 
-  <textarea class="runnable html">
-&lt;img src="
-https://maps.googleapis.com/maps/api/staticmap?
-center=Alamo Square Playground+San+Francisco,+CA+94117&
+            <pre><code>
+              ?
+              param=x
+              &amp;
+              otherparam=y
+  </code></pre>
+          </section>
+
+            <section>
+                <h2>IMG as API: Google Maps Image APIs</h2>
+
+                <pre><code>&lt;img src="
+http://maps.google.com/maps/api/staticmap?
+center=48.8584,2.2945&
 zoom=16&
-size=500x400&
-markers=color:red%7Clabel:%7CPainted Ladies"&gt;
-  </textarea>
+maptype=satellite&
+size=250x300&
+sensor=false"&gt;</code></pre>
 
-  <textarea class="runnable html">
-&lt;img src="
-https://maps.googleapis.com/maps/api/streetview?
-size=400x400&
-location=37.7762139,-122.4329534&
-fov=100&
-heading=70&
-pitch=10"&gt;
-  </textarea>
+                <pre><code>&lt;img src="
+http://maps.googleapis.com/maps/api/streetview?
+size=300x250&
+location=51.5030943,-0.1778232&
+fov=90&
+heading=370&
+pitch=-20&
+sensor=false"&gt;</code></pre>
 
-  <p class="footer">Read more:
-   <a href="https://developers.google.com/maps/documentation/static-maps/" target="_blank">Google Static Maps API</a> |
-   <a href="https://developers.google.com/maps/documentation/streetview/" target="_blank">Google Street View Image API</a>
-  </p>
-</div>
+                <p>Read more: <a href="http://code.google.com/apis/maps/documentation/staticmaps/" target=
+                "_blank">Google Static Maps API</a> | <a href=
+                "https://developers.google.com/maps/documentation/streetview/" target="_blank">Google Street
+                View Image API</a></p>
+            </section>
 
 
-<div class="slide">
-  <h1>IMG as API: Google Charts API</h1>
+            <section>
+                <h2>IMG as API: Google Charts API</h2>
 
-  <textarea class="runnable html">
-&lt;img width="550" height="250" src="
+                <pre><code class="xml">&lt;img width="550" height="250" src="
 http://chart.apis.google.com/chart?
 cht=p&
 chs=550x250&
 chd=t:10,80,10&
 chco=FAFAFA,FFFF00,FAFAFA&
 chl=Does%20not%20resemble%20Pac-man|Resembles%20Pac-man&
-chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;
-  </textarea>
-  <p class="footer">Read more: <a href="https://developers.google.com/chart/image/">Google Charts API Docs</a>
-   <br>Note the deprecation notice!
-  </p>
-</div>
+chtt=Percentage%20of%20Google%20Chart%20Which%20Resembles%20Pac-man"&gt;</code></pre>
 
-<!-- commented out because who uses flash these days? 
-<div class="slide">
-  <h1>EMBED/OBJECT as API</h1>
+                <p>Read more: <a href="https://developers.google.com/chart/image/" target="_blank">Google Charts API
+                Docs</a><br>
+                Note the deprecation notice!</p>
+            </section>
 
-  <textarea class="html">
-&lt;object&gt;
-  &lt;param name="movie" value="http://apidomain.com/widget.swf"&gt;&lt;/param&gt;
-  &lt;param name="flashvars" value="param=x&amp;param2=y"&gt;&lt;/param&gt;
-&lt;/object&gt;
-  </textarea>
+            <section>
+                <h2>IFRAME as API: Simple</h2>
 
-  <h3>Flickr Slideshow:</h3>
-  <textarea class="runnable html">
- &lt;object width="400" height="300"&gt;
-   &lt;param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=107931"&gt;&lt;/param&gt;
-   &lt;param name="flashvars" value="api_text=jowling&api_sort=interestingness-desc&offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Djowling%26s%3Dint&page_show_back_url=%2Fsearch%2F%3Fq%3Djowling%26s%3Dint&method=flickr.photos.search&api_params_str=&api_tag_mode=bool&api_media=all&jump_to=&start_index=0"&gt;&lt;/param&gt;
-   &lt;embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=107931"
-     flashvars="offsite=true&lang=en-us&page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Djowling%26s%3Dint&page_show_back_url=%2Fsearch%2F%3Fq%3Djowling%26s%3Dint&method=flickr.photos.search&api_params_str=&api_text=jowling&api_tag_mode=bool&api_media=all&api_sort=interestingness-desc&jump_to=&start_index=0"
-     width="400" height="300"&gt;
-   &lt;/embed&gt;
-&lt;/object&gt;
-  </textarea>
-
-  <p class="footer">Friends don't let friends use Flash APIs</p>
-
-</div>
-
-end flash slide -->
-
-<div class="slide">
-  <h1>IFRAME as API: Simple</h1>
-
-  <textarea>
-&lt;iframe src="http://apidomain.com/widget.html"&gt;&lt;/iframe&gt;
-  </textarea>
-
-  <h3>YouTube Embed:</h3>
-  <textarea class="runnable html">
-&lt;iframe width="560" height="315" 
-src="https://www.youtube.com/embed/epUk3T2Kfno?autoplay=1" 
-frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
-  </textarea>
-
-  <p><a href="https://developers.google.com/youtube/player_parameters" target="_blank">Youtube IFrame Player API</a></p>
-
-</div>
+                <pre><code>&lt;iframe src="http://apidomain.com/widget.html"&gt;&lt;/iframe&gt;</code></pre><br>
 
 
-<div class="slide">
-  <br><br><br>
-  <h1><a target="_blank" href="http://www.teaching-materials.org/apis/exercise_htmlapis.html">Exercise Time!</a></h1>
-</div>
+                <h3>YouTube Embed:</h3>
+
+                <pre><code>&lt;iframe width="420" height="315"
+ src="https://www.youtube.com/embed/epUk3T2Kfno?rel=0&autoplay=1"
+ frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+
+                <p><a href="https://developers.google.com/youtube/player_parameters#autohide" target="_blank">Youtube
+                Player Embed Reference</a>
+                </p>
+            </section>
 
 
-<div class="slide">
-  <br><br><br>
-  <h1>JS Widget/Snippet APIs</h1>
-</div>
+            <section>
+                <br>
+                <br>
+                <br>
 
-<div class="slide">
-  <h1>SCRIPT as API: Javascript Libraries</h1>
 
-<h3>Your code:</h3>
-  <textarea class="script">
-&lt;script src="http://apidomain.com/library.js"&gt;&lt;/script&gt;
+                <h2><a href="exercise_htmlapis.html" target="_blank">Exercise Time!</a>
+                </h2>
+            </section>
+
+
+            <section>
+                <br>
+                <br>
+                <br>
+
+
+                <h2>JS Widget/Snippet APIs</h2>
+            </section>
+
+
+            <section>
+                <h2>SCRIPT as API: Libraries</h2>
+
+
+                <h3>Your code:</h3>
+
+                <pre><code class="xml">&lt;script src="http://apidomain.com/library.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 apiNamespace.apiFunction();
-&lt;/script&gt;
-  </textarea>
+&lt;/script&gt;</code></pre>
 
-<h3>Their code:</h3>
-  <textarea class="js">
-window.apiNamespace.apiFunction = function() {
+                <h3>Their code:</h3>
+
+                <pre><code>window.apiNamespace.apiFunction = function() {
   // Do exciting API thing here
   // Maybe using images or iframes, too.
-}
-  </textarea>
+}</code></pre>
+            </section>
 
-</div>
 
-<div class="slide">
-  <h1>Example: Chart.js</h1>
 
-  <textarea class="runnable html">
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"&gt;&lt;/script&gt;
+          <!-- <section>
+            <h2>Facebook Like button</h2>
 
-&lt;canvas id="favorite-pets" width="800" height="450"&gt;&lt;/canvas&gt;
+            <pre><code>&lt;div class="fb-like" data-href="http://gdisf-js-apis.appspot.com/"
+  data-send="true" data-width="450" data-show-faces="true"&gt;
+&lt;/div&gt;
 
-&lt;script type="text/javascript"&gt;
-new Chart(document.getElementById("favorite-pets"), {
-  type: 'bar',
-  data: {
-    labels: ["dogs", "cats", "birds"],
-    datasets: [
-      {
-        label: "Families",
-        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-        data: [6478,6267,4734]
-      }
-    ]
-  },
-  options: {
-    legend: { display: false },
-    title: { display: true, text: 'Favorite pets' }
-  }
-});
-&lt;/script&gt;
-  </textarea>
+&lt;div id="fb-root"&gt;&lt;/div&gt;
 
-  <p class="footer">
-    More reading: <a href="http://www.chartjs.org/docs/latest/">Chart.js docs</a>
-  </p>
-
-</div>
-
-<div class="slide">
-  <h1>Example: Twitter List</h1>
-
-  <textarea class="runnable html">
-&lt;a class="twitter-timeline" href="https://twitter.com/amc123123/lists/women-in-tech"&gt;
-  A Twitter List by EngineerSue
-&lt;/a&gt;
-
-&lt;script&gt;window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-  t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
+&lt;script&gt;(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=152345878188549";
   fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+&lt;/script&gt;</code></pre>
 
-  t._e = [];
-  t.ready = function(f) {
-  t._e.push(f);
-};
-
-return t;
-}(document, "script", "twitter-wjs"));&lt;/script&gt;
-  </textarea>
-
-  <p class="footer">
-    More reading: <a target="_blank" href="https://dev.twitter.com/web/javascript/loading">Twitter Widget docs</a>
-  </p>
-
-</div>
-
-<div class="slide">
-  <br><br><br>
-  <h1><a target="_blank" href="http://www.teaching-materials.org/apis/exercise_jsapis.html">Exercise Time!</a></h1>
-
-</div>
+            <p>More reading: <a href="http://developers.facebook.com/docs/reference/plugins/like/" target=
+              "_blank">Facebook Like Button</a></p>
+          </section>
+ -->
 
 
-<div class="slide">
-  <br><br><br>
-  <h1>JS Data APIs</h1>
-</div>
+           <!--  <section>
+                <h2>Google Analytics</h2>
 
-<div class="slide">
-  <h1>XmlHttpRequest as API?</h1>
-  <img src="img/diagram_xhr.png">
-  <textarea class="js">
-var xhr = new XMLHttpRequest();
+                <pre><code>&lt;button type="button"&gt;Click Me!&lt;/button&gt;
+&lt;script type="text/javascript"&gt;
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-964209-11']);
+_gaq.push(['_trackPageview']);
+
+$('#demo button').bind('click', function() {
+    _gaq.push(['_trackEvent', 'UserInteraction', 'Click']);
+});
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+&lt;/script&gt;</code></pre>
+
+                <p>More reading: <a href="https://developers.google.com/analytics/devguides/collection/gajs/" target=
+                "_blank">Google Analytics JS Docs</a></p>
+            </section>
+
+ -->
+            <section>
+                <h2>Pinterest</h2>
+                <pre><code>
+&lt;a href="https://www.pinterest.com/pin/create/button/"&gt;
+    &lt;img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png"&gt;
+&lt;/a&gt;
+  
+&lt;script
+    type="text/javascript"
+    async defer
+    src="//assets.pinterest.com/js/pinit.js"&gt;&lt;/script&gt;
+                </code></pre>
+                <p><a href="https://developers.pinterest.com/docs/widgets/save/?">Pinterest Button API Docs</a>  |  <a href="https://jsbin.com/lecone/edit?html,output">JSBin example</a></p>
+
+            </section>
+
+
+            <section>
+                <h2>Disqus</h2>
+
+                <pre><code>&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+var disqus_shortname = 'otherfancystuff';
+var disqus_developer = 1;
+
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+&lt;/script&gt;</code></pre>
+
+                <p>More reading: <a href="http://help.disqus.com/customer/portal/articles/472097-universal-code"
+                target="_blank">Disqus Universal Code Docs</a></p>
+              <p>Examples: <a href="http://miss-petunia.com/" target="_blank">Shiba</a> <a href="http://mr-monty.com/" target="_blank">Another cute Shiba</a></p>
+            </section>
+
+
+            <section>
+                <br>
+                <br>
+                <br>
+
+
+                <h2><a href="exercise_jsapis.html" target="_blank">Exercise Time!</a>
+                </h2>
+            </section>
+
+
+            <section>
+                <br>
+                <br>
+                <br>
+
+
+                <h2>JS Data APIs</h2>
+            </section>
+
+
+            <section>
+                <h2>XmlHttpRequest as API?</h2>
+                <img src="img/diagram_xhr.png">
+
+                <pre><code>var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://apidomain.com/method?param=bla');
 xhr.onreadystatechange = function() {
   if(xhr.readyState == 4 &amp;&amp; xhr.status==200) {
     var data = xhr.responseText;
   }
 };
-xhr.send();
-  </textarea>
-  <marquee>Error: Same origin policy!</marquee>
+xhr.send();</code></pre><marquee>Error: Same origin policy!</marquee>
+            </section>
 
-</div>
 
-<div class="slide">
-  <h1>SCRIPT as API: JSONP</h1>
+            <section>
+                <h2>SCRIPT as API: JSONP</h2>
 
-  <h3>Your page:</h3>
-  <textarea class="runnable script">
-&lt;script src="https://api.ipify.org?format=jsonp&callback=getip"&gt;
+
+                <h3>Your page:</h3>
+
+                <pre><code>&lt;script src="https://gdi-jsonp.herokuapp.com/app.php?callback=onLoadData"&gt;
 &lt;/script&gt;
 &lt;script&gt;
-function getip(json) {
-  $('#demo').html('<h2> Your IP address is ' + json.ip + '.</h2>');
+function onLoadData(json) {
+  $('#demo').html('YO YO YO ' + json.name);
 }
-&lt;/script&gt;
-  </textarea>
+&lt;/script&gt;</code></pre>
 
-  <h3>API Server:</h3>
-  <textarea class="php">
-&lt;?php
+                <h3>API Server:</h3>
+
+                <pre><code>&lt;?php
 $callback = $_GET['callback'];
 
-echo $callback . "({'ip': getIP()});";
-?&gt;
-  </textarea>
+echo $callback . "({'name': 'Girl Develop It'});";
+?&gt;</code></pre>
+            </section>
 
-</div>
 
-<div class="slide">
-  <h1>reddit JSONP API</h1>
+            <section>
+                <h2>reddit JSONP API</h2>
 
-   <p>Example URL: 
-     <a href="http://www.reddit.com/r/all/search.json?q=girldevelopit" target="_blank">
 
-     http://www.reddit.com/r/all/search.json?q=girldevelopit
-     </a>
-   </p>
-   <!-- Show without JSONView -->
-   <!-- Enable JSONView -->
+                <p>Example URL: <a href="https://www.reddit.com/search.json?q=girldevelopit" target=
+                "_blank">http://www.reddit.com/search.json?q=girldevelopit</a></p>
 
-   <textarea class="runnable js" mode="javascript" style="display: none;" runnable="true">
-function onLoad(json) {
+                <pre><code>function onLoad(json) {
   var posts = json.data.children;
-  for (var i = 0; i < 5 && i < posts.length; i++) {
-    document.getElementById('demo').innerHTML += 
-      '<p>' + posts[i].data.title + '</p>';
-  }
+  console.log(posts);
+  document.body.innerHTML = posts[0].data.title;
 }
 
 function fetchJSON(query) {
   var script = document.createElement('script');
-  script.src = 'http://www.reddit.com/r/all/search.json?q='
+  script.src = 'https://www.reddit.com/search.json?q='
     + query + '&jsonp=onLoad';
   document.getElementsByTagName('body')[0].appendChild(script);
 }
 
-fetchJSON('girldevelopit');
-   </textarea>
+fetchJSON('girldevelopit');</code></pre>
 
-   <p class="footer"><a href="http://www.reddit.com/dev/api#GET_search" target="_blank">Reddit API docs</a></p>
-</div>
+                <p><a href="http://www.reddit.com/dev/api#GET_search" target="_blank">Reddit API docs</a> | <a href="https://jsbin.com/lawukuw/edit?html,output">JSBin example</a></p>
+            </section>
 
-<div class="slide">
-  <h1>Youtube JSONP API</h1>
-  <!-- For those of you who don't actually use jQuery... -->
 
-  <textarea class="runnable js" mode="javascript" style="display: none;" runnable="true">
-function fetchJSON(query) {
-  var searchUrl = 'https://www.googleapis.com/youtube/v3/search';
-  var params = {
-    'part' : 'snippet',
-    'key' : 'AIzaSyCRXTR0G_Slvgyjj_Vgfry6KLiw8pIMlHs',
-    'q': encodeURIComponent(query)
-  }
-  JSONP.get(searchUrl, params, null, function(json) {
-    var youtubeId = json.items[0].id.videoId;
-    document.getElementById('demo').innerHTML = 
-  '<iframe width="560" height="365" ' + 
-  'src="http://www.youtube.com/embed/' + youtubeId +
-  '" frameborder="0" allowfullscreen></iframe>';
-  });
-}
+            <section>
+                <h2>Flickr JSONP API</h2>
 
-fetchJSON('otters');
-  </textarea>
-
-  <p class="footer">
-  See also: <a href="http://www.nonobtrusive.com/2010/05/20/lightweight-jsonp-without-any-3rd-party-libraries/" target="_blank">Lightweight JSONP JS Library</a></p>
-  </p>
-
-</div>
-
-<div class="slide">
-  <h1>Flickr JSONP API</h1>
-
-  <textarea class="runnable js" mode="javascript"  style="display: none;"  runnable="true">
-function fetchPhotos(query) {
+                <pre style="overflow-y:scroll;"><code>function fetchPhotos(query) {
   $.ajax({
     url: 'https://api.flickr.com/services/rest/',
     data: {api_key: 'a0de4a213ab1191732ec4db4daf586a3',
            method: 'flickr.photos.search',
-           tags: query,
-           per_page: '6',
-           format: 'json'},
+           tags: query, per_page: '6', format: 'json'},
     dataType: 'jsonp',
     jsonp: 'jsoncallback',
     success: function(json){
       var photos = json.photos.photo;
-      for (var i = 0; i < photos.length; i++) {
+      for (var i = 0; i &lt; photos.length; i++) {
         var photo = photos[i];
-        var photoUrl = 'http://farm' + photo.farm +
-            '.static.flickr.com/' + photo.server +
-            '/' + photo.id + '_' + photo.secret + '_' + 'm.jpg';
-        $('#demo').append('<img src="' + photoUrl + '">');
+        var photoUrl = 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '_' + 'm.jpg';
+        $('#demo').append('&lt;img src="' + photoUrl + '"&gt;');
       }
     }
   });
 }
-fetchPhotos('rabbits');
-  </textarea>
+fetchPhotos('rabbits');</code></pre>
 
-  <p class="footer">
-  See also: <a href="http://api.jquery.com/jQuery.ajax/" target="_blank">jQuery .ajax()</a> |
-  <a href="http://www.flickr.com/services/api/" target="_blank">Flickr API</a>
-  </p>
+                <p>See also: <a href="http://api.jquery.com/jQuery.ajax/" target="_blank">jQuery .ajax()</a> | <a href=
+                "http://www.flickr.com/services/api/" target="_blank">Flickr API</a> | 
+                <a href="https://jsbin.com/mewewumega/edit?html,console,output">JSBin example</a></p>
+            </section>
 
-</div>
 
-<!-- commenting out because this isn't necessary, and we're short on time 
-<div class="slide">
-  <h1>Combo APIs</h1>
+            <section>
+                <h2>Combo APIs</h2>
 
-  <p>...they do it all!</p>
 
-</div>
+                <p>...they do it all!</p>
+            </section>
 
-<div class="slide">
 
-  <h1>Facebook API</h1>
+           <!--  <section>
+                <h2>Facebook API</h2>
 
-  <textarea class="js">
-window.fbAsyncInit = function() {
+                <pre><code>window.fbAsyncInit = function() {
   FB.init({appId: '174062109319467', status: true});
-
   FB.api('/me/friends', function(response) {
     for (var i = 0; i &lt; response.data.length; i++) {
       var friendName = response.data[i].name;
@@ -607,22 +509,285 @@ window.fbAsyncInit = function() {
    '//connect.facebook.net/en_US/all.js';
   e.async = true;
   document.getElementById('fb-root').appendChild(e);
-}());
-  </textarea>
+}());</code></pre>
 
-  <p class="notes">
-  Any APIs that use this crazy nested iframe hack will wrap it up in a client library so that
-  mere mortals like us can use it.
-  </p>
+                <aside class="notes">
+                    Any APIs that use this crazy nested iframe hack will wrap it up in a client library so that mere
+                    mortals like us can use it.
+                </aside>
+            </section> -->
 
-</div>
-end comment -->
+            <section>
+                <h2>Google Maps & US Geological Survery APIS</h2>
+                <h4>With an api key!</h4>
+                <p><a href="https://developers.google.com/maps/documentation/javascript/earthquakes#overview">Tutorial Link</a></p>
+            </section>
+
+            <section>
+                <br>
+                <br>
+                <br>
 
 
-<div class="slide">
-  <br><br><br>
-  <h1><a target="_blank" href="http://www.teaching-materials.org/apis/exercise_youtubeapi.html">Exercise Time!</a></h1>
-</div>
+                <h2><a href="exercise_youtubeapi.html" target="_blank">Exercise Time!</a>
+                </h2>
+            </section>
 
+
+            <section>
+                <h2>Client-side APIs: What?</h2>
+                <img src="img/wordle_categories.png">
+
+                <p>See also: <a href="http://www.programmableweb.com/apis/directory" target=
+                "_blank">ProgrammableWeb.com API Directory</a></p>
+            </section>
+
+
+            <section>
+                <h2>Client-side APIs: What?</h2>
+                <img src="img/diagram_apis.png">
+            </section>
+
+
+            <section>
+                <h2>Client-side APIs: Functionality</h2>
+
+
+                <ul>
+                    <li>Analytics</li>
+
+
+                    <li>Site Search</li>
+
+
+                    <li>Text Processing (Translation/Analysis/TTS/Conversion)</li>
+
+
+                    <li>Image Processing (Editing/Filter)</li>
+
+
+                    <li>Payment</li>
+
+
+                    <li>Communication (Telephony/Messaging/Chat/Email)</li>
+                </ul>
+
+
+                <aside class="notes">
+                    Stuff you could write yourself, but find it easier to let the API do for you.
+                </aside>
+            </section>
+
+
+
+            <section>
+                <h2>Client-side APIs: Data</h2>
+
+
+                <ul style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2;">
+                    <li>Mapping</li>
+
+
+                    <li>Real Estate</li>
+
+
+                    <li>Shopping</li>
+
+
+                    <li>Weather</li>
+
+
+                    <li>Movies</li>
+
+
+                    <li>Science</li>
+
+
+                    <li>Books</li>
+
+
+                    <li>Words</li>
+
+
+                    <li>Government</li>
+
+
+                    <li>Food</li>
+
+
+                    <li>Sports</li>
+
+
+                    <li>Travel</li>
+
+
+                    <li>Wikipedia (Everything)</li>
+                </ul>
+            </section>
+
+
+            <section>
+                <h2>APIs: User Data</h2>
+
+
+                <ul>
+                    <li>Social Networks</li>
+
+
+                    <li>Multimedia: Music, Video, Photos</li>
+
+
+                    <li>Documents</li>
+                </ul>
+
+
+                <aside class="notes">
+                    - Multimedia: Music (SoundCloud?), Video, Photos (Instagram, WebPurify) - Document storage: DropBox
+                    - Social Networks: Social networks (mostly FB/Twitter)
+                </aside>
+            </section>
+            <!-- G+ ? -->
+
+
+            <section>
+                <h2>So you want to use an API...</h2>
+
+
+                <ul>
+                    <li>Will you save time/money?</li>
+
+
+                    <li>What are the terms?</li>
+
+
+                    <li>What is the pricing?</li>
+
+
+                    <li>How stable is it?</li>
+
+
+                    <li>How will it affect performance?</li>
+
+
+                    <li>What's your plan B?</li>
+                </ul>
+            </section>
+
+
+            <section>
+                <h2>APIs are...</h2>
+
+                <pre><code>function synonymify(word) {
+  var url = 'https://api.wordnik.com/v4/word.json/' + word + '/related';
+  var params = {
+    'api_key': '98479a51ec674585e400609183c0e5d78bd7b4eba8a8810b4',
+    'type': 'synonym',
+    'partOfSpeech': 'adjective'
+  }
+
+  JSONP.get(url, params, null, function(json) {
+    var synonyms = json[0].words;
+    for (var i = 0; i &lt; synonyms.length; i++) {
+      $('#demo').append(synonyms[i] + '<br>');
+    }
+  });
+}
+synonymify('awesome');</code></pre>
+
+                <p>See also: <a href="http://developer.wordnik.com/docs#!/word/get_related_words" target=
+                "_blank">Wordnik API</a> | <a href="http://programmableweb.com" target="_blank">ProgrammableWeb</a></p>
+            </section>
+        </div>
+        <!--.slides-->
+
+
+        <footer>
+            <div class="copyright">
+                Client-Side APIs -- Adapted from GDISF -- <a href=
+                "https://creativecommons.org/licenses/by-nc/3.0/deed.en_US" rel="license"><img alt=
+                "Creative Commons License" src="https://i.creativecommons.org/l/by-nc/3.0/80x15.png" style=
+                "border-width:0"></a>
+            </div>
+        </footer>
+    </div>
+    <!--.reveal-->
+    <script src="../common/lib/js/head.min.js">
+    </script>
+    <script src="../common/js/reveal.min.js">
+    </script>
+    <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+    </script>
+    <script src="../common/js/jquery.min.js" type="text/javascript">
+    </script>
+    <script src="../common/js/codemirror.js">
+    </script>
+    <script src="../common/js/jsonp.js">
+    </script>
+    <script>
+
+            $(document).ready(function(){
+
+                $('textarea').each(function(elem) {
+                var textArea = this;
+                $(textArea).attr('tabIndex', 0);
+
+                var codeMirrorOpts = {
+                    lineNumbers: true
+                }
+
+                if ($(textArea).hasClass('html') || $(textArea).hasClass('script')) {
+                        codeMirrorOpts.mode = {name: 'xml', htmlMode: true}
+                    } else if ($(textArea).hasClass('js')) {
+                        codeMirrorOpts.matchBrackets = true;
+                }
+
+                var editor = CodeMirror.fromTextArea(textArea, codeMirrorOpts);
+
+                $(editor.getWrapperElement()).keydown(function(e) {
+                    e.stopPropagation();
+                });
+
+                if ($(textArea).hasClass('runnable')) {
+                    var button = $('<button class="btn run-button">Run!<\/button>');
+                    button.click(function() {
+                        var code = editor.getValue();
+                        if ($(textArea).hasClass('html')) {
+                            $('#demo').html(code);
+                        } else if ($(textArea).hasClass('script')) {
+                            $('body').append(code);
+                        } else if ($(textArea).hasClass('js')) {
+                            window.eval(code);
+                        }
+                        $("#demo").leanModal();
+                    });
+                    $(this).after(button);
+                }
+                });
+
+
+            });
+    </script>
 </body>
 </html>

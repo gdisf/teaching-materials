@@ -3,37 +3,42 @@
  <head>
   <meta charset="utf-8">
   <title>Video Watcher</title>
-  <link rel="stylesheet" type="text/css" href="http://teaching-materials.org/common/bootstrap.css">
+  <link rel="stylesheet" href="http://www.teaching-materials.org/common/css/bootstrap.min.css">
+  <style type="text/css">
+  /* This puts titles always on a separate line from thumbnails */
+  #videos-list img {
+    display: block;
+  }
+  </style>
  </head>
  <body>
 
 <div class="container">
- 
+
  <div class="row">
-   <div class="span12">
-    <h2 class="page-header">Best Videos Ever ❤</h1>
+   <div class="col-md-12">
+    <h2 class="page-header">Best Videos Ever ❤</h2>
    </div>
  </div>
- 
+
  <div class="row">
-   <div class="span3">
+   <div class="col-md-3">
      <ul id="videos-list">
     </ul>
    </div>
-   <div class="span9" id="video-watcher">
+   <div class="col-md-9" id="video-watcher">
    </div>
  </div>
 
  <div style="text-align:center; margin-top: 30px; clear:both;">
-  <a href="http://info.flagcounter.com/nEFy"><img src="http://s04.flagcounter.com/count/nEFy/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/" alt="Flag Counter" border="0"></a>
+  <a href="https://info.flagcounter.com/nEFy"><img src="https://s04.flagcounter.com/count/nEFy/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/" alt="Flag Counter" border="0"></a>
 </div>
 
 </div>
 
+  <script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"></script>
+  <script type="text/javascript" src="http://www.teaching-materials.org/common/js/jquery.min.js"></script>
 
-
- <script type="text/javascript" src="http://teaching-materials.org/common/youtube.js"></script>
- <script type="text/javascript" src="http://teaching-materials.org/common/jquery.js"></script>
  <script>
 
  function addVideoToList(video) {
@@ -44,7 +49,7 @@
     var thumbnailImg = $('<img>');
     thumbnailImg.attr('src', thumbnailUrl);
     videoLink.append(thumbnailImg);
-    
+
     videoLink.on('click', function(e) {
         e.preventDefault();
         var videoTitle = $('<h2>');
@@ -71,7 +76,7 @@
     $('#videos-list').append(videoItem);
  }
 
-var videos = [                                                                                                                                                                     
+var videos = [
   {"youtubeId": "TddFnTB_7IM",
     "title": "Trip through the 80s",
     "author": "meliberty",
@@ -96,7 +101,7 @@ var videos = [
 
 for (var i = 0; i < videos.length; i++) {
    addVideoToList(videos[i]);
-}   
+}
 
  </script>
  </body>

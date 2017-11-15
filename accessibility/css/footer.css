@@ -1,0 +1,20 @@
+.reveal footer {
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  bottom: 3px;
+  left: 0;
+  z-index: 10;
+  font-size: 35%;
+  text-align:right;
+  background-image: url(../../common/img/pink-logo.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+.reveal footer .copyright{
+  margin:15px 5px 0 100px;
+}
+.reveal footer .copyright a img{
+  vertical-align: middle;
+}
