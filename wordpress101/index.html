@@ -1,0 +1,1090 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Girl Develop It - Intro to WordPress</title>
+
+  <meta name="description" content="Girl Develop It framework for easily creating beautiful presentations using HTML in GDI theme. Forked from Hakim El Hattab's reveal.js">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/gdilight.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+  <script>
+    document.write('<link rel="stylesheet" href="css/print/' + (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') + '.css" type="text/css" media="print">');
+  </script>
+
+  <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="beginning-slide">
+        <img src="img/new-gdi-logo.png" class="no-border" />
+        <h2>Intro to WordPress</h2>
+      </section>
+
+      <section>
+        <h2>About You</h2>
+        <h3>Why do you want to learn WordPress?</h3>
+        <ul>
+          <li>Your name and background</li>
+          <li>Anything in particular you are hoping to learn today?</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Objectives</h2>
+        <p>To become familiar with the WordPress dashboard, plugins, themes, widgets and more!</p>
+      </section>
+
+      <section>
+        <h2>Ask Questions!</h2>
+      </section>
+
+      <section>
+        <h2>Using your own WordPress install today?</h2>
+        <strong>Are you able to add posts and pages and change the theme and navigation to your site?</strong>
+      </section>
+
+      <section>
+        <h2>What we'll cover today</h2>
+        <ul>
+          <li>What WordPress is</li>
+          <li>How to build out a site with pages and posts</li>
+          <li>Plugins - how to find, install, and activate them</li>
+          <li>Widgets and Menus</li>
+          <li>Themes - how to find, install, preview, and activate them</li>
+          <li>Customizing themes</li>
+          <li>How to keep your site secure</li>
+          <li>More advanced installs</li>
+          <li>Administrative backend functionality</li>
+          <li>Resources, questions, and if there's time, some one-on-one help</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>But first...</h2>
+        <h3>let's learn
+          <a href="http://www.teaching-materials.org/htmlcss-1day/html-web/slides.html#slide1" target="_blank">how the web works!</a>
+        </h3>
+      </section>
+
+      <section>
+        <h2>What is WordPress?</h2>
+        <h3>Official description from WordPress.org</h3>
+        <blockquote>
+          WordPress is web software you can use to create a beautiful website or blog. We like to say that WordPress is both free and
+          priceless at the same time.
+        </blockquote>
+      </section>
+
+      <section>
+        <h2>WordPress is Popular</h2>
+        <p>26.4% of all the websites use WordPress. </p>
+        <p>WordPress is the
+          <a href="http://w3techs.com/technologies/overview/content_management/all" target="_blank">#1 content management system in the world (59.4% marketshare)</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>WordPress is</h2>
+        <h3>Free, open source, web-based software</h3>
+        <p>
+          WordPress core software is built by hundreds of community volunteers. People all around the word contribute to WordPress
+          by either submitting bugfixes, testing, designing or writing code for the software.
+        </p>
+      </section>
+
+      <section>
+        <h2>WordPress is</h2>
+        <h3>A content management system</h3>
+        <p>
+          WordPress allows site owners to manage their site content via an easy-to-use admin dashboard.
+        </p>
+      </section>
+
+      <section>
+        <h2>WordPress.org vs. WordPress.com</h2>
+        <ul>
+          <li>
+            <strong>WordPress.org</strong> - Web software used to build a website on a hosting account with a domain name. Sites
+            can be built and modified using themes, plugins or custom code</li>
+          <br />
+
+          <li>
+            <strong>WordPress.com</strong> - A free blogging service that allows people to create a blog hosted on WordPress.com's
+            servers. Hosting is free (although there are some for-pay add-ons), theme choices are limited, plugins can not
+            be installed and code can not be modified</li>
+        </ul>
+
+        <a href="http://www.wpbeginner.com/beginners-guide/self-hosted-wordpress-org-vs-free-wordpress-com-infograph/?display=wide"
+          target="_blank">
+          <img src="img/Sign-Info.png" />
+        </a>
+      </section>
+
+      <!-- TALK ABOUT MANAGED WORDPRESS INSTALLS via WPENGINE AND GODADDY -->
+      <!-- this is just an intro, we have our own today -->
+      <section>
+        <h2>Hosting a Wordpress Install</h2>
+        <ul>
+          <li>
+            <p>If you're selling to clients, we recommend a "managed" wordpress install</p>
+          </li>
+          <li>Pros: Hassle-free. This includes security, speed, WordPress updates, daily backups, website uptime, and scalability.
+            WPEngine is top-notch, GoDaddy also has this option.</li>
+          <li>Cons: More expensive (starts at $30/month, often limits you to wordpress only</li>
+          <li>For a simple blog, we recommend shared wordpress hosting (what we're using today)</li>
+          <li>
+            <a href="http://www.wpbeginner.com/managed-wordpress-f hosting/">More about managed wordpress hosting</a>
+          </li>
+          <li>
+            <a href="http://www.wpbeginner.com/the-truth-about-shared-wordpress-web-hosting/">More about shared hosting</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- GET STARTED WITH THE ALREADY HOSTED INSTALLS -->
+      <section>
+        <h2>Exercise: Get logged into WP Admin</h2>
+      </section>
+      <!-- if you want help setting up your own, we will do that with you at the end -->
+
+      <section>
+        <h2>A Tour of the Front End</h2>
+        <h3>WordPress comes with the default theme Twenty Seventeen activated</h3>
+        <ul>
+          <li>A sample post on the home page.</li>
+          <li>A sample page</li>
+          <li>A sample comment</li>
+          <li>A sample tag line "Just another WordPress site"</li>
+          <li>A set of sidebar widgets</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>A Tour of the Backend Admin</h2>
+        <h3>Located at: yourdomain.com/wp-admin/ </h3>
+        <p>
+          The admin is divided into 3 areas:
+          <ol>
+            <li>The top menu bar</li>
+            <li>The left-hand menu used to navigate to most admin functionality</li>
+            <li>The main content window where most admin functionality is performed</li>
+          </ol>
+        </p>
+      </section>
+
+      <section>
+        <h2>A Tour of the Backend Admin</h2>
+        <h3>Located at: yourdomain.com/wp-admin/ </h3>
+
+        <p>
+          <strong>Tip:</strong> You can change what's displayed on an admin page by clicking on the "screen options" tab in the upper
+          right corner.
+        </p>
+
+        <p>
+          <strong>Another Tip:</strong> Open the front end of your site in one browser tab and the backend in another so you can
+          easily switch between the two as you make changes to your site.
+        </p>
+      </section>
+
+      <!-- ADDING CONTENT - PAGES AND POSTS ETC -->
+      <section>
+        <h2>Pages and Posts</h2>
+        <ul>
+          <li>
+            <strong>Pages:</strong> Regular static website pages with content</li>
+          <li>
+            <strong>Posts:</strong> Entries (like blog posts) that have a date, categories and tags assigned to them. They can be
+            listed in a particular order (chronologically, alphabetically, etc.) and fed to other sites or blog readers via
+            an RSS feed</li>
+        </ul>
+        <a href="http://www.chaostoclarity.com/how-wordpress-works-page-vs-post-infographic/" target="_blank">
+          <img src="img/Sign-Info.png" />
+        </a>
+      </section>
+
+      <section>
+        <h2>Pages and Posts</h2>
+        <p>Let's look at some examples!</p>
+      </section>
+
+      <section>
+        <h2>Pages</h2>
+        <ul>
+          <li>
+            <strong>Page Title</strong>
+          </li>
+          <li>
+            <strong>Permalink:</strong> Manage the name of the page URL</li>
+          <li>
+            <strong>Revisions:</strong> View and restore previous versions of the page</li>
+          <li>
+            <strong>Discussion:</strong> Turn comments on or off for this page</li>
+          <li>
+            <strong>Comments:</strong> Displays current page comments</li>
+          <li>
+            <strong>Slug:</strong> Manage the name of the page slug</li>
+          <li>
+            <strong>Author:</strong> Switch between post authors (display requires theme support)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Using the Content Editor</h2>
+        <ul>
+          <li>
+            <strong>Visual and Text tabs:</strong> Toggle between WYSIWYG and code view</li>
+          <li>
+            <strong>Add Media:</strong> Upload pictures and other files</li>
+          <li>
+            <strong>Button Bar:</strong> Use formatting and display options</li>
+          <li>
+            <strong>Embeds:</strong>
+            <a href="http://codex.wordpress.org/Embeds" target="_blank">Paste links to popular media services</a> and they will automatically display on the page</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Posts</h2>
+        <ul>
+          <li>
+            <strong>Excerpt:</strong> Use the Read More button (display requires theme support)</li>
+          <li>
+            <strong>Categories and Tags:</strong> Assign categories and tags to allow posts to be organized by subject</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tip</h2>
+        <p>
+          Use the bulk editor on the page or post list to make edits to multiple pages or posts at a time (like removing comments).
+        </p>
+      </section>
+
+      <section>
+        <h2>Exercise Time!</h2>
+        <h3>Create pages and posts for your site.</h3>
+        <ul>
+          <li>Add placeholder text using Lorem Ipsum:
+            <a href="http://www.lipsum.com" target="_blank">www.lipsum.com</a>
+            <li>Add an image</li>
+            <li>Make a page password-protected</li>
+            <li>Make a page a "child" of another page</li>
+            <li>Embed a YouTube video or audio playlist</li>
+            <li>Add a link</li>
+            <li>Change the permalink of a page</li>
+            <li>Create a bullet point list</li>
+            <li>Create a new category and assign it to a post</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Setting Up Your Site</h2>
+        <h3>The Settings menu</h3>
+
+        <ul>
+          <li>
+            <strong>General:</strong> Title, tagline, site address, date format, etc.</li>
+          <li>
+            <strong>Writing:</strong> Post-related settings</li>
+          <li>
+            <strong>Reading:</strong> Set site home page, # of posts, rss settings and search engine visibility</li>
+          <li>
+            <strong>Discussion:</strong> Manage comment settings</li>
+          <li>
+            <strong>Media:</strong> Make default image sizes and other media settings</li>
+          <li>
+            <strong>Permalinks:</strong> Define the structure of site URLs</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Exercise Time!</h2>
+        <ul>
+          <li>Change the name of your site</li>
+          <li>Change the "Front page" of your site to the sample page</li>
+          <li>Create a page called "blog" and set as your "Posts page"</li>
+          <li>Require comments to be approved by an administrator before they are posted</li>
+          <li>Set your timezone to "Los Angeles"</li>
+          <li>Change the permalink set-up to "Post Name"</li>
+          <li>Remove the "WordPress News" from the dashboard</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Changing Site Appearance</h2>
+        <h3>The Appearance menu</h3>
+        <!-- Note: we'll do more advanced stuff later -->
+        <ul>
+          <li>
+            <strong>Themes:</strong> Manage the current theme in use and other installed themes</li>
+          <li>
+            <strong>Widgets:</strong> You can add content to your site sidebars or other "widgetized" areas using widgets</li>
+          <li>
+            <strong>Menus:</strong> Manage Custom menus</li>
+          <li>
+            <strong>Header:</strong> Manage header text and image</li>
+          <li>
+            <strong>Background:</strong> Manage background color and image</li>
+          <li>
+            <strong>Editor:</strong> Dangerous way to edit theme and plugin flies. This is disabled if you "harden" WordPress</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Managing Menus</h2>
+        <h3>Appearance > Menus</h3>
+
+        <p>
+          Easily create and manage navigation menus
+        </p>
+
+        <ul>
+          <li>
+            <strong>Create menus:</strong> Enter a menu name and click "Create Menu"</li>
+          <li>
+            <strong>Add pages:</strong> Add existing pages, custom links or category pages</li>
+          <li>
+            <strong>Order Pages:</strong> Drag and drop your pages menu items in the desired order. Indent pages to make them children
+            of other pages</li>
+          <li>
+            <strong>Assign Menu to Theme location:</strong> When the menu is ready, assign it to a theme location and click "Save
+            Menu."
+          </li>
+          <li>
+            <strong>Manage Locations Tab:</strong> Assign menus to theme locations</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Exercise Time!</h2>
+        <ul>
+          <li>Remove a few widgets and add some of your own text to the sidebar using a text widget</li>
+          <li>add a link in the text widget using my super handy trick for those who don't know HTML</li>
+          <li>Add a picture to your header</li>
+          <li>Change the color of your header text</li>
+          <li>Change the color of your background</li>
+          <li>Have one menu item link to google.com</li>
+          <li>Create a dropdown Menu</li>
+          <li>Have one menu item link to a category</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Managing Comments</h2>
+        <h3>The Comments menu</h3>
+        <p>
+          View, approve, delete and mark comments as spam.
+        </p>
+      </section>
+
+      <section>
+        <h2>Managing Media</h2>
+        <h3>The Media menu</h3>
+        <p>
+          View all files that have been uploaded to the site via the content editor. Add, edit and delete files.
+        </p>
+      </section>
+
+      <section>
+        <h2>Managing Users</h2>
+        <h3>The Users menu</h3>
+
+        <ul>
+          <li>
+            <strong>Manage existing users:</strong> Edit all user data or delete users</li>
+          <ul>
+            <li>Removing an admin user (do this if the username is "admin")</li>
+          </ul>
+          <li>
+            <strong>Add new users:</strong> Assign new users to site</li>
+          <li>
+            <strong>Your Profile:</strong> Edit your own profile settings</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Managing Users</h2>
+        <h3>User roles</h3>
+        <p>
+          Users can be given
+          <a href="http://codex.wordpress.org/Roles_and_Capabilities" target="_blank">certain levels of editing privileges</a>.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Administrator:</strong> access to all the administration features within a single site</li>
+          <li>
+            <strong>Editor:</strong> ability to publish and manage posts including the posts of other users</li>
+          <li>
+            <strong>Author:</strong> ability to publish and manage their own posts</li>
+          <li>
+            <strong>Contributor:</strong> ability to write and manage their own posts but cannot publish them</li>
+          <li>
+            <strong>Subscriber:</strong> ability to only manage their profile</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>10 minute break!</h2>
+      </section>
+
+      <!-- PLUGINS -->
+      <section>
+        <h2>What are Plugins?</h2>
+        <h3>Official description from WordPress.org</h3>
+        <blockquote>
+          Plugins can extend WordPress to do almost anything you can imagine.
+        </blockquote>
+      </section>
+
+      <section>
+        <h2>Plugins are Powerful</h2>
+        <p>
+          Plugins are used to add functionality to WordPress. Examples include ecommerce, SEO, forms, photo galleries, social media
+          sharing, forums and much more!
+        </p>
+      </section>
+
+      <section>
+        <h2>Plugins are Often Free</h2>
+        <p>
+          Right now there are over 43,850 free plugins in the official
+          <a href="http://wordpress.org/plugins/" target="_blank">WordPress Plugin Directory</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Managing Plugins</h2>
+        <p>
+          WordPress comes with 2 plugins:
+          <ul>
+            <li>
+              <strong>Akismet:</strong> Protects your blog from comment and trackback spam. This plugin requires an
+              <a href="http://akismet.com/wordpress" target="_blank">Akismet key</a>
+            </li>
+            <li>
+              <strong>Hello Dolly:</strong> Adds a random lyric from "Hello Dolly" to the upper right-hand corner of admin screen.</li>
+          </ul>
+        </p>
+      </section>
+
+      <section>
+        <h2>Managing Plugins</h2>
+        <ul>
+          <li>
+            <strong>Activate/Deactivate:</strong> Turns plugins "on" and "off"</li>
+          <li>
+            <strong>Edit:</strong> Ability to edit plugin files NOT RECOMMENDED</li>
+          <li>
+            <strong>Delete:</strong> Delete deactivated plugins</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>Finding Plugins</h2>
+        <ul>
+          <li>Searching under Plugins > Add New</li>
+          <li>Browsing the
+            <a href="http://wordpress.org/plugins/" target="_blank">WordPress Plugin Directory</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3 Ways to Install Plugins</h2>
+        <ol>
+          <li>Clicking "Install Now" from "Install Plugins" search results</li>
+          <li>Download a plugin zip file and install it via the "Upload" link</li>
+          <li>Unzip the plugin files and upload it via FTP to the
+            <br />
+            <code>/wp-content/plugins</code> folder</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Plugin Shortcodes</h2>
+        <p>
+          Plugins often use
+          <a href="http://codex.wordpress.org/Shortcode" target="_blank">shortcodes</a> to add content to a page or post.
+        </p>
+        <p>
+          For example, the plugin
+          <a href="http://wordpress.org/plugins/contact-form-7/" target="_blank">Contact Form 7</a> uses the shortcode
+          <code>[contact-form-7 id="105"]</code> (the ID is the ID of the form) which allows you to add a form on a page or post.
+        </p>
+      </section>
+
+      <section>
+        <h2>Plugins</h2>
+        <h3>Security tip - Vet plugins first</h3>
+        <ul>
+          <li>
+            <strong>Ratings:</strong> Read the plugin reviews</li>
+          <li>
+            <strong>Maintenance:</strong> Check to see if the plugin has regular updates</li>
+          <li>
+            <strong>Support:</strong> See if the plugin developers regularly answer support questions</li>
+        </ul>
+        <a href="http://exygy.com/the-definitive-guide-to-evaluating-a-wordpress-plugin/" target="_blank">
+          <img src="img/Sign-Info.png" />
+        </a>
+      </section>
+
+      <section>
+        <h2>Free Plugins that are Popular</h2>
+        <ul>
+          <li>
+            <strong>
+              <a href="http://wordpress.org/plugins/contact-form-7/" target="_blank">Contact Form 7:</a>
+            </strong> Used to make simple contact forms </li>
+          <li>
+            <strong>
+              <a href="http://wordpress.org/plugins/wordpress-seo/" target="_blank">WordPress SEO by Yoast:</a>
+            </strong> SEO plugin for WordPress </li>
+          <li>
+            <strong>
+              <a href="http://wordpress.org/plugins/nextgen-gallery/" target="_blank">Nextgen Gallery:</a>
+            </strong> An image gallery plugin that also has available add-on plugins</li>
+          <li>
+            <strong>
+              <a href="http://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce:</a>
+            </strong> Ecommerce plugin</li>
+          <li>
+            <strong>
+              <a href="http://wordpress.org/plugins/sucuri-scanner/" target="_blank">Sucuri Free:</a>
+            </strong> Malware scanning and 1-click hardening</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Plugin Demo</h2>
+        <p>How to add a slideshow to your website using the
+          <a href="http://wordpress.org/plugins/ml-slider/" target="_blank">Meta Slider</a> plugin</p>
+      </section>
+
+      <section>
+        <h2>Exercise Time!</h2>
+        <ul>
+          <li>Create a new admin user and remove the old one (attribute any posts to the new user)</li>
+          <li>Search for plugins via Plugins > Add New and try some</li>
+          <li>Browse the
+            <a href="http://wordpress.org/plugins/" target="_blank">WordPress Plugins Directory</a>, download one and install it using the "upload" link</li>
+          <li>Leave a comment on your neighbor's site (if they are using a temporary install)</li>
+        </ul>
+      </section>
+
+      <!-- THEMES -->
+      <section>
+        <h2>Themes</h2>
+        <p>
+          Themes determine how a site looks and they also can determine its functionality. There are themes that can turn a WordPress
+          site into an online store, an art portfolio, project management system and more.
+        </p>
+      </section>
+
+      <section>
+        <h2>Themes are</h2>
+        <h3>Often Free</h3>
+        <p>
+          Right now there are over 3,821 free themes in the official
+          <a href="http://wordpress.org/themes/" target="_blank">WordPress Themes Directory</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Managing Themes</h2>
+        <h3>Appearance > Themes</h3>
+        <p>
+          WordPress currently comes with 3 themes: Twenty Seventeen, Twenty Sixteen and Twenty Fifteen
+        </p>
+        <p>
+          Under
+          <strong>Appearance > Themes</strong> is a list of all installed themes. The theme in use is labeled "Active."
+        </p>
+      </section>
+
+      <section>
+        <h2>Themes</h2>
+        <h3>Appearance > Themes</h3>
+        <p>
+          <strong>"Live Preview" before you activate or customize a theme</strong>
+        </p>
+        <p>
+          Click "Customize" under the current theme or "Live Preview" under an available theme to see how a new or modified theme will
+          look before you commit to it.
+        </p>
+      </section>
+
+      <section>
+        <h2>Finding New Themes</h2>
+        <ul>
+          <li>Searching with the "Add New" button</li>
+          <li>Browsing the
+            <a href="http://wordpress.org/themes/" target="_blank">WordPress Themes Directory</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3 Ways to Install a Theme</h2>
+        <ul>
+          <li>Install using the "Add New" button</li>
+          <li>Download a theme zip file and install it via the "Upload Theme" button</li>
+          <li>Unzip the theme files and upload it via FTP to the
+            <br />
+            <code>/wp-content/themes</code> folder (this is the way to upload purchased themes)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Exercise Time!</h2>
+        <h3>Some tasks to get you familiar with installing, previewing and activating themes</h3>
+        <ul>
+          <li>Use the live theme previewer to see how Twenty Sixteen will look on your site and try activating it</li>
+          <li>Search for themes via the "Add New" button and give one a try</li>
+          <li>Browse the
+            <a href="http://wordpress.org/themes/" target="_blank">WordPress Themes Directory</a>, download one and install it using the "Upload Theme" button</li>
+        </ul>
+      </section>
+
+      <!-- SHOW DANGEROUS EDITOR -->
+      <section>
+        <h2>Tweaking your theme: 3 ways</h2>
+        <h3>First way: the Editor</h3>
+        <ul>
+          <li>The editor's changes will be overwritten if you update your theme. We want to be able to update safely.</li>
+          <li>It's easy to break this</li>
+          <li>You *really* don't want any clients messing around in here</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Exercise Time!</h2>
+        <h3>Let's turn our background red</h3>
+        <ul>
+          <li>Be sure the Twenty Seventeen theme is activated</li>
+          <li>Navigate to Appearance > Editor in your WPAdmin sidebar</li>
+          <li>The first thing you should see is a style.css</li>
+          <li>At the bottom of this file add this and then click update file:
+            <pre><code>
+              .site-content-contain {
+                background-color: red;
+              }
+            </code></pre>
+          </li>
+          <li>Check out your site, the background should be red</li>
+        </ul>
+      </section>
+
+      <!-- Custom CSS EDITOR -->
+      <section>
+        <h2>Tweaking your theme part 2: Adding CSS</h2>
+        <h3>Second way: Customize CSS</h3>
+        <ul>
+          <li>This way is update-safe and adds additional CSS to your site (not replacing it).</li>
+          <li>Under the Appearance tab, click Customize > Additional CSS</li>
+          <li>Add some new code:
+            <pre><code>
+                  .site-content-contain {
+                    background-color: blue;
+                  }
+              </code></pre>
+          </li>
+          <li>We recommend this method for small tweaks</li>
+        </ul>
+      </section>
+
+      <!-- CHILD THEMES -->
+      <section>
+        <h2>Tweaking your theme part 3: Creating a child theme</h2>
+        <h3>What is a "child theme"?</h3>
+        <ul>
+          <li>A child theme is a theme that inherits the functionality and styling of another theme, called the parent theme</li>
+          <li>A powerful, more advanced tool: you can change far more than just how it looks</li>
+          <li>But creating a basic child theme is very approachable</li>
+          <li>A child theme consists of at least one directory (the child theme directory) and two files (style.css and functions.php)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Next Steps</h2>
+        <h3>Create your own themes using Child Themes</h3>
+        <ul>
+          <li>Getting started with
+            <a href="http://codex.wordpress.org/Child_Themes" target="_blank">Child Themes</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Let's create our own from the default theme</h2>
+        <li>Make a new folder on your computer called "twentyseventeen-child"</li>
+        <li>Open this folder in your editor</li>
+        <li>Create two new empty files: "style.css" and "functions.php"</li>
+      </section>
+
+      <section>
+        <h2>Style.css</h2>
+        <li>In your new style.css file: </li>
+        <li>Add this with your information:
+          <pre><code>
+            /*
+              Theme Name: [Your Theme Name]
+              Description: The custom theme [Your Theme Name] using the parent theme Twenty Seventeen.
+              Author: [You]
+              Author URI: [Your URL]
+              Template: twentyseventeen
+              Version: 1
+            */
+          </code></pre>
+        </li>
+        <li>In the same file, add this code directly after:
+          <pre><code>
+            .site-content-contain {
+              background-color: green;
+            }
+          </code></pre>
+        </li>
+        <li>Save this file</li>
+      </section>
+
+      <section>
+        <h2>functions.php</h2>
+        <li>In your new functions.php file: </li>
+        <li>Add this with your information:
+          <pre><code>
+  function mychildtheme_enqueue_styles() {
+    $parent_style = 'twentyseventeen-style';
+
+    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style',
+      get_stylesheet_directory_uri() . '/style.css',
+      array( $parent_style )
+    );
+  }
+  add_action( 'wp_enqueue_scripts', 'mychildtheme_enqueue_styles' );
+          </code></pre>
+        </li>
+        <li>Save this file</li>
+      </section>
+
+      <section>
+        <h2>Upload</h2>
+        <li>zip up this folder</li>
+        <li>In your WP admin go to Appearance > Themes > Add theme > Upload and upload your zip</li>
+        <li>Activate your theme</li>
+      </section>
+
+      <!-- ADVANCED STUFF STARTS HERE -->
+
+      <!-- SECURITY -->
+      <section>
+        <h2>Security</h2>
+        <h3>Being popular means you're a target</h3>
+        <p>It is important to take security seriously when running a site that uses a CMS.</p>
+      </section>
+
+      <section>
+        <h2>Security</h2>
+        <h3>During install</h3>
+        <ul>
+          <li>Make your database table prefix unique. Don't use "wp_" or "wordpress_"</li>
+          <li>Create a new database user, don't use the default</li>
+          <li>Make your database user password strong.</li>
+          <li>
+            <strong>Do not use "admin" as a username.</strong> "admin" used to be the default WordPress username. Use a unique username
+            and a very strong Password</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Security</h2>
+        <h3>After install: WordPress hardening</h3>
+        <ul>
+          <li>Take some
+            <a href="http://codex.wordpress.org/Hardening_WordPress" target="_blank">code-level and sysadmin steps</a> to "harden" WordPress</li>
+          <ul>
+            <li>Securing wp-includes</li>
+            <li>Securing wp-config.php</li>
+            <li>Disable File Editing</li>
+            <li>And more</li>
+          </ul>
+          <li>Or use a
+            <a href="http://wordpress.org/plugins/sucuri-scanner/" target="_blank">security plugin</a> like Sucuri that performs "1-click hardening"</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Security</h2>
+        <h3>If you do get hacked</h3>
+        <ul>
+          <li>Use a malware removal service.</li>
+          <ul>
+            <li>
+              <strong>
+                <a href="http://sucuri.net/" target="_blank">Sucuri.net</a>
+              </strong> Reasonably priced WordPress security experts</li>
+            <li>
+              <strong>
+                <a href="http://WPEngine.com/" target="_blank">WPEngine.com</a>
+              </strong> WordPress hosting that includes malware cleanup if needed</li>
+          </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!--INSTALLING WORDPRESS -->
+      <section>
+        <h2>Installing WordPress</h2>
+        <h3>What WordPress needs to run on a remote host</h3>
+        <ul>
+          <li>A hosting account running PHP version 5.6 or greater and MySQL version 5.6 or greater</li>
+          <li>Software from WordPress.org or an install feature through a hosting account control panel</li>
+          <li>A domain name (or temporary URL provided by your host)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Installing WordPress</h2>
+        <p>Control Panel Install</p>
+        <p>or</p>
+        <p>Manual install</p>
+      </section>
+
+      <section>
+        <h3>What Is Needed For a Control Panel Install</h3>
+        <ul>
+          <li>Web host needs to offer it</li>
+          <li>Access to your hosting control panel</li>
+          <ul>
+            <img src="img/cPanel2.png">
+          </ul>
+      </section>
+
+      <section>
+        <img src="img/one-click-options.jpg">
+      </section>
+
+      <section>
+        <h2>Installing WordPress</h2>
+        <h3>What Is Needed For a Manual Install</h3>
+        <ul>
+          <li>Access to your hosting control panel to create a database and database user</li>
+          <li>A SFTP Program. SFTP (or FTP) is the method used to upload and download files between a computer and a hosting
+            account
+          </li>
+          <li>A Web browser. Installation is performed step-by-step on a web browser</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>The Manual Install</h2>
+        <p>
+          <strong>A Quick tour</strong>
+        </p>
+        <p>Detailed instructions are found here at
+          <a href="http://codex.wordpress.org/Installing_WordPress" target="_blank">http://codex.wordpress.org/Installing_WordPress</a>
+        </p>
+
+      </section>
+
+      <section>
+        <p>Access to your hosting control panel (cPanel) to create a database and database user</p>
+        <img src="img/cPanel.png">
+      </section>
+
+      <section>
+        <p>Create a database and database user</p>
+        <p>
+          <img src="img/db-create.jpg">
+        </p>
+        <p>
+          <img src="img/create-mysql-user.jpg">
+        </p>
+      </section>
+
+      <section>
+        <p>Be sure to check all of these boxes:</p>
+        <img src="img/db_priv.png">
+      </section>
+
+      <section>
+        <p>Download the latest WordPress version from
+          <a href="http://wordpress.org/" target="_blank">wordpress.org</a>
+        </p>
+        <img src="img/download.png">
+      </section>
+
+      <section>
+        <h2>The files</h2>
+        <img src="img/files.png">
+      </section>
+
+      <section>
+        <strong>The wpconfig.php file</strong>
+        <img height="700" src="img/wpconfig-before.jpg">
+      </section>
+
+      <section>
+        <p>Upload the WordPress files to the desired directory using an FTP (File Transfer Protocol) Program. FTP (or SFTP)
+          is the method used to upload and download files between a computer and a hosting account</p>
+        <img src="img/wp-files.jpg">
+      </section>
+
+      <section>
+        <p>Installation is performed on your web browser by going to the URL where you uploaded the files.</p>
+        <img src="img/Manual-setup.png">
+      </section>
+
+      <!--End SECURTY -->
+
+      <section>
+        <h2>WordPress Workflow</h2>
+        <p>Developing locally</p>
+        <ul>
+          <a href="https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP" target="_blank">MAMP (Mac users)</a>
+          <br>
+          <a href="http://www.wpbeginner.com/wp-tutorials/how-to-install-wordpress-on-your-windows-computer-using-wamp/" target="_blank">WAMP (Windows users)</a>
+          <br>
+          <a href="https://bitnami.com/stack/lamp" target="_blank">LAMP (Linux users)</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Resources</h2>
+        <h3>Changing the URL of WordPress</h3>
+        <p>When you have finished developing your site locally and are ready to move your site to the desired URL, you will
+          want to read the following pages:
+          <br>
+          <a href="http://codex.wordpress.org/Moving_WordPress" target="_blank">Moving WordPress</a>
+        </p>
+        <p>There is a lot of information about this. Here are a couple more good resources:</p>
+        <a href="http://code.tutsplus.com/tutorials/migrating-a-wordpress-site-from-a-local-server-to-production--wp-26" target="_blank">Migrating a WordPress Site From a Local Server to Production</a>
+        <br>
+        <a href="http://code.tutsplus.com/tutorials/migrating-wordpress-across-hosts-servers-and-urls--wp-20104" target="_blank">Migrating WordPress Across Hosts, Servers and URLs</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Resources</h2>
+        <h3>Changing the URL of WordPress</h3>
+        <p>
+          Another option for moving your WordPress site to another domain or host is to use the
+          <a href="http://ithemes.com/purchase/backupbuddy/" target="_blank">Backup Buddy</a>
+          </strong> plugin. This plugin is not free. You can also use it to easily backup and restore a WordPress site.
+        </p>
+      </section>
+
+      <section>
+        <h2>Resources</h2>
+        <h3>Attend a WordCamp</h3>
+        <p>
+          WordCamps are affordable, informal, community-organized WordPress conferences held all over the world. They are packed with
+          workshops geared toward WordPress users, designers and developers.
+        </p>
+
+        <p>
+          <a href="http://central.wordcamp.org/" target="_blank">central.wordcamp.org</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Resources</h2>
+        <ul>
+          <li>
+            <a href="http://www.wpbeginner.com/" target="_blank">wpbeginner</a>: lots of great info for WordPress beginners!
+          </li>
+
+          <li>
+            Join the San Francisco WordPress Group:
+            <a href="http://www.meetup.com/wordpress-sf/" target="_blank">meetup.com/wordpress-sf/</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Questions?</h1>
+
+        <h4>One-on-one help time</h4>
+        <p>Feel free to pull me or a TA over to answer questions specific to your projects or regarding any issue not covered
+          in class.</p>
+      </section>
+
+      <section>
+        <h1>THE END</h1>
+
+        <h4>Thank you!</h4>
+      </section>
+
+    </div>
+
+    <footer>
+      <div class="copyright">
+        GDI Intro to WordPress
+        <span class="footer-nav">
+          <a href="#/beginning-slide">Start</a>
+        </span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+
+  <script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+      ]
+    });
+
+  </script>
+
+</body>
+
+</html>
