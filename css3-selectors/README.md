@@ -1,17 +1,18 @@
-# Advanced CSS: CSS3 Selectors
+# CSS3 Selectors
 
-In this workshop, you will learn modern CSS3 selectors that will let you write more powerful, specific CSS rules. You'll strengthen your CSS rule writing muscles, helping you be more comfortable in the <style> tag.
+Want to style the right element(s) – and only the right element(s)? CSS3 selectors are here for you.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by {{ teacher_name }}, {{ teacher_description }}.
+In this workshop, you will gain a solid understanding of modern CSS3 selectors. These will let you write more powerful, specific CSS rules. You'll strengthen your CSS rule writing muscles, helping you be more comfortable in the `<style>` tag.
+
+The workshop will be a mix of lectures and hands-on exercises. It will be taught by `{{ teacher_name }}`, `{{ teacher_description }}`.
 
 This is a great follow-up workshop for those who attended our Intro to HTML & CSS workshop.
 
 **Topics covered**
 
-- CSS attribute selectors
-- CSS3 form pseudo-classes
-- CSS3 structural selectors
-- CSS3 pseudo-elements
+- **Review of CSS relational selectors:** How to select and style elements of the page based on where they are in relation to other elements. You'll learn how to do this as specifically or generally as you want (all images, all images in lists, all images in a specific list).
+- **CSS3 pseudo-class selectors** How to select and style elements based on information about their state (e.g. when you hover over an element or enter data into a form). 
+- **CSS3 pseudo-element selectors** How to create and style new elements that you add with CSS. These elements do not initially appear in the HTML of a webpage.
 
 **Slides**
 
@@ -22,9 +23,9 @@ This is a great follow-up workshop for those who attended our Intro to HTML & CS
 Attendees should be comfortable with HTML and CSS fundamentals (HTML tags and attributes, CSS selectors). That means that you either attended our Intro to HTML & CSS workshop or you learned those concepts online.
 
 You can review them online at a few places:
-- Khan Academy's HTML & CSS course
-- Codecademy's HTML & CSS course
-- GDI SF's HTML & CSS slides
+- [Khan Academy's HTML & CSS course](https://khanacademy.org/html-css)
+- [Codecademy's HTML & CSS course](https://www.codecademy.com/learn/learn-html-css)
+- [GDI SF's HTML & CSS slides](https://www.teaching-materials.org/htmlcss-2day/)
 
 **Tech requirements**
 
