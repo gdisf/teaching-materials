@@ -1,6 +1,6 @@
 # CSS3 Selectors
 
-In this workshop, you will gain a solid understanding of modern CSS3 selectors that will let you write more powerful, specific CSS rules. You'll strengthen your CSS rule writing muscles, helping you be more comfortable in the `<style>` tag.
+In this workshop, you will gain a solid understanding of modern CSS3 selectors. These will let you write more powerful, specific CSS rules. You'll strengthen your CSS rule writing muscles, helping you be more comfortable in the `<style>` tag.
 
 The workshop will be a mix of lectures and hands-on exercises. It will be taught by `{{ teacher_name }}`, `{{ teacher_description }}`.
 

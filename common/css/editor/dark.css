@@ -45,6 +45,18 @@ pre code {
   word-wrap: break-word;
 }
 
+code.inline {
+  display: inline;
+  background: #eae9e9;
+  color: purple;
+  text-align: left;
+  font-family: 'Monaco', 'Menlo', 'Lucida Console', Courier, monospace !important;
+  font-size: 80% !important;
+  padding-left: .1em;
+  padding-right: .1em;
+}
+
+
 pre .coffeescript .javascript,
 pre .javascript .xml,
 pre .tex .formula,

@@ -74,7 +74,7 @@
 </code></pre>    
     </section>	
     <section>
-      <h2>Including JavaScript in your HTML</h2>
+      <h2>Including JS in HTML - script tag</h2>
         <p>You can write your JS inside a <code>script</code> tag in your HTML file:</p>
 <pre><code class="html xml">&lt;html&gt;
   &lt;body&gt;
@@ -87,7 +87,7 @@
     </section>
 
     <section>
-      <h2>Including JavaScript in your HTML</h2>      
+      <h2>Including JS in HTML - external js file</h2>      
         <p>You can also write your JS in a separate file and reference it from your HTML file via a <code>script</code> tag:</p>
 <pre><code class="html xml">&lt;html&gt;
   &lt;body&gt;
@@ -217,16 +217,16 @@ var firstCatName = catNames[0];
     <section>
       <h2>Manipulating a DOM Node's Attributes</h2>
         <p>You can access and change the attributes of a DOM node using dot notation.</p>
-<pre><code class="html xml">&lt;img id="lizzie-the-cat" src="http://placekitten.com/200/300"&gt;
+<pre><code class="html xml">&lt;img id="kitty" src="https://commons.wikimedia.org/wiki/Kitten#/media/File:Kitten-stare.jpg"&gt;
 </code></pre>
         <p>Changing the <code>src</code> of an image:</p>
-<pre><code class="javascript">var catImage = document.getElementById('lizzie');
+<pre><code class="javascript">var catImage = document.getElementById('kitty');
 var oldImageSource = catImage.src;
-catImage.src = 'http://placekitten.com/300/200';
+catImage.src = 'https://commons.wikimedia.org/wiki/File%3ASix_weeks_old_cat_(aka).jpg;
 </code></pre>
         <p>Changing the <code>className</code> of a DOM node:</p>
-<pre><code class="javascript">var catImage = document.getElementById('lizzie');
-catImage.className = "portrait";
+<pre><code class="javascript">var catImage = document.getElementById('kitty');
+catImage.className = "landscape";
 </code></pre>
       
     </section>
