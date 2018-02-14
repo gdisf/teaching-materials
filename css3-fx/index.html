@@ -616,7 +616,7 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
   <section>
     <p>Define a custom CSS3 animation (in this case, named "pulse") using <a href="https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp" target="_blank">CSS3 @keyframes</a>:</p>
     <pre>
-      @-webkit-<b>keyframes</b> <em>pulse</em> {
+      @<b>keyframes</b> <em>pulse</em> {
 
         <b>from</b> {
          opacity: 0.0;
@@ -635,7 +635,7 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
  <div class="slide styling" id="css-animation">
   <style>
     /* put the keyframes rule here cuz ExCss currently doesn't support '@-webkit-keyframes' */
-    @-webkit-keyframes pulse {
+    @keyframes pulse {
      from {
        opacity: 0.0;
        font-size: 50px;
@@ -647,11 +647,11 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
     }
 
     #animation-example {
-      -webkit-animation-name: pulse;
-      -webkit-animation-duration: 2s;
-      -webkit-animation-iteration-count: infinite;
-      -webkit-animation-timing-function: ease-in;
-      -webkit-animation-direction: alternate;
+      animation-name: pulse;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in;
+      animation-direction: alternate;
     }
   </style>
   <header><h1>Apply a CSS Animation</h1></header>
@@ -660,11 +660,11 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
     <pre>&lt;div&gt;Pulse!&lt;/div&gt;</pre>
     <pre>
     div {
-      -webkit-<b>animation-name</b>: <em>pulse</em>;
-      -webkit-<b>animation-duration</b>: 2s;
-      -webkit-<b>animation-iteration-count</b>: infinite;
-      -webkit-<b>animation-timing-function</b>: ease-in;
-      -webkit-<b>animation-direction</b>: alternate;
+      <b>animation-name</b>: <em>pulse</em>;
+      <b>animation-duration</b>: 2s;
+      <b>animation-iteration-count</b>: infinite;
+      <b>animation-timing-function</b>: ease-in;
+      <b>animation-direction</b>: alternate;
     }
     </pre>
 
@@ -680,7 +680,7 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
 
  <div class="slide styling" id="css-animation">
         <style>
-           @-webkit-keyframes rainbow {
+           @keyframes rainbow {
               0%   {background-color: red; width: 500px;}
               25%  {background-color: yellow; width: 200px;}
               50%  {background-color: blue; width: 300px;}
@@ -688,16 +688,16 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
           }
 
           #rainbow-animation-example {
-            -webkit-animation-name: rainbow;
-            -webkit-animation-duration: 6s;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-timing-function: ease-in;
-            -webkit-animation-direction: alternate;
+            animation-name: rainbow;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in;
+            animation-direction: alternate;
           }
         </style>
         <header><h1>Multi-Step Animations</h1></header>
         <section>
-<pre>@-webkit-<b>keyframes</b> <em>rainbow</em> {
+<pre>@<b>keyframes</b> <em>rainbow</em> {
     0%   {
       background-color: red;
       width:500px;
@@ -718,11 +718,11 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
 
 
 div {
-  -webkit-<b>animation-name</b>: <em>rainbow</em>;
-  -webkit-<b>animation-duration</b>: 6s;
-  -webkit-<b>animation-iteration-count</b>: infinite;
-  -webkit-<b>animation-timing-function</b>: ease-in;
-  -webkit-<b>animation-direction</b>: alternate;
+  <b>animation-name</b>: <em>rainbow</em>;
+  <b>animation-duration</b>: 6s;
+  <b>animation-iteration-count</b>: infinite;
+  <b>animation-timing-function</b>: ease-in;
+  <b>animation-direction</b>: alternate;
 }
 </pre>
 
@@ -740,9 +740,6 @@ div {
 <div class="slide styling" id="css-transitions">
   <style>
             #transitions-box-2 {
-              -webkit-transition: margin-left 1s ease-in-out;
-              -moz-transition: margin-left 1s ease-in-out;
-              -o-transition: margin-left 1s ease-in-out;
               transition: margin-left 1s ease-in-out;
             }
             .transitions .left {
@@ -782,7 +779,7 @@ div {
 </div>
 
 <pre>#box {
-  -webkit-<b>transition</b>: margin-left 1s ease-in-out;
+  <b>transition</b>: margin-left 1s ease-in-out;
 }
 </pre>
 
@@ -811,9 +808,6 @@ div {
   <style>
             #transform-example {
               margin: 50px 20px;
-              -webkit-transform: rotateZ(5deg);
-              -moz-transform: rotateZ(5deg);
-              -o-transform: rotateZ(5deg);
               transform: rotateZ(5deg);
               -moz-transition: -moz-transform 2s ease-in-out;
               -o-transition: -o-transform 2s ease-in-out;
@@ -821,9 +815,6 @@ div {
             }
 
             #transform-example:hover {
-              -webkit-transform: rotateZ(-5deg);
-              -moz-transform: rotateZ(-5deg);
-              -o-transform: rotateZ(-5deg);
               transform: rotateZ(-5deg);
             }
           </style>
@@ -834,12 +825,12 @@ div {
 </pre>
 
 <pre>#transform-example {
-  -webkit-<b>transform</b>: rotateZ(5deg);
-  -webkit-<b>transition</b>: transform 2s ease-in-out;
+  <b>transform</b>: rotateZ(5deg);
+  <b>transition</b>: transform 2s ease-in-out;
 }
 
 #transform-example:hover {
-  -webkit-<b>transform</b>: rotateZ(-5deg);
+  <b>transform</b>: rotateZ(-5deg);
 }
 </pre>
 <p>Other Transform Values</p>
