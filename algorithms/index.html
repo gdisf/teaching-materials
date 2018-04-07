@@ -78,9 +78,8 @@
 
 1:00 - 2:00     Lunch
 
-2:00 - 5:00     Searching
+2:00 - 5:00     Searching - Linear & Binary
                 Sorting
-                Binary Search
                 Algorithms in Real Life
                 Conclusion
 </pre></code>
@@ -177,12 +176,49 @@
                 </span>
             </section>
 
+            <!-- START  OF GOAL OF ALGORITHMS -->
+
+            <section>
+              <h2>Goal of Algorithms</h2>
+              <br>
+              <ul>
+                <li class="fragment">Solve a problem</li>
+                <li class="fragment">in a repeatable way</li>
+            </ul>
+            </section>
+
+            <section>
+              <h2>Goal of Whiteboarding Interviews</h2>
+              <ul>
+                <li>Show your thought process</li>
+                <li>Solve the most obvious (to you!) solution first</li>
+                <li>Improve it</li>
+              </ul><br>
+            </section>
+
+             <section>
+                <h2>Exercise time!</h2>
+                <h3 class='highlight'>What is an algorithm you use?</h3>
+                <br>
+                <p>Write down steps for several versions of an algorithm to solve an everyday problem</p>
+                <br>
+                <p class="left pink">Ideas:</p>
+                 <br />
+                <ul>
+                    <li>Organizing email</li>
+                    <li>Swiping left or right on tinder</li>
+                    <li>Deciding what restaurant to eat at</li>
+                    <li>Finding a paper on your desk</li>
+                </ul>
+            </section>
+
             <!-- START OF DATA STRUCTURE -->
             
             <section>
                 <h1>Data Structures</h1>
+                <p style="font-size:smaller; color:gray;">(Just a good to know, will not be covering extensively!)</p>
                 <br>
-                <p>A way to store data <br>(so that it can be used as desired)</p>
+                <p>A way to store data <br>so that it can be used as desired</p>
             </section>
 
             <section>
@@ -225,41 +261,6 @@ myObject = { key : value,
                     <p>Queue</p>
                     <img style="width: 60%" src="images/queue.png">
                 </div>
-            </section>
-
-            <!-- START  OF GOAL OF ALGORITHMS -->
-
-            <section>
-              <h2>Goal of Algorithms</h2>
-              <br>
-              <ul>
-                <li class="fragment">Solve a problem</li>
-                <li class="fragment">in a repeatable way</li>
-            </ul>
-            </section>
-
-            <section>
-              <h2>Goal of Whiteboarding Interviews</h2>
-              <ul>
-                <li>Show your thought process</li>
-                <li>Solve the most obvious (to you!) solution first</li>
-                <li>Improve it</li>
-              </ul><br>
-            </section>
-
-             <section>
-                <h3 class='highlight'>What is an algorithm you use?</h3>
-                <br>
-                <p>Write down steps for several versions of an algorithm to solve an everyday problem</p>
-                <br>
-                <p class="left pink">Ideas:</p>
-                 <br />
-                <ul>
-                    <li>Organizing email</li>
-                    <li>Swiping left or right on tinder</li>
-                    <li>Deciding what restaurant to eat at</li>
-                    <li>Finding a paper on your desk</li>
-                </ul>
             </section>
 
             <!-- TIME COMPLEXITY -->
@@ -605,7 +606,7 @@ for shirt in shirts_pile:
             </section>
 
             <section>
-                <h1>Quiz Time!</h1>
+                <h1>Question Time!</h1>
             </section>
 
             <section>
@@ -776,13 +777,16 @@ for (var i = 0; i &lt; things.length; i++) {
             <!-- Algorithms from the beginning of class!-->
             <section>
                 <h2 class='highlight'>Discuss!</h2>
+                <p style="font-size:smaller; color:gray;">Refer back to your algorithm from your exercise</p>
+                <br/>
                 <p>What's the time requirement of your algorithm?</p>
                 <p>What's the space requirement of your algorithm?</p>
             </section>
 
 
             <section>
-                <h2 class='highlight'>Making Crepes</h2>
+                <h2>Exercise time!</h2>
+                <h3 class='highlight'>Making Crepes</h2>
                 <p>Write two algorithms for making crepes, one that is time efficient and one that is space efficient. <br><br>Pseudocode first then whiteboard code if you have time.</p>
             </section>
 
@@ -799,8 +803,21 @@ for (var i = 0; i &lt; things.length; i++) {
             <!-- END OF SPACE COMPLEXITY -->
 
             <!-- START OF SEARCHING -->
-        <section>
+            <section>
                 <h2>Searching Algorithms</h2>
+                <br>
+                <p>Search algorithm is an algorithm which solves the problem of retrieving store information.</p>
+                <a href="https://en.wikipedia.org/wiki/Search_algorithm" style="font-size:smaller; color:gray;">Wikipedia - Search Algorithms</a>
+            </section>
+            <section>
+                <h2 class='highlight'>Discuss</h2>
+                <p>How to solve the problem of searching billions pieces of data?</p>
+                <br />
+                <img src="images/search.png">
+            </section>
+            <section>
+                <h2>Linear Search</h2>
+                <p>One of the simplest searches.</p>
                 <br>
                 <p>Find an item with a particular value in a sorted sequence.</p>
                 <br>
@@ -812,6 +829,24 @@ for (var i = 0; i &lt; things.length; i++) {
                 <p class="fragment">
                 J is the 3rd element (index 2).
                 </p>
+            </section>
+            <section>
+                <h2>Linear Search</h2>
+                <img src="images/linear_search.gif" />
+            </section>
+            <section>
+                <h2>Exercise</h2>
+                <h3>Writing Linear Search</h3>
+                <br>
+                <a href="linear_search_exercise.html">Click here!</a>
+            </section>
+            <section>
+                <h2>Algorithm Solving Strategies</h2>
+                <ul>
+                    <li>Use iteration to move over a data structure</li>
+                    <li>Use comparison of values</li>
+                    <li>Use a large, diverse enough data set</li>
+                </ul>
             </section>
             <section>
               <h2>Binary Search</h2><br>
@@ -858,15 +893,23 @@ for (var i = 0; i &lt; things.length; i++) {
               <a href="binary_search_exercise.html">Click here!</a>
             </section>
 
+             <section>
+                <h2>Algorithm Solving Strategies</h2>
+                <ul>
+                    <li>Use variables as a pointers to 'track' data during an algorithm</li>
+                    <li>Inside the algorithm, try to make your data set smaller such that you are comparing smaller sets of data to each other - called the 'base case'</li>
+                </ul>
+            </section>
+
             <section>
-              <h2>Binary Search:</h2>
-              <h3>Time/Space Complexity</h3>
+              <h2>Time/Space Complexity</h2>
+              <h3>Binary Search vs Linear Search:</h3>
               <br>
               <p class="fragment">What factors determine time?</p>
               <br>
               <p class="fragment">N = number of items in sequence.</p>
               <br>
-              <p class="fragment">Since algorithm splits array in half every time,
+              <p class="fragment">Since binary search algorithm splits array in half every time,
                 at most <a href="http://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity">log<sub>2</sub>N</a> steps are performed.
               </p>
             </section>
@@ -878,7 +921,6 @@ for (var i = 0; i &lt; things.length; i++) {
               </p>
               <br>
               <ul>
-                <li><a href="http://en.wikipedia.org/wiki/Linear_search">Linear</a>
                 <li><a href="http://en.wikipedia.org/wiki/Interpolation_search">Interpolation search</a>
               </ul>
             </section>
@@ -887,6 +929,7 @@ for (var i = 0; i &lt; things.length; i++) {
             <!-- START  OF SORTING ALGORITHMS -->
             <section>
                 <h2>Sorting</h2>
+                <a href="https://en.wikipedia.org/wiki/Sorting_algorithm">Wikipedia list of sorting algorithsm</a>
             </section>
 
             <section>
@@ -1007,6 +1050,33 @@ for (var i = 0; i &lt; things.length; i++) {
                 <li>Sort by [something secret] using selection sort.</li>
               </ul>
             </section>
+
+            <section>
+                <h3>Selection Sort Code</h3>
+                <pre><code>
+function swap(array, i, j) {
+  var temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
+}
+
+function selectionSort(array) {
+  for(var i = 0; i < array.length; i++) {
+    var min = i;
+    for(var j = i + 1; j < array.length; j++) {
+      if(array[j] < array[min]) {
+        min = j;
+      }
+    }
+    if(i !== min) {
+      swap(array, i, min);
+    }
+  }
+  return array;
+}
+            </pre></code>
+            <a href="http://blog.benoitvallon.com/sorting-algorithms-in-javascript/the-selection-sort-algorithm/">Source</a>
+            </section>
             
             <section>
               <h3>Selection Sort:</h3>
@@ -1037,6 +1107,7 @@ for (var i = 0; i &lt; things.length; i++) {
                     <li><a href="https://en.wikipedia.org/wiki/Selection_sort" target="_blank">Selection sort</a></li>
                     <li><a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank">Merge sort</a></li>
                     <li><a href="https://en.wikipedia.org/wiki/Bucket_sort" target="_blank">Bucket sort</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Bubble_sort" target="_blank">Bubble sort</a></li>
                 </ul>
                 <br>
                 <br>
