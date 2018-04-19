@@ -21,10 +21,10 @@ http://www.teaching-materials.org/ajax/
 Attendees should be comfortable with HTML and CSS fundamentals (HTML tags and attributes, CSS selectors) and JavaScript fundamentals (arrays, conditionals, loops, functions). Attendees should also be comfortable with the DOM API and jQuery. That means that you attended our Intro to HTML & CSS workshop, Intro to JavaScript workshop, Making Webpages Interactive workshop, and Intro to jQuery workshop, or you learned those concepts online.
 
 You can review them online at a few places:
-* HTML/CSS: [Khan Academy's HTML/CSS course](https://khanacademy.org/html-css), [Codecademy's HTML/CSS course](https://www.codecademy.com/tracks/web), [GDI SF HTML/CSS slides](http://teaching-materials.org/htmlcss-1day)
-* JS: [Codecademy's JS course](https://www.codecademy.com/tracks/javascript), [Khan Academy's Intro to JS course](https://khanacademy.org/programming),  [GDI SF JS slides](http://teaching-materials.org/javascript)
-* DOM API: [Khan Academy's "Making Webpages Interactive" course](https://khanacademy.org/html-css-js)
-* jQuery: [Codecademy's jQuery course](https://www.codecademy.com/tracks/jquery)
+* HTML/CSS: [Khan Academy's HTML/CSS course](https://www.khanacademy.org/computing/computer-programming/html-css), [Codecademy's HTML/CSS course](https://www.codecademy.com/learn/learn-html), [GDI SF's HTML/CSS slides](http://teaching-materials.org/htmlcss-1day)
+* JS: [Khan Academy's Intro to JS course](https://www.khanacademy.org/computing/computer-programming/programming), [Codecademy's JS course](https://www.codecademy.com/learn/learn-javascript),  [GDI SF's JS slides](http://teaching-materials.org/javascript)
+* DOM API: [Khan Academy's "Making Webpages Interactive" course](https://www.khanacademy.org/computing/computer-programming/html-css-js), [GDI SF's "Making Webpages Interactive" slides](https://www.teaching-materials.org/jsweb/)
+* jQuery: [Khan Academy's jQuery course](https://www.khanacademy.org/computing/computer-programming/html-js-jquery), [Codecademy's jQuery course](https://www.codecademy.com/tracks/jquery), [GDI SF's "jQuery slides](https://www.teaching-materials.org/jquery/#/)
 
 
 ### Tech requirements:
