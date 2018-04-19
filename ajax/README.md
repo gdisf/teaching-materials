@@ -1,17 +1,24 @@
-# JSON & AJAX
+# JS302: AJAX/JSON
 
-Slides and materials are hosted [here](https://wwww.teaching-materials.org/ajax/).
+In this workshop, you'll learn ways you can use data in your webpages, using AJAX to pull in JSON formatted data dynamically from servers.
 
-## Course description
+The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by **{{ teacher_name }}**, {{ teacher_description }}.
 
-In this workshop, you'll learn ways you can use data in your webpages, using AJAX
-to pull in JSON formatted data dynamically from servers.
+This is a great follow-up workshop for those who attended our JS301: Intro to jQuery workshop.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio]. This is a great follow-up workshop for those who have attended our jQuery workshop.
+### Topics covered
 
-### Prerequisites:
+* Storing data as JSON
+* Turning JSON data into DOM nodes
+* Using AJAX to pull in JSON
 
-Attendees should be comfortable with HTML/CSS fundamentals and JavaScript fundamentals (arrays, conditionals, loops, functions). Attendees should also have learned the DOM API and jQuery. That means that you either attended our HTML 101 workshop, JS 101 workshop, JS for the Web workshop, and JQuery workshop, or that you learned those concepts online. 
+### Slides
+
+http://www.teaching-materials.org/ajax/
+
+### Prerequisites
+
+Attendees should be comfortable with HTML and CSS fundamentals (HTML tags and attributes, CSS selectors) and JavaScript fundamentals (arrays, conditionals, loops, functions). Attendees should also be comfortable with the DOM API and jQuery. That means that you attended our Intro to HTML & CSS workshop, Intro to JavaScript workshop, Making Webpages Interactive workshop, and Intro to jQuery workshop, or you learned those concepts online.
 
 You can review them online at a few places:
 * HTML/CSS: [Khan Academy's HTML/CSS course](https://khanacademy.org/html-css), [Codecademy's HTML/CSS course](https://www.codecademy.com/tracks/web), [GDI SF HTML/CSS slides](http://teaching-materials.org/htmlcss-1day)
@@ -22,12 +29,12 @@ You can review them online at a few places:
 
 ### Tech requirements:
 
-* Your laptop (Mac, PC, or Linux are all okay) and charger.
-* A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC) or Notepad++ (PC).
+* Your laptop (Mac, PC, Linux) and charger
+* A modern web browser (Chrome, Firefox, Safari)
+* A text editor - we recommend either Sublime Text 2 or Atom (both free)
 
-### Topics covered:
+*If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.*
 
-* Storing data as JSON
-* Turning JSON data into DOM nodes
-* Using AJAX to pull in JSON
+### Payment
+
+Payment is required to attend. If you'd like to attend but cannot afford the cost, [click here to request a scholarship](https://docs.google.com/forms/d/e/1FAIpQLSfiUBN4yve3L7iociXzcqNgEtrljsn_7mCgZ3eUtvAEr3bcQg/viewform). Due to the number of applications, only the scholarship recipient will receive an email a few days before the workshop. Thank you for your understanding!
