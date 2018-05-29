@@ -95,11 +95,12 @@
       <section>
         <h2>Agenda</h2>
         <ul>
-          <li>6:00 - What Is Accessibility & Inclusive Design?</li>
-          <li>6:40 - Assistive Device Demo (Interactive)</li>
-          <li>7:00 - How Do I Build Inclusive Websites?</li>
-          <li>7:45 - How Do I Evaluate My Code's Accessibility?</li>
-          <li>8:30 - What Can I Do With My New Knowledge?</li>
+          <li>6:10 - What Is Accessibility & Inclusive Design?</li>
+          <li>6:40 - Assistive Technology Demo (Interactive)</li>
+          <li>7:00 - How Do I Build and Evaluate Inclusive Websites?</li>
+          <li>7:40 - BREAK</li>
+          <li>7:45 - How Do I Improve My Code for Accessibility?</li>
+          <li>8:45 - What Can I Do With My New Knowledge?</li>
         </ul>
       </section>
       <!-- AGENDA END -->
@@ -225,13 +226,30 @@
 
       <!-- ACCESSIBILITY IN THE WORKPLACE: RECENT LAWSUITS END -->
 
+      <!-- COMMON PROBLEMS START -->
+
+      <section>
+        <h2>What are the common problems?</h2>
+        <img src="./images/webaim-survey-problematic-items.png" class="stretch" alt="chart of most common accessibility problems"
+        />
+        <p>Source:
+          <a href="http://webaim.org/projects/screenreadersurvey5/" target="_blank">WebAIM Screen Reader Survey, February 2014</a>
+        </p>
+        <aside class="notes">Introduce the WebAIM Screen Reader survey and show the common problems. Marcy's version of the
+          <a href="http://marcysutton.com/stuff/GDI-Accessibility/img/webaim-survey-problematic-items.png">infographic</a> highlights topics covered in the two classes. This can be helpful to keep open in a second browser
+          tab so it can be referenced more than once.</aside>
+      </section>
+
+      <!-- COMMON PROBLEMS END -->
+
       <!-- CHALLENGE ASSUMPTIONS ABOUT USERS START -->
 
       <section>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/P1e7ZCKQfMA?cc_load_policy=1" frameborder="0" allowfullscreen></iframe>
+        <h2>The Power of Accessible Technology</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/XB4cjbYywqg?cc_load_policy=1" frameborder="0" title="Apple Accessibilty: Sady" allowfullscreen></iframe>
         <br/>
         <br/>
-        <small>You can automatically enable closed captioning by adding
+        <small>Pro Tip: You can automatically enable closed captioning by adding
           <strong>?cc_load_policy=1</strong> to the url of an embedded YouTube video</small>
         <br/>
         <br/>
@@ -406,15 +424,22 @@
 
       <!-- ASSISTIVE TECHNOLOGY SLIDE END -->
 
+      <!-- -->
+
+      <section>
+        <h2>How @blindflimcritic Uses Instragram with a Screen Reader</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/P1e7ZCKQfMA?cc_load_policy=1" frameborder="0" allowfullscreen></iframe>
+        <p>Ready to try it for yourself?</p>
+      </section>
+
       <!-- VOICEOVER ACTIVATION SLIDE START -->
 
       <section>
         <section>
           <h2>Activate
             <span class="gdi">VoiceOver</span>
-            </br/>Screen Reader -
-            <span class="gdi">iPhone
-              <span>
+            <br/>Screen Reader -
+            <span class="gdi">iPhone</span>
           </h2>
           <small>Instructions for activating and using VoiceOver on an iOS device.</small>
           <p>
@@ -476,6 +501,25 @@
 
       <!-- HOW TO USE VOICEOVER FOR IOS END -->
 
+      <!-- HOW TO USE TALKBACK FOR ANDROID START -->
+
+      <section>
+        <h2>Activate
+          <span class="gdi">TalkBack</span>
+          <br/>Screen Reader - 
+          <span class="gdi">Android</span>
+        </h2>
+        <p>           
+          <span class="gdi">Settings</span> >
+          <span class="gdi">Accessibility</span> >
+          <span class="gdi">TalkBack</span>
+        </p>
+        <p><a href="https://support.google.com/accessibility/android/answer/6283677?hl=en&ref_topic=3529932" target="_blank">Getting started with TalkBack</a> 
+        <br />(Google Support Docs)</p>
+      </section>
+
+      <!-- HOW TO USE TALKBACK FOR ANDROID END -->
+
       <!-- HOW TO ACTIVATE VOICEOVER FOR OSX START -->
 
       <section>
@@ -508,13 +552,13 @@
           </h2>
           <small>Once VoiceOver is Activated</small>
           <small>
-            <p class="fragment">Turn on VoiceOver: command + F5</p>
-            <p class="fragment">Use the VO Keys for many tasks: control + option</p>
-            <p class="fragment">From the address bar enter the Web area: VO + shift + down arrow</p>
-            <p class="fragment">Next item: VO + right arrow</p>
-            <p class="fragment">Previous item: VO + left arrow</p>
-            <p class="fragment">Open Web Rotor: VO + U</p>
-            <p class="fragment">The Web Rotor is used to navigate a page by various elements such as headings, landmarks or links</p>
+            <p class="fragment"><strong>Turn on VoiceOver:</strong> command + F5</p>
+            <p class="fragment"><strong>Use the VO Keys:</strong> control + option</p>
+            <p class="fragment"><strong>From the address bar enter the Web area:</strong> VO + shift + down arrow</p>
+            <p class="fragment"><strong>Next item:</strong> VO + right arrow</p>
+            <p class="fragment"><strong>Previous item:</strong> VO + left arrow</p>
+            <p class="fragment"><strong>Open Web Rotor:</strong> VO + U</p>
+            <p class="fragment">The <span class="gdi">Web Rotor</span> is used to navigate a page by various elements such as headings, landmarks or links</p>
           </small>
         </section>
         <aside class="notes">
@@ -558,30 +602,232 @@
       <!-- BUILDING INCLUSIVE/ACCESSIBLE WEBSITES END -->
 
       <!-- POUR START -->
-
       <section>
-        <h2>Remember This Acronym:
-          <span class="gdi">POUR</span>
-        </h2>
-        <h3>Perceivable</h3>
-        <h3>Operable</h3>
-        <h3>Understandable</h3>
-        <h3>Robust</h3>
-        <small>
-          <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html" target="_blank">Understanding the Four Principles of Accessibility, W3.org</a>
-        </small>
-      </section>
+        <section>
+          <h2>Remember This Acronym:
+            <span class="gdi">POUR</span>
+          </h2>
+          <h3>Perceivable</h3>
+          <h3>Operable</h3>
+          <h3>Understandable</h3>
+          <h3>Robust</h3>
+          <small>
+            <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html" target="_blank">Understanding the Four Principles of Accessibility, W3.org</a>
+          </small>
+        </section>
 
       <!-- POUR END -->
+
+      <!-- WCAG 2.0 START -->
+        <section>
+          <h2>Web Content Accessibility Guidelines 
+            <span class="gdi">(WCAG 2.0)</span>
+          </h2>
+          <small><a href="https://www.w3.org/WAI/WCAG20/quickref/" target="_blank">WCAG 2.0 Official Quick Reference</a></small>
+          <ul>
+            <li><strong>Don't panic!</strong></li> 
+            <li>You don't have to read through all this documentation to start following best practices for accessibility.</li>
+            <li>Focus on improving user experience rather than checking of boxes.</li>
+            <li>WebAIM provides a <a href="https://webaim.org/standards/wcag/checklist" target="_blank">checklist</a> that is more beginner-friendly.</li>
+          </ul>
+
+        </section>
+
+      <!-- WCAG 2.0 END -->
+
+      <!-- PERCEIVABLE START -->
+
+        <section>
+          <h2>Perceivable</h2>
+          <ul>
+            <li class="fragment">Alternative text for images*</li>
+            <li class="fragment">Descriptive labels for form inputs and buttons*</li>
+            <li class="fragment">Captions or transcripts for audio</li>
+            <li class="fragment">Audio description tracks for videos</li>
+            <li class="fragment">Logical reading and navigation order (with and without stylesheets)*</li>
+            <li class="fragment">Using semantic HTML* and table headings</li>
+            <li class="fragment">Distinguishale use of color and color contrast*</li>
+            <li class="fragment">User can control text size and audio playback</li>
+          </ul>
+          <small>
+            <a href="https://webaim.org/standards/wcag/checklist#perceivable" target="_blank">WebAIM's WCAG 2.0 Checklist</a>
+          </small>
+        </section>
+
+      <!-- PERCEIVABLE END -->
+
+      <!-- OPERABLE START -->
+
+        <section>
+          <h2>Operable</h2>
+          <ul>
+            <li class="fragment">All interactive elements are keyboard navigable*</li>
+            <li class="fragment">Time limits are adjustable</li>
+            <li class="fragment">Pause animated content or rapidly updating content</li>
+            <li class="fragment">Content only flashes 3 times per second or less (seizures)</li>
+            <li class="fragment">Use proper heading structure or skip navigation links to bypass navigation blocks*</li>
+            <li class="fragment">Use descriptive text for page titles, headings, labels, links, and buttons*</li>
+            <li class="fragment">Present multiple ways to find other pages</li>
+          </ul>
+          <small>
+            <a href="https://webaim.org/standards/wcag/checklist#operable" target="_blank">WebAIM's WCAG 2.0 Checklist</a>
+          </small>
+        </section>
+
+      <!-- OPERABLE END -->
+
+      <!-- UNDERSTANDABLE START -->
+
+        <section>
+          <h2>Understandable</h2>
+          <ul>
+            <li class="fragment">Set the language of the page and sections of the page*</li>
+            <li class="fragment">Define unusual words and abbreviations</li>
+            <li class="fragment">Avoid unpredictable changes like pop-up windows</li>
+            <li class="fragment">Use consistent navigation and labelling on all pages</li>
+            <li class="fragment">Assist users in filling out forms</li>
+            <li class="fragment">Have human readable form validation with suggestions for correction</li>
+            <li class="fragment">Allow user to confirm or reverse actions that have serious side effects (legal, financial, assessments)</li>
+          </ul>
+          <small>
+            <a href="https://webaim.org/standards/wcag/checklist#understandable" target="_blank">WebAIM's WCAG 2.0 Checklist</a>
+          </small>
+        </section>
+
+      <!-- UNDERSTANDABLE END -->
+
+      <!-- ROBUST START -->
+
+        <section>
+          <h2>Robust</h2>
+          <ul>
+            <li class="fragment">Make sure your code can work with assistive technologies</li>
+            <li class="fragment">Keep in mind that browser compatability affect accessibility too</li>
+            <li class="fragment">Valid code is accessible code. <a href="http://validator.w3.org/" target="_blank">Validate your code</a> for parsing errors.</li>
+            <li class="fragment">Use semantic HTML*</li>
+            <li class="fragment">Or programmatically set the name, role, state, and value of interactive elements*</li>
+          </ul>
+          <small>
+            <a href="https://webaim.org/standards/wcag/checklist#robust" target="_blank">WebAIM's WCAG 2.0 Checklist</a>
+          </small>
+        </section>
+      </section>
+
+      <!-- ROBUST END -->
+
 
       <!-- ACTIVITY: MANUALLY TEST WEBSITE START -->
 
       <section>
         <h2>Activity: Manually Test A Website</h2>
-        <h3>[URL Here]</h3>
+        <small><a href="https://thimbleprojects.org/edudevcf/493170/" target="_blank">https://thimbleprojects.org/edudevcf/493170/</a></small>
+        <ul>
+          <li>Take 10 minutes</li>
+          <li>Browse the page using a screen reader</li>
+          <li>And keyboard navigation (TAB, SHIFT-TAB, ARROW KEYS)</li>
+          <li>Keep in mind: POUR</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>What issues did you notice?</h2>
       </section>
 
       <!-- ACTIVITY: MANUALLY TEST WEBSITE END -->
+
+      <!-- EVALUATION TOOLS START -->
+
+      <section>
+        <h2>What if I missed something?</h2>
+        <ul>
+          <li><span class="gdi">Accessibility Evaluation Tools</span> are very good at finding issues with your code.</li>
+          <li>However, they are not very good at evaluating user experience and interactions.</li>
+          <li>Use accesibilty checkers in addition to manual testing.</li>
+      </section>
+
+      <!-- BROWSER PLUGINS START -->
+
+      <section>
+        <h2>
+          <span class="gdi">Browser Plugins</span> for <br />
+          <span class="gdi">Accessibility Testing</span>
+        </h2>
+        <p>The
+          <span class="gdi">WAVE</span> browser extension from WebAIM allows you to evaluate web content for accessibility issues directly
+          within the browser (Chrome, FireFox)</p>
+        <small>
+          <a href="http://wave.webaim.org/extension/" target="_blank">WAVE Web Accessibility Evaluation Tool</a>
+        </small>
+        <!-- <br>(The way the text above is linked is intentional and is an example of link context from the WCAG which we will
+          discuss later) -->
+        <p>Once installed a "W" icon will appear in the browser toolbar. Press the icon to run an audit of the page.
+          <!-- Errors
+          and warnings will appear within the page. Click the error or warning to see more information in the left of the
+          browser.-->
+        </p>
+        </aside>
+      </section>
+
+      <section>
+        <h2>
+          <span class="gdi">Browser Plugins</span> for <br />
+          <span class="gdi">Accessibility Testing</span>
+        </h2>
+        <p>
+          <span class="gdi">aXe</span> is an open-source rules library for accessibility testing that allows you to evaluate the current state of a page without reloading its contents. (Chrome, FireFox)</p>
+        <small>
+          <a href="https://www.deque.com/axe/" target="_blank">aXe Browser Extension</a>
+        </small>
+      </section>
+
+      <section>
+        <h2>
+          <span class="gdi">Chrome Dev Tools</span> <br />for 
+          <span class="gdi">Accessibility</span>
+        </h2>
+        <p>
+          <span class="gdi">Lighthouse</span> is built into the Chrome DevTools and can perform audits for performance, accessibility, progressive web apps, and more.</p>
+        <small>
+          <a href="https://developers.google.com/web/tools/lighthouse/#devtools" target="_blank">Lighthouse Audit How-To</a>
+        </small>
+        <small>
+          <a href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb" target="_blank">Chrome Accessibility Development Tools</a> (for older browsers)
+        </small>
+      </section>
+
+      <section>
+        <h2>
+          <span class="gdi">Javascript Module</span> for <br />
+          <span class="gdi">Local Testing</span>
+        </h2>
+        <p>
+          <span class="gdi">tota11y</span> is an open source accessibility visualization toolkit from Khan Academy which can be added to your codebase and run locally during development.</p>
+        <small>
+          <a href="http://khan.github.io/tota11y/" target="_blank">tota11y Accessibility Visualization Toolkit</a>
+        </small>
+      </section>
+
+      <!-- ACTIVITY: ACCESSIBILITY AUDIT START-->
+
+      <section>
+        <h2>Activity: <br /> Perform an accessibilty audit</h2>
+        <small><a href="https://thimbleprojects.org/edudevcf/493170/" target="_blank">https://thimbleprojects.org/edudevcf/493170/</a></small>
+        <ul>
+          <li>Take 10 minutes</li>
+          <li>Download a browser plugin or use Chrome DevTools.</li>
+          <li>Run the audit on the website you already manually tested.</li>
+          <li>Review the results to find additional issues.</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>What new issues did the accessibility checkers catch?</h2>
+      </section>
+
+      <!-- ACTIVITY: ACCESSIBILITY AUDIT END -->
+
+
 
       <!-- QUICK WINS START -->
 
@@ -589,9 +835,151 @@
         <h2>Accessibility
           <span class="gdi">Quick Wins</span>
         </h2>
+        <ul>
+          <li>Set the language attribute</li>
+          <li>Have a descriptive title</li>
+          <li>Appropriate alt text for images</li>
+          <li>Validate your code</li>
+          <li>Check color contrast</li>
+        </ul>
       </section>
 
       <!-- QUICK WINS END -->
+
+      <!-- HTML LANGUAGE TAGS START -->
+
+      <section>
+        <h2>HTML language attribute</h2>
+        <p>Specifying the language of the page tells the screen reader how to pronounce the words.</p>
+        <p>If you don't specify, the screen reader will use the user's default language, meaning potential mispronunciations.</p>
+        <pre><code>
+          &lt;html lang="en"&gt;
+        </code></pre>
+        
+      </section>
+
+      <section>
+        <h2>HTML language tags (video)</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ox5QVbZSPBk?rel=0" frameborder="0" allow="autoplay; encrypted-media"
+          allowfullscreen></iframe>
+      </section>
+
+      <!-- HTML LANGUAGE TAGS START -->
+
+      <!-- TITLE START -->
+
+      <section>
+        <h2>Include a descriptive title</h2>
+        <p>It's surprisingly easy to forget to include a title tag in the head of your webpage.</p>
+        <pre><code>
+          &lt;head&gt;
+            &lt;title&gt;The Funion - Front Page&lt;/title&gt;
+          &lt;/head&gt;  
+        </code></pre>
+        <p>Make sure it accurately and concisely describes the content of the page. This way it's easier for users to find your website when multiple tabs or windows are open.</p>
+      </section>
+
+      <!-- TITLE END -->
+
+      <!-- DESCRIPTIVE TEXT START -->
+
+      <section>
+        <h2>Other places for descriptive text</h2>
+        <p>While you're at it, check the following elements to make sure their text or labels accurately describe their function out of context.</p>
+        <ul>
+          <li>links</li>
+          <li>headers</li>
+          <li>buttons</li>
+        </ul>
+      </section>
+
+      <!-- DESCRIPTIVE TEXT END -->
+
+      <!-- ALT TAGS START -->
+
+      <section>
+        <h2><span class="gdi">Alt Tags Best Practices</span></h2>
+        <ul>
+          <li>The alt attribute specifies alternative text for an image that convey the same thing as the image.</li>
+          <li>Alt tags are also important for Search Engine Optimization (SEO) and when your images don't load.</li>
+          <li>If an image is purely decorative, set an empty alt tag and screen readers will ignore that element.</li>
+          <li>Logos are not just decorative, so include the name represented by the logo.</li>
+          <li>Avoid redundant phrases like "image of".</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Alt Tag Examples</h2>
+        <img src="./images/pup.jpg" alt="Dalmation puppy playing fetch" />
+        <pre><code>
+&lt;img src="pup.jpg"/&gt; &lt;-- No alt-tag; Inaccessible --&gt;
+&lt;img src="pup.jpg" alt=""/&gt; &lt;-- Decorative, ignored by screen readers --&gt;
+&lt;img src="pup.jpg" alt="puppy"/&gt; &lt;-- Better --&gt;
+&lt;img src="pup.jpg" alt="Dalmation puppy playing fetch"/&gt; &lt;-- Best --&gt;
+        </code></pre>
+      </section>
+
+      <!-- ALT TAGS END -->
+
+      <!-- VALID CODE START -->
+
+      <section>
+        <h2>Valid code is accessible code!</h2>
+        <p>Accessibility checkers can catch invalid HTML like:</p>
+        <ul>
+          <li><code>id</code> attributes must be unique.</li>
+          <li>If you're using tables, include table headers <code>&lt;th&gt;</code></li>
+          <li>Wrap list items in ordered or unordered list tags. <br /><code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code></li>
+        </ul>
+      </section>
+
+      <!-- VALID CODE END -->
+
+      <!-- COLOR CONTRAST START -->
+
+      <section>
+        <h2>Color
+          <span class="gdi">Contrast</span>
+        </h2>
+        <p>Your pages need sufficient contrast between
+        <strong>foreground</strong> (text or graphics) and the
+        <strong>background</strong>.</p>
+        <p><strong>4.5:1</strong> contrast ratio for for normal text</p>
+        <p><strong>3:1</strong> constrast ratio for large text (greater than 18pt)</p>
+        <p>
+          <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Color Contrast Checker</a>
+        </p>
+        <p>
+          <a href="http://colorsafe.co/" target="_blank">ColorSafe.co - Color Contrast Palette Generator</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Color
+          <span class="gdi">Contrast</span>
+        </h2>
+        <img src="./images/contrast-fail.png" alt="failing color contrast" />
+        <img src="./images/contrast-pass.png" alt="passing color contrast" />
+      </section>
+
+      <!-- COLOR CONTRAST END -->
+
+      <!-- ACTIVITY: QUICK WINS START -->
+
+      <section>
+        <h2>Activity: Quick Wins</h2>
+        <small><a href="https://thimbleprojects.org/edudevcf/493170/" target="_blank">https://thimbleprojects.org/edudevcf/493170/</a></small>
+        <p>What are some quick fixes we can make to this website to resolve some of the issues found by the accessibility checker?</p>
+        <ul>
+          <li>Set the language attribute</li>
+          <li>Have a descriptive title</li>
+          <li>Appropriate alt text for images</li>
+          <li>Validate your code</li>
+          <li>Check color contrast</li>
+        </ul>
+      </section>
+
+      <!-- ACTIVITY: QUICK WINS END -->
 
       <!-- SEMANTIC HTML START -->
 
@@ -641,52 +1029,92 @@
 
       <!-- ACCESSIBILITY API END -->
 
-      <!-- ACTIVITY: FORMS START -->
+      <!-- LANDMARKS START -->
 
       <section>
-        <h2>Forms</h2>
-        <p>PLACEHOLDER SLIDE</p>
+        <h2>Semantic Landmarks</h2>
+        <ul>
+          <li>Semantic HTML can help you logically order your page.</li>
+          <li>Using landmarks will also help your screen reader users navigate your page more quickly.</li>
+          <li>HTML5 includes semantic elements such as:  <code>nav</code>, <code>main</code>, <code>aside</code>, <code>footer</code>.</li>
+          <li>For older broswers that do not support HTML you can assign roles to your divs:<br />
+            <code>&lt;div role="nav" class="navbar"&gt;</code>
+          </li>
+          <li><a href="https://www.w3.org/TR/wai-aria-practices/examples/landmarks/index.html" target="_blank">Learn more about landmarks</a></li>
+        </ul>
+      </section>
+
+      <!-- LANDMARKS END -->
+
+      <!-- HEADINGS START -->
+
+      <section>
+        <h2>Appropriate Headings</h2>
+        <ul>
+          <li>Descriptive headings can help users better navigate your page.</li>
+          <li>Make sure you use leveled headings in the right order.</li>
+          <li>Use CSS to format your headings rather than using a lower level heading just for smaller text.</li>
+          <li>If you use headings and landmarks appropriately, you will not need to add a "skip navigation link." But here's a good <a href="https://www.bignerdranch.com/blog/web-accessibility-skip-navigation-links/" target="_blank">tutorial</a>, if you're interested.
+        </ul>
+      </section>
+
+      <section>
+        <h2>Navigable Headings</h2>
+        <img src="http://accessibility.psu.edu/wp-content/uploads/sites/7691/2014/10/RotorCrop.png" alt="VoiceOver web roter view of website headings" />
+      </section>
+
+      <!-- HEADINGS END -->
+
+      <!-- FORM LABELS START -->
+
+      <section>
+        <h2>Form Labels</h2>
+        <p>Ways to include labels with your form inputs:</p>
+        <p>1. Wrap the input element in a label tag</p>
+        <pre><code>
+  &lt;label&gt;First name: &lt;input type="text" name="firstname"&gt;&lt;/label&gt;
+        </code></pre>
+        <p>2. Use label for to associate the label text with the input using it's unique id.</p>
+        <pre><code>
+  &lt;label for="firstname"&gt;First name:&lt;/label&gt;
+  &lt;input type="text" name="firstname" id="firstname"&gt;
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Advanced Form Fu</h2>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/tutorials/forms/labels/#hiding-label-text" target="_blank">Hiding labels</a> - Caution: using CSS like <code>visibility: hidden</code> and <code> display: none</code> will also hide that text from screen readers.</li>
+          <li>Using ARIA labels: coming up next!</li>
+          <li><a href="https://www.w3.org/WAI/tutorials/forms/instructions/" target="_blank">Accessible form validation and instructions</a></li>
       </section>
 
       <!-- ACTIVITY: FORMS END -->
 
-      <!-- ALT TAGS START -->
+      <!-- ACTIVITY: SEMANTIC REFACTOR START -->
 
       <section>
-        <h2>Alt Tags</h2>
-        <p>The alt attribute specifies alternative text for an image.</p>
-        <p>Alt tags are also important for Search Engine Optimization (SEO).</p>
+        <h2>Activity: Semantic Refactor</h2>
+        <small><a href="https://thimbleprojects.org/edudevcf/493170/" target="_blank">https://thimbleprojects.org/edudevcf/493170/</a></small>
+        <p>How can you refactor the code to include more semantic HTML elements?</p>
+        <ul>
+          <li>Replace non-semantic divs with native HTML elements.</li>
+          <li>Use HTML5 landmarks or roles.</li>
+          <li>Order headings appropriately.</li>
+          <li>Label form elements.</li>
+        </ul>
       </section>
+
+      <!-- ACTIVITY: SEMANTIC REFACTOR END -->
+
+      <!-- GOING DEEPER START -->
 
       <section>
-        <h2>Alt Tags</h2>
-        <img src="./images/pup.jpg" alt="Dalmation puppy playing fetch" />
-        <pre><code>&lt;img src="pup.jpg" alt=""/&gt; &lt;-- Inaccessible --&gt;
-&lt;img src="pup.jpg" alt="puppy"/&gt; &lt;-- Better --&gt;
-&lt;img src="pup.jpg" alt="Dalmation puppy playing fetch"/&gt; &lt;-- Best --&gt;</code></pre>
+        <h2>Going Deeper:
+          <span class="gdi">Advanced</span> Accessibility Concepts</h2>
       </section>
 
-      <!-- ALT TAGS END -->
-
-      <!-- HTML LANGUAGE TAGS START -->
-
-      <section>
-        <h2>HTML language tags</h2>
-        <p>Specifying the language of the page tells the screen reader how to pronounce the words.</p>
-        <p>If you don't specify, the screen reader will use the user's default language, meaning potential mispronunciations.</p>
-        <pre><code>
-          &lt;html lang="en"&gt;
-          </pre>
-        </code>
-      </section>
-
-      <section>
-        <h2>HTML language tags (video)</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ox5QVbZSPBk?rel=0" frameborder="0" allow="autoplay; encrypted-media"
-          allowfullscreen></iframe>
-      </section>
-
-      <!-- HTML LANGUAGE TAGS START -->
+      <!-- GOING DEEPER START -->
 
       <!-- ARIA START -->
 
@@ -776,90 +1204,6 @@
 
       <!-- TOP 5 ARIA: ARIA-LIVE END -->
 
-      <!-- GOING DEEPER START -->
-
-      <section>
-        <h2>Going Deeper:
-          <span class="gdi">Advanced</span> Accessibility Concepts</h2>
-      </section>
-
-      <!-- GOING DEEPER START -->
-
-      <!-- ACTIVITY: A11y TESTER START -->
-
-      <section>
-        <h2>Activity: Using
-          <span class="gdi">Browser Plugins</span> for
-          <span class="gdi">Accessibility Testing</span>
-        </h2>
-        <p>The
-          <span class="gdi">WAVE</span> browser extension from WebAIM allows you to evaluate web content for accessibility issues directly
-          within the browser (Chrome, FireFox)</p>
-        <small>
-          <a href="http://wave.webaim.org/extension/" target="_blank">WAVE Web Accessibility Evaluation Tool</a>
-        </small>
-        <!-- <br>(The way the text above is linked is intentional and is an example of link context from the WCAG which we will
-          discuss later) -->
-        <p>Once installed a "W" icon will appear in the browser toolbar. Press the icon to run an audit of the page.
-          <!-- Errors
-          and warnings will appear within the page. Click the error or warning to see more information in the left of the
-          browser.-->
-        </p>
-        </aside>
-      </section>
-
-      <section>
-        <h2>Using
-          <span class="gdi">Browser Plugins</span> for
-          <span class="gdi">Accessibility Testing</span>
-        </h2>
-        <p>
-          <span class="gdi">tota11y</span> is an accessibility visualization toolkit from Khan Academy (any browser)</p>
-        <small>
-          <a href="http://khan.github.io/tota11y/" target="_blank">tota11y Accessibility Visualization Toolkit</a>
-        </small>
-      </section>
-
-      <section>
-        <h2>Using
-          <span class="gdi">Browser Plugins</span> for
-          <span class="gdi">Accessibility Testing</span>
-        </h2>
-        <p>
-          <span class="gdi">aXe</span> is an open-source rules library for accessibility testing (Chrome, FireFox).</p>
-        <small>
-          <a href="https://www.deque.com/axe/" target="_blank">aXe Browser Extension</a>
-        </small>
-      </section>
-
-      <!-- ACTIVITY: A11y TESTER -->
-
-      <!-- COLOR CONTRAST START -->
-
-      <section>
-        <h2>Color
-          <span class="gdi">Contrast</span>
-        </h2>
-        Your pages need sufficient contrast between
-        <strong>foreground</strong> (text or graphics) and the
-        <strong>background</strong>.
-        <p>
-          <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Color Contrast Checker</a>
-        </p>
-        <p>
-          <a href="http://colorsafe.co/" target="_blank">ColorSafe.co - Color Contrast Palette Generator</a>
-        </p>
-      </section>
-
-      <section>
-        <h2>Color
-          <span class="gdi">Contrast</span>
-        </h2>
-        <img src="./images/contrast-fail.png" alt="failing color contrast" />
-        <img src="./images/contrast-pass.png" alt="passing color contrast" />
-      </section>
-
-      <!-- COLOR CONTRAST END -->
 
       <!-- KEYBOARD NAVIGATION START -->
 
@@ -875,33 +1219,47 @@
       <!-- NATIVE FOCUS ELEMENTS AND DOM ORDER START -->
 
       <section>
-        <h3>Hold For Native Focus Elements & DOM order (CF)</h3>
+        <h2>Define <span class="gdi">Focus</span></h2>
+        <p>When you tab through the elements on your page, they are usually highlighted subtly to show that the focus is on that element.</p>
+        <p>You can modify this styling but do not remove it!</p>
+        <img src="https://developers.google.com/web/fundamentals/accessibility/focus/imgs/sign-up.png" alt="example of focus highlight" />
+      </section>
+
+      <section>
+        <h2>Define <span class="gdi">Tab Order</span></h2>
+        <p>The order in which elements receive focus should be logical.</p>
+        <ul>
+          <li>Interactive elements like links, buttons, and form inputs are natively tab accessible.</li>
+          <li>Headings and text usually do not need to be tab accessible, so do not add tabindex to page contents.</li>
+          <li><strong>Caution!</strong> CSS can override the order they show up in the code (or DOM).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Appropriate use of <code>tabindex</code></h2>
+        <ul>
+          <li>The <code>tabindex</code> attribute can also be used to change the tab order.</li>
+          <li>If you are creating custom interactive components, you may need to set <code>tabindex=0</code>.</li>
+          <li>Setting <code>tabindex="-1"</code> removes the element from the tab order, but allows you to programmatically manage it's focus with Javascript.</li>
+          <li>Setting a <code>tabindex</code> greater than 0 will move that element up in the tab order. This is not recommended.</li>
+          <li><a href="https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex" target="_blank">Learn more about tab index and managing focus</a></li>
+        </ul>
       </section>
 
       <!-- NATIVE FOCUS ELEMENTS AND DOM ORDER END -->
 
-      <!-- TITLE START -->
-
-      <section>
-        <h3>Hold For Title (CF)</h3>
-      </section>
-
-      <!-- TITLE END -->
-
       <!-- JAVASCRIPT START -->
 
       <section>
-        <h2>JavaScript Complications: Modals and More</h2>
-        <p>If you are using modals, ensure they are
+        <h2>JavaScript Complications: <br /> Modals and More</h2>
+        <ul>
+          <li>If you are using modals, ensure they are
           <a href="https://bitsofco.de/accessible-modal-dialog/">fully screen reader accessible</a>
-          (
-          <a href="https://material-components.github.io/material-components-web-catalog/#/component/dialog" target="_blank">Example)</a>
-        </p>
-        <p>If you are relying on mouse-specific events (mouseover, mouseout, dblclick) double up the functionality with non-mouse-specific
-          events
-        </p>
-        <p>Make sure to inform your users when content has dynamically changed!</p>
-        <p>Test your JavaScript code on many different browsers and assistive devices</p>
+          (<a href="https://material-components.github.io/material-components-web-catalog/#/component/dialog" target="_blank">Example</a>)</li>
+          <li>If you are relying on mouse-specific events (mouseover, mouseout, dblclick) double up the functionality with non-mouse-specific
+          events</li>
+          <li>Make sure to inform your users when content has dynamically changed!</li>
+          <li>Test your JavaScript code on many different browsers and assistive devices</li>
         <aside class="notes">
           Modals must: 1. Markup the Dialog and Dialog Overlay Appropriately 2. On Dialog Open, Set Focus 3. On Dialog Close, Return
           Focus to the Last Focused Element 4. While Open, Prevent Mouse Clicks Outside the Dialog 5. While Open, Prevent
@@ -911,21 +1269,14 @@
 
       <!-- JAVASCRIPT END -->
 
-      <!-- COMMON PROBLEMS START -->
+      <!-- ACTIVITY: MANUALLY TEST WEBSITE START -->
 
       <section>
-        <h2>What are the common problems?</h2>
-        <img src="./images/webaim-survey-problematic-items.png" class="stretch" alt="chart of most common accessibility problems"
-        />
-        <p>Source:
-          <a href="http://webaim.org/projects/screenreadersurvey5/" target="_blank">WebAIM Screen Reader Survey, February 2014</a>
-        </p>
-        <aside class="notes">Introduce the WebAIM Screen Reader survey and show the common problems. Marcy's version of the
-          <a href="http://marcysutton.com/stuff/GDI-Accessibility/img/webaim-survey-problematic-items.png">infographic</a> highlights topics covered in the two classes. This can be helpful to keep open in a second browser
-          tab so it can be referenced more than once.</aside>
+        <h2>Activity: Keyboard Nagivation</h2>
+        <small><a href="https://thimbleprojects.org/edudevcf/493170/" target="_blank">https://thimbleprojects.org/edudevcf/493170/</a></small>
+        <p>To wrap things up, find places where you can improve the tab order and focus.</p>
+        <p>What else could you improve?</p>
       </section>
-
-      <!-- COMMON PROBLEMS END -->
 
       <!-- TAKING ACTION ON THESE CONCEPTS START -->
 
@@ -967,6 +1318,7 @@
       <section>
         <h2>Thank You!</h2>
         <h3>Please Take The Class Survey</h3>
+        <a href="http://bit.ly/2GXl0BW" target="_blank">http://bit.ly/2GXl0BW</a>
       </section>
 
       <!-- SURVEY END -->
