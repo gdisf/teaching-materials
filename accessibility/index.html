@@ -126,6 +126,21 @@
 
       <!-- DEFINITION OF WEB ACCESSIBILITY FROM THE W3C WEB ACCESSIBILITY INITIATIVE END -->
 
+      <section>
+        <h2>Define
+          <span class="gdi">Inclusive Design</span>
+        </h2>
+        <blockquote cite="test cite here">
+          &ldquo;Inclusive Design is design that considers the full range of human diversity with respect to ability, language, culture,
+          gender, age and other forms of human difference.&rdquo;
+        </blockquote>
+        <small>
+          <a href="https://idrc.ocadu.ca/about-the-idrc/49-resources/online-resources/articles-and-papers/443-whatisinclusivedesign"
+            target="_blank">Inclusive Design Research Centre</a>
+          <br/>From OCAD University</small>
+
+      </section>
+
       <!-- Tim Berners-Lee QUOTE START -->
 
       <section data-background="images/vision_revised.jpg">
@@ -145,6 +160,22 @@
           choosen as an association with vision and beauty but also to illustate that all disabilities are not necessarily
           obvious. The fact the user is not facing the camera alludes to this concept
         </aside>
+      </section>
+
+
+      <section>
+        <h2>Using An
+          <span class="gdi">Inclusive Strategy</span> When Building Products
+        </h2>
+        <strong>&ldquo;...By thinking inclusively from planning, through prototyping, to production, you can cast a much wider net.
+          That means more, and happier, users at very little if any more effort ... Inclusive design is the means and accessibility
+          is the end — and you get a lot more than accessibility along the way.&rdquo;
+        </strong>
+        <small>
+          <a href="https://24ways.org/2016/what-the-heck-is-inclusive-design">Heydon Pickering, author, 'Inclusive Design Patterns'</a>
+        </small>
+
+
       </section>
 
       <!-- Tim Berners-Lee QUOTE END -->
@@ -240,7 +271,7 @@
           <br>6% of Americans ages 65+. (
           <a href="https://nfb.org/blindness-statistics">Source</a>)
         </p>
-        <p>8% of the population has color-blindness. (
+        <p>About 4% of the population has color-blindness. (
           <a href="https://nei.nih.gov/health/color_blindness/facts_about">Source</a>)
         </p>
         <ul>
@@ -493,7 +524,7 @@
 
       <section>
         <h2>How Do I Build
-          <span class="gdi">Accessible Websites?</span>
+          <span class="gdi">Inclusive and Accessible Websites?</span>
         </h2>
 
       </section>
@@ -506,6 +537,9 @@
         <h3>Operable</h3>
         <h3>Understandable</h3>
         <h3>Robust</h3>
+        <small>
+          <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html" target="_blank">Understanding the Four Principles of Accessibility, W3.org</a>
+        </small>
       </section>
 
       <section>
@@ -792,23 +826,58 @@
       </section>
 
       <section>
-        <h3>Hold For Color Contrast</h3>
+        <h2>Color
+          <span class="gdi">Contrast</span>
+        </h2>
+        Your pages need sufficient contrast between
+        <strong>foreground</strong> (text or graphics) and the
+        <strong>background</strong>.
+        <p>
+          <a href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM Color Contrast Checker</a>
+        </p>
+        <p>
+          <a href="http://colorsafe.co/" target="_blank">ColorSafe.co - Color Contrast Palette Generator</a>
+        </p>
       </section>
 
       <section>
-        <h3>Hold For Keyboard Navigation</h3>
+        <h2>Color
+          <span class="gdi">Contrast</span>
+        </h2>
+        <img src="./images/contrast-fail.png" alt="failing color contrast" />
+        <img src="./images/contrast-pass.png" alt="passing color contrast" />
       </section>
 
       <section>
-        <h3>Hold For Native Focus Elements & DOM order</h3>
+        <h2>Keyboard Navigation</h2>
+        <p>Keyboard accessibility is one of the most important aspects of web accessibility.</p>
+        <p>Many users with motor disabilities rely on a keyboard.</p>
+        <a href = "https://www.facebook.com/AbilityNet/videos/1939712289374718/" target="_blank">AbilityNet Video</a>(2:08-3:10)
       </section>
 
       <section>
-        <h3>Hold For Title</h3>
+        <h3>Hold For Native Focus Elements & DOM order (CF)</h3>
       </section>
 
       <section>
-        <h3>Hold For JS Complications: Modals and More</h3>
+        <h3>Hold For Title (CF)</h3>
+      </section>
+
+      <section>
+        <h2>JavaScript Complications: Modals and More</h2>
+        <p>If you are using modals, ensure they are <a href = "https://bitsofco.de/accessible-modal-dialog/">fully screen reader accessible</a>
+         (<a href = "https://material-components.github.io/material-components-web-catalog/#/component/dialog" target="_blank">Example)</a></p>
+        <p>Make sure to inform your users when content has dynamically changed!</p>
+        <p>Test your JavaScript code on many different browsers and assistive devices</p>
+      <aside class = "notes">
+          Modals must: 1. Markup the Dialog and Dialog Overlay Appropriately
+          2. On Dialog Open, Set Focus
+          3. On Dialog Close, Return Focus to the Last Focused Element
+          4. While Open, Prevent Mouse Clicks Outside the Dialog
+          5. While Open, Prevent Tabbing to Outside the Dialog
+          6. While Open?
+          7. Allow the ESC Key to Close the Dialog
+      </aside>
       </section>
 
       <!-- Exercise 03 START -->
@@ -1321,7 +1390,8 @@ DOCTYPE html lang="en"
         <h2>Accessibility In The Workplace</h2>
         <p>The
           <span class="gdi">Americans With Disabilities Act (ADA)</span> requires that individuals with disabilities must have access to online
-          tools.</p>
+          tools.
+        </p>
         <p>
           <span class="gdi">Section 508</span> requires that all federal government online resources be accessible (includes organizations
           that receive federal funding)</p>
