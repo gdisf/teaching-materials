@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to GitHub: No Terminal Required - Girl Develop It SF</title>
+
+		<meta name="description" content="An introduction to finding, evaluating, and contributing to open source repositories using the GitHub web UI">
+		<meta name="author" content="Girl Develop It San Francisco">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <!-- Opening -->
+				<section>
+					<img src="../common/img/circle-gdi-logo.png" alt="GDI San Francisco" class="noborder" />
+					<h1>Intro to GitHub:<br>
+						No Terminal Required</h1>
+					<p>teaching-materials.org/github-web</p>
+				</section>
+
+				<!-- Welcome -->
+				<section>
+          <h2>Welcome!</h2>
+          <h3>What we will cover in this workshop</h3>
+          <ul>
+            <li class ="fragment">Git and GitHub: What's the difference?</li>
+            <li class ="fragment">Your GitHub profile and account settings</li>
+						<li class ="fragment">Understanding repositories</li>
+						<li class ="fragment">Making a contribution with the GitHub web UI</li>
+						<li class ="fragment">Finding and choosing projects and communities</li>
+          </ul>
+        </section>
+
+				<!-- Git & GitHub -->
+				<section>
+					<h2>Git and GitHub</h2>
+					<p><strong><a href="https://git-scm.com/">Git</a></strong>: Version control system <em>software</em> that you can run on your own computer, or on a server</p>
+					<p><strong><a href="https://github.com">GitHub</a></strong>: Web-based service for storing, sharing, and collaborating on projects managed with Git</p>
+				</section>
+
+				<!-- Your GitHub Account -->
+				<section>
+					<h2>Your GitHub Profile</h2>
+					<p>Like a social media profile for your code</p>
+					<img src="https://help.github.com/assets/images/help/profile/contributions_profile.png" alt="sample GitHub profile page" />
+				</section>
+
+				<section>
+					<h2>Your User Account Settings</h2>
+					<p>You can add information and change settings for:</p>
+					<ul>
+						<li>your profile</li>
+						<li>email preferences</li>
+						<li>security and two-factor authentication</li>
+						<li>blocking other users</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Try It!</h2>
+					<ol>
+						<li>Create a new account at <a href="https://github/com">github.com</a>.</li>
+						<li>Verify your email address.</li>
+						<li>Edit your <a href="https://github.com/settings/profile">profile</a>.</li>
+						<li>Adjust your other account settings.</li>
+						<li>Check out your profile page at <code>github.com/{your-username}</code>.</li>
+					</ol>
+				</section>
+                
+				<!-- Understanding repositories -->
+				<section>
+					<h2>What's a Repository?</h2>
+					<p class="fragment">A repository (or repo, for short) is Git's name for a project, like a folder. It contains all of the project's files and stores each file's revision history.</p>
+					<p class="fragment">On GitHub, each repository has its own page, and includes several other features for collaboration.</p>
+				</section>
+				
+				<section>
+					<h2>Anatomy of a Repo</h2>
+					<p>The header of a GitHub repository page includes features that GitHub adds on to Git.</p>
+					<img src="images/repo-header.png" alt="header content for the teaching-materials repo" style="max-width:100%;" />
+				</section>
+				
+				<section>
+					<h2>Anatomy of a Repo</h2>
+					<p>The file listing displays information common to all Git repositories.</p>
+					<img src="images/repo-file-list.png" alt="partial file list for the teaching-materials repo" style="max-width:100%;" />
+					<p>Each row contains:</p>
+					<ul>
+						<li>a file or folder name</li>
+						<li>a description of the last change</li>
+						<li>when the last change was made</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Anatomy of a Repo</h2>
+					<p>GitHub treats some files as special based on their filenames.</p>
+					<img src="images/repo-special-files.png" alt="list of files including code of conduct, contributing, license, pull request template, and readme" style="max-width:100%;" />
+					<p>These files are designed to help collaboration.</p>
+				</section>
+
+				<section>
+					<h2>Pair Up!</h2>
+					<p>Pair with a neighbor to explore the contents the <a href="https://github.com/gdisf/teaching-materials">teaching-materials repository</a></p>
+					<ol>
+						<li>Look at the files with capitalized filenames. What do you think is the purpose of each one?</li>
+						<li>Find the most recently changed file. Find the least recently changed file.</li>
+						<li>Bonus: find the code for this slide.</li>
+					</ol>
+				</section>
+
+			</div>
+  		<footer>
+        <div class="copyright">
+          Intro to GitHub: No Terminal Required &middot; <a href="http://www.meetup.com/Girl-Develop-It-San-Francisco/">GDI SF</a> &middot; teaching-materials.org/github-web
+          <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+		</div>
+
+
+		<script src="../common/lib/js/head.min.js"></script>
+		<script src="../common/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
