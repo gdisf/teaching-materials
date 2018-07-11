@@ -47,12 +47,12 @@
           <h2>Welcome!</h2>
           <h3>What we will cover in this workshop</h3>
           <ul>
-            <li class ="fragment">Git and GitHub: What's the difference?</li>
-            <li class ="fragment">Your GitHub profile and account settings</li>
-						<li class ="fragment">Understanding repositories</li>
-						<li class ="fragment">Working with files in the GitHub web UI</li>
-						<li class ="fragment">Making a your first pull request</li>
-						<li class ="fragment">Finding and choosing projects and communities</li>
+            <li>Git and GitHub: What's the difference?</li>
+            <li>Your GitHub profile and account settings</li>
+						<li>Understanding repositories</li>
+						<li>Working with files in the GitHub web UI</li>
+						<li>Making a your first pull request</li>
+						<li>Finding and choosing projects and communities</li>
           </ul>
         </section>
 
@@ -113,7 +113,7 @@
 
 				<section>
 					<h2>What's a Repository?</h2>
-					<p class="fragment">A repository (or repo, for short) is Git's name for a project, like a folder. It contains all of the project's files and stores each file's revision history.</p>
+					<p>A repository (or repo, for short) is Git's name for a project, like a folder. It contains all of the project's files and stores each file's revision history.</p>
 					<p class="fragment">On GitHub, each repository has its own page, and includes several other features for collaboration.</p>
 				</section>
 				
@@ -267,6 +267,92 @@
 						<li>Create an empty folder titled, "images".</li>
 						<li>Navigate to the images folder, and upload an image to it.</li>
 						<li>Add your new image to one of your markdown files. (Hint: use a <a href="https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files" target="_blank">relative link</a>.)</li>
+					</ol>
+				</section>
+
+				<!-- Forks and Pull Requests -->
+				<section>
+					<h2>Forks and Pull Requests</h2>
+				</section>
+
+				<section>
+					<h2>Forking a repo</h2>
+					<p>When you try to make changes in a repo you don't control, GitHub will make a <em>fork</em>.</p>
+					<img src="images/github-prompted-fork.png" alt="" style="max-width:100%" />
+					<p>You can also make a fork by selecting the <strong>Fork</strong> button at the top of the page.</p>
+				</section>
+
+				<section>
+					<h2>Forking a repo</h2>
+					<p>Forking makes a copy of the repo in your account, where you can make changes to your copy however you like. A fork remembers where it came from.</p>
+					<img src="images/forked-repo-header.png" alt="repo header with repo name, followed by the name of the repo it was forked from" style="max-width:100%" />
+					<p>However, new changes in the original repo (usually called the "upstream") will not affect your fork, and changes in your fork will not affect the upstream repo.</p>
+				</section>
+
+				<section>
+					<h2>Proposing changes</h2>
+					<p>You can propose that changes on your fork be applied to the upstream repo by opening a <em>pull request</em>.</p>
+					<p>If you try to edit a file in the upstream repo, it will give you this option automatically.</p>
+					<img src="images/propose-file-change.png" alt="The usual 'Commit changes' button is replaced with 'Propose file change'" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Comparing changes</h2>
+					<p>Before you make a pull request, GitHub will compare the changes you're proposing (on the 'head') against the repo you want to change (the 'base').</p>
+					<img src="images/comparing-changes.png" alt="The usual 'Commit changes' button is replaced with 'Propose file change'" style="max-width:100%" />
+					<p>The comparison looks at a specific <em>branch</em> in each repo. (More on those later.)</p>
+				</section>
+
+				<section>
+					<h2>Comparing changes</h2>
+					<p>The comparison also includes a detailed view of all of the changes, called a <em>diff</em>.</p>
+					<img src="images/compare-diff.png" alt="The usual 'Commit changes' button is replaced with 'Propose file change'" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Creating the pull request</h2>
+					<p>When you create a pull request (or PR), you add a comment, explaining your change to the maintainers.</p>
+					<img src="images/open-pull-request.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Branches</h2>
+					<p>Branches are kind of like forks inside a repo. You can work in a branch without affecting the rest of the repo. For example, the "patch-1" branch has changes that the "master" branch does not.</p>
+					<img src="images/branch-master.png" alt="The last commit on master is 'initial commit'" style="max-width:100%" />
+					<img src="images/branch-patch-1.png" alt="The last commit on patch-1 is newer." style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Creating a branch</h2>
+					<p>To start making a group of changes together, create a new branch.</p>
+					<img src="images/create-branch.png" alt="Select the branch dropdown at the top of the file list and type the name of the new branch." style="max-width:100%" />
+					<p>The new branch will include all of the changes from the branch you were on when you created it. Usually you will create the branch from "master," or the main branch.</p>
+				</section>
+
+				<section>
+					<h2>Committing to a branch</h2>
+					<p>With your new branch selected, you can make changes as usual. When you commit new changes, you'll have the option to commit to the new branch.</p>
+					<img src="images/commit-to-new-branch.png" alt="" style="max-width:100%" />
+					<p>When you start committing to the new branch, GitHub will show a prompt to start a new pull request. You can ignore this until you've made all of your changes.</p>
+					<img src="images/pull-request-prompt.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Your multi-file PR</h2>
+					<p>When you create the pull request from your new branch, the diff will show all commits, to all files.</p>
+					<img src="images/multi-file-diff.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+					<p>Pair with a classmate and exchange links to the repos you made in the last exercise.</p>
+					<ol>
+						<li>Visit your partner's repo and have a look around.</li>
+						<li>Edit the README, and following the prompts to fork and propose the change in a PR.</li>
+						<li>Open your fork of the repo, and create a new branch from "master".</li>
+						<li>On the new branch, upload an image file.</li>
+						<li>On the same new branch, add a new markdown file with your new image and some text.</li>
+						<li>Open a pull request to merge your new branch into your partner's "master" branch.</li>
 					</ol>
 				</section>
 
