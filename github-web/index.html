@@ -50,19 +50,33 @@
             <li class ="fragment">Git and GitHub: What's the difference?</li>
             <li class ="fragment">Your GitHub profile and account settings</li>
 						<li class ="fragment">Understanding repositories</li>
-						<li class ="fragment">Making a contribution with the GitHub web UI</li>
+						<li class ="fragment">Working with files in the GitHub web UI</li>
+						<li class ="fragment">Making a your first pull request</li>
 						<li class ="fragment">Finding and choosing projects and communities</li>
           </ul>
         </section>
 
 				<!-- Git & GitHub -->
 				<section>
-					<h2>Git and GitHub</h2>
-					<p><strong><a href="https://git-scm.com/">Git</a></strong>: Version control system <em>software</em> that you can run on your own computer, or on a server</p>
-					<p><strong><a href="https://github.com">GitHub</a></strong>: Web-based service for storing, sharing, and collaborating on projects managed with Git</p>
+					<h2>Git and GitHub: <br>What's the difference?</h2>
+				</section>
+
+				<section>
+					<img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" alt="Git" class="noborder" style="max-width: 50%" />
+					<p><a href="https://git-scm.com/">Git</a> is a Version control system <em>software</em> that you can run on your own computer, or on a server</p>
+				</section>
+
+				<section>
+					<img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="" class="noborder" style="max-width: 18%" />
+					<img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" alt="GitHub" class="noborder" style="max-width: 50%" />
+					<p><a href="https://github.com">GitHub</a> is a Web-based service for storing, sharing, and collaborating on projects managed with Git</p>
 				</section>
 
 				<!-- Your GitHub Account -->
+				<section>
+					<h2>Your GitHub Profile and Account Settings</h2>
+				</section>
+
 				<section>
 					<h2>Your GitHub Profile</h2>
 					<p>Like a social media profile for your code</p>
@@ -72,6 +86,7 @@
 				<section>
 					<h2>Your User Account Settings</h2>
 					<p>You can add information and change settings for:</p>
+					<img src="images/user-menu.png" alt="The user icon at the end of the page header opens a menu to account settings, profile, and more." class="right" />
 					<ul>
 						<li>your profile</li>
 						<li>email preferences</li>
@@ -93,6 +108,10 @@
                 
 				<!-- Understanding repositories -->
 				<section>
+					<h2>Understanding Repositories</h2>
+				</section>
+
+				<section>
 					<h2>What's a Repository?</h2>
 					<p class="fragment">A repository (or repo, for short) is Git's name for a project, like a folder. It contains all of the project's files and stores each file's revision history.</p>
 					<p class="fragment">On GitHub, each repository has its own page, and includes several other features for collaboration.</p>
@@ -101,13 +120,13 @@
 				<section>
 					<h2>Anatomy of a Repo</h2>
 					<p>The header of a GitHub repository page includes features that GitHub adds on to Git.</p>
-					<img src="images/repo-header.png" alt="header content for the teaching-materials repo" style="max-width:100%;" />
+					<img src="images/repo-header.png" alt="header content for the teaching-materials repo" style="max-width:100%" />
 				</section>
 				
 				<section>
 					<h2>Anatomy of a Repo</h2>
 					<p>The file listing displays information common to all Git repositories.</p>
-					<img src="images/repo-file-list.png" alt="partial file list for the teaching-materials repo" style="max-width:100%;" />
+					<img src="images/repo-file-list.png" alt="partial file list for the teaching-materials repo" style="max-width:100%" />
 					<p>Each row contains:</p>
 					<ul>
 						<li>a file or folder name</li>
@@ -120,19 +139,139 @@
 					<h2>Anatomy of a Repo</h2>
 					<p>GitHub treats some files as special based on their filenames.</p>
 					<img src="images/repo-special-files.png" alt="list of files including code of conduct, contributing, license, pull request template, and readme" style="max-width:100%;" />
-					<p>These files are designed to help collaboration.</p>
+					<p>These files are designed to help with collaboration.</p>
 				</section>
 
 				<section>
 					<h2>Pair Up!</h2>
-					<p>Pair with a neighbor to explore the contents the <a href="https://github.com/gdisf/teaching-materials">teaching-materials repository</a></p>
+					<p>Pair with a neighbor to explore the contents of the <a href="https://github.com/gdisf/teaching-materials">teaching-materials repository</a></p>
 					<ol>
 						<li>Look at the files with capitalized filenames. What do you think is the purpose of each one?</li>
+						<li>Open files with different file extensions. How does GitHub display them?</li>
 						<li>Find the most recently changed file. Find the least recently changed file.</li>
 						<li>Bonus: find the code for this slide.</li>
 					</ol>
 				</section>
 
+				<!-- Working with files -->
+				<section>
+					<h2>Working with files in the GitHub web UI</h2>
+				</section>
+
+				<section>
+					<h2>Creating a repo</h2>
+					<p>Click the ➕ icon in the upper right corner, and select <strong>New repository</strong>.</p>
+					<img src="images/new-repo.png" alt="" />
+				</section>
+
+				<section>
+					<h2>Creating a repo</h2>
+					<p>Give the repo a name and a description.</p>
+					<img src="images/new-repo-name.png" alt="" />
+					<p>Private repositories require a paid account.</p>
+				</section>
+
+				<section>
+					<h2>Creating a repo</h2>
+					<p>GitHub can create some files for you.</p>
+					<img src="images/new-repo-readme.png" alt="" style="max-width:100%" />
+					<ul>
+						<li>README: an intro page for your project</li>
+						<li>.gitignore: useful when using Git on your local machine</li>
+						<li>license: terms for other people using with your code</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Adding a file</h2>
+					<p>In the button bar above the list of files, select <strong>Create new file</strong>.</p>
+					<img src="images/repo-button-bar.png" alt="" style="max-width:100%" />
+					<p>Enter a filename, and your file contents.</p>
+					<img src="images/new-file-name.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Adding a file</h2>
+					<p>When you're finished, write a commit message and commit the new file.</p>
+					<img src="images/commit-new-file.png" alt="" style="max-width:100%" />
+					<p>We'll talk about committing directly or creating a new branch later.</p>
+				</section>
+
+				<section>
+					<h2>Uploading a file</h2>
+					<p>You can also upload files that aren't text, like images or videos. (These are called binary files.)</p>
+					<p>In the button bar above the list of files, select <strong>Create new file</strong>.</p>
+					<img src="images/repo-button-bar.png" alt="" style="max-width:100%" />
+					<p>Drag or select one or more files, and commit the changes as you would for creating a file.</p>
+				</section>
+
+				<section>
+					<h2>Editing a file</h2>
+					<p>Navigate to the file you want to change, and select the pencil icon at the top of the file.</p>
+					<img src="images/markdown-file.png" alt="" style="max-width:100%" />
+					<p>The editor view will open, where you can edit the text and commit your changes.</p>
+				</section>
+
+				<section>
+					<h2>Writing in Markdown</h2>
+					<p>Markdown is a simple markup language that many tools use to convert to styled text.</p>
+					<img src="images/markdown-edit-view.png" alt="" style="max-width:100%" />
+					<p>Different symbols translate to different HTML elements.</p>
+					<p><a href="https://guides.github.com/features/mastering-markdown/" target="_blank">GitHub's Markdown Guide</a></p>
+				</section>
+
+				<section>
+					<h2>Writing in Markdown</h2>
+					<p>GitHub displays all markdown files as styled HTML. Select the <strong>Preview changes</strong> tab to see how your file will look.</p>
+					<img src="images/preview-changes.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Putting files in folders</h2>
+					<p>When you create or edit a file, its path is displayed next to the filename.</p>
+					<img src="images/filename-with-path.png" alt="" style="max-width:100%" />
+					<p>At the beginning of the filename field, type the name of the folder followed by <code>/</code>.</p>
+				  <p>The folder will be added to the path.</p>
+					<img src="images/add-file-path.gif" alt="" style="max-width:100%" />
+					<p> You can do this multiple times, and you can delete folders from the path, too.</p>
+				</section>
+
+				<section>
+					<h2>Creating "empty" folders</h2>
+					<p>Git tracks files, so an empty folder is a path that leads nowhere. Git won't track empty folders, and you can't create them in GitHub.</p>
+					<p>Work around this by creating an empty, throwaway file and giving it a new path.</p>
+					<img src="images/keep-file.png" alt="" style="max-width:100%" />
+					<p>It's a common convention to call this file <code>.keep</code>.</p>
+					<p>You can delete this file later when you've added other files to the folder.</p>
+				</section>
+
+				<section>
+					<h2>Moving binary files</h2>
+					<p>Binary files like images can't be rdited in GitHub, so you can't change their paths!</p>
+					<img src="images/binary-edit-options.png" alt="" style="max-width:100%" />
+					<p>Instead, you'll have to:</p>
+					<ol>
+						<li>Download the file.</li>
+						<li>Delete it from the repo.</li>
+						<li>Navigate to the new folder.</li>
+						<li>Upload the file again.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+					<ol>
+						<li>Create a new repo, with a README and a license.</li>
+						<li>Edit the README, and commit your changes.</li>
+						<li>Create a new markdown file with some formatted text.</li>
+						<li>Create an empty folder titled, "images".</li>
+						<li>Navigate to the images folder, and upload an image to it.</li>
+						<li>Add your new image to one of your markdown files. (Hint: use a <a href="https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files" target="_blank">relative link</a>.)</li>
+					</ol>
+				</section>
+
+
+				
 			</div>
   		<footer>
         <div class="copyright">
