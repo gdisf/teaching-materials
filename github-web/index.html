@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to GitHub: No Terminal Required - Girl Develop It SF</title>
+
+		<meta name="description" content="An introduction to finding, evaluating, and contributing to open source repositories using the GitHub web UI">
+		<meta name="author" content="Girl Develop It San Francisco">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="./style.css" type="text/css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <!-- Opening -->
+				<section>
+					<img src="../common/img/circle-gdi-logo.png" alt="GDI San Francisco" class="noborder" />
+					<h1>Intro to GitHub:<br>
+						No Terminal Required</h1>
+					<p>teaching-materials.org/github-web</p>
+				</section>
+
+				<!-- Welcome -->
+				<section>
+          <h2>Welcome!</h2>
+          <h3>What we will cover in this workshop</h3>
+          <ul>
+            <li>Git and GitHub: What's the difference?</li>
+            <li>Your GitHub profile and account settings</li>
+						<li>Understanding repositories</li>
+						<li>Working with files in the GitHub web UI</li>
+						<li>Making a your first pull request</li>
+						<li>Finding and choosing projects and communities</li>
+          </ul>
+        </section>
+
+				<!-- Git & GitHub -->
+				<section>
+					<h2>Git and GitHub: <br>What's the difference?</h2>
+				</section>
+
+				<section>
+					<img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" alt="Git" class="noborder" style="max-width: 50%" />
+					<p><a href="https://git-scm.com/">Git</a> is a Version control system <em>software</em> that you can run on your own computer, or on a server</p>
+				</section>
+
+				<section>
+					<img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="" class="noborder" style="max-width: 18%" />
+					<img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" alt="GitHub" class="noborder" style="max-width: 50%" />
+					<p><a href="https://github.com">GitHub</a> is a Web-based service for storing, sharing, and collaborating on projects managed with Git</p>
+				</section>
+
+				<!-- Your GitHub Account -->
+				<section>
+					<h2>Your GitHub Profile and Account Settings</h2>
+				</section>
+
+				<section>
+					<h2>Your GitHub Profile</h2>
+					<p>Like a social media profile for your code</p>
+					<img src="https://help.github.com/assets/images/help/profile/contributions_profile.png" alt="sample GitHub profile page" />
+				</section>
+
+				<section>
+					<h2>Your User Account Settings</h2>
+					<p>You can add information and change settings for:</p>
+					<img src="images/user-menu.png" alt="The user icon at the end of the page header opens a menu to account settings, profile, and more." class="right" />
+					<ul>
+						<li>your profile</li>
+						<li>email preferences</li>
+						<li>security and two-factor authentication</li>
+						<li>blocking other users</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Try It!</h2>
+					<ol>
+						<li>Create a new account at <a href="https://github/com">github.com</a>.</li>
+						<li>Verify your email address.</li>
+						<li>Edit your <a href="https://github.com/settings/profile">profile</a>.</li>
+						<li>Adjust your other account settings.</li>
+						<li>Check out your profile page at <code>github.com/{your-username}</code>.</li>
+					</ol>
+				</section>
+
+				<!-- Understanding repositories -->
+				<section>
+					<h2>Understanding Repositories</h2>
+				</section>
+
+				<section>
+					<h2>What's a Repository?</h2>
+					<p>A repository (or repo, for short) is Git's name for a project, like a folder. It contains all of the project's files and stores each file's revision history.</p>
+					<p class="fragment">On GitHub, each repository has its own page, and includes several other features for collaboration.</p>
+				</section>
+
+				<section>
+					<h2>Anatomy of a Repo</h2>
+					<p>The header of a GitHub repository page includes features that GitHub adds on to Git.</p>
+					<img src="images/repo-header.png" alt="header content for the teaching-materials repo" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Anatomy of a Repo</h2>
+					<p>The file listing displays information common to all Git repositories.</p>
+					<img src="images/repo-file-list.png" alt="partial file list for the teaching-materials repo" style="max-width:100%" />
+					<p>Each row contains:</p>
+					<ul>
+						<li>a file or folder name</li>
+						<li>a description of the last change</li>
+						<li>when the last change was made</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Anatomy of a Repo</h2>
+					<p>GitHub treats some files as special based on their filenames.</p>
+					<img src="images/repo-special-files.png" alt="list of files including code of conduct, contributing, license, pull request template, and readme" style="max-width:100%;" />
+					<p>These files are designed to help with collaboration.</p>
+				</section>
+
+				<section>
+					<h2>Pair Up!</h2>
+					<p>Pair with a neighbor to explore the contents of the <a href="https://github.com/gdisf/teaching-materials">teaching-materials repository</a></p>
+					<ol>
+						<li>Look at the files with capitalized filenames. What do you think is the purpose of each one?</li>
+						<li>Open files with different file extensions. How does GitHub display them?</li>
+						<li>Find the most recently changed file. Find the least recently changed file.</li>
+						<li>Bonus: find the code for this slide.</li>
+					</ol>
+				</section>
+
+				<!-- Working with files -->
+				<section>
+					<h2>Working with files in the GitHub web UI</h2>
+				</section>
+
+				<section>
+					<h2>Creating a repo</h2>
+					<p>Click the ➕ icon in the upper right corner, and select <strong>New repository</strong>.</p>
+					<img src="images/new-repo.png" alt="" />
+				</section>
+
+				<section>
+					<h2>Creating a repo</h2>
+					<p>Give the repo a name and a description.</p>
+					<img src="images/new-repo-name.png" alt="" />
+					<p>Private repositories require a paid account.</p>
+				</section>
+
+				<section>
+					<h2>Creating a repo</h2>
+					<p>GitHub can create some files for you.</p>
+					<img src="images/new-repo-readme.png" alt="" style="max-width:100%" />
+					<ul>
+						<li>README: an intro page for your project</li>
+						<li>.gitignore: useful when using Git on your local machine</li>
+						<li>license: terms for other people using with your code</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Adding a file</h2>
+					<p>In the button bar above the list of files, select <strong>Create new file</strong>.</p>
+					<img src="images/repo-button-bar.png" alt="" style="max-width:100%" />
+					<p>Enter a filename, and your file contents.</p>
+					<img src="images/new-file-name.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Adding a file</h2>
+					<p>When you're finished, write a commit message and commit the new file.</p>
+					<img src="images/commit-new-file.png" alt="" style="max-width:100%" />
+					<p>We'll talk about committing directly or creating a new branch later.</p>
+				</section>
+
+				<section>
+					<h2>Uploading a file</h2>
+					<p>You can also upload files that aren't text, like images or videos. (These are called binary files.)</p>
+					<p>In the button bar above the list of files, select <strong>Create new file</strong>.</p>
+					<img src="images/repo-button-bar.png" alt="" style="max-width:100%" />
+					<p>Drag or select one or more files, and commit the changes as you would for creating a file.</p>
+				</section>
+
+				<section>
+					<h2>Editing a file</h2>
+					<p>Navigate to the file you want to change, and select the pencil icon at the top of the file.</p>
+					<img src="images/markdown-file.png" alt="" style="max-width:100%" />
+					<p>The editor view will open, where you can edit the text and commit your changes.</p>
+				</section>
+
+				<section>
+					<h2>Writing in Markdown</h2>
+					<p>Markdown is a simple markup language that many tools use to convert to styled text.</p>
+					<img src="images/markdown-edit-view.png" alt="" style="max-width:100%" />
+					<p>Different symbols translate to different HTML elements.</p>
+					<p><a href="https://guides.github.com/features/mastering-markdown/" target="_blank">GitHub's Markdown Guide</a></p>
+				</section>
+
+				<section>
+					<h2>Writing in Markdown</h2>
+					<p>GitHub displays all markdown files as styled HTML. Select the <strong>Preview changes</strong> tab to see how your file will look.</p>
+					<img src="images/preview-changes.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Putting files in folders</h2>
+					<p>When you create or edit a file, its path is displayed next to the filename.</p>
+					<img src="images/filename-with-path.png" alt="" style="max-width:100%" />
+					<p>At the beginning of the filename field, type the name of the folder followed by <code>/</code>.</p>
+				  <p>The folder will be added to the path.</p>
+					<img src="images/add-file-path.gif" alt="" style="max-width:100%" />
+					<p> You can do this multiple times, and you can delete folders from the path, too.</p>
+				</section>
+
+				<section>
+					<h2>Creating "empty" folders</h2>
+					<p>Git tracks files, so an empty folder is a path that leads nowhere. Git won't track empty folders, and you can't create them in GitHub.</p>
+					<p>Work around this by creating an empty, throwaway file and giving it a new path.</p>
+					<img src="images/keep-file.png" alt="" style="max-width:100%" />
+					<p>It's a common convention to call this file <code>.keep</code>.</p>
+					<p>You can delete this file later when you've added other files to the folder.</p>
+				</section>
+
+				<section>
+					<h2>Moving binary files</h2>
+					<p>Binary files like images can't be rdited in GitHub, so you can't change their paths!</p>
+					<img src="images/binary-edit-options.png" alt="" style="max-width:100%" />
+					<p>Instead, you'll have to:</p>
+					<ol>
+						<li>Download the file.</li>
+						<li>Delete it from the repo.</li>
+						<li>Navigate to the new folder.</li>
+						<li>Upload the file again.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+					<ol>
+						<li>Create a new repo, with a README and a license.</li>
+						<li>Edit the README, and commit your changes.</li>
+						<li>Create a new markdown file with some formatted text.</li>
+						<li>Create an empty folder titled, "images".</li>
+						<li>Navigate to the images folder, and upload an image to it.</li>
+						<li>Add your new image to one of your markdown files. (Hint: use a <a href="https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files" target="_blank">relative link</a>.)</li>
+					</ol>
+				</section>
+
+				<!-- Forks and Pull Requests -->
+				<section>
+					<h2>Forks and Pull Requests</h2>
+				</section>
+
+				<section>
+					<h2>Forking a repo</h2>
+					<p>When you try to make changes in a repo you don't control, GitHub will make a <em>fork</em>.</p>
+					<img src="images/github-prompted-fork.png" alt="" style="max-width:100%" />
+					<p>You can also make a fork by selecting the <strong>Fork</strong> button at the top of the page.</p>
+				</section>
+
+				<section>
+					<h2>Forking a repo</h2>
+					<p>Forking makes a copy of the repo in your account, where you can make changes to your copy however you like. A fork remembers where it came from.</p>
+					<img src="images/forked-repo-header.png" alt="repo header with repo name, followed by the name of the repo it was forked from" style="max-width:100%" />
+					<p>However, new changes in the original repo (usually called the "upstream") will not affect your fork, and changes in your fork will not affect the upstream repo.</p>
+				</section>
+
+				<section>
+					<h2>Proposing changes</h2>
+					<p>You can propose that changes on your fork be applied to the upstream repo by opening a <em>pull request</em>.</p>
+					<p>If you try to edit a file in the upstream repo, it will give you this option automatically.</p>
+					<img src="images/propose-file-change.png" alt="The usual 'Commit changes' button is replaced with 'Propose file change'" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Comparing changes</h2>
+					<p>Before you make a pull request, GitHub will compare the changes you're proposing (on the 'head') against the repo you want to change (the 'base').</p>
+					<img src="images/comparing-changes.png" alt="The usual 'Commit changes' button is replaced with 'Propose file change'" style="max-width:100%" />
+					<p>The comparison looks at a specific <em>branch</em> in each repo. (More on those later.)</p>
+				</section>
+
+				<section>
+					<h2>Comparing changes</h2>
+					<p>The comparison also includes a detailed view of all of the changes, called a <em>diff</em>.</p>
+					<img src="images/compare-diff.png" alt="The usual 'Commit changes' button is replaced with 'Propose file change'" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Creating the pull request</h2>
+					<p>When you create a pull request (or PR), you add a comment, explaining your change to the maintainers.</p>
+					<img src="images/open-pull-request.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Branches</h2>
+					<p>Branches are kind of like forks inside a repo. You can work in a branch without affecting the rest of the repo. For example, the "patch-1" branch has changes that the "master" branch does not.</p>
+					<img src="images/branch-master.png" alt="The last commit on master is 'initial commit'" style="max-width:100%" />
+					<img src="images/branch-patch-1.png" alt="The last commit on patch-1 is newer." style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Creating a branch</h2>
+					<p>To start making a group of changes together, create a new branch.</p>
+					<img src="images/create-branch.png" alt="Select the branch dropdown at the top of the file list and type the name of the new branch." style="max-width:100%" />
+					<p>The new branch will include all of the changes from the branch you were on when you created it. Usually you will create the branch from "master," or the main branch.</p>
+				</section>
+
+				<section>
+					<h2>Committing to a branch</h2>
+					<p>With your new branch selected, you can make changes as usual. When you commit new changes, you'll have the option to commit to the new branch.</p>
+					<img src="images/commit-to-new-branch.png" alt="" style="max-width:100%" />
+					<p>When you start committing to the new branch, GitHub will show a prompt to start a new pull request. You can ignore this until you've made all of your changes.</p>
+					<img src="images/pull-request-prompt.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Your multi-file PR</h2>
+					<p>When you create the pull request from your new branch, the diff will show all commits, to all files.</p>
+					<img src="images/multi-file-diff.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+					<p>Pair with a classmate and exchange links to the repos you made in the last exercise.</p>
+					<ol>
+						<li>Visit your partner's repo and have a look around.</li>
+						<li>Edit the README, and following the prompts to fork and propose the change in a PR.</li>
+						<li>Open your fork of the repo, and create a new branch from "master".</li>
+						<li>On the new branch, upload an image file.</li>
+						<li>On the same new branch, add a new markdown file with your new image and some text.</li>
+						<li>Open a pull request to merge your new branch into your partner's "master" branch.</li>
+					</ol>
+				</section>
+
+				<!-- Reviewing PRs -->
+				<section>
+					<h2>Commenting on PRs</h2>
+					<p>A pull request page opens on the <strong>Conversation</strong> tab, with the first comment created by the sumitter.</p>
+					<img src="images/conversation-view.png" alt="" />
+					<p>Anyone can see and comment on a PR.</p>
+				</section>
+
+				<section>
+					<h2>Making line comments</h2>
+					<p>The <strong>Files changed</strong> tab shows the diff. If you hover on a line, a ➕ button will appear. Click it to add a comment attached to that line.</p>
+					<img src="images/line-comment.png" alt="" style="max-width:100%" />
+					<p>You can add it as a single comment, or start a review.</p>
+				</section>
+
+				<section>
+					<h2>Creating a review</h2>
+					<p>When you start a review, all of your line comments will be saved until you're ready to post them together. Reviews also indicate approval status.</p>
+					<img src="images/create-review.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+					<ol>
+						<li>Open your repo and find your classmate's second PR (the one with the new text file and image).</li>
+						<li>Make a line comment in the text file, requesting a change. Make the comment part of a review.</li>
+						<li>Complete your review, adding a summary comment and selecting <strong>Request changes</strong>.</li>
+					</ol>
+				</section>
+
+				<!-- Responding to PR feedback -->
+				<section>
+					<h2>Accepting feedback</h2>
+					<p>It's totally normal for a pull request to require changes.</p>
+					<p>Don't be afraid to ask questions for clarification.</p>
+					<p>Most maintainers are friendly and helpful. If you encounter one who isn't, consider finding a different project worthy of your contributions.</p>
+				</section>
+
+				<section>
+					<h2>Pushing changes to a PR</h2>
+					<p>You can edit files in a PR directly from the <strong>View changes</strong> tab.</p>
+					<img src="images/edit-in-pr.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Pushing changes to a PR</h2>
+					<p>To create or upload files for your PR, edit the PR branch in your fork.</p>
+					<img src="images/update-on-fork.png" alt="" style="max-width:100%" />
+					<p>All commits to that branch will be included in the PR automatically.</p>
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+					<ol>
+						<li>Go to your partner’s repo and read the new comments on your PR.</li>
+						<li>Make any requested changes.</li>
+						<li>Comment on the PR to let your partner know that you've made changes and are ready for re-review.</li>
+						<li>Visit the repo of another classmate, and make a new PR with an edit to the README.</li>
+					</ol>
+				</section>
+
+				<!-- Merging PRs -->
+				<section>
+					<h2>Merging a PR</h2>
+					<p>To merge a pull request, click the Merge pull request button near the bottom of the Conversation tab of the PR.</p>
+					<p>The changes will be added to the master branch.</p>
+					<img src="images/after-pr-merge.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Merge conflicts!</h2>
+					<p><em>Merge conflicts</em> happen when two commits try to change the same thing, and Git isn't sure which change to use.</p>
+					<img src="images/conflict-found.png" alt="" style="max-width:100%" />
+					<p>This often happens when two people PR changes to the same file, and one gets merged first.</p>
+				</section>
+
+				<section>
+					<h2>Resolving conflicts</h2>
+					<p>When resolving merge conflicts, Git shows the file with both conflicting changes included, bound in special characters.</p>
+					<img src="images/resolving-view.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Resolving conflicts</h2>
+					<p>Edit the file to incorporate the changes as you like, delete the special characters, and mark the file resolved. You'll commit the revised file.</p>
+					<img src="images/conflict-resolved.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Resolving conflicts</h2>
+					<p>No more merge conflicts! The pull request is ready to merge.</p>
+					<img src="images/no-conflicts.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+					<ol>
+						<li>Go back to your repo and check the PR you reviewed before.</li>
+						<li>Check the changes, comment, and merge!</li>
+						<li>Open one of the PRs to your README, and merge it.</li>
+						<li>Open the other PR to your README. Do you have a merge conflict? Resolve it and merge.</li>
+					</ol>
+				</section>
+
+				<!-- Issues -->
+				<section>
+					<h2>Issues</h2>
+					<p>GitHub issues are where collaborators track bugs, propose features, and discuss changes. They are for conversation, and do not actually change code.</p>
+					<img src="images/issue-list.png" alt="" style="max-width:100%" />
+					<p>Anyone can open or comment on an issue.</p>
+				</section>
+
+				<section>
+					<h2>Filtering issues</h2>
+					<p>Reading a repo's issues is a great way to find out where you can contribute.</p>
+					<p>GitHub has several <a href="https://help.github.com/articles/searching-issues-and-pull-requests/">options for searching and filtering issues</a>, like finding all issues with a "newbies-only" label.</p>
+					<img src="images/newbies-only-label.png" alt="" style="max-width:100%" />
+				</section>
+
+				<section>
+					<h2>Claiming issues</h2>
+					<p>If you find an issue you'd like to work on, avoid duplicating work by commenting to say you'll volunteer.</p>
+					<img src="images/claiming-issue.png" alt="" style="max-width:100%" />
+					<p>Feel free to ask questions if you need clarification before starting!</p>
+				</section>
+
+				<section>
+					<h2>Try it!</h2>
+					<p>Make your first open source contribution to the GDISF curriculum website!</p>
+					<ol>
+						<li>Browse the issues in the <a href="https://github.com/gdisf/teaching-materials/issues" target="_blank">teaching-materials repository</a>.</li>
+						<li>Use search and filters to find issues that interest you.</li>
+						<li>Comment on the issue to volunteer, asking for clarification as needed.</li>
+						<li>Use what you've learned to make your changes on a fork, and submit your PR.</li>
+						<li>Celebrate! You did it!! 🎉</li>
+					</ol>
+				</section>
+
+				<!-- Closing thoughts & next steps -->
+				<section>
+					<h2>Closing Thoughts & Next Steps</h2>
+				</section>
+
+				<section>
+					<h2>Finding more projects</h2>
+					<p>Some tools for finding newbie-friendly projects and issues:</p>
+					<ul>
+						<li>Search for issues with common newcomer labels at <a href="http://issuehub.io/">issuehub.io</a> and <a href="https://up-for-grabs.net">up-for-grabs.net</a></li>
+						<li>Check out a repo's <a href="https://help.github.com/articles/about-community-profiles-for-public-repositories/">community profile</a> for indicators of a healthy community</li>
+						<li><a href="https://help.github.com/articles/watching-and-unwatching-repositories/">Watch</a> the repos of tools you use, or new ones as you're learning them. Read issues and pull requests as they come in to get familiar with the project and see where you can contribute.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Finding more projects</h2>
+					<p>Some friendly repos for making contributions with little or no code:</p>
+					<ul>
+						<li>"Awesome Lists" are repos with lists of awesome things related to a particular topic. <a href="https://github.com/sindresorhus/awesome">This repo</a> is an awesome list of awesome lists!</li>
+						<li><a>First-Timers' Guide</a> is a repo for first timers to contribute short, single page guides on a variety of tech-realted topics.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Beyond the web UI</h2>
+					<p>The GitHub web UI is a great tool for making quick and easy contributions (even after you've started using more complex tools), but it has some limitations:</p>
+					<ul>
+						<li>Can't sync your fork with the upstream repo</li>
+						<li>Can't handle more complex merge conflicts</li>
+						<li>Can be difficult to preview changes</li>
+					</ul>
+					<p>As you get more comfortable with open source coding, you may want to learn to use Git from the command line.</p>
+				</section>
+
+				<section>
+					<h2>Further explorations</h2>
+					<p>Other resources for learning about Git, GitHub, and open source:</p>
+					<ul>
+						<li>Upcoming GDI workshops!</li>
+						<li><a href="https://guides.github.com/">GitHub Guides</a> (by GitHub)</li>
+						<li>Kent C. Dodds's <a href="https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github">GitHub video series</a></li>
+						<li>Shubeksha Jalan's <a href="https://medium.freecodecamp.org/a-beginners-very-bumpy-journey-through-the-world-of-open-source-4d108d540b39">insightful story</a> of her journey into open source</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Thanks!</h2>
+					<p>Go forth and contribute!</p>
+				</section>
+
+
+
+			</div>
+  		<footer>
+        <div class="copyright">
+          Intro to GitHub: No Terminal Required &middot; <a href="http://www.meetup.com/Girl-Develop-It-San-Francisco/">GDI SF</a> &middot; teaching-materials.org/github-web
+          <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+		</div>
+
+
+		<script src="../common/lib/js/head.min.js"></script>
+		<script src="../common/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
