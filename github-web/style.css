@@ -1,7 +1,6 @@
 .present p,
 .present li {
   margin-bottom: 15px;
-  text-align: left;
   line-height: 1.2;
 }
 
@@ -10,12 +9,13 @@
 .present ol {
   margin-left: auto;
   margin-right: auto;
-  max-width: 75%;
+  width: max-content;
+  max-width: 100%;
 }
 
-.present p:last-child,
-.present li:last-child {
-  margin-bottom: 0;
+.present ul,
+.present ol {
+  padding-left: 2em;
 }
 
 em {
