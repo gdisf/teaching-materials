@@ -11,6 +11,7 @@
   margin-right: auto;
   width: max-content;
   max-width: 100%;
+  box-sizing: border-box;
 }
 
 .present ul,
@@ -24,4 +25,10 @@ em {
 
 strong {
   font-weight: bold;
+}
+
+.present code {
+  background-color: #ddd;
+  padding: 0.1em 0.2em;
+  border-radius: 3px;
 }
