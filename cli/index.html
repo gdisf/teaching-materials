@@ -185,18 +185,12 @@
           <p>For example, <code>echo</code> takes an argument representing the text to be repeated.</p>
           <pre><code>echo "This is an argument."</code></pre>
         </section>
-    
-        <section>
-          <h2>The Current Directory</h2>
-          <h3><code>pwd</code></h3>
-          <h4>(Print Working Directory)</h4>
-          <p>Type it whenever you want to see what directory (folder) you’re in.</p>
-        </section>
 
         <section>
-          <h2><code>pwd</code></h2>
-          <p>(Print Working Directory)</p>
-          <img src="img/command-line-pwd.png" alt="Your first command, pwd">
+          <h2>Man Pages</h2>
+          <h3><code>man</code></h3>
+          <p>The <code>man</code> command brings up the manual for the specified command. Press the space bar or the arrow keys to page through and press <b>q</b> to exit.</p>
+          <pre><code class="bash" contenteditable="">man echo</code></pre>
         </section>
 
         <section>
@@ -204,6 +198,23 @@
           <p>The <code>clear</code> command clears the contents of the terminal and issues a prompt.</p>
           <p>This is good for removing previous output that is unnecessary to the task at hand.</p>
           <p>Feel free to use this whenever things get too cluttered.</p>
+        </section>
+
+        <section>
+          <h2>Working with Directories</h2>
+        </section>
+  
+        <section>
+          <h2>The Current Directory</h2>
+          <h3><code>pwd</code></h3>
+          <p>(Print Working Directory)</p>
+          <p>Type it whenever you want to see what directory (folder) you’re in.</p>
+        </section>
+
+        <section>
+          <h2><code>pwd</code></h2>
+          <p>(Print Working Directory)</p>
+          <img src="img/command-line-pwd.png" alt="Your first command, pwd">
         </section>
 
         <section>
@@ -260,6 +271,15 @@
         </section>
 
         <section>
+          <h2>Tab Completion</h2>
+          <p>Tab completion autocompletes commands and filenames.</p>
+          <ul>
+            <li>Pressing <strong>tab</strong> once autocompletes a unique instance.</li>
+            <li>If there's more than one possible completion, pressing <strong>tab</strong> twice gives you all the options available.</li>
+          </ul>
+        </section>
+  
+        <section>
           <h2>List</h2>
           <p>The <code>ls</code> command lists the contents of a directory.</p>
           <p>It expects a file path as an argument.</p>
@@ -299,22 +319,6 @@
         </section>
 
         <section>
-          <h2>Man Pages</h2>
-          <h3><code>man</code></h3>
-          <p>The <code>man</code> command brings up the manual for the specified command. Press the space bar or the arrow keys to page through and press <b>q</b> to exit.</p>
-          <pre><code class="bash" contenteditable="">man ls</code></pre>
-        </section>
-
-        <section>
-          <h2>Love the Tab</h2>
-          <p>Tab completion autocompletes commands and filenames.</p>
-          <ul>
-            <li>Pressing <strong>tab</strong> once autocompletes a unique instance.</li>
-            <li>If there's more than one possible completion, pressing <strong>tab</strong> twice gives you all the options available.</li>
-          </ul>
-        </section>
-
-        <section>
           <h2>Try it: <code>cd</code> & <code>ls</code></h2>
           <p>Play with the <code>cd</code> and <code>ls</code> commands.</p>
           <h4>Be sure to incorporate:</h4>
@@ -330,14 +334,7 @@
         </section>
 
         <section>
-          <h2>Open</h2>
-          <p>Use <code>open</code> to open a file or directory in its default app—the equivalent of double-clicking it.</p>
-          <p class="fragment"><small>(Sadly, this does not work in Windows. 😞)</small></p>
-          <p class="fragment">Pass the path of the file or directory name as the argument.</p>
-        </section>
-
-        <section>
-          <h2>Making a Directory</h2>
+          <h2>Make a Directory</h2>
           <p>Use <code>mkdir</code> to create a new empty directory.</p>
           <p>Pass the path of the directory name as the first argument.</p>
           <p class="fragment">If the base of the path doesn't already exist, the command will fail.</p>
@@ -350,7 +347,7 @@
         </section>
 
         <section>
-          <h2>Removing Directories</h2>
+          <h2>Remove a Directory</h2>
           <p>Use <code>rmdir</code> to remove an empty directory.</p>
           <p>Use <code>rm -r</code> to remove a non-empty directory.</p>
         </section>
@@ -379,22 +376,7 @@
         </section>
 
         <section>
-          <h2>Files</h2>
-          <p>Use <code>cat</code> to output the contents of a file to the console.</p>
-          <p>Use <code>more</code> to step through the contents of a file one screen at a time.</p>
-          <p>Use <code>less</code> to step backwards or forwards.</p>
-        </section>
-
-        <section>
-          <h2>Let's Develop It!</h2>
-          <p>Explore the <code>/usr/share/misc</code> files using <code>cat</code>, <code>more</code>, and <code>less</code></p>
-          <p>Can you find your birth month's stone and flower in the <code>birthtoken</code> file?</p>
-          <small><em>Sorry, Windows users - I haven't found a good file sample for this yet!<br> Try looking over the shoulder of a neighbor.</em></small>
-        </section>
-
-        <section>
-          <h2>Let's Develop It!</h2>
-          <img src="img/exercise2-answer.png" alt="Exercise 2 answer">
+          <h2>Working with Files</h2>
         </section>
 
         <section>
@@ -418,6 +400,7 @@
             <li>2nd argument = the "destination" file</li>    
           </ul>
           <pre><code class="bash" contenteditable>cp resume.txt resume-copy.txt</code></pre>
+          <p>Use <code>cp -R</code> to copy a whole directory and all files in it.</p>
         </section>
 
         <section>
@@ -428,23 +411,12 @@
         </section>
 
         <section>
-          <h2>Copy a Directory</h2>
-          <p>Use <code>cp -R</code> to copy a directory.</p>
-          <p>The <code>cp -R</code> command takes two arguments:</p>
-          <ul>
-            <li>1st argument = the "origin" directory</li>
-            <li>2nd argument = the "destination" directory</li>    
-          </ul>
-          <pre><code class="bash" contenteditable>cp -R homework old-homework</code></pre>
-        </section>
-
-        <section>
           <h2><code>cp -R</code></h2>
-          <h4>(copy a directory)</h4>
+          <h4>(copy a whole directory)</h4>
           <h5><code class="bash" contenteditable>cp -R origin destination</code></h5>
-          <img src="img/cp-R.png" alt="cp-R">
+          <img src="img/cp-R.png" alt="cp">
         </section>
-
+      
         <section>
           <h2>Moving (or Renaming) a File/Directory</h2>
 
@@ -454,6 +426,7 @@
             <li>1st argument = the "origin"</li>
             <li>2nd argument = the "destination"</li>    
           </ul>
+          <p>If the destination is a filename, the file will be renamed.</p>
         </section>
 
         <section>
@@ -477,7 +450,7 @@
         </section>
 
         <section>
-          <h2>rm</h2>
+          <h2><code>rm</code></h2>
           <h4>(remove a file)</h4>
 
           <img src="img/rmfile.png" alt="remove a file">
@@ -499,37 +472,65 @@
         </section>
 
         <section>
-          <h2>Edit a File</h2>
+          <h2>Read a File</h2>
+          <p>Use <code>cat</code> to output the contents of a file to the console.</p>
+          <p>Use <code>more</code> to step through the contents of a file one screen at a time.</p>
+          <p>Use <code>less</code> to step backwards or forwards.</p>
+        </section>
 
-          <p>You can use various editors built into bash:</p>
-          <p><code>vi myfile.txt</code></p>
-          <p><code>emacs myfile.txt</code></p>
-          <p><code>pico myfile.txt</code></p>
+        <section>
+          <h2>Open a File/Directory</h2>
+          <p>Use <code>open</code> to open a file or directory in its default app—the equivalent of double-clicking it.</p>
+          <p class="fragment"><small>(Sadly, this does not work in Windows. 😞)</small></p>
+          <p class="fragment">Pass the path of the file or directory name as the argument.</p>
+        </section>
+
+        <section>
+          <h2>Edit a File</h2>
+          <p>You can use various editors built into bash, including <code>vi</code>, <code>emacs</code>, <code>nano</code>, and <code>pico</code>.</p>
+          <p>Enter the editor command and the file path:</p>
+          <pre><code class="bash" contenteditable>pico myfile.txt</code></pre>
           <p>Or on a Mac, you can open with any desktop app:</p>
           <pre><code class="bash" contenteditable>open -a TextEdit myfile.txt</code></pre>
           <p>Or with the default editor:</p>
           <pre><code class="bash" contenteditable>open -t myfile.txt</code></pre>
         </section>
+  
+        <section>
+          <h2>Let's Develop It!</h2>
+          <ol>
+            <li>Use <code>cat</code>, <code>more</code>, and <code>less</code> to read different text files on your computer. (Mac/Linux users, try exploring <code>/usr/share/misc</code>.)</li>
+            <li>Navigate to the <strong>cli</strong> directory you made before.</li>
+            <li>Use <code>pico</code> or <code>nano</code> to add a few sentences to <strong>file2.txt</strong>, then exit and save.</li>
+            <li>Read the new contents of <strong>file2.txt</strong> in your terminal.</li>
+            <li>Mac users, try using <code>open</code> to open <strong>file2.txt</strong> in your favorite text editor. (Windows/Linux users, your text editor may have a built-in command, like <code>atom</code>.)</li>
+          </ol>
+        </section>
 
         <section>
-          <h2>Command Line Movement</h2>
+          <h2>Let's Develop It!</h2>
+          <img src="img/exercise2-answer.png" alt="Exercise 2 answer">
+        </section>
 
+        <section>
+          <h2>Working with Commands</h2>
+        </section>
+    
+        <section>
+          <h2>Command Line Movement</h2>
           <ul>
             <li><b>ctrl-a</b>: jump to beginning of line</li>
             <li><b>ctrl-e</b>: jump to end of line</li>
             <li><b>alt-f</b>: jump forward a word</li>
             <li><b>alt-b</b>: jump back a word</li>
-
             <li><b>alt-d</b>: delete word</li>
             <li><b>alt-t</b>: transpose two words</li>
-
             <li><b>ctrl-xx</b>: jump back to your last edit, again to get back to original position</li>
           </ul>
         </section>
 
         <section>
           <h2>More Command Line Movement</h2>
-
           <ul>
             <li>The <b>left/right arrow keys</b> let you edit within a command</li>
             <li>The <b>up/down arrow keys</b> let you select previous commands</li>
@@ -541,20 +542,18 @@
 
         <section>
           <h2>Command Line History</h2>
-
-          <p>Use the <b>history</b> command to see a list of all your previous commands.</p>
+          <p>Use the <code>history</code> command to see a list of all your previous commands.</p>
           <p>Each command will be listed next to a line number.</p>
           <p>A few history-related commands:</p>
           <ul>
             <li><b>!!</b>: Latest command</li>
-            <li><b>!568</b>: Command by line #</li>
-            <li><b>!open</b>: Command matching string</li>
+            <li><b>!568</b>: Command by line number</li>
+            <li><b>!open</b>: Command matching a string</li>
           </ul>
         </section>
 
         <section>
           <h2>history</h2>
-
           <img src="img/command-line-history.png" alt="history">
         </section>
 
@@ -622,8 +621,11 @@
         </section>
 
         <section>
-          <h2>Troubleshooting:<br>
-            <small>Where's the prompt?!</small></h2>
+          <h2>Troubleshooting</h2>
+        </section>
+  
+        <section>
+          <h2>Where's the prompt?!</h2>
           <p>Different processes have different ways of exiting back to the prompt. If you're stuck, try one of these:</p>
           <ul>
             <li><b>ctrl + c</b></li>
@@ -635,13 +637,15 @@
         </section>
 
         <section>
-          <h2>Troubleshooting: <br>
-            <small><code>command not found</code></small></h2>
-          <p>You may need to install the software that uses the command.</p>
-          <p>Try searching online for:</p>
-          <blockquote>"how to install [command-name-here] on [Mac/Windows/Linux]"</blockquote>
+          <h2><code>command not found</code></h2>
+          <p>If you receive a <code>command not found</code> error message, check for typos!</p>
+          <p class="fragment">Otherwise, you may need to install the software that uses the command.</p>
+          <div class="fragment">
+            <p>Try searching online for:</p>
+            <blockquote>"how to install [command-name-here] on [Mac/Windows/Linux]"</blockquote>
+          </div>
         </section>
-        
+
         <section>
           <h2>More Resources</h2>
           <ul>
