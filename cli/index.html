@@ -15,18 +15,60 @@
     <link rel="stylesheet" href="../common/css/reveal.min.css">
 		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
 
-    <!--Adapting the 2-column style from national slides-->
     <style>
-      .flex-container {
-        display: flex;
+      .reveal .slides {
+        line-height: 1.1em;
       }
-      .flex-item {
-        flex-basis: 50%;
+      .reveal p,
+      .reveal ul,
+      .reveal ol,
+      .reveal pre {
+        margin-bottom: 0.75em;
+      }
+      .reveal ul,
+      .reveal ol {
+        width: max-content;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2em;
+      }
+      .reveal li {
+        margin-bottom: 0.25em;
+      }
+      .reveal strong,
+      .reveal b {
+        font-family: gotham-book, helvetica, sans-serif;
+        font-weight: bold;
+      }
+      .reveal em,
+      .reveal i {
+        font-style: italic;
+      }
+      .reveal small {
+        font-size: 75%;
+      }
+      .reveal code {
+        font-family: Monaco, monospace;
+      }
+      .reveal p code,
+      .reveal li code {
+        background-color: #ddd;
+        padding: 2px 8px;
+        border-radius: 3px;
       }
       .reveal section img {
         margin: 0;
         border: none;
         box-shadow: none;
+      }
+      /* Adapting the 2-column style from national slides */
+      .flex-container {
+        display: flex;
+      }
+      .flex-item {
+        flex-basis: 50%;
       }
     </style>
 
