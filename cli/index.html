@@ -89,23 +89,22 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h1>Intro to the Command Line</h1>
+					<img src="../common/img/circle-gdi-logo.png" alt="GDI San Francisco" class="noborder" />
+          <h1>Intro to the Command&nbsp;Line</h1>
           <p>teaching-materials.org/cli</p>
         </section>
 
         <!-- Welcome-->
         <section class="hide-pdf">
-          <h3>Welcome!</h3>
-          <div class = "left-align">
-          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
-          <p class ="green">Some "rules"</p>
+          <h2>Welcome!</h2>
+          <p><strong class="pink">Girl Develop It</strong> is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <h3>Some "rules"</h3>
           <ul>
             <li>We are here for you!</li>
             <li>Every question is important</li>
             <li>Help each other</li>
-            <li>Have fun</li>
+            <li>Have fun!</li>
           </ul>
-          </div>
         </section>
 
         <section>
@@ -116,21 +115,20 @@
             <li class="fragment">Command line "lingo"</li>
             <li class="fragment">Working with folder directories</li>
             <li class="fragment">Working with files</li>
-            <li class="fragment">Standard input/output</li>
             <li class="fragment">Working with commands</li>
+            <li class="fragment">Troubleshooting</li>
           </ul>
         </section>
 
         <section>
           <h2>When will I use this?</h2>
-          <br>
           <p>You might use the command line to...</p>
           <ul>
-            <li class="fragment">Automate file actions with a script</li>
-            <li class="fragment">Serve a local directory for testing</li>
             <li class="fragment">Use version control (like Git)</li>
-            <li class="fragment">Run open source projects</li>
-            <li class="fragment">Use automated build tools</li>
+            <li class="fragment">Install code libraries</li>
+            <li class="fragment">Run build tools or test frameworks</li>
+            <li class="fragment">Serve a local directory for testing</li>
+            <li class="fragment">Automate file actions with a script</li>
             <li class="fragment">Control other computers</li>
           </ul>
         </section>
@@ -138,12 +136,12 @@
         <section>
           <h2>The "lingo"</h2>
           <ul>
-            <li class="fragment">"Terminal"</li>
-            <li class="fragment">"Command-line"</li>
-            <li class="fragment">"Command prompt"</li>
-            <li class="fragment">"Shell"</li>
-            <li class="fragment">"Console"</li>
-            <li class="fragment">"CLI"</li>
+            <li>"Terminal"</li>
+            <li>"Command-line"</li>
+            <li>"Command prompt"</li>
+            <li>"Shell"</li>
+            <li>"Console"</li>
+            <li>"CLI"</li>
           </ul>
           <p class="fragment">These are all pretty much the same thing.</p>
         </section>
@@ -209,8 +207,7 @@
         <section>
           <h2>Directories</h2>
           <p>Also referred to as "folders".</p>
-          <p>A container for files or other directories.</p>
-          <p>Nested files and directories can be referenced using <code>paths</code>.</p>
+          <p>A directory is a container for files or other directories.</p>
         </section>
 
         <section>
@@ -227,6 +224,7 @@
 
         <section>
           <h2>Paths</h2>
+          <p>Nested files and directories can be referenced using <strong>paths</strong>.</p>
           <p>Each directory or file is separated by a forward slash <code>/</code></p>
           <p>There are two kinds of paths:</p>
           <ul>
@@ -238,12 +236,12 @@
         <section>
           <h2>cd</h2>
           <p>The <code>cd</code> command changes the current working directory.</p>
-          <p>It expects a file path as an "argument".</p>
+          <p>It expects a file path as an argument.</p>
           <p>If no file path is given, it assumes your home directory by default.</p>
         </section>
 
         <section>
-          <h2>cd</h2>
+          <h2><code>cd</code></h2>
           <img src="img/command-line-cd.png" alt="Command line cd">
         </section>
 
@@ -255,32 +253,32 @@
             <li>Home Directory: <code>~</code></li>
             <li>Previous Directory: <code>-</code></li>
           </ul>
-          <p>Bonus: Drag a folder into the terminal to show its path.</p>
-          <p><small>(Doesn't quite work in Windows.)</small></p>
+          <p>Bonus: Drag a folder into the terminal to show its path.<br>
+            <small>(Doesn't quite work in Windows.)</small></p>
         </section>
 
         <section>
-          <h2>ls</h2>
+          <h2>List</h2>
           <p>The <code>ls</code> command lists the contents of a directory.</p>
-          <p>It expects a file path as an "argument".</p>
+          <p>It expects a file path as an argument.</p>
           <p>If no file path is given, it assumes the current directory by default.</p>
         </section>
 
         <section>
-          <h2>ls</h2>
+          <h2><code>ls</code></h2>
           <img src="img/command-line-ls.png" alt="Command line ls">
         </section>
 
         <section>
           <h2>Flags</h2>
           <p>The <code>ls</code> command accepts several option flags.</p>
-          <p>A flag is a special argument that is used to set an option for the command.</p>
+          <p>A <strong>flag</strong> is a special argument that is used to set an option for the command.</p>
           <p>These are commonly a hyphen followed by a single character (e.g. <code>-g</code>)</p>
-          <p>Setting the <code>-l</code> flag on the <code>ls</code> command causes it to provide more verbose (long) output.</p>
         </section>
 
         <section>
-          <h2>ls -l</h2>
+          <h2><code>ls -l</code></h2>
+          <p>Setting the <code>-l</code> flag on the <code>ls</code> command causes it to provide more verbose (long) output.</p>
           <img src="img/command-line-ls-flags.png" alt="Command line ls with flags">
         </section>
 
@@ -294,28 +292,28 @@
         </section>
 
         <section>
-          <h2>ls -la</h2>
+          <h2><code>ls -la</code></h2>
           <img src="img/command-line-hidden-files.png" alt="Command line hidden files using flag -la">
         </section>
 
         <section>
           <h2>Man Pages</h2>
           <h3><code>man</code></h3>
-          <p>The <b><code>man</code></b> command brings up the manual for the specified command. Use &lt;space&gt; or the arrow keys to page through and press <b> q </b> to exit.</p>
-          <pre><code class="html ruby" contenteditable="">$ man ls</code></pre>
+          <p>The <code>man</code> command brings up the manual for the specified command. Press the space bar or the arrow keys to page through and press <b>q</b> to exit.</p>
+          <pre><code class="bash" contenteditable="">man ls</code></pre>
         </section>
 
         <section>
           <h2>Love the Tab</h2>
           <p>Tab completion autocompletes commands and filenames.</p>
           <ul>
-            <li>Pressing &lt;tab&gt; once autocompletes a unique instance.</li>
-            <li>Pressing &lt;tab&gt; twice gives you all the options available.</li>
+            <li>Pressing <strong>tab</strong> once autocompletes a unique instance.</li>
+            <li>If there's more than one possible completion, pressing <strong>tab</strong> twice gives you all the options available.</li>
           </ul>
-          <pre><code class="html" contenteditable="">$ cd P</code></pre>
         </section>
+
         <section>
-          <h2>cd & ls</h2>
+          <h2>Try it: <code>cd</code> & <code>ls</code></h2>
           <p>Play with the <code>cd</code> and <code>ls</code> commands.</p>
           <h4>Be sure to incorporate:</h4>
           <ul>
@@ -331,33 +329,32 @@
 
         <section>
           <h2>Open</h2>
-          <p>Use the <code>open</code> command to open a file or directory in its default app.</p>
-          <p>Pass the path of the file or directory name as the argument.</p>
-          <p class="fragment">It does the equivalent of double-clicking the item.</p>
-          <p class="fragment"><small><em>(Sadly, this does not work in Windows. 😞)</small></em></p>
+          <p>Use <code>open</code> to open a file or directory in its default app—the equivalent of double-clicking it.</p>
+          <p class="fragment"><small>(Sadly, this does not work in Windows. 😞)</small></p>
+          <p class="fragment">Pass the path of the file or directory name as the argument.</p>
         </section>
 
         <section>
           <h2>Making a Directory</h2>
-          <p>Use the <code>mkdir</code> command to create a new empty directory.</p>
+          <p>Use <code>mkdir</code> to create a new empty directory.</p>
           <p>Pass the path of the directory name as the first argument.</p>
           <p class="fragment">If the base of the path doesn't already exist, the command will fail.</p>
           <p class="fragment">Use the <code>-p</code> flag to create the full path if non-existent.</p>
         </section>
 
         <section>
-          <h2>mkdir</h2>
+          <h2><code>mkdir</code></h2>
           <img src="img/command-line-mkdir.png" alt="Command line make directory">
         </section>
 
         <section>
           <h2>Removing Directories</h2>
-          <p>Use the <code>rmdir</code> command to remove an empty directory.</p>
+          <p>Use <code>rmdir</code> to remove an empty directory.</p>
           <p>Use <code>rm -r</code> to remove a non-empty directory.</p>
         </section>
 
         <section>
-          <h2>rmdir</h2>
+          <h2><code>rmdir</code></h2>
           <img src="img/command-line-rmdir.png" alt="Command line remove directory">
         </section>
 
@@ -365,12 +362,12 @@
           <h2>Let's Develop It!</h2>
           <ol>
             <li><code>cd</code> to your home directory.</li>
-            <li>Create the <code>girl/develop</code> directory path.</li>
-            <li>Navigate into the <code>girl/develop</code> directory.</li>
-            <li>Create the <code>it</code> directory.</li>
+            <li>Create the <strong>girl/develop</strong> directory path.</li>
+            <li>Navigate into the <strong>girl/develop</strong> directory.</li>
+            <li>Create the <strong>it</strong> directory.</li>
             <li>Navigate up two directories.</li>
             <li>Use the <code>pwd</code> command to verify you are home.</li>
-            <li>Remove the <code>girl/develop/it</code> path.</li>
+            <li>Remove the <strong>girl/develop/it</strong> path.</li>
           </ol>
         </section>
 
@@ -400,61 +397,61 @@
 
         <section>
           <h2>Create a File</h2>
-          <h3><code>touch</code></h3>
-          <p>Use the <b>touch</b> command to create a new file.</p><br>
-          <p><em>The touch command expects the name of your new file as an argument.</em></p>
+          <p>Use <code>touch</code> to create a new file.</p><br>
+          <p>The <code>touch</code> touch command expects the name of your new file as an argument.</p>
         </section>
 
         <section>
-          <h2>touch</h2>
+          <h2><code>touch</code></h2>
           <h4>(create a file)</h4>
-
           <img src="img/touch.png" alt="touch">
         </section>
 
         <section>
           <h2>Copy a File</h2>
-          <h3><code>cp</code></h3>
-
-          <p>Use the <b>cp</b> command to copy a file.</p><br>
-          <p>The <b>cp</b> command takes two arguments:</p>
-          <p>1st argument = the "origin" file</p>
-          <p>2nd argument = the "destination" file</p>
-          <pre><code class="html" contenteditable>$ cp resume.txt resume-copy.txt</code></pre>
+          <p>Use <code>cp</code> to copy a file.</p>
+          <p>The <code>cp</code> command takes two arguments:</p>
+          <ul>
+            <li>1st argument = the "origin" file</li>
+            <li>2nd argument = the "destination" file</li>    
+          </ul>
+          <pre><code class="bash" contenteditable>cp resume.txt resume-copy.txt</code></pre>
         </section>
 
         <section>
-          <h2>cp</h2>
+          <h2><code>cp</code></h2>
           <h4>(copy a file)</h4>
-          <h5><code class="html" contenteditable>$ cp origin destination</code></h5>
+          <h5><code class="bash" contenteditable>cp origin destination</code></h5>
           <img src="img/cp.png" alt="cp">
         </section>
 
         <section>
           <h2>Copy a Directory</h2>
-          <h3><code>cp -R</code></h3>
-
-          <p>Use the <b>cp -R</b> command to copy a directory.</p><br>
-          <p>The <b>cp -R</b> command takes two arguments:</p>
-          <p>1st argument = the "origin" directory</p>
-          <p>2nd argument = the "destination" directory</p>
-          <pre><code class="html" contenteditable>$ cp -R homework old-homework</code></pre>
+          <p>Use <code>cp -R</code> to copy a directory.</p>
+          <p>The <code>cp -R</code> command takes two arguments:</p>
+          <ul>
+            <li>1st argument = the "origin" directory</li>
+            <li>2nd argument = the "destination" directory</li>    
+          </ul>
+          <pre><code class="bash" contenteditable>cp -R homework old-homework</code></pre>
         </section>
 
         <section>
-          <h2>cp -R</h2>
+          <h2><code>cp -R</code></h2>
           <h4>(copy a directory)</h4>
-          <h5><code class="html" contenteditable>$ cp -R origin destination</code></h5>
+          <h5><code class="bash" contenteditable>cp -R origin destination</code></h5>
           <img src="img/cp-R.png" alt="cp-R">
         </section>
 
         <section>
-          <h2>Moving (or renaming) a File/Directory</h2>
+          <h2>Moving (or Renaming) a File/Directory</h2>
 
-          <p>Use the <b>mv</b> command to move a file or directory.</p><br>
-          <p>The <b>mv</b> command takes two arguments:</p>
-          <p>1st argument = the "origin"</p>
-          <p>2nd argument = the "destination"</p>
+          <p>Use <code>mv</code> to move a file or directory.</p>
+          <p>The <code>mv</code> command takes two arguments:</p>
+          <ul>
+            <li>1st argument = the "origin"</li>
+            <li>2nd argument = the "destination"</li>    
+          </ul>
         </section>
 
         <section>
@@ -473,10 +470,8 @@
 
         <section>
           <h2>Remove a File</h2>
-          <h3><code>rm</code></h3>
-
-          <p>Use the <b>rm</b> command to remove a file.</p><br>
-          <p><em>Expects the name of the file you are removing as an argument.</em></p>
+          <p>Use <code>rm</code> to remove a file.</p>
+          <p>The <code>rm</code> command takes the name of the file you are removing as an argument.</em></p>
         </section>
 
         <section>
@@ -487,19 +482,17 @@
         </section>
 
         <section>
-          <h3>Let's Develop It!</h3>
-
+          <h2>Let's Develop It!</h2>
           <ol>
-            <li>Create a folder called <b>cli</b></li>
-            <li>Make that folder your current working directory</li>
-            <li>Create two files: <b>file1.txt</b>, <b>file2.txt</b></li>
-            <li>Copy <b>file1.txt</b> and call the copy <b>file3.txt</b></li>
-            <li>Create a directory called <b>folder1</b></li>
-            <li>Move <b>file1.txt</b> into <b>folder1</b></li>
-            <li>List the contents of <b>folder1</b> without going into it</li>
-            <li>Rename <b>file1.txt</b> to <b>myfile.txt</b></li>
-            <li>Remove the directory <b>folder1</b>, without deleting <b>myfile.txt</b> first</li>
-            <li>Clear your terminal</li>
+            <li>Create a folder called <strong>cli</strong>.</li>
+            <li>Make that folder your current working directory.</li>
+            <li>Create two files: <strong>file1.txt</strong>, <strong>file2.txt</strong>.</li>
+            <li>Copy <strong>file1.txt</strong> and call the copy <strong>file3.txt</strong>.</li>
+            <li>Create a directory called <strong>folder1</strong>.</li>
+            <li>Move <strong>file1.txt</strong> into <strong>folder1</strong>.</li>
+            <li>List the contents of <strong>folder1</strong> without going into it.</li>
+            <li>Rename <strong>file1.txt</strong> to <strong>myfile.txt</strong>.</li>
+            <li>Remove the directory <strong>folder1</strong>, including the file inside of it.</li>
           </ol>
         </section>
 
@@ -507,13 +500,13 @@
           <h2>Edit a File</h2>
 
           <p>You can use various editors built into bash:</p>
-          <p><code>$ vi myfile.txt</code></p>
-          <p><code>$ emacs myfile.txt</code></p>
-          <p><code>$ pico myfile.txt</code></p>
+          <p><code>vi myfile.txt</code></p>
+          <p><code>emacs myfile.txt</code></p>
+          <p><code>pico myfile.txt</code></p>
           <p>Or on a Mac, you can open with any desktop app:</p>
-          <pre><code class="html" contenteditable>$ open -a TextEdit myfile.txt</code></pre>
+          <pre><code class="bash" contenteditable>open -a TextEdit myfile.txt</code></pre>
           <p>Or with the default editor:</p>
-          <pre><code class="html" contenteditable>$ open -t myfile.txt</code></pre>
+          <pre><code class="bash" contenteditable>open -t myfile.txt</code></pre>
         </section>
 
         <section>
@@ -523,7 +516,7 @@
           <p>Use the <b>grep</b> command to search in files.</p>
           <p>The grep command outputs only the lines in a file that match a given pattern.</p>
           <p>The 1st argument is the pattern to match, and the 2nd, 3rd, and so on are the files to search within.</p>
-          <pre><code class="html" contenteditable>$ grep pattern file</code></pre>
+          <pre><code class="bash" contenteditable>grep pattern file</code></pre>
         </section>
 
         <section>
@@ -537,7 +530,7 @@
 
           <p>Use the <b>*</b> (asterisk) symbol to match <em>anything</em>.</p><br>
           <p>You can use this to search through all of a particular file type.</p>
-          <pre><code class="html" contenteditable>$ grep hello *.txt</code></pre><br>
+          <pre><code class="bash" contenteditable>grep hello *.txt</code></pre><br>
           <p>The shell will build a list of all the files that match the non-asterisk part.</p>
         </section>
 
@@ -548,7 +541,7 @@
           <p>Use the <b>find</b> command to find files according to name/metadata.</p><br>
 
           <p>Find all txt files under the current directory:</p>
-          <pre><code class="html" contenteditable>find . -name '*.txt' -print</code></pre>
+          <pre><code class="bash" contenteditable>find . -name '*.txt' -print</code></pre>
         </section>
 
         <section>
@@ -730,7 +723,7 @@
           <p>Installation instructions from an actual open source project:</p>
           <img src="img/os-install-cli.png" alt="Instructions from an open source project with terminal commands">
         </section>
-
+  
         <section>
           <h2>Control other computers</h2>
           <p>These "other" computers might be:</p>
@@ -748,7 +741,8 @@
         </section>
 
         <section>
-          <h2>Troubleshooting: Where's the prompt?!</h2>
+          <h2>Troubleshooting:<br>
+            <small>Where's the prompt?!</small></h2>
           <p>Different processes have different ways of exiting back to the prompt. If you're stuck, try one of these:</p>
           <ul>
             <li><b>ctrl + c</b></li>
@@ -760,10 +754,11 @@
         </section>
 
         <section>
-          <h2>Troubleshooting: <br>`command not found`</h2>
+          <h2>Troubleshooting: <br>
+            <small><code>command not found</code></small></h2>
           <p>You may need to install the software that uses the command.</p>
           <p>Try searching online for:</p>
-          <code>how to install [command-name-here] on [Mac/Windows/Linux]</code>
+          <blockquote>"how to install [command-name-here] on [Mac/Windows/Linux]"</blockquote>
         </section>
 
         <section>
@@ -776,6 +771,9 @@
         <section>
           <h2>More Resources</h2>
           <ul>
+            <li>
+              <a href="https://twitter.com/b0rk/media" target="_blank">Julia Evans's amazing comics and fanzines</a>
+            </li>
             <li>
               <a href="https://www.git-tower.com/blog/command-line-cheat-sheet/" target="_blank">Command Line Cheat Sheet</a>
             </li>
@@ -817,7 +815,7 @@
         history: true,
 
         theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+        transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/none
 
         // Optional reveal.js plugins
         dependencies: [
