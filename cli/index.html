@@ -124,12 +124,11 @@
           <h2>When will I use this?</h2>
           <p>You might use the command line to...</p>
           <ul>
-            <li class="fragment">Use version control (like Git)</li>
-            <li class="fragment">Install code libraries</li>
-            <li class="fragment">Run build tools or test frameworks</li>
-            <li class="fragment">Serve a local directory for testing</li>
-            <li class="fragment">Automate file actions with a script</li>
-            <li class="fragment">Control other computers</li>
+            <li>Use version control (like Git)</li>
+            <li>Run build tools and site generators</li>
+            <li>Serve a website locally while developing</li>
+            <li>Automate file actions with a script</li>
+            <li>Control other computers</li>
           </ul>
         </section>
 
@@ -717,21 +716,35 @@
         </section>
 
         <section>
-          <h2>Serve up a Directory</h2>
-          <p><code>python -m simpleHTTPServer</code></p>
-          <p>Run this from the directory you want to serve.<br>
-             Press <code>Ctrl + C</code> to exit.</p>
-        </section>
-
-        <section>
           <h2>Version Control</h2>
+          <p>Though you can do a lot with GUI tools for Git, there are some functions that still require the command line.</p>
+          <pre><code class="bash">git pull upstream master</code></pre>
           <p>Check out <a href="https://try.github.io" target="_blank">Try Git</a> for an intro, or watch for our next GDI Git workshop.</p>
         </section>
 
         <section>
-          <h2>Run Open Source Projects</h2>
-          <p>Installation instructions from an actual open source project:</p>
-          <img src="img/os-install-cli.png" alt="Instructions from an open source project with terminal commands">
+          <h2>Run Build Tools</h2>
+          <p>Build tools process your code to make it more efficient or to automate repeated tasks.</p>
+          <p>For example, you can use tools like <a href="https://webpack.js.org/api/cli/">webpack</a> to combine multiple JS files into one "minified" file.</p>
+          <pre><code class="bash">webpack ./src/index.js dist/bundle.js</code></pre>
+          <p><a href="https://www.staticgen.com/">Static Site Generators</a> like <a href="https://jekyllrb.com/">Jekyll</a> build websites using templates, avoiding duplicated html.</p>
+          <pre><code class="bash">jekyll build</code></pre>
+        </section>
+
+        <section>
+          <h2>Serve up a Directory</h2>
+          <p>When working on a website locally, you can run a simple server program on your computer so you can browse the site over http instead of the file protocol.</p>
+          <p>This example uses a built-in function of Python:</p>
+          <pre><code class="bash">python -m simpleHTTPServer</code></pre>
+          <p>Most build tools also include a local server function.</p>
+          <p>To stop a running server, press <strong>Ctrl + C</strong>.</p>
+        </section>
+
+        <section>
+          <h2>Automate with scripts</h2>
+          <p>You can write or find scripts to batch process files.</p>
+          <p>for example, this <a href="https://github.com/atramos/chase-bank-PDF-to-QIF">open source script</a> parses PDF bank statements and converts the data to a format that can be imported into banking software:</p>
+          <pre><code class="bash">perl chase-bank-PDF-to-QIF.pl -oChase2018.qif ~/statements/*.pdf</code></pre>
         </section>
   
         <section>
@@ -739,15 +752,12 @@
           <p>These "other" computers might be:</p>
           <ul>
             <li>A cloud environment like Cloud9</li>
+            <li>A remote server</li>
             <li>A virtual machine or container on your own computer</li>
             <li>A very simple computer like a raspberry pi</li>
           </ul>
-          <p><code>ssh gdi@192.168.0.23</code></p>
-        </section>
-
-        <section>
-          <h2>Watching a Log File</h2>
-          <p><code>tail -f /var/log/wifi.log</code></p>
+          <pre><code class="bash">ssh gdi@192.168.0.23</code></pre>
+          <p><small>Or it could be a <a href="https://xkcd.com/530/">very complicated doorbell alternative</a></small></p>
         </section>
 
         <section>
@@ -770,7 +780,7 @@
           <p>Try searching online for:</p>
           <blockquote>"how to install [command-name-here] on [Mac/Windows/Linux]"</blockquote>
         </section>
-
+        
         <section>
           <h2>More Resources</h2>
           <ul>
