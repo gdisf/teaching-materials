@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Command Line Git for Open Source ~ Girl Develop It</title>
+
+    <meta name="description" content="Command Line Git for Open Source">
+    <meta name="author" content="Girl Develop It San Francisco">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
+
+    <style>
+      .reveal .slides {
+        line-height: 1.1em;
+      }
+      .reveal p,
+      .reveal ul,
+      .reveal ol,
+      .reveal pre {
+        margin-bottom: 0.75em;
+      }
+      .reveal ul,
+      .reveal ol {
+        width: max-content;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2em;
+      }
+      .reveal li {
+        margin-bottom: 0.25em;
+      }
+      .reveal strong,
+      .reveal b {
+        font-family: gotham-book, helvetica, sans-serif;
+        font-weight: bold;
+      }
+      .reveal em,
+      .reveal i {
+        font-style: italic;
+      }
+      .reveal small {
+        font-size: 75%;
+      }
+      .reveal code {
+        font-family: Monaco, monospace;
+      }
+      .reveal p code,
+      .reveal li code {
+        background-color: #ddd;
+        padding: 2px 8px;
+        border-radius: 3px;
+      }
+      .reveal section img {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+      }
+    </style>
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+        <section>
+					<img src="../common/img/circle-gdi-logo.png" alt="GDI San Francisco" class="noborder" />
+          <h1>Command-Line Git for Open Source</h1>
+          <p>teaching-materials.org/git-oss</p>
+        </section>
+
+        <!-- Welcome-->
+        <section class="hide-pdf">
+          <h2>Welcome!</h2>
+          <p><strong class="pink">Girl Develop It</strong> is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <h3>Some "rules"</h3>
+          <ul>
+            <li>We are here for you!</li>
+            <li>Every question is important</li>
+            <li>Help each other</li>
+            <li>Have fun!</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Agenda</h2>
+          <h6>This class will be a combo of guided and independent practice</h6>
+          <ul>
+            <li>Command-line review</li>
+            <li>Setting up Git on your computer</li>
+            <li>Anatomy of a repository</li>
+            <li>Making a pull request, step-by-step</li>
+            <li>Syncing with remote repositories</li>
+            <li>Contribute to this repository!</li>
+            <li>Resources and Tips</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Command-Line Review</h2>
+          <p>Common commands:</p>
+          <ul>
+            <li><code>cd</code>: change directory (folder)</li>
+            <li><code>ls</code>: list all the files</li>
+            <li><code>mkdir</code>: make directory</li>
+            <li><code>rmdir</code>: remove/delete directory</li>
+            <li><code>touch</code>: create a file</li>
+            <li><code>rm</code>: remove a file</li>
+            <li><code>pwd</code>: find out the file path of current directory you are in, from the root</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Working in Vim</h2>
+          <p>Git’s default text editor is vim, and you may sometimes <a href="https://code.likeagirl.io/help-i-was-using-git-to-commit-some-code-and-now-the-window-has-changed-and-i-dont-know-what-s-9348a27e145b">find yourself in there accidentally</a>. <br>
+            Here are some basic commands:</p>
+          <ul>
+          <li><code>i</code> - puts you in editor mode, so you can type the content of your file</li>
+          <li><strong>Esc</strong> - puts you in “normal” or command mode, which you need to exit</li>
+          <li><code>:wq</code> - from normal mode, saves and exits</li>
+          <li><code>:q!</code> - from normal mode, exits without saving</li>
+          </ul>
+          </section>
+          
+        <section>
+          <h2>What is Git?</h2>        
+          <p><img src="https://imgs.xkcd.com/comics/git.png" alt="(comic about Git, showing that many people don’t understand it and just memorize commands)" title="" /></p>
+          <p>(source: <a href="https://xkcd.com/1597/">xkcd</a>)</p>
+        </section>
+        
+        <section>
+        <h2>Git Setup</h2>
+        <p>Check for Git in your terminal:</p>
+        <pre><code>git</code></pre>
+        <p>Check your config:</p>
+        <pre><code>git config --global --list</code></pre>
+        </section>
+        
+        <section>
+        <h2>Git Setup</h2>
+        
+        <p>If needed, add your username and email:</p>
+        
+        <pre><code>git config --global user.name "YOUR_USERNAME"</code></pre>
+        <pre><code>git config --global user.email "github-acct-email@example.com"</code></pre>
+        
+        <p>You can check your config again:</p>
+        
+        <pre><code>git config --global --list</code></pre>
+        
+        <p>(<a href="https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html">more info</a>)</p>
+        </section>
+        
+        <section>
+        <h2>What is GitHub?</h2>
+        
+        <p><a href="https://github.com/">GitHub</a> is an online service where people can collaborate on projects using Git.</p>
+        
+        <p>Many open source projects have their code on GitHub.</p>
+        
+        <p>Before we get started, make sure you have a GitHub account and have verified your email.</p>
+        </section>
+        
+        <section>
+        <h2>Anatomy of a Repo</h2>
+        
+        <p>A repository (or “repo”) is folder for a project, with a single tracked history.</p>
+        
+        <p>Let’s look at the repository for this website:</p>
+        <p><a href="https://github.com/gdisf/teaching-materials">https://github.com/gdisf/teaching-materials</a></p>
+        </section>
+        
+        <section>
+        <h2>Let’s Start</h2>
+        
+        <p>Go to our practice repository:</p>
+        <p></p><a href="https://github.com/gdisf/git-abcs">https://github.com/gdisf/git-abcs</a></p>
+        </section>
+        
+        <section>
+        <h2>Let’s Start</h2>
+        
+        <p><em>Fork</em> the main repo.</p>
+        <img src="img/fork-button.png" alt="Fork button at end of repository header" style="max-width: 100%" />
+        <p>Now you have your own version on GitHub.</p>
+        </section>
+        
+        <section>
+        <h2>Make a local version</h2>
+        
+        <p>On your fork, click the <strong>Download or clone</strong> button.</p>
+        
+        <ul>
+        <li>If the heading says, “Clone with SSH,” click <strong>Use HTTPS.</strong></li>
+        <li>Copy the link</li>
+        </ul>
+        </section>
+        
+        <section>
+        <h2>Make a local version</h2>
+        
+        <ul>
+        <li>In the terminal, <code>cd</code> to where you want to store the repo</li>
+        <li><em>Clone</em> the repo</li>
+        </ul>
+        <pre><code>git clone &lt;paste-the-link-here&gt;</code></pre>
+        </section>
+        
+        <section>
+        <h2>Make a local version</h2>
+        <ul>
+          <li><code>ls</code> to see your new repo</li>
+          <li><code>cd git-abcs</code> to go into the repo</li>
+          <li><code>ls</code> to see the files match the online repo</li>
+          <li>Check the <em>log:</em></li>
+        </ul>
+        <pre><code>git log --oneline</code></pre>
+        <p>Compare this to the <a href="https://github.com/gdisf/git-abcs/commits/master">online commit history</a>.</p>
+        </section>
+        
+        <section>
+        <h2>Making changes: Create a branch</h2>
+        <p>Check for <em>branches</em> in the local repo:</p>
+        <pre><code>git branch</code></pre>
+        <p>We’re on <code>master</code>, which we want to keep the same while we work.</p>
+        </section>
+        
+        <section>
+          <h2>Making changes: Create a branch</h2>
+          <p><em>Checkout</em> a new branch:</p>
+          <pre><code>git checkout -b add-letter-x </code></pre>
+          <p><em>(Replace</em> <code>x</code> <em>with the letter you picked at the beginning of class.)</em> <br>
+          Check your branches again:</p>
+          <pre><code>git branch</code></pre>
+        </section>
+        
+        <section>
+          <h2>Make a change on your branch</h2>
+          <ul>
+            <li>Open the folder in your favorite text editor.</li>
+            <li>Create a new file in the <code>pages</code> folder, called <code>letter-x.md</code> 
+            (replacing <code>x</code> with your letter).</li>
+            <li>Add a sentence to the file, about something that starts with your letter, like
+            "M is for marmoset."</li>
+            <li>Save the file.</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Track your change with Git</h2>        
+          <p>Check the <em>status</em> of your repo:</p>
+          <pre><code>git status</code></pre>
+          <p>Git sees you’ve made a change! <br>
+            <em>Add</em> the changed file to <em>staging:</em></p>
+          <pre><code>git add pages/&lt;filename&gt;</code></pre>
+          <p>Check the status again:</p>
+          <pre><code>git status</code></pre>
+        </section>
+        
+        <section>
+        <h2>Track your change with Git</h2>
+        
+        <p><em>Commit</em> your staged change with a <em>commit message</em>:</p>
+        
+        <pre><code>git commit -m "Add a page for letter &lt;your-letter&gt;"</code></pre>
+        
+        <p>The change is now part of the log for this branch:</p>
+        
+        <pre><code>git log --oneline</code></pre>
+        
+        <p>Your branch is now 1 commit <em>ahead</em> of your online fork.</p>
+        </section>
+        
+        <section>
+        <h2>Push to your fork</h2>
+        
+        <p>Check for <code>remote</code> repositories:</p>
+        
+        <pre><code>git remote -v</code></pre>
+        
+        <p>When you cloned, Git remembered the link to the repo you cloned from, and called it <code>origin</code></p>
+        </section>
+        
+        <section>
+        <h2>Push to your fork</h2>
+        
+        <p><em>Push</em> your branch to <code>origin</code> to see it on your fork:</p>
+        
+        <pre><code>git push origin your-new-branch-name</code></pre>
+        
+        <p>Check your repo online - it now has your branch, with your commit.</p>
+        </section>
+        
+        <section>
+        <h2>Propose your changes</h2>
+        
+        <p>Make a <em>pull request</em> to propose your changes to the main repo.</p>
+        
+        <ul>
+        <li>In your fork or the main repo, click the <strong>Compare &amp; pull request</strong> button.</li>
+        <li>Check the change list to be sure it contains the changes you want (and nothing else)</li>
+        </ul>
+        </section>
+        
+        <section>
+        <h2>Propose your changes</h2>
+        
+        <ul>
+        <li>Title the PR: “[WIP] Add letter <your-letter>”
+        (WIP = Work In Progress, because we’re not done with changes, but we want others to see our work so far.)</li>
+        <li>Add a description of the change, and what you still plan to do (add an image to the page).</li>
+        <li>Submit the pull request! You can see yours and others in the main repo.</li>
+        </ul>
+        </section>
+        
+        <section>
+        <h2>Make more local changes</h2>
+        
+        <p>Keep working on the same branch as before.</p>
+        
+        <ul>
+        <li><a href="https://pixabay.com/">Find a non-copyrighted image</a> of something that starts with your letter, and add it in the <code>images</code> folder.</li>
+        <li>Edit your <code>letter-x.md</code> file to add the image to the page, along with a heading, using the <code>pages/letter-b.md</code>  file as a guide. </li>
+        </ul>
+        
+        <p>(We’re using Markdown, because GitHub renders it as styled text in the browser. Check out their <a href="https://guides.github.com/features/mastering-markdown/">Markdown guide</a> for more tips.)</p>
+        </section>
+        
+        <section>
+        <h2>Make more local changes</h2>
+        
+        <p>Check your status to see what files have changed:</p>
+        
+        <pre><code>git status</code></pre>
+        
+        <p>Check the <em>diff</em> to see line-level changes (inside a file):</p>
+        
+        <pre><code>git diff</code></pre>
+        
+        <p>Add all changes in the current folder to staging:</p>
+        
+        <pre><code>git add .</code></pre>
+        </section>
+        
+        <section>
+        <h2>Make more local changes</h2>
+        
+        <p>Check that your changes are staged:</p>
+        
+        <pre><code>git status</code></pre>
+        
+        <p>Commit the staged changes:</p>
+        
+        <pre><code>git commit -m "Add image to page &lt;your-letter&gt;"</code></pre>
+        
+        <p>Check the log:</p>
+        
+        <pre><code>git log --oneline</code></pre>
+        </section>
+        
+        <section>
+          <h2>Add changes to your PR</h2>
+          <p>Pushing commits to your branch on <code>origin</code> will add the commits to your PR.</p>
+          <pre><code>git push origin same-branch-as-before</code></pre>        
+          <ul>
+            <li>Check the PR to see your commit was added.</li>
+            <li>Add a comment to say your changes are done and ready for review.</li>
+            <li>Edit the PR title to remove the “[WIP]”.</li>
+          </ul>
+        </section>
+        
+        <section>
+        <h2>Merging your PR</h2>
+        
+        <p>A project <em>maintainer</em> will review your pull request. If everything looks good, they’ll <em>merge</em> it.</p>
+        
+        <p>When a PR is merged:</p>
+        
+        <ul>
+        <li>All commits in the PR are added to the master branch on the main repo.</li>
+        <li>This will <em>not</em> update your fork, or your local repo.</li>
+        </ul>
+        </section>
+        
+        <section>
+        <h2>Sync your master branches</h2>
+        
+        <p>First, you need to get the changes from the main repo into your local version.
+        Switch to your <code>master</code> branch, because that’s the one we want to keep in sync:</p>
+        
+        <pre><code>git checkout master</code></pre>
+        
+        <p>Check your remote repos:</p>
+        
+        <pre><code>git remote -v</code></pre>
+        
+        <p>You’re still connected only to the fork (<code>origin</code>).</p>
+        </section>
+        
+        <section>
+        <h2>Sync your master branches</h2>
+        
+        <p>Add the main repo, calling it <code>upstream</code>:</p>
+        
+        <pre><code>git remote add upstream https://github.com/gdisf/git-abcs.git</code></pre>
+        
+        <p>Check your remotes again:</p>
+        
+        <pre><code>git remote -v</code></pre>
+        
+        <p>Your local repo is now connected to both remotes.</p>
+        </section>
+        
+        <section>
+        <h2>Sync your master branches</h2>
+        
+        <p>Check your branches, including remote branches:</p>
+        
+        <pre><code>git branch -r</code></pre>
+        
+        <p><em>Fetch</em> the branches and history from <code>upstream</code>:</p>
+        
+        <pre><code>git fetch upstream</code></pre>
+        
+        <p>Check that you can see more branches now:</p>
+        
+        <pre><code>git branch -r</code></pre>
+        </section>
+        
+        <section>
+        <h2>Sync your master branches</h2>
+        
+        <p>Compare your master branch history with the upstream master:</p>
+        
+        <pre><code>git log --oneline master..upstream/master</code></pre>
+        
+        <p>This lists commits on upstream that your master doesn’t have. 
+        Merge those to your current branch (master):</p>
+        
+        <pre><code>git merge upstream/master</code></pre>
+        </section>
+        
+        <section>
+        <h2>Sync your master branches</h2>
+        
+        <p>Check your log to see the new commits from upstream:</p>
+        
+        <pre><code>git log --oneline</code></pre>
+        
+        <p>Check to see there are no commits you’re missing:</p>
+        
+        <pre><code>git log --oneline master..upstream/master</code></pre>
+        </section>
+        
+        <section>
+        <h2>Sync your master branches</h2>
+        
+        <p>Check your status:</p>
+        
+        <pre><code>git status</code></pre>
+        
+        <p>Your local master is now ahead of your origin (fork). 
+        Push those added commits:</p>
+        
+        <pre><code>git push origin master</code></pre>
+        
+        <p>Everything matches now!</p>
+        </section>
+        
+        <section>
+        <h2>Make a new change</h2>
+        
+        <p>Let’s make a new change, on a new branch, based on the updated master.
+        First, make sure you’re still on master:</p>
+        
+        <pre><code>git branch</code></pre>
+        </section>
+        
+        <section>
+        <h2>Make a new change</h2>
+        
+        <p>Checkout a new branch based on the current branch (master):</p>
+        
+        <pre><code>git checkout -b link-letter-x</code></pre>
+        
+        <p><em>(Replace</em> <code>x</code> <em>with your same letter as before.)</em>
+        Double-check you’re on your new branch:</p>
+        
+        <pre><code>git branch</code></pre>
+        </section>
+        
+        <section>
+        <h2>Make a new change</h2>
+        
+        <ul>
+        <li>Return to your text editor, and see all of the new pages and images!</li>
+        <li>Open the file for the letter <em>before</em> your letter.</li>
+        <li>Add a “next page” link to the bottom of the file, linking to your page. 
+        (You can use the last line of <code>pages/letter-a.md</code> as an example.)</li>
+        <li>Save the file.</li>
+        </ul>
+        </section>
+        
+        <section>
+        <h2>Commit your new change</h2>
+        
+        <p>Follow the steps from before to:</p>
+        
+        <ul>
+        <li>Check your status.</li>
+        <li>Add your changes.</li>
+        <li>Commit your change with a message.</li>
+        <li>Check your log.</li>
+        <li>Push the new branch to your origin.</li>
+        </ul>
+        </section>
+        
+        <section>
+        <h2>Make a new PR</h2>
+        
+        <p>Follow the steps from before to:</p>
+        
+        <ul>
+        <li>Start a new PR.</li>
+        <li>Confirm your changes.</li>
+        <li>Write a descriptive title and comment.
+        (no need for WIP this time)</li>
+        </ul>
+        </section>
+                
+				<section>
+          <h2>We've Got Issues</h2>
+          <p>GitHub issues are where collaborators track bugs, propose features, and discuss changes. They are for conversation, and do not actually change code.</p>
+          <img src="img/issue-list.png" alt="" style="max-width:100%" />
+          <p>Anyone can open or comment on an issue.</p>
+        </section>
+
+        <section>
+          <h2>Claiming issues</h2>
+          <p>If you find an issue you'd like to work on, avoid duplicating work by commenting to say you'll volunteer.</p>
+          <img src="img/claiming-issue.png" alt="" style="max-width:100%" />
+          <p>Feel free to ask questions if you need clarification before starting!</p>
+        </section>
+  
+
+        <section>
+        <h2>Fix an issue</h2>
+        
+        <p>Use what you’ve learned to claim an issue and make a PR to fix it.</p>
+        
+        <ul>
+        <li>You can add the issue number to the branch name, like <code>issue-8-add-m</code></li>
+        <li>If you have time, tackle a new issues.</li>
+        <li>If there are no more issues, create a new one and claim it.</li>
+        </ul>
+        </section>
+        
+        <section>
+          <h2>Contribute to a real repo!</h2>
+          <p>Use what you’ve learned to fix an issue on the <br>
+            <a href="https://github.com/gdisf/teaching-materials">teaching-materials repo</a>.</p>
+          <ul>
+            <li>In the issue list, click the <a href="https://github.com/gdisf/teaching-materials/issues?q=is%3Aissue+is%3Aopen+label%3Anewbies-only">newbies-only label</a> for friendly, bite-sized issues.</li>
+            <li>Check the <a href="https://github.com/gdisf/teaching-materials/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> for contribution guidelines.</li>
+            <li>Don’t forget to make a fork before cloning!</li>
+          </ul>
+        </section>
+        
+				<section>
+            <h2>Finding more projects</h2>
+            <p>Some tools for finding newbie-friendly projects and issues:</p>
+            <ul>
+              <li>Search for issues with common newcomer labels at <a href="http://issuehub.io/">issuehub.io</a> and <a href="https://up-for-grabs.net">up-for-grabs.net</a></li>
+              <li>Check out a repo's <a href="https://help.github.com/articles/about-community-profiles-for-public-repositories/">community profile</a> for indicators of a healthy community</li>
+              <li><a href="https://help.github.com/articles/watching-and-unwatching-repositories/">Watch</a> the repos of tools you use, or new ones as you're learning them. Read issues and pull requests as they come in to get familiar with the project and see where you can contribute.</li>
+            </ul>
+          </section>
+            
+        <section>
+        <h2>Tips and Resources</h2>
+        
+        <ul>
+        <li><a href="https://help.github.com/articles/resolving-a-merge-conflict-on-github/">Handling merge conflicts</a></li>
+        <li><a href="http://ohshitgit.com/">How to “undo” when you get stuck</a> <br>
+        <small>(some swearing in there)</small></li>
+        <li>Shubeksha Jalan’s <a href="https://medium.freecodecamp.org/a-beginners-very-bumpy-journey-through-the-world-of-open-source-4d108d540b39">journey into open source</a></li>
+        <li>Open source meetups with <a href="https://www.meetup.com/WriteSpeakCode-SFBay/">Write/Speak/Code</a> <br>
+        <em>(women &amp; non-binary coders only)</em></li>
+        </ul>
+        </section>
+        
+
+      </div><!-- Close slides -->
+
+      <footer>
+        <div class="copyright">
+          Command Line Git for Open Source -- Girl Develop It San Francisco --
+          <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div><!-- Close reveal -->
+
+    <script src="../common/lib/js/head.min.js"></script>
+    <script src="../common/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/none
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../common/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/plugin/zoom-js/zoom.js', async: true },
+          { src: '../common/plugin/notes/notes.js', async: true },
+          //{ src: '../common/plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
