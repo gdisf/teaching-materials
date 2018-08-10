@@ -1,31 +1,40 @@
-# Intro to Backbone
+# {{ *Class:* JS402: Intro to Backbone }}
+Directory: /backbone/
 
-Slides and materials are hosted [here](http://teaching-materials.org/backbone).
+In this workshop, you'll learn all about Backbone.js, a popular front-end JavaScript library for creating dynamic, interactive web interfaces.
 
-## Course description
+The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by **{{ teacher_name }}**, {{ teacher_description }}.
 
-In this workshop, you'll learn all about Backbone.js, a popular front-end JavaScript library for creating dynamic, interactive web interfaces. 
+This workshop is highly recommended for anyone attending our frontend workshop series and is a perfect follow-up for our JS MVC workshop.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio]. This workshop is highly recommended for anyone attending our frontend workshop series and is a perfect follow-up for our JS MVC workshop.
+## Prerequisites
 
-### Prerequisites:
-
-Attendees should be comfortable with HTML/CSS basics and JavaScript fundamentals (arrays, conditionals, loops, functions, object-oriented JS). Attendees should also have learned jQuery and AJAX. That means that you either attended our HTML 101 workshop, JS 101 workshop, jQuery workshop, and AJAX workshop, or that you learned those concepts online. 
+Attendees should be comfortable with HTML and CSS fundamentals (HTML tags and attributes, CSS selectors) and JavaScript fundamentals (arrays, conditionals, loops, functions). Attendees should also be comfortable with jQuery and AJAX. That means that you attended our Intro to HTML & CSS workshop, Intro to JavaScript workshop, Intro to jQuery workshop, and AJAX workshop, or you learned those concepts online.
 
 You can review them online at a few places:
-* HTML/CSS: [Khan Academy's HTML/CSS course](https://khanacademy.org/html-css), [Codecademy's HTML/CSS course](https://www.codecademy.com/tracks/web), [GDI SF HTML/CSS slides](http://teaching-materials.org/htmlcss-1day)
-* JS: [Codecademy's JS course](https://www.codecademy.com/tracks/javascript), [Khan Academy's Intro to JS course](https://khanacademy.org/programming),  [GDI SF JS slides](http://teaching-materials.org/javascript)
-* jQuery: [Codecademy's jQuery course](https://www.codecademy.com/tracks/jquery)
-* AJAX: [GDI SF AJAX slides](http://teaching-materials.org/ajax)
+* HTML & CSS: [Khan Academy's HTML & CSS course](https://www.khanacademy.org/computing/computer-programming/html-css), [Codecademy's HTML & CSS course](https://www.codecademy.com/learn/learn-html-css), [GDI SF's HTML & CSS slides](https://www.teaching-materials.org/htmlcss-1day/)
+* JS: [Khan Academy's Intro to JS course](https://www.khanacademy.org/computing/computer-programming/programming), [Codecademy's JS course](https://www.codecademy.com/learn/learn-javascript), [GDI SF's JS slides](https://www.teaching-materials.org/javascript/)
+* jQuery: [Khan Academy's jQuery course](https://www.khanacademy.org/computing/computer-programming/html-js-jquery), [Codecademy's jQuery course](https://www.codecademy.com/learn/jquery), [GDI SF's jQuery slides](https://www.teaching-materials.org/jquery/)
+* AJAJ: [GDI SF’s AJAX slides](http://www.teaching-materials.org/ajax/)
 
-### Tech requirements:
-
-* Your laptop (Mac, PC, or Linux are all okay) and charger.
-* A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC) or Notepad++ (PC).
-
-### Topics covered:
+## Topics covered
 
 * Backbone models & views
 * Backbone events
 * CRUD (client <-> server communication)
+
+## Slides
+
+https://www.teaching-materials.org/backbone/ 
+
+## Tech requirements
+
+* Your laptop (Mac, PC, Linux) and charger
+* A modern web browser (Chrome, Firefox, Safari)
+* A text editor - we recommend either Sublime Text 2 or Atom (both free)
+
+*If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.*
+
+## Payment
+
+Payment is required to attend. If you'd like to attend but cannot afford the cost, [click here to request a scholarship](https://docs.google.com/forms/d/e/1FAIpQLSfiUBN4yve3L7iociXzcqNgEtrljsn_7mCgZ3eUtvAEr3bcQg/viewform). Due to the number of applications, only the scholarship recipient will receive an email a few days before the workshop. Thank you for your understanding!
