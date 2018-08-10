@@ -1,6 +1,6 @@
 # JS 101: JavaScript fundamentals
 
-Slides and materials are hosted [here](http://teaching-materials.org/js101).
+Slides and materials are hosted [here](https://www.teaching-materials.org/javascript/).
 
 ## Course description
 
