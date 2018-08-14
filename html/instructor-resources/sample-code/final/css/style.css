@@ -1,0 +1,155 @@
+/*
+--------------------------------------
+Table of contents
+1. Overall Design/layout
+2. Sidebar Styles
+3. Text and image alignment classes
+--------------------------------------
+*/
+
+
+/*Overall Design*/
+
+body{
+	background-color: #D3C7B1;
+	font-family: Sans-Serif;
+}
+
+#wrapper{
+	width: 65em;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+#header{
+	background-color: #3B597D;
+	margin: 0;
+	padding: 1em;
+	color: #fff;
+}
+
+#main{
+	background-color: #fff;
+	padding: 1em;
+	width: 48em;
+	float: left;
+}
+
+#sidebar{
+	background-color: #D68051;
+	padding: 1em;
+	width: 13em;
+	float: right;
+}
+
+#footer{
+	background-color: #3B597D;
+	margin: 0;
+	padding: 1em;
+	color: #fff;
+	clear: both;
+}
+
+/*Sidebar links*/
+
+#sidebar ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 5px;
+}
+
+#sidebar ul li {
+	display: inline-block;
+	width: 95%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 130%;
+	padding: 5px;
+	margin-bottom: 5px;
+	background: #3B597D;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#1d2c3e), to(#3B597D));
+	background: -webkit-linear-gradient(#1d2c3e, #3B597D);
+	background: -moz-linear-gradient(#1d2c3e, #3B597D);
+	background: -ms-linear-gradient(#1d2c3e, #3B597D);
+	background: -o-linear-gradient(#1d2c3e, #3B597D);
+	background: linear-gradient(#1d2c3e, #3B597D);
+	border: 1px solid #1d2c3e;
+	border-radius: 2px;
+	font-weight: bold;
+}
+
+#sidebar ul li a{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+
+/*Alignment classes*/
+
+.alignright{
+	float: right;
+	padding: 0 0 1em 1em;
+}
+.alignleft{
+	float: left;
+	padding: 0 1em 1em 0;
+}
+.aligninline{
+	display: block;
+	padding: .5em 0 2em 0;
+}
+.textright{
+	text-align: right;
+}
+.textcenter{
+	text-align: center;
+}
+
+/*Accessibility*/
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
