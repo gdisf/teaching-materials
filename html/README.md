@@ -22,9 +22,9 @@ Attendees are not expected to have any previous HTML or programming experience.
 
 ### TECH REQUIREMENTS
 
-• Your laptop (Mac, PC, Linux) and charger
-• A modern web browser (Chrome, Firefox, Safari)
-• A text editor - we recommend either Sublime Text or Atom (both free)
+* Your laptop (Mac, PC, Linux) and charger
+* A modern web browser (Chrome, Firefox, Safari)
+* A text editor - we recommend either Sublime Text or Atom (both free)
 
 If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.
 
