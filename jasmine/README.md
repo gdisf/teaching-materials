@@ -1,32 +1,38 @@
-# JS401 Intro to Unit Testing with Jasmine
-=================== 
+## Class: JS401: Intro to Unit Testing with Jasmine
+Directory: /jasmine/
 
-## Course Description
+This workshop will provide an introduction to Test Driven Development, specifically in the Behavior Driven Development style, using the popular testing framework [Jasmine](https://jasmine.github.io/).
 
-This workshop will provide an introduction to Test Driven Development, specifically in the Behavior Driven Development style, using the popular testing framework [Jasmine](http://jasmine.github.io/). 
+The workshop will be a mix of lectures and hands-on exercises in pairs. It will be taught by **{{ teacher_name }}**, {{ teacher_description }}.
 
-The workshop will be a mix of lectures and hands-on exercises in pairs, and will be taught by [teacher X, tiny bio]. This is a great workshop for those who are looking to learn advanced JavaScript programming techniques. Testing is an essential skill for professional software developers.
+This is a great workshop for those who are looking to learn advanced JavaScript programming techniques. Testing is an essential skill for professional software developers.
 
-
-### Prerequisites
-
-Attendees should be comfortable with JavaScript objects, arrays, and functions, and they should also have a strong understanding of the JS DOM API. Attendees will benefit from a familiarity with jQuery, but it's not required. That means you should have either attended our JS 101, 102, and 200 workshops, or learned those concepts online.
-
-You can review them online at a few places:
-* JS: [Codecademy's JS course](https://www.codecademy.com/tracks/javascript), [Khan Academy's Intro to JS course](https://khanacademy.org/programming),  [GDI SF JS 101 slides](http://teaching-materials.org/javascript), [GDI SF JS 102 slides](http://www.teaching-materials.org/jsreview/).
-* DOM API: [Khan Academy's DOM API course](https://khanacademy.org/html-css-js)
-* jQuery: [Codecademy's jQuery course](https://www.codecademy.com/tracks/jquery), [Khan Academy's jQuery course](https://khanacademy.org/html-js-jquery)
-
-### Tech requirements:
-
-* Your laptop (Mac, PC, or Linux) and charger.
-* A modern web browser - either Chrome or Firefox. 
-* A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC) or Notepad++ (PC).
-
-### Topics covered:
+## Topics covered
 
 * TDD and BDD definitions and approach
 * Suites and specs
 * Matchers
 * Spies
 * Connecting tests with your interactive web page
+
+## Prerequisites
+
+Attendees should be comfortable with JavaScript fundamentals, the DOM API, and jQuery. That means that you attended our Intro to JavaScript workshop, Making Webpages Interactive workshop, and Intro to jQuery workshop, or you learned those concepts online.
+
+You can review them online at a few places:
+
+* JS: [Khan Academy's Intro to JS course](https://www.khanacademy.org/computing/computer-programming/programming), [Codecademy's JS course](https://www.codecademy.com/learn/learn-javascript), [GDI SF's JS slides](https://www.teaching-materials.org/javascript/)
+* DOM API: [Khan Academy's "Making Webpages Interactive" course](https://www.khanacademy.org/computing/computer-programming/html-css-js), [GDI SF's "Making Webpages Interactive" slides](https://www.teaching-materials.org/jsweb/)
+* jQuery: [Khan Academy's jQuery course](https://www.khanacademy.org/computing/computer-programming/html-js-jquery), [Codecademy's jQuery course](https://www.codecademy.com/learn/jquery), [GDI SF's jQuery slides](https://www.teaching-materials.org/jquery/)
+
+## Tech requirements
+
+* Your laptop (Mac, PC, Linux) and charger
+* A modern web browser (Chrome, Firefox, Safari)
+* A text editor - we recommend either Sublime Text 2 or Atom (both free)
+
+*If you do not have a laptop, please contact the instructors. We have a limited number of Chromebooks for students to borrow.*
+
+## Payment
+
+Payment is required to attend. If you'd like to attend but cannot afford the cost, [click here to request a scholarship](https://docs.google.com/forms/d/e/1FAIpQLSfiUBN4yve3L7iociXzcqNgEtrljsn_7mCgZ3eUtvAEr3bcQg/viewform). Due to the number of applications, only the scholarship recipient will receive an email a few days before the workshop. Thank you for your understanding! 
