@@ -1,4 +1,4 @@
-## Class: JS102: JS Arrays, Objects, Functions
+# Class: JS102: JS Arrays, Objects, Functions
 Directory: /jsreview/
 
 In this workshop, you will solidify your understanding of objects, arrays and functions in JS and learn the common mistakes made by beginners. You will finish with a strong foundation in the most important JS concepts.
