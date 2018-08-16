@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Gotham-Bold';
+  src: url("../fonts/GothamBold.otf") format("opentype"); 
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url("../fonts/Avenir.ttf") format("truetype"); 
+}
+
+body {
+	font-family: 'Avenir';
+}
+
+.container {
+	width: 85%;
+	margin: 0 auto;
+}
+
+h1, h2, h3 {
+	font-family: 'Gotham-Bold';
+	color: #F36279;
+}
+
+a {
+	color: #1eabc7;
+}
+
+a:hover {
+	background: #1eabc7;
+	color: white;
+}
