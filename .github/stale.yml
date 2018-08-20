@@ -1,0 +1,30 @@
+# Number of days of inactivity before an issue becomes stale
+daysUntilStale: 30
+
+# Number of days of inactivity before a stale issue is closed
+daysUntilClose: 7
+
+# Issues with these labels will never be considered stale
+exemptLabels:
+  - Epic
+
+# Label to use when marking an issue as stale
+staleLabel: stale
+
+# Comment to post when marking an issue as stale. Set to `false` to disable
+markComment: >
+  This issue has been automatically marked as stale because it has not been updated in the last 30 days. 
+  
+  It will be closed if no further activity occurs within the next 7 days. 
+  
+  If needed, feel free to reach out on the #open-source channel in our Slack team. 
+  
+  You can also mention an admin for further help and resources. 😊
+
+# Comment to post when closing a stale issue. Set to `false` to disable
+closeComment: > 
+  This issue has been automatically closed due to max staleness. 
+  
+  Thank you so much for your contributions to Girl Develop It SF.
+
+  Please feel free to open up another PR at any time. 💛
