@@ -119,10 +119,10 @@
         <section>
           <h3>History of HTML</h3>
           <ul>
-            <li>Invented by Tim Berners-Lee</li>
+            <li>Invented by Tim Berners-Lee, first web page published August 6, 1991</li>
             <li>Created "hypertext" to share scientific papers</li>
-            <li>First web page August 6, 1991</li>
-            <li>Standardized by w3 Consortium (pack of super nerds)</li>
+            <li>Intended as a standard way to structuring documents</li>
+            <li>Standardized by <a href="https://www.w3.org/" target="_blank">W3C</a> (World Wide Web Consortium - pack of super nerds)</li>
           </ul>
         </section>
 
@@ -240,7 +240,7 @@
               A paragraph is your <strong>content</strong>
             </li>
             <li>
-              Putting your content into an HTML tag to make it look like a paragraph is <strong>structure</strong>
+              Putting your content into a &lt;p&gt; HTML tag to indicate it is a paragraph is creating <strong>structure</strong>
               <pre><code class ="html">&lt;p&gt;A paragraph is your content&lt;/p&gt;</code></pre>
             </li>
             <li>
@@ -256,22 +256,19 @@
           <ul>
             <li><strong>Element</strong>
               <ul>
-                <li>An individual component of HTML</li>
-                <li>Paragraph, heading, table, list, div, link, image, etc.</li>
+                <li>Building blocks of web pages - an individual component of HTML</li>
+                <li>Examples: paragraph, heading, table, list, div, link, image, etc.</li>
               </ul>
             </li>
             <li><strong>Tag</strong>
               <ul>
                 <li>
-                  Marks the beginning &amp; end of an element
-                </li>
-                <li>
-                  Opening tag and Closing Tag
+                  <strong>Opening tag</strong> marks the beginning of an element &amp; <strong>closing tag</strong> marks the end
                 </li>
                 <li>
                   Tags contain characters that indicate the tag's purpose
                   <pre><code class ="html">&lt;tagname&gt;Stuff in the middle&lt;/tagname&gt;</code></pre>
-                  <pre><code class ="html">&lt;p&gt; This is a sample paragraph.&lt;/p&gt;</code></pre>
+                  <pre><code class ="html">&lt;p&gt;This is a sample paragraph.&lt;/p&gt;</code></pre>
                 </li>
               </ul>
             </li>
@@ -296,9 +293,9 @@
             <li><strong>Stand Alone Element</strong>
               <ul>
                 <li>
-                  An element that cannot contain anything elsepre
-                  <pre><code class = "html">&lt;br/&gt;
-&lt;img/&gt;</code></pre>
+                  An element that cannot contain anything else
+                  <pre><code class = "html">&lt;br /&gt;
+&lt;img /&gt;</code></pre>
                 </li>
               </ul>
             </li>
@@ -311,8 +308,8 @@
             <li><strong>Attribute</strong>
               <ul>
                 <li>Provides additional information about the HTML element</li>
-                <li>Class, ID, language, style, identity, source</li>
                 <li>Placed inside an opening tag, before the right angle bracket.</li>
+                <li>Examples: class, id, language, style, source</li>
               </ul>
             </li>
             <li><strong>Value</strong>
@@ -353,7 +350,7 @@ www.w3.org/TR/html4/loose.dtd"&gt;</code></pre>
 
         <section>
           <h3>Head and Body Tags</h3>
-          <p><strong>Head:</strong> The head contains the title of the page &amp; meta information about the page. Meta information is not visible to the user, but has many purposes, like providing information to search engines.</p>
+          <p><strong>Head:</strong> The head contains the title of the page &amp; <code>meta</code> information about the page. Meta information is not visible to the user, but has many purposes, like providing information to search engines.</p>
           <p><strong>Body:</strong> The body contains the actual content of the page. Everything that is contained in the body is visible to the user.</p>
         </section>
 
@@ -501,9 +498,9 @@ www.w3.org/TR/html4/loose.dtd"&gt;</code></pre>
           <h3>Element: Link</h3>
           <p>Links have three components</p>
           <ul>
-            <li>Tag: &lt;a>&lt;/a></li>
-            <li>Href attribute: "http://www.girldevelopit.com"</li>
-            <li>Title attribute: "Girl Develop It"</li>
+            <li>tag: &lt;a>&lt;/a></li>
+            <li>href attribute: "http://www.girldevelopit.com"</li>
+            <li>title attribute: "Girl Develop It"</li>
           </ul>
           <pre><code class="html">&lt;a href="http://www.girldevelopit.com" title="Girl Develop It"&gt;Girl Develop It&lt;/a&gt;</code></pre>
           <p><a href ="http://www.girldevelopit.com" title="Girl Develop It">Girl Develop It</a></p>
@@ -552,9 +549,9 @@ www.w3.org/TR/html4/loose.dtd"&gt;</code></pre>
           <h3>Element: Image</h3>
           <p>Images have three components</p>
           <ul>
-            <li>Tag: &lt;img /&gt;</li>
-            <li>Src attribute: "https://assets.brandfolder.com/4btx26fz/original/circle-gdi-logo.png"</li>
-            <li>Alt attribute: "Girl Develop It logo"</li>
+            <li>tag: &lt;img /&gt;</li>
+            <li>src attribute: "https://assets.brandfolder.com/4btx26fz/original/circle-gdi-logo.png"</li>
+            <li>alt attribute: "Girl Develop It logo"</li>
           </ul>
           <pre><code class="html">&lt;img src="https://assets.brandfolder.com/4btx26fz/original/circle-gdi-logo.png"
 alt="Girl Develop It logo"/&gt;</code></pre>
@@ -566,20 +563,20 @@ alt="Girl Develop It logo"/&gt;</code></pre>
         <h3>Element: Line Break</h3>
           <div>
             <div class="halfblock">
-              <pre><code class="html">&lt;p&gt;
-  Imagine there's no Heaven &lt;br/&gt;
-  It's easy if you try &lt;br/&gt;
-  No hell below us  &lt;br/&gt;
+              <pre><code class="html apache">&lt;div&gt;
+  Imagine there's no Heaven&lt;br/&gt;
+  It's easy if you try&lt;br/&gt;
+  No hell below us&lt;br/&gt;
   Above us only sky
-&lt;/p&gt;</code></pre>
+&lt;/div&gt;</code></pre>
             </div>
             <div class="halfblock">
-              <p>
+              <div>
                 Imagine there's no Heaven <br/>
-                It's easy if you try <br/>
-                No hell below us  <br/>
+                It's easy if you try<br/>
+                No hell below us<br/>
                 Above us only sky
-              </p>
+              </div>
             </div>
             <div class="clear"></div>
           </div>
@@ -703,10 +700,10 @@ alt="Girl Develop It logo"/&gt;</code></pre>
           <p>There are character codes for many different characters in many different languages</p>
           <div class="halfblock">
             <ul>
-              <li>Delta: &amp;delta; &delta;</li>
-              <li>Copyright symbol: &amp;copy; &copy;</li>
-              <li>Grave: &amp;grave; &grave;</li>
-              <li>An grave a: &amp;agrave; &agrave;</li>
+              <li>Delta: <code>&amp;delta;</code> &delta;</li>
+              <li>Copyright symbol: <code>&amp;copy;</code> &copy;</li>
+              <li>Grave: <code>&amp;grave;</code> &grave;</li>
+              <li>An grave a: <code>&amp;agrave;</code> &agrave;</li>
               <li>A full list is available at <a href="http://htmlandcssbook.com/extras/html-escape-codes/" target="_blank">htmlandcssbook.com</a></li>
             </ul>
           </div>
@@ -734,14 +731,14 @@ alt="Girl Develop It logo"/&gt;</code></pre>
           <ul>
             <li>CSS divides HTML into two types: inline and block.</li>
             <li>After block elements, browsers render a new line.</li>
-            <li><strong>Inline elements:</strong> img, a, br, em, strong</li>
-            <li><strong>Block elements:</strong> p, h1, ul, li, almost everything else</li>
+            <li><strong>Inline elements:</strong> <code>img, a, br, em, strong</code></li>
+            <li><strong>Block elements:</strong> <code>p, h1, ul, li,</code> almost everything else</li>
           </ul>
         </section>
 
         <!-- Divs -->
         <section>
-          <h3>Element: Div</h3>
+          <h3>Element: div</h3>
           <ul>
             <li>Block level element. Each new div is rendered on a new line.</li>
             <li>A division, or section of content within an HTML page.</li>
@@ -764,15 +761,15 @@ alt="Girl Develop It logo"/&gt;</code></pre>
         </section>
 
         <section>
-          <h3>Grouping Elements with Div</h3>
+          <h3>Grouping Elements with div</h3>
           <ul>
-            <li>The div tag is used everywhere to group elements together into sections.</li>
+            <li>The <code>div</code> tag is used everywhere to group elements together into sections.</li>
             <li>You can wrap groups of elements in a div to style them differently.</li>
           </ul>
         </section>
 
         <section>
-          <h3>Grouping Elements with Div, Cont.</h3>
+          <h3>Grouping Elements with div, Cont.</h3>
           <pre><code class="html">&lt;div style="color: purple;"&gt;
   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit&lt;/p&gt;
   &lt;p&gt;Sed do eiusmod tempor incididunt ut labore et dolore.&lt;/p&gt;
@@ -810,7 +807,7 @@ alt="Girl Develop It logo"/&gt;</code></pre>
 
         <section>
           <h3>Sample Code</h3>
-          <p>A page divided into divs might look like this:</p>
+          <p>A page divided into <code>div</code>s might look like this:</p>
           <pre><code class="html">&lt;!doctype html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -860,7 +857,7 @@ alt="Girl Develop It logo"/&gt;</code></pre>
 
         <!-- Span -->
         <section>
-          <h3>Element: Span</h3>
+          <h3>Element: span</h3>
           <ul>
             <li>Inline element. Each new span is rendered next to each other &amp; only wraps when it reaches the edge of the containing element.</li>
             <li>Can be used to apply styles to text inline so as not to break the flow of content.</li>
@@ -869,7 +866,7 @@ alt="Girl Develop It logo"/&gt;</code></pre>
 
         <section>
           <h3>Span</h3>
-          <p>Span is used to apply a specific style inline</p>
+          <p><code>span</code> is used to apply a specific style inline</p>
           <pre><code class="html">&lt;p&gt;Paragraph with &lt;span style="color:teal;"&gt;teal&lt;/span&gt; text.&lt;/p&gt;</code></pre>
           <p>Paragraph with <span style="color:teal;">teal</span> text.</p>
         </section>
