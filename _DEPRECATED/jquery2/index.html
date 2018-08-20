@@ -1,0 +1,374 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>More jQuery</title>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../../common/css/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../../common/favicon.ico" />
+
+	</head>
+	<body>
+    <div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1 class="center">More jQuery</h1>
+					<div class="content">
+						<p align="center">
+						Slides: <a href="http://www.teaching-materials.org/jquery2/">http://www.teaching-materials.org/jquery2/</a>
+						</p>
+					</div>
+        </section><!--/jquery title slide-->
+
+
+        <section>
+        	<header><h2>Review: JS Functions</h2></header>
+        	<div class="content">
+        		<pre><code class="javascript">//define a function
+var sayHello = function (name) {
+  console.log("Hello, " + name + "!");
+}
+
+//call a function 
+sayHello("Girl Develop It");
+        		</code></pre>
+        	</div>
+        </section>
+
+
+        <section>
+			<header><h2>Remember: Callbacks</h2></header>
+				<img src="img/ryan-gosling-callback.jpg" style="width:100%;"/>
+
+		</section><!--/hey girl meme-->
+
+		<section>
+        	<header><h2>Review: JS Callbacks</h2></header>
+        	<div class="content">
+<pre><code class="javascript">var sayHello = function (name) {
+  console.log("Hello, " + name + "!");
+}
+
+var textAFriend = function (name, callback) {
+  callback(name);
+}
+
+//call the function with a named callback function
+textAFriend("Girl Develop It", sayHello);
+        		</code></pre>
+        	</div>
+        </section>
+
+        <section>
+        	<header><h2>Review: JS Callbacks</h2></header>
+        	<div class="content">
+<pre><code class="javascript">var sayAwesome = function (name, callback) {
+  callback(name);
+}
+
+//call the function with an anonymous callback function
+sayAwesome("Girl Develop It", function() {
+  console.log("You are awesome " + name + "!");
+});
+        		</code></pre>
+        	</div>
+        </section>
+
+        		<section>
+					<header><h2>Events</h2></header>
+					<div class="content">
+<pre><code class="javascript">// First Example, with named callback & .on
+var onButtonClick = function() {
+  console.log('clicked!');
+};
+
+$('button').on('click', onButtonClick);
+
+
+// Second Example, with anonymous callback & .on
+$('button').on('click', function () {
+  console.log('clicked!');
+});
+
+
+// Third Example, with .click (& a named callback)
+$('button').click(onButtonClick)
+</code></pre>
+<small><ul>
+						<li><a href="http://api.jquery.com/category/events/keyboard-events/">Keyboard Events</a>
+							<code>'keydown'</code>
+							<code>'keypress'</code>
+							<code>'keyup'</code>
+						</li>
+						<li><a href="http://api.jquery.com/category/events/mouse-events/">Mouse Events</a>
+							<code>'click'</code>
+							<code>'mousedown'</code>
+							<code>'mouseup'</code>
+							<code>'mousemove'</code>
+						</li>
+						<li><a href="http://api.jquery.com/category/events/form-events/">Form Events</a>
+							<code>'change'</code>
+							<code>'focus'</code>
+							<code>'blur'</code>
+						</li>
+        </ul></small>
+            <p>Follow along: <a href="http://jsbin.com/jiwoxef/edit">http://jsbin.com/jiwoxef/edit</a></p>
+					</div>
+				</section><!--/events1-->
+
+
+
+				<section>
+					<header><h2>Events</h2></header>
+					<p>
+						<br>
+						<p>Preventing Default Events</p>
+<pre><code class="javascript">//default event for clicking on link is to go to new page
+$('a').on('click', function (event) {
+  event.preventDefault();
+  console.log('Not going there!');
+});</code></pre>
+<pre><code class="javascript">//default event is to submit form and reload page
+$('form').on('submit', function (event) {
+  event.preventDefault(); 
+  console.log('Not submitting, time to validate!');
+});</code></pre>
+
+					</p>
+				</section><!--/events2-->
+
+
+
+
+				<section>
+					<header><h2>Effects &amp; Animation</h2></header>
+					<p>
+						<br>
+<pre><code class="javascript">//on page load
+$('.kitty-image').show(3000);
+
+$('.kitty-image').fadeIn(3000);
+
+//with an event handler, as a callback
+$('button').click(function() {
+  $('.kitty-image').show();
+});
+
+$('button').mouseover(function(){
+  $(this).css('color', 'red');
+});</code></pre>
+
+					<p>
+				</section><!--/effects and animation-->
+
+
+
+
+
+				<section>
+					<header><h2><a href="exercises/exercise_events.html">Exercise Time!</a></h2></header>
+					<p><a href="exercises/exercise_events.html">click here!</a> </p>
+				</section><!--/exercise3-->
+
+				<section>
+					<header><h2>jQuery Plugins</h2></header>
+					<p>
+						<br>
+<cite>"If you want to create an animation, effect, or UI component, chances are pretty good that someone has done the work for you already."</cite>
+						<h3 style="text-align:center"><a href="http://plugins.jquery.com">plugins.jquery.com</a></h3>
+						<br><br>
+						<p><a href="http://blog.pamelafox.org/2013/07/which-javascript-library-should-i-pick.html">Which plugin should you pick?</a></p>
+<aside class="notes">shorter, cross-browser</pre>
+					</p>
+				</section><!--/jquery plugins-->
+
+				<section>
+					<h2>jQuery Plugin Usage</h2>
+						<ul>
+							<li>Download the plugin and associated files from the site or github repo.</li>
+							<li>Copy them into your project folder.</li>
+							<li>In the HTML, reference any associated CSS files.</li>
+<pre><code>&lt;link rel="type/stylesheet" type="text/css" href="tablesorter.css"&gt;</code></pre>
+							<li>In the HTML, add a &lt;script&gt; tag for the jQuery plugin itself.</li>
+<pre><code>&lt;script src="lib/tablesorter.js"&gt;&lt;script&gt;</code></pre>
+							<li>In the JavaScript, call the jQuery plugin on your DOM.</li>
+<pre><code>$('table').tableSorter();</code></pre>
+            </ul>
+<aside class="notes">shorter, cross-browser</aside>
+				</section><!--/jquery plugin usage-->
+
+
+				<section>
+					<header><h2><a href="exercises/exercise_plugin.html">Exercise Time!</a></h2></header>
+            <p><a href="exercises/exercise_plugin.html">click here!</a></p>
+        </section><!--/exercise3-->
+
+
+				<section>
+					<header><h2>jQuery Patterns and Anti-Patterns</h2></header>
+					<p>
+						<br>
+						<p><strong>Pattern: </strong>name variables with $
+<pre><code class="javascript">var $myVar = $('#myNode');</code></pre>
+						</p>
+						<!--<br>
+						<p><strong>Pattern: </strong>bind events to the document
+						<pre><code class="javascript">$(document).on('click', 'a', myCallback);</code></pre>
+						</p>--> 
+
+					</p>
+				</section><!--/jquery patterns and anti-patterns-->
+
+
+
+
+				<section>
+					<header><h2>Storing References</h2></header>
+					<p>
+						<p><strong>Pattern: </strong>store references to callback functions
+<pre><code class="javascript">var myCallback = function(argument) {
+  // do something cool
+};
+
+$(document).on('click', 'p', myCallback);
+</code></pre>
+						</p>
+						<p><strong>Anti-pattern: </strong>anonymous functions
+<pre><code class="javascript">
+$(document).on('click', 'p', function(argument) {
+  // do something anonymous
+});
+</code></pre>
+					</p>
+				</section><!--/storing references-->
+
+
+
+
+				<section>
+					<header><h2>Chaining</h2></header>
+					<p>
+						<br>
+<pre><code class="javascript">banner.css('color', 'red');
+banner.html('Welcome!');
+banner.show();</code></pre>
+						<p>Is the same as:</p>
+
+<pre><code class="javascript">banner.css('color', 'red').html('Welcome!').show();</code></pre>
+
+						<p>Is the same as:</p>
+
+<pre><code class="javascript">banner.css('color', 'red')
+       .html('Welcome!')
+       .show();</code></pre>
+
+					</p>
+				</section><!--/chaining-->
+
+
+				<section>
+					<header><h2>DOM Readiness</h2></header>
+					<p>
+
+					<p><strong>Broken code: </strong>DOM manipulation and event binding in the <code>&lt;head&gt;</code>
+
+<pre><code class="html">&lt;head&gt;
+  &lt;script&gt;
+    $('body').append( myNode );
+  &lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+					</p>
+				</section>
+
+				<section>
+					<header><h2>DOM Readiness</h2></header>
+<p><strong>Pattern: </strong>If you <em>need</em> to load a script in the <code>&lt;head&gt;</code>, wait for the rest of the DOM to be ready before executing
+<pre><code class="html">&lt;body&gt;
+  //all your other HTML code
+  &lt;script&gt;
+    $(document).ready(function() {
+      // do something when the DOM is fully loaded
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+						</p>
+
+
+					</p>
+				</section><!--/DOM readiness-->
+
+
+				<section>
+					<header><h2>jQuery</h2></header>
+					<p>
+						<br>
+						<h4 style="text-align:center">...is great.
+						<br><br>
+						But do not become a jQuery-dependant!</h4>
+					</p>
+				</section><!--don't become a jquery dept-->
+
+				<section>
+					<header><h2>jQuery</h2></header>
+					<p>
+						<br>
+						<h3 style="text-align:center">
+							<a href="http://docs.jquery.com">docs.jquery.com</a>
+						</h3>
+					</p>
+				</section><!--docs.jquery.com-->
+
+			</div><!--/slides-->
+      <footer>
+        <div class="copyright">
+    More jQuery -- San Francisco --
+          <a rel="license" href="../../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+
+		</div><!--/presentation-->
+    <script src="../../common/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../common/lib/js/head.min.js"></script>
+    <script src="../../common/js/reveal.min.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: '../../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../../common/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '../../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+	</body>
+</html>

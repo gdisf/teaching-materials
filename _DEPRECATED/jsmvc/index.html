@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>JS MVC</title>
+
+  <meta name="description" content="JS MVC">
+  <meta name="author" content="Girl Develop It">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="../../common/css/reveal.min.css">
+    <link rel="stylesheet" href="../../common/css/gdilight.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <!-- dark editor -->
+    <link rel="stylesheet" href="../../common/css/editor/dark.css">
+
+    <!-- If use the PDF print sheet so students can print slides-->
+
+    <link rel="stylesheet" href="../../common/css/print/pdf.css" type="text/css" media="print">
+    <link rel="icon" type="image/x-icon" href="../../common/favicon.ico" />
+
+  <link rel="stylesheet" href="../../common/plugin/accessibility-helper/css/accessibility-helper.css">
+
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = '../../common/css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  </script>
+
+  <!-- If use the PDF print sheet so students can print slides-->
+  <link rel="stylesheet" href="../../common/css/print/pdf.css" type="text/css" media="print">
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <!--[if lt IE 9]>
+    <script src="dist/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+	<body>
+		
+		<div class="reveal">
+			
+			<div class="slides">
+
+<section>
+  <img src="../../common/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder">
+	<h1 class="upper">JavaScript MVC</h1>
+  <h4>teaching-materials.org/jsmvc/</h4>
+</section>
+
+
+<section>
+  
+  <h1>JavaScript and Websites</h1>
+  <h2>A brief history</h2>
+
+</section>
+
+
+<section>
+  <h1>Web 1.0: JS for Almost Nothing</h1>
+
+  <img src="images/web1point0.png">
+</section>
+
+<section>
+  <h1>Web 2.0: JS for AJAX</h1>
+  <img src="images/web2point0.png">
+</section>
+
+<section>
+  <h1>Web Today: JS for Everything</h2>
+
+  <img src="images/web3point0.png">
+</section>
+
+<section>
+  <h1>Big JS Web Apps</h1>
+
+  <img src="images/webapps.png">
+
+</section>
+
+<section>
+  <h1>What does the JS do?</h1>
+
+  <ul>
+    <li>Fetches data (via AJAX)</li>
+    <li>Processes and calculates data</li>
+    <li>Creates DOM (like w/jQuery)</li>
+    <li>Reacts to events</li>
+  </ul>
+</section>
+
+<section>
+  <h1>...that's a lot of JS.</h1>
+  
+  <br><br>
+  <h2>
+    Coursera: <strong>28,848 lines of JS code.</strong>.
+  </h2>
+
+</section>
+
+<section>
+  <h1>Let's make it manageable</h1>
+  <br><br>
+  <ul>
+     <li class="fragment">Split into multiple files.</li>
+     <li class="fragment">Modularize the code into re-usable chunks.</li>
+     <li class="fragment">Use object-oriented concepts to organize code.</li>
+     <li class="fragment">Separate the code into "model" vs. "view"</li>
+  </ul>
+
+</section>
+
+
+<section>
+  <h1>Model vs. View</h1>
+
+  <div style="position:relative;">
+    <svg height="400" width="800" xmlns=http://www.w3.org/2000/svg>
+      <circle cx="200" cy="200" r="200" fill="yellow" style="opacity:.5"/>
+      <circle cx="600" cy="200" r="200" fill="cyan" style="opacity:.5"/>
+    </svg>
+      
+      <div style="position:absolute;top: 70px; left: 190px; text-align:center;">
+        <h3>"Model"</h3>
+        <h4>(Data)</h4>
+        <p>Fetch data</p>
+        <p>Process data</p>
+        
+      </div>
+      
+      <div style="position:absolute;top: 70px; left: 540px; text-align:center;">
+        <h3>"View"</h3>
+        <h4>(Presentation)</h4>
+        <p>Create DOM</p>
+        <p>Handle DOM Events</p>
+        
+      </div>
+  </div>
+
+</section>
+
+<section>
+  <h1>Example: BookShelf App</h1>
+   <p>
+    <a href="demo/bookshelf.html">Try It!</a>
+    <br>
+   <img src="images/bookshelf_screenshot.png">
+   </p>
+
+   <table style="width: 100%;
+background: white;
+text-align: center;
+margin: 30px 0 0 0;" border="1">
+    <thead>
+     <tr><th>&nbsp; Model:</th><th>&nbsp; View:</th></tr>
+    <tbody> 
+      <tr>
+        <td contenteditable></td>
+        <td contenteditable style="border-left:1px solid #ccc;"></td>
+   </table>
+    <!-- What is the data in the app?
+   What does the user do with the data? -->
+</section>
+
+
+<section>
+  <h1>The Book Model</h1>
+
+  <p>Simple version: stores properties passed in</p>
+  <pre><code class="javascript hljs">var BookModel = function(bookJSON) {
+  this.title     = bookJSON.title;
+  this.author    = bookJSON.author;
+  this.asin      = bookJSON.asin;
+  this.thumbnail = bookJSON.thumbnail;
+  this.rating    = bookJSON.rating;
+  this.review    = bookJSON.review;
+};</pre></code>
+
+  <pre><code class="javascript">var book = new BookModel({
+    title: "1984",
+    author: "George Orwell",
+    asin: "0451524934",
+    thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+    rating: 4
+  });</pre></code>
+</section>
+
+<section>
+  <h1>The Book Model</h1>
+
+  <p>Better: Sets defaults for properties</p>
+  <pre><code class="javascript">var BookModel = function(bookJSON) {
+  this.title     = <strong>bookJSON.title || 'Untitled'</strong>;
+  this.author    = <strong>bookJSON.author || 'Unknown author'</strong>;
+  this.asin      = bookJSON.asin;
+  this.thumbnail = bookJSON.thumbnail;
+  this.rating    = bookJSON.rating;
+  this.review    = <strong>bookJSON.review || ''</strong>;
+};</pre></code>
+
+  <pre><code class="javascript">var book = new BookModel({
+    asin: "0451524934",
+    thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+    rating: 4
+  });</pre></code>
+</section>
+
+<section>
+  <h1>The Book Model</h1>
+
+  <p>Even better: computes properties</p>
+  <pre><code class="javascript">var BookModel = function(bookJSON) {
+  this.title     = bookJSON.title || 'Untitled';
+  this.author    = bookJSON.author || 'Unknown author';
+  this.asin      = bookJSON.asin;
+  this.thumbnail = bookJSON.thumbnail;
+  this.rating    = bookJSON.rating;
+  this.review    = bookJSON.review || '';
+  this.url       = <strong>'http://www.amazon.com/gp/product/'
+      + this.asin + '?tag=amazonsimilar-20'</strong>;
+};</pre></code>
+
+  <pre><code class="javascript hljs">var book = new BookModel({
+    title: "1984",
+    author: "George Orwell",
+    asin: "0451524934",
+    thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+    rating: 4
+  });</pre></code>
+</section>
+
+
+<section>
+  <h1>The BookCollection</h1>
+
+  <p>Creates an array of Models and provides sorts.</p>
+  
+  <pre><code class="javascript">var BookCollection = function(booksJSON) {
+  this.items = [];
+  for (var i = 0; i &lt; booksJSON.length; i++) {
+    this.items.push(new BookModel(booksJSON[i]));
+  }
+};
+
+BookCollection.prototype.sort = function() {
+  this.items.sort(function(bookA, bookB){
+    return (bookA.rating - bookB.rating);
+  });
+};
+  </pre></code>
+
+  <pre><code class="javascript">var booksJSON = [{
+    title: "1984",
+    author: "George Orwell",
+    asin: "0451524934",
+    thumbnail: "http://images.amazon.com/images/P/0451524934.01.ZTZZZZZZ.jpg",
+    rating: 4
+  }]
+
+var books = new BookCollection(booksJSON);</pre></code>
+
+</section>
+
+<section>
+  <h1><a href="exercises/exercise_model.html">Exercise Time!</a></h1>
+</section>
+
+
+<section>
+  <h1>A BookShelf View</h1>
+  <pre><code class="javascript">var BookShelfView = function(books) {
+  var shelfDiv = $('&lt;div>');
+  for (var i = 0; i &lt; books.items.length; i++) {
+    var book = books.items[i];
+    // Create a div with a linked image inside it, 
+    // and add that to the shelf div
+    var bookDiv = $('&lt;div class="book">');
+    var bookLink = $('&lt;a>');
+    bookLink.attr('href', book.url);
+    var bookCover = $('&lt;img>');
+    bookCover.attr('src', book.thumbnail);
+    bookLink.append(bookCover);
+    bookDiv.append(bookLink);
+
+    shelfDiv.append(bookDiv);
+
+    // On mouseover, pop up the review
+    bookDiv.bind('mouseover', function(e) {
+        var reviewDiv = $('&lt;div class="book-review">');
+        reviewDiv.html('&lt;strong>' + book.rating + ' stars: &lt;/strong>' + (book.review || ' No review.'));
+        reviewDiv.css({'position': 'absolute', 'top':  e.pageY, 'left': e.pageX});
+        $('body').append(reviewDiv);
+    });
+    bookDiv.bind('mouseout', function() {
+      $('.book-review').remove();
+    });
+  }
+  return shelfDiv;
+};
+  </pre></code>
+  <!-- Proof of a good view: it can be used twice.
+   Your view should never know about the DOM of your webpage. -->
+</section>
+
+
+<section>
+  <h1>Smaller/Nested Views</h1>
+  <pre><code class="javascript">var BookView = function(book) {
+  var bookDiv = $('&lt;div class="book">');
+  var bookLink = $('&lt;a>');
+  bookLink.attr('href', book.url);
+  var bookCover = $('&lt;img>');
+  bookCover.attr('src', book.thumbnail);
+  bookLink.append(bookCover);
+  bookDiv.append(bookLink);
+
+  // Attach event listeners
+  return bookDiv;
+};
+
+var BookShelfView = function(books) {
+  var shelfDiv = $('&lt;div>');
+  for (var i = 0; i &lt; books.items.length; i++) {
+    var book = books.items[i];
+    shelfDiv.append(new BookView(book));
+  }
+  return shelfDiv;
+};
+  </pre></code>
+</section>
+
+<section>
+  <h1>BookShelf App: <br>MVC Version</h1>
+
+   <p>
+    <a href="demo/bookshelf_mvc.html">Try it!</a>
+  </p>
+  <p>
+   <img src="images/bookshelf_screenshot.png">
+  </p>
+</section>
+
+<section>
+  <h1><a href="exercises/exercise_view.html">Exercise Time!</a></h1>
+</section>
+
+<section>
+  <h1>MV* Frameworks</h1>
+  
+  <img src="http://dl.dropbox.com/u/10998095/Screenshots/j6-bm8vdetj2.png">
+  <!--
+- Many JS developers have done this, so they’ve made generic libraries to make it easier.
+-->
+</section>
+
+<section>
+  <h1>MV* Frameworks</h1>
+
+  <ul>
+    <li>MVC: Model View Controller (e.g. <a href="http://emberjs.com/">EmberJS</a>, <a href="http://angularjs.org/">AngularJS</a>)</li>
+    <li>MVP: Model View Presenter (e.g. <a href="http://backbonejs.org/">BackboneJS</a>)</li>
+    <li>MVVM: Model View ViewModel (e.g. <a href="http://knockoutjs.com/">KnockoutJS</a>)</li>
+    <li>MV*: Model View Something!</li>
+  </ul>
+  <br><br>
+  <p><a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">
+    Journey through the JS MVC Jungle</a>, 
+    <a href="http://todomvc.com/" target="_blank">TodoMVC</a>
+  </p>
+</section>
+
+
+			</div>			
+		</div>
+
+		<script src="../../common/lib/js/head.min.js"></script>
+		<script src="../../common/js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [{
+          src: '../../common/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        }, {
+          src: '../../common/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        }, {
+          src: '../../common/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        }, {
+          src: '../../common/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        }, {
+          src: '../../common/plugin/zoom-js/zoom.js',
+          async: true
+        }, {
+          src: '../../common/plugin/notes/notes.js',
+          async: true
+        }, {
+          src: '../../common/plugin/accessibility-helper/js/accessibility-helper.js',
+          async: true,
+          condition: function() {
+            return !!document.body.classList;
+          }
+        }]
+      });
+    </script>
+  </body>
+</html>

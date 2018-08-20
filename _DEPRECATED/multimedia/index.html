@@ -1,0 +1,676 @@
+<!doctype html>
+    <html>
+    <head>
+        <title>Multimedia in HTML5</title>
+        <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../common/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../../common/css/presentation.css" />
+    <link rel="stylesheet" type="text/css" href="../../common/css/prettify.css" />
+    <link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../../common/css/codemirror.css" /> 
+    <script src="../../common/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../common/js/fathom.js"></script>
+    <script src="../../common/js/prettify.js"></script>
+    <script src="../../common/js/jquery.overlay.js"></script> 
+    <script src="../../common/js/codemirror.js"></script> 
+    <script>
+        $(document).ready(function(){
+            $('pre').addClass('prettyprint').attr('tabIndex', 0);
+            prettyPrint();
+
+            var fathom = $('#presentation').fathom({
+                onActivateSlide: function() {
+                    var $slide = $(this);
+                    $slide.find('pre:first').focus();
+                }
+            });
+            $('body').keypress(function(event){
+               if (event.which === 110) {
+                   $('.speaker-notes').toggle();
+               }
+            });
+        });
+        </script>
+    </head>
+<body>
+  <div id="presentation">
+  
+   <div id="presentation-counter"></div>
+      
+   <div id="slides">
+   
+
+    <div class="slide section"> 
+     <header><h1>Multimedia in HTML5</header>
+    </div> 
+    
+    
+    <!-- History -->
+    <div class="slide normal">
+      <header><h1>Prehistoric HTML</h1></header>
+      <section class="content">
+        <p>Before HTML5, browsers could 
+          only natively display one type of 
+          multimedia.
+        </p>
+        <br>
+        <pre>
+&lt;img src="omgcat.gif"&gt;
+        </pre>
+        <br>
+        <img src="media/omgcat.gif">
+      </section>
+    </div>
+
+    <div class="slide normal">
+      <header><h1>The plugin era</h1></header>
+      <section class="content">
+        <p>Plugins proliferated:
+        <ul>
+          <li>1991: Apple Quicktime (.mov)
+          <li>1994: MIDI (background music)
+          <li>1995: RealAudio (.ra, .ram)
+          <li>1997: RealVideo (H.263)
+          <li>1998: Windows Media Player
+          <li>1999: Quicktime for Windows (.mov, .mp3, .mp4, .swf)
+          <li>2002: Macromedia Shockwave Flash (.swf)
+          <li>2007: Microsoft Silverlight (flash, vid, etc.)
+        </ul>
+      </section>
+    </div>
+
+    <div class="slide normal">
+      <header><h1>HTML support for plugins</h1></header>
+      <section class="content">
+        <p>To embed a file for a plugin to open, you'd use:
+        </p>
+        <br><br>
+        <code>&lt;embed&gt;</code>
+        <p>Introduced in Netscape 2.0, a simple tag.</p>
+        <br><br>
+        <code>&lt;object&gt;</code>
+        <p>Introduced in HTML 4.01 spec, this tag supports more complex configuration.
+        </p>
+      </section>
+    </div>
+
+   <div class="slide normal"> 
+     <header><h1>The embed element</h1></header> 
+     <section class="content"> 
+    
+<p>The <code>embed</code> tag should specify <code>src</code> and <code>type</code> attributes.
+</p>
+<pre>
+&lt;embed type="application/x-shockwave-flash"
+ src="zombie_walk.swf"/&gt;
+</pre>
+<br><br>
+<embed type="application/x-shockwave-flash" src="media/zombie_walk.swf"/>
+     </section>
+    </div>
+    
+
+    <div class="slide normal"> 
+     <header><h1>The object element</h1></header> 
+     <section class="content"> 
+
+<p>The <code>object</code> tag should have one or more <code>param</code> child tags that give info to the browser on what to embed.
+</p>
+<pre>
+&lt;object width="300" height="150"&gt;
+  &lt;param name="movie" value="zombie_walk.swf"/&gt;
+  &lt;param name="bgcolor" value="white"/&gt;
+&lt;/object&gt;
+</pre>
+<br><br>
+<object width="300" height="150">
+  <param name="movie" value="media/zombie_walk.swf"/>
+</object>
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>object and embed</h1></header> 
+     <section class="content"> 
+     <p>The <code>object</code> tag can include content that is executed if the browser doesn't understand the object tag. This content could be text, another <code>object</code> tag, or an <code>embed</code> tag. 
+</p>
+<pre>
+&lt;<strong>object</strong> classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+ codebase="http://www.apple.com/qtactivex/qtplugin.cab"
+ height="400" width="500"&gt;
+ &lt;param name="src" value="springs.mov" &gt;
+ &lt;param name="autoplay" value="true" &gt;
+
+ &lt;<strong>embed</strong> 
+  type="video/quicktime"
+  pluginspage="http://www.apple.com/quicktime/download/"
+  height="400" width="400"
+  src="springs.mov" autoplay="true" 
+ /&gt;
+&lt;/object&gt;
+</pre>
+
+     </section>
+    </div>
+    
+    
+    <div class="slide normal"> 
+     <header><h1>The object element (Example)</h1></header> 
+     <section class="content"> 
+     <p>The code from the previous slide produces:</p>
+<br>
+<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+ codebase="http://www.apple.com/qtactivex/qtplugin.cab"
+ height="400" width="500">
+ <param name="src" value="media/springs.mov" >
+ <param name="autoplay" value="false" >
+
+ <embed 
+  type="video/quicktime"
+  pluginspage="http://www.apple.com/quicktime/download/"
+  height="400" width="400"
+  src="media/springs.mov" autoplay="false" 
+ />
+</object>
+
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>Embed Codes</h1></header> 
+     <section class="content"> 
+     <p>The (old) Youtube embed code includes an <code>object</code> and an <code>embed</code> tag.
+</p>
+
+<pre>
+&lt;<strong>object</strong> width="480" height="385"&gt;
+  &lt;param name="movie"
+     value="http://www.youtube.com/v/ddm5bbeqHVA"/&gt;
+  &lt;param name="allowFullScreen"
+     value="true"/&gt;
+  &lt;param name="allowscriptaccess"
+     value="always"/&gt;
+
+  &lt;<strong>embed</strong> src="http://www.youtube.com/v/ddm5bbeqHVA"
+         type="application/x-shockwave-flash"
+         allowscriptaccess="always" 
+         allowfullscreen="true" width="480" height="385"/&gt;
+
+&lt;/object&gt;
+</pre>
+
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>Embeds: Youtube (Example)</h1></header> 
+     <section class="content"> 
+     <p>The code from the previous slide produces:</p>
+<br>
+<object width="480" height="385">
+  <param name="movie" value="http://www.youtube.com/v/ddm5bbeqHVA?fs=1&amp;hl=en_US"/>
+  <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"/>
+
+  <embed src="http://www.youtube.com/v/ddm5bbeqHVA?fs=1&amp;hl=en_US"
+         type="application/x-shockwave-flash" allowscriptaccess="always" 
+         allowfullscreen="true" width="480" height="385">
+  </embed>
+
+</object>
+     </section>
+    </div>
+    
+    <div class="slide normal">
+      <header><h1>The problem with plugins</h1></header>
+      <section class="content">
+
+        <ul>
+          <li>Bad user experience (pop-ups)
+          <li>Didn't play nice with eachother (crash!)
+          <li>Opened up security holes (malware)
+          <li>Didn't work everywhere (Flash on iPads)
+        </ul>
+      </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>The dawn of native multimedia</h1></header> 
+     <section class="content"> 
+      <p>In HTML5, you can embed audio or video using native HTML tags <code>audio</code> and <code>video</code>, and if the browser supports the tags, it will give users controls to play the file.
+      </p>
+      <p>Why is native better?</p>
+      <ul>
+          <li><strong>No plugins needed</strong>
+          <li>Better performance
+          <li>Native, accessible controls
+      </ul>
+
+     </section>
+    </div>
+
+   
+    <div class="slide normal"> 
+     <header><h1>The audio element</h1></header> 
+     <section class="content"> 
+     <p>The <code>audio</code> element is used for embedding an audio player inside a page for a particular audio file. 
+</p>
+
+<p>You can use various attributes to customize the player: <code>preload</code>, <code>autoplay</code>, <code>loop</code>, and <code>controls</code>.</p>
+
+<pre>
+&lt;audio src="argentina.ogg"
+  controls="true" preload="true"&gt;&lt;/audio&gt;
+</pre>
+<br><br>
+<audio src="media/argentina.ogg" controls="true" autobuffer="true"></audio>
+
+     </section>
+    </div>
+
+    
+    <div class="slide normal"> 
+     <header><h1>The video element</h1></header> 
+     <section class="content"> 
+     <p>The <code>video</code> element embeds a video player for a particular video file.
+</p>
+
+<p>You can use these attributes to customize the player: <code>poster</code>, <code>preload</code>, <code>autoplay</code>, <code>loop</code>, and <code>controls</code>.
+
+<pre>
+&lt;video src="chrome_japan.ogv" controls width="390"&gt;&lt;/video&gt;
+</pre>
+<br><br>
+<video src="media/chrome_japan.ogv" controls width="390"></video>
+
+     </section>
+    </div>
+
+
+    <div class="slide normal">
+      <header><h1 class="center"><a href="exercise_tags.html">Exercise Time!</a></h1></header>
+    </div>
+
+    <div class="slide normal">
+      <header><h1 class="center">Codecs &amp; Containers</h1></header>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Audio codecs</h1></header> 
+     <section class="content"> 
+       <p>An audio track is compressed, stored, and decoded according to a codec. Most audio codecs support two channels of sound, some support more.
+      </p>
+      <p>The most relevant audio codecs are:
+        <ul>
+         <li><strong>MP3</strong>: <span style="color:red">Patent-encumbered</span>.
+         <li><strong>AAC (Advanced Audio Coding)</strong>: <span style="color:red">Patent-encumbered</span>. Used in Apple products.
+         <li><strong>Ogg Vorbis</strong>: Free, open-source, patent-free
+       </ul>
+      </p>
+     </section>
+    </div>
+    
+    <div class="slide normal"> 
+     <header><h1>Browser support</h1></header> 
+     <section class="content"> 
+      <p>There is no official codec for browsers to support, so they vary:</p>
+       <p>
+        <img src="http://dl.dropbox.com/u/10998095/Screenshots/sf43funfyfu_.png">
+       <p>
+      <p>
+       <a href="http://en.wikipedia.org/wiki/HTML5_Audio">HTML5 Audio Support</a>
+      </p>
+     </p>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Video container formats</h1></header> 
+     <section class="content"> 
+     <p>A video file, like an ".avi" file, is really a container for multiple related files that describe a video, like:
+<ul>
+  <li>a video track
+  <li>one or more audio tracks with synchronization markers
+  <li>metadata (title, album art, etc).
+</ul>
+</p>
+<p>The most popular video containers are:
+  <ul> 
+   <li><strong>MPEG4</strong>: .mp4, .m4v
+   <li><strong>Ogg</strong>: .ogv
+   <li><strong>WebM</strong>: .webm
+ </ul>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Video codecs</h1></header> 
+     <section class="content"> 
+     <p>A video track is compressed and stored in a particular way, and a "codec" describes how to turn the stored data into the series of images that you see.
+</p>
+<p>The most relevant video codecs are:
+  <ul> 
+   <li><strong>H.264</strong>: <span style="color:red">Patent-encumbered</span>.
+   <li><strong>Theora</strong>: Royalty-free.
+   <li><strong>VP8</strong>: Patented but licensed royalty-free.
+ </ul>
+</p>
+
+     </section>
+    </div>
+  
+    <div class="slide normal"> 
+     <header><h1>Browser support</h1></header> 
+     <section class="content"> 
+     <p>Each  browser supports a different combo of formats and codecs, due to patents issues. This is the current situation:</p>
+      <br>
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/oef-q9v7pd2t.png" style="max-height:400px;">
+      <p><a href="http://en.wikipedia.org/wiki/HTML5_video">HTML5 Video Support</a>
+      </p>
+      <!--The Theora/Ogg and WebM formats are both open-source and patent-free, so they are the best to use if you don't want to worry about licensing.
+      -->
+     </section>
+    </div>
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Multimedia Encoders</h1></header> 
+     <section class="content"> 
+     <p>There are now many online services, desktop apps,
+      and command-line libraries for encoding, like:
+     </p>
+
+     <ul>
+      <li><a href="http://mirovideoconverter.com">Miro Video Converter</a> (app)
+      <li><a href="http://www.mediaconverter.org/">Media Converter</a>(online)
+      <li><a href="http://firefogg.org/">FireFogg</a> (Firefox plugin)
+      <li><a href="http://handbrake.fr/">HandBrake</a> (open-source, cross-platform)
+      <li>Command-line
+     </ul>
+     </section>
+    </div>
+
+  
+    <div class="slide normal"> 
+     <header><h1>Multiple media sources</h1></header> 
+     <section class="content"> 
+     <p>As we saw, different browsers support different formats. Thankfully, HTML5 lets us specify multiple sources for the <code>video</code> and <code>audio</code> elements, so browsers can use whichever works for them.
+</p>
+<pre>
+&lt;video height="200" controls=""&gt;
+  &lt;source src="chrome-japan.webm" type="video/webm"/&gt;
+  &lt;source src="chrome-japan.mp4" type="video/mp4"/&gt;
+  &lt;source src="chrome_japan.ogv" type="video/ogg"/&gt;
+&lt;/video&gt;
+</pre>
+<br><br>
+
+<video height="200" controls="">
+  <source src="media/chrome-japan.webm" type="video/webm">
+  <source src="media/chrome-japan.mp4" type="video/mp4">
+  <source src="media/chrome_japan.ogv" type="video/ogg">
+</video>
+     </section>
+    </div>
+
+  
+    <div class="slide normal"> 
+     <header><h1>Fallback options</h1></header> 
+     <section class="content"> 
+     <p>There are some browsers that don't support these new elements. In that case, you can provide a fallback option via a browser plug-in, like Java or Flash, and put the fallback inside the element. For example, here's a Flash fallback:
+</p>
+
+<pre>
+&lt;video src="video.ogv" controls&gt;  
+    &lt;object data="flvplayer.swf" type="application/x-shockwave-flash"&gt;  
+      &lt;param value="flvplayer.swf" name="movie"/&gt;  
+    &lt;/object&gt;  
+&lt;/video&gt;  
+</pre>
+     </section>
+    </div>
+
+    <div class="slide normal">
+      <header><h1 class="center"><a href="exercise_formats.html">Exercise Time!</a></h1></header>
+    </div>
+
+    <div class="slide normal">
+      <header><h1 class="center">Accessibility</h1></header>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Tracks</h1></header> 
+     <section class="content">
+
+<p>The <code>track</code> tag can be used to specify subtitles, captions, chapters,
+ descriptions, and metadata:</p>
+ <br>
+<pre>
+&lt;video src="video-file.mp4"  controls&gt;
+  &lt;track src="en.vtt" kind="subtitles" srclang="en" label="English subtitles" default&gt;
+  &lt;track src="de.vtt" kind="subtitles" srclang="de" label="German subtitles"&gt;
+  &lt;track src="ch-en.vtt" kind="chapters" srclang="en" label="English chapter listing" default&gt;
+&lt;/video&gt;
+</pre>
+<br>
+<p>
+    <a href="http://tecfa.unige.ch/guides/html/html5-video/html5-video-track.html">Video Track</a>
+    &middot;
+    <a href="http://www.html5rocks.com/en/tutorials/track/basics/">HTML5 Rocks Demo</a>
+    &middot;
+    <a href="http://www.annodex.net/~silvia/itext/elephant_no_skin.html#itmenu">Elephants Dream</a>
+</p>
+    <!-- http://dl.dropbox.com/u/10998095/Screenshots/fn~y33syqgw~.png -->
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Track files</h1></header> 
+     <section class="content">
+
+      <p>The WebVTT or SRT file format describes timed information.</p>
+      <p>Tags and annotations can be used to specify class names, timestamps, positioning:</p>
+
+      <pre class="text">
+1
+00:00:10.500 --> 00:00:13.000 A:start
+Elephants Dream
+
+2
+00:00:15.000 --> 00:00:18.000 A:end L:10%
+And thus it &lt;b&gt;begins&lt;/b&gt;... 
+      </pre>
+      </section>
+    </div>
+
+
+    <!-- tools for making subtitles? Amara? -->
+    <div class="slide normal"> 
+     <header><h1>Captioning/Translation Tools</h1></header> 
+     <section class="content">
+
+      <ul>
+        <li><a href="http://ie.microsoft.com/testdrive/Graphics/CaptionMaker/">CaptionMaker</a></li>
+        <li><a href="http://www.amara.org/en/">Amara</a></li>
+        <li><a href="http://www.overstream.net/">Overstream</a></li>
+        <li><a href="http://www.subtitle-horse.com/">Subtitle Horse</a></li>
+        <li><a href="http://dotsub.com/">DotSub</a></li>
+        <li><A href="http://www.urusoft.net/products.php?cat=sw&lang=1">Subtitle Workshop</a></li>
+      </ul>
+
+     </section>
+    </div>
+    
+    <!-- JS APIs -->
+    <div class="slide normal">
+      <header><h1 class="center">JavaScript APIs</h1></header>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>API Attributes</h1></header> 
+     <section class="content">
+
+      <p>Many of these attributes can be set via JS, and trigger events on change:
+      </p>
+      <ul style="column-count:3;-webkit-column-count:3;-moz-column-count:3;">
+        <li>duration</li>
+        <li>autoplay</li>
+        <li>loop</li>
+        <li>controls</li>
+        <li>muted</li>
+        <li>src</li>
+        <li>currentSrc</li>
+        <li>networkState</li>
+        <li>preload</li>
+        <li>buffered</li>
+        <li>readyState</li>
+        <li>volume</li>
+        <li>playbackRate</li>
+        <li>paused</li>
+        <li>ended</li>
+        <li>width</li>
+        <li>height</li>
+        <li>poster</li>
+      </ul>
+      <pre>
+var video = document.getElementsByTagName("video")[0];
+alert(video.currentTime);
+video.playbackRate = video.playbackRate * 2;
+      </pre>
+      <p>
+        <a href="https://developer.mozilla.org/en-US/docs/HTML/Element/video#Attributes">MDN Video Attributes reference</a>
+      </p>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>API Events</h1></header> 
+     <section class="content">
+
+      <ul style="column-count:3;-webkit-column-count:3;-moz-column-count:3;">
+        <li>loadstart</li>
+        <li>progress</li>
+        <li>suspend</li>
+        <li>abort</li>
+        <li>error</li>
+        <li>emptied</li>
+        <li>stalled</li>
+        <li>loadedmetadata</li>
+        <li>loadeddata</li>
+        <li>canplay</li>
+        <li>canplaythrough</li>
+        <li>playing</li>
+        <li>waiting</li>
+        <li>seeking</li>
+        <li>seeked</li>
+        <li>ended</li>
+        <li>durationchange</li>
+        <li>timeupdate</li>
+        <li>play</li>
+        <li>pause</li>
+        <li>ratechange</li>
+        <li>volumechange</li>
+      </ul>
+      <pre>
+&lt;div id="time"&gt;0&lt;/div&gt;
+&lt;script&gt;
+var video = document.getElementsByTagName("video")[0];
+video.addEventListener('timechange', function() {
+  document.getElementById("time").innerHTML = video.currentTime;
+}, false);
+&lt;/script&gt;
+      </pre>
+
+      <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#event-definitions">W3C Video Events Spec</a>
+      </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>API Functions</h1></header> 
+     <section class="content">
+
+      <ul style="column-count:3">
+        <li>load()</li>
+        <li>play()</li>
+        <li>pause()</li>
+        <li>canPlayType()</li>
+        <li>addTextTrack()</li>
+      </ul>
+
+      <pre>
+&lt;button id="play" title="play" onclick="playVideo()"&gt;play&lt;/button&gt;
+&lt;script&gt;
+function playVideo() {
+  var video = document.getElementsByTagName("video")[0];
+  video.play();
+}
+&lt;/script&gt;
+      </pre>
+
+      </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>API Example</h1></header> 
+     <section class="content">
+
+      <p><a href="http://www.w3.org/2010/05/video/mediaevents.html">This example does everything!</a></p>
+
+      </section>
+    </div>
+
+    <div class="slide normal">
+      <header><h1 class="center"><a href="exercise_apis.html">Exercise Time!</a></h1></header>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>JavaScript Libraries</h1></header> 
+     <section class="content">
+
+      <ul style="column-count:3">
+        <li><a href="https://github.com/zencoder/video-js">video.js</a></li>
+        <li><a href="http://mediaelementjs.com/">MediaElementJS</a></li>
+        <li><a href="http://www.longtailvideo.com/jw-player/built-in-features">JWPlayer</a></li>
+        <li><a href="http://leanbackplayer.com/">LeanBack</a></li>
+        <li><a href="http://www.storiesinflight.com/js_videosub/">js_videosub</a></li>
+        <li><a href="http://www.delphiki.com/html5/playr/">Playr</a></li>
+        <li><a href="http://popcornjs.org/">PopcornJS</a></li>
+        <li><a href="https://github.com/cgiffard/Captionator">Captionator</a></li>
+      </ul>
+      </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Hosted Services</h1></header> 
+     <section class="content">
+
+      <ul style="column-count:3">
+        <li><a href="http://www.youtube.com/">YouTube</a></li>
+        <li><a href="https://www.heywatch.com/">HeyWatch</a></li>
+        <li><a href="http://www.transloadit.com/">Transloadit</a></li>
+        <li><a href="http://zencoder.com/en/">ZenCoder</a></li>
+        <li><a href="http://www.encoding.com/">encoding.com</a></li>
+        <li><a href="http://www.pandastream.com/">PandaStream</a></li>
+        <li><a href="http://www.t3media.com/platform/overview/">T3Media</a></li>
+      </ul>
+      </section>
+    </div>
+
+
+    <div class="slide normal"> 
+     <header><h1>The Future!</h1></header> 
+     <section class="content">
+      <img src="http://dl.dropbox.com/u/10998095/Screenshots/tw6fsk9korrn.png" style="float:right">
+      <ul>
+      <li>Webcam input (<a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">getUserMedia</a>)
+      <li>Streaming (Peer Connections, <a href="http://www.html5rocks.com/en/tutorials/websockets/basics/">WebSockets</a>)
+      <li>Audio API (<a href="https://wiki.mozilla.org/Audio_Data_API#Third_Party_Discussions">Mozilla</a>'s or <a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html">Google</a>'s) </p>
+       <li><a href="http://www.chromeexperiments.com/">Chrome Experiments</a>
+      </ul>
+     </section>
+    </div>
+
+
+   
+   </div>
+ </body>
+</html>
