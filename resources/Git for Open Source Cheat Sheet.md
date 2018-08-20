@@ -7,7 +7,7 @@
 2. **Fork**
     Click the fork button on the repo to make a copy under your username.
 
-    ![Fork Button](/imgs_for_git_cheat/fork_button.png "Fork Button")
+    ![Fork Button](/resources/imgs_for_git_cheat/fork_button.png "Fork Button")
 
 3. **Clone**
     Clone your fork.
@@ -55,7 +55,7 @@
 10. **Pull Request (PR)**
     Open your fork on github.com, and there should be a prompt to create a pull request (PR) with your new changes.
 
-    ![Pull Request](/imgs_for_git_cheat/pull_request_button.png "Pull Request")
+    ![Pull Request](/resources/imgs_for_git_cheat/pull_request_button.png "Pull Request")
 
     If you don’t see this prompt, try refreshing the page, then try clicking the Branch dropdown to see if your working branch has been added to your fork.
 
