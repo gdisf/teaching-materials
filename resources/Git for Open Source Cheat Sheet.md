@@ -22,6 +22,20 @@
     $ git remote add upstream https://github.com/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git
     ```
 
+    Check that it worked with
+    ```
+    $ git remote -v
+    ```
+
+    You should see your fork as "origin" and the original repo as "upstream".
+
+    ```
+    origin  https://github.com/YOUR_FORK (fetch)
+    origin  https://github.com/YOUR_FORK (push)
+    upstream  https://github.com/ORIGINAL_REPO (fetch)
+    upstream  https://github.com/ORIGINAL_REPO (push)
+    ```
+
 5. **Branch**
     Checkout a new branch to work on your changes. You can name it to match the issue you’re working on.
 
