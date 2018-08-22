@@ -1,6 +1,6 @@
 # HTML 101
 
-Slides and materials are hosted at [https://www.teaching-materials.org/](https://www.teaching-materials.org/).
+Slides and materials are hosted at [https://www.teaching-materials.org/html/](https://www.teaching-materials.org/html/).
 
 ## Course description
 
