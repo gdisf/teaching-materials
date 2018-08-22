@@ -44,7 +44,7 @@
 
 5. **Branch**
 
-    Checkout a new branch to work on your changes. You can name it to match the issue you’re working on.
+    Check out a new branch to work on your changes. You can name it to match the issue you’re working on.
 
     ```
     $ git checkout -b issue-123
@@ -58,7 +58,7 @@
 
     ```
     $ git add .
-    $ git commit -m ‘Add a useful commit message
+    $ git commit -m 'Add a useful commit message'
     ```
 
 8. **Fetch & merge upstream**
