@@ -74,7 +74,7 @@
         <section>
           <img src="img/circle-gdi-logo.png" alt="GDI Logo" class="noborder">
           <h1>Intro to CSS:</h1>
-          <h2>Style Webpages from Scratch</h2>
+          <h3>Style Webpages from Scratch</h3>
         </section>
 
         <!-- Welcome-->
@@ -99,7 +99,7 @@
             <ul>
               <li>Who are you?</li>
               <li>What do you hope to get out of the class?</li>
-              <li>What is your favorite or dream vacation destination?</li>
+              <li>What’s your favorite HTML tag and why?</li>
             </ul>
           </div>
         </section>
@@ -236,8 +236,8 @@
           <pre><code class="css">p {
   property: value;
 }</code></pre>
-          <br />
           <p>Selects all paragraph elements.</p>
+          <br />
           <pre><code class="css">img {
   property: value;
 }</code></pre>
@@ -254,6 +254,7 @@
             <li><strong>RGB value</strong> (ex. rgb(255, 0, 0))</li>
             <li><strong>HSL value</strong> (ex. hsl(0, 100%, 100%))</li>
           </ul>
+          <br />
           <p>
             The 17 standard colors are:
             <span style="color:aqua;">aqua</span>,
@@ -311,7 +312,7 @@
         <section>
           <h3>Property Values</h3>
           <p>Each property can have one or more comma separated values.</p>
-          <pre><code class = "css">p{
+          <pre><code class = "css">p {
   color: white;
   background-color: red;
   font-family: Arial, sans-serif;
@@ -377,7 +378,7 @@
           <pre><code class = "css">p em {
   color: yellow;
 }</code></pre>
-          <p>Selects all em elements that are within a paragraph</p>
+          <p>Selects all em elements that are within a paragraph.</p>
           <pre><code class = "html">&lt;p&gt;This is &lt;em&gt;important.&lt;/em&gt;&lt;/p&gt;</code></pre>
           <p>The associated HTML.</p>
         </section>
@@ -394,12 +395,14 @@
         <section>
           <h3>Selector: Position</h3>
           <p>So this code:</p>
-          <pre><code class = "css">ul li a strong{
+          <pre><code class = "css">ul li a strong {
   color: purple;
 }</code></pre>
           <p>Means "find a strong tag inside a link inside a list item in an unordered list"</p>
           <pre><code class = "html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href="programs.html"&gt;Our &lt;strong&gt;program&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="programs.html"&gt;Our &lt;strong&gt;program&lt;/strong&gt;&lt;/a&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;</code></pre>
         </section>
 
@@ -573,7 +576,7 @@ a:active { color:#0000FF; } /* selected link */</code></pre>
         <!-- Exercise-->
         <section>
           <h3>Let's Develop It!</h3>
-          <p>Add pseudo classes to your links</p>
+          <p class="left-align">Add pseudo classes to your links</p>
         </section>
 
         <section>
