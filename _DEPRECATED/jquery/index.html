@@ -1,0 +1,447 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Intro to jQuery</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="This workshop will provide an introduction to jQuery.">
+		<meta name="author" content="Girl Develop It San Francisco">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../../common/css/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../../common/favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+		<div class="reveal" id="presentation">
+			<div class="slides">
+				<section>
+					<h1>Intro to jQuery</h1>
+					<p>
+						<small>Slides: <a href="http://www.teaching-materials.org/jquery/">http://www.teaching-materials.org/jquery/</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Review:</h2>
+					<h3>DOM &amp; Data!</h2>
+					<p>Our favorite Data Types</p>
+					<pre>
+						<code contenteditable class ="javascript">var myString = 'This is a string!';
+var myInteger = 1;
+var myBoolean = true;
+var myArray = ['string', 1, myString, true];
+var myObject = {
+  name: 'Pamela',
+  adjective: 'Cool',
+  roles: ['hacker', 'teacher', 'coder']
+}</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Review:</h2>
+					<h3>DOM &amp; Data!</h2>
+					<p>Traversing the DOM with JavaScript</p>
+					<pre>
+						<code contenteditable class ="javascript">document.getElementById('presentation');
+document.getElementsByClassName('future');
+document.getElementsByTagName('body');
+document.querySelectorAll('a');
+document.querySelector('img');</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>What's a library?</h2>
+					<p>A collection of reusable methods for a particular purpose.</p>
+					<p>A math library might have functions like:</p>
+					<pre>
+						<code contenteditable class ="javascript">math.sum(array);
+math.pow(num, num);
+math.factorial(num);</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>What's a library?</h2>
+					<p>Include a script tag to the library on your page.</p>
+					<p>Call functions from that library</p>
+					<pre>
+						<code contenteditable>&lt;body&gt;
+  &#60;script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.11.4/math.js"&#62;&#60;&#47;script&#62;
+  &#60;script&#62;
+    var answer = math.sum(2, 2);
+    alert(answer);
+  &#60;&#47;script&#62;
+&lt;/body&gt;</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2><a href="exercises/videoplayer_library.html">Exercise Time!</a></h2>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2>
+					<h3>the most popular library</h2>
+					<p>Write less code for common tasks.</p>
+					<p>Abstract on top of cross-browser differences.</p>
+					<a href="http://jquery.com/"><img src="images/jquery.png"></a>
+					<p>Open source, big community</p>
+				</section>
+
+
+				<section>
+					<h2>jQuery: Why?</h2>
+					<p>No library:</p>
+					<pre>
+						<code contenteditable class ="javascript">var elems = document.getElementsByTagName('img');
+for (var i = 0; i&lt; elems.length; i++) {
+	elems[i].style.display = 'none';
+}</code>
+					</pre>
+					<p>jQuery:</p>
+					<pre>
+						<code contenteditable class="javascript">$('img').hide();</code>
+					</pre>
+					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+				</section>
+
+				<section>
+					<h2>jQuery: Why?</h2>
+					<p>No library:</p>
+					<pre>
+						<code contenteditable class="javascript">var p = document.createElement('p');
+p.appendChild(document.createTextNode('Welcome!'));
+p.style.cssFloat = 'left';
+p.style.backgroundColor = 'red';
+p.className = 'special';
+document.querySelector('div.header').appendChild(p);</code>
+					</pre>
+					<p>jQuery:</p>
+					<pre>
+						<code contenteditable class="javascript">var newP = $('<p>Welcome!</p>');
+newP.css({'float': 'left', 'background-color': 'red'});
+newP.addClass('special');
+$('div.header').append(newP);</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2> 
+					<h3>The Basics</h2>
+					<pre>
+						<code contenteditable>&lt;p&gt;Welcome to jQuery!&lt;/p&gt;</code>
+					</pre>
+					<div style="padding:0px; margin:0px;"><img src="images/arrow.png" style="box-shadow:0px 0px 0px rgba(0,0,0,0); border:0px"></div>
+					<pre>
+						<code contenteditable class="javascript">$('p').addClass('special');</code>
+					</pre>
+					<div style="padding:0px; margin:0px;"><img src="images/arrow.png" style="box-shadow:0px 0px 0px rgba(0,0,0,0); border:0px"></div>
+					<pre>
+						<code contenteditable>&lt;p class="special"&gt;Welcome to jQuery!&lt;/p&gt;</code>
+					</pre>
+
+					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+				</section>
+
+				<section>
+					<h2>jQuery Recipe:</h2> 
+					<h3>Select, Manipulate, Admire</h3>
+					<p>Step 1: Select element</p>
+					<pre>
+						<code contenteditable class="javascript">$('p')</code>
+					</pre>
+					<p>Step 2: Use a jQuery method to manipulate</p>
+					<pre>
+						<code class="javascript">$('p').addClass('special');</code>
+					</pre>
+				</section>
+
+				<section>
+					<p>Step 3: Admire your results!</p>
+					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+					<table>
+						<tr>
+							<td colspan="3" >
+								<pre style="display:inline-block; width:100%; margin-bottom:0px;">
+									<code class="javascript">$('p').addClass('special');</code>
+								</pre>
+							</td>
+						</tr>
+						<tr >
+							<td style="text-align:center; border-right: ">
+ 								<small>
+									<code class="javascript" style="font-weight:bold; text-align:center;">$</code>
+ 								</small>
+							</td>
+							<td style="text-align:center;">
+								<small>
+									<code class="javascript" style="font-weight:bold;">('p')</code>
+								</small>
+							</td>
+							<td style="text-align:center;">
+								<small>
+									<code class="javascript" style="font-weight:bold;">addClass('special')</code>
+								</small>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p>
+									<small>The global jQuery function. Can also be &ldquo;jQuery&rdquo;.</small>
+								</p>
+							</td>
+							<td>
+								<p>
+									<small>Finds DOM element(s) according to what&rsquo;s in the quotes. Returns a &ldquo;jQuery collection.&rdquo;</small>
+								</p>
+							</td>
+							<td>
+								<p>
+									<small>
+										Built-in jQuery method that adds the specified class to the collection.<br>
+										<a href="http://api.jquery.com/addClass/" target="_blank">Read the docs here.</a>
+									</small>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2>
+					<h3>Finding Elements</h3>
+					<p>All CSS selectors are valid, plus more. <a href="http://api.jquery.com/category/selectors/">Read the docs.</a></p>
+
+					<table style="width:100%; padding-top:24px;">
+						<thead>
+							<tr>
+								<th style="text-align:center;">With this HTML:</th>
+								<th style="text-align:center;">We find it this way:</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><pre><code contenteditable>&lt;p&gt;Welcome!&lt;/p&gt;</code></pre></td>
+								<td><pre><code contenteditable class="javascript">$('p')</code></pre></td>
+							</tr>
+							<tr>
+								<td><pre><code contenteditable>&lt;div id="main"&gt;Welcome!&lt;/div&gt;</code></pre></td>
+								<td><pre><code contenteditable class="javascript">$('#main')</code></pre></td>
+							</tr>
+							<tr>
+								<td><pre><code contenteditable>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</code></pre></td>
+								<td><pre><code class="javascript">$('.intro')</code></pre></td>
+							</tr>
+							<tr>
+								<td><pre><code contenteditable>&lt;div id="main"&gt;
+  &lt;p class="intro"&gt;Welcome!&lt;/p&gt;
+&lt;/div&gt;</code></pre></td>
+								<td><pre><code class="javascript" contenteditable>$('#main .intro')</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+				</section>
+
+				<section>
+					<h2><a href="exercises/domaccess.html">Exercise Time!</a></h2>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2>
+					<h3>Reading Elements</h3>
+					<p>If we start with this HTML...</p>
+					<pre style="width:100%;"><code contenteditable>&lt;a id="yahoo" href="http://www.yahoo.com" style="font-size:20px;">Yahoo!&lt;/a></code></pre>
+					<p>We can find it...</p>
+					<pre style="width:100%;"><code contenteditable class="javascript">$('a#yahoo');</code></pre>
+					<p>We can store it...</p>
+					<pre style="width:100%;"><code contenteditable class="javascript">var myLink = $('a#yahoo');</code></pre>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2>
+					<h3>Reading Elements</h3>
+					<p>
+					...And we can find out lots of things about it:
+					</p>
+					<table style="width:100%;">
+						<tr>
+							<td style="width:45%; padding-left:0px;"><pre style="margin-left:0px"><code contenteditable class="javascript">myLink.html();</code></pre></td>
+							<td style="width:10%;">→</td>
+							<td style="width:45%; padding-right:0px;"><pre style="margin-right:0px"><code contenteditable class="javascript">'Yahoo!'</code></pre></td>
+						</tr>
+						<tr>
+							<td style="padding-left:0px;"><pre style="margin-left:0px"><code contenteditable class="javascript">myLink.attr('href');</code></pre></td>
+							<td>→</td>
+							<td style="padding-right:0px;"><pre style="margin-right:0px"><code contenteditable class="javascript">'http://www.yahoo.com'</code></pre></td>
+						</tr>
+						<tr>
+							<td style="padding-left:0px;"><pre style="margin-left:0px"><code contenteditable class="javascript">myLink.css('font-size');</code></pre></td>
+							<td>→</td>
+							<td style="padding-right:0px;"><pre style="margin-right:0px"><code contenteditable class="javascript">'20px'</code></pre></td>
+						</tr>
+					</table>
+					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2><h3>Changing Elements</h3>
+						<p>If we start with this HTML:</p>
+						<pre><code contenteditable>&lt;a href="http://www.google.com"&gt;Google&lt;/a&gt;</code></pre>
+						<p>We can use this jQuery:</p>
+						<pre><code contenteditable class="javascript">$('a').html('Yahoo!');
+$('a').attr('href', 'http://www.yahoo.com');
+$('a').css({'color': 'purple'});</code></pre>
+						<p>And we'll get this:</p>
+						<pre><code contenteditable>&lt;a href="http://www.yahoo.com" style="color:purple"&gt;Yahoo&lt;/a&gt;</code></pre>
+						<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+				</section>
+
+				<section>
+					<h2>jQuery Recipe:</h2>
+					<h3>Create, Manipulate &amp; Inject</h3>
+					<p>Step 1: Create element and store a reference</p>
+					<pre><code contenteditable class="javascript">var p = $('&lt;p&gt;')</code></pre>
+					<p> Step 2: Use a method to manipulate (optional)</p>
+					<pre><code contenteditable class="javascript">p.addClass('special');</code></pre>
+					<p> Step 3: Inject into your HTML </p>
+					<pre><code contenteditable class="javascript">$('body').append(p);</code></pre>
+					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2>
+					<h3>Create and Store</h3>
+					<p>Pass in any HTML string and jQuery will create it and return it as a jQuery object.</p>
+					<table style="width:100%;">
+						<thead>
+							<tr>
+								<th style="width:50%; padding-left:0px;">With this jQuery...</th>
+								<th style="width:5%; padding-left:0px; padding-right:0px;"></th>
+								<th style="width:45%; padding-left:0px; padding-right:0px;">We create this HTML:</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="padding-left:0px;padding-right:0px;"><pre style="margin-left:0px; margin-right:0px;"><code contenteditable class="javascript">$('&lt;p&gt;');</code></pre></td>
+								<td style="padding-left:0px; padding-right:0px;">→</td>
+								<td style="padding-left:0px;padding-right:0px;"><pre style="margin-left:0px; margin-right:0px;"><code contenteditable>&lt;p&gt;&lt;/p&gt;</code></pre></td>
+							</tr>
+							<tr>
+								<td style="padding-left:0px;padding-right:0px;"><pre style="margin-left:0px; margin-right:0px;"><code contenteditable class="javascript">$('&lt;p&gt;Welcome!&lt;/p&gt;');</code></pre></td>
+								<td style="padding-left:0px; padding-right:0px;">→</td>
+								<td style="padding-left:0px;padding-right:0px;"><pre style="margin-left:0px; margin-right:0px;"><code contenteditable>&lt;p&gt;Welcome!&lt;/p&gt;</code></pre></td>
+							</tr>
+							<tr>
+								<td style="padding-left:0px;padding-right:0px;"><pre style="margin-left:0px; margin-right:0px;"><code contenteditable class="javascript">$('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</code></pre></td>
+								<td style="padding-left:0px; padding-right:0px;">→</td>
+								<td style="padding-left:0px;padding-right:0px;"><pre style="margin-left:0px; margin-right:0px;"><code contenteditable>&lt;p class="intro"&gt;Welcome!&lt;/p&gt;</code></pre></td>
+							</tr>
+						</tbody>
+					</table>
+					<p>Just like with the DOM API, we can store a reference to our new element in memory...</p>
+					<pre><code contenteditable class="javascript">var myParagraph = $('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</code></pre>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2>
+					<h3>Manipulate</h3>
+					<p>Now that we've stored a reference, we can make further revisions to our element.</p>
+					<pre><code contenteditable class="javascript">var myParagraph = $('&lt;p class="intro"&gt;Welcome!&lt;/p&gt;');</code></pre>
+					<pre><code contenteditable class="javascript">myParagraph.css('font-size','4em');</code></pre>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2><h3>Inject</h3>
+					<p>Now, we can take our stored reference to <code>myParagraph</code> and inject it somewhere!</p>
+					<pre><code contenteditable class="javascript">$('body').append(myParagraph);</code></pre>
+					<pre><code contenteditable class="javascript">$('body').prepend(myParagraph);</code></pre>
+				</section>
+
+				<section class="content">
+					<h2>Regular DOM nodes to jQuery objects</h2>
+					<pre><code contenteditable class="javascript">var paragraphs = $('p'); // an array</code></pre>
+					<pre><code contenteditable class="javascript">var myParagraph = paragraphs[0]; // a regular DOM node</code></pre>
+					<pre><code contenteditable class="javascript">var $myParagraph = $(paragraphs[0]); // a jQuery Object</code></pre>
+					<p>We can also loop through our array...</p>
+					<pre><code contenteditable class="javascript">for(var i = 0; i < paragraphs.length; i++) {
+  var element = paragraphs[i];
+  var paragraph = $(element);
+  paragraph.html(paragraph.html() + ' wowee!!!!');
+};</code></pre>
+					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+				</section>
+
+				<section>
+					<h2>jQuery:</h2>
+					<h3>Including</h3>
+					<p><a href="http://jquery.com/download/">Download</a> or link from an official CDN.</p>
+					<p>Then include using a &lt;script&gt; tag on the page.</p>
+					<pre><code contenteditable>&lt;html&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hi!&lt;/h1&gt;
+  &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+  // Your code here
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+					<pre class="speaker-notes" style="display:none">shorter, cross-browser</pre>
+				</section>
+
+				<section>
+					<h2><a href="exercises/videoplayer_jquery.html">Exercise Time!</a></h2>
+				</section>
+			</div><!-- end of div slides-->
+
+			<footer>
+				<div class="copyright">
+					Intro to jQuery -- 
+					<a rel="license" target="new" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+				</div>
+			</footer>
+		</div><!-- end of div reveal -->
+
+
+		<script src="../../common/lib/js/head.min.js"></script>
+		<script src="../../common/js/reveal.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, 
+				transition: Reveal.getQueryHash().transition || 'default', 
+
+				dependencies: [
+					{ src: '../../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+	</body>
+</html>
