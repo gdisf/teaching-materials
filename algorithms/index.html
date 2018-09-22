@@ -97,9 +97,9 @@
             <section>
                 <h2>Expectations</h2> <br>
                 <ul>
-                    <li>Particpation</li>
+                    <li>Participation and questions</li>
                     <li>Keep coming up with more solutions </li>
-                    <li>Postivity/Energy</li>
+                    <li>Collaborate with positivity and energy</li>
                 </ul>
                 <br><br>
                 <h4>Not expecting:</h4>
@@ -122,23 +122,29 @@
                     <li class="fragment">Re-organizing your kitchen to make finding stuff easier.</li>
                     <li class="fragment">Finding keys that you lost.</li>
                     <li class="fragment">Finding something good to watch on TV.</li>
-                    <li class="fragment">Washing your car windows.</li>
                 </ul>
             </section>
 
-
             <section>
-                <h3>Finding something to watch on TV v1</h3>
+                <h3>Picking something to watch on TV v1</h3>
+                <img src="images/tv_1_code.png" style="width:50%;">
+            </section>
+            
+            <section>
+                <h3>Picking something to watch on TV v1</h3>
                 <ol class="left">
                      <li>Turn on TV</li>
                      <li>Watch what is on</li>
                 </ol>
-                <br><br>
-                <img src="images/tv_1_code.png" style="width:50%;">
             </section>
 
             <section>
-                <h3>Finding something to watch on TV v2</h3>
+                <h3>Picking something to watch on TV v2</h3>
+                <img src="images/tv_2_code.png" style="width:80%;">
+            </section>
+            
+            <section>
+                <h3>Picking something to watch on TV v2</h3>
                 <ol class="left">
                      <li>Turn on TV</li>
                      <li>Flip through every channel and rate what is on</li>
@@ -148,21 +154,18 @@
             </section>
 
             <section>
-                <img src="images/tv_2_code.png" style="width:80%;">
+                <h3>Picking something to watch on TV v3</h3>
+                <img src="images/tv_3_code.png" style="width:80%;">
             </section>
 
              <section>
-                <h3>Finding something to watch on TV v3</h3>
+                <h3>Picking something to watch on TV v3</h3>
                 <ol class="left">
                      <li>Turn on TV</li>
                      <li>Check 5 favorite channels and rate what is on</li>
                      <li>Find the highest rated channel</li>
                      <li>Watch</li>
                 </ol>
-            </section>
-
-            <section>
-                <img src="images/tv_3_code.png" style="width:80%;">
             </section>
 
              <section>
@@ -176,7 +179,7 @@
                 </span>
             </section>
 
-            <!-- START  OF GOAL OF ALGORITHMS -->
+            <!-- START OF GOAL OF ALGORITHMS -->
 
             <section>
               <h2>Goal of Algorithms</h2>
@@ -192,7 +195,7 @@
               <ul>
                 <li>Show your thought process</li>
                 <li>Solve the most obvious (to you!) solution first</li>
-                <li>Improve it</li>
+                <li>Talk about the tradeoffs and improve it</li>
               </ul><br>
             </section>
 
@@ -208,7 +211,7 @@
                     <li>Organizing email</li>
                     <li>Swiping left or right on tinder</li>
                     <li>Deciding what restaurant to eat at</li>
-                    <li>Finding a paper on your desk</li>
+                    <li>Sorting your laundry</li>
                 </ul>
             </section>
 
@@ -216,7 +219,7 @@
             
             <section>
                 <h1>Data Structures</h1>
-                <p style="font-size:smaller; color:gray;">(Just a good to know, will not be covering extensively!)</p>
+                <p style="font-size:smaller; color:gray;">(Just good to know; we won't be covering extensively!)</p>
                 <br>
                 <p>A way to store data <br>so that it can be used as desired</p>
             </section>
@@ -224,9 +227,9 @@
             <section>
                 <h2>Data Structures + Algorithms</h2>
                 <br>
-                <p>A good way to approach an algorithm is to think about the data structures that you know.</p>
+                <p>A good way to approach an algorithm is to <br>think about the data structures that you know.</p>
                 <br>
-                <p>What are their properties, and how can they be used to your advantage?</p>
+                <p>What are their properties? <br>How can these be used to your advantage?</p>
             </section>
 
             <section>
@@ -240,9 +243,11 @@
                 </div>
                 <div style="float: left; width: 50%">
                 <pre class="fragment"><code>
-myObject = { key : value,
+myObject = {
   key : value,
-  key : value }
+  key : value,
+  key : value
+}
                 </code>
                 </pre>
                 </div>
@@ -268,7 +273,9 @@ myObject = { key : value,
             <section>
                 <h2>Optimizations</h2>
                 <br>
-                <p>Designing algorithms is about making decisions. Decisions have tradeoffs.</p>
+                <p>Designing algorithms is about making decisions.</p>
+                <br>
+                <p>Decisions have tradeoffs.</p>
                 <br>
                 <p>You may want to optimize to complete the task:</p>
                 <ul>
@@ -279,12 +286,12 @@ myObject = { key : value,
 
             <section>
                 <h2>Complexity</h2>
-                <p class="red">How do you know if your algorithm is good?</p>
-                <p class="orange">How do you compare algorithms?</p>
+                <p>How do you know if your algorithm is good?</p>
+                <p>How do you compare algorithms?</p>
                 <br>
                 <ul class="fragment">
                     <li >Time Complexity: How long does the algorithm take</li>
-                    <li > Space Complexity: How much space does the algorithm use</li>
+                    <li > Space Complexity: How much space does it use</li>
                 </ul>
                 <br>
                 <p class="fragment">The less complex the better!</p>
@@ -332,7 +339,7 @@ myObject = { key : value,
                 <h2>Big O Notation</h2>
                 <br>
                 <ul>
-                    <li class="fragment">Language we use to describe the complexity of an algorithm</li>
+                    <li class="fragment">Language we use to describe an algorithm's complexity</li>
                     <li class="fragment"><span class="red">Approximation</span> of how quickly space or time complexity grows <span class="red">relative to input size</span></li>
                     <li class="fragment">Usually talking about worst case scenario</li>
                 </ul>
@@ -340,27 +347,28 @@ myObject = { key : value,
 
             <section>
               <h2>Hanging up Laundry v1</h2>
+              <h3>Algorithm</h3>
               <br>
               <ol>
                 <li class="fragment">Dump laundry on floor
               </ol>
               <br>
+              <h3 class="fragment">Code</h3>
               <pre class="fragment"><code>
 laundry.drop()
             </code></pre>
-            <br>
-            <p class="red fragment">How long does the algorithm take?</p>
             </section>
 
             <section>
               <h2>Laundry v1</h2>
+              <h3>Runtime</h3>
               <p class="red">How long does the algorithm take?</p>
               <p class="fragment">
                 Dumping out my laundry takes 2 seconds
               </p>
               <div class="fragment">
               <hr>
-              <table style="margin:auto; background:white; padding: 5px;">
+              <table style="margin:auto; background:white; padding: 15px; width: 100%">
                 <thead>
                     <tr class="orange">
                         <th>#items</th>
@@ -384,14 +392,15 @@ laundry.drop()
               </table>
               <hr>
               </div>
-                <p class="fragment">If N = items of clothing,<br> time it takes: (N*0 + 2)<br>
+                <p class="fragment">N = items of clothing<br>Time it takes: (N*0 + 2)<br>
                </p>
             </section>
 
             <section>
-                <h3>Laundry v1 Big O Notation</h3>
+                <h2>Laundry v1</h2>
+                <h3>Big O Notation</h3>
                 <br>
-                (N*0 + 2)
+                O(N*0 + 2)
                 <p class="fragment">&#x2192; O(2)</p>
                 <p class="fragment">&#x2192; O(1)</p>
                 <br>
@@ -404,27 +413,35 @@ laundry.drop()
 
             <section>
               <h2>Laundry v2</h2>
+              <h3>Algorithm</h3>
               <ol>
                 <li>Dump laundry on bed.
-                <li>Pick up each piece of clothing, put in a pile for that type ("shirts", "underwear", "socks", etc.)
-                <li>After all are in piles, go through each item in each pile, and hang up each one.
+                <li>Put each item of clothing into a pile for that type<br>("shirts", "underwear", "socks", etc).
+                <li>Go through each pile and hang up each piece of clothing.
               </ol>
             </section>
-            <section>
-              <h2>Laundry v2 Code</h2>
-                <pre><code>
-piles = {'shirts': [], 'socks': []}
-
-for clothing_item in laundry: 
-  piles[clothing_item.type].append(clothing_item)
-
-for pile in piles:
-    for clothing_item in pile:
-        clothing_item.hang_up()
-                </code></pre>
-            </section>
+            
             <section>
               <h2>Laundry v2</h2>
+              <h3>Code</h3>
+                <pre><code>
+const piles = { 'shirts': [], 'socks': [], 'pants': [] }
+
+for (item in laundry) { 
+  piles[item.type].push(item)
+}
+
+for (pile in piles) {
+    for (item in pile) {
+        item.hang_up()
+    }
+}
+                </code></pre>
+            </section>
+            
+            <section>
+              <h2>Laundry v2</h2>
+              <h3>Runtime</h3>
               <p class="red">How long does the algorithm take?</p>
               <p class="fragment">
                 Putting an item in a pile takes 10 seconds.
@@ -433,7 +450,7 @@ for pile in piles:
               </p>
               <div class="fragment">
                 <hr>
-                  <table style="margin:auto; background:white; padding: 5px;">
+                  <table style="margin:auto; background:white; padding: 5px; width: 100%">
                     <thead>
                         <tr class="orange">
                             <th>#items</th>
@@ -457,11 +474,13 @@ for pile in piles:
                   </table>
                   <hr>
               </div>
-                <p class="fragment">If N = items of clothing,<br> time it takes: (N*10 + N*30)<br>
+                <p class="fragment">N = items of clothing<br>Time it takes: (N*10 + N*30)<br>
                </p>
             </section>
+            
             <section>
-                <h3>Laundry v2 Big O Notation</h3>
+                <h2>Laundry v2</h2>
+                <h3>Big O Notation</h3>
                 <br>
                 (N*10 + N*30)
                 <p class="fragment"> &#x2192; O(40N)</p>
@@ -475,24 +494,27 @@ for pile in piles:
             </section>
 
             <section>
-              <h2>Making Outfits</h2>
-              <p>Making all possible outfit combinations.</p>
-              <p>For simplicity's sake, assume there are an equal amount of pants and shirts.</p>
+              <h2>Laundry v3</h2>
+              <h3>Sort and Make Outfits</h3>
+              <p>We want to make all possible outfit combinations.</p>
+              <p>For simplicity's sake, assume there <br>are an equal amount of pants and shirts.</p>
 
               <pre><code>
-pants_pile = ['blue-jeans', 'black-jeans', 'dress-pants', ..., 'white-pants'] // (n items)
-shirts_pile = ['white-shirt', 'blue-blouse', ..., 'stripe-shirt'] // (n items)
+pants_pile = ['jeans', 'overalls', 'leggings', ..., 'cutoffs']
+shirts_pile = ['t-shirt', 'blouse', 'crop-top', ..., 'tank']
 outfits = []
 
-for shirt in shirts_pile:
-    for pants in pants_pile:
-        outfits.append([shirt, pants])
-
+for (shirt in shirts_pile) {
+    for (pants in pants_pile) {
+        outfits.push([shirt, pants])
+    }
+}
            </code></pre>
             </section>
 
             <section>
-              <h2>Making Outfits</h2>
+              <h2>Laundry v3</h2>
+              <h3>Runtime</h3>
               <p>We must match <strong class="red">each shirt</strong> with <strong class="red">each pair of pants.</strong></p>
               <p>Looking at each item takes 2 seconds.</p>
 
@@ -528,13 +550,14 @@ for shirt in shirts_pile:
               </table>
               <br>
                <p class="fragment">
-                If N = # items of clothing and # items in section,
-                <br>time it takes: (N*10 + N*30 + N*N*2)
+                N = # items of clothing and # items in section
+                <br>Time it takes: (N*10 + N*30 + N*N*2)
                </p>
             </section>
 
             <section>
-                <h3>Laundry v3 Big O Notation</h3>
+                <h2>Laundry v3</h2>
+                <h3>Big O Notation</h3>
                 <br>
                 (N*10 + N*30 + N*N*2)
                 <p class="fragment">&#x2192; O(40N + 2N<sup>2</sup>)</p>
@@ -716,10 +739,9 @@ for (var i = 0; i &lt; things.length; i++) {
                 <h3>Time Efficient Grocery Shopping</h3>
                 <br>
                 <ol>
-                    <li>Drive car to grocery store</li>
-                    <li>Get cart</li>
+                    <li>Walk to grocery store</li>
                     <li>Put everything in the cart</li>
-                    <li>Buy items and drive home</li>
+                    <li>Buy items and walk home</li>
                 </ol>
             </section>
 
@@ -728,17 +750,16 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
             <section>
-                <img class='left' style='width:40%;' src="images/time-grocery.png">
-
-                <p class=''>The size of the cart grows as the number of items on the list grows.<br>
+               <img class='left' style='width:40%;' src="images/time-grocery.png">
+               <br>
+               <p class=''>The more items on the list, the bigger the bag needed.<br>
                </p>
-
-               <p class='fragment'>If N is the number of items on the list, then the cart array needs to be size N. 
+               <br>
+               <p class='fragment'>If N is the number of items on the list, then the bag array needs to be size N.<br>
                </p> 
 
-               <p class='fragment'>The space complexity is O(N)
-               </p>
-                <img class='fragment' src="images/time-grocery-results.png">
+               <p class='fragment'>The space complexity is:</p>
+               <p class='fragment'>O(N) => linear time</p>
             </section>
 
             <section>
@@ -757,20 +778,20 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
 
              <section>
-                <img class='left' style='width:40%;' src="images/space-grocery.png">
-
-                <img style='width:32%;' src="images/space-grocery-result.png">
-                <br>
-
-               <p class="fragment">If N is the number of items on the list, then the cart array needs to be size 1. 
+               <img class='left' style='width:40%;' src="images/space-grocery.png">
+               <br>
+               <p class=''>No matter how many items are on the list, the bag only holds 1 item.<br>
+               </p>
+               <br>
+               <p class="fragment">If N is the number of items on the list, then the bag array needs to be size 1.<br>
                </p> 
 
-               <p class="fragment">The space complexity is O(1) or constant.
-               </p>
+               <p class="fragment">The space complexity is:</p>
+               <p class='fragment'>O(1) => constant time</p>
             </section>
 
             <section>
-                <h4>What's more important? Time or space?</h4>
+                <h4>So what's more important? Time or space?</h4>
                 <img class="fragment" src="images/old-apple-computer.jpg">
             </section>
 
@@ -787,17 +808,16 @@ for (var i = 0; i &lt; things.length; i++) {
             <section>
                 <h2>Exercise time!</h2>
                 <h3 class='highlight'>Making Crepes</h2>
-                <p>Write two algorithms for making crepes, one that is time efficient and one that is space efficient. <br><br>Pseudocode first then whiteboard code if you have time.</p>
+                <p>Write two algorithms for making crepes,<br>one that is time efficient and one that is space efficient.<br>
+                <p>Pseudocode each step first,<br>then code it if you have time.</p>
             </section>
 
             <section>
                 <img style="width:60%;" src="images/crepes-time.png">
-                <img style="width:40%;" src="images/crepes-time-results.png">
             </section>
 
             <section>
                 <img class='left' style="width:60%;" src="images/crepes-space.png">
-                <img style="width:30%;" src="images/crepes-space-results.png">
             </section>
 
             <!-- END OF SPACE COMPLEXITY -->
@@ -806,12 +826,12 @@ for (var i = 0; i &lt; things.length; i++) {
             <section>
                 <h2>Searching Algorithms</h2>
                 <br>
-                <p>Search algorithm is an algorithm which solves the problem of retrieving store information.</p>
+                <p>A search algorithm is an algorithm which solves the problem of retrieving stored information.</p>
                 <a href="https://en.wikipedia.org/wiki/Search_algorithm" style="font-size:smaller; color:gray;">Wikipedia - Search Algorithms</a>
             </section>
             <section>
                 <h2 class='highlight'>Discuss</h2>
-                <p>How to solve the problem of searching billions pieces of data?</p>
+                <p>How do you solve the problem of <br>searching billions of pieces of data?</p>
                 <br />
                 <img src="images/search.png">
             </section>
@@ -819,7 +839,7 @@ for (var i = 0; i &lt; things.length; i++) {
                 <h2>Linear Search</h2>
                 <p>One of the simplest searches.</p>
                 <br>
-                <p>Find an item with a particular value in a sorted sequence.</p>
+                <p>Find an item with a particular value in a sequence.</p>
                 <br>
                 <p class="fragment">
                 Find 'J' in sequence:<br>
@@ -851,19 +871,19 @@ for (var i = 0; i &lt; things.length; i++) {
             <section>
               <h2>Binary Search</h2><br>
               <p>Find an item by repeatedly halving the search space.</p><br>
-              <iframe width="500" height="350" src="https://www.youtube.com/embed/P3YID7liBug?start=78" frameborder="0" allowfullscreen></iframe>
+              <iframe width="500" height="350" src="https://youtu.be/zFenJJtAEzE?t=16m29s" frameborder="0" allowfullscreen></iframe>
             </section>
 
             <section>
                 <h2>Binary Search:</h2>
                 <h3>Visualized</h3>
-                <img src="images/binary-search.jpg">
+                <img src="https://blog.penjee.com/wp-content/uploads/2015/04/binary-and-linear-search-animations.gif">
             </section>
 
             <section>
               <h2>Binary Search: Steps</h2><br>
               <!-- todo wikipedia animation? -->
-              <p>To find the index of element <em>e</em> with a certain value:</p>
+              <p>To find the index of element <em>e</em> with a certain value:</p><br>
               <ul>
                 <li>Start with an array sorted in descending order.
                 <li>In each step:
@@ -896,7 +916,7 @@ for (var i = 0; i &lt; things.length; i++) {
              <section>
                 <h2>Algorithm Solving Strategies</h2>
                 <ul>
-                    <li>Use variables as a pointers to 'track' data during an algorithm</li>
+                    <li>Use variables as pointers to 'track' data during an algorithm</li>
                     <li>Inside the algorithm, try to make your data set smaller such that you are comparing smaller sets of data to each other - called the 'base case'</li>
                 </ul>
             </section>
@@ -912,17 +932,6 @@ for (var i = 0; i &lt; things.length; i++) {
               <p class="fragment">Since binary search algorithm splits array in half every time,
                 at most <a href="http://stackoverflow.com/questions/8185079/how-to-calculate-binary-search-complexity">log<sub>2</sub>N</a> steps are performed.
               </p>
-            </section>
-
-            <section>
-              <h2>Other Searching Algorithms</h2>
-              <br>
-              <p>Performance varies depending on sequence characteristics (distribution)
-              </p>
-              <br>
-              <ul>
-                <li><a href="http://en.wikipedia.org/wiki/Interpolation_search">Interpolation search</a>
-              </ul>
             </section>
             <!-- END OF SEARCHING -->
 
