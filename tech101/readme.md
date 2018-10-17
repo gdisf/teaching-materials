@@ -1,49 +1,42 @@
 > Please read our slide creation guidelines in [the wiki](https://github.com/girldevelopit/gdi-slides-template/wiki). Then, delete this banner and add the specifics about your class below.
 
-# Add Your Course Title Here
+# Tech101: What is the Web?
 
 Slides and materials are hosted at [http://example.com/](http://example.com/).
 
 ## Course description
 
-Use this space for a short description of your course. We recommend using the description from your meetup event.
+Thinking about learning to code? Wondering how HTML and CSS come together to bring a web page alive? Curious about how to become a web developer? These questions and more will be answered in Tech 101: What is the Web, a newbie-friendly introduction to the terminology and protocols that power the internet!
+
+Join us for a very special workshop where we break down terminology and jargon to introduce basic concepts. This event is open to everybody – whether you're a non-profit administrator hoping to add pizzazz to your HTML5 newsletters, a Marketing expert looking to talk more shop with your developer audience, or someone who wants to learn more about computing!
+
+This workshop will be taught by **NAME**, **SHORT BIO**.
+
+Know someone who's curious about the web? Spread the word!
 
 **Cost:** 
+$15.00
+
+A limited number of scholarships are available for those with a financial hardship. To apply, contact us at... *contact info here*
 
 **Dates:** 
-
+*Fill in date*
 **Location:** 
-
-A limited number of scholarships are available for those with a financial hardship. To apply, contact us at...
-
+*Fill in location*
 
 ### Prerequisites:
 
-List any prerequisites for this class, including any previous classes or the equivalent self-study or real-world skills.
-
-You should have:
-
-(a) taken Intro or Intermediate HTML/CSS through Girl Develop It, or
-
-(b) built and managed websites on your own,
-
-**And also:**
-
-(a) taken intro to JavaScript through Girl Develop It, or
-
-(b) be familiar with syntax, arrays, conditionals, for and while loops, event handling, jQuery, AJAX requests, and handling JSON responses.
-
+You only need an interest in learning about the web to attend this course! 
 
 ### Tech requirements:
 
- - Your laptop (Mac, PC, or Linux are all okay).
- - A modern web browser - either Chrome or Firefox with Firebug installed.
- - A text editor. We recommend Sublime Text 2 (free; available for Mac, PC, and Linux).
+- Your laptop with a charger and modern web browser (Chrome, Firefox, Safari)
 
+- If you do not have a laptop, please contact the instructor. We have a limited number of Chromebooks for students to borrow.
 
-### Topics covered:
+### Payment:
 
- - The topics you plan to cover
- - Written in list form
- - Here's another one
+Payment is required to attend this workshop.
 
+### Food:
+*Fill in food information*
