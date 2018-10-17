@@ -2,7 +2,7 @@
 
 # Tech101: What is the Web?
 
-Slides and materials are hosted at [http://example.com/](http://example.com/).
+Slides and materials are hosted at [https://www.teaching-materials.org/tech101/](https://www.teaching-materials.org/tech101/).
 
 ## Course description
 
@@ -15,7 +15,7 @@ This workshop will be taught by **NAME**, **SHORT BIO**.
 Know someone who's curious about the web? Spread the word!
 
 **Cost:** 
-$15.00
+*Fill in price*
 
 A limited number of scholarships are available for those with a financial hardship. To apply, contact us at... *contact info here*
 
