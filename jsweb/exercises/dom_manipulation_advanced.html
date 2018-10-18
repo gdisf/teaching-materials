@@ -11,6 +11,107 @@
   </head>
   <body>
     <div class="container">
+        <h2 class="page-header">The Book List</h2>
+        <ul>
+          <li>Create a webpage with an <code>h1</code> of "My Book List".</li>
+          <li>Add a <code>script</code> tag to the bottom of the page, where all your JS will go.</li>
+          <li>Copy this array of books:
+  <pre>
+    var books = [
+      {
+        title: 'The Design of EveryDay Things',
+        author: 'Don Norman',
+        alreadyRead: false
+      }, {
+        title: 'The Most Human Human',
+        author: 'Brian Christian',
+        alreadyRead: true
+      }
+    ];
+  </pre></li>
+          <li>Iterate through the array of books. For each book, create a <code>p</code>
+          element with the book title and author and append it to the page.</li>
+          <li><strong>Bonuses:</strong>
+            <ul>
+              <li>Use a <code>ul</code> and <code>li</code> to display the books.</li>
+              <li>Add an <code>img</code> to each book that links to a URL of the book cover.</li>
+              <li>Change the style of the book depending on whether you have read it or not.</li>
+            </ul>
+          </li>
+        </ul>
+        <button onclick="showSolution(2)" class="btn">See Solution</button>
+        <br><br>
+  <pre id="solution2" style="display:none;">
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+     &lt;head&gt;
+      &lt;meta charset=&quot;utf-8&quot;/&gt;
+      &lt;title&gt;Book List&lt;/title&gt;
+     &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;h1&gt;My Book List&lt;/h1&gt;
+    &lt;script&gt;
+    var books = [
+      {title: 'The Design of EveryDay Things',
+       author: 'Don Norman',
+       alreadyRead: false
+      },
+      {title: 'The Most Human Human',
+       author: 'Brian Christian',
+       alreadyRead: true
+      }];
+
+    for (var i = 0; i &lt; books.length; i++) {
+      var bookP = document.createElement('p');
+      var bookDescription = document.createTextNode(books[i].title + ' by ' + books[i].author);
+      bookP.appendChild(bookDescription);
+      document.body.appendChild(bookP);
+    }
+
+
+
+    // OR, with the bonuses:
+    var books = [
+      {title: 'The Design of EveryDay Things',
+       img: 'http://ecx.images-amazon.com/images/I/41j2ODGkJDL._AA115_.jpg',
+       author: 'Don Norman',
+       alreadyRead: false
+      },
+      {title: 'The Most Human Human',
+       img: 'http://ecx.images-amazon.com/images/I/41Z56GwEv9L._AA115_.jpg',
+       author: 'Brian Christian',
+       alreadyRead: true
+      }];
+
+    var bookList = document.createElement('ul');
+    for (var i = 0; i &lt; books.length; i++) {
+      var bookItem = document.createElement('li');
+      var bookImg = document.createElement('img');
+      bookImg.src = books[i].img;
+      bookItem.appendChild(bookImg);
+      var bookDescription = document.createTextNode(books[i].title + ' by ' + books[i].author);
+      bookItem.appendChild(bookDescription);
+      if (books[i].alreadyRead) {
+        bookItem.style.color = 'grey';
+      }
+      bookList.appendChild(bookItem);
+    }
+    document.body.appendChild(bookList);
+    &lt;/script&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;
+  </pre>
+      </div>
+      <script>
+        function showSolution(num) {
+          if (confirm('Are you sure?')) {
+            document.getElementById('solution' + num).style.display = 'block';
+          }
+        }
+      </script>
+
       <h2 class="page-header">About Me</h2>
       <ul>
         <li>Start with this HTML and save it as "about_me.html":
@@ -23,7 +124,7 @@
     &lt;/head&gt;
     &lt;body&gt;
       &lt;h1&gt;About Me&lt;/h1&gt;
-      
+
       &lt;ul&gt;
         &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
         &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
@@ -57,13 +158,13 @@
   &lt;/head&gt;
   &lt;body&gt;
     &lt;h1&gt;About Me&lt;/h1&gt;
-    
+
     &lt;ul&gt;
       &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
       &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
       &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
      &lt;/ul&gt;
-    
+
     &lt;script&gt;
      document.body.style.fontFamily = 'Arial, sans-serif';
      document.getElementById('nickname').textContent = 'Princess Bubblegum';
@@ -73,7 +174,7 @@
      for (var i = 0; i &lt; items.length; i++) {
         items[i].className = 'list-item';
      }
-      
+
       var myPic = document.createElement('img');
       myPic.src = 'https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Princess_Bubblegum.png/100px-Princess_Bubblegum.png';
       document.body.appendChild(myPic);
@@ -82,105 +183,6 @@
   &lt;/html&gt;
 </pre>
 
-      <h2 class="page-header">The Book List</h2>
-      <ul>
-        <li>Create a webpage with an <code>h1</code> of "My Book List".</li>
-        <li>Add a <code>script</code> tag to the bottom of the page, where all your JS will go.</li>
-        <li>Copy this array of books:
-<pre>
-  var books = [
-    {
-      title: 'The Design of EveryDay Things',
-      author: 'Don Norman',
-      alreadyRead: false
-    }, {
-      title: 'The Most Human Human',
-      author: 'Brian Christian',
-      alreadyRead: true
-    }
-  ];
-</pre></li>
-        <li>Iterate through the array of books. For each book, create a <code>p</code>
-        element with the book title and author and append it to the page.</li>
-        <li><strong>Bonuses:</strong>
-          <ul>
-            <li>Use a <code>ul</code> and <code>li</code> to display the books.</li>
-            <li>Add an <code>img</code> to each book that links to a URL of the book cover.</li>
-            <li>Change the style of the book depending on whether you have read it or not.</li>
-          </ul>
-        </li>
-      </ul>
-      <button onclick="showSolution(2)" class="btn">See Solution</button>
-      <br><br>
-<pre id="solution2" style="display:none;">
-  &lt;!DOCTYPE html&gt;
-  &lt;html&gt;
-   &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;/&gt;
-    &lt;title&gt;Book List&lt;/title&gt;
-   &lt;/head&gt;
-  &lt;body&gt;
 
-  &lt;h1&gt;My Book List&lt;/h1&gt;
-  &lt;script&gt;
-  var books = [
-    {title: 'The Design of EveryDay Things',
-     author: 'Don Norman',
-     alreadyRead: false
-    },
-    {title: 'The Most Human Human',
-     author: 'Brian Christian',
-     alreadyRead: true
-    }];
-      
-  for (var i = 0; i &lt; books.length; i++) {
-    var bookP = document.createElement('p');
-    var bookDescription = document.createTextNode(books[i].title + ' by ' + books[i].author);
-    bookP.appendChild(bookDescription);
-    document.body.appendChild(bookP);
-  }
-
-
-
-  // OR, with the bonuses:
-  var books = [
-    {title: 'The Design of EveryDay Things',
-     img: 'http://ecx.images-amazon.com/images/I/41j2ODGkJDL._AA115_.jpg',
-     author: 'Don Norman',
-     alreadyRead: false
-    },
-    {title: 'The Most Human Human',
-     img: 'http://ecx.images-amazon.com/images/I/41Z56GwEv9L._AA115_.jpg',
-     author: 'Brian Christian',
-     alreadyRead: true
-    }];
-      
-  var bookList = document.createElement('ul');
-  for (var i = 0; i &lt; books.length; i++) {
-    var bookItem = document.createElement('li');
-    var bookImg = document.createElement('img');
-    bookImg.src = books[i].img;
-    bookItem.appendChild(bookImg);
-    var bookDescription = document.createTextNode(books[i].title + ' by ' + books[i].author);
-    bookItem.appendChild(bookDescription);
-    if (books[i].alreadyRead) {
-      bookItem.style.color = 'grey';
-    }
-    bookList.appendChild(bookItem);
-  }
-  document.body.appendChild(bookList);
-  &lt;/script&gt;
-    
-  &lt;/body&gt;
-  &lt;/html&gt;
-</pre>
-    </div>
-    <script>
-      function showSolution(num) {
-        if (confirm('Are you sure?')) {
-          document.getElementById('solution' + num).style.display = 'block';
-        }
-      }
-    </script>
   </body>
 </html>
