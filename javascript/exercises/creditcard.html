@@ -83,8 +83,19 @@
                 inspiration.
             </p>
         </section>
+        <section>
+            <button class="btn" onclick="showSolution(1)">See Solution</button>
+        </section>
     </main>
 
 </div>
+
+<script>
+    function showSolution(num) {
+        if (confirm('You surrrrre?')) {
+            document.getElementById('solution' + num).style.display = 'block';
+        }
+    }
+</script>
 </body>
 </html>
