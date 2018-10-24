@@ -1,6 +1,6 @@
 # Intro to AngularJS
 
-Slides and materials are hosted [here](http://teaching-materials.org/angular).
+Slides and materials are hosted [here](http://teaching-materials.org/_DEPRECATED/angular).
 
 ## Course description
 
