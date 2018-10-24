@@ -1,58 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>Exercises: Animation</title>
+    <title>Exercise: Credit Card Validation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="../../common/css/bootstrap.min.css" rel="stylesheet">  </head>
- <body>
+    <link href="../../common/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 <div class="container">
 
-<h1>Homework: Credit Card Validation</h1>
+    <h1>Homework: Credit Card Validation</h1>
 
-<p>You're starting your own credit card business. You've come up with a new way to validate credit cards with a simple function called <code>validateCreditCard</code> that returns <code>true</code> or <code>false</code>.</p>
+    <main>
+        <section>
+            <p>You're starting your own credit card business. You need to come up with a new way to validate credit
+                cards with a
+                simple function called <code>validateCreditCard</code> that returns <code>true</code> or
+                <code>false</code>.
+            </p>
 
-<p>Here are the rules for a valid number:
-<ul>
-	<li>Number must be 16 digits, all of them must be numbers</li>
-	<li>You must have at least two different digits represented (all of the digits cannot be the same)</li>
-	<li>The final digit must be even</li>
-	<li>The sum of all the digits must be greater than 16</li>
-</ul>
-</p>
+            <p>Here are the rules for a valid number:
+            <ul>
+                <li>Number must be 16 digits, all of them must be numbers</li>
+                <li>You must have at least two different digits represented (all of the digits cannot be the same)</li>
+                <li>The final digit must be even</li>
+                <li>The sum of all the digits must be greater than 16</li>
+            </ul>
+            </p>
 
-<p>The following credit card numbers are valid:</p>
-<ul>
-  <li><code>9999-9999-8888-0000</code></li>
-  <li><code>6666-6666-6666-1666</code></li>
-</ul>
+            <p>The following credit card numbers are valid:</p>
+            <ul>
+                <li><code>9999777788880000</code></li>
+                <li><code>6666666666661666</code></li>
+            </ul>
 
-<p>The following credit card numbers are invalid:
-  <ul>
-    <li><code>a923-3211-9c01-1112</code> <em>invalid characters</em></li>
-    <li><code>4444-4444-4444-4444</code> <em>only one type of number</em></li>
-    <li><code>1111-1111-1111-1110</code> <em>sum less than 16</em></li>
-    <li><code>6666-6666-6666-6661</code> <em>odd final number</em></li>
-  </ul>
-</p>
+            <p>The following credit card numbers are invalid:
+            <ul>
+                <li><code>a92332119c011112</code> <em>invalid characters</em></li>
+                <li><code>4444444444444444</code> <em>only one type of number</em></li>
+                <li><code>1111111111111110</code> <em>sum less than 16</em></li>
+                <li><code>6666666666666661</code> <em>odd final number</em></li>
+            </ul>
+            </p>
+        </section>
+        <section>
+            <p>In order to run the function, you'll need to know how to <a
+                    href="loadJavascriptTemplate.html" target="_blank">load javascript on an HTML page.</a> From
+                there, you will open your developer console to call the function.</p>
+            <img src="../images/console.png" style="max-width: 400px"/>
+        </section>
+        <section>
+            <button id="solution1btn" class="btn" onclick="showSolution(1)">See Solution</button>
+            <pre id="solution1" style="display: none;"><code>function validateCreditCard(creditCardNum){
 
-<p>In order to run the function, you'll need to load javascript on an HTML page. <a href="loadJavascriptTemplate.html" target="_blank">Click here for instructions on how to do that.</a> From there, you will open your developer console to call the function.</p>
-<img src="../images/console.png"/ width=400>
-<p>Hint: Remove the dashed from the input string before checking if the input credit card number is valid.</p>
-<br>
-<br>
-<p>
-  <strong>Bonus:</strong> Return an object indicating whether the credit card is valid, and if not, what the error is
-  <br>
-  <code>{ valid: true, number:  'a923-3211-9c01-1112' }</code>
-  <br>
-  <code>{ valid: false, number: 'a923-3211-9c01-1112', error: ‘wrong_length’ }</code>
-</p>
+  // The credit card number must be 16 digits in length
+  if(creditCardNum.length !== 16){
+    return false;
+  }
 
-<p><strong>Double Bonus:</strong> Make your credit card scheme even more advanced! What are the rules, and what are some numbers that pass or fail? Ideas: check expiration date! Check out the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm" target="_blank">Luhn Algorithm</a> for inspiration.</p>
+  // All of the digits must be numbers
+  for(var i = 0; i < creditCardNum.length; i++){
+    // store the current digit
+    var currentNumber = creditCardNum[i];
+
+    // turn the digit from a string to an integer (if the digit is in fact a digit and not anther char)
+    currentNumber = Number.parseInt(currentNumber);
+
+    // check that the digit is a number
+    if(!Number.isInteger(currentNumber)){
+      return false;
+    }
+  }
+
+  // The credit card number must be composed of at least two different digits (i.e. all of the digits cannot be the same)
+  var obj = {};
+  for(var i = 0; i < creditCardNum.length; i++){
+    obj[creditCardNum[i]] = true;
+  }
+  if(Object.keys(obj).length < 2){
+    return false;
+  }
+
+  // The final digit of the credit card number must be even
+  if(creditCardNum[creditCardNum.length - 1] % 2 !== 0){
+    return false;
+  }
+
+  // The sum of all the digits must be greater than 16
+  var sum = 0;
+  for(var i = 0; i < creditCardNum.length; i++){
+    sum += Number(creditCardNum[i]);
+  }
+  if(sum <= 16){
+    return false;
+  }
+
+  return true;
+};
+
+/**** tests *****/
+console.log(validateCreditCard('9999777788880000')); //true
+console.log(validateCreditCard('6666666666661666')); //true
+console.log(validateCreditCard('a92332119c011112')); //false
+console.log(validateCreditCard('4444444444444444')); //false
+console.log(validateCreditCard('1211111111111112')); //true</code></pre>
+        </section>
+        <hr/>
+        <section>
+            <p>
+                <strong>Bonus #1:</strong> A valid credit card number may also contain dashes, to make a card number
+                easier to read. For example, the following credit card numbers are now also valid:
+            <ul>
+                <li><code>9999-7777-8888-0000</code></li>
+                <li><code>6666-6666-6666-1666</code></li>
+            </ul>
+            Update your program to allow such numbers.
+            (Hint: Remove the dashes from the input string before checking if the input credit card number is
+            valid.)
+            </p>
+        </section>
+        <section>
+            <button id="solution2btn" class="btn" onclick="showSolution(2)">See Solution</button>
+            <pre id="solution2" style="display: none;"><code>function validateCreditCard(ccNumberNoDashes) {
+
+    //Remove dashes from creditCardNum string
+    var ccNumberNoDashes = '';
+    for (var i = 0; i < creditCardNum.length; i++) {
+        if (creditCardNum[i] !== '-') {
+            ccNumberNoDashes += creditCardNum[i];
+        }
+    }
+
+    // The credit card number must be 16 digits in length
+    if (ccNumberNoDashes.length !== 16) {
+        return false;
+    }
+
+    // All of the digits must be numbers
+    for (var i = 0; i < ccNumberNoDashes.length; i++) {
+        // store the current digit
+        var currentNumber = ccNumberNoDashes[i];
+
+        // turn the digit from a string to an integer (if the digit is in fact a digit and not anther char)
+        currentNumber = Number.parseInt(currentNumber);
+
+        // check that the digit is a number
+        if (!Number.isInteger(currentNumber)) {
+            return false;
+        }
+    }
+
+    // The credit card number must be composed of at least two different digits (i.e. all of the digits cannot be the same)
+    var obj = {};
+    for (var i = 0; i < ccNumberNoDashes.length; i++) {
+        obj[ccNumberNoDashes[i]] = true;
+    }
+    if (Object.keys(obj).length < 2) {
+        return false;
+    }
+
+    // The final digit of the credit card number must be even
+    if (ccNumberNoDashes[ccNumberNoDashes.length - 1] % 2 !== 0) {
+        return false;
+    }
+
+    // The sum of all the digits must be greater than 16
+    var sum = 0;
+    for (var i = 0; i < ccNumberNoDashes.length; i++) {
+        sum += Number(ccNumberNoDashes[i]);
+    }
+    if (sum <= 16) {
+        return false;
+    }
+
+    return true;
+};
+
+/**** tests *****/
+console.log(validateCreditCard('9999-7777-8888-0000')); //true
+console.log(validateCreditCard('6666-6666-6666-1666')); //true
+console.log(validateCreditCard('a923-3211-9c01-1112')); //false
+console.log(validateCreditCard('4444-4444-4444-4444')); //false
+console.log(validateCreditCard('1211-1111-1111-1112')); //true</code></pre>
+        </section>
+        <hr />
+        <section>
+            <p>
+                <strong>Bonus #2:</strong> Return an object indicating whether the credit card is valid, and if not,
+                what
+                the error
+                is
+                <br>
+                <code>{ valid: true, number: 'a923-3211-9c01-1112' }</code>
+                <br>
+                <code>{ valid: false, number: 'a923-3211-9c01-1112', error: ‘wrong_length’ }</code>
+            </p>
+        </section>
+        <hr />
+        <section>
+            <p><strong>Bonus #3:</strong> Make your credit card scheme even more advanced! What are the rules, and what
+                are
+                some numbers that pass or fail? Ideas: check expiration date! Check out the <a
+                        href="https://en.wikipedia.org/wiki/Luhn_algorithm" target="_blank">Luhn Algorithm</a> for
+                inspiration.
+            </p>
+        </section>
+    </main>
 
 </div>
+
+<script>
+    function showSolution(num) {
+        if (confirm('You surrrrre?')) {
+            document.getElementById('solution' + num).style.display = 'block';
+            document.getElementById('solution' + num + 'btn').style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>
