@@ -6,16 +6,16 @@
 </head>
 <body>
     <div class="container">
-    <h2>Binary Search Exercise</h2>
-    <h3>Write the Binary Search algorithm!</h3>
+    <h2>Binary Search Exercise</h2><br>
+    <h4>Write the Binary Search algorithm!</h4><br>
     <ul>
         <li>Pair up!</li>
-        <li>Write pseudocode for this problem! Improve on the steps from the <b>Binary Search: Steps</b> slide. Can you make those steps more 'code-like'?</li>
+        <li>Write pseudocode for this problem! Improve on the steps from the <b>Binary Search: Steps</b> slide. <br>Can you make those steps more 'code-like'?</li>
         <li>Now write the code for this algorithm. You can use <a href="http://repl.it">repl.it</a> or some other environment to run and test code.</li>
-        <li>The function you write should accept two parameters: an array and a value you want to find. The function should return <b>the index</b> of the found value.</li>
+        <li>The function you write should accept two parameters: 1) an array and 2) the value to find.<br>The function should return <b>the index</b> of the found value, or -1 if not found.</li>
     </ul>
     <br>
-    Stumped? <a onclick="showHints()">Click here</a> for some hints
+    Stumped? <a href="#" onclick="showHints()">Click here</a> for some hints.
     <br>
     <div id="hints" style="display:none;">
         <ol>
@@ -29,21 +29,21 @@
     <div id="solution" style="display:none;">
         <pre>
 function binarySearch(array, value) {
-  var low = 0
-  var high = array.length - 1
-  var middle
-  
-  while (low <= high) {
-    middle = (low + high) / 2
-    
-    if (array[middle] > value) {
-      high = middle - 1
+  var start_index = 0
+  var end_index = array.length - 1
+  var middle_index
+
+  while (start_index <= end_index) {
+    middle_index = (start_index + end_index) / 2
+
+    if (array[middle_index] > value) {
+      end_index = middle_index - 1
     }
-    else if (array[middle] < value) {
-      low = middle + 1
+    else if (array[middle_index] < value) {
+      start_index = middle_index + 1
     }
-    else if (array[middle] === value) {
-      return middle
+    else if (array[middle_index] === value) {
+      return middle_index
     }
   }
   return -1
