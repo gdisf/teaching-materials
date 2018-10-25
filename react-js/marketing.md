@@ -2,8 +2,8 @@
 
 :tada: **Intro to React.js (2 day workshop)** :tada:
 
-:date: Saturday, Month Xth - Sunday, Month Yth
-⏰ 10 AM - 5 PM (both days)
+:date: Saturday, Month Xth - Sunday, Month Yth  
+⏰ 10 AM - 5 PM (both days)  
 📍 **[TODO: INSERT VENUE]**
 
 React.js is a popular front end framework. Companies like Facebook, Netflix, Flipboard, and Khan Academy are using it to power blazing-fast web apps that make interacting with users faster than ever before.
@@ -13,6 +13,9 @@ This workshop spanning two full days will introduce you to the basic concepts yo
 PREREQUISITES: Basic familiarity with JavaScript, HTML, and CSS.
 
 *Sign up now!* 🎟 **[TODO: INSERT SIGNUP LINK]**
+
+<br/>
+<br/>
 
 ## Example Tweets
 - Ever wanted to learn one of the most in-demand front end libraries? Come take @gdisf's 2-day Intro to React.js workshop!
