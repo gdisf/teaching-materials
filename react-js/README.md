@@ -16,7 +16,7 @@ _There will be an hour break for lunch._
 * Forms & Event Handling
 
 ### **Prerequisites:**
-Basic familiarity with JavaScript, HTML, and CSS
+Basic familiarity with JavaScript, HTML, and CSS.
 
 ### **Tech requirements:**
 
@@ -45,6 +45,6 @@ If you do not have a laptop, please contact the instructors. We have a limited n
 
 
 ### INTERNAL CLASS RESOURCES
-Lecture Slides: https://tinyurl.com/GDISF-react-js
-Lecture Examples: https://repl.it/@NicoleFish/GDISF-Reactjs-Class-Examples
+Lecture Slides: https://tinyurl.com/GDISF-react-js  
+Lecture Examples: https://repl.it/@NicoleFish/GDISF-Reactjs-Class-Examples  
 GDInsta App Repo: https://github.com/gdisf/react-js
