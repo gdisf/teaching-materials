@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Static Site Generators ~ Girl Develop It</title>
+
+		<meta name="description" content="Slides for the GDI SF Static Site Generators workshop">
+		<meta name="author" content="Jessica Parsons, Girl Develop It San Francisco">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="../common/css/reveal.min.css">
+		<link rel="stylesheet" href="../common/css/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- dark editor -->
+		<link rel="stylesheet" href="../common/css/editor/dark.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="../common/css/print/pdf.css" type="text/css" media="print">
+		<link rel="icon" type="image/x-icon" href="../common/favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="/static-site-generators/slides.css">
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+ <!-- Opening -->
+				<section>
+					<img src="../common/img/circle-gdi-logo.png" alt="GDI Logo" class="noborder" />
+					<h1>Static Site Generators</h1>
+					<p>teaching-materials.org/static-site-generators</p>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 70px; ">
+								<div class="sl-block-content">
+										<h2>What we'll cover</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 175px; ">
+								<div class="sl-block-content">
+										<ul>
+												<li class="fragment">
+														<span style="font-size:1.2em">How we got here</span>
+												</li>
+												<li class="fragment">
+														<span style="font-size:1.2em">How static site generators work, and why they're useful</span>
+												</li>
+												<li class="fragment">
+														<span style="font-size:1.2em">How to choose a site generator</span>
+												</li>
+												<li class="fragment">
+														<span style="font-size:1.2em">How to make your own generated site</span>
+												</li>
+												<li class="fragment">
+														<span style="font-size:1.2em">How to keep learning after today</span>
+												</li>
+										</ul>
+								</div>
+						</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="image" style=" width: 237px; left: 83px; top: 487px;">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458490/cats-html-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 330px; left: 532px; top: 265.5px;">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458406/file-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 341px; top: 393px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="141" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="0">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="182" height="1" viewBox="-41 231 182 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="137" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="137" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(137,231) rotate(90)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+					<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 52px; ">
+							<div class="sl-block-content">
+									<h2>Simple Static Sites</h2>
+							</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 126px; ">
+								<div class="sl-block-content">
+										<h3>Web pages as files</h3>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 267px; left: 65px; top: 229px;">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488460/cats-html.jpg"/>
+								</div>
+						</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="image" style="width: 330px; left: 10px; top: 272px; ">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458406/file-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 280px; left: 669.5px; top: 253px; ">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488470/laptop.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 340px; top: 481px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="267" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="1">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="308" height="1" viewBox="-41 231 308 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="263" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="263" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(263,231) rotate(90)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 199px; left: 380.5px; top: 234px; ">
+								<div class="sl-block-content fragment" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488460/cats-html.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 164px; left: 700px; top: 287px;">
+								<div class="sl-block-content fragment" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488483/website.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 127px; left: 714px; top: 285px;">
+								<div class="sl-block-content fragment fade-out" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458490/cats-html-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 339px; top: 393px;">
+								<div class="sl-block-content fragment current-visible" data-line-x1="-54" data-line-y1="231" data-line-x2="-362" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="0">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="308" height="1" viewBox="-362 231 308 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-54" y1="231" x2="-357" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-54" y1="231" x2="-357" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(-357,231) rotate(270)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style=" width: 269px; left: 359px; top: 280px;">
+								<div class="sl-block-content fragment current-visible" data-fragment-index="0">
+										<p>request "cats.html"</p>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 126px; ">
+								<div class="sl-block-content">
+										<h3>Web pages as files</h3>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 52px; ">
+								<div class="sl-block-content">
+										<h2>Simple Static Sites</h2>
+								</div>
+						</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="text" style=" left: 100px; top: 202px;">
+								<div class="sl-block-content">
+										<ul>
+												<li class="fragment" data-fragment-index="0">
+														<strong>Pros:</strong> pretty fast &amp; secure, very simple
+												</li>
+												<li class="fragment" data-fragment-index="1">
+														<strong>Cons:</strong>&nbsp;repetitive to build
+												</li>
+										</ul>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 261px; left: 210px; top: 327px;">
+								<div class="sl-block-content fragment" data-fragment-index="2">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488460/cats-html.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 237px; left: 504px; top: 320px;">
+								<div class="sl-block-content fragment" data-fragment-index="3">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488466/dogs-html.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 126px; ">
+								<div class="sl-block-content">
+										<h3>Web pages as files</h3>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 52px; ">
+								<div class="sl-block-content">
+										<h2>Simple Static Sites</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 170px; left: 263px; top: 583px;">
+								<div class="sl-block-content fragment" data-fragment-index="2">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458490/cats-html-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 177px; left: 534px; top: 575px;">
+							<div class="sl-block-content fragment" data-fragment-index="3">
+								<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5977965/dogs-html-word.png"/>
+						</div>
+				</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="image" style=" width: 228px; left: 11px; top: 240px;">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488474/pets-template.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 165px; left: 43px; top: 509px;">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458415/pets-php-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 320px; left: 279px; top: 263px;">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488465/db.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 196px; left: 341px; top: 491px;">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458404/database-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 237px; left: 720px; top: 271px;">
+								<div class="sl-block-content fragment" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488457/app-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 46px; left: 237px; top: 337px;">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458417/plus.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 602px; top: 380px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="68" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="1">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="109" height="1" viewBox="-41 231 109 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="64" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="64" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(64,231) rotate(90)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; ">
+								<div class="sl-block-content">
+										<h2>Templates &amp; Databases</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 116px; ">
+								<div class="sl-block-content">
+										<h3>Let the computer do the work</h3>
+								</div>
+						</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="image" style="width: 280px; left: 664px; top: 174px; ">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488470/laptop.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 335px; top: 437px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="267" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="4">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="308" height="1" viewBox="-41 231 308 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="263" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="263" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(263,231) rotate(90)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 182px; left: 384.5px; top: 210px; ">
+								<div class="sl-block-content fragment" data-fragment-index="4">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488460/cats-html.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 162px; left: 696px; top: 205px; ">
+								<div class="sl-block-content fragment" data-fragment-index="4">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488483/website.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 334px; top: 304px;">
+								<div class="sl-block-content fragment current-visible" data-line-x1="-54" data-line-y1="231" data-line-x2="-362" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="0">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="308" height="1" viewBox="-362 231 308 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-54" y1="231" x2="-357" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-54" y1="231" x2="-357" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(-357,231) rotate(270)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style=" width: 269px; left: 354px; top: 203px;">
+								<div class="sl-block-content fragment current-visible" data-fragment-index="0">
+										<p>request "cats.php"</p>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 130px; left: 708px; top: 211px;">
+								<div class="sl-block-content fragment fade-out" data-fragment-index="4">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458569/cats-php-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 236px; left: 70px; top: 190px;">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488457/app-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 141px; left: 199.5px; top: 477px;">
+								<div class="sl-block-content fragment" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488474/pets-template.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 210px; left: 537px; top: 495.5px;">
+								<div class="sl-block-content fragment" data-fragment-index="2">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488465/db.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 106px; top: 465px;">
+								<div class="sl-block-content fragment current-visible" data-line-x1="-41" data-line-y1="231" data-line-x2="42" data-line-y2="321" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="1">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="83" height="90" viewBox="-41 231 83 90">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="39" y2="318"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="39" y2="318"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(39,318) rotate(137.317)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style=" width: 157px; left: 28px; top: 521px;">
+								<div class="sl-block-content fragment current-visible" data-fragment-index="1">
+										<p>get template</p>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 347px; top: 559px;">
+								<div class="sl-block-content fragment current-visible" data-line-x1="-41" data-line-y1="231" data-line-x2="138" data-line-y2="232" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="2">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="179" height="1" viewBox="-41 231 179 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="134" y2="232"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="134" y2="232"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(134,232) rotate(90.32)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style=" width: 200px; left: 337px; top: 470px;">
+								<div class="sl-block-content fragment current-visible" data-fragment-index="2">
+										<p>query database</p>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 354px; top: 630px;">
+								<div class="sl-block-content fragment current-visible" data-line-x1="-190" data-line-y1="231" data-line-x2="-362" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="3">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="172" height="1" viewBox="-362 231 172 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-190" y1="231" x2="-357" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-190" y1="231" x2="-357" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(-357,231) rotate(270)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style=" width: 200px; left: 344px; top: 580px;">
+								<div class="sl-block-content fragment current-visible" data-fragment-index="3">
+										<p>fill content</p>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; ">
+								<div class="sl-block-content">
+										<h2>Templates &amp; Databases</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 116px; ">
+								<div class="sl-block-content">
+										<h3>Let the computer do the work</h3>
+								</div>
+						</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="text" style=" width: 100%; top: 191px;">
+								<div class="sl-block-content">
+										<ul>
+												<li class="fragment" data-fragment-index="0">
+														<strong>Pros:</strong> quicker to build and change
+												</li>
+												<li class="fragment" data-fragment-index="1">
+														<strong>Cons:</strong>&nbsp;slower, less secure, more complex
+												</li>
+										</ul>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; ">
+								<div class="sl-block-content">
+										<h2>Templates &amp; Databases</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 116px; ">
+								<div class="sl-block-content">
+										<h3>Let the computer do the work</h3>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 312px; left: 324.5px; top: 309px;">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488457/app-server.jpg"/>
+								</div>
+						</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="text" style="width: 100%; top: 41px; ">
+								<div class="sl-block-content">
+										<h2>Single-Page Apps (SPAs)</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 115px; ">
+								<div class="sl-block-content">
+										<h3>The browser as app server</h3>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style=" width: 100%; top: 469px;">
+								<div class="sl-block-content">
+										<ul>
+												<li class="fragment" data-fragment-index="1">
+														<strong>Pros:</strong>&nbsp;less time between pages
+												</li>
+												<li class="fragment" data-fragment-index="2">
+														<strong>Cons:</strong>&nbsp;slow first load; more work for client
+												</li>
+										</ul>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 224px; left: 139px; top: 231px;">
+								<div class="sl-block-content fragment fade-out" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488457/app-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 243px; left: 573px; top: 231px;">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488470/laptop.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 380px; top: 312px;">
+								<div class="sl-block-content fragment current-visible" data-line-x1="-48" data-line-y1="231" data-line-x2="132" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="0">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="180" height="1" viewBox="-48 231 180 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-48" y1="231" x2="128" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-48" y1="231" x2="128" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(128,231) rotate(90)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 122px; left: 611px; top: 259px;">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488468/gears.jpg"/>
+								</div>
+						</div>
+				</section>
+				<section>
+						<h2>Static Site Generators to the Rescue!</h2>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 37px; ">
+								<div class="sl-block-content">
+										<h2>Static Site Generators</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 228px; left: 23px; top: 250px; ">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488474/pets-template.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 46px; left: 255px; top: 337px; ">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458417/plus.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 569px; top: 371px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="68" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="2">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="109" height="1" viewBox="-41 231 109 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="64" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="64" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(64,231) rotate(90)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 111px; ">
+								<div class="sl-block-content">
+										<h3>Automating in advance</h3>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 175px; left: 50px; top: 498px;">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458413/pets-html-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 251px; left: 309px; top: 248px;">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488461/cats-md.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style=" width: 264px; left: 323px; top: 552px;">
+								<div class="sl-block-content fragment" data-fragment-index="1">
+										<p>(or database)</p>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 254px; left: 678px; top: 283px;">
+								<div class="sl-block-content fragment" data-fragment-index="2">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488459/build-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 276px; left: 301px; top: 488px;">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5978115/cats-md-word.png"/>
+								</div>
+						</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="image" style="width: 176px; left: 26px; top: 168px; ">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488474/pets-template.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 582px; top: 305px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="64" data-line-y2="193" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="2">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="105" height="38" viewBox="-41 193 105 38">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="60" y2="195"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="60" y2="195"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(60,195) rotate(70.105)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 145px; left: 41px; top: 350px; ">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458413/pets-html-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 254px; left: 328px; top: 301px; ">
+								<div class="sl-block-content fragment" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488459/build-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 209px; left: 27px; top: 418px;">
+								<div class="sl-block-content fragment" data-fragment-index="0">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458397/batch-md.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 200px; top: 266px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="79" data-line-y2="308" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="1">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="120" height="77" viewBox="-41 231 120 77">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="75" y2="306"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="75" y2="306"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(75,306) rotate(122.687)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 240px; top: 448px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="39" data-line-y2="143" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="1">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="80" height="88" viewBox="-41 143 80 88">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="36" y2="146"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="36" y2="146"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(36,146) rotate(42.274)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 248px; left: 694px; top: 171px;">
+								<div class="sl-block-content fragment" data-fragment-index="2">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458396/batch-html.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 735px; top: 372px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="-41" data-line-y2="323" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="3">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="92" viewBox="-41 231 1 92">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="-41" y2="319"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="-41" y2="319"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(-41,319) rotate(180)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 277px; left: 619px; top: 464px;">
+								<div class="sl-block-content fragment current-visible" data-fragment-index="3">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458406/file-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 222px; left: 638px; top: 476px;">
+								<div class="sl-block-content fragment" data-fragment-index="4">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458402/cdn.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 37px; ">
+								<div class="sl-block-content">
+										<h2>Static Site Generators</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 111px; ">
+								<div class="sl-block-content">
+										<h3>Automating in advance</h3>
+								</div>
+						</div>
+				</section>
+				<section>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 44px; ">
+								<div class="sl-block-content">
+										<h2>Static Site Generators</h2>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 118px; ">
+								<div class="sl-block-content">
+										<h3>Web pages are files again</h3>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 330px; left: 9px; top: 272px; ">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458406/file-server.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 280px; left: 669.5px; top: 253px; ">
+								<div class="sl-block-content">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488470/laptop.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 340px; top: 481px;">
+								<div class="sl-block-content fragment" data-line-x1="-41" data-line-y1="231" data-line-x2="267" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="1">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="308" height="1" viewBox="-41 231 308 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-41" y1="231" x2="263" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-41" y1="231" x2="263" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(263,231) rotate(90)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style="width: 199px; left: 380.5px; top: 234px; ">
+								<div class="sl-block-content fragment" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488460/cats-html.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 169px; left: 698px; top: 280px;">
+								<div class="sl-block-content fragment" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5488483/website.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="image" style=" width: 127px; left: 714px; top: 285px;">
+								<div class="sl-block-content fragment fade-out" data-fragment-index="1">
+										<img data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/566016/images/5458490/cats-html-word.jpg"/>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="line" style=" left: 339px; top: 383px;">
+								<div class="sl-block-content fragment current-visible" data-line-x1="-54" data-line-y1="231" data-line-x2="-362" data-line-y2="231" data-line-color="#00b09f" data-line-start-type="none" data-line-end-type="line-arrow" data-line-width="6px" data-fragment-index="0">
+										<svg
+												xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="308" height="1" viewBox="-362 231 308 1">
+												<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-54" y1="231" x2="-357" y2="231"></line>
+												<line stroke="#00b09f" stroke-width="6" x1="-54" y1="231" x2="-357" y2="231"></line>
+												<path style="fill: rgba(0,0,0,0);" stroke="#00b09f" stroke-width="6" transform="translate(-357,231) rotate(270)" d="M 13.5 13.5 L 0 0 L -13.5 13.5"></path>
+										</svg>
+								</div>
+						</div>
+						<div class="sl-block" data-block-type="text" style=" width: 269px; left: 359px; top: 280px;">
+								<div class="sl-block-content fragment current-visible" data-fragment-index="0">
+										<p>request "cats.html"</p>
+								</div>
+						</div>
+				</section>
+				<section>
+					<div class="sl-block" data-block-type="text" style="width: 806px; left: 56px; top: 41px; ">
+							<div class="sl-block-content">
+									<h2>Static Site Generators</h2>
+							</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style="width: 806px; left: 56px; top: 115px; ">
+							<div class="sl-block-content">
+									<h3>The best of both worlds</h3>
+									<p>(in many cases)</p>
+							</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style=" width: 854px; left: 32px; top: 240px;">
+							<div class="sl-block-content">
+									<p>
+										<strong>Pros:</strong>
+									</p>
+									<ul>
+											<li class="fragment" data-fragment-index="0" style="text-align:left">
+												fast, secure, scalable on CDN
+											</li>
+											<li class="fragment" data-fragment-index="1" style="text-align:left">
+												computer still does the repetitive work
+											</li>
+											<li class="fragment" data-fragment-index="2" style="text-align:left">
+												can add JavaScript for between-page loads
+											</li>
+									</ul>
+							</div>
+					</div>
+					<div class="sl-block" data-block-type="text" style=" width: 738px; left: 90px; top: 490px;">
+							<div class="sl-block-content fragment" data-fragment-index="3">
+									<p>
+										<strong>Cons:</strong>
+									</p>
+									<ul>
+											<li class="fragment" data-fragment-index="3">
+												ecosystem not as mature (yet), so can require more coding
+											</li>
+									</ul>
+							</div>
+					</div>
+			</section>
+ 		<footer>
+ <div class="copyright">
+ Static Site Generators &middot; <a href="http://www.meetup.com/Girl-Develop-It-San-Francisco/">GDI SF</a> &middot; teaching-materials.org/static-site-generators
+ <a rel="license" href="../common/http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+ </div>
+ </footer>
+		</div>
+
+
+		<script src="../common/lib/js/head.min.js"></script>
+		<script src="../common/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../common/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
