@@ -58,17 +58,30 @@
 														<span style="font-size:1.2em">How static site generators work, and why they're useful</span>
 												</li>
 												<li class="fragment">
-														<span style="font-size:1.2em">How to choose a site generator</span>
-												</li>
-												<li class="fragment">
 														<span style="font-size:1.2em">How to make your own generated site</span>
 												</li>
 												<li class="fragment">
+													<span style="font-size:1.2em">How to choose a site generator</span>
+											</li>
+											<li class="fragment">
 														<span style="font-size:1.2em">How to keep learning after today</span>
 												</li>
 										</ul>
 								</div>
 						</div>
+					</section>
+				<section>
+				<h2 id="but-first-a-warm-up">But first, a warm-up</h2>
+				<p>Pair with a classmate and introduce yourselves. Then do the following steps on both of your computers:</p>
+				<ol>
+						<li>Visit <a href="https://static-sample.netlify.com/">https://static-sample.netlify.com/</a></li>
+						<li>Each person navigate to a different page on the site.</li>
+						<li>Right click on the page, and select <strong>View page source</strong> (or use a <a href="https://www.lifewire.com/view-web-source-code-4151702">different method</a>)</li>
+						<li>Compare the source code for your two pages. How are they the same? How are they different?</li>
+				</ol>
+				</section>
+				<section>
+					<h2>And now, a little history</h2>
 				</section>
 				<section>
 						<div class="sl-block" data-block-type="image" style=" width: 237px; left: 83px; top: 487px;">
@@ -712,6 +725,236 @@
 							</div>
 					</div>
 			</section>
+<section>
+<h2 id="let-s-dig-in-">Let’s dig in!</h2>
+</section><section>
+<h2 id="anatomy-of-an-ssg-project">Anatomy of an SSG Project</h2>
+<p>Remember this site?</p>
+<p><a href="https://static-sample.netlify.com/">https://static-sample.netlify.com/</a></p>
+<p>Here’s the code that builds it:</p>
+<p><a href="https://github.com/gdisf/static-sample">https://github.com/gdisf/static-sample</a></p>
+<p>It uses a generator called <a href="https://www.11ty.io/">Eleventy</a>.</p>
+</section><section>
+<h2 id="scavenger-hunt">Scavenger Hunt</h2>
+<p>Browse the project folders or use GitHub’s search to see if you can find the following:</p>
+<ul>
+    <li>Where the content is written for the first blog post</li>
+    <li>Where the date is set for that post</li>
+    <li>Where the navigation header links are set</li>
+    <li>How to change the homepage image</li>
+    <li><strong>Bonus:</strong> How the Projects page is built</li>
+</ul>
+</section><section>
+<h2 id="going-local">Going local</h2>
+<p>Download a copy so you can make it your own!</p>
+<p><img src="https://paper-attachments.dropbox.com/s_9D5183ECE7F9C4F439BF3B3729FB1D7EFDFAB6BD59E1702AEA786F4718024C48_1554327737184_download-repo-zip.png" alt=""></p>
+<p>Find and unzip the zip file, then open the folder in your text editor.</p>
+</section><section>
+<h2 id="time-to-serve">Time to serve</h2>
+<p>Now you have the files, but how to you see the site? You’ll need to serve it using the command line.</p>
+</section><section>
+<h2 id="command-line-crash-course">Command Line Crash Course</h2>
+<ul>
+    <li><code>cd</code>: change directory (folder)</li>
+    <li><code>ls</code>: list the files in a folder</li>
+    <li><code>ls -a</code>: list including hidden files</li>
+    <li><code>pwd</code>: print working directory (Where am I?)</li>
+    <li><code>clear</code>: clear the screen</li>
+</ul>
+</section><section>
+<h2 id="command-line-crash-course">Command Line Crash Course</h2>
+<p>Use <code>cd</code> to move to different folders on your computer. Some examples and shortcuts:</p>
+<ul>
+    <li><code>cd ~</code>: go to your home folder</li>
+    <li><code>cd Desktop</code>: go to your Desktop from your home folder</li>
+    <li><code>cd ..</code>: go one level up into the parent folder</li>
+</ul>
+<p>Tip: press the <strong>Tab</strong> key to auto-complete!</p>
+</section><section>
+<h2 id="command-line-crash-course">Command Line Crash Course</h2>
+<p>Extra tips:</p>
+<ul>
+    <li>Press the <strong>Tab</strong> key to auto-complete</li>
+    <li>Press the ⬆⬇ <strong>arrow keys</strong> to scroll through previous commands</li>
+</ul>
+</section><section>
+<h2 id="using-node">Using Node</h2>
+<p>Node.js runs JavaScript directly on your computer. We’ll use it to build our sites and run them on a local server. Run this command from any directory to check that you have Node installed:</p>
+<pre><code>node --version</code></pre>
+<p>If you see <code>command not found</code>, you need to <a href="https://nodejs.org">install it</a>!</p>
+</section><section>
+<h2 id="node-packages-with-npm">Node Packages with npm</h2>
+<p><strong>Packages</strong> are bits of JavaScript code that people share and re-use.</p>
+<p><a href="https://www.npmjs.com/">npm</a> is a service that indexes and serves these packages. It comes pre-installed with Node.</p>
+</section><section>
+<h2 id="packages-in-a-project">Packages in a Project</h2>
+<p>You can define what packages a project needs using a file called <code>package.json</code>.</p>
+<pre><code>"devDependencies": {
+  "@11ty/eleventy":"^0.7.1",
+  "@11ty/eleventy-plugin-rss":"^1.0.6",
+  "@11ty/eleventy-plugin-syntaxhighlight":"^2.0.1",
+  "luxon":"^1.0.0",
+  "markdown-it":"^8.4.1",
+  "markdown-it-anchor":"^5.0.2"
+  }
+</code></pre>
+<p>Running <code>npm install</code> in a project folder installs those packages, or dependencies.</p>
+</section><section>
+<h2 id="running-scripts">Running Scripts</h2>
+<p>The <code>package.json</code> file can also define commands you can run, called <code>scripts</code>.</p>
+<pre><code>"scripts": {
+  "build":"npx eleventy",
+  "watch":"npx eleventy --watch",
+  "serve":"npx eleventy --serve",
+  "debug":"DEBUG=* npx eleventy"
+  }
+</code></pre>
+<p>Running <code>npm run</code> and the script name will run that command in the project folder.</p>
+</section><section>
+<h2 id="serve-it-up-">Serve it up!</h2>
+<ol>
+    <li>In your terminal, <code>cd</code> into your project folder.</li>
+    <li>Run <code>npm install</code> to install dependencies.</li>
+    <li>When it’s done, run <code>npm run serve</code></li>
+    <li>Try visiting the different addresses that appear in your browser. What do you see?</li>
+</ol>
+</section><section>
+<h2 id="make-some-changes">Make some changes</h2>
+<ol>
+    <li>In your text editor, navigate to some of the places you found in the scavenger hunt activity.</li>
+    <li>Change something, and save the file.</li>
+    <li>Check the site in your browser. ✨</li>
+</ol>
+</section><section>
+<h2 id="blog-posts">Blog posts</h2>
+<p>Blog post <em>content</em> files are stored in the <code>posts</code> folder. The post filenames are formatted with a date and a slug:</p>
+<pre><code>YYYY-MM-DD-slug.md
+</code></pre>
+<p>Eleventy uses the file name to set the date of the post, and also combines the date with the slug to create the post permalink.
+    <code>.md</code> is the file extension for Markdown files.</p>
+</section><section>
+<h2 id="what-s-the-front-matter-">What’s the front matter?</h2>
+<p>Many SSGs store data about a file in a section at the top of the file, called <em>front matter</em>.</p>
+<pre><code>
+---
+title: This is my third post.
+tags:
+  - post
+  - second-tag
+---
+</code></pre>
+<p>This front matter is in YAML, but it can be in other formats like TOML or JSON.</p>
+</section><section>
+<h2 id="get-markdown">Get Markdown</h2>
+<p>After the front matter, the rest of the file is written in markdown.</p>
+<pre><code>## Starting out
+
+This is a 
+[link to teaching materials.org](https://teaching-materials.org).
+</code></pre>
+<p>Generators convert Markdown to HTML. You can also write HTML directly in Markdown.</p>
+</section><section>
+<h2 id="create-a-new-post">Create a new post</h2>
+<ol>
+    <li>Find the blog posts in the <code>posts</code> folder.</li>
+    <li>Make a new file in that folder with the same format. You can copy an existing one.</li>
+    <li>Make sure you have a title, tags, and some content written in Markdown.</li>
+    <li>Save the file, and check your site.</li>
+</ol>
+</section><section>
+<h2 id="the-blog-templates">The blog templates</h2>
+<p>The blog post template is at <code>_includes/layouts/post.html</code>. <p></p>The template for the blog index page is at <code>blog.html</code>. <p></p>They’re using <a href="https://shopify.github.io/liquid/">Liquid</a> templating language, which uses <code>{{ curly braces }}</code> to insert variables and logic into an html page.</p>
+</section><section>
+<h2 id="change-a-template">Change a template</h2>
+<p>Try changing the blog templates:</p>
+<ul>
+    <li>Move sections around.</li>
+    <li>Add text that shows on every post.</li>
+    <li>Add a new field to the post front matter and include it in templates.</li>
+    <li>Can you display tags in a post? (Try using the <a href="https://shopify.github.io/liquid/filters/join/">join filter</a>.)</li>
+</ul>
+</section><section>
+<h2 id="pure-data">Pure data</h2>
+<p>Some files are just data. The ones in the <code>_data</code> folder are in JSON format.<p></p> Find how the data from these files are used in templates. <p></p>Try changing some of the templates.</p>
+</section><section>
+<h2 id="pure-data">Pure data</h2>
+<p><strong>Extra bonus challenge:</strong> Create a new resume page template to replace the PDF resume. Create one or more data files to populate the template.</p>
+<p>Hint: Try using <code>projects.html</code> and <code>projects.json</code> as guides.</p>
+</section><section>
+<h2 id="expanding-your-options">Expanding Your Options</h2>
+</section><section>
+<h1 id="over-400-choices-">Over 400 Choices!</h1>
+<h2 id="-staticgen-com-https-www-staticgen-com-"><a href="https://www.staticgen.com/">StaticGen.com</a></h2>
+</section><section>
+<h2 id="primary-considerations">Primary considerations</h2>
+<ul>
+    <li>Familiarity of languages &amp; tools used</li>
+    <li>Availability/quality of docs &amp; resources</li>
+    <li>Features vs complexity</li>
+    <li>Specialization (blogs, docs, etc.)</li>
+    <li>Speed: to develop, build, load</li>
+</ul>
+</section><section>
+<h2 id="jekyll">Jekyll</h2>
+<ul>
+    <li>10 years old! Lots of users, tutorials, themes</li>
+    <li>Originally made for blogs, but used for more</li>
+    <li>Built with Ruby: versions can be a hassle</li>
+    <li><a href="https://shopify.github.io/liquid/tags/control-flow/">Liquid</a> templating: fairly easy to read</li>
+    <li><a href="https://guides.github.com/features/mastering-markdown/">Markdown</a> content</li>
+    <li>Configuration and data files in <a href="https://en.wikipedia.org/wiki/YAML">yaml</a>: easy to read, but whitespace sensitive</li>
+    <li>Builds can be slow for large sites</li>
+</ul>
+</section><section>
+<h2 id="hugo">Hugo</h2>
+<ul>
+    <li>Few years old; very active development</li>
+    <li>Built with Go, but doesn&#39;t require Go to run</li>
+    <li><a href="https://gohugo.io/templates/introduction/#iteration">Go template language</a>: steeper learning curve</li>
+    <li>Content in Markdown, plus <a href="https://gohugo.io/content-management/shortcodes/">shortcodes</a></li>
+    <li>Flexible and extendable, but complex</li>
+    <li>Docs are extensive, but can be hard to read</li>
+    <li>Reputation for very fast builds</li>
+</ul>
+</section><section>
+<h2 id="gatsby">Gatsby</h2>
+<ul>
+    <li>Few years old; venture-funded development</li>
+    <li>Built with JavaScript (<a href="https://reactjs.org/">React</a>): very popular</li>
+    <li>React component templating: steeper learning curve unless you&#39;re familiar with JS/React</li>
+    <li>Content in Markdown or <a href="https://mdxjs.com/">mdx</a> (powerful but JS-heavy)</li>
+    <li>Lots of plugins and themes (but still code-heavy)</li>
+    <li>Static/SPA hybrid structure is fast to load</li>
+</ul>
+</section><section>
+<h2 id="other-javascript-ssgs">Other JavaScript SSGs</h2>
+<ul>
+    <li><strong>React:</strong> <a href="https://nextjs.org/learn/basics/getting-started">Next</a>, <a href="https://react-static.js.org/">React Static</a></li>
+    <li><strong>Vue:</strong> <a href="https://nuxtjs.org/">Nuxt</a>, <a href="https://gridsome.org/">Gridsome</a></li>
+    <li><strong>Vanilla JS:</strong> <a href="https://hexo.io/">Hexo</a>, <a href="https://11ty.io/">Eleventy</a></li>
+</ul>
+</section><section>
+<h2 id="specialized-ssgs">Specialized SSGs</h2>
+<p><strong>For documentation</strong></p>
+<ul>
+    <li><a href="http://www.sphinx-doc.org/">Sphinx</a>: older than Jekyll, made with Python, rich structured text options</li>
+    <li><a href="https://docusaurus.io/">Docusaurus</a>: very simplistic, made with React</li>
+    <li><a href="https://vuepress.vuejs.org/">VuePress</a>: nice docs features, made with Vue</li>
+</ul>
+<p><strong>For data scientists</strong></p>
+<ul>
+		<li> <a href="https://bookdown.org/yihui/blogdown/">Blogdown</a>: built on Hugo, uses R Markdown</li>
+		</ul>
+	</section><section>
+<h2 id="how-to-evaluate">How to evaluate</h2>
+<ul>
+    <li>Browse the docs</li>
+    <li>Search for tutorials and reviews</li>
+    <li>Search for themes or starters</li>
+    <li>Explore the files in a sample project</li>
+    <li>Try it out!</li>
+</ul>
+</section>
  		<footer>
  <div class="copyright">
  Static Site Generators &middot; <a href="https://www.meetup.com/Girl-Develop-It-San-Francisco/">GDI SF</a> &middot; teaching-materials.org/static-site-generators
