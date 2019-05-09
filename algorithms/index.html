@@ -419,7 +419,7 @@ laundry.drop()
             </section>
 
             <section>
-                <img src="images/big-o-graph.png">
+                <img src="images/big-o-complexity-graph.png">
             </section>
 
             <section>
@@ -502,7 +502,7 @@ for (pile in piles) {
             </section>
 
             <section>
-                <img src="images/big-o-graph.png">
+                <img src="images/big-o-complexity-graph.png">
             </section>
 
             <section>
@@ -581,7 +581,7 @@ for (shirt in shirts_pile) {
             </section>
 
             <section>
-                <img src="images/big-o-graph.png">
+                <img src="images/big-o-complexity-graph.png">
             </section>
 
             <section>
@@ -678,16 +678,6 @@ for (shirt in shirts_pile) {
             <section>
                 <h3>What is the time complexity of...</h3>
                 <br>
-                <p>sorting your books in alphabetical order</p>
-                <br>
-                <p><span style="color: #f05b62">O(1)</span> - Constant</p>
-                <p><span style="color: #f05b62">O(n)</span> - Linear</p>
-                <p><span style="color: #f05b62">O(n<sup>2</sup>)</span> - Quadratic</p>
-            </section>
-
-            <section>
-                <h3>What is the time complexity of...</h3>
-                <br>
                 <p>looking up an element in an array</p>
                 <pre><code>var things = ["raindrops", "roses", "whiskers", "kittens"]
 
@@ -771,7 +761,7 @@ for (var i = 0; i &lt; things.length; i++) {
                </p>
                <br>
                <p class='fragment'>The space complexity is:</p>
-               <p class='fragment'><span style="color: #f05b62">O(N)</span> => linear time</p>
+               <p class='fragment'><span style="color: #f05b62">O(N)</span> => linear space</p>
             </section>
 
             <section>
@@ -800,7 +790,7 @@ for (var i = 0; i &lt; things.length; i++) {
                </p>
                <br>
                <p class="fragment">The space complexity is:</p>
-               <p class='fragment'><span style="color: #f05b62">O(1)</span> => constant time</p>
+               <p class='fragment'><span style="color: #f05b62">O(1)</span> => constant space</p>
                <div>
             </section>
 
@@ -845,7 +835,7 @@ for (var i = 0; i &lt; things.length; i++) {
             </section>
             <section>
                 <h2 class='highlight'>Discuss</h2>
-                <p>How do you solve the problem of <br>searching billions of pieces of data?</p>
+                <p>How do you solve the problem of <br>searching data numbering in the billions?</p>
                 <br />
                 <img src="images/search.png">
             </section>
@@ -877,10 +867,11 @@ for (var i = 0; i &lt; things.length; i++) {
             <section>
                 <h2>Algorithm Solving Strategies</h2>
                 <br>
+                <p>What did we do to create our linear search algorithm?</p>
+                <br>
                 <ul style="margin-left: 120px;">
                     <li>Use iteration to move over a data structure</li>
                     <li>Use comparison of values</li>
-                    <li>Use a large, diverse enough data set</li>
                 </ul>
             </section>
             <section>
@@ -898,14 +889,14 @@ for (var i = 0; i &lt; things.length; i++) {
             <section>
               <h2>Binary Search: Steps</h2><br>
               <!-- todo wikipedia animation? -->
-              <p>To find the index of element <span style="color: #f05b62">e</span> with a certain value:</p><br>
+              <p>To find the <span style="color: #f05b62"><i>index</i></span> of element <span style="color: #f05b62">e</span> with a certain value:</p><br>
               <ul style="margin-left: 50px;">
-                <li>Start with an array sorted in descending order.<br><br>
+                <li>Start with an array sorted in ascending order.<br><br>
                 <li>In each step:
                   <ul style="margin-left: 50px; font-size: 30px;">
                       <li>Pick the middle element of the array <span style="color: #f05b62">m</span> and compare it to <span style="color: #f05b62">e</span>.
-                      <li>If element values are equal, then return index of <span style="color: #f05b62">m</span>.
-                      <li>If <span style="color: #f05b62">e</span> is greater than <span style="color: #f05b62">m</span>, then <span style="color: #f05b62">e</span> must be in left subarray.<br>If <span style="color: #f05b62">m</span> is greater than <span style="color: #f05b62">e</span>, then <span style="color: #f05b62">e</span> must be in the right subarray.
+                      <li>If element values are equal, then return <span style="color: #f05b62"><i>index</i></span> of <span style="color: #f05b62">m</span>.
+                      <li>If <span style="color: #f05b62">m</span> is greater than <span style="color: #f05b62">e</span>, then <span style="color: #f05b62">e</span> must be in left subarray.<br>If <span style="color: #f05b62">m</span> is less than <span style="color: #f05b62">e</span>, then <span style="color: #f05b62">e</span> must be in the right subarray.
                   </ul><br>
                 <li>Repeat those steps on new subarray.</li>
               </ul>
@@ -931,8 +922,10 @@ for (var i = 0; i &lt; things.length; i++) {
              <section>
                 <h2>Algorithm Solving Strategies</h2>
                 <br>
+                <p>What did we do to create our binary search algorithm?</p>
+                <br>
                 <ul>
-                    <li>Use variables as 'pointers' to track data in an algorithm</li><br>
+                    <li>Use variables as 'pointers' to track data in our data structure</li><br>
                     <li>Inside the algorithm, try to make your data set smaller, such that you are comparing smaller sets of data to each other - called the <span style="color: #f05b62">'base case'</span></li>
                 </ul>
             </section>
