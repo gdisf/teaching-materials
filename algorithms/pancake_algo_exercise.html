@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GDISF Pancake Algorithm Exercise</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h2>Pancake Making Exercise</h2><br>
+      <h4>Write two algorithms, one that is space efficient, and one that is time efficient!</h4>
+      <br>
+      <p>The function you write should accept one parameter: the number of servings to make.<br>
+         The function should return an object with the following keys: <b>time</b>, and <b>space</b>.</p>
+      <ol>
+        <li>Pair up!</li>
+        <li>Write pseudocode for this problem! Try to be as thorough and detailed as possible for each step.</li>
+        <li>Walk through your pseudocode together with your partner using an example/ test case, to make sure each step is doing exactly what you think it should.</li>
+        <li>Now turn your pseudocode into code! You can use any environment you want to run and test code. <br>If you would like premade test cases in Javascript, feel free to fork <a href="https://repl.it/@NicoleFish/GDISF-Pancake-Making" target="_blank" rel="noopener noreferrer">this repl</a>.</li>
+      </ol>
+      <br>
+
+      <h5>Definitions and data structures</h5>
+      <pre>
+class Bowl {
+  constructor(size) {
+    this.size = size
+  }
+
+  fillWithBatter() { return 5 }
+  whisk() { return 2 }
+  refrigerate() { return 30 }
+}
+
+class Pancake {
+  cook() { return 3 }
+}
+      </pre>
+
+      Stumped? <a href="#" onclick="showHints()">Click here</a> for some hints.
+      <br>
+      <div id="hints" style="display:none;">
+        <ol>
+          <li>Your space efficient algorithm should have constant space complexity - so a fixed size data structure (bowl).</li>
+          <li>Your time efficient algorithm should have linear space complexity - so a data structure (bowl) whose size is dependent upon the input (servings).</li>
+        </ol>
+      </div>
+      <br>
+    </div>
+
+    <script>
+      function showHints() {
+          document.getElementById('hints').style.display = 'block';
+      }
+    </script>
+    <br>
+    <br>
+    <br>
+  </body>
+</html>

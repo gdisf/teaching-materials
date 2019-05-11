@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
+  <head>
+    <title>GDISF Linear Search Exercise</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-    <h2>Linear Search Exercise</h2><br>
-    <h4>Write the Linear Search algorithm!</h4><br>
-    <ul>
-        <li>Pair up!</li>
-        <li>Write pseudocode for this problem!</li>
-        <li>Now write the code for this algorithm.  You can use <a href="http://repl.it">repl.it</a> or some other environment to run and test code.</li>
-        <li>The function you write should accept two parameters: 1) an array and 2) the value to find.<br>The function should return <b>the index</b> of the found value, or -1 if not found.</li>
-    </ul>
-    <br>
-    Stumped? <a href="#" onclick="showHints()">Click here</a> for some hints.
-    <br>
-    <div id="hints" style="display:none;">
-        <ol>
-            <li>Try using a for loop to iterate over the array</li>
-        </ol>
-    </div>
-    <br>
-    <button onclick='showSolution()'>See solution</button>
-    <br>
-    <div id="solution" style="display:none;">
+      <h2>Linear Search Exercise</h2><br>
+      <h4>Write a Linear Search algorithm!</h4>
+      <br>
+      <p>The function you write should accept two parameters: 1) an array and 2) the value to find.<br>The function should return <b>the index</b> of the found value, or -1 if not found.</p>
+      <ol>
+          <li>Pair up!</li>
+          <li>Write pseudocode for this problem! Try to be as thorough and detailed as possible for each step.</li>
+          <li>Walk through your pseudocode together with your partner using an example/ test case, to make sure each step is doing exactly what you think it should.</li>
+          <li>Now turn your pseudocode into code! You can use any environment you want to run and test code. <br>If you would like premade test cases in Javascript, feel free to fork <a href="https://repl.it/@NicoleFish/GDISF-Linear-Search" target="_blank" rel="noopener noreferrer">this repl</a>.</li>
+      </ol>
+      <br>
+
+      Stumped? <a href="#" onclick="showHints()">Click here</a> for some hints.
+      <br>
+      <div id="hints" style="display:none;">
+          <ol>
+              <li>Try using a for loop to iterate over the array!</li>
+          </ol>
+      </div>
+      <br>
+
+      <button onclick='showSolution()'>See solution</button>
+      <br>
+      <div id="solution" style="display:none;">
+        <br>
         <pre>
-linearSearch = (array, value) => {
-  for (var i; i < array.length; i++) {
-  	if (i === value) {
-  	  return i
-  	}
+const linearSearch = (array, value) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) {
+      return i
+    }
   }
   return -1
 }
         </pre>
+      </div>
     </div>
 
     <script>
-
         function showSolution() {
           if (confirm('You surrrrre?')) {
             document.getElementById('solution').style.display = 'block';
@@ -49,7 +54,7 @@ linearSearch = (array, value) => {
         function showHints() {
             document.getElementById('hints').style.display = 'block';
         }
-  </script>
+    </script>
 
-</body>
+  </body>
 </html>
