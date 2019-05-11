@@ -358,7 +358,7 @@ myObject = {
             </section>
 
             <section>
-              <h2>Hanging up Laundry v1</h2><br>
+              <h2>Put Away Laundry - v1</h2><br>
               <h3>Algorithm</h3>
               <ol style="margin-left: 290px;">
                 <li class="fragment">Dump laundry on floor
@@ -375,7 +375,7 @@ laundry.drop()
               <h3>Runtime</h3>
               <p style="color: #f05b62">How long does the algorithm take?</p>
               <p class="fragment">
-                Dumping out laundry takes 2 seconds
+                Dumping out laundry takes 2 seconds.
               </p>
               <div class="fragment">
               <hr>
@@ -423,7 +423,7 @@ laundry.drop()
             </section>
 
             <section>
-              <h2>Laundry v2</h2>
+              <h2>Hang Up Laundry - v2</h2>
               <h3>Algorithm</h3>
               <br>
               <ol style="margin-left: 90px;">
@@ -436,8 +436,10 @@ laundry.drop()
             <section>
               <h2>Laundry v2</h2>
               <h3>Code</h3>
-                <pre><code>
+              <pre><code>
 const piles = { 'shirts': [], 'socks': [], 'pants': [] }
+
+laundry.drop()
 
 for (item in laundry) {
   piles[item.type].push(item)
@@ -448,7 +450,7 @@ for (pile in piles) {
         item.hang_up()
     }
 }
-                </code></pre>
+              </code></pre>
             </section>
 
             <section>
@@ -456,6 +458,8 @@ for (pile in piles) {
               <h3>Runtime</h3>
               <p style="color: #f05b62">How long does the algorithm take?</p>
               <p class="fragment">
+                Dumping out laundry takes 2 seconds.
+                <br>
                 Putting an item in a pile takes 10 seconds.
                 <br>
                 Hanging an item up takes 30 seconds.
@@ -472,21 +476,21 @@ for (pile in piles) {
                     <tbody>
                         <tr>
                             <td>4</td>
-                            <td>(4*10 + 4*30) = 160</td>
+                            <td>2 + (4*10 + 4*30) = 160</td>
                         </tr>
                         <tr>
                             <td>8</td>
-                            <td>(8*10 + 8*30) = 320</td>
+                            <td>2 + (8*10 + 8*30) = 320</td>
                         </tr>
                         <tr>
                             <td>16</td>
-                            <td>(16*10 + 16*30) = 640</td>
+                            <td>2 + (16*10 + 16*30) = 640</td>
                         </tr>
                     </tbody>
                   </table>
                   <hr>
               </div>
-                <p class="fragment">N = items of clothing<br>Time it takes: (N*10 + N*30)<br>
+                <p class="fragment">N = items of clothing<br>Time it takes: 2 + (N*10 + N*30)<br>
                </p>
             </section>
 
@@ -494,7 +498,8 @@ for (pile in piles) {
                 <h2>Laundry v2</h2>
                 <h3>Big O Notation</h3>
                 <br>
-                (N*10 + N*30)
+                (2 + N*10 + N*30)
+                <p class="fragment"> &#x2192; O(2 + 40N)</p>
                 <p class="fragment"> &#x2192; O(40N)</p>
                 <p class="fragment">&#x2192; <span style="color: #f05b62"> O(N)</span></p>
                 <br>
@@ -506,32 +511,47 @@ for (pile in piles) {
             </section>
 
             <section>
-              <h2>Laundry v3</h2>
-              <h3>Sort and Make Outfits</h3>
-              <p>We want to make all possible outfit combinations.</p>
-              <p>For simplicity's sake, assume there <br>are an equal amount of pants and shirts.</p>
+              <h2>Match Clean Outfits - v3</h2>
+              <h3>Algorithm</h3>
+              <br>
+              <ol style="margin-left: 90px;">
+                <li>Dump laundry on bed.
+                <li>Sort the shirts and pants into two different piles.
+                <li>Make all possible outfit combinations. Let's assume there are an equal amount of pants and shirts.
+              </ol>
+            </section>
 
+            <section>
+              <h2>Laundry v3</h2>
+              <h3>Code</h3>
               <pre><code>
 pants_pile = ['jeans', 'overalls', 'leggings', ..., 'cutoffs']    // N items
 shirts_pile = ['t-shirt', 'blouse', 'crop-top', ..., 'tank']      // N items
 outfits = []
+
+laundry.drop()
+laundry.sort()
 
 for (shirt in shirts_pile) {
     for (pants in pants_pile) {
         outfits.push([shirt, pants])
     }
 }
-           </code></pre>
+              </code></pre>
             </section>
 
             <section>
               <h2>Laundry v3</h2>
               <h3>Runtime</h3>
+              <p>We must match <strong style="color: #f05b62">each shirt</strong> with <strong style="color: #f05b62">each pair of pants.</strong>
               <br>
-              <p>We must match <strong style="color: #f05b62">each shirt</strong> with <strong  style="color: #f05b62">each pair of pants.</strong></p>
-              <p>Looking at each item takes 2 seconds.</p><br>
+              Dumping out laundry takes 2 seconds.
+              <br>
+              Putting an item in a pile takes 10 seconds.
+              <br>
+              Looking at each item takes 2 seconds.</p><br>
 
-              <table class="fragment" style="margin:auto; background:white; padding: 5px; font-size:smaller;">
+              <table class="fragment" style="margin:auto; width: 85%; background:white; padding: 5px; font-size:smaller;">
                 <thead>
                     <tr>
                         <th>pants</th>
@@ -544,27 +564,27 @@ for (shirt in shirts_pile) {
                     <tr class="fragment">
                         <td>4</td>
                         <td>4</td>
-                        <td>(4*2*4*2)</td>
-                        <td>64</td>
+                        <td>2 + (4*10) + (4*2)*4</td>
+                        <td>74</td>
                     </tr>
                     <tr class="fragment">
                         <td>8</td>
                         <td>8</td>
-                        <td>(8*2*8*2)</td>
-                        <td>256</td>
+                        <td>2 + (8*10) + (8*2)*8</td>
+                        <td>210</td>
                     </tr>
                     <tr class="fragment">
                         <td>1024</td>
                         <td>1024</td>
-                        <td>(1024*2*1024*2)</td>
-                        <td>4194304</td>
+                        <td>2 + (1024*10) + (1024*2)*1024</td>
+                        <td>2107394</td>
                     </tr>
                 </tbody>
               </table>
               <br>
                <p class="fragment">
-                N = # items of clothing and # items in section
-                <br>Time it takes: (N*10 + N*30 + N*N*2)
+                N = # items of clothing
+                <br>Time it takes: 2 + (N*10) + (N*2)*N
                </p>
             </section>
 
@@ -572,8 +592,9 @@ for (shirt in shirts_pile) {
                 <h2>Laundry v3</h2>
                 <h3>Big O Notation</h3>
                 <br>
-                (N*10 + N*30 + N*N*2)
-                <p class="fragment">&#x2192; O(40N + 2N<sup>2</sup>)</p>
+                (2 + N*10 + N*2*N)
+                <p class="fragment">&#x2192; O(2 + 10N + 2N<sup>2</sup>)</p>
+                <p class="fragment">&#x2192; O(10N + 2N<sup>2</sup>)</p>
                 <p class="fragment">&#x2192; O(2N<sup>2</sup>)</p>
                 <p class="fragment">&#x2192; <span style="color: #f05b62">O(N<sup>2</sup>)</span></p>
                 <br>
@@ -811,8 +832,8 @@ for (var i = 0; i &lt; things.length; i++) {
 
             <section>
                 <h2>Exercise time!</h2>
-                <h3 class='highlight'>Making Crepes</h2><br>
-                <p>Write two algorithms for making crepes,<br>one that is time efficient and one that is space efficient.</p><br>
+                <h3 class='highlight'>Making Pancakes</h2><br>
+                <p>Write two algorithms to make <span style="color: #f05b62">N</span> servings of pancakes, <br>one that is time efficient and one that is space efficient.</p><br>
                 <p>Pseudocode each step first,<br>then code it if you have time.</p>
             </section>
 
@@ -1151,9 +1172,9 @@ for (var i = 0; i &lt; things.length; i++) {
                 <h2>Bucket Sort</h2>
                 <h3 class="highlight">When is it best?</h3><br>
                 <div>
-                    <ul style="margin-left: 265px;">
-                        <li>A known range of values, <br>with a known distribution</li>
-                        <li>Birthdays, GPAs, etc</li>
+                    <ul style="margin-left: 55px;">
+                        <li>A known range of values, with a uniform distribution</li>
+                        <li>Names, birthdays, GPAs, etc</li>
                     </ul>
                     <br>
                     <p class="left"><span style="color: #f05b62">Example:</span> You work at a 100k person company and <br>want to create a list of birthdays so everyone can be celebrated each month. Year doesn't matter, just date.</p>
@@ -1174,10 +1195,11 @@ for (var i = 0; i &lt; things.length; i++) {
             <section>
                 <h2>Merge Sort</h2>
                 <h3 class="highlight">When is it best?</h3><br>
-                <ul style="margin-left: 100px;">
-                    <li>When you are combining already sorted arrays</li>
+                <ul style="margin-left: 25px;">
+                    <li>When the characteristics of the dataset are unknown</li>
+                    <li>When you want to implement a multithreaded solution</li>
                 </ul><br>
-                <p class="left" style="margin-left: 70px;"><span style="color: #f05b62">Example:</span> Two companies are merging and they each have seniority lists based on hire dates. <br>They need to combine them into one sorted list.
+                <p class="left" style="margin-left: 35px;"><span style="color: #f05b62">Example:</span> Two companies are merging and they each had different ways to calculate their hierarchies. They want to create a new seniority list based on hire dates.</p>
             </section>
 
             <section>
@@ -1342,8 +1364,8 @@ for (var i = 0; i &lt; things.length; i++) {
                     <li><a href="https://github.com/adowns01/Intro-to-Whiteboarding" target="_blank">Intro to Whiteboarding (Amelia Downs)</a></li><br>
                 </ul><br>
                 Practice practice practice!<br><br>
-                <a href="https://www.meetup.com/Girl-Develop-It-San-Francisco/events/253358377/">GDISF Intro to Whiteboarding class</a><br>
-                one week from today, Saturday 9/29
+                <a href="https://www.meetup.com/Girl-Develop-It-San-Francisco/events/259569112/">GDISF Intro to Whiteboarding class</a><br>
+                one week from today, Saturday 5/18
             </section>
 
             <section>
