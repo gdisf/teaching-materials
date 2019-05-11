@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
+  <head>
+    <title>GDISF Binary Search Exercise</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-    <h2>Binary Search Exercise</h2><br>
-    <h4>Write a Binary Search algorithm!</h4>
-    <br>
-    <p>The function you write should accept two parameters: 1) an array and 2) the value to find.<br>The function should return <b>the index</b> of the found value, or -1 if not found.</p>
-    <ol>
-        <li>Pair up!</li>
-        <li>Write pseudocode for this problem! Improve on the steps from the <b>Binary Search: Steps</b> slide. <br>Can you get those steps as close to actual code as possible?</li>
-        <li>Walk through your pseudocode together with your partner using an example/ test case, to make sure each step is doing exactly what you think it should.</li>
-        <li>Now turn your pseudocode into code! You can use any environment you want to run and test code. <br>If you would like premade test cases in Javascript, feel free to fork <a href="https://repl.it/@NicoleFish/GDISF-Binary-Search" target="_blank" rel="noopener noreferrer">this repl</a>.</li>
-    </ol>
-    <br>
-    Stumped? <a href="#" onclick="showHints()">Click here</a> for some hints.
-    <br>
-    <div id="hints" style="display:none;">
-        <ol>
-            <li>Instead of creating new subarrays every time, let's save space and just 'halve' the array conceptually.</li>
-            <li>So, when you 'halve' the array, how do you keep track of where you are?</li>
-            <li>Also, how do you know when you are done? (Try using a while loop!)</li>
-        </ol>
-    </div>
-    <br>
-    <button onclick='showSolution()'>See solution</button>
-    <br>
-    <div id="solution" style="display:none;">
+      <h2>Binary Search Exercise</h2><br>
+      <h4>Write a Binary Search algorithm!</h4>
       <br>
-      <pre>
-const binarySearch = (array, value) => {
-  let start_index = 0
-  let end_index = array.length - 1
-  let middle_index
+      <p>The function you write should accept two parameters: 1) an array and 2) the value to find.<br>The function should return <b>the index</b> of the found value, or -1 if not found.</p>
+      <ol>
+          <li>Pair up!</li>
+          <li>Write pseudocode for this problem! Improve on the steps from the <b>Binary Search: Steps</b> slide. <br>Can you get those steps as close to actual code as possible?</li>
+          <li>Walk through your pseudocode together with your partner using an example/ test case, to make sure each step is doing exactly what you think it should.</li>
+          <li>Now turn your pseudocode into code! You can use any environment you want to run and test code. <br>If you would like premade test cases in Javascript, feel free to fork <a href="https://repl.it/@NicoleFish/GDISF-Binary-Search" target="_blank" rel="noopener noreferrer">this repl</a>.</li>
+      </ol>
+      <br>
 
-  while (start_index <= end_index) {
-    middle_index = Math.floor((start_index + end_index) / 2)
+      Stumped? <a href="#" onclick="showHints()">Click here</a> for some hints.
+      <br>
+      <div id="hints" style="display:none;">
+          <ol>
+              <li>Instead of creating new subarrays every time, let's save space and just 'halve' the array conceptually.</li>
+              <li>So, when you 'halve' the array, how do you keep track of where you are?</li>
+              <li>Also, how do you know when you are done? (Try using a while loop!)</li>
+          </ol>
+      </div>
+      <br>
 
-    if (array[middle_index] === value) {
-      return middle_index
+      <button onclick='showSolution()'>See solution</button>
+      <br>
+      <div id="solution" style="display:none;">
+        <br>
+        <pre>
+  const binarySearch = (array, value) => {
+    let start_index = 0
+    let end_index = array.length - 1
+    let middle_index
+
+    while (start_index <= end_index) {
+      middle_index = Math.floor((start_index + end_index) / 2)
+
+      if (array[middle_index] === value) {
+        return middle_index
+      }
+      else if (array[middle_index] > value) {
+        end_index = middle_index - 1
+      }
+      else if (array[middle_index] < value) {
+        start_index = middle_index + 1
+      }
     }
-    else if (array[middle_index] > value) {
-      end_index = middle_index - 1
-    }
-    else if (array[middle_index] < value) {
-      start_index = middle_index + 1
-    }
+    return -1
   }
-  return -1
-}
-      </pre>
+        </pre>
+      </div>
     </div>
 
     <script>
-
-        function showSolution() {
-          if (confirm('You surrrrre?')) {
-            document.getElementById('solution').style.display = 'block';
-          }
+      function showSolution() {
+        if (confirm('You surrrrre?')) {
+          document.getElementById('solution').style.display = 'block';
         }
+      }
 
-        function showHints() {
-            document.getElementById('hints').style.display = 'block';
-        }
-  </script>
+      function showHints() {
+          document.getElementById('hints').style.display = 'block';
+      }
+    </script>
 
-</body>
+  </body>
 </html>
