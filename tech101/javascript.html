@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Tech 101: What is the Web?</title>
+
+		<meta name="description" content="Girl Develop It's lecture on what makes the web">
+		<meta name="author" content="Girl Develop It">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+		<!-- dark editor--><link rel="stylesheet" href="lib/css/dark.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!-- If use the PDF print sheet so students can print slides-->
+
+		<link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <!-- Opening -->
+				<section>
+					<h1>JavaScript for Web Design</h1>
+				</section>
+
+				<!-- Welcome-->
+			 <section class="">
+				 <h3>Welcome!</h3>
+				 <div class = "left-align">
+				 <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+				 <p class ="green">Some "rules"</p>
+				 <ul>
+					 <li>We are here for you!</li>
+					 <li>Every question is important</li>
+					 <li>Help each other</li>
+					 <li>Have fun</li>
+				 </ul>
+				 </div>
+			 </section>
+
+			 <section class="">
+				 <h3>About Me</h3>
+				 <!-- TODO: fill in your about me page however you like! -->
+				 <!-- <img src="images/jeseekia.png" /> -->
+				 <p class="box copy--small">
+					 I am Aisha Blake. I work for Gatsby. Follow me on twitter <a href="http://twitter.com/aishablake" target="_blank">@AishaBlake</a>
+				 </p>
+				 <br/>
+				 <p>Other intros: Tammy and Katie</p>
+			 </section>
+
+			 <section>
+				 <h3>Welcome!</h3>
+				 <div class = "left-align">
+				 <p class = "blue">Tell us about yourself.</p>
+				 <ul>
+					 <li>Who are you?</li>
+					 <li>What do you hope to get out of the class?</li>
+					 <li>What is your favorite or dream vacation destination?</li>
+				 </ul>
+				 </div>
+			 </section>
+
+			 <section>
+          <h3>JavaScript for Web Design</h3>
+          <ul>
+            <li class="left-align">Anatomy of a Website</li>
+            <li class="left-align">HTML + CSS Review</li>
+            <li class="left-align">History of JavaScript</li>
+            <li class="left-align">The DOM</li>
+            <li class="left-align">Using the Inspector</li>
+						<li class="left-align">JavaScript Frameworks</li>
+          </ul>
+        </section>
+
+				<!-- Terms-->
+        <section>
+         <h3>Terms</h3>
+         <ul>
+           <li>
+            <div class = "green">Web design</div>
+            <div>The process of planning, structuring and creating a website</div>
+           </li>
+           <li>
+            <div class = "green">Web development</div>
+            <div>The process of programming dynamic web applications</div>
+           </li>
+           <li>
+            <div class = "green">Front end</div>
+            <div>The outwardly visible elements of a website or application</div>
+           </li>
+           <li>
+            <div class = "green">Back end</div>
+            <div>The inner workings and functionality of a website or application.</div>
+           </li>
+         </ul>
+        </section>
+				
+			 <section>
+          <h3>Anatomy of a website</h3>
+          <p>A website uses HTML to structure content, CSS to make it look good &amp; JavaScript for interaction.</p>
+          <a href="http://girldevelopit.com" target="_blank"><img src = "images/homepage-view.png"></a>
+        </section>
+
+				<section>
+					<h3>Anatomy of a website</h3>
+					<ul>
+						<li><strong>HTML</strong> (text and images)</li>
+						<li><strong>CSS</strong> (styling)</li>
+						<li><strong>Javascript</strong> (functionality)</li>
+						<li><strong>JSON</strong> (data)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Brief HTML & CSS Overview</h2>
+				</section>
+				<section>
+					<h2>HTML</h2>
+					<a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/static_html_only">
+						<img width="500px" src="images/htmlonly.png"/>
+						<pre><code class="html">
+<h1>All about dogs</h1>
+<img id="header-image" width="4%" height="4%" src="images/dogpaws.jpeg"/>
+						</code></pre>
+					</a>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h2>HTML</h2>
+					<ul>
+						<li class="fragment">Use to add content to your webpage (text, images) using HTML elements</li>
+						<li class="fragment">HTML elements are represented by tags and have content inside them.</li>
+					</ul>
+
+					<div style="margin-top:50px" class="fragment"><h3>This is the content of a header</h3>
+					<pre><code class="html">
+<h3>This is the content of a header</h3>
+					</code></pre></div>
+					<aside class="notes">
+						These tags are read by a browser and translated to a visible page
+					</aside>
+				</section>
+
+				<section>
+					<h2>CSS</h2>
+					<a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/static_styled">
+						<img width="500px" src="images/htmlcss.png"/>
+						<pre><code class="css">header {
+  color: white;
+  background-color: powderblue;
+}
+						</code></pre>
+					</a>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h2>CSS</h2>
+					<ul>
+						<ul>
+							<li class="fragment">Use to add styling to your webpage (color, layout)</li>
+							<li class="fragment">Is separate from HTML and can add the same styling to multiple webpages</li>
+						</ul>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h2>Example: form w/o JS</h2>
+					<ol>
+						<li>Go back to <a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/static_styled">All About Dogs</a></li>
+						<li>Try to submit your favorite dog using the form.  What happens?</li>
+					</ol>
+					<div style="margin-top:50px">
+						<p class="fragment" style="color:#f05b62">The form doesn't work! It's missing <b>functionality</b></p>
+						<p class="fragment" style="color:#f05b62">To give the form functionality, we need <b>Javascript</b></p>
+					</div>
+					<aside class="notes">
+						Before they go to the Javascript portion, have them try to submit something in the form. When
+						they notice that it doesn't show up on the page, tell them it's because they don't have
+						Javascript in there.
+					</aside>
+				</section>
+
+			<section>
+        <h3>What is JavaScript?</h3>
+        <ul>
+            <li>JavaScript is standardized by the "ECMAScript" specifications.</li>
+            <li>JavaScript is a client-side processing language. A browser reads the code and runs it directly.</li>
+            <li>JavaScript interfaces with HTML and CSS.</li>
+            <li>With JavaScript, you can write code once and use it everywhere. Remember, you want DRY code (Don't Repeat Yourself).</li>
+            <li>JavaScript lets you build dynamic webpages that respond to input from users.</li>
+        </ul>
+    </section>
+    <section>
+        <h3>JavaScript is a client-side language (mostly)</h3>
+        <img src="images/client-server.png" alt="Laptop and server connected via the internet"/>
+				<p class="credit">Photo credits: <a href="http://www.flickr.com/photos/papalars/5210226441/" target="_blank">Andrew E. Larson</a> and <a href="http://www.flickr.com/photos/johnseb/3425464/" target="_blank">John Seb Barber</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
+      </section>
+			<section>
+				<h2>How JavaScript interacts with HTML & CSS</h2>
+			</section>
+			<section>
+							<h3>The DOM Tree</h3>
+							<p>We model the nested structure of an HTML page with the DOM (Document Object Model) Tree. The browser makes a "map" of all the elements on a page.</p>
+						</section>
+						<section>
+							<h3>The DOM: Sample Code</h3>
+								<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;Test Page&lt;/title&gt;
+	&lt;style&gt;
+			h1 {
+				color: red;
+			}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;My Page&lt;/h1&gt;
+	&lt;p&gt;Hello World!&lt;/p&gt;
+	&lt;img src="http://placekitten.com/200/300" alt="cat"/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+				</code></pre>
+						</section>
+						<section>
+							<h3>The DOM: Sample Model</h3>
+							<img src="images/dom-tree.png" alt="Simple DOM Tree"/>
+						</section>
+
+						<section>
+							<h3>DOM Access</h3>
+							<p>Your browser automatically builds a Document Object to store the DOM of a page. To change a page:</p>
+							<ol>
+								<li>Find the DOM node and store it in a variable</li>
+								<li>Use methods to manipulate the node</li>
+							</ol>
+						</section>
+
+						<section>
+							<h3>DOM Access: HTML 5</h3>
+							<p>Get HTML Elements</p>
+							<pre><code>
+document.getElementsByClassName(className);
+				</code></pre>
+							<p>Select with CSS</p>
+							<pre><code>
+document.querySelector(cssQuery);
+document.querySelectorAll(cssQuery);
+				</code></pre>
+						</section>
+
+
+
+						<section>
+											<h3>Forms</h3>
+											<p>You can collect information from users to use in functions. The most common method is an HTML form:</p>
+											<pre><code>
+&lt;form id="temperatureForm"&gt;
+&lt;label for="temp"&gt;Temperature:&lt;/label&gt; &lt;input type="text" id="temp" size="3"/&gt; degrees in
+&lt;input type="radio" name="tempFormat" value="F" checked /&gt;Fahrenheit
+&lt;input type="radio" name="tempFormat" value="C" /&gt;Celsius &lt;br /&gt;
+&lt;label for="submitButton"&gt;&lt;/label&gt; &lt;input id="tempSubmitButton" type="submit" value="Submit" /&gt;
+&lt;/form&gt;
+							</code></pre>
+						</section>
+									<section>
+											<h3>Retrieving Form Data</h3>
+											<p>You retrieve the values of form elements using the <code>value</code> method:</p>
+											<pre><code>
+var temperature = document.getElementById('temp').value;
+console.log (temperature);
+							</code></pre>
+											<p>You can retrieve the value of a form at any time. Try <code>onblur</code> (when a form element loses focus).</p>
+						</section>
+
+
+
+			<section>
+				<h2>Javascript</h2>
+				<a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/no_data">
+					<img width="500px" src="images/dogsjs.gif"/>
+					<pre><code class="javascript">
+addDog(name, breed);
+					</code></pre>
+				</a>
+				<aside class="notes">
+				</aside>
+			</section>
+
+			<section>
+				<h2>Javascript</h2>
+				<ul>
+					<ul>
+						<li class="fragment">Use to add functionality to your webpage</li>
+						<li class="fragment">Makes webpages dynamic and interactive</li>
+					</ul>
+				</ul>
+				<aside class="notes">
+				</aside>
+			</section>
+
+			<section>
+				<h2>Exercise</h2>
+				<ol>
+					<li>Go to <a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/no_data">All About Dogs</a></li>
+					<li>Try to submit your favorite dog using the form.  What happens?</li>
+					<p class="fragment" style="color:#f05b62; margin:25px">The form works! Javascript gives it <b>functionality</b></p>
+					<li class="fragment">Refresh the page.  Does the data persist?</li>
+					<p class="fragment" style="color:#f05b62; margin:25px">The data disappears!  It is not being stored or retrieved.</p>
+					<p class="fragment" style="color:#f05b62; margin:25px">To store and retrieve data we use <b>JSON</b></p>
+				</ol>
+
+				<aside class="notes">
+					When they refresh the page they should notice that the data does not persist.  Explain to them that this is because we are not
+					actually storing any data or looking data up.  This is all entirely on the client so anything we add to the webpage will disappear.
+
+					Bonus demo if you have time:
+					Open the inspector
+					Find the addDog function in the script tag and show the class, tell them this is Javascript that is running to add dog info to the page when you submit the form.
+					Paste the function addDog(name, breed); into the console, replacing name and breed with your own parameters, and press Enter.  Show them that it adds the dog info to the page.
+				</aside>
+			</section>
+
+						<!-- <section>
+				<h2>JSON</h2>
+				<p>A popular way to format data</p>
+				<a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/with_data">
+					<img width="500" alt="data on webpage" src="images/dataonpage.png"/>
+								<pre><code class="json">
+[
+{"id":38,"name":"Lassie","breed":"border collie"},
+{"id":39,"name":"Snoopy","breed":"beagle"},
+{"id":40,"name":"Benji","breed":"Mutt"},
+{"id":41,"name":"Bud","breed":"Golden"},
+{"id":42,"name":"Boomer","breed":"Mutt"}
+]
+						    </code></pre>
+				</a>
+				<aside class="notes">
+				</aside>
+			</section>
+
+ <section>
+				<h2>JSON</h2>
+				<ul>
+
+					<li>The CLIENT can send new data as JSON in a REQUEST to the SERVER to be stored</li>
+				</ul>
+				<img width="700px" class="fragment" alt="dog post request" src="images/postdog.png"/>
+				<p class="fragment" style="color:#f05b62; margin:25px">"Tell the SERVER at allaboutdogs.com to store this new dog information"</p>
+				<aside class="notes">
+				</aside>
+			</section>
+
+			<section>
+				<h2>JSON</h2>
+				<ul>
+					<li class="fragment">The SERVER can lookup data and send it back to the CLIENT as JSON in a RESPONSE</li>
+				</ul>
+				<img width="700px" class="fragment" alt="dog post request" src="images/getdogs.png"/>
+				<p class="fragment" style="color:#f05b62; margin:25px">"Here is the dog information that I have stored"</p>
+				<aside class="notes">
+				</aside>
+			</section>
+
+			<section>
+				<h2>The Database</h2>
+				<img src="images/dogstable.png" alt="Screenshot of the datastore rows of dogs">
+				<ul>
+					<li class="fragment">The SERVER stores and looks up data in a DATABASE</li>
+					<li class="fragment">Code is written in a server-side programming language to do this</li>
+				</ul>
+				<pre class="fragment"><code class="ruby">
+Dog.new(name, breed).save
+				</code></pre>
+				<aside class="notes">
+				</aside>
+			</section>
+
+			<section>
+				<h2>Exercise</h2>
+				<ol>
+					<li>Go to <a target="_blank" href="https://allaboutdogs-tech101.herokuapp.com/dog/with_data">All About Dogs</a></li>
+					<li>Enter your name and favorite breed into the form and submit</li>
+					<li>Refresh the page.  Does the data persist?</li>
+
+					<p class="fragment" style="color:#f05b62; margin:25px">The data persists!  It is being stored in a DATABASE.</p>
+
+					<li class="fragment" >Look over at your neighbor's screen.  Do you see your entries on their page?  What does this tell you?</li>
+
+					<p class="fragment" style="color:#f05b62; margin:25px">Our clients all send requests to the same server and store in the same database</p>
+
+				</ol>
+				<aside class="notes">
+					Have students submit several favorite dogs.
+					Then have them refresh the page and point out that now the data persists.
+					This is because we are now sending the data to be stored in a database,
+					and getting back existing data from the database.
+
+					Bonus demo if you have time:
+
+					Open the inspector
+					Find the data that you see in the table.  What format is it in? JSON!
+				</aside>
+			</section> -->
+
+				<section>
+					<h2>What types of developers work on these webpages?</h2>
+				</section>
+
+				<section>
+					<h2>Front-end developers</h2>
+					<img width="500" alt="frontend diagram" src="images/frontend.png"/>
+					<h3>Write <b>client-side</b> code to...</h3>
+					<ul>
+						<li class="fragment">create and design webpages using HTML and CSS</li>
+						<li class="fragment">give websites functionality using Javascript</li>
+						<li class="fragment">send requests to servers and handle their responses</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Back-end developers</h2>
+					<img width="500" alt="backend diagram" src="images/backend.png"/>
+					<h3>Write <b>server-side</b> code to...</h3>
+					<ul>
+						<li class="fragment">receive requests from clients and send back responses</li>
+						<li class="fragment">connect to a database to store and look up data sent as JSON</li>
+						<li class="fragment">handle other logic such as transforming data or performing calculations</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Full-stack developers</h2>
+					<img width="500" alt="fullstack diagram" src="images/fullstack.png"/>
+					<h3>Write server-side<br> <b>and</b><br> client-side code!</h3>
+				</section>
+
+				<section>
+					<h2>Day in the life</h2>
+					<p>Planning, thinking, drawing, debugging</p>
+					<img width="500px" alt="thinking about code" src="images/thinking2.jpg"/>
+				</section>
+
+				<section>
+					<h2>Learn more!</h2>
+					<a target="_blank" href="https://girldevelopit.eventbrite.com">
+						<p>Join one of our upcoming courses</p>
+						<img src="images/eventpanel.jpeg" alt="panel talking at event">
+					</a>
+				</section>
+
+		<!-- Closing -->
+				<section>
+					<h1>Closing</h1>
+				</section>
+
+
+			</div>
+  		<footer>
+        <div class="copyright">
+          JavaScript for Web Design -- Girl Develop It --
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+		</div>
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
