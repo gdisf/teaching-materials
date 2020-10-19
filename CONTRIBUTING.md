@@ -1,4 +1,4 @@
-We're so glad you want to contribute! Here are a couple of tips for contributing successfully:
+## We're so glad you want to contribute! Here are a couple of tips for contributing successfully:
 
 1. Please make sure your revision history is as easy to read as possible
 2. Separate content changes from whitespace changes (if your Text Editor does this automatically, please do not include those changes)
