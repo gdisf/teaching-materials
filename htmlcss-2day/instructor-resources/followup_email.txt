@@ -2,7 +2,7 @@ Thanks again to everyone for coming to Intro to HTML! I hope you all had as much
 
 If you haven't already, please fill out the [survey] to let us know how we did.
 
-As I mentioned, you should now be prepared for several other GDI classes, including the "Beyond the Basics" HTML/CSS class, which covers advanced topics like HTML5 semantic elements, CSS3 animations, microdata, and CSS media queries that are used in responsive web development. An Intro to Javascript class would also be a great next step, if you're interested in building out more interactive functionality.
+As I mentioned, you should now be prepared for several other GDI classes, including the "Beyond the Basics" HTML/CSS class, which covers advanced topics like HTML5 semantic elements, CSS3 animations, microdata, and CSS media queries that are used in responsive web development. An Intro to JavaScript class would also be a great next step, if you're interested in building out more interactive functionality.
 
 Some resources for further exploration/review:
 - A lengthy explanation of positioning, if you just want to hear it again from the beginning: http://alistapart.com/article/css-positioning-101
