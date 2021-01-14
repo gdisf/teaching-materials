@@ -14,7 +14,7 @@
 $(document).ready(function(){
     $('pre').addClass('prettyprint').attr('tabIndex', 0);
     prettyPrint();
-    
+
     var fathom = $('#presentation').fathom({
         onActivateSlide: function() {
             var $slide = $(this);
@@ -27,28 +27,28 @@ $(document).ready(function(){
 <body>
 
 <div id="presentation">
-  
+
    <div id="presentation-counter"></div>
-      
+
    <div id="slides">
-   
-    
+
+
     <div class="slide intro">
-     <header><hgroup> 
-      <h1>Control Flow + More Data Types</h1> 
+     <header><hgroup>
+      <h1>Control Flow + More Data Types</h1>
       <h2></h2>
      </hgroup></header>
-    </div> 
-    
-    
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Review: Terminology</h1></header> 
-     <section class="content"> 
+    </div>
+
+
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Review: Terminology</h1></header>
+     <section class="content">
      <p>In the following code, name the data types used, describe the scope for the variables, and spot the:
 <code>statement</code>, <code>variable</code>, <code>expression</code>,
 <code>operator</code>, <code>function</code>, <code>argument</code>, and <code>return value</code>.
@@ -69,14 +69,14 @@ console.log(receipt);
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The if statement</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>The if statement</h1></header>
+     <section class="content">
      <p>Use <code>if</code> to tell JS which statements to execute, based on a condition.</p>
 
 <pre  style="border:3px dotted black;">
@@ -99,14 +99,14 @@ Since the value of 'x' is 5, and 5 is greater than 0, the condition is evaluated
 </p>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Comparison Operators</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Comparison Operators</h1></header>
+     <section class="content">
      <p>Use these operators to compare two values for equality, inequality, or difference.</p>
 
 <pre>
@@ -133,7 +133,7 @@ Since the value of 'x' is 5, and 5 is greater than 0, the condition is evaluated
 https://developer.mozilla.org/en/JavaScript/Guide/Expressions_and_Operators#Comparison_operators
 A comparison operator compares its operands and returns a logical value based on whether the comparison is true. The operands can be numerical, string, logical, or object values. Strings are compared based on standard lexicographical ordering, using Unicode values. In most cases, if the two operands are not of the same type, JavaScript attempts to convert the operands to an appropriate type for the comparison. (The sole exceptions to this rule are === and !==, which perform "strict" equality and inequality and which do not attempt to convert the operands to compatible types before checking equality.) This generally results in a numerical comparison being performed. The following table describes the comparison operators, assuming the following code:
 Why can't we just use '='?
-The equals sign is always an 'assignment operator' in Javascript. That means that whenever Javascript encounters a '=' it will try to assign the value on the right side of the '=' to the entity on the left side. So in the following example, the value of 'x' is overwritten...
+The equals sign is always an 'assignment operator' in JavaScript. That means that whenever JavaScript encounters a '=' it will try to assign the value on the right side of the '=' to the entity on the left side. So in the following example, the value of 'x' is overwritten...
 
 var x = 5;
 if(x = 6){
@@ -142,14 +142,14 @@ if(x = 6){
 </p>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Logical Operators</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Logical Operators</h1></header>
+     <section class="content">
      <p>These are typically used in combination with the comparison operators:</p>
 <pre>
 var posNum = 4;
@@ -192,14 +192,14 @@ It is important to remember that in both scenarios conditions are tested left to
 </p>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Truthy vs Falsey</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Truthy vs Falsey</h1></header>
+     <section class="content">
      <p>If you don't use a comparison or logical operator, JS tries to figure out if the value is "truth-y".</p>
 <pre>
 var catsRule = true;
@@ -226,14 +226,14 @@ if (firstName) {
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Short-Circuit Evaluation</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Short-Circuit Evaluation</h1></header>
+     <section class="content">
      <p>JS evaluates logical operators from left to right and stops evaluating as soon as it knows the answer.
 </p>
 <p>
@@ -250,14 +250,14 @@ if (denominator != 0 &amp;&amp; (nominator/denominator > 0)) {
 </pre>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The if/else statement</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>The if/else statement</h1></header>
+     <section class="content">
      <p>Use <code>else</code> to give JS an alternative statement to execute.
 </p>
 
@@ -271,14 +271,14 @@ if (age > 16) {
 </pre>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The if/else if/else statement</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>The if/else if/else statement</h1></header>
+     <section class="content">
      <p>You can use <code>else if</code> if you have multiple exclusive conditions to check:</p>
 
 <pre>
@@ -295,22 +295,22 @@ if (age >= 35) {
 </pre>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
+
+
+
+
+
+    <div class="slide normal">
      <h1 class="center"><a target="_blank" href="../exercises/ifelse.html">Exercise Time!</a></h1>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The while loop</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>The while loop</h1></header>
+     <section class="content">
      <p>The <code>while</code> loop tells JS to repeat statements until a condition is true:</p>
 
 <pre style="border:3px dotted black;">
@@ -328,18 +328,18 @@ while (x < 5) {
 </pre>
 
 <p>
-<b>Beware:</b> It's easy to accidentally cause an "infinite loop." 
+<b>Beware:</b> It's easy to accidentally cause an "infinite loop."
 </p>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The for loop</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>The for loop</h1></header>
+     <section class="content">
      <p>The <code>for</code> loop is another way of repeating statements, more specialized than <code>while</code>:
 </p>
 
@@ -359,14 +359,14 @@ for (var i = 0; i < 5; i = i + 1) {
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The break statement</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>The break statement</h1></header>
+     <section class="content">
      <p>To prematurely exit a loop, use the <code>break</code> statement:</p>
 
 <pre>
@@ -381,22 +381,22 @@ for (var current = 100; current < 200; current++) {
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
+
+
+
+
+
+    <div class="slide normal">
      <h1 class="center"><a target="_blank" href="../exercises/forloops.html">Exercise Time!</a></h1>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>The array data type</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>The array data type</h1></header>
+     <section class="content">
      <p>An array is a type of data-type that holds an ordered list of values, of any type:
 </p>
 <pre style="border:3px dotted black;">
@@ -413,14 +413,14 @@ console.log(rainbowColors.length);
 </pre>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Array access</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Array access</h1></header>
+     <section class="content">
      <p>You can access items with "bracket notation". The index starts at 0.</p>
 <pre style="border:3px dotted black;">
 var arrayItem = arrayName[indexNum];
@@ -433,14 +433,14 @@ var lastColor = rainbowColors[6];
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Changing arrays</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Changing arrays</h1></header>
+     <section class="content">
      <p>You can also use bracket notation to change the item in an array:</p>
 <pre>
 var myFavoriteThings = ['Broccoli', 60481, 'Love Actually'];
@@ -456,14 +456,14 @@ myFavoriteThings.push('Dancing');
 </pre>
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Using for loops with arrays and strings</h1></header> 
-     <section class="content"> 
+
+
+
+
+
+    <div class="slide normal">
+     <header><h1>Using for loops with arrays and strings</h1></header>
+     <section class="content">
      <p>Use a for loop to easily process each item in an array:</p>
 <pre>
 var rainbowColors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
@@ -481,15 +481,15 @@ for (var i = 0; i < rainbowColorsLetters.length; i++) {
 
      </section>
     </div>
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
+
+
+
+
+
+    <div class="slide normal">
      <h1 class="center"><a target="_blank" href="../exercises/arrays.html">Exercise Time!</a></h1>
     </div>
-   
+
    </div>
 
  </body>

@@ -28,7 +28,7 @@
 				border: 2px dashed #01a9b4;
 			}
 		</style>
-		
+
 		<base target="_blank">
 
 		<!-- If use the PDF print sheet so students can print slides-->
@@ -55,7 +55,7 @@
       <h2>Review: HTML &amp; CSS</h2>
         <a class="jsbin-embed" href="http://jsbin.com/mupemodeqa/embed?html,css,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.36.16"></script>
         <p>To open this JS Bin in a new window, click <a href="http://jsbin.com/mupemodeqa/1/edit?html,css,output">here</a>.</p>
-      
+
     </section>
     <section>
       <h2>Text Editors</h2>
@@ -68,18 +68,18 @@
         </ul>
 <pre><code class="html xml">&lt;h1&gt;My JavaScript questions&lt;/h1&gt;
 &lt;ul&gt;
-  &lt;li&gt;How do HTML/CSS and Javascript work together?&lt;/li&gt;
+  &lt;li&gt;How do HTML/CSS and JavaScript work together?&lt;/li&gt;
   &lt;li&gt;How can I animate elements on the screen?&lt;/li&gt;
 &lt;/ul&gt;
-</code></pre>    
-    </section>	
+</code></pre>
+    </section>
     <section>
       <h2>Including JS in HTML - script tag</h2>
         <p>You can write your JS inside a <code>script</code> tag in your HTML file:</p>
 <pre><code class="html xml">&lt;html&gt;
   &lt;body&gt;
     &lt;script&gt;
-      console.log("I am Javascript running on a web page!");
+      console.log("I am JavaScript running on a web page!");
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
@@ -87,15 +87,15 @@
     </section>
 
     <section>
-      <h2>Including JS in HTML - external js file</h2>      
+      <h2>Including JS in HTML - external js file</h2>
         <p>You can also write your JS in a separate file and reference it from your HTML file via a <code>script</code> tag:</p>
 <pre><code class="html xml">&lt;html&gt;
   &lt;body&gt;
     &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>      
-    </section>		
+</code></pre>
+    </section>
     <section>
       <h2>What is the DOM?</h2>
         <ul>
@@ -104,11 +104,11 @@
           <li>Anything found in an HTML or XML document can be accessed, changed, deleted, or added by a programmer using the DOM</li>
         </ul>
         <center><img src="../images/domtree.png"></center>
-      
+
     </section>
     <section>
       <h2>Inspecting the DOM</h2>
-      
+
         <ul>
           <li><a href="https://developers.google.com/chrome-developer-tools/docs/elements">Google Chrome</a> or <a href="https://developer.mozilla.org/en/Tools/Inspector">Mozilla Firefox</a>
             <ul>
@@ -127,12 +127,12 @@
 							<li>Access by same methods as Chrome (above)</li>
           </li>
         </ul>
-      
+
     </section>
     <section>
       <h2>Accessing the DOM</h2>
       <br/>
-      
+
         <p>The <code><a href="https://developer.mozilla.org/en/DOM/document">document</code></a> object is globally available in your browser.</p>
         <p>It allows you to access and manipulate the DOM of the current web page:</p>
         <ol>
@@ -147,11 +147,11 @@
             </ul>
           </li>
         </ol>
-      
+
     </section>
     <section>
       <h2>DOM Access Methods</h2>
-      
+
         <br>
         <p>Finding DOM nodes by id:</p>
 <pre><code class="javascript syntax">document.getElementById(id);
@@ -166,11 +166,11 @@
 <pre><code class="javascript syntax">document.querySelector(cssQuery);
 document.querySelectorAll(cssQuery);
 </code></pre>
-      
+
     </section>
     <section>
       <h2>Selecting Nodes From the DOM</h2>
-      
+
         <p>HTML:</p>
 <pre><code class="html xml">&lt;ul id="hobby-list"&gt;
   &lt;li class=&quot;hobby&quot;&gt;Playing the banjo&lt;/li&gt;
@@ -191,12 +191,12 @@ var alsoHobbies = document.getElementsByClassName('hobby');
 var firstHobby = document.querySelector('ul li.hobby');
 var againAlsoHobbies = document.querySelectorAll('ul li.hobby');
 </code></pre>
-     
+
     </section>
     <section>
       <h2>Returning Element vs. Array of Elements</h2>
       <br>
-      
+
         <p><code>getElementById()</code> and <code>querySelector()</code>return a single element:</p>
 <pre><code class="javascript">var hobbiesList = document.getElementById('hobby-list');
 var firstHobby = document.querySelector('ul li.hobby');
@@ -206,13 +206,13 @@ var firstHobby = document.querySelector('ul li.hobby');
 <pre><code class="javascript">var catNames = document.querySelectorAll('ul li.catname');
 var firstCatName = catNames[0];
 </code></pre>
-      
+
     </section>
     <section>
       <br>
-      
+
         <h1 class="center"><a href="../exercises/dom_detective.html" target="_blank">The DOM Detective Exercise</a></h2>
-      
+
     </section>
     <section>
       <h2>Manipulating a DOM Node's Attributes</h2>
@@ -228,7 +228,7 @@ catImage.src = 'https://commons.wikimedia.org/wiki/File%3ASix_weeks_old_cat_(aka
 <pre><code class="javascript">var catImage = document.getElementById('kitty');
 catImage.className = "landscape";
 </code></pre>
-      
+
     </section>
     <section>
       <h2>Manipulating a DOM Node's Styles</h2>
@@ -245,7 +245,7 @@ catImage.className = "landscape";
 pageNode.style.color = 'red';
 pageNode.style.backgroundColor = 'pink';
 pageNode.style.paddingTop = '10px';
-</code></pre>      
+</code></pre>
     </section>
     <section>
       <h2>Manipulating a DOM Node's Inner HTML</h2>
@@ -282,7 +282,7 @@ console.log(pageNode.innerHTML);
 				</ul>
 
       </section>
-    
+
     <section>
       <h2>
         <a target="_blank" href="../exercises/dom_manipulation.html">The Logo Hijack</a>
@@ -290,7 +290,7 @@ console.log(pageNode.innerHTML);
     </section>
     <section>
       <h2>Creating DOM Nodes</h2>
-      
+
         <p>The <code>document</code> object also allows us to create new nodes from scratch:</p>
 <pre><code class="javascript syntax">document.createElement(tagName);
 document.createTextNode(text);
@@ -309,7 +309,7 @@ var newText = document.createTextNode('Squee!');
 newParagraph.appendChild(newText);
 body.appendChild(newParagraph);
 </code></pre>
-      
+
     </section>
     <section>
      <h2 class="center">
@@ -318,12 +318,12 @@ body.appendChild(newParagraph);
       </a>
     </h2>
     </section>
-		
+
      <section>
-      <h2>Questions?</h2> 
-      
+      <h2>Questions?</h2>
+
       <p><a href="../index.html">Return to Table of Contents</a></p>
-      
+
      </section>
 
 

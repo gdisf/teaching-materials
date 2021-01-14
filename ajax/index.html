@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
+
     <title>JS302: AJAX/JSON</title>
     <a href="https://github.com/gdisf/teaching-materials/blob/ajax/follow_up.md">Follow Up Email</a>
     <meta name="description" content="This workshop will provide an introduction to AJAX.">
@@ -29,11 +29,11 @@
         font-size: 32px;
       }
     </style>
-    
+
   </head>
-  
+
   <body>
-  
+
     <div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -66,7 +66,7 @@
 
       <section>
         <h2>Storing Data in JSON</h2>
-        <h3>(Javascript Object Notation)</h3>
+        <h3>(JavaScript Object Notation)</h3>
           <ul>
             <li>Key/value pairs</li>
             <li>Key must be stored with quotes (unlike JS Objects)</li>
@@ -80,24 +80,24 @@
         <h2>Storing data in JSON</h2>
         <p>Sample JSON:</p>
         <pre><code>{
- "firstName": "Jane", 
- "lastName": "Smith", 
- "address": { 
-   "streetAddress": "425 2nd Street", 
-   "city": "San Francisco", 
-   "state": "CA", 
-   "postalCode": 94107 
- }, 
- "phoneNumbers": [ 
-   "212 732-1234", 
-   "646 123-4567" ] 
+ "firstName": "Jane",
+ "lastName": "Smith",
+ "address": {
+   "streetAddress": "425 2nd Street",
+   "city": "San Francisco",
+   "state": "CA",
+   "postalCode": 94107
+ },
+ "phoneNumbers": [
+   "212 732-1234",
+   "646 123-4567" ]
 }</code></pre>
       </section>
 
       <section>
         <h2>Using JS to turn JSON into DOM</h2>
-<pre><code class>var myProfile = 
- {"firstName": "Liz", 
+<pre><code class>var myProfile =
+ {"firstName": "Liz",
   "lastName": "Howard",
   "cats": ["Tribbles", "Jean Claws"]};
 
@@ -206,7 +206,7 @@ p.append('My cats are ' + myProfile.cats.join(', ') + '.');
       <section>
         <h2>Anatomy of an XMLHttpRequest</h2>
 <pre><code>// instantiate a new request
-var request = new XMLHttpRequest(); 
+var request = new XMLHttpRequest();
 
 // add event listeners
 request.addEventListener('load', function () {
@@ -251,9 +251,9 @@ request.send();
 <pre><code>$.ajax({type: "GET",
   url: "https://api.myjson.com/bins/wgonb",
   dataType: "json",
-  success: function(response) { 
+  success: function(response) {
     var books = response.books;
-    for (var i = 0; i < books.length; i++) { 
+    for (var i = 0; i < books.length; i++) {
       var book = books[i];
       var p = $('&lt;p&gt;');
       p.html(book.title + ' by ' + book.author);
@@ -352,7 +352,7 @@ request.send();
       </div>
     </footer>
   </div><!--.reveal-->
-  
+
 
   		<script src="../common/lib/js/head.min.js"></script>
   		<script src="../common/js/reveal.min.js"></script>

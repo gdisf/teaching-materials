@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Javascript: The Cash Register</title>
+    <title>JavaScript: The Cash Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -19,7 +19,7 @@
  <li>Example
 <pre>
 // Input
-var cartForParty = {  
+var cartForParty = {
   banana: "1.25",
   handkerchief: ".99",
   Tshirt: "25.01",
@@ -38,9 +38,9 @@ cashRegister(cartForParty)); // 60.55
 <br><br>
 <pre id="solution1" style="display:none;">
 function cashRegister(cart){
-  var items = Object.keys(cart); // array of items by key   
-  var sum = 0; 
-  
+  var items = Object.keys(cart); // array of items by key
+  var sum = 0;
+
   for (var i = 0; i < items.length; i++) {
     var itemName = items[i]; // get the name of the key for the item
     var itemPrice = cart[itemName]; // get the price for the item
