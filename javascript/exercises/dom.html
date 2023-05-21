@@ -31,7 +31,7 @@ var img = document.getElementById('hplogo');
 img.width = 400;
 img.src = 'http://www.logostage.com/logos/yahoo.GIF';
 var button = document.getElementById('gbqfba');
-button.innerHTML = 'Yahoooo!';
+button.textContent = 'Yahoooo!';
 </pre>
 
  <h3 class="page-header">About Me</h3>
@@ -49,11 +49,14 @@ button.innerHTML = 'Yahoooo!';
 &lt;body&gt;
   &lt;h1&gt;About Me&lt;/h1&gt;
   
-  &lt;ul&gt;
-    &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
-    &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
-    &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
-   &lt;/ul&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Nickname:&lt;/dt&gt;
+    &lt;dd id=&quot;nickname&quot;&gt;&lt;/dd&gt;
+    &lt;dt&gt;Favorites:&lt;/dt&gt;
+    &lt;dd id=&quot;favorites&quot;&gt;&lt;/dd&gt;
+    &lt;dt&gt;Hometown:&lt;/dt&gt;
+    &lt;dd id=&quot;hometown&quot;&gt;&lt;/dd&gt;
+  &lt;/dl&gt;
   
  &lt;/body&gt;
 &lt;/html&gt;
@@ -61,7 +64,7 @@ button.innerHTML = 'Yahoooo!';
   <li>Add a <code>script</code> tag to the bottom.
   <li>Change the body style so it has a font-family of "Arial, sans-serif".
   <li>Replace each of the spans (nickname, favorites, hometown) with your own information.
-  <li>Iterate through each li and change the class to "listitem". Add a <code>style</code>
+  <li>Iterate through each dt and change the class to "listitem". Add a <code>style</code>
   tag that sets a rule for "listitem" to make the color red.
   <li>Create a new <code>img</code> element and set its <code>src</code> attribute to
   a picture of you. Append that element to the page.
@@ -83,18 +86,21 @@ button.innerHTML = 'Yahoooo!';
 &lt;body&gt;
   &lt;h1&gt;About Me&lt;/h1&gt;
   
-  &lt;ul&gt;
-    &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
-    &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
-    &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
-   &lt;/ul&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Nickname:&lt;/dt&gt;
+    &lt;dd id=&quot;nickname&quot;&gt;&lt;/dd&gt;
+    &lt;dt&gt;Favorites:&lt;/dt&gt;
+    &lt;dd id=&quot;favorites&quot;&gt;&lt;/dd&gt;
+    &lt;dt&gt;Hometown:&lt;/dt&gt;
+    &lt;dd id=&quot;hometown&quot;&gt;&lt;/dd&gt;
+  &lt;/dl&gt;
   
   &lt;script&gt;
    document.body.style.fontFamily = 'Arial, sans-serif';
-   document.getElementById('nickname').innerHTML = 'Pamela Fox';
-   document.getElementById('favorites').innerHTML = '27';
-   document.getElementById('hometown').innerHTML = 'Pasadena, CA';
-   var items = document.getElementsByTagName('li');
+   document.getElementById('nickname').textContent = 'Pamela Fox';
+   document.getElementById('favorites').textContent = '27';
+   document.getElementById('hometown').textContent = 'Pasadena, CA';
+   var items = document.getElementsByTagName('dt');
    for (var i = 0; i &lt; items.length; i++) {
       items[i].className = 'listitem';
    }
